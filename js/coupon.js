@@ -127,7 +127,7 @@ Aimeos.Coupon.Code = {
 				const fieldkey = 'aimeos/jqadm/couponcode/fields';
 				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
 			} catch(e) {
-				console.log( '[Aimeos] Init coupon code list failed: ' + e);
+				console.error( '[Aimeos] Init coupon code list failed: ' + e);
 			}
 		},
 
@@ -146,7 +146,6 @@ Aimeos.Coupon.Code = {
 				obj['edit'] = true;
 
 				this.items.unshift(obj);
-				return this;
 			},
 
 
@@ -165,7 +164,7 @@ Aimeos.Coupon.Code = {
 						list = JSON.parse(json);
 					}
 				} catch(e) {
-					console.log('[Aimeos] Failed to get list of columns: ' + e);
+					console.error('[Aimeos] Failed to get list of columns: ' + e);
 				}
 				return list;
 			},
@@ -180,7 +179,6 @@ Aimeos.Coupon.Code = {
 				if(this.can('change', idx)) {
 					this.$set(this.items[idx], 'edit', true);
 				}
-				return this;
 			},
 
 
@@ -236,16 +234,16 @@ Aimeos.Coupon.Code = {
 				this.checked = false;
 
 				if(idx !== undefined) {
-					map[this.items[idx]['coupon.code.id']] = idx;
+					map[this.items[idx]['id']] = idx;
 				} else {
 					for(const pos in this.items) {
 						if(this.items[pos].checked) {
-							map[this.items[pos]['coupon.code.id']] = pos;
+							map[this.items[pos]['id']] = pos;
 						}
 					}
 				}
 
-				Aimeos.query(`mutation {
+				return Aimeos.query(`mutation {
 					deleteCouponCodes(id: ` + JSON.stringify(Object.keys(map)) + `)
 				  }
 				`).then((result) => {
@@ -253,9 +251,7 @@ Aimeos.Coupon.Code = {
 						this.$delete(this.items, map[id]);
 					}
 					this.loading = false;
-				})
-
-				return this;
+				});
 			},
 
 
@@ -293,12 +289,6 @@ Aimeos.Coupon.Code = {
 			value(key) {
 				const op = Object.keys(this.filter['coupon.code.' + key] || {}).pop();
 				return this.filter['coupon.code.' + key] && this.filter['coupon.code.' + key][op]['coupon.code.' + key] || '';
-			},
-
-
-			waiting(val) {
-				this.loading = val;
-				return this;
 			}
 		},
 
