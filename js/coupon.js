@@ -176,46 +176,6 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			delete(resource, id, callback) {
-
-				const self = this;
-				self.waiting(true);
-
-				Aimeos.options.done(function(response) {
-
-					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
-
-						let params = {};
-
-						if(response.meta.prefix && response.meta.prefix) {
-							params[response.meta.prefix] = {'id': id};
-						} else {
-							params = {'id': id};
-						}
-
-						if(response.meta.csrf) {
-							params[response.meta.csrf.name] = response.meta.csrf.value;
-						}
-
-						let url = new URL(response.meta.resources[resource]);
-						url.search = url.search ? url.search + '&' + window.param(params) : '?' + window.param(params);
-
-						fetch(url, {
-							method: "DELETE"
-						}).then(function(response) {
-							return response.json();
-						}).then(function() {
-							callback ? callback(response.data) : null;
-						}).finally(function() {
-							self.waiting(false);
-						});
-					}
-				});
-
-				return this;
-			},
-
-
 			edit(idx) {
 				if(this.siteid === this.items[idx]['coupon.code.siteid']) {
 					this.$set(this.items[idx], 'edit', true);
@@ -329,22 +289,31 @@ Aimeos.Coupon.Code = {
 
 
 			remove(idx) {
-				const self = this;
+				const map = {};
+
+				this.loading = true;
 				this.checked = false;
 
 				if(idx !== undefined) {
-					this.delete('coupon/code', this.items[idx]['coupon.code.id'], () => self.waiting(false));
-					return this.items.splice(idx, 1);
+					map[this.items[idx]['coupon.code.id']] = idx;
+				} else {
+					for(const pos in this.items) {
+						if(this.items[pos].checked) {
+							map[this.items[pos]['coupon.code.id']] = pos;
+						}
+					}
 				}
 
-				this.items = this.items.filter(function(item) {
-					if(item.checked) {
-						self.delete('coupon/code', item['coupon.code.id']);
+				Aimeos.query(`mutation {
+					deleteCouponCodes(id: ` + JSON.stringify(Object.keys(map)) + `)
+				  }
+				`).then((result) => {
+					for(const id of (result?.deleteCouponCodes || [])) {
+						this.$delete(this.items, map[id]);
 					}
-					return !item.checked;
-				});
+					this.loading = false;
+				})
 
-				this.waiting(false);
 				return this;
 			},
 
