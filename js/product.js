@@ -473,38 +473,53 @@ Aimeos.Product.Order = {
 					}
 				} catch(e) {}
 				this.fields = list;
+				this.fetch();
 			},
+
 			computed : {
 				first() {
 					return this.offset > 0 ? 0 : null;
 				},
+
 				prev() {
 					return this.offset - this.limit >= 0 ? this.offset - this.limit : null;
 				},
+
 				next() {
 					return this.offset + this.limit < this.total ? this.offset + this.limit : null;
 				},
+
 				last() {
 					return Math.floor((this.total - 1) / this.limit) * this.limit > this.offset ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
 				},
+
 				current() {
 					return Math.floor( this.offset / this.limit ) + 1;
 				},
+
 				pages() {
 					return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
 				}
 			},
+
 			methods : {
+				address(item, code) {
+					return item.address && item.address[0] && item.address[0][code] ? item.address[0][code] : '';
+				},
+
 				value(key) {
 					let op = Object.keys(this.filter[key] || {}).pop();
 					return this.filter[key] && this.filter[key][op][key] || '';
 				},
+
 				submit() {
 					this.fetch();
 				},
+
 				reset() {
 					Object.assign(this.$data, {filter: {'order.product.productid': {'==':{'order.product.productid': this.id}}}});
 				},
+
 				find(ev, key, op) {
 					if(ev.target.value !== '') {
 						let expr = {};
@@ -515,92 +530,68 @@ Aimeos.Product.Order = {
 						this.$delete(this.filter, key);
 					}
 				},
+
 				fetch() {
-					let self = this;
+					const filter = {'&&': Object.values(this.filter)};
+					this.loading = true;
 
-					Aimeos.options.done(function(response) {
-
-						if(response.meta && response.meta.resources && response.meta.resources['order'] ) {
-
-							let args = {
-								'filter': {'&&': []},
-								'fields': {
-									'order': self.fields.join(',') + ',order.customerid',
-									'order/address': self.fields.join(',') + ',order.address.type',
-								},
-								'include': 'order/address',
-								'page': {
-									'offset': self.offset,
-									'limit': self.limit
-								},
-								'sort': self.sort
-							};
-
-							for(let key in self.filter) {
-								args['filter']['&&'].push(self.filter[key]);
-							}
-
-							let config = {
-								'paramsSerializer': (params) => {
-									return jQuery.param(params); // workaround, Axios and QS fail on [==]
-								},
-								'params': {}
-							};
-
-							if(response.meta.prefix && response.meta.prefix) {
-								config['params'][response.meta.prefix] = args;
-							} else {
-								config['params'] = args;
-							}
-
-							axios.get(response.meta.resources['order'], config).then(response => {
-
-								if(response.data) {
-									self.total = response.data.meta && response.data.meta.total || 0;
-									self.items = response.data.data || [];
+					return Aimeos.query(`query {
+						searchOrders(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["order/address"], sort: ` + JSON.stringify([this.sort]) + `, offset: ` + this.offset + `, limit: ` + this.limit + `) {
+							items {
+								id
+								sitecode
+								languageid
+								currencyid
+								price
+								costs
+								rebate
+								taxvalue
+								customerref
+								comment
+								address {
+									type
+									company
+									vatid
+									salutation
+									title
+									firstname
+									lastname
+									address1
+									address2
+									address3
+									postal
+									city
+									state
+									countryid
+									mobile
+									telephone
+									telefax
+									email
+									website
 								}
-
-								(response.data.included || []).forEach(function(item) {
-									if(!self.included[item.type]) {
-										self.$set(self.included, item.type, {});
-									}
-									self.$set(self.included[item.type], item.id, item);
-								});
-
-							}).catch(function(error) {
-								console.log('Error: ', error.message);
-								if(error.response && error.response.data && error.response.data.errors) {
-									error.response.data.errors.forEach(function(elem) {
-										console.log(elem.title);
-									});
-								}
-							});
+							}
+							total
 						}
+					  }
+					`).then((result) => {
+						this.total = result?.searchOrders?.total || 0;
+						this.items = result?.searchOrders?.items || [];
+						this.loading = false;
 					});
 				},
-				related(item, type, key) {
-					let id = null;
-					let self = this;
 
-					(item['relationships'] && item['relationships'][type] && item['relationships'][type]['data'] || []).forEach(function(addr) {
-						if(addr.data && addr.data.id && self.included[type] && self.included[type][addr.data.id]
-							&& self.included[type][addr.data.id]['attributes']['order.address.type'] === 'payment'
-						) {
-							id = addr.data.id;
-						}
-					});
-
-					return this.included[type] && this.included[type][id] ? this.included[type][id]['attributes'][key] : '';
-				},
 				pagecnt(str) {
 					return sprintf(str, this.current, this.pages);
 				},
+
 				orderby(key) {
 					this.sort = this.sort === key ? '-' + key : key;
 				},
+
 				sortclass(key) {
 					return this.sort === key ? 'sort-desc' : (this.sort === '-' + key ? 'sort-asc' : '');
 				},
+
 				toggleField(key) {
 					let idx = this.fields.indexOf(key);
 					idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
@@ -610,22 +601,23 @@ Aimeos.Product.Order = {
 					}
 				}
 			},
+
 			watch: {
-				fields() {
-					this.fetch();
-				},
 				filter : {
 					handler() {
 						this.fetch();
 					},
 					deep: true
 				},
+
 				limit() {
 					this.fetch();
 				},
+
 				offset() {
 					this.fetch();
 				},
+
 				sort() {
 					this.fetch();
 				}
