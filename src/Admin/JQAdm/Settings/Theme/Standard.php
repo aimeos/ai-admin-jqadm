@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright Aimeos GmbH (aimeos.com), 2022-2023
+ * @copyright Aimeos GmbH (aimeos.com), 2022-2024
  * @package Admin
  * @subpackage JQAdm
  */
