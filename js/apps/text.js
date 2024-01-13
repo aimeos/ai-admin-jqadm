@@ -153,7 +153,7 @@ Aimeos.Text = {
 			},
 
 
-			translate(idx, langid) {
+			async translate(idx, langid) {
 
 				if(!this.items[idx]) {
 					return;
@@ -167,37 +167,40 @@ Aimeos.Text = {
 				}
 
 				const self = this;
-				const url = config['url'] || 'https://api-free.deepl.com/v2';
-				const params = {
-					'auth_key': config['key'],
-					'text' : this.items[idx]['text.content'],
-					'target_lang' : langid.toUpperCase().replace(/_/g, '-')
-				};
+				const url = (config['url'] || 'https://api-free.deepl.com/v2') + '/translate?auth_key=' + encodeURIComponent(config['key']);
+				let body = 'text=' + encodeURIComponent([this.items[idx]['text.content']]) + '&target_lang=' + langid.toUpperCase().replace(/_/g, '-');
 
 				if(this.items[idx]['text.languageid']) {
-					params['source_lang'] = this.items[idx]['text.languageid'].toUpperCase().replace(/_/g, '-');
+					body += '&source_lang=' + this.items[idx]['text.languageid'].toUpperCase().replace(/_/g, '-');
 				}
 
-				$.getJSON(url + '/translate', params).done(function(data) {
+				await fetch(url, {
+					method: "POST",
+					body: body,
+					headers: {"Content-Type": "application/x-www-form-urlencoded"},
+				}).then(response => {
+					if(!response.ok) {
+						let msg = '';
+						switch(response.status) {
+							case 200: break;
+							case 400: msg = 'Bad request: ' + response.statusText; break;
+							case 403: msg = 'Invalid DeepL API token'; break;
+							case 413: msg = 'The text size exceeds the limit'; break;
+							case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
+							case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
+							case 503: msg = 'Resource currently unavailable. Try again later.'; break;
+							default: msg = 'Unexpected response code: ' + response.status + ' => ' + response.statusText;
+						}
+						throw new Error(msg);
+					}
+					return response.json();
+				}).then(data => {
 					self.add({
 						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
 						'text.languageid': langid.toLowerCase().replace(/-/g, '_')
 					});
-				}).fail(function(jqxhr, status, error) {
-					let msg = '';
-
-					switch(jqxhr.status) {
-						case 200: break;
-						case 400: msg = 'Bad request: ' + error; break;
-						case 403: msg = 'Invalid DeepL API token'; break;
-						case 413: msg = 'The text size exceeds the limit'; break;
-						case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
-						case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
-						case 503: msg = 'Resource currently unavailable. Try again later.'; break;
-						default: msg = 'Unexpected response code: ' + jqxhr.status;
-					}
-
-					alert(msg);
+				}).catch(error => {
+					alert(error);
 				});
 			}
 		}
