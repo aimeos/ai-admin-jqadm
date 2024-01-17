@@ -106,30 +106,26 @@ Vue.component('site-tree-items', {
 				param['page'] = {'offset': self.offset, 'limit': self.limit};
 				param['sort'] = 'locale.site.position';
 
-				const config = {
-					'paramsSerializer': (params) => {
-						return jQuery.param(params); // workaround, Axios and QS fail on [==]
-					},
-					'params': {}
-				};
+				let params = {};
+				let url = response.meta.resources['locale/site'] + (response.meta.resources['locale/site'].includes('?') ? '&' : '?');
 
 				if(response.meta.prefix && response.meta.prefix) {
-					config['params'][response.meta.prefix] = param;
+					params[response.meta.prefix] = param;
 				} else {
-					config['params'] = param;
+					params = param;
 				}
 
-				axios.get(response.meta.resources['locale/site'], config).then(response => {
-					if(!response.data || !response.data.data) {
-						console.error( '[Aimeos] Invalid response for locale/site resource:', response );
-						return;
+				fetch(url + jQuery.param(params)).then(function(response) {
+					if(!response.ok) {
+						throw new Error(response.statusText);
 					}
-
-					for(const entry of (response.data.data || [])) {
+					return response.json();
+				}).then(function(response) {
+					for(const entry of (response.data || [])) {
 						self.$set(self.items, entry['id'], entry['attributes']);
 					}
 
-					self.total = response.data.meta && response.data.meta.total || 0;
+					self.total = response.meta && response.meta.total || 0;
 
 				}).then(function() {
 					self.$emit('loading', false);
