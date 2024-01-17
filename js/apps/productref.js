@@ -147,15 +147,24 @@ Aimeos.ProductRef = {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
-						const config = {'params': {}};
+						let url = response.meta.resources[resource] + (response.meta.resources[resource].includes('?') ? '&' : '?');
+						const tname = response.meta.csrf.name;
+						const tvalue = response.meta.csrf.value;
 
 						if(response.meta.prefix && response.meta.prefix) {
-							config['params'][response.meta.prefix] = {'id': id};
+							url += response.meta.prefix + '[id]=' + id + '&' + response.meta.prefix + '[' + tname + ']=' + tvalue;
 						} else {
-							config['params'] = {'id': id};
+							url += 'id=' + id + '&' + tname + '=' + tvalue;
 						}
 
-						axios.delete(response.meta.resources[resource], config).then(function(response) {
+						fetch(url, {
+							'method': 'DELETE',
+						}).then(function(response) {
+							if(!response.ok) {
+								throw Error(response.statusText);
+							}
+							return response.json();
+						}).then(function(response) {
 							callback ? callback(response.data) : null;
 						}).then(function() {
 							self.waiting(false);
