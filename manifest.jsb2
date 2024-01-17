@@ -53,9 +53,6 @@
 			"text": "sortable.js",
 			"path": "js/"
 		},{
-			"text": "axios.js",
-			"path": "js/"
-		},{
 			"text": "ckeditor.js",
 			"path": "js/"
 		},{
