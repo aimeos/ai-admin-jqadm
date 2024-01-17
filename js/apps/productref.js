@@ -245,31 +245,32 @@ Aimeos.ProductRef = {
 							args['include'] = include.join(',');
 						}
 
-						const config = {
-							'paramsSerializer': (params) => {
-								return jQuery.param(params); // workaround, Axios and QS fail on [==]
-							},
-							'params': {}
-						};
+						let params = {};
+						let url = response.meta.resources[resource] + (response.meta.resources[resource].includes('?') ? '&' : '?');
 
 						if(response.meta.prefix && response.meta.prefix) {
-							config['params'][response.meta.prefix] = args;
+							params[response.meta.prefix] = args;
 						} else {
-							config['params'] = args;
+							params = args;
 						}
 
-						axios.get(response.meta.resources[resource], config).then(function(response) {
+						fetch(url + jQuery.param(params)).then(function(response) {
+							if(!response.ok) {
+								throw new Error(response.statusText);
+							}
+							return response.json();
+						}).then(function(response) {
 							const list = [];
 							const included = {};
 
-							(response.data.included || []).forEach(function(entry) {
+							(response.included || []).forEach(function(entry) {
 								if(!included[entry.type]) {
 									included[entry.type] = {};
 								}
 								included[entry.type][entry.id] = entry;
 							});
 
-							(response.data.data || []).forEach(function(entry) {
+							(response.data || []).forEach(function(entry) {
 								for(let type in (entry.relationships || {})) {
 									const relitem = entry.relationships[type]['data'] && entry.relationships[type]['data'][0] || null;
 									if(relitem && relitem['id'] && included[type][relitem['id']]) {
@@ -280,7 +281,7 @@ Aimeos.ProductRef = {
 							});
 
 							callback({
-								total: response.data.meta ? response.data.meta.total || 0 : 0,
+								total: response.meta ? response.meta.total || 0 : 0,
 								items: list
 							});
 
