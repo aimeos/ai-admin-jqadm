@@ -805,7 +805,6 @@ $(function() {
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
-	Vue.component('v-select', VueSelect.VueSelect);
 	Vue.component('multiselect', VueformMultiselect);
 	Vue.component('l-map', window.Vue2Leaflet.LMap);
 	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
