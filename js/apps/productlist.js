@@ -373,38 +373,32 @@ Aimeos.ProductList = {
 			},
 
 
-			suggest(input, loadfcn) {
-				const self = this;
-				const args = {
-					'filter': {'||': [
-						{'==': {}},
-						{'=~': {}},
-						{'=~': {}}
-					]},
-					'fields': {},
-					'page': {'offset': 0, 'limit': 25},
-					'sort': self.domain + '.label'
-				};
-				args['filter']['||'][0]['=='][self.domain + '.id'] = input;
-				args['filter']['||'][1]['=~'][self.domain + '.code'] = input;
-				args['filter']['||'][2]['=~'][self.domain + '.label'] = input;
-				args['fields'][self.domain] = [self.domain + '.id', self.domain + '.code', self.domain + '.label'];
-
-				try {
-					loadfcn ? loadfcn(true) : null;
-
-					this.get(self.domain, args, function(data) {
-						self.options = [];
-						(data.items || []).forEach(function(entry) {
-							self.options.push({
-								'id': entry[self.domain + '.id'],
-								'label': entry[self.domain + '.id'] + ' - ' + entry[self.domain + '.label'] + ' (' + entry[self.domain + '.code'] + ')'
-							});
-						});
-					});
-				} finally {
-					loadfcn ? loadfcn(false) : null;
+			suggest(input) {
+				const filter = {
+					'&&': [
+						{'>': {'product.status': 0}},
+						{'||': [
+							{'=~': {'product.label': input}},
+							{'=~': {'product.code': input}},
+							{'==': {'product.id': input}}
+						]}
+					]
 				}
+
+				return Aimeos.query(`query {
+					searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
+						items {
+							id
+							code
+							label
+						}
+					}
+				  }
+				`).then(result => {
+					return (result?.searchProducts?.items || []).map(item => {
+						return {'product.lists.parentid': item.id, 'product.label': item.label + ' (' + item.code + ')'}
+					})
+				})
 			},
 
 
@@ -430,6 +424,13 @@ Aimeos.ProductList = {
 				}
 
 				return this.fetch();
+			},
+
+
+			use(idx, ev) {
+				this.$set(this.items[idx], this.prefix + 'refid', ev['product.lists.parentid']);
+				this.$set(this.items[idx], 'product.lists.parentid', ev['product.lists.parentid']);
+				this.$set(this.items[idx], 'product.label', ev['product.label']);
 			},
 
 

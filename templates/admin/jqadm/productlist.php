@@ -258,20 +258,28 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
 						<div v-if="item.edit">
-							<v-select class="custom-combobox" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:options="options" v-bind:reduce="entry => entry.id" v-bind:filterable="false"
-								v-model="item[prefix + 'parentid']" v-on:search="suggest" v-on:search:focus="suggest"
-								v-bind:clearSearchOnSelect="false"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Product ID, SKU or label' ) ) ?>" >
-								<template v-slot:no-options="{ search, searching, loading }">
-									<template v-if="searching">
-										<?= $enc->html( $this->translate( 'admin', 'No product found' ) ) ?>
-									</template>
-									<em v-else>
-										<?= $enc->html( $this->translate( 'admin', 'Start typing ...' ) ) ?>
-									</em>
-								</template>
-							</v-select>
+							<Multiselect class="item-id form-control"
+								placeholder="Enter product ID, code or label"
+								:value-prop="prefix + 'parentid'"
+								:track-by="prefix + 'parentid'"
+								label="product.label"
+								@open="function(select) {return select.refreshOptions()}"
+								@input="use(idx, $event)"
+								:value="item"
+								:title="title(idx)"
+								:disabled="!can('change', idx)"
+								:options="async function(query) {return await suggest(query)}"
+								:resolve-on-load="false"
+								:filter-results="false"
+								:can-deselect="false"
+								:allow-absent="true"
+								:searchable="true"
+								:can-clear="false"
+								:required="true"
+								:min-chars="1"
+								:object="true"
+								:delay="300"
+							></Multiselect>
 						</div>
 						<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
