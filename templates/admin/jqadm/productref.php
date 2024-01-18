@@ -257,22 +257,28 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
 						<div v-if="item.edit">
-							<v-select class="custom-combobox" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:options="options" v-bind:reduce="entry => entry.id" v-bind:filterable="false"
-								v-model="item[prefix + 'refid']" v-on:search="suggest" v-on:search:focus="suggest"
-								v-bind:clearSearchOnSelect="false"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Product ID, SKU or label' ) ) ?>" >
-								<template v-slot:no-options="{ search, searching, loading }">
-									<template v-if="searching">
-										<?= $enc->html( $this->translate( 'admin', 'No product found' ) ) ?>
-									</template>
-									<em v-else>
-										<?= $enc->html( $this->translate( 'admin', 'Start typing ...' ) ) ?>
-									</em>
-								</template>
-							</v-select>
-							<input type="hidden" v-model="item[prefix + 'refid']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-refid', ''] ) ) ?>`.replace('-prefix-', prefix)">
+							<Multiselect class="item-id form-control"
+								placeholder="Enter product ID, code or label"
+								:value-prop="prefix + 'refid'"
+								:track-by="prefix + 'refid'"
+								label="product.label"
+								@open="function(select) {return select.refreshOptions()}"
+								@input="use(idx, $event)"
+								:value="item"
+								:title="title(idx)"
+								:disabled="!can('change', idx)"
+								:options="async function(query) {return await suggest(query)}"
+								:resolve-on-load="false"
+								:filter-results="false"
+								:can-deselect="false"
+								:allow-absent="true"
+								:searchable="true"
+								:can-clear="false"
+								:required="true"
+								:min-chars="1"
+								:object="true"
+								:delay="300"
+							></Multiselect>
 						</div>
 						<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
@@ -283,6 +289,8 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					<td class="actions">
 						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>`.replace('-prefix-', prefix)" >
+						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'refid']"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-refid', ''] ) ) ?>`.replace('-prefix-', prefix)" >
 
 						<a v-if="!item.edit && can('change', idx)" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"

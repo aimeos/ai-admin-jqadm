@@ -370,34 +370,34 @@ Aimeos.ProductRef = {
 			},
 
 
-			suggest(input, loadfcn) {
-				const self = this;
-				const args = {
-					'filter': {'||': [
-						{'==': {'product.id': input}},
-						{'=~': {'product.code': input}},
-						{'=~': {'product.label': input}}
-					]},
-					'fields': {'product': ['product.id', 'product.code', 'product.label']},
-					'page': {'offset': 0, 'limit': 25},
-					'sort': 'product.label'
-				};
-
-				try {
-					loadfcn ? loadfcn(true) : null;
-
-					this.get('product', args, function(data) {
-						self.options = [];
-						(data.items || []).forEach(function(entry) {
-							self.options.push({
-								'id': entry['product.id'],
-								'label': entry['product.id'] + ' - ' + entry['product.label'] + ' (' + entry['product.code'] + ')'
-							});
-						});
-					});
-				} finally {
-					loadfcn ? loadfcn(false) : null;
+			suggest(input) {
+				const filter = {
+					'&&': [
+						{'>': {'product.status': 0}},
+						{'||': [
+							{'=~': {'product.label': input}},
+							{'=~': {'product.code': input}},
+							{'==': {'product.id': input}}
+						]}
+					]
 				}
+
+				return Aimeos.query(`query {
+					searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
+						items {
+							id
+							code
+							label
+						}
+					}
+				  }
+				`).then(result => {
+					return (result?.searchProducts?.items || []).map(item => {
+						const entry = {'product.label': item.label + ' (' + item.code + ')'}
+						entry[this.prefix + 'refid'] = item.id;
+						return entry
+					})
+				})
 			},
 
 
@@ -423,6 +423,13 @@ Aimeos.ProductRef = {
 				}
 
 				return this.fetch();
+			},
+
+
+			use(idx, ev) {
+				this.$set(this.items[idx], this.prefix + 'refid', ev[this.prefix + 'refid']);
+				this.$set(this.items[idx], this.prefix + 'id', ev[this.prefix + 'id']);
+				this.$set(this.items[idx], 'product.label', ev['product.label']);
 			},
 
 
