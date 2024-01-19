@@ -88,7 +88,7 @@ Vue.component('site-tree-items', {
 			const self = this;
 			self.$emit('loading', true);
 
-			this.promise.done(function(response) {
+			this.promise.then(function(response) {
 				const param = {filter: {'==': {'locale.site.parentid': self.parent}}};
 
 				if(self.filter) {

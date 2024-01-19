@@ -827,7 +827,11 @@ $(function() {
 /**
  * Load JSON admin resource definition immediately
  */
-Aimeos.options = $.ajax($(".aimeos").data("url"), {
-	"method": "OPTIONS",
-	"dataType": "json"
+Aimeos.options = fetch($(".aimeos").data("url"), {
+	"method": "OPTIONS"
+}).then(function(response) {
+	if(!response.ok) {
+		throw new Error(response.statusText);
+	}
+	return response.json();
 });

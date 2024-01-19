@@ -148,7 +148,7 @@ Aimeos.ProductList = {
 				const self = this;
 				self.waiting(true);
 
-				Aimeos.options.done(function(response) {
+				Aimeos.options.then(function(response) {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
@@ -235,7 +235,7 @@ Aimeos.ProductList = {
 				const self = this;
 				self.waiting(true);
 
-				Aimeos.options.done(function(response) {
+				Aimeos.options.then(function(response) {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 

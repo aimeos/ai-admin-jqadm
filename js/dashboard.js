@@ -47,7 +47,7 @@ Aimeos.Dashboard = {
 	 */
 	getData(resource, key, criteria, sort, limit, value, type) {
 
-		return $.when( Aimeos.options ).then(function(data) {
+		return Aimeos.options.then(function(response) {
 
 			var params = {}, param = {};
 
@@ -70,16 +70,19 @@ Aimeos.Dashboard = {
 				param["type"] = type;
 			}
 
-			if( data.meta && data.meta.prefix ) {
-				params[data.meta.prefix] = param;
+			if( response.meta && response.meta.prefix ) {
+				params[response.meta.prefix] = param;
 			} else {
 				params = param;
 			}
 
-			return $.ajax({
-				dataType: "json",
-				url: data.meta.resources[resource] || null,
-				data: params
+			const url = response.meta.resources[resource] + (response.meta.resources[resource].includes('?') ? '&' : '?');
+
+			return fetch(url + jQuery.param(params)).then(function(response) {
+				if(!response.ok) {
+					throw new Error(response.statusText);
+				}
+				return response.json();
 			});
 		});
 	}
