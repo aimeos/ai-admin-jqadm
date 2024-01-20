@@ -45,7 +45,7 @@ $enc = $this->encoder();
 		data-domain="product" >
 
 		<div class="group-list" role="tablist" aria-multiselectable="true">
-			<div is="draggable" v-model="items" group="price" handle=".act-move">
+			<div is="vue:draggable" v-model="items" group="price" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{mismatch: !can('match', idx)}">
 
 					<div v-bind:id="'item-price-group-item-' + idx" class="card-header header">
@@ -81,7 +81,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ) ?></label>
 								<div class="col-sm-8">
-									<div is="taxrates" v-bind:key="idx" class="item-taxrate"
+									<div is="vue:taxrates" v-bind:key="idx" class="item-taxrate"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.taxrates' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
 										v-bind:placeholder="`<?= $enc->js( $this->translate( 'admin', 'Tax rate in %' ) ) ?>`"
@@ -166,7 +166,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
+										<select is="vue:select-component" required class="form-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.currencyid'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
@@ -185,7 +185,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
+										<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
@@ -254,7 +254,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
+										<select is="vue:select-component" required class="form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'product.lists.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
@@ -275,7 +275,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input is="vue:flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'product.lists.datestart' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
@@ -289,7 +289,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input is="vue:flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'product.lists.dateend' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"

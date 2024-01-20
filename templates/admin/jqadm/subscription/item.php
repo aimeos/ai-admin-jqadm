@@ -135,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datenext select" type="date" required="required" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-datenext select" type="date" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.datenext' ) ) ?>`"
@@ -149,7 +149,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateend select" type="date" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-dateend select" type="date" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.dateend' ) ) ?>`"

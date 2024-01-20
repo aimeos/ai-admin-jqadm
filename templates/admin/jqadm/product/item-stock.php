@@ -64,7 +64,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row" v-bind:class="{mismatch: !can('match', idx)}" v-bind:title="title(idx)">
 						<?php if( $stockTypes->count() !== 1 ) : ?>
 							<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
-								<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
+								<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 									v-bind:items="<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.type'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
@@ -97,7 +97,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							</div>
 						</td>
 						<td class="stock-dateback optional">
-							<input is="flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input is="vue:flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.dateback'] ) ) ?>`.replace( '_idx_', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 								v-bind:config="Aimeos.flatpickr.datetime"

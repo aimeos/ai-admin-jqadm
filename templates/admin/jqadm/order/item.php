@@ -197,7 +197,7 @@ $paymentStatusList = [
 								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Payment date' ) ) ?></label>
 									<div class="col-8">
-										<input is="flat-pickr" class="form-control item-datepayment select" type="datetime-local" tabindex="1"
+										<input is="vue:flat-pickr" class="form-control item-datepayment select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 											:value="item['order.datepayment']"
@@ -222,7 +222,7 @@ $paymentStatusList = [
 								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery date' ) ) ?></label>
 									<div class="col-8">
-										<input is="flat-pickr" class="form-control item-datedelivery select" type="datetime-local" tabindex="1"
+										<input is="vue:flat-pickr" class="form-control item-datedelivery select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 											:value="item['order.datedelivery']"

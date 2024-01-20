@@ -18,7 +18,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">
-			<div is="draggable" v-model="items" group="selection" handle=".act-move">
+			<div is="vue:draggable" v-model="items" group="selection" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{mismatch: !can('match', idx)}">
 
 					<div v-bind:id="'item-selection-group-item-' + idx" class="card-header header">
@@ -94,7 +94,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" class="form-select item-type" required
+										<select is="vue:select-component" class="form-select item-type" required
 											v-bind:readonly="!can('change', idx)"
 											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.type' ) ) ) ?>`.replace('_idx_', idx)"
@@ -199,7 +199,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									</tr>
 								</thead>
 
-								<tbody is="draggable" handle=".act-move" tag="tbody">
+								<tbody is="vue:draggable" handle=".act-move" tag="tbody">
 
 									<tr v-for="(attr, attridx) in (item['attr'] || [])" :key="attridx">
 										<td>

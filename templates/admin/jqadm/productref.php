@@ -139,7 +139,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="select-component"
+							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
 							v-bind:value="value('status')"
@@ -148,7 +148,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="select-component"
+							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 							v-bind:items="types"
 							v-bind:value="value('type')"
@@ -161,13 +161,13 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-bind:value="value('config')">
 					</td>
 					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-						<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('datestart')"
 							v-on:input="find($event, 'datestart')"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					</td>
 					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-						<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('dateend')"
 							v-on:input="find($event, 'dateend')"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
@@ -207,7 +207,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="select-component" v-if="item.edit"
+							is="vue:select-component" v-if="item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
 							v-model="item[prefix + 'status']">
@@ -218,7 +218,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="select-component" v-if="item.edit"
+							is="vue:select-component" v-if="item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-bind:items="types"
 							v-model="item[prefix + 'type']">
@@ -236,7 +236,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						</input-map>
 					</td>
 					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('datestart')"
@@ -246,7 +246,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						</div>
 					</td>
 					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('dateend')"

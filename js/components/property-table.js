@@ -24,7 +24,7 @@ Vue.component('property-table', {
 				<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{mismatch: !can('match', propidx)}" v-bind:title="title(propidx)">
 					<td class="property-type">
 						<input type="hidden" v-model="propdata[domain +'.property.id']" v-bind:name="fname('id', propidx)" />
-						<select is="select-component" required class="form-select item-type" v-bind:tabindex="tabindex"
+						<select is="vue:select-component" required class="form-select item-type" v-bind:tabindex="tabindex"
 							v-bind:name="fname('type', propidx)"
 							v-bind:text="i18n.select ||'Please select'"
 							v-bind:readonly="!can('change', propidx)"
@@ -33,7 +33,7 @@ Vue.component('property-table', {
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" class="form-select item-languageid" v-bind:tabindex="tabindex"
+						<select is="vue:select-component" class="form-select item-languageid" v-bind:tabindex="tabindex"
 							v-bind:name="fname('languageid', propidx)"
 							v-bind:all="i18n.all ||'All'"
 							v-bind:readonly="!can('change', propidx)"

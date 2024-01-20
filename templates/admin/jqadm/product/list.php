@@ -910,7 +910,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/product.datestart')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -926,7 +926,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/product.dateend')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -942,7 +942,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 														v-bind:disabled="state('item/product.ctime')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -1014,7 +1014,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Tax rate' ) ) ?>
 												</label>
 												<div class="col-7">
-													<div is="taxrates" tabindex="1"
+													<div is="vue:taxrates" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrates' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ) ?>"
 														v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"

@@ -226,7 +226,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/rule.datestart')"
 														v-bind:config="Aimeos.flatpickr.datetime">
@@ -240,7 +240,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/rule.dateend')"
 														v-bind:config="Aimeos.flatpickr.datetime">

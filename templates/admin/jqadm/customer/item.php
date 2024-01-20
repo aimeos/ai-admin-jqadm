@@ -145,7 +145,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateverified" type="date" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-dateverified" type="date" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
 										v-bind:config="Aimeos.flatpickr.date"
@@ -272,7 +272,7 @@ $params = $this->get( 'pageParams', [] );
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?></label>
 										<div class="col-sm-8">
-											<input is="flat-pickr" class="form-control item-birthday" type="date" tabindex="1"
+											<input is="vue:flat-pickr" class="form-control item-birthday" type="date" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
 												v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>`"
 												v-bind:config="Aimeos.flatpickr.date"

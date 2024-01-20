@@ -367,7 +367,7 @@ $reasonList = [
 													<?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.datenext')"
 														v-bind:config="Aimeos.flatpickr.date">
@@ -381,7 +381,7 @@ $reasonList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.dateend')"
 														v-bind:config="Aimeos.flatpickr.date">

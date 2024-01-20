@@ -42,7 +42,7 @@ $keys = [
 						</tr>
 					</thead>
 
-					<tbody is="draggable" v-model="items" group="bundle" handle=".act-move" tag="tbody">
+					<tbody is="vue:draggable" v-model="items" group="bundle" handle=".act-move" tag="tbody">
 
 						<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{'readonly': !can('change', idx)}">
 							<td v-bind:class="item['css'] ||''">

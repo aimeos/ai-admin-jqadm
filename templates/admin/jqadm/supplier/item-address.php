@@ -17,7 +17,7 @@ $enc = $this->encoder();
 		data-domain="supplier" >
 
 		<div class="group-list">
-			<div is="draggable" v-model="items" group="address" handle=".act-move">
+			<div is="vue:draggable" v-model="items" group="address" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{mismatch: !can('match', idx)}">
 
 					<div v-bind:id="'item-address-group-item-' + idx" class="card-header header">

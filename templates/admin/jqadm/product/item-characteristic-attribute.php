@@ -69,7 +69,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 					</tr>
 				</thead>
 
-				<tbody is="draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
+				<tbody is="vue:draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
 
 					<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{mismatch: !can('match', idx)}">
 						<td class="actions" v-bind:class="{advanced: item['_ext']}">
@@ -103,7 +103,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							<div v-show="item['_ext']" class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input is="vue:flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.datestart'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
@@ -117,7 +117,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							<div v-show="item['_ext']" class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input is="vue:flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.dateend'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"

@@ -430,7 +430,7 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 													   v-bind:disabled="state('item/order.datepayment')"
 													   v-bind:config="Aimeos.flatpickr.date"
@@ -483,7 +483,7 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 													   v-bind:disabled="state('item/order.datedelivery')"
 													   v-bind:config="Aimeos.flatpickr.date"

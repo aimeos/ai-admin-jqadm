@@ -160,13 +160,13 @@ $columnList = [
 								v-bind:value="value('count')">
 						</td>
 						<td v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
-							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('datestart')"
 								v-on:input="find($event, 'datestart')"
 								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
-							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('dateend')"
 								v-on:input="find($event, 'dateend')"
 								v-bind:config="Aimeos.flatpickr.datetimerange">
@@ -177,13 +177,13 @@ $columnList = [
 								v-bind:value="value('ref')">
 						</td>
 						<td v-if="fields.includes('coupon.code.ctime')" v-bind:class="css('ctime')">
-							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('ctime')"
 								v-on:input="find($event, 'ctime')"
 								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.mtime')" v-bind:class="css('mtime')">
-							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('mtime')"
 								v-on:input="find($event, 'mtime')"
 								v-bind:config="Aimeos.flatpickr.datetimerange">
@@ -233,7 +233,7 @@ $columnList = [
 							</div>
 						</td>
 						<td v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
-							<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+							<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.datestart', ''] ) ) ?>`"
 								tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('datestart')"
@@ -243,7 +243,7 @@ $columnList = [
 							</div>
 						</td>
 						<td v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
-							<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+							<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.dateend', ''] ) ) ?>`"
 								tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('dateend')"

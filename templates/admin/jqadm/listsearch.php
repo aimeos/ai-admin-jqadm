@@ -59,12 +59,12 @@ $enc = $this->encoder();
 							<?php endforeach ?>
 						</select>
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
 							v-model="value(`<?= $enc->js( $idx ) ?>`)"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
 							v-model="value(`<?= $enc->js( $idx ) ?>`)"
 							v-bind:config="Aimeos.flatpickr.daterange">

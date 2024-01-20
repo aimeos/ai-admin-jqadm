@@ -345,7 +345,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" class="form-select item-type" required v-bind:tabindex="'1'"
+										<select is="vue:select-component" class="form-select item-type" required v-bind:tabindex="'1'"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['item', 'product.type'] ) ) ?>`"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
@@ -434,7 +434,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ) ?>`"
@@ -448,7 +448,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ) ?>`"
@@ -462,7 +462,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ) ?>`"
