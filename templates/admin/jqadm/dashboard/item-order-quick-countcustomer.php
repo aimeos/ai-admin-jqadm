@@ -11,7 +11,7 @@ $enc = $this->encoder();
 ?>
 <div class="quick order-quick-countcustomer col-sm-6 col-xl-3"
 	title="<?= $enc->attr( $this->translate( 'admin', 'New customers within the last seven days' ) ) ?>">
-	<dashboard-order-quick-countcustomer inline-template>
+	<script type="text/html" id="dashboard-order-quick-countcustomer">
 		<div class="box row" v-bind:class="state">
 			<div class="col quick-start">
 				<div class="quick-number" v-html="current">0</div>
@@ -24,6 +24,6 @@ $enc = $this->encoder();
 				<div class="quick-progress"><div class="quick-length" v-bind:style="'width: ' + width +'%'"></div></div>
 			</div>
 		</div>
-	</dashboard-order-quick-countcustomer>
+	</script>
 </div>
 <?= $this->get( 'quickCountcustomerBody' ) ?>

@@ -5,6 +5,7 @@
 
 
 Vue.component('dashboard-order-quick-counttotal', {
+	template: '#dashboard-order-quick-counttotal',
 
 	data() {
 		return {
@@ -77,6 +78,7 @@ Vue.component('dashboard-order-quick-counttotal', {
 
 
 Vue.component('dashboard-order-quick-countcompleted', {
+	template: '#dashboard-order-quick-countcompleted',
 
 	data() {
 		return {
@@ -150,6 +152,7 @@ Vue.component('dashboard-order-quick-countcompleted', {
 
 
 Vue.component('dashboard-order-quick-countunfinished', {
+	template: '#dashboard-order-quick-countunfinished',
 
 	data() {
 		return {
@@ -223,6 +226,7 @@ Vue.component('dashboard-order-quick-countunfinished', {
 
 
 Vue.component('dashboard-order-quick-countcustomer', {
+	template: '#dashboard-order-quick-countcustomer',
 
 	data() {
 		return {
