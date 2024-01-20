@@ -16,11 +16,13 @@ Aimeos.Address = {
 	init() {
 		Aimeos.components['address'] = new Vue({
 			el: document.querySelector('#item-address-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null,
-				show: false
+			data() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null,
+					show: false
+				}
 			},
 			mounted() {
 				this.Aimeos = Aimeos;

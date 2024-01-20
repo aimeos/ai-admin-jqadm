@@ -10,12 +10,14 @@
 	init() {
 		Aimeos.components['rule'] = new Vue({
 			el: document.querySelector('.item-rule #basic'),
-			data: {
-				item: null,
-				cache: {},
-				decorators: [],
-				providers: [],
-				siteid: null,
+			data() {
+				return {
+					item: null,
+					cache: {},
+					decorators: [],
+					providers: [],
+					siteid: null,
+				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;

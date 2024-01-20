@@ -14,10 +14,12 @@ Aimeos.Text = {
 	init() {
 		Aimeos.components['text'] = new Vue({
 			el: document.querySelector('#item-text-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
+			data() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null
+				}
 			},
 			mounted() {
 				this.Aimeos = Aimeos;

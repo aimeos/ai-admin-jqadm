@@ -10,12 +10,14 @@ Aimeos.Plugin = {
 	init() {
 		Aimeos.components['plugin'] = new Vue({
 			el: document.querySelector('.item-plugin #basic'),
-			data: {
-				item: null,
-				cache: {},
-				decorators: [],
-				providers: [],
-				siteid: null,
+			data() {
+				return {
+					item: null,
+					cache: {},
+					decorators: [],
+					providers: [],
+					siteid: null,
+				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;

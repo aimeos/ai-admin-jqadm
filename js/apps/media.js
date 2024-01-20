@@ -16,10 +16,12 @@ Aimeos.Media = {
 	init() {
 		Aimeos.components['media'] = new Vue({
 			el: document.querySelector('#item-media-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
+			data() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null
+				}
 			},
 			mounted() {
 				this.Aimeos = Aimeos;

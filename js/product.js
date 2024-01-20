@@ -24,70 +24,81 @@ Aimeos.Product = {
 			{
 				name: 'basic',
 				el: '.item-product .item-basic .box',
-				data: {
-					duplicate: false,
-					item: $(".item-basic [data-data]").data("data") || {},
-					siteid: $(".item-basic [data-siteid]").data("siteid"),
-					datasets: $(".item-basic [data-datasets]").data("datasets") || {}
+				data() {
+					return {
+						duplicate: false,
+						item: $(".item-basic [data-data]").data("data") || {},
+						siteid: $(".item-basic [data-siteid]").data("siteid"),
+						datasets: $(".item-basic [data-datasets]").data("datasets") || {}
+					}
 				},
 				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
 			},
 			{
 				name: 'bundle',
 				el: '.item-product .item-bundle .product-list',
-				data: {
-					items: $(".item-bundle .product-list").data("items"),
-					keys: $(".item-bundle .product-list").data("keys"),
-					prefix: $(".item-bundle .product-list").data("prefix"),
-					siteid: $(".item-bundle .product-list").data("siteid")
+				data() {
+					return {
+						items: $(".item-bundle .product-list").data("items"),
+						keys: $(".item-bundle .product-list").data("keys"),
+						prefix: $(".item-bundle .product-list").data("prefix"),
+						siteid: $(".item-bundle .product-list").data("siteid")
+					}
 				},
 				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			},
 			{
 				name: 'selection',
 				el: '.item-product #item-selection-group',
-				data: {
-					items: $("#item-selection-group").data("items"),
-					keys: $("#item-selection-group").data("keys"),
-					siteid: $("#item-selection-group").data("siteid")
+				data() {
+					return {
+						items: $("#item-selection-group").data("items"),
+						keys: $("#item-selection-group").data("keys"),
+						siteid: $("#item-selection-group").data("siteid")
+					}
 				},
 				mixins: [Aimeos.Product.Selection.mixins.bind(this)()]
 			},
 			{
 				name: 'stock',
 				el: '.item-product .item-stock .stock-list',
-				data: {
-					items: $(".item-stock .stock-list").data("items"),
-					keys: $(".item-stock .stock-list").data("keys"),
-					siteid: $(".item-stock .stock-list").data("siteid"),
-					numtypes: $(".item-stock .stock-list").data("numtypes")
+				data() {
+					return {
+						items: $(".item-stock .stock-list").data("items"),
+						keys: $(".item-stock .stock-list").data("keys"),
+						siteid: $(".item-stock .stock-list").data("siteid"),
+						numtypes: $(".item-stock .stock-list").data("numtypes")
+					}
 				},
 				mixins: [Aimeos.Product.Stock.mixins.bind(this)()]
 			},
 			{
 				name: 'subscription',
 				el: '.item-product .item-subscription .subscription-list',
-				data: {
-					items: $(".item-subscription .subscription-list").data("items"),
-					keys: $(".item-subscription .subscription-list").data("keys"),
-					siteid: $(".item-subscription .subscription-list").data("siteid")
-
+				data() {
+					return {
+						items: $(".item-subscription .subscription-list").data("items"),
+						keys: $(".item-subscription .subscription-list").data("keys"),
+						siteid: $(".item-subscription .subscription-list").data("siteid")
+					}
 				},
 				mixins: [Aimeos.Product.Subscription.mixins.bind(this)()]
 			},
 			{
 				name: 'order',
 				el: '.item-product .item-order .order-list',
-				data: {
-					'id': null,
-					'items': [],
-					'fields': [],
-					'filter': {},
-					'included': {},
-					'offset': 0,
-					'limit': 25,
-					'total': 0,
-					'sort': '-order.id',
+				data() {
+					return {
+						'id': null,
+						'items': [],
+						'fields': [],
+						'filter': {},
+						'included': {},
+						'offset': 0,
+						'limit': 25,
+						'total': 0,
+						'sort': '-order.id',
+					}
 				},
 				mixins: [Aimeos.Product.Order.mixins.bind(this)()]
 			}
@@ -98,12 +109,14 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data: {
-					items: $(entry).data("items"),
-					keys: $(entry).data("keys"),
-					prefix: $(entry).data("prefix"),
-					siteid: $(entry).data("siteid"),
-					listtype: $(entry).data("listtype")
+				data() {
+					return {
+						items: $(entry).data("items"),
+						keys: $(entry).data("keys"),
+						prefix: $(entry).data("prefix"),
+						siteid: $(entry).data("siteid"),
+						listtype: $(entry).data("listtype")
+					}
 				},
 				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			})
@@ -114,11 +127,13 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data: {
-					items: $(entry).data("items"),
-					keys: $(entry).data("keys"),
-					siteid: $(entry).data("siteid"),
-					listtype: $(entry).data("listtype")
+				data() {
+					return {
+						items: $(entry).data("items"),
+						keys: $(entry).data("keys"),
+						siteid: $(entry).data("siteid"),
+						listtype: $(entry).data("listtype")
+					}
 				},
 				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
 			})
@@ -129,11 +144,13 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data: {
-					items: $(entry).data("items"),
-					keys: $(entry).data("keys"),
-					siteid: $(entry).data("siteid"),
-					listtype: $(entry).data("listtype")
+				data() {
+					return {
+						items: $(entry).data("items"),
+						keys: $(entry).data("keys"),
+						siteid: $(entry).data("siteid"),
+						listtype: $(entry).data("listtype")
+					}
 				},
 				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			})
@@ -144,11 +161,13 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data: {
-					items: $(entry).data("items"),
-					keys: $(entry).data("keys"),
-					siteid: $(entry).data("siteid"),
-					listtype: $(entry).data("listtype")
+				data() {
+					return {
+						items: $(entry).data("items"),
+						keys: $(entry).data("keys"),
+						siteid: $(entry).data("siteid"),
+						listtype: $(entry).data("listtype")
+					}
 				},
 				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
 			})

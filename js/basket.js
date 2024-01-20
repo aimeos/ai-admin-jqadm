@@ -9,9 +9,11 @@ Aimeos.Basket = {
 	init() {
 		Aimeos.components['basket'] = new Vue({
 			el: document.querySelector('.item-basket .basket-item'),
-			data: {
-				item: {},
-				siteid: null,
+			data() {
+				return {
+					item: {},
+					siteid: null,
+				}
 			},
 			mounted() {
 				this.Aimeos = Aimeos;

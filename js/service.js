@@ -10,12 +10,14 @@ Aimeos.Service = {
 	init() {
 		Aimeos.components['service'] = new Vue({
 			el: document.querySelector('.item-service #basic'),
-			data: {
-				item: null,
-				cache: {},
-				decorators: [],
-				providers: [],
-				siteid: null,
+			data() {
+				return {
+					item: null,
+					cache: {},
+					decorators: [],
+					providers: [],
+					siteid: null,
+				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
