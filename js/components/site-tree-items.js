@@ -164,16 +164,22 @@ Vue.component('site-tree-items', {
 	},
 
 	watch: {
-		initial(items) {
-			if(Object.keys(this.initial).length) {
-				this.items = items;
+		initial: {
+			deep: true,
+			handler: function(items) {
+				if(Object.keys(this.initial).length) {
+					this.items = items;
+				}
 			}
 		},
 
-		filter(val) {
-			if(val && this.level === 0) {
-				this.items = {};
-				this.fetch();
+		filter: {
+			deep: true,
+			handler: function(val) {
+				if(val && this.level === 0) {
+					this.items = {};
+					this.fetch();
+				}
 			}
 		}
 	}

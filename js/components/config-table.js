@@ -65,6 +65,7 @@ const AimeosListComponent = Vue.component('aimeos-list', {
 
 	watch: {
 		list: {
+			deep: true,
 			immediate: true,
 			handler() {
 				this.entries = this.list
@@ -145,6 +146,7 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 
 	watch: {
 		map: {
+			deep: true,
 			immediate: true,
 			handler() {
 				this.entries = []
@@ -301,6 +303,7 @@ Vue.component('config-table', {
 
 	watch: {
 		keys: {
+			deep: true,
 			immediate: true,
 			handler() {
 				if(Array.isArray(this.keys)) {
