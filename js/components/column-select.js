@@ -6,6 +6,7 @@
 
 Vue.component('column-select', {
 	template: '#column-select',
+	emits: ['close', 'submit'],
 	props: {
 		'titles': {type: Object, required: true},
 		'fields': {type: Array, required: true},

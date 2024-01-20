@@ -15,6 +15,7 @@ Vue.component('select-component', {
 			</option>
 		</select>
 	`,
+	emits: ['input'],
 	props: {
 		'all': {type: String, default: ''},
 		'items': {type: Object, required: true},

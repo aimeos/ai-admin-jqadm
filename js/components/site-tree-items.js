@@ -36,6 +36,8 @@ Vue.component('site-tree-items', {
 		</ul>
 	`,
 
+	emits: ['loading', 'select'],
+
 	props: {
 		url: {type: String, required: true},
 		tree: {type: Boolean, default: false},

@@ -58,6 +58,8 @@ Vue.component('property-table', {
 		</table>
 	`,
 
+	emits: ['update:property'],
+
 	props: {
 		'domain': {type: String, required: true},
 		'i18n': {type: Object, default: () => ({})},

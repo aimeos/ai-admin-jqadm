@@ -84,6 +84,8 @@ Vue.component('orderattr-table', {
 		</table>
 	`,
 
+	emits: ['update:attributes'],
+
 	props: {
 		'i18n': {type: Object, default: () => ({})},
 		'items': {type: Array, required: true},

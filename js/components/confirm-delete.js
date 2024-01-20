@@ -6,6 +6,7 @@
 
 Vue.component('confirm-delete', {
 	template: '#confirm-delete',
+	emits: ['close', 'confirm'],
 	props: {
 		'items': {type: Object, default: () => ({})},
 		'show': {type: Boolean, default: false}

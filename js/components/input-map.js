@@ -33,6 +33,8 @@ Vue.component('input-map', {
 		</div>
 	`,
 
+	emits: ['input'],
+
 	props: {
 		'name': {type: String, required: true},
 		'value': {type: Object, required: true},

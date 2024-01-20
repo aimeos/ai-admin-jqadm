@@ -35,6 +35,8 @@ const AimeosListComponent = Vue.component('aimeos-list', {
 		</table>
 	`,
 
+	emits: ['update'],
+
 	props: {
 		'list': {type: Array, required: true},
 		'readonly': {type: Boolean, default: true},
@@ -106,6 +108,8 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 			</tr>
 		</tbody>
 	</table>`,
+
+	emits: ['update'],
 
 	props: {
 		'map': {type: Object, required: true},
@@ -283,6 +287,8 @@ Vue.component('config-table', {
 			</tr>
 		</tbody>
 	</table>`,
+
+	emits: ['update:items'],
 
 	props: {
 		'keys': {default: []},

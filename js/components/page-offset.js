@@ -30,6 +30,7 @@ Vue.component('page-offset', {
 			</li>
 		</ul>
 	`,
+	emits: ['input'],
 	props: {
 		'limit': {type: Number, required: true},
 		'total': {type: Number, required: true},

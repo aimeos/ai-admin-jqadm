@@ -27,6 +27,7 @@ Vue.component('page-limit', {
 			</ul>
 		</div>
 	`,
+	emits: ['input'],
 	props: {
 		'value': {type: Number, required: true},
 		'tabindex': {type: String, default: '1'}
