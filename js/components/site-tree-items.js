@@ -20,7 +20,6 @@ Vue.component('site-tree-items', {
 					}">
 				</span>
 				<site-tree-items v-if="isAvailable(item) && item.isOpen"
-					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
 					v-bind:promise="promise"
@@ -29,7 +28,8 @@ Vue.component('site-tree-items', {
 					v-bind:filter="filter"
 					v-bind:parent="id"
 					v-bind:tree="tree"
-					v-bind:url="url">
+					v-bind:url="url"
+					v-bind="$attrs">
 				</site-tree-items>
 			</li>
 			<li v-if="more()" class="more" v-on:click="next()"></li>
