@@ -14,11 +14,11 @@ $(function() {
 Aimeos.ProductList = {
 
 	init() {
-
+		const { createApp } = Vue;
 		const node = document.querySelector('.item-product .productlist');
 
 		if(node) {
-			Aimeos.components['productlist'] = new Vue({
+			Aimeos.components['productlist'] = createApp({
 				'el': node,
 				'mixins': [Aimeos.ProductList.mixins]
 			});

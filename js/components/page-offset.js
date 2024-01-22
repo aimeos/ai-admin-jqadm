@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('page-offset', {
+const AimeosPageOffset = {
 	template: `
 		<ul class="page-offset pagination">
 			<li v-bind:class="{disabled: first === null}" class="page-item">
@@ -62,4 +62,4 @@ Vue.component('page-offset', {
 			return sprintf(this.text, this.current, this.pages);
 		}
 	}
-});
+};

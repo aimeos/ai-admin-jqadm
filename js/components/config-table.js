@@ -161,7 +161,7 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 
 
 
-Vue.component('config-table', {
+const AimeosConfigTable = {
 
 	components: {
 		AimeosListComponent,
@@ -356,4 +356,4 @@ Vue.component('config-table', {
 			})
 		}
 	}
-});
+};

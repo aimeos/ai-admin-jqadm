@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('nav-search', {
+const AimeosNavSearch = {
 	template: '#nav-search',
 	props: {
 		'attributes': {type: Object, required: true},
@@ -72,4 +72,4 @@ Vue.component('nav-search', {
 			}
 		}
 	}
-});
+};

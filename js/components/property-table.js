@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('property-table', {
+const AimeosPropertyTable = {
 	template: `
 		<table class="item-property table table-default">
 			<thead>
@@ -111,4 +111,4 @@ Vue.component('property-table', {
 			return ''
 		}
 	}
-});
+};

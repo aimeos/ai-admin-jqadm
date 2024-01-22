@@ -119,6 +119,41 @@ Aimeos = {
 	},
 
 
+	app(config = {}) {
+		const { createApp } = Vue
+		const app = createApp(config);
+
+		app.component('catalog-tree', AimeosCatalogTree);
+		app.component('column-select', AimeosColumnSelect);
+		app.component('config-table', AimeosConfigTable);
+		app.component('confirm-delete', AimeosConfirmDelete);
+		app.component('html-editor', AimeosHtmlEditor);
+		app.component('input-map', AimeosInputMap);
+		app.component('nav-search', AimeosNavSearch);
+		app.component('orderattr-table', AimeosOrderattrTable);
+		app.component('page-limit', AimeosPageLimit);
+		app.component('page-offset', AimeosPageOffset);
+		app.component('property-table', AimeosPropertyTable);
+		app.component('select-component', AimeosSelectComponent);
+		app.component('site-tree-items', AimeosSiteTreeItems);
+		app.component('site-tree', AimeosSiteTree);
+		app.component('taxrates', AimeosTaxrates);
+		app.component('translations', AimeosTranslations);
+		app.component('dashboard-order-quick-counttotal', AimeosDashboardOrderQuickCounttotal);
+		app.component('dashboard-order-quick-countcompleted', AimeosDashboardOrderQuickCountcompleted);
+		app.component('dashboard-order-quick-countunfinished', AimeosDashboardOrderQuickCountunfinished);
+		app.component('dashboard-order-quick-countcustomer', AimeosDashboardOrderQuickCountcustomer);
+
+		app.component('flat-pickr', VueFlatpickr);
+		app.component('multiselect', VueformMultiselect);
+		app.component('l-map', window.Vue3Leaflet.LMap);
+		app.component('l-marker', window.Vue3Leaflet.LMarker);
+		app.component('l-tile-layer', window.Vue3Leaflet.LTileLayer);
+
+		return app;
+	},
+
+
 	can(action, siteid, siteID) {
 		if(action === 'match') {
 			return siteid == siteID;
@@ -175,9 +210,8 @@ Aimeos = {
 	},
 
 
-	vue(node) {
-		return new Vue({
-			el: node,
+	vue() {
+		return this.app({
 			data() {
 				return {
 					data: {},
@@ -373,11 +407,9 @@ Aimeos.List = {
 
 
 	init() {
-
-		let node = document.querySelector(".list-view");
-		if(node) {
-			this.instance = new Vue({el: node, mixins: [this.mixins]});
-		}
+		this.instance = this.app({
+			mixins: [this.mixins]
+		}).mount(".list-view");
 	},
 
 
@@ -804,15 +836,10 @@ $(function() {
 	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
-	Vue.component('flat-pickr', VueFlatpickr);
-	Vue.component('multiselect', VueformMultiselect);
-	Vue.component('l-map', window.Vue2Leaflet.LMap);
-	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
-	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
 
 	$('.vue').each(function() {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
-		Aimeos.components[key] = Aimeos.vue(this);
+		Aimeos.components[key] = Aimeos.vue().mount(this);
 	});
 
 	Aimeos.Menu.init();

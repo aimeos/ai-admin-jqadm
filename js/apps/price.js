@@ -14,7 +14,9 @@ $(function() {
 Aimeos.Price = {
 
 	init() {
-		Aimeos.components['price'] = new Vue({
+		const { createApp } = Vue
+
+		Aimeos.components['price'] = createApp({
 			el: document.querySelector('#item-price-group'),
 			data: {
 				items: [],

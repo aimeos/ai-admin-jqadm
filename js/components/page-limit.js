@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('page-limit', {
+const AimeosPageLimit = {
 	template: `
 		<div class="page-limit btn-group dropup" role="group">
 			<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
@@ -32,4 +32,4 @@ Vue.component('page-limit', {
 		'value': {type: Number, required: true},
 		'tabindex': {type: String, default: '1'}
 	}
-});
+};

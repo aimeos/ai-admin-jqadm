@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('column-select', {
+const AimeosColumnSelect =  {
 	template: '#column-select',
 	emits: ['close', 'submit'],
 	props: {
@@ -45,4 +45,4 @@ Vue.component('column-select', {
 			}
 		}
 	}
-});
+};

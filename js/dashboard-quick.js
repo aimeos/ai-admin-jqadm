@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('dashboard-order-quick-counttotal', {
+const AimeosDashboardOrderQuickCounttotal = {
 	template: '#dashboard-order-quick-counttotal',
 
 	data() {
@@ -73,11 +73,11 @@ Vue.component('dashboard-order-quick-counttotal', {
 			this.current = current;
 		}
 	}
-});
+};
 
 
 
-Vue.component('dashboard-order-quick-countcompleted', {
+const AimeosDashboardOrderQuickCountcompleted = {
 	template: '#dashboard-order-quick-countcompleted',
 
 	data() {
@@ -147,11 +147,11 @@ Vue.component('dashboard-order-quick-countcompleted', {
 			this.current = current;
 		}
 	}
-});
+};
 
 
 
-Vue.component('dashboard-order-quick-countunfinished', {
+const AimeosDashboardOrderQuickCountunfinished = {
 	template: '#dashboard-order-quick-countunfinished',
 
 	data() {
@@ -221,11 +221,11 @@ Vue.component('dashboard-order-quick-countunfinished', {
 			this.current = current;
 		}
 	}
-});
+};
 
 
 
-Vue.component('dashboard-order-quick-countcustomer', {
+const AimeosDashboardOrderQuickCountcustomer = {
 	template: '#dashboard-order-quick-countcustomer',
 
 	data() {
@@ -284,4 +284,4 @@ Vue.component('dashboard-order-quick-countcustomer', {
 			this.current = current;
 		}
 	}
-});
+};

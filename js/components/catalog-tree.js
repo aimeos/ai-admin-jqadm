@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('catalog-tree', {
+const AimeosCatalogTree = {
 	template: `
 		<div class="tree-menu-filter">
 			<div class="filter input-group tree-toolbar">
@@ -21,4 +21,4 @@ Vue.component('catalog-tree', {
 		create: {type: Boolean, default: false},
 		remove: {type: Boolean, default: false},
 	}
-});
+};

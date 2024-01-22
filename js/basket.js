@@ -7,7 +7,9 @@
 Aimeos.Basket = {
 
 	init() {
-		Aimeos.components['basket'] = new Vue({
+		const { createApp } = Vue
+
+		Aimeos.components['basket'] = createApp({
 			el: document.querySelector('.item-basket .basket-item'),
 			data() {
 				return {

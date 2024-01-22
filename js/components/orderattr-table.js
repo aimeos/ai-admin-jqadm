@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('orderattr-table', {
+const AimeosOrderattrTable = {
 	components: {
 		VueformMultiselect
 	},
@@ -136,4 +136,4 @@ Vue.component('orderattr-table', {
 			return ''
 		}
 	}
-});
+};

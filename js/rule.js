@@ -8,7 +8,9 @@
  Aimeos.Rule = {
 
 	init() {
-		Aimeos.components['rule'] = new Vue({
+		const { createApp } = Vue
+
+		Aimeos.components['rule'] = createApp({
 			el: document.querySelector('.item-rule #basic'),
 			data() {
 				return {

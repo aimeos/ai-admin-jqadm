@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('taxrates', {
+const AimeosTaxrates = {
 	template: `
 		<div>
 			<table>
@@ -49,4 +49,4 @@ Vue.component('taxrates', {
 			this.$set(this.taxrates, type, val);
 		}
 	}
-});
+};

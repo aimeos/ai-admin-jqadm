@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('select-component', {
+const AimeosSelectComponent = {
 	template: `
 		<select v-on:input="$emit('input', $event.target.value)" v-bind:value="value">
 			<option v-if="text" value="">{{ text }}</option>
@@ -22,4 +22,4 @@ Vue.component('select-component', {
 		'text': {type: String, default: ''},
 		'value': {required: true}
 	}
-});
+};

@@ -173,8 +173,10 @@ Aimeos.Product = {
 			})
 		}
 
+		const { createApp } = Vue
+
 		for(const component of components) {
-			Aimeos.components[component.name] = new Vue({
+			Aimeos.components[component.name] = createApp({
 				'el': document.querySelector(component.el),
 				'data': component.data,
 				'mixins': component.mixins

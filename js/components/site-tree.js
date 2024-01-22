@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('site-tree', {
+const AimeosSiteTree = {
 	template: `
 		<div class="tree-menu-filter">
 			<div class="filter">
@@ -30,4 +30,4 @@ Vue.component('site-tree', {
 	},
 
 	inject: ['Aimeos']
-});
+};

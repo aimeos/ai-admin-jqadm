@@ -12,7 +12,9 @@ $(function() {
 Aimeos.Text = {
 
 	init() {
-		Aimeos.components['text'] = new Vue({
+		const { createApp } = Vue
+
+		Aimeos.components['text'] = createApp({
 			el: document.querySelector('#item-text-group'),
 			data() {
 				return {

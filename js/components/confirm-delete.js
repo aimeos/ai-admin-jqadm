@@ -4,11 +4,11 @@
  */
 
 
-Vue.component('confirm-delete', {
+const AimeosConfirmDelete = {
 	template: '#confirm-delete',
 	emits: ['close', 'confirm'],
 	props: {
 		'items': {type: Object, default: () => ({})},
 		'show': {type: Boolean, default: false}
 	}
-});
+};

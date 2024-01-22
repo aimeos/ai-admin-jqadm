@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('input-map', {
+const AimeosInputMap = {
 	template: `
 		<div>
 			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" />
@@ -92,4 +92,4 @@ Vue.component('input-map', {
 			this.list = this.toList(this.value);
 		}
 	}
-});
+};
