@@ -4,7 +4,7 @@
  */
 
 
-const AimeosListComponent = Vue.component('aimeos-list', {
+let AimeosConfigList = {
 
 	template: `
 		<table class="table">
@@ -72,10 +72,10 @@ const AimeosListComponent = Vue.component('aimeos-list', {
 			}
 		}
 	}
-});
+};
 
 
-const AimeosMapComponent = Vue.component('aimeos-map', {
+let AimeosConfigMap = {
 
 	template: `<table class="table">
 		<tbody>
@@ -157,15 +157,15 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 			}
 		}
 	}
-});
+};
 
 
 
-const AimeosConfigTable = {
+let AimeosConfigTable = {
 
 	components: {
-		AimeosListComponent,
-		AimeosMapComponent
+		AimeosConfigList,
+		AimeosConfigMap
 	},
 
 	template: `<table class="item-config table">

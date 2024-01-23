@@ -4,7 +4,7 @@
  */
 
 
-const AimeosOrderattrTable = {
+let AimeosOrderattrTable = {
 	components: {
 		VueformMultiselect
 	},

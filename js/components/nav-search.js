@@ -4,7 +4,7 @@
  */
 
 
-const AimeosNavSearch = {
+let AimeosNavSearch = {
 	template: '#nav-search',
 	props: {
 		'attributes': {type: Object, required: true},

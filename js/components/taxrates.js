@@ -4,7 +4,7 @@
  */
 
 
-const AimeosTaxrates = {
+let AimeosTaxrates = {
 	template: `
 		<div>
 			<table>

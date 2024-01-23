@@ -4,7 +4,7 @@
  */
 
 
-const AimeosHtmlEditor = {
+let AimeosHtmlEditor = {
 	template: `<input type="hidden" v-bind:id="id" v-bind:name="name" v-bind:value="value" />`,
 	props: ['config', 'editor', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
 

@@ -4,7 +4,7 @@
  */
 
 
-const AimeosTranslations = {
+let AimeosTranslations = {
 	template: `
 		<div>
 			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" />

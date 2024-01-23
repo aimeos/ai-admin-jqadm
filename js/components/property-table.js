@@ -4,7 +4,7 @@
  */
 
 
-const AimeosPropertyTable = {
+let AimeosPropertyTable = {
 	template: `
 		<table class="item-property table table-default">
 			<thead>

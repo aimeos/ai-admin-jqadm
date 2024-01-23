@@ -4,7 +4,7 @@
  */
 
 
-const AimeosPageLimit = {
+let AimeosPageLimit = {
 	template: `
 		<div class="page-limit btn-group dropup" role="group">
 			<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"

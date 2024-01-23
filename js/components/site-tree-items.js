@@ -3,7 +3,7 @@
  * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
-const AimeosSiteTreeItems = {
+let AimeosSiteTreeItems = {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
 			<li v-for="(item, id) in items" v-bind:key="id" v-bind:class="{active: current == id}">

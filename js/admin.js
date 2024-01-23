@@ -125,6 +125,8 @@ Aimeos = {
 
 		app.component('catalog-tree', AimeosCatalogTree);
 		app.component('column-select', AimeosColumnSelect);
+		app.component('config-list', AimeosConfigList);
+		app.component('config-map', AimeosConfigMap);
 		app.component('config-table', AimeosConfigTable);
 		app.component('confirm-delete', AimeosConfirmDelete);
 		app.component('html-editor', AimeosHtmlEditor);

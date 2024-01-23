@@ -4,7 +4,7 @@
  */
 
 
-const AimeosColumnSelect =  {
+let AimeosColumnSelect =  {
 	template: '#column-select',
 	emits: ['close', 'submit'],
 	props: {
