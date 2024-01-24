@@ -10,7 +10,7 @@ Aimeos.Plugin = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['plugin'] = createApp({
+		Aimeos.apps['plugin'] = createApp({
 			el: document.querySelector('.item-plugin #basic'),
 			data() {
 				return {

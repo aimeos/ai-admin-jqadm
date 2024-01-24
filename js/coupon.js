@@ -10,7 +10,7 @@ Aimeos.Coupon = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['coupon'] = createApp({
+		Aimeos.apps['coupon'] = createApp({
 			el: document.querySelector('.item-coupon #basic'),
 			data: {
 				item: null,
@@ -79,14 +79,14 @@ Aimeos.Coupon.Code = {
 		const node = document.querySelector('.item-coupon .coupon-code-list');
 
 		if(node) {
-			Aimeos.components['coupon.code'] = createApp({
+			Aimeos.apps['coupon.code'] = createApp({
 				'el': node,
 				'mixins': [Aimeos.Coupon.Code.mixins]
 			});
 		}
 
 		Aimeos.lazy('.item-coupon .coupon-code-list', function() {
-			Aimeos.components['coupon.code'] && Aimeos.components['coupon.code'].reset();
+			Aimeos.apps['coupon.code'] && Aimeos.apps['coupon.code'].reset();
 		});
 	},
 

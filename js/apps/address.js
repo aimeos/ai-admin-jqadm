@@ -16,7 +16,7 @@ Aimeos.Address = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['address'] = createApp({
+		Aimeos.apps['address'] = createApp({
 			el: document.querySelector('#item-address-group'),
 			data() {
 				return {

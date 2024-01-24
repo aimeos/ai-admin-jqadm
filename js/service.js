@@ -10,7 +10,7 @@ Aimeos.Service = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['service'] = createApp({
+		Aimeos.apps['service'] = createApp({
 			el: document.querySelector('.item-service #basic'),
 			data() {
 				return {

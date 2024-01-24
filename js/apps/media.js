@@ -16,7 +16,7 @@ Aimeos.Media = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['media'] = createApp({
+		Aimeos.apps['media'] = createApp({
 			el: document.querySelector('#item-media-group'),
 			data() {
 				return {

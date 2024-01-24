@@ -18,14 +18,14 @@ Aimeos.ProductList = {
 		const node = document.querySelector('.item-product .productlist');
 
 		if(node) {
-			Aimeos.components['productlist'] = createApp({
+			Aimeos.apps['productlist'] = createApp({
 				'el': node,
 				'mixins': [Aimeos.ProductList.mixins]
 			});
 		}
 
 		Aimeos.lazy('.item-product .productlist', function() {
-			Aimeos.components['productlist'] && Aimeos.components['productlist'].reset();
+			Aimeos.apps['productlist'] && Aimeos.apps['productlist'].reset();
 		});
 	},
 

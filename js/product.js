@@ -176,7 +176,7 @@ Aimeos.Product = {
 		const { createApp } = Vue
 
 		for(const component of components) {
-			Aimeos.components[component.name] = createApp({
+			Aimeos.apps[component.name] = createApp({
 				'el': document.querySelector(component.el),
 				'data': component.data,
 				'mixins': component.mixins
@@ -204,10 +204,10 @@ Aimeos.Product.Basic = {
 					const config = this.datasets[ev.target.value] || [];
 
 					for(const name in config) {
-						if(Aimeos.components[name]) {
+						if(Aimeos.apps[name]) {
 							for(const key in config[name]) {
-								if(Aimeos.components[name]) {
-									Aimeos.components[name].add(config[name][key]);
+								if(Aimeos.apps[name]) {
+									Aimeos.apps[name].add(config[name][key]);
 								}
 							}
 						}
@@ -656,13 +656,13 @@ Aimeos.Product.Price = {
 			const item = $(ev.target).data('attr')
 			item['product.lists.refid'] = item['attribute.id']
 
-			if(Aimeos.components['characteristics/custom']) {
-				const items = Aimeos.components['characteristics/custom'].items || []
+			if(Aimeos.apps['characteristics/custom']) {
+				const items = Aimeos.apps['characteristics/custom'].items || []
 
 				for(const key in items) {
 					if(items[key]['attribute.type'] === 'price' && items[key]['attribute.code'] === 'custom') {
 						if(!ev.target.checked) {
-							Aimeos.components['characteristics/custom'].remove(key)
+							Aimeos.apps['characteristics/custom'].remove(key)
 							return
 						} else {
 							return
@@ -670,7 +670,7 @@ Aimeos.Product.Price = {
 					}
 				}
 
-				Aimeos.components['characteristics/custom'].add(item)
+				Aimeos.apps['characteristics/custom'].add(item)
 			}
 		});
 	}

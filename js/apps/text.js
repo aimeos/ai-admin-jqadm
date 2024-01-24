@@ -14,7 +14,7 @@ Aimeos.Text = {
 	init() {
 		const { createApp } = Vue
 
-		Aimeos.components['text'] = createApp({
+		Aimeos.apps['text'] = createApp({
 			el: document.querySelector('#item-text-group'),
 			data() {
 				return {

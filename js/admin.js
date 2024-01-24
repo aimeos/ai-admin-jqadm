@@ -841,7 +841,7 @@ $(function() {
 
 	$('.vue').each(function() {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
-		Aimeos.components[key] = Aimeos.vue().mount(this);
+		Aimeos.apps[key] = Aimeos.vue().mount(this);
 	});
 
 	Aimeos.Menu.init();
