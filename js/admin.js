@@ -123,34 +123,15 @@ Aimeos = {
 		const { createApp } = Vue
 		const app = createApp(config);
 
-		app.component('catalog-tree', AimeosCatalogTree);
-		app.component('column-select', AimeosColumnSelect);
-		app.component('config-list', AimeosConfigList);
-		app.component('config-map', AimeosConfigMap);
-		app.component('config-table', AimeosConfigTable);
-		app.component('confirm-delete', AimeosConfirmDelete);
-		app.component('html-editor', AimeosHtmlEditor);
-		app.component('input-map', AimeosInputMap);
-		app.component('nav-search', AimeosNavSearch);
-		app.component('orderattr-table', AimeosOrderattrTable);
-		app.component('page-limit', AimeosPageLimit);
-		app.component('page-offset', AimeosPageOffset);
-		app.component('property-table', AimeosPropertyTable);
-		app.component('select-component', AimeosSelectComponent);
-		app.component('site-tree-items', AimeosSiteTreeItems);
-		app.component('site-tree', AimeosSiteTree);
-		app.component('taxrates', AimeosTaxrates);
-		app.component('translations', AimeosTranslations);
-		app.component('dashboard-order-quick-counttotal', AimeosDashboardOrderQuickCounttotal);
-		app.component('dashboard-order-quick-countcompleted', AimeosDashboardOrderQuickCountcompleted);
-		app.component('dashboard-order-quick-countunfinished', AimeosDashboardOrderQuickCountunfinished);
-		app.component('dashboard-order-quick-countcustomer', AimeosDashboardOrderQuickCountcustomer);
-
 		app.component('flat-pickr', VueFlatpickr);
 		app.component('multiselect', VueformMultiselect);
-		app.component('l-map', window.Vue3Leaflet.LMap);
-		app.component('l-marker', window.Vue3Leaflet.LMarker);
-		app.component('l-tile-layer', window.Vue3Leaflet.LTileLayer);
+		// app.component('l-map', window.Vue3Leaflet.LMap);
+		// app.component('l-marker', window.Vue3Leaflet.LMarker);
+		// app.component('l-tile-layer', window.Vue3Leaflet.LTileLayer);
+
+		for(const key in Aimeos.components) {
+			app.component(key, Aimeos.components[key]);
+		}
 
 		return app;
 	},

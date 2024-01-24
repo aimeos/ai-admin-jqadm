@@ -4,8 +4,7 @@
  */
 
 
-let AimeosConfigList = {
-
+Aimeos.components['config-list'] = {
 	template: `
 		<table class="table">
 			<tbody>
@@ -75,8 +74,7 @@ let AimeosConfigList = {
 };
 
 
-let AimeosConfigMap = {
-
+Aimeos.components['config-map'] = {
 	template: `<table class="table">
 		<tbody>
 			<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
@@ -161,13 +159,7 @@ let AimeosConfigMap = {
 
 
 
-let AimeosConfigTable = {
-
-	components: {
-		AimeosConfigList,
-		AimeosConfigMap
-	},
-
+Aimeos.components['config-table'] = {
 	template: `<table class="item-config table">
 		<thead>
 			<tr>

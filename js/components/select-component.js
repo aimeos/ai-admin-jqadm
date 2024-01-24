@@ -4,7 +4,7 @@
  */
 
 
-let AimeosSelectComponent = {
+Aimeos.components['select-component'] = {
 	template: `
 		<select v-on:input="$emit('input', $event.target.value)" v-bind:value="value">
 			<option v-if="text" value="">{{ text }}</option>

@@ -4,7 +4,7 @@
  */
 
 
-let AimeosCatalogTree = {
+Aimeos.components['catalog-tree'] = {
 	template: `
 		<div class="tree-menu-filter">
 			<div class="filter input-group tree-toolbar">

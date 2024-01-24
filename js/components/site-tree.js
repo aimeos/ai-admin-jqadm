@@ -4,7 +4,7 @@
  */
 
 
-let AimeosSiteTree = {
+Aimeos.components['site-tree'] = {
 	template: `
 		<div class="tree-menu-filter">
 			<div class="filter">

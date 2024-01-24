@@ -4,7 +4,7 @@
  */
 
 
-let AimeosTranslations = {
+Aimeos.components['translations'] = {
 	template: `
 		<div>
 			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" />

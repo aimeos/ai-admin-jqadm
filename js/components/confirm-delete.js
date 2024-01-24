@@ -4,7 +4,7 @@
  */
 
 
-let AimeosConfirmDelete = {
+Aimeos.components['confirm-delete'] = {
 	template: '#confirm-delete',
 	emits: ['close', 'confirm'],
 	props: {

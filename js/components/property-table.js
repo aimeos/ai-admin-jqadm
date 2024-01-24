@@ -4,7 +4,7 @@
  */
 
 
-let AimeosPropertyTable = {
+Aimeos.components['property-table'] = {
 	template: `
 		<table class="item-property table table-default">
 			<thead>

@@ -4,7 +4,7 @@
  */
 
 
-let AimeosDashboardOrderQuickCounttotal = {
+Aimeos.components['dashboard-order-quick-counttotal'] = {
 	template: '#dashboard-order-quick-counttotal',
 
 	data() {
@@ -77,7 +77,7 @@ let AimeosDashboardOrderQuickCounttotal = {
 
 
 
-let AimeosDashboardOrderQuickCountcompleted = {
+Aimeos.components['dashboard-order-quick-countcompleted'] = {
 	template: '#dashboard-order-quick-countcompleted',
 
 	data() {
@@ -151,7 +151,7 @@ let AimeosDashboardOrderQuickCountcompleted = {
 
 
 
-let AimeosDashboardOrderQuickCountunfinished = {
+Aimeos.components['dashboard-order-quick-countunfinished'] = {
 	template: '#dashboard-order-quick-countunfinished',
 
 	data() {
@@ -225,7 +225,7 @@ let AimeosDashboardOrderQuickCountunfinished = {
 
 
 
-let AimeosDashboardOrderQuickCountcustomer = {
+Aimeos.components['dashboard-order-quick-countcustomer'] = {
 	template: '#dashboard-order-quick-countcustomer',
 
 	data() {

@@ -4,7 +4,7 @@
  */
 
 
-let AimeosTaxrates = {
+Aimeos.components['taxrates'] = {
 	template: `
 		<div>
 			<table>

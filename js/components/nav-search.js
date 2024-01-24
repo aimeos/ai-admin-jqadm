@@ -4,7 +4,7 @@
  */
 
 
-let AimeosNavSearch = {
+Aimeos.components['nav-search'] = {
 	template: '#nav-search',
 	props: {
 		'attributes': {type: Object, required: true},

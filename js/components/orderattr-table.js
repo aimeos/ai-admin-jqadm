@@ -4,10 +4,7 @@
  */
 
 
-let AimeosOrderattrTable = {
-	components: {
-		VueformMultiselect
-	},
+Aimeos.components['orderattr-table'] = {
 	template: `
 		<table class="item-orderattr table table-default">
 			<thead>

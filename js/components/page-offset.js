@@ -4,7 +4,7 @@
  */
 
 
-let AimeosPageOffset = {
+Aimeos.components['page-offset'] = {
 	template: `
 		<ul class="page-offset pagination">
 			<li v-bind:class="{disabled: first === null}" class="page-item">
