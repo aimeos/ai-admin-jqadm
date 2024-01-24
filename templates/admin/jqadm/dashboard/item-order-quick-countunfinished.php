@@ -11,19 +11,17 @@ $enc = $this->encoder();
 ?>
 <div class="quick order-quick-countunfinished col-sm-6 col-xl-3"
 	title="<?= $enc->attr( $this->translate( 'admin', 'Unfinished orders within the last seven days compared to the period before' ) ) ?>">
-	<script type="text/html" id="dashboard-order-quick-countunfinished">
-		<div class="box row" v-bind:class="state">
-			<div class="col quick-start">
-				<div class="quick-number" v-html="current">0</div>
-			</div>
-			<div class="col quick-end">
-				<div class="quick-percent" v-bind:class="mood" v-html="percent"></div>
-			</div>
-			<div class="col-xs-12">
-				<h2 class="quick-header"><?= $enc->html( $this->translate( 'admin', 'Unfinished orders' ) ) ?></h2>
-				<div class="quick-progress"><div class="quick-length" v-bind:style="'width: ' + width +'%'"></div></div>
-			</div>
+	<div class="box row" v-bind:class="state">
+		<div class="col quick-start">
+			<div class="quick-number" v-html="current">0</div>
 		</div>
-	</script>
+		<div class="col quick-end">
+			<div class="quick-percent" v-bind:class="mood" v-html="percent"></div>
+		</div>
+		<div class="col-xs-12">
+			<h2 class="quick-header"><?= $enc->html( $this->translate( 'admin', 'Unfinished orders' ) ) ?></h2>
+			<div class="quick-progress"><div class="quick-length" v-bind:style="'width: ' + width +'%'"></div></div>
+		</div>
+	</div>
 </div>
 <?= $this->get( 'quickCountunfinishedBody' ) ?>
