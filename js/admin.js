@@ -30,6 +30,7 @@ Aimeos = {
 	siteid: null,
 	options: null,
 	components: {},
+	apps: {},
 
 	ckeditor: {
 		htmlSupport: {
