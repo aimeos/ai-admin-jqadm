@@ -56,6 +56,9 @@
 			"text": "ckeditor.js",
 			"path": "js/"
 		},{
+			"text": "admin.js",
+			"path": "js/"
+		},{
 			"text": "catalog-tree.js",
 			"path": "js/components/"
 		},{
@@ -121,9 +124,6 @@
 		},{
 			"text": "text.js",
 			"path": "js/apps/"
-		},{
-			"text": "admin.js",
-			"path": "js/"
 		},{
 			"text": "catalog.js",
 			"path": "js/"
