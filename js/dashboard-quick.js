@@ -3,10 +3,10 @@
  * @copyright Aimeos (aimeos.org), 2021-2024
  */
 
+const { createApp } = Vue
 
-Aimeos.components['dashboard-order-quick-counttotal'] = {
-	template: '#dashboard-order-quick-counttotal',
 
+Aimeos.apps['dashboard-order-quick-counttotal'] = createApp({
 	data() {
 		return {
 			mood: '',
@@ -19,7 +19,7 @@ Aimeos.components['dashboard-order-quick-counttotal'] = {
 		}
 	},
 
-	mounted() {
+	beforeMount() {
 		this.enddate = moment().utc();
 		this.startdate = moment().utc().subtract(7, 'days');
 		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
@@ -73,13 +73,11 @@ Aimeos.components['dashboard-order-quick-counttotal'] = {
 			this.current = current;
 		}
 	}
-};
+}).mount('.order-quick-counttotal');
 
 
 
-Aimeos.components['dashboard-order-quick-countcompleted'] = {
-	template: '#dashboard-order-quick-countcompleted',
-
+Aimeos.apps['dashboard-order-quick-countcompleted'] = createApp({
 	data() {
 		return {
 			mood: '',
@@ -92,7 +90,7 @@ Aimeos.components['dashboard-order-quick-countcompleted'] = {
 		}
 	},
 
-	mounted() {
+	beforeMount() {
 		this.enddate = moment().utc();
 		this.startdate = moment().utc().subtract(7, 'days');
 		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
@@ -147,13 +145,11 @@ Aimeos.components['dashboard-order-quick-countcompleted'] = {
 			this.current = current;
 		}
 	}
-};
+}).mount('.order-quick-countcompleted');
 
 
 
-Aimeos.components['dashboard-order-quick-countunfinished'] = {
-	template: '#dashboard-order-quick-countunfinished',
-
+Aimeos.apps['dashboard-order-quick-countunfinished'] = createApp({
 	data() {
 		return {
 			mood: '',
@@ -166,7 +162,7 @@ Aimeos.components['dashboard-order-quick-countunfinished'] = {
 		}
 	},
 
-	mounted() {
+	beforeMount() {
 		this.enddate = moment().utc();
 		this.startdate = moment().utc().subtract(7, 'days');
 		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
@@ -221,13 +217,11 @@ Aimeos.components['dashboard-order-quick-countunfinished'] = {
 			this.current = current;
 		}
 	}
-};
+}).mount('.order-quick-countunfinished');
 
 
 
-Aimeos.components['dashboard-order-quick-countcustomer'] = {
-	template: '#dashboard-order-quick-countcustomer',
-
+Aimeos.apps['dashboard-order-quick-countcustomer'] = createApp({
 	data() {
 		return {
 			mood: '',
@@ -238,7 +232,7 @@ Aimeos.components['dashboard-order-quick-countcustomer'] = {
 		}
 	},
 
-	mounted() {
+	beforeMount() {
 		this.enddate = moment().utc();
 		this.startdate = moment().utc().subtract(7, 'days');
 
@@ -284,4 +278,4 @@ Aimeos.components['dashboard-order-quick-countcustomer'] = {
 			this.current = current;
 		}
 	}
-};
+}).mount('.order-quick-countcustomer');
