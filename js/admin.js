@@ -205,9 +205,9 @@ Aimeos = {
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
-				this.data = JSON.parse(this.$el.dataset?.data || '{}');
-				this.siteid = this.$el.dataset?.siteid || '';
-				this.domain = this.$el.dataset?.domain || '';
+				//this.data = JSON.parse(this.$el.dataset?.data || '{}');
+				//this.siteid = this.$el.dataset?.siteid || '';
+				//this.domain = this.$el.dataset?.domain || '';
 			},
 			methods: {
 				can(action) {
@@ -391,7 +391,7 @@ Aimeos.List = {
 
 
 	init() {
-		this.instance = this.app({
+		this.instance = Aimeos.app({
 			mixins: [this.mixins]
 		}).mount(".list-view");
 	},
