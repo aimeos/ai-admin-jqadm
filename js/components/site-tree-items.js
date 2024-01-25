@@ -124,7 +124,7 @@ Aimeos.components['site-tree-items'] = {
 					return response.json();
 				}).then(function(response) {
 					for(const entry of (response.data || [])) {
-						self.$set(self.items, entry['id'], entry['attributes']);
+						self.items[entry['id']] = entry['attributes'];
 					}
 
 					self.total = response.meta && response.meta.total || 0;
@@ -144,7 +144,7 @@ Aimeos.components['site-tree-items'] = {
 		},
 
 		loading(id, val) {
-			this.$set(this.items[id], 'isLoading', val);
+			this.items[id]['isLoading'] = val;
 		},
 
 		more() {
@@ -159,7 +159,7 @@ Aimeos.components['site-tree-items'] = {
 		},
 
 		toggle(id) {
-			this.$set(this.items[id], 'isOpen', !this.items[id].isOpen);
+			this.items[id]['isOpen'] = !this.items[id].isOpen;
 		}
 	},
 

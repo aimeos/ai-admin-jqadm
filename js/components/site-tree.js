@@ -8,7 +8,7 @@ Aimeos.components['site-tree'] = {
 	template: `
 		<div class="tree-menu-filter">
 			<div class="filter">
-				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="filter" />
+				<input class="form-control" v-bind:placeholder="placeholder" v-model="filter" />
 			</div>
 			<site-tree-items v-bind:url="url" v-bind:promise="promise"
 				v-bind:filter="filter" v-bind:current="current">
