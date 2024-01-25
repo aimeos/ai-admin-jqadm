@@ -178,7 +178,7 @@ Aimeos.ProductRef = {
 
 			edit(idx) {
 				if(this.siteid === this.items[idx][this.prefix + 'siteid']) {
-					this.$set(this.items[idx], 'edit', true);
+					this.items[idx]['edit'] = true;
 				}
 				return this;
 			},
@@ -190,9 +190,9 @@ Aimeos.ProductRef = {
 					const expr = {};
 					expr[op || '=='] = {};
 					expr[op || '=='][this.prefix + key] = value;
-					this.$set(this.filter, this.prefix + key, expr);
+					this.filter[this.prefix + key] = expr;
 				} else {
-					this.$delete(this.filter, this.prefix + key);
+					delete this.filter[this.prefix + key];
 				}
 				return this.fetch();
 			},
@@ -427,9 +427,9 @@ Aimeos.ProductRef = {
 
 
 			use(idx, ev) {
-				this.$set(this.items[idx], this.prefix + 'refid', ev[this.prefix + 'refid']);
-				this.$set(this.items[idx], this.prefix + 'id', ev[this.prefix + 'id']);
-				this.$set(this.items[idx], 'product.label', ev['product.label']);
+				this.items[idx][this.prefix + 'refid'] = ev[this.prefix + 'refid'];
+				this.items[idx][this.prefix + 'id'] = ev[this.prefix + 'id'];
+				this.items[idx]['product.label'] = ev['product.label'];
 			},
 
 
@@ -449,7 +449,7 @@ Aimeos.ProductRef = {
 		watch: {
 			checked() {
 				for(let item of this.items) {
-					this.$set(item, 'checked', this.checked);
+					item['checked'] = this.checked;
 				}
 			},
 

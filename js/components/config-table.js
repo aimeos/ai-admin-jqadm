@@ -202,12 +202,12 @@ Aimeos.components['config-table'] = {
 							:required="entry.required"
 							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || [])"
-							@click="$set(entry, 'show', true)">
+							@click="entry['show'] = true">
 						<AimeosListComponent v-if="entry.show"
 							:tabindex="tabindex"
 							:readonly="readonly"
 							:list="entry.val || []"
-							@update="$set(entry, 'val', $event); $set(entry, 'show', false)"
+							@update="entry['val'] = $event; entry['show'] = false)"
 						></AimeosMapComponent>
 					</div>
 
@@ -217,12 +217,12 @@ Aimeos.components['config-table'] = {
 							:required="entry.required"
 							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || {})"
-							@click="$set(entry, 'show', true)">
+							@click="entry['show'] = true">
 						<AimeosMapComponent v-if="entry.show"
 							:tabindex="tabindex"
 							:readonly="readonly"
 							:map="entry.val || {}"
-							@update="$set(entry, 'val', $event); $set(entry, 'show', false)"
+							@update="entry['val'] = $event; entry['show'] = false"
 						></AimeosMapComponent>
 					</div>
 
@@ -337,12 +337,12 @@ Aimeos.components['config-table'] = {
 				})
 
 				if(item) {
-					this.$set(item, 'type', entry.type)
-					this.$set(item, 'label', entry.label)
-					this.$set(item, 'required', entry.required || false )
+					item['type'] = entry.type
+					item['label'] = entry.label
+					item['required'] = entry.required || false
 				} else {
-					this.$set(entry, 'required', entry.required || false )
-					this.$set(entry, 'val', entry.default || '')
+					entry['required'] = entry.required || false
+					entry['val'] = entry.default || ''
 					this.items.push(entry)
 				}
 			})

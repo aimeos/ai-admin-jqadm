@@ -59,8 +59,8 @@ Aimeos.Order = {
 
 
 			useCustomer(ev) {
-				this.$set(this.item, 'customer.code', ev['customer.code']);
-				this.$set(this.item, 'customer.id', ev['customer.id']);
+				this.item['customer.code'] = ev['customer.code'];
+				this.item['customer.id'] = ev['customer.id'];
 			},
 		}
 	},

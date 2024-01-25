@@ -215,7 +215,7 @@ Aimeos = {
 				},
 
 				set(data) {
-					this.$set(this.data, data);
+					this.data = data;
 				},
 			},
 			provide() {
@@ -462,7 +462,7 @@ Aimeos.List = {
 			askDelete(id, ev) {
 				if(id) {
 					this.clear(false);
-					this.$set(this.items[id], 'checked', true);
+					this.items[id]['checked'] = true;
 				}
 
 				this.deleteUrl = ev.target.href;
@@ -494,7 +494,7 @@ Aimeos.List = {
 				this.all = val;
 				for(const key in this.items) {
 					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
-						this.$set(this.items[key], 'checked', val);
+						this.items[key]['checked'] = val;
 					}
 				};
 			},
@@ -507,13 +507,13 @@ Aimeos.List = {
 				if(this.filter['val'])
 				{
 					for(let idx of Object.keys(this.filter['val'])) {
-						this.$set(this.filter['val'], idx, '');
+						this.filter['val'][idx] = '';
 					}
 				}
 			},
 
 			setState(key) {
-				this.$set(this.states, key, !this.states[key]);
+				this.states[key] = !this.states[key];
 			},
 
 			state(key) {
@@ -521,7 +521,7 @@ Aimeos.List = {
 			},
 
 			toggle(id) {
-				this.$set(this.items[id], 'checked', !this.items[id].checked);
+				this.items[id]['checked'] = !this.items[id].checked;
 			},
 
 			toggleAll() {

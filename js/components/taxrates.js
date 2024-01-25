@@ -38,15 +38,15 @@ Aimeos.components['taxrates'] = {
 
 	methods: {
 		add(type, val) {
-			this.$set(this.taxrates, type, val);
+			this.taxrates[type] = val;
 		},
 
 		remove(type) {
-			this.$delete(this.taxrates, type);
+			delete this.taxrates[type];
 		},
 
 		update(type, val) {
-			this.$set(this.taxrates, type, val);
+			this.taxrates[type] = val;
 		}
 	}
 };

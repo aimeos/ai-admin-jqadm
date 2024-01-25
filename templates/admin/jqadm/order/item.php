@@ -524,7 +524,7 @@ $paymentStatusList = [
 									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
 
 									<div v-for="(addr, idx) in (item?.address?.<?= $enc->attr( $type ) ?> || [])" :key="idx">
-										<div class="address-short" @click="$set(addr, '_edit', !addr['_edit'])">
+										<div class="address-short" @click="addr['_edit'] = !addr['_edit']">
 											<span class="address-text">
 												{{ addr['order.address.company'] }}<br>
 												{{ addr['order.address.firstname'] }} {{ addr['order.address.lastname'] }}<br>

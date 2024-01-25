@@ -32,7 +32,7 @@ Aimeos.Media = {
 				this.domain = this.$el.dataset.domain;
 
 				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
+					this.items[0]['_show'] = true;
 				}
 			},
 			mixins: [this.mixins]
@@ -111,10 +111,10 @@ Aimeos.Media = {
 				let cnt = sum = 0;
 
 				for(let i=0; i<files.length; i++) {
-					self.$set(self.items[idx], 'media.mimetype', files[i].type);
+					self.items[idx]['media.mimetype'] = files[i].type;
 
 					if(files[i].type.startsWith('image/')) {
-						self.$set(self.items[idx], 'media.preview', URL.createObjectURL(files[i]));
+						self.items[idx]['media.preview'] = URL.createObjectURL(files[i]);
 					} else if(files[i].type.startsWith('video/')) {
 						const video = document.createElement('video');
 
@@ -131,7 +131,7 @@ Aimeos.Media = {
 							canvas.height = video.videoHeight;
 
 							context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-							self.$set(self.items[idx], 'media.preview', canvas.toDataURL());
+							self.items[idx]['media.preview'] = canvas.toDataURL();
 
 							canvas.toBlob(function(blob) {
 								const container = new DataTransfer();
@@ -174,7 +174,7 @@ Aimeos.Media = {
 					}
 				}
 
-				this.$set(this.items[idx], 'media.label', files[0].name);
+				this.items[idx]['media.label'] = files[0].name;
 			},
 
 
@@ -200,7 +200,7 @@ Aimeos.Media = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			}
 		}

@@ -30,7 +30,7 @@ Aimeos.Price = {
 				this.domain = this.$el.dataset.domain;
 
 				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
+					this.items[0]['_show'] = true;
 				}
 			},
 			mixins: [this.mixins]
@@ -102,7 +102,7 @@ Aimeos.Price = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			}
 		}

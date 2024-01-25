@@ -91,7 +91,7 @@ Aimeos.components['translations'] = {
 		},
 
 		update(idx, key, val) {
-			this.$set(this.list[idx], key, val);
+			this.list[idx][key] = val;
 		}
 	},
 

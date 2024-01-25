@@ -180,7 +180,7 @@ Aimeos.Coupon.Code = {
 
 			edit(idx) {
 				if(this.can('change', idx)) {
-					this.$set(this.items[idx], 'edit', true);
+					this.items[idx]['edit'] = true;
 				}
 			},
 
@@ -191,9 +191,9 @@ Aimeos.Coupon.Code = {
 					const expr = {};
 					expr[op || '=='] = {};
 					expr[op || '==']['coupon.code.' + key] = value;
-					this.$set(this.filter, 'coupon.code.' + key, expr);
+					this.filter['coupon.code.' + key] = expr;
 				} else {
-					this.$delete(this.filter, 'coupon.code.' + key);
+					delete this.filter['coupon.code.' + key];
 				}
 
 				return this;
@@ -251,7 +251,7 @@ Aimeos.Coupon.Code = {
 				  }
 				`).then((result) => {
 					for(const id of (result?.deleteCouponCodes || [])) {
-						this.$delete(this.items, map[id]);
+						delete this.items[map[id]];
 					}
 					this.loading = false;
 				});
@@ -259,7 +259,7 @@ Aimeos.Coupon.Code = {
 
 
 			reset() {
-				Object.assign(this.$data, {filter: {'base': {'==': {'coupon.code.parentid': this.parentid}}}});
+				this.filter = {'base': {'==': {'coupon.code.parentid': this.parentid}}};
 				return this.fetch();
 			},
 
@@ -299,7 +299,7 @@ Aimeos.Coupon.Code = {
 		watch: {
 			checked() {
 				for(let item of this.items) {
-					this.$set(item, 'checked', this.checked);
+					item['checked'] = this.checked;
 				}
 			},
 

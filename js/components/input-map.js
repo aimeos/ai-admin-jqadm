@@ -82,7 +82,7 @@ Aimeos.components['input-map'] = {
 		},
 
 		update(idx, key, val) {
-			this.$set(this.list[idx], key, val);
+			this.list[idx][key] = val;
 			this.$emit('input', this.toObject(this.list));
 		}
 	},

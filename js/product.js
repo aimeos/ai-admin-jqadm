@@ -246,15 +246,15 @@ Aimeos.Product.Attribute = {
 				add(data) {
 
 					const idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key of this.keys) {
-						this.$set(this.items[idx], key, data && data[key] || '');
+						this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
-					this.$set(this.items[idx], this.prefix + 'type', this.listtype);
-					this.$set(this.items[idx], 'config', []);
+					this.items[idx][this.prefix + 'siteid'] = this.siteid;
+					this.items[idx][this.prefix + 'type'] = this.listtype;
+					this.items[idx]['config'] = [];
 				},
 
 
@@ -337,20 +337,20 @@ Aimeos.Product.Attribute = {
 
 				toggle(what, idx) {
 					if(this.items[idx]) {
-						this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+						this.items[idx][what] = (!this.items[idx][what] ? true : false);
 					}
 				},
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], this.prefix + 'refid', ev['attribute.id']);
-					this.$set(this.items[idx], 'attribute.label', ev['attribute.label']);
-					this.$set(this.items[idx], 'attribute.id', ev['attribute.id']);
+					this.items[idx][this.prefix + 'refid'] = ev['attribute.id'];
+					this.items[idx]['attribute.label'] = ev['attribute.label'];
+					this.items[idx]['attribute.id'] =ev['attribute.id'];
 				},
 
 
 				useType(idx, ev) {
-					this.$set(this.items[idx], 'attribute.type', ev['attribute.type']);
+					this.items[idx]['attribute.type'] = ev['attribute.type'];
 				}
 			}
 		}
@@ -382,14 +382,14 @@ Aimeos.Product.Catalog = {
 				add(data) {
 
 					let idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'product.lists.type', this.listtype);
+					this.items[idx]['product.lists.siteid'] = this.siteid;
+					this.items[idx]['product.lists.type'] = this.listtype;
 				},
 
 
@@ -444,9 +444,9 @@ Aimeos.Product.Catalog = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], 'product.lists.refid', ev['catalog.id']);
-					this.$set(this.items[idx], 'catalog.label', ev['catalog.label'] + ' (' + ev['catalog.code'] + ')');
-					this.$set(this.items[idx], 'catalog.id', ev['catalog.id']);
+					this.items[idx]['product.lists.refid'] = ev['catalog.id'];
+					this.items[idx]['catalog.label'] = ev['catalog.label'] + ' (' + ev['catalog.code'] + ')';
+					this.items[idx]['catalog.id'] = ev['catalog.id'];
 				},
 			}
 		};
@@ -546,9 +546,9 @@ Aimeos.Product.Order = {
 						let expr = {};
 						expr[op || '=='] = {};
 						expr[op || '=='][key] = ev.target.value;
-						this.$set(this.filter, key, expr);
+						this.filter[key] = expr;
 					} else {
-						this.$delete(this.filter, key);
+						delete this.filter[key];
 					}
 				},
 
@@ -688,13 +688,13 @@ Aimeos.Product.Product = {
 				add(data) {
 
 					let idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
+					this.items[idx]['product.lists.siteid'] = this.siteid;
 				},
 
 
@@ -749,9 +749,9 @@ Aimeos.Product.Product = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], 'product.lists.refid', ev['product.id']);
-					this.$set(this.items[idx], 'product.label', ev['product.label'] + ' (' + ev['product.code'] + ')');
-					this.$set(this.items[idx], 'product.id', ev['product.id']);
+					this.items[idx]['product.lists.refid'] = ev['product.id'];
+					this.items[idx]['product.label'] = ev['product.label'] + ' (' + ev['product.code'] + ')';
+					this.items[idx]['product.id'] = ev['product.id'];
 				},
 			}
 		};
@@ -783,17 +783,17 @@ Aimeos.Product.Selection = {
 				add(data) {
 
 					const idx = this.items.length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key of this.keys) {
-						this.$set(this.items[idx], key, data && data[key] || '');
+						this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'product.siteid', this.siteid);
-					this.$set(this.items[idx], 'product.status', 1);
-					this.$set(this.items[idx], 'product.id', '');
-					this.$set(this.items[idx], 'attr', []);
+					this.items[idx]['product.lists.siteid'] = this.siteid;
+					this.items[idx]['product.siteid'] = this.siteid;
+					this.items[idx]['product.status'] = 1;
+					this.items[idx]['product.id'] = '';
+					this.items[idx]['attr'] = [];
 				},
 
 
@@ -810,42 +810,42 @@ Aimeos.Product.Selection = {
 				copy(idx) {
 
 					const len = this.items.length;
-					this.$set(this.items, len, {});
+					this.items[len] = {};
 
 					for(let key in this.items[idx]) {
-						this.$set(this.items[len], key, this.items[idx][key]);
+						this.items[len][key] = this.items[idx][key];
 					}
 
-					this.$set(this.items[len], 'attr', []);
-					this.$set(this.items[len], 'product.id', '');
-					this.$set(this.items[len], 'product.siteid', this.siteid);
-					this.$set(this.items[len], 'product.code', this.items[idx]['product.code'] + '_copy');
-					this.$set(this.items[len], 'product.label', this.items[idx]['product.label'] + '_copy');
-					this.$set(this.items[len], 'product.status', this.items[idx]['product.status']);
-					this.$set(this.items[len], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[len], 'product.lists.id', '');
+					this.items[len]['attr'] = [];
+					this.items[len]['product.id'] = '';
+					this.items[len]['product.siteid'] = this.siteid;
+					this.items[len]['product.code'] = this.items[idx]['product.code'] + '_copy';
+					this.items[len]['product.label'] = this.items[idx]['product.label'] + '_copy';
+					this.items[len]['product.status'] = this.items[idx]['product.status'];
+					this.items[len]['product.lists.siteid'] = this.siteid;
+					this.items[len]['product.lists.id'] = '';
 
 					for(let attridx in this.items[idx]['attr']) {
-						this.$set(this.items[len]['attr'], attridx, {});
+						this.items[len]['attr'][attridx] = {};
 
 						for(let key in this.items[idx]['attr'][attridx]) {
-							this.$set(this.items[len]['attr'][attridx], key, this.items[idx]['attr'][attridx][key]);
+							this.items[len]['attr'][attridx][key] = this.items[idx]['attr'][attridx][key];
 						}
 
-						this.$set(this.items[len]['attr'][attridx], 'product.lists.siteid', this.siteid);
-						this.$set(this.items[len]['attr'][attridx], 'product.lists.id', '');
+						this.items[len]['attr'][attridx]['product.lists.siteid'] = this.siteid;
+						this.items[len]['attr'][attridx]['product.lists.id'] = '';
 					}
 				},
 
 
 				create(idx, option) {
-					this.$set(this.items[idx], 'attr', []);
-					this.$set(this.items[idx], 'product.id', '')
-					this.$set(this.items[idx], 'product.status', 1)
-					this.$set(this.items[idx], 'product.siteid', this.siteid)
-					this.$set(this.items[idx], 'product.code', option['product.code'])
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'product.lists.id', '');
+					this.items[idx]['attr'] = []
+					this.items[idx]['product.id'] = ''
+					this.items[idx]['product.status'] = 1
+					this.items[idx]['product.siteid'] = this.siteid
+					this.items[idx]['product.code'] = option['product.code']
+					this.items[idx]['product.lists.siteid'] = this.siteid
+					this.items[idx]['product.lists.id'] = ''
 					return true
 				},
 
@@ -934,7 +934,7 @@ Aimeos.Product.Selection = {
 
 				use(idx, ev) {
 					if(ev) {
-						this.$set(this.items, idx, ev);
+						this.items[idx] = ev;
 					}
 				},
 
@@ -942,20 +942,20 @@ Aimeos.Product.Selection = {
 				addAttribute(idx) {
 
 					if(!this.items[idx]['attr']) {
-						this.$set(this.items[idx], 'attr', []);
+						this.items[idx]['attr'] = [];
 					}
 
 					const len = this.items[idx]['attr'].length;
 
 					if(!this.items[idx]['attr'][len]) {
-						this.$set(this.items[idx]['attr'], len, {});
+						this.items[idx]['attr'][len] = {};
 					}
 
 					for(let key of ['product.lists.id', 'product.lists.refid', 'attribute.label']) {
-						this.$set(this.items[idx]['attr'][len], key, '');
+						this.items[idx]['attr'][len][key] = '';
 					}
 
-					this.$set(this.items[idx]['attr'][len], 'product.lists.siteid', this.siteid);
+					this.items[idx]['attr'][len]['product.lists.siteid'] = this.siteid;
 				},
 
 
@@ -1005,9 +1005,9 @@ Aimeos.Product.Selection = {
 
 
 				useAttribute(idx, attridx, ev) {
-					this.$set(this.items[idx]['attr'][attridx], 'product.lists.refid', ev['attribute.id']);
-					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev['attribute.label'] + ' (' + ev['attribute.label'] + ')');
-					this.$set(this.items[idx]['attr'][attridx], 'attribute.id', ev['attribute.id']);
+					this.items[idx]['attr'][attridx]['product.lists.refid'] = ev['attribute.id'];
+					this.items[idx]['attr'][attridx]['attribute.label'] = ev['attribute.label'] + ' (' + ev['attribute.label'] + ')';
+					this.items[idx]['attr'][attridx]['attribute.id'] = ev['attribute.id'];
 				}
 			}
 		}
@@ -1027,13 +1027,13 @@ Aimeos.Product.Stock = {
 				add(data) {
 
 					var idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'stock.siteid', this.siteid);
+					this.items[idx]['stock.siteid'] = this.siteid;
 				},
 
 
@@ -1078,7 +1078,7 @@ Aimeos.Product.Stock = {
 
 
 				toggle(idx) {
-					this.$set(this.items[idx], 'checked', !this.checked(idx));
+					this.items[idx]['checked'] = !this.checked(idx);
 				}
 			}
 		}
@@ -1098,13 +1098,13 @@ Aimeos.Product.Subscription = {
 				add(data) {
 
 					const idx = this.items.length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
+					this.items[idx]['product.lists.siteid'] = this.siteid;
 				},
 
 
@@ -1147,14 +1147,14 @@ Aimeos.Product.Supplier = {
 				add(data) {
 
 					let idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
+					this.items[idx] = {};
 
 					for(let key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'product.lists.type', this.listtype);
+					this.items[idx]['product.lists.siteid'] = this.siteid;
+					this.items[idx]['product.lists.type'] = this.listtype;
 				},
 
 
@@ -1209,9 +1209,9 @@ Aimeos.Product.Supplier = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], 'product.lists.refid', ev['supplier.id']);
-					this.$set(this.items[idx], 'supplier.label', ev['supplier.label'] + ' (' + ev['supplier.label'] + ')');
-					this.$set(this.items[idx], 'supplier.id', ev['supplier.id']);
+					this.items[idx]['product.lists.refid'] = ev['supplier.id'];
+					this.items[idx]['supplier.label'] = ev['supplier.label'] + ' (' + ev['supplier.label'] + ')';
+					this.items[idx]['supplier.id'] = ev['supplier.id'];
 				},
 			}
 		};

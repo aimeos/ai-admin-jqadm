@@ -33,7 +33,7 @@ Aimeos.Address = {
 				this.domain = this.$el.dataset.domain;
 
 				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
+					this.items[0]['_show'] = true;
 				}
 
 				const self = this;
@@ -87,7 +87,7 @@ Aimeos.Address = {
 
 			duplicate(idx) {
 				if(this.items[idx]) {
-					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
+					this.items[this.items.length] = JSON.parse(JSON.stringify(this.items[idx]));
 				}
 			},
 
@@ -120,7 +120,7 @@ Aimeos.Address = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			},
 
@@ -136,8 +136,8 @@ Aimeos.Address = {
 				map.getZoom() > 2 ? null : map.setZoom(8);
 				map.panTo(ev.latlng);
 
-				this.$set(this.items[idx], this.domain + '.address.latitude', ev.latlng.lat || null);
-				this.$set(this.items[idx], this.domain + '.address.longitude', ev.latlng.lng || null);
+				this.items[idx][this.domain + '.address.latitude'] = ev.latlng.lat || null;
+				this.items[idx][this.domain + '.address.longitude'] = ev.latlng.lng || null;
 			},
 
 

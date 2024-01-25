@@ -31,7 +31,7 @@ Aimeos.Text = {
 				this.domain = this.$el.dataset.domain;
 
 				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
+					this.items[0]['_show'] = true;
 				}
 			},
 			mixins: [this.mixins]
@@ -102,7 +102,7 @@ Aimeos.Text = {
 					'max_tokens': 4000 - Math.round(this.items[idx]['text.content'].length / 3 + 1)
 				};
 
-				this.$set(this.items[idx], 'loading', true);
+				this.items[idx]['loading'] = true;
 
 				fetch('https://api.openai.com/v1/completions', {
 					body: JSON.stringify(params),
@@ -116,7 +116,7 @@ Aimeos.Text = {
 				}).then(data => {
 					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['text'] || '').trim().replace(/\n/g, "<br>");
 				}).finally(() => {
-					self.$set(this.items[idx], 'loading', false);
+					this.items[idx]['loading'] = false;
 				}).catch((error) => {
 					alert(error);
 				});
@@ -152,7 +152,7 @@ Aimeos.Text = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			},
 
