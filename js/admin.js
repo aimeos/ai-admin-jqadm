@@ -391,9 +391,13 @@ Aimeos.List = {
 
 
 	init() {
-		this.instance = Aimeos.app({
-			mixins: [this.mixins]
-		}).mount(".list-view");
+		const node = document.querySelector(".list-view");
+
+		if(node) {
+			this.instance = Aimeos.app({
+				mixins: [this.mixins]
+			}).mount(node);
+		}
 	},
 
 
