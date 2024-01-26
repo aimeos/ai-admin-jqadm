@@ -120,9 +120,9 @@ Aimeos = {
 	},
 
 
-	app(config = {}) {
+	app(config = {}, props = {}) {
 		const { createApp } = Vue
-		const app = createApp(config);
+		const app = createApp(config, props);
 
 		app.component('flat-pickr', VueFlatpickr);
 		app.component('multiselect', VueformMultiselect);
@@ -194,36 +194,37 @@ Aimeos = {
 	},
 
 
-	vue() {
+	vue(props = {}) {
 		return this.app({
+			props: {
+				data: {type: String, default: '{}'},
+				siteid: {type: String, default: ''},
+				domain: {type: String, default: ''},
+			},
+			inject: ['Aimeos'],
 			data() {
 				return {
-					data: {},
-					domain: '',
-					siteid: null,
+					dataset: {}
+				}
+			},
+			computed: {
+				prefix() {
+					return this.domain.replace(/\//g, '.') + '.'
 				}
 			},
 			beforeMount() {
-				this.Aimeos = Aimeos;
-				//this.data = JSON.parse(this.$el.dataset?.data || '{}');
-				//this.siteid = this.$el.dataset?.siteid || '';
-				//this.domain = this.$el.dataset?.domain || '';
+				this.dataset = JSON.parse(this.data)
 			},
 			methods: {
 				can(action) {
-					return Aimeos.can(action, this.data[this.domain.replace(/\//g, '.') + '.siteid'] || '', this.siteid)
+					return Aimeos.can(action, this.dataset[this.prefix + 'siteid'] || '', this.siteid)
 				},
 
 				set(data) {
-					this.data = data;
+					this.dataset = data
 				},
-			},
-			provide() {
-				return {
-					Aimeos: Aimeos
-				};
 			}
-		});
+		}, props);
 	}
 };
 
@@ -825,9 +826,9 @@ $(function() {
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 
-	$('.vue').each(function() {
+	$('.vue').each(function(node) {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
-		Aimeos.apps[key] = Aimeos.vue().mount(this);
+		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
 	});
 
 	Aimeos.Menu.init();

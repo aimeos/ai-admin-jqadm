@@ -173,7 +173,7 @@ $params = $this->get( 'pageParams', [] );
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
 								v-bind:readonly="false"
-								v-bind:items="data['config']" v-on:update:items="data['config'] = $event"
+								v-bind:items="dataset['config']" v-on:update:items="dataset['config'] = $event"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
