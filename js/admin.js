@@ -124,7 +124,7 @@ Aimeos = {
 		const { createApp } = Vue
 		const app = createApp(config, props);
 
-		app.component('flat-pickr', VueFlatpickr);
+		app.component('flat-pickr', VueFlatpickr.default);
 		app.component('multiselect', VueformMultiselect);
 		// app.component('l-map', window.Vue3Leaflet.LMap);
 		// app.component('l-marker', window.Vue3Leaflet.LMarker);
@@ -397,45 +397,41 @@ Aimeos.List = {
 		if(node) {
 			this.instance = Aimeos.app({
 				mixins: [this.mixins]
-			}).mount(node);
+			}, {...node.dataset || {}}).mount(node);
 		}
 	},
 
 
 	mixins : {
+		props: {
+			items: {type: String, default: '{}'},
+			filter: {type: String, default: '{}'},
+			domain: {type: String, default: ''},
+			siteid: {type: String, default: ''},
+		},
 		data() {
 			return {
 				all: false,
 				batch: false,
 				columns: false,
 				dialog: false,
-				items: {},
-				filter: {},
-				domain: null,
+				entries: {},
+				filters: {},
 				search: false,
-				siteid: null,
 				states: {}
 			}
 		},
 		beforeMount() {
 			this.Aimeos = Aimeos;
-
-			if(this.$el.dataset) {
-				if(this.$el.dataset.items) {
-					this.items = JSON.parse(this.$el.dataset.items);
-				}
-				if(this.$el.dataset.filter) {
-					this.filter = JSON.parse(this.$el.dataset.filter);
-				}
-				if(this.$el.dataset.domain) {
-					this.domain = this.$el.dataset.domain.replace(/\//g, '.');
-				}
-				if(this.$el.dataset.siteid) {
-					this.siteid = this.$el.dataset.siteid;
-				}
-			}
+			this.entries = JSON.parse(this.items);
+			this.filters = JSON.parse(this.filter);
+			this.filters['val'] = this.filters['val'] || {}
 		},
 		computed: {
+			prefix() {
+				return this.domain.replace(/\//g, '.') + '.'
+			},
+
 			selected() {
 				let count = 0;
 
@@ -452,7 +448,7 @@ Aimeos.List = {
 				let list = {};
 				for(const key in this.items) {
 					if(this.items[key].checked) {
-						list[key] = this.items[key][this.domain + '.label'] || this.items[key][this.domain + '.code'] || this.items[key][this.domain + '.id'];
+						list[key] = this.items[key][this.prefix + 'label'] || this.items[key][this.prefix + 'code'] || this.items[key][this.prefix + 'id'];
 					}
 				}
 
@@ -494,23 +490,18 @@ Aimeos.List = {
 			clear(val) {
 				this.all = val;
 				for(const key in this.items) {
-					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
+					if([this.siteid, ''].includes(this.items[key][this.prefix + 'siteid'])) {
 						this.items[key]['checked'] = val;
 					}
 				};
 			},
 
 			readonly(id) {
-				return !(this.items[id] && this.items[id][this.domain + '.siteid'] == this.siteid);
+				return !(this.items[id] && this.items[id][this.prefix + 'siteid'] == this.siteid);
 			},
 
 			reset() {
-				if(this.filter['val'])
-				{
-					for(let idx of Object.keys(this.filter['val'])) {
-						this.filter['val'][idx] = '';
-					}
-				}
+				this.filters['val'] = {}
 			},
 
 			setState(key) {
@@ -529,8 +520,12 @@ Aimeos.List = {
 				this.clear(this.all = !this.all);
 			},
 
+			update(idx, val) {
+				this.filters['val'][idx] = val;
+			},
+
 			value(idx) {
-				return this.filter['val'] && this.filter['val'][idx] || null;
+				return this.filters['val'] && this.filters['val'][idx] ? this.filters['val'][idx] : null;
 			}
 		}
 	},
