@@ -5,6 +5,9 @@
 
 
 Aimeos.components['orderattr-table'] = {
+	components: {
+		VueformMultiselect
+	},
 	template: `
 		<table class="item-orderattr table table-default">
 			<thead>
@@ -89,7 +92,7 @@ Aimeos.components['orderattr-table'] = {
 		'name': {type: String, required: true},
 		'siteid': {type: String, required: true},
 		'suggest': {type: Array, default: []},
-		'tabindex': {type: String, default: '1'},
+		'tabindex': {type: Number, default: 1},
 	},
 
 	methods: {

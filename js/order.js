@@ -7,23 +7,26 @@
 Aimeos.Order = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('.item-order .order-item')
 
-		Aimeos.apps['order'] = createApp({
-			el: document.querySelector('.item-order .order-item'),
-			data() {
-				return {
-					item: {},
-					siteid: null,
-				}
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.item = JSON.parse(this.$el.dataset.item || '{}');
-				this.siteid = this.$el.dataset.siteid;
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['order'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						item: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data || '{}');
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 

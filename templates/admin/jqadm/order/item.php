@@ -156,7 +156,7 @@ $paymentStatusList = [
 			<div class="col-xl-9 item-content tab-content">
 
 				<div id="order" class="order-item tab-pane fade show active" role="tabpanel" aria-labelledby="order"
-					data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 					<div class="row item-base">
@@ -200,7 +200,7 @@ $paymentStatusList = [
 										<input is="vue:flat-pickr" class="form-control item-datepayment select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											:value="item['order.datepayment']"
+											v-model="item['order.datepayment']"
 											:disabled="!can('change')"
 											:config="Aimeos.flatpickr.datetime">
 									</div>
@@ -225,7 +225,7 @@ $paymentStatusList = [
 										<input is="vue:flat-pickr" class="form-control item-datedelivery select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											:value="item['order.datedelivery']"
+											v-model="item['order.datedelivery']"
 											:disabled="!can('change')"
 											:config="Aimeos.flatpickr.datetime">
 									</div>
