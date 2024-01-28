@@ -203,12 +203,12 @@ Aimeos.components['config-table'] = {
 							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || [])"
 							@click="entry['show'] = true">
-						<AimeosListComponent v-if="entry.show"
+						<config-list v-if="entry.show"
 							:tabindex="tabindex"
 							:readonly="readonly"
 							:list="entry.val || []"
-							@update="entry['val'] = $event; entry['show'] = false)"
-						></AimeosMapComponent>
+							@update="entry['val'] = $event; entry['show'] = false"
+						></config-list>
 					</div>
 
 					<div v-if="entry.type === 'map'">
@@ -218,12 +218,12 @@ Aimeos.components['config-table'] = {
 							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || {})"
 							@click="entry['show'] = true">
-						<AimeosMapComponent v-if="entry.show"
+						<config-map v-if="entry.show"
 							:tabindex="tabindex"
 							:readonly="readonly"
 							:map="entry.val || {}"
 							@update="entry['val'] = $event; entry['show'] = false"
-						></AimeosMapComponent>
+						></config-map>
 					</div>
 
 					<select v-if="entry.type === 'boolean' || entry.type === 'bool'" class="form-select config-type config-type-boolean"
