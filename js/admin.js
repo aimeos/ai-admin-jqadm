@@ -126,6 +126,7 @@ Aimeos = {
 
 		app.component('flat-pickr', VueFlatpickr.default);
 		app.component('multiselect', VueformMultiselect);
+		app.component('draggable', vuedraggable);
 		// app.component('l-map', window.Vue3Leaflet.LMap);
 		// app.component('l-marker', window.Vue3Leaflet.LMarker);
 		// app.component('l-tile-layer', window.Vue3Leaflet.LTileLayer);
