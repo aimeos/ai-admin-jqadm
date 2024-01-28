@@ -47,6 +47,9 @@
 			"text": "tree.jquery.js",
 			"path": "js/"
 		},{
+			"text": "flatpickr.js",
+			"path": "js/"
+		},{
 			"text": "multiselect.js",
 			"path": "js/"
 		},{
