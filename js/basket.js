@@ -7,23 +7,26 @@
 Aimeos.Basket = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('.item-basket .basket-item')
 
-		Aimeos.apps['basket'] = createApp({
-			el: document.querySelector('.item-basket .basket-item'),
-			data() {
-				return {
-					item: {},
-					siteid: null,
-				}
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.item = JSON.parse(this.$el.dataset.item || '{}');
-				this.siteid = this.$el.dataset.siteid;
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['basket'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						item: {}
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 

@@ -89,7 +89,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 			<div class="col-xl-9 item-content tab-content">
 
 				<div id="basket" class="basket-item tab-pane fade show active" role="tabpanel" aria-labelledby="basket"
-					data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 					<div class="row item-base">
