@@ -202,7 +202,6 @@ Aimeos = {
 				siteid: {type: String, default: ''},
 				domain: {type: String, default: ''},
 			},
-			inject: ['Aimeos'],
 			data() {
 				return {
 					dataset: {}
@@ -214,6 +213,7 @@ Aimeos = {
 				}
 			},
 			beforeMount() {
+				this.Aimeos = Aimeos
 				this.dataset = JSON.parse(this.data)
 			},
 			methods: {
@@ -822,7 +822,7 @@ $(function() {
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 
-	$('.vue').each(function(node) {
+	$('.vue').each(function(idx, node) {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
 		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
 	});
