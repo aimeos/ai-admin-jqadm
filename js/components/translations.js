@@ -99,7 +99,7 @@ Aimeos.components['translations'] = {
 		list: {
 			deep: true,
 			handler: function() {
-				this.value = this.toObject(this.list)
+				this.$emit('value', this.toObject(this.list));
 			}
 		}
 	}
