@@ -15,6 +15,9 @@
 			"text": "bootstrap.css",
 			"path": "themes/default/"
 		},{
+			"text": "flatpickr.css",
+			"path": "themes/default/"
+		},{
 			"text": "multiselect.css",
 			"path": "themes/default/"
 		},{
