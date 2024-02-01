@@ -87,7 +87,7 @@ $enc = $this->encoder();
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
 				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
 				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
-				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/service.siteid' ) ) ?>">
@@ -179,7 +179,7 @@ $enc = $this->encoder();
 											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
-											:options="providers[item['service.type']] || []"
+											:options="JSON.parse(providers)[item['service.type']] || []"
 											:can-clear="false"
 											:allow-absent="true"
 											:required="true"
@@ -188,7 +188,7 @@ $enc = $this->encoder();
 										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
-												<li v-for="(name, idx) in decorators" :key="idx" class="dropdown-item">
+												<li v-for="(name, idx) in JSON.parse(decorators)" :key="idx" class="dropdown-item">
 													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
 												</li>
 											</ul>

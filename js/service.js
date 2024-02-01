@@ -8,28 +8,29 @@
 Aimeos.Service = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('.item-service #basic')
 
-		Aimeos.apps['service'] = createApp({
-			el: document.querySelector('.item-service #basic'),
-			data() {
-				return {
-					item: null,
-					cache: {},
-					decorators: [],
-					providers: [],
-					siteid: null,
-				}
-			},
-			beforeMount() {
-				this.Aimeos = Aimeos;
-				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
-				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
-				this.item = JSON.parse(this.$el.dataset.item || '{}');
-				this.siteid = this.$el.dataset.siteid;
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['service'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+					providers: {type: String, default: '[]'},
+					decorators: {type: String, default: '[]'},
+				},
+				data() {
+					return {
+						item: null,
+						cache: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 
