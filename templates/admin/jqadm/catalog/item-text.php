@@ -27,7 +27,7 @@ $enc = $this->encoder();
 		data-openaiprompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
 		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai' ) ) ?>"
 		data-translate="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
-		data-items="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
+		data-data="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="catalog" >
 
