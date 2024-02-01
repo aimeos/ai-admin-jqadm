@@ -24,7 +24,7 @@ $enc = $this->encoder();
 <div id="price" class="item-price tab-pane fade" role="tablist" aria-labelledby="price">
 
 	<div id="item-price-group"
-		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ) ?>"
+		data-data="<?= $enc->attr( $this->get( 'priceData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="attribute" >
 

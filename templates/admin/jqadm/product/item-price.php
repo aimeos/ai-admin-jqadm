@@ -40,7 +40,7 @@ $enc = $this->encoder();
 	</div>
 
 	<div id="item-price-group"
-		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ) ?>"
+		data-data="<?= $enc->attr( $this->get( 'priceData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
 

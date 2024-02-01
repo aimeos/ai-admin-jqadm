@@ -14,27 +14,31 @@ $(function() {
 Aimeos.Price = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('#item-price-group');
 
-		Aimeos.apps['price'] = createApp({
-			el: document.querySelector('#item-price-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		if(node) {
+			Aimeos.apps['price'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
 
-				if(this.items[0]) {
-					this.items[0]['_show'] = true;
-				}
-			},
-			mixins: [this.mixins]
-		});
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 	mixins: {
