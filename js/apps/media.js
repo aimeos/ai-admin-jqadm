@@ -14,29 +14,31 @@ $(function() {
 Aimeos.Media = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('#item-media-group');
 
-		Aimeos.apps['media'] = createApp({
-			el: document.querySelector('#item-media-group'),
-			data() {
-				return {
-					items: [],
-					siteid: null,
-					domain: null
-				}
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		if(node) {
+			Aimeos.apps['media'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
 
-				if(this.items[0]) {
-					this.items[0]['_show'] = true;
-				}
-			},
-			mixins: [this.mixins]
-		});
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 	mixins: {

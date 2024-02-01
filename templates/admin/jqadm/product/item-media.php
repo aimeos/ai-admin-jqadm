@@ -24,7 +24,7 @@ $enc = $this->encoder();
 <div id="media" class="item-media tab-pane fade" role="tablist" aria-labelledby="media">
 
 	<div id="item-media-group"
-		data-items="<?= $enc->attr( $this->get( 'mediaData', [] ) ) ?>"
+		data-data="<?= $enc->attr( $this->get( 'mediaData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
 
