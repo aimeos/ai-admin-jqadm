@@ -90,33 +90,33 @@ Aimeos.Media = {
 					this.add();
 				}
 
-				Vue.nextTick(function() {
+				this.$nextTick(function() {
 					for(let i = 0; i < len; i++) {
 						const dt = new DataTransfer();
 						const idx = self.items.length - len + i;
+						const item = self.items[idx];
 
 						dt.items.add(ev.target.files[i]);
-						self.$refs.file[idx].files = dt.files;
-						self.files(idx, dt.files);
+						item.file = dt.files;
+						self.files(item, dt.files);
 					}
 				});
 			},
 
 
-			files(idx, files) {
+			files(item, files) {
 
 				if(!files.length) {
 					return;
 				}
 
-				const self = this;
 				let cnt = sum = 0;
 
 				for(let i=0; i<files.length; i++) {
-					self.items[idx]['media.mimetype'] = files[i].type;
+					item['media.mimetype'] = files[i].type;
 
 					if(files[i].type.startsWith('image/')) {
-						self.items[idx]['media.preview'] = URL.createObjectURL(files[i]);
+						item['media.preview'] = URL.createObjectURL(files[i]);
 					} else if(files[i].type.startsWith('video/')) {
 						const video = document.createElement('video');
 
@@ -133,16 +133,15 @@ Aimeos.Media = {
 							canvas.height = video.videoHeight;
 
 							context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-							self.items[idx]['media.preview'] = canvas.toDataURL();
+							item['media.preview'] = canvas.toDataURL();
 
 							canvas.toBlob(function(blob) {
 								const container = new DataTransfer();
-								const preview = self.$refs.preview[idx];
 
 								container.items.add(new File([blob], files[i].name, {
 									type: 'image/png', lastModified: new Date().getTime()
 								}));
-								preview.files = container.files;
+								item.preview = container.files;
 							});
 						});
 
@@ -176,7 +175,7 @@ Aimeos.Media = {
 					}
 				}
 
-				this.items[idx]['media.label'] = files[0].name;
+				item['media.label'] = files[0].name;
 			},
 
 
