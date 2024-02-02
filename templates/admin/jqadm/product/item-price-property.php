@@ -10,17 +10,17 @@ $enc = $this->encoder();
 $types = $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toArray();
 
 ?>
-<div v-show="item['_ext']" class="col-xl-12 secondary">
+<div v-show="element['_ext']" class="col-xl-12 secondary">
 
 	<?php if( !empty( $types ) ) : ?>
 
 		<property-table
-			v-bind:index="idx" v-bind:domain="'price'"
+			v-bind:index="index" v-bind:domain="'price'"
 			v-bind:types="<?= $enc->attr( $types ) ?>"
 			v-bind:siteid="`<?= $enc->js( $this->site()->siteid() ) ?>`" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->unshift( $this->translate( 'admin', '__hidden__' ), 'xx' )->all() ) ?>"
 			v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>`"
-			v-bind:items="item['property']" v-on:update:property="item['property'] = $event"
+			v-bind:items="element['property']" v-on:update:property="element['property'] = $event"
 			v-bind:i18n="{
 				all: `<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`,
 				delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
