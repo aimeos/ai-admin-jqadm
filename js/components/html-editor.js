@@ -5,8 +5,8 @@
 
 
 Aimeos.components['html-editor'] = {
-	template: `<input type="hidden" v-bind:id="id" v-bind:name="name" v-bind:value="value" />`,
-	props: ['config', 'editor', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+	template: `<input type="hidden" v-bind:id="id" v-bind:name="name" v-bind:value="modelValue" />`,
+	props: ['config', 'editor', 'id', 'name', 'modelValue', 'placeholder', 'readonly', 'tabindex'],
 
 	beforeDestroy() {
 		if(this.instance) {
@@ -37,8 +37,8 @@ Aimeos.components['html-editor'] = {
 	mounted() {
 		const config = Object.assign({}, this.config);
 
-		if(this.value) {
-			config.initialData = this.value;
+		if(this.modelValue) {
+			config.initialData = this.modelValue;
 		}
 
 		this.editor.create(this.$el, config).then(editor => {
@@ -66,7 +66,7 @@ Aimeos.components['html-editor'] = {
 	},
 
 	watch: {
-		value(val, oldval) {
+		modelValue(val, oldval) {
 			if(val !== oldval && val !== this.content) {
 				this.instance.setData(val);
 			}
