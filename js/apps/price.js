@@ -19,7 +19,7 @@ Aimeos.Price = {
 		if(node) {
 			Aimeos.apps['price'] = Aimeos.app({
 				props: {
-					data: {type: String, default: '{}'},
+					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
 				},

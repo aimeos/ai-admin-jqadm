@@ -17,7 +17,7 @@ Aimeos.Text = {
 		if(node) {
 			Aimeos.apps['text'] = Aimeos.app({
 				props: {
-					data: {type: String, default: '{}'},
+					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
 				},
