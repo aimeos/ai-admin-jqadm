@@ -14,35 +14,37 @@ $(function() {
 Aimeos.Address = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('#item-address-group');
 
-		Aimeos.apps['address'] = createApp({
-			el: document.querySelector('#item-address-group'),
-			data() {
-				return {
-					items: [],
-					siteid: null,
-					domain: null,
-					show: false
-				}
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		if(node) {
+			Aimeos.apps['address'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '[]'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+						show: false
+					}
+				},
+				mounted() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
 
-				if(this.items[0]) {
-					this.items[0]['_show'] = true;
-				}
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
 
-				const self = this;
-				Aimeos.lazy(this.$el, function() {
-					self.show = true;
-				});
-			},
-			mixins: [this.mixins]
-		});
+					const self = this;
+					Aimeos.lazy(node, function() {
+						self.show = true;
+					});
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 
