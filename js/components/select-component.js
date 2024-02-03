@@ -6,11 +6,11 @@
 
 Aimeos.components['select-component'] = {
 	template: `
-		<select @update:modelValue="$emit('update:modelValue', $event.target.value)" v-bind:value="modelValue">
+		<select @update:modelValue="$emit('update:modelValue', $event.target.value)">
 			<option v-if="text" value="">{{ text }}</option>
 			<option v-if="modelValue && !items[modelValue]" v-bind:value="modelValue">{{ modelValue }}</option>
-			<option v-if="all" v-bind:value="null" v-bind:selected="modelValue === null">{{ all }}</option>
-			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key">
+			<option v-if="all" value="" v-bind:selected="modelValue === null">{{ all }}</option>
+			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="modelValue === key">
 				{{ label || key }}
 			</option>
 		</select>
@@ -18,8 +18,8 @@ Aimeos.components['select-component'] = {
 	emits: ['update:modelValue'],
 	props: {
 		'all': {type: String, default: ''},
-		'items': {type: Object, required: true},
 		'text': {type: String, default: ''},
-		'modelValue': {required: true}
+		'items': {type: Object, required: true},
+		'modelValue': {required: true},
 	}
 };
