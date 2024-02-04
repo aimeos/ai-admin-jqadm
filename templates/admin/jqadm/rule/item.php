@@ -87,7 +87,7 @@ $enc = $this->encoder();
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
 				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
 				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
-				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/rule.siteid' ) ) ?>">
@@ -165,7 +165,7 @@ $enc = $this->encoder();
 											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
-											:options="providers[item['rule.type']] || []"
+											:options="JSON.parse(providers)[item['rule.type']] || []"
 											:can-clear="false"
 											:allow-absent="true"
 											:required="true"
@@ -174,7 +174,7 @@ $enc = $this->encoder();
 										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
-												<li v-for="(name, idx) in decorators" :key="idx" class="dropdown-item">
+												<li v-for="(name, idx) in JSON.parse(decorators)" :key="idx" class="dropdown-item">
 													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
 												</li>
 											</ul>
@@ -207,7 +207,7 @@ $enc = $this->encoder();
 									<input is="vue:flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.datestart' ) ) ) ?>`"
+										v-bind:modelValue="`<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.datestart' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ) ?>` !== ''"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
@@ -221,7 +221,7 @@ $enc = $this->encoder();
 									<input is="vue:flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.dateend' ) ) ) ?>`"
+										v-bind:modelValue="`<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.dateend' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ) ?>` !== ''"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
