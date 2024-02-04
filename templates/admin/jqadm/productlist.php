@@ -143,17 +143,17 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
-							v-bind:value="value('status')"
-							v-on:input="find($event, 'status')">
+							v-bind:modelValue="value('status')"
+							v-on:update:modelValue="find($event, 'status')">
 						</select>
 					</td>
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
-							v-bind:items="types"
-							v-bind:value="value('type')"
-							v-on:input="find($event, 'type')">
+							v-bind:items="typelist"
+							v-bind:modelValue="value('type')"
+							v-on:update:modelValue="find($event, 'type')">
 						</select>
 					</td>
 					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
@@ -221,7 +221,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component" v-if="item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:items="types"
+							v-bind:items="typelist"
 							v-model="item[prefix + 'type']">
 						</select>
 						<div v-else v-on:click="edit(idx)" class="items-field">
@@ -314,8 +314,8 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 	<nav class="list-page">
-		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-offset>
-		<page-limit v-model="limit" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-limit>
+		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-offset>
+		<page-limit v-model="limit" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-limit>
 	</nav>
 
 </div>

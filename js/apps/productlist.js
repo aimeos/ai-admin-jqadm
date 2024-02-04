@@ -14,14 +14,12 @@ $(function() {
 Aimeos.ProductList = {
 
 	init() {
-		const { createApp } = Vue;
 		const node = document.querySelector('.item-product .productlist');
 
 		if(node) {
-			Aimeos.apps['productlist'] = createApp({
-				'el': node,
+			Aimeos.apps['productlist'] = Aimeos.app({
 				'mixins': [Aimeos.ProductList.mixins]
-			});
+			}, {...node.dataset || {}}).mount(node);
 		}
 
 		Aimeos.lazy('.item-product .productlist', function() {
@@ -31,62 +29,41 @@ Aimeos.ProductList = {
 
 
 	mixins: {
-		'data'() {
+		props: {
+			types: {type: String, required: true},
+			fields: {type: String, required: true},
+			domain: {type: String, required: true},
+			siteid: {type: String, required: true},
+			resource: {type: String, required: true},
+			refid: {type: String, required: true},
+		},
+
+		data() {
 			return {
-				'refid': null,
-				'siteid': '',
-				'resource': '',
-				'domain': '',
-				'items': [],
-				'fields': [],
-				'filter': {},
-				'offset': 0,
-				'limit': 25,
-				'total': 0,
-				'order': '',
-				'types': {},
-				'options': [],
-				'colselect': false,
-				'checked': false,
-				'loading': true
+				items: [],
+				fieldlist: [],
+				filter: {},
+				offset: 0,
+				limit: 25,
+				total: 0,
+				order: '',
+				typelist: {},
+				options: [],
+				colselect: false,
+				checked: false,
+				loading: true
 			}
 		},
 
 
 		beforeMount() {
 			this.Aimeos = Aimeos;
-			try {
-				if(!this.$el.dataset) {
-					throw 'Missing "data" attributes';
-				}
-				if(!this.$el.dataset.domain) {
-					throw 'Missing "data-domain" attribute';
-				}
-				if(!this.$el.dataset.types) {
-					throw 'Missing "data-types" attribute';
-				}
-				if(!this.$el.dataset.siteid) {
-					throw 'Missing "data-siteid" attribute';
-				}
-				if(!this.$el.dataset.refid) {
-					throw 'Missing "data-refid" attribute';
-				}
-				if(!this.$el.dataset.resource) {
-					throw 'Missing "data-resource" attribute';
-				}
 
-				this.siteid = this.$el.dataset.siteid;
-				this.refid = this.$el.dataset.refid;
-				this.domain = this.$el.dataset.domain;
-				this.resource = this.$el.dataset.resource;
-				this.types = JSON.parse(this.$el.dataset.types);
-				this.order = this.prefix + 'position';
+			this.typelist = JSON.parse(this.types);
+			this.order = this.prefix + 'position';
 
-				const fieldkey = 'aimeos/jqadm/' + this.domain + this.resource.replace('/', '') + '/fields';
-				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
-			} catch(e) {
-				console.log( '[Aimeos] Init referenced product list failed: ' + e);
-			}
+			const fieldkey = 'aimeos/jqadm/' + this.domain + this.resource.replace('/', '') + '/fields';
+			this.fieldlist = this.columns(this.fields || [], fieldkey);
 		},
 
 
@@ -216,10 +193,10 @@ Aimeos.ProductList = {
 					args['filter']['&&'].push(self.filter[key]);
 				}
 
-				if(this.fields.includes(this.prefix + 'parentid')) {
+				if(this.fieldlist.includes(this.prefix + 'parentid')) {
 					args.fields['product'] = ['product.id', 'product.code', 'product.label', 'product.status'];
 				}
-				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', self.prefix + 'editor', self.prefix + 'ctime', self.prefix + 'mtime', ...self.fields];
+				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', self.prefix + 'editor', self.prefix + 'ctime', self.prefix + 'mtime', ...self.fieldlist];
 
 				this.get(self.resource, args, function(data) {
 					self.total = data.total || 0;
@@ -414,12 +391,12 @@ Aimeos.ProductList = {
 
 
 			toggle(fields) {
-				this.fields = fields;
+				this.fieldlist = fields;
 
 				if(window.sessionStorage) {
 					window.sessionStorage.setItem(
 						'aimeos/jqadm/' + this.domain + this.resource.replace('/', '') + '/fields',
-						JSON.stringify(this.fields)
+						JSON.stringify(this.fieldlist)
 					);
 				}
 
