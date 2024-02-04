@@ -16,7 +16,7 @@ Aimeos.components['page-offset'] = {
 					<span class="fa icon-prev" aria-hidden="true"></span>
 				</button>
 			</li><li class="page-item disabled">
-				<button class="page-link" v-bind:tabindex="tabindex"">
+				<button class="page-link" v-bind:tabindex="tabindex">
 					{{ string }}
 				</button>
 			</li><li v-bind:class="{disabled: next === null}" class="page-item">
@@ -32,28 +32,28 @@ Aimeos.components['page-offset'] = {
 	`,
 	emits: ['input'],
 	props: {
+		'modelValue': {type: Number, required: true},
 		'limit': {type: Number, required: true},
 		'total': {type: Number, required: true},
-		'value': {type: Number, required: true},
 		'tabindex': {type: String, default: '1'},
-		'text': {type: String, default: '%1$d / %2$d'}
+		'text': {type: String, default: '%1$d / %2$d'},
 	},
 
 	computed: {
 		first() {
-			return this.value > 0 ? 0 : null;
+			return this.modelValue > 0 ? 0 : null;
 		},
 		prev() {
-			return this.value - this.limit >= 0 ? this.value - this.limit : null;
+			return this.modelValue - this.limit >= 0 ? this.modelValue - this.limit : null;
 		},
 		next() {
-			return this.value + this.limit < this.total ? this.value + this.limit : null;
+			return this.modelValue + this.limit < this.total ? this.modelValue + this.limit : null;
 		},
 		last() {
-			return Math.floor((this.total - 1) / this.limit) * this.limit > this.value ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
+			return Math.floor((this.total - 1) / this.limit) * this.limit > this.modelValue ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
 		},
 		current() {
-			return Math.floor( this.value / this.limit ) + 1;
+			return Math.floor( this.modelValue / this.limit ) + 1;
 		},
 		pages() {
 			return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
