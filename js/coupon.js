@@ -8,26 +8,29 @@
 Aimeos.Coupon = {
 
 	init() {
-		const { createApp } = Vue
+		const node = document.querySelector('.item-coupon #basic')
 
-		Aimeos.apps['coupon'] = createApp({
-			el: document.querySelector('.item-coupon #basic'),
-			data: {
-				item: null,
-				cache: {},
-				decorators: [],
-				providers: [],
-				siteid: null,
-			},
-			beforeMount() {
-				this.Aimeos = Aimeos;
-				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
-				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
-				this.item = JSON.parse(this.$el.dataset.item || '{}');
-				this.siteid = this.$el.dataset.siteid;
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['coupon'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+					providers: {type: String, default: '[]'},
+					decorators: {type: String, default: '[]'},
+				},
+				data() {
+					return {
+						item: null,
+						cache: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 
 		Aimeos.Coupon.Code.init();
 	},
@@ -75,14 +78,12 @@ Aimeos.Coupon = {
 Aimeos.Coupon.Code = {
 
 	init() {
-		const { createApp } = Vue
-		const node = document.querySelector('.item-coupon .coupon-code-list');
+		const node = document.querySelector('.item-coupon .coupon-code-list')
 
 		if(node) {
-			Aimeos.apps['coupon.code'] = createApp({
-				'el': node,
+			Aimeos.apps['coupon'] = Aimeos.app({
 				'mixins': [Aimeos.Coupon.Code.mixins]
-			});
+			}, {...node.dataset || {}}).mount(node);
 		}
 
 		Aimeos.lazy('.item-coupon .coupon-code-list', function() {
@@ -92,46 +93,35 @@ Aimeos.Coupon.Code = {
 
 
 	mixins: {
-		'data'() {
+		props: {
+			parentid: {type: String, required: true},
+			siteid: {type: String, required: true},
+			fields: {type: String, required: true},
+		},
+		data() {
 			return {
-				'parentid': null,
-				'siteid': '',
-				'items': [],
-				'fields': [],
-				'filter': {},
-				'offset': 0,
-				'limit': 25,
-				'total': 0,
-				'order': '',
-				'colselect': false,
-				'checked': false,
-				'loading': true
+				items: [],
+				fieldlist: [],
+				filter: {},
+				offset: 0,
+				limit: 25,
+				total: 0,
+				order: '',
+				colselect: false,
+				checked: false,
+				loading: true
 			}
 		},
 
 
 		beforeMount() {
 			this.Aimeos = Aimeos;
-			try {
-				if(!this.$el.dataset) {
-					throw 'Missing "data" attributes';
-				}
-				if(!this.$el.dataset.siteid) {
-					throw 'Missing "data-siteid" attribute';
-				}
-				if(!this.$el.dataset.parentid) {
-					throw 'Missing "data-parentid" attribute';
-				}
+			this.order = 'coupon.code.id';
 
-				this.siteid = this.$el.dataset.siteid;
-				this.parentid = this.$el.dataset.parentid;
-				this.order = 'coupon.code.id';
+			const fieldkey = 'aimeos/jqadm/couponcode/fields';
+			this.fieldlist = this.columns(this.fields || [], fieldkey);
 
-				const fieldkey = 'aimeos/jqadm/couponcode/fields';
-				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
-			} catch(e) {
-				console.error( '[Aimeos] Init coupon code list failed: ' + e);
-			}
+			this.fetch();
 		},
 
 
@@ -251,7 +241,7 @@ Aimeos.Coupon.Code = {
 				  }
 				`).then((result) => {
 					for(const id of (result?.deleteCouponCodes || [])) {
-						delete this.items[map[id]];
+						this.items.splice(map[id], 1)
 					}
 					this.loading = false;
 				});
@@ -276,12 +266,12 @@ Aimeos.Coupon.Code = {
 
 
 			toggle(fields) {
-				this.fields = fields;
+				this.fieldlist = fields;
 
 				if(window.sessionStorage) {
 					window.sessionStorage.setItem(
 						'aimeos/jqadm/couponcode/fields',
-						JSON.stringify(this.fields)
+						JSON.stringify(this.fieldlist)
 					);
 				}
 
