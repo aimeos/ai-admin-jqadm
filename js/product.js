@@ -52,13 +52,6 @@ Aimeos.Product = {
 			{
 				name: 'subscription',
 				el: '.item-product .item-subscription .subscription-list',
-				data() {
-					return {
-						items: $(".item-subscription .subscription-list").data("items"),
-						keys: $(".item-subscription .subscription-list").data("keys"),
-						siteid: $(".item-subscription .subscription-list").data("siteid")
-					}
-				},
 				mixins: [Aimeos.Product.Subscription.mixins.bind(this)()]
 			},
 			{
@@ -1091,17 +1084,27 @@ Aimeos.Product.Subscription = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				keys: {type: String, required: true},
+				siteid: {type: String, required: true},
+			},
+			data() {
+				return {
+					items: [],
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.items = JSON.parse(this.data);
 			},
 			methods: {
 				add(data) {
-
 					const idx = this.items.length;
 					this.items[idx] = {};
 
-					for(let key in this.keys) {
-						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
+					for(const key of JSON.parse(this.keys)) {
+						this.items[idx][key] = (data && data[key] || '');
 					}
 
 					this.items[idx]['product.lists.siteid'] = this.siteid;
@@ -1109,7 +1112,7 @@ Aimeos.Product.Subscription = {
 
 
 				can(action, idx) {
-					if(action === 'create' && this.items[idx]['product.lists.siteid']) {
+					if((action === 'create' || action === 'delete') && this.items[idx]['product.lists.siteid']) {
 						return !this.items[idx]['attribute.id'];
 					}
 

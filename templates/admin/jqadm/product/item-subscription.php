@@ -19,7 +19,7 @@ $keys = [
 	<div class="box">
 		<div class="table-responsive">
 			<table class="subscription-list table table-default col-xl-12"
-				data-items="<?= $enc->attr( $this->get( 'subscriptionData', [] ) ) ?>"
+				data-data="<?= $enc->attr( $this->get( 'subscriptionData', [] ) ) ?>"
 				data-keys="<?= $enc->attr( $keys ) ?>"
 				data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -118,7 +118,7 @@ $keys = [
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', '_idx_', 'product.lists.siteid' ) ) ) ?>`.replace( '_idx_', idx )"
 								v-bind:value="entry['product.lists.siteid']">
 
-							<div v-if="entry['attribute.id'] == ''" v-on:click="remove(idx)"
+							<div v-if="can('delete', idx)" v-on:click="remove(idx)"
 								class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
 							</div>
