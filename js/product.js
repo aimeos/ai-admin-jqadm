@@ -72,18 +72,6 @@ Aimeos.Product = {
 			{
 				name: 'order',
 				el: '.item-product .item-order .order-list',
-				data() {
-					return {
-						items: [],
-						fieldlist: [],
-						filter: {},
-						included: {},
-						offset: 0,
-						limit: 25,
-						total: 0,
-						sort: '-order.id',
-					}
-				},
 				mixins: [Aimeos.Product.Order.mixins.bind(this)()]
 			}
 		]
@@ -453,6 +441,18 @@ Aimeos.Product.Order = {
 			props: {
 				id: {type: String, required: true},
 				fields: {type: String, required: true},
+			},
+			data() {
+				return {
+					items: [],
+					fieldlist: [],
+					filter: {},
+					included: {},
+					offset: 0,
+					limit: 25,
+					total: 0,
+					sort: '-order.id',
+				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
