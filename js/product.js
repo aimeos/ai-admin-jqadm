@@ -42,13 +42,6 @@ Aimeos.Product = {
 			{
 				name: 'selection',
 				el: '.item-product #item-selection-group',
-				data() {
-					return {
-						items: $("#item-selection-group").data("items"),
-						keys: $("#item-selection-group").data("keys"),
-						siteid: $("#item-selection-group").data("siteid")
-					}
-				},
 				mixins: [Aimeos.Product.Selection.mixins.bind(this)()]
 			},
 			{
@@ -767,8 +760,19 @@ Aimeos.Product.Selection = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				keys: {type: String, required: true},
+				siteid: {type: String, required: true},
+			},
+			data() {
+				return {
+					items: [],
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.items = JSON.parse(this.data);
 			},
 			methods: {
 
