@@ -24,14 +24,6 @@ Aimeos.Product = {
 			{
 				name: 'basic',
 				el: '.item-product .item-basic .box',
-				data() {
-					return {
-						duplicate: false,
-						item: $(".item-basic [data-data]").data("data") || {},
-						siteid: $(".item-basic [data-siteid]").data("siteid"),
-						datasets: $(".item-basic [data-datasets]").data("datasets") || {}
-					}
-				},
 				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
 			},
 			{
@@ -61,38 +53,34 @@ Aimeos.Product = {
 			}
 		]
 
-		for(entry of $('.item-product .item-characteristic-attribute .attribute-list')) {
-			const name = $(entry).attr('id');
+		for(entry of document.querySelectorAll('.item-product .item-characteristic-attribute .attribute-list')) {
 			components.push({
-				name: name.replace(/-/, '/'),
-				el: '#' + name,
+				name: entry.id.replace(/-/, '/'),
+				el: '#' + entry.id,
 				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			})
 		}
 
-		for(entry of $('.item-product .item-category .catalog')) {
-			const name = $(entry).attr('id');
+		for(entry of document.querySelectorAll('.item-product .item-category .catalog')) {
 			components.push({
-				name: name.replace(/-/, '/'),
-				el: '#' + name,
+				name: entry.id.replace(/-/, '/'),
+				el: '#' + entry.id,
 				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
 			})
 		}
 
-		for(entry of $('.item-product .item-related .product')) {
-			const name = $(entry).attr('id');
+		for(entry of document.querySelectorAll('.item-product .item-related .product')) {
 			components.push({
-				name: name.replace(/-/, '/'),
-				el: '#' + name,
+				name: entry.id.replace(/-/, '/'),
+				el: '#' + entry.id,
 				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			})
 		}
 
-		for(entry of $('.item-product .item-supplier .supplier')) {
-			const name = $(entry).attr('id');
+		for(entry of document.querySelectorAll('.item-product .item-supplier .supplier')) {
 			components.push({
-				name: name.replace(/-/, '/'),
-				el: '#' + name,
+				name: entry.id.replace(/-/, '/'),
+				el: '#' + entry.id,
 				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
 			})
 		}
@@ -116,8 +104,22 @@ Aimeos.Product.Basic = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				siteid: {type: String, required: true},
+				datasets: {type: String, required: true}
+			},
+			data() {
+				return {
+					item: {},
+					dsets: [],
+					duplicate: false,
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.item = JSON.parse(this.data);
+				this.dsets = JSON.parse(this.datasets);
 			},
 			methods: {
 				can(action) {
@@ -126,7 +128,7 @@ Aimeos.Product.Basic = {
 
 
 				dataset(ev) {
-					const config = this.datasets[ev.target.value] || [];
+					const config = this.dsets[ev.target.value] || [];
 
 					for(const name in config) {
 						if(Aimeos.apps[name]) {
