@@ -47,14 +47,6 @@ Aimeos.Product = {
 			{
 				name: 'stock',
 				el: '.item-product .item-stock .stock-list',
-				data() {
-					return {
-						items: $(".item-stock .stock-list").data("items"),
-						keys: $(".item-stock .stock-list").data("keys"),
-						siteid: $(".item-stock .stock-list").data("siteid"),
-						numtypes: $(".item-stock .stock-list").data("numtypes")
-					}
-				},
 				mixins: [Aimeos.Product.Stock.mixins.bind(this)()]
 			},
 			{
@@ -1016,17 +1008,29 @@ Aimeos.Product.Stock = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				keys: {type: String, required: true},
+				siteid: {type: String, required: true},
+				numtypes: {type: String, required: true}
+			},
+			data() {
+				return {
+					items: [],
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.items = JSON.parse(this.data);
 			},
 			methods: {
 				add(data) {
 
-					var idx = (this.items || []).length;
+					const idx = (this.items || []).length;
 					this.items[idx] = {};
 
-					for(var key in this.keys) {
-						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
+					for(const key of JSON.parse(this.keys)) {
+						this.items[idx][key] = (data && data[key] || '');
 					}
 
 					this.items[idx]['stock.siteid'] = this.siteid;

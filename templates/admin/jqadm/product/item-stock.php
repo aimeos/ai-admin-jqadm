@@ -18,7 +18,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 	<div class="box">
 		<div class="table-responsive">
 			<table class="stock-list table table-default"
-				data-items="<?= $enc->attr( $this->get( 'stockData', [] ) ) ?>"
+				data-data="<?= $enc->attr( $this->get( 'stockData', [] ) ) ?>"
 				data-keys="<?= $enc->attr( $keys ) ?>"
 				data-siteid="<?= $this->site()->siteid() ?>"
 				data-numtypes="<?= $stockTypes->count() ?>" >
