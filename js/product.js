@@ -173,14 +173,15 @@ Aimeos.Product = {
 			})
 		}
 
-		const { createApp } = Vue
-
 		for(const component of components) {
-			Aimeos.apps[component.name] = createApp({
-				'el': document.querySelector(component.el),
-				'data': component.data,
-				'mixins': component.mixins
-			});
+			const node = document.querySelector(component.el);
+
+			if(node) {
+				Aimeos.apps[component.name] = Aimeos.app({
+					data: component.data,
+					mixins: component.mixins
+				}, {...node.dataset || {}}).mount(node);
+			}
 		}
 	}
 };
