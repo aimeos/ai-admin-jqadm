@@ -282,7 +282,7 @@ $enc = $this->encoder();
 
 						</div>
 					</div>
-				<template>
+				</template>
 			</div>
 
 			<div slot="footer" class="card-tools-more">
