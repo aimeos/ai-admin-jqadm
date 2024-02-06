@@ -81,15 +81,14 @@ Aimeos.Product = {
 				el: '.item-product .item-order .order-list',
 				data() {
 					return {
-						'id': null,
-						'items': [],
-						'fields': [],
-						'filter': {},
-						'included': {},
-						'offset': 0,
-						'limit': 25,
-						'total': 0,
-						'sort': '-order.id',
+						items: [],
+						fieldlist: [],
+						filter: {},
+						included: {},
+						offset: 0,
+						limit: 25,
+						total: 0,
+						sort: '-order.id',
 					}
 				},
 				mixins: [Aimeos.Product.Order.mixins.bind(this)()]
@@ -466,26 +465,23 @@ Aimeos.Product.Order = {
 
 	mixins() {
 		return {
+			props: {
+				id: {type: String, required: true},
+				fields: {type: String, required: true},
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
 
-				if(this.$el.dataset && this.$el.dataset.id) {
-					this.id = this.$el.dataset.id;
-				}
 				this.filter['order.product.productid'] = {'==':{'order.product.productid': this.id}};
 
 				let list = [];
-				try {
-					if(this.$el.dataset && this.$el.dataset.fields) {
-						if(window.sessionStorage) {
-							list = JSON.parse(window.sessionStorage.getItem('aimeos/jqadm/productorder/fields')) || [];
-						}
-						if(!list.length) {
-							list = JSON.parse(this.$el.dataset.fields);
-						}
-					}
-				} catch(e) {}
-				this.fields = list;
+				if(window.sessionStorage) {
+					list = JSON.parse(window.sessionStorage.getItem('aimeos/jqadm/productorder/fields')) || [];
+				}
+				if(!list.length) {
+					list = JSON.parse(this.fields);
+				}
+				this.fieldlist = list;
 				this.fetch();
 			},
 
