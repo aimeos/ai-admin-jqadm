@@ -37,14 +37,6 @@ Aimeos.Product = {
 			{
 				name: 'bundle',
 				el: '.item-product .item-bundle .product-list',
-				data() {
-					return {
-						items: $(".item-bundle .product-list").data("items"),
-						keys: $(".item-bundle .product-list").data("keys"),
-						prefix: $(".item-bundle .product-list").data("prefix"),
-						siteid: $(".item-bundle .product-list").data("siteid")
-					}
-				},
 				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			},
 			{
@@ -127,14 +119,6 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data() {
-					return {
-						items: $(entry).data("items"),
-						keys: $(entry).data("keys"),
-						siteid: $(entry).data("siteid"),
-						listtype: $(entry).data("listtype")
-					}
-				},
 				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			})
 		}
@@ -689,17 +673,29 @@ Aimeos.Product.Product = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				keys: {type: String, required: true},
+				siteid: {type: String, required: true},
+				listtype: {type: String, required: true}
+			},
+			data() {
+				return {
+					items: [],
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.items = JSON.parse(this.data);
 			},
 			methods: {
 				add(data) {
 
-					let idx = (this.items || []).length;
+					const idx = (this.items || []).length;
 					this.items[idx] = {};
 
-					for(let key in this.keys) {
-						key = this.keys[key]; this.items[idx][key] = (data && data[key] || '');
+					for(const key of this.keys) {
+						this.items[idx][key] = (data && data[key] || '');
 					}
 
 					this.items[idx]['product.lists.siteid'] = this.siteid;

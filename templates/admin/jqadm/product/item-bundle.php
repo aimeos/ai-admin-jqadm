@@ -20,10 +20,10 @@ $keys = [
 
 			<div class="box">
 				<table class="product-list table table-default"
-					data-items="<?= $enc->attr( $this->get( 'bundleData', [] ) ) ?>"
+					data-data="<?= $enc->attr( $this->get( 'bundleData', [] ) ) ?>"
 					data-keys="<?= $enc->attr( $keys ) ?>"
-					data-prefix="product.lists."
-					data-siteid="<?= $this->site()->siteid() ?>" >
+					data-siteid="<?= $this->site()->siteid() ?>"
+					data-listtype="default">
 
 					<thead>
 						<tr>
@@ -42,52 +42,54 @@ $keys = [
 						</tr>
 					</thead>
 
-					<tbody is="vue:draggable" v-model="items" group="bundle" handle=".act-move" tag="tbody">
+					<tbody is="vue:draggable" item-key="product.id" group="bundle" :lists="items" handle=".act-move" tag="tbody">
+						<template #item="{element, index}">
 
-						<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{'readonly': !can('change', idx)}">
-							<td v-bind:class="item['css'] ||''">
-								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', idx )">
+							<tr v-bind:class="{'readonly': !can('change', index)}">
+								<td v-bind:class="element['css'] ||''">
+									<input class="item-listid" type="hidden" v-model="element['product.lists.id']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', index )">
 
-								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', idx )">
+									<input class="item-refid" type="hidden" v-model="element['product.lists.refid']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', index )">
 
-								<Multiselect class="item-id form-control"
-									placeholder="Enter product ID, code or label"
-									value-prop="product.id"
-									track-by="product.id"
-									label="product.label"
-									@open="function(select) {return select.refreshOptions()}"
-									@input="use(idx, $event)"
-									:value="item"
-									:title="title(idx)"
-									:disabled="!can('change', idx)"
-									:options="async function(query) {return await fetch(query, idx)}"
-									:resolve-on-load="false"
-									:filter-results="false"
-									:can-deselect="false"
-									:allow-absent="true"
-									:searchable="true"
-									:can-clear="false"
-									:required="true"
-									:min-chars="1"
-									:object="true"
-									:delay="300"
-								></Multiselect>
-							</td>
-							<td class="actions">
-								<div v-if="can('move', idx)"
-									class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
-								</div>
-								<div v-if="can('delete', idx)"
-									class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
-									v-on:click.stop="remove(idx)">
-								</div>
-							</td>
-						</tr>
+									<Multiselect class="item-id form-control"
+										placeholder="Enter product ID, code or label"
+										value-prop="product.id"
+										track-by="product.id"
+										label="product.label"
+										@open="function(select) {return select.refreshOptions()}"
+										@input="use(index, $event)"
+										:value="item"
+										:title="title(index)"
+										:disabled="!can('change', index)"
+										:options="async function(query) {return await fetch(query, index)}"
+										:resolve-on-load="false"
+										:filter-results="false"
+										:can-deselect="false"
+										:allow-absent="true"
+										:searchable="true"
+										:can-clear="false"
+										:required="true"
+										:min-chars="1"
+										:object="true"
+										:delay="300"
+									></Multiselect>
+								</td>
+								<td class="actions">
+									<div v-if="can('move', index)"
+										class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
+									</div>
+									<div v-if="can('delete', index)"
+										class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										v-on:click.stop="remove(index)">
+									</div>
+								</td>
+							</tr>
 
+						</template>
 					</tbody>
 				</table>
 			</div>
