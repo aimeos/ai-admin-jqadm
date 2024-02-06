@@ -22,7 +22,7 @@ $keys = [
 		<?php foreach( $this->get( 'categoryTypes', [] ) as $type => $typeLabel ) : ?>
 
 			<div id="catalog-<?= $enc->attr( $type ) ?>" class="col-xl-6 catalog"
-				data-items="<?= $enc->attr( array_values( $data->get( $type, [] ) ) ) ?>"
+				data-data="<?= $enc->attr( array_values( $data->get( $type, [] ) ) ) ?>"
 				data-keys="<?= $enc->attr( $keys ) ?>"
 				data-siteid="<?= $this->site()->siteid() ?>"
 				data-listtype="<?= $enc->attr( $type ) ?>">
