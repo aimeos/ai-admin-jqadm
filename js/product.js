@@ -109,15 +109,6 @@ Aimeos.Product = {
 			components.push({
 				name: name.replace(/-/, '/'),
 				el: '#' + name,
-				data() {
-					return {
-						items: $(entry).data("items"),
-						keys: $(entry).data("keys"),
-						prefix: $(entry).data("prefix"),
-						siteid: $(entry).data("siteid"),
-						listtype: $(entry).data("listtype")
-					}
-				},
 				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			})
 		}
@@ -240,16 +231,28 @@ Aimeos.Product.Attribute = {
 
 	mixins() {
 		return {
+			props: {
+				data: {type: String, required: true},
+				keys: {type: String, required: true},
+				prefix: {type: String, required: true},
+				siteid: {type: String, required: true},
+				listtype: {type: String, required: true}
+			},
+			data() {
+				return {
+					items: []
+				}
+			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
+				this.items = JSON.parse(this.data);
 			},
 			methods: {
 				add(data) {
-
 					const idx = (this.items || []).length;
 					this.items[idx] = {};
 
-					for(let key of this.keys) {
+					for(const key of (JSON.parse(this.keys) || [])) {
 						this.items[idx][key] = (data && data[key] || '');
 					}
 
