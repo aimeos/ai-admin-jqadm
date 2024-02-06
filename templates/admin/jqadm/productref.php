@@ -60,49 +60,49 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
+					<th v-if="fieldlist.includes(prefix + 'id')" v-bind:class="css('id')">
 						<a v-bind:class="sortclass('id')" v-on:click.prevent="sort('id')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
+					<th v-if="fieldlist.includes(prefix + 'position')" v-bind:class="css('position')">
 						<a v-bind:class="sortclass('position')" v-on:click.prevent="sort('position')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Postition' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
+					<th v-if="fieldlist.includes(prefix + 'status')" v-bind:class="css('status')">
 						<a v-bind:class="sortclass('status')" v-on:click.prevent="sort('status')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
+					<th v-if="fieldlist.includes(prefix + 'type')" v-bind:class="css('type')">
 						<a v-bind:class="sortclass('type')" v-on:click.prevent="sort('type')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
+					<th v-if="fieldlist.includes(prefix + 'config')" v-bind:class="css('config')">
 						<a v-bind:class="sortclass('config')" v-on:click.prevent="sort('config')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
+					<th v-if="fieldlist.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<a v-bind:class="sortclass('datestart')" v-on:click.prevent="sort('datestart')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
+					<th v-if="fieldlist.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<a v-bind:class="sortclass('dateend')" v-on:click.prevent="sort('dateend')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 						</a>
 					</th>
-					<th v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
+					<th v-if="fieldlist.includes(prefix + 'refid')" v-bind:class="css('refid')">
 						<a v-bind:class="sortclass('refid')" v-on:click.prevent="sort('refid')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
 							<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
@@ -127,17 +127,17 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					<td class="select">
 						<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>">
 					</td>
-					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
+					<td v-if="fieldlist.includes(prefix + 'id')" v-bind:class="css('id')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'id')"
 							v-bind:value="value('id')">
 					</td>
-					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
+					<td v-if="fieldlist.includes(prefix + 'position')" v-bind:class="css('position')">
 						<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'position', '=~')"
 							v-bind:value="value('position')">
 					</td>
-					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
+					<td v-if="fieldlist.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
@@ -146,7 +146,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-on:input="find($event, 'status')">
 						</select>
 					</td>
-					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
+					<td v-if="fieldlist.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component"
 							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
@@ -155,24 +155,24 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-on:input="find($event, 'type')">
 						</select>
 					</td>
-					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
+					<td v-if="fieldlist.includes(prefix + 'config')" v-bind:class="css('config')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'config', '~=')"
 							v-bind:value="value('config')">
 					</td>
-					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
+					<td v-if="fieldlist.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('datestart')"
 							v-on:input="find($event, 'datestart')"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					</td>
-					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
+					<td v-if="fieldlist.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('dateend')"
 							v-on:input="find($event, 'dateend')"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					</td>
-					<td v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
+					<td v-if="fieldlist.includes(prefix + 'refid')" v-bind:class="css('refid')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'refid')"
 							v-bind:value="value('refid')">
@@ -194,10 +194,10 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-model="item['checked']">
 					</td>
-					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
+					<td v-if="fieldlist.includes(prefix + 'id')" v-bind:class="css('id')">
 						<div class="items-field">{{ item[prefix + 'id'] }}</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
+					<td v-if="fieldlist.includes(prefix + 'position')" v-bind:class="css('position')">
 						<input type="number" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-position', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-if="item.edit" v-model="item[prefix + 'position']">
@@ -205,7 +205,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							{{ item[prefix + 'position'] }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
+					<td v-if="fieldlist.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component" v-if="item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>`.replace('-prefix-', prefix)"
@@ -216,18 +216,18 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							{{ status(JSON.parse(`<?= $enc->js( $status ) ?>`), item[prefix + 'status']) }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
+					<td v-if="fieldlist.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="vue:select-component" v-if="item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:items="types"
+							v-bind:items="JSON.parse(types)"
 							v-model="item[prefix + 'type']">
 						</select>
 						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ types[item[prefix + 'type']] || item[prefix + 'type'] }}
+							{{ JSON.parse(types)[item[prefix + 'type']] || item[prefix + 'type'] }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'config')" v-on:click="edit(idx)" v-bind:class="css('config')">
+					<td v-if="fieldlist.includes(prefix + 'config')" v-on:click="edit(idx)" v-bind:class="css('config')">
 						<input-map
 							v-bind:editable="siteid === item[prefix + 'siteid'] && item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>`.replace('-prefix-', prefix)"
@@ -235,7 +235,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-model="item[prefix + 'config']">
 						</input-map>
 					</td>
-					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
+					<td v-if="fieldlist.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -245,7 +245,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							{{ item[prefix + 'datestart'] || '-' }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
+					<td v-if="fieldlist.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -255,7 +255,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							{{ item[prefix + 'dateend'] || '-' }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
+					<td v-if="fieldlist.includes(prefix + 'refid')" v-bind:class="css('refid')">
 						<div v-if="item.edit">
 							<Multiselect class="item-id form-control"
 								placeholder="Enter product ID, code or label"
