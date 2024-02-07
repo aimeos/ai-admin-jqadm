@@ -42,7 +42,7 @@ $keys = [
 						</tr>
 					</thead>
 
-					<tbody is="vue:draggable" item-key="product.id" group="bundle" :lists="items" handle=".act-move" tag="tbody">
+					<tbody is="vue:draggable" item-key="product.id" group="bundle" :list="items" handle=".act-move" tag="tbody">
 						<template #item="{element, index}">
 
 							<tr v-bind:class="{'readonly': !can('change', index)}">
