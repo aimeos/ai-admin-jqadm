@@ -200,46 +200,52 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										</tr>
 									</thead>
 
-									<tbody>
-										<tr v-for="(attr, attridx) in (element['attr'] || [])" :key="attridx">
-											<td>
-												<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
-													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
+									<tbody is="vue:draggable" item-key="attribute.id" group="vattributes" :list="element['attr']" handle=".act-move" tag="tbody">
+										<template #item="{element: attr, index: attridx}">
+											<tr>
+												<td>
+													<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
+														v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
 
-												<input class="item-attr-refid" type="hidden" v-model="attr['product.lists.refid']"
-													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.refid'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
+													<input class="item-attr-refid" type="hidden" v-model="attr['product.lists.refid']"
+														v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.refid'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
 
-												<Multiselect class="item-id form-control"
-													placeholder="Enter attribute ID, code or label"
-													value-prop="attribute.id"
-													track-by="attribute.id"
-													label="attribute.label"
-													@open="function(select) {return select.refreshOptions()}"
-													@input="useAttribute(index, attridx, $event)"
-													:value="attr"
-													:title="title(index, attridx)"
-													:disabled="!can('change', index, attridx)"
-													:options="async function(query) {return await fetchAttribute(query)}"
-													:resolve-on-load="false"
-													:filter-results="false"
-													:can-deselect="false"
-													:allow-absent="true"
-													:searchable="true"
-													:can-clear="false"
-													:required="true"
-													:min-chars="1"
-													:object="true"
-													:delay="300"
-												></Multiselect>
-											</td>
-											<td class="actions">
-												<div v-if="can('delete', index, attridx)"
-													class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
-													v-on:click.stop="removeAttribute(index, attridx)">
-												</div>
-											</td>
-										</tr>
+													<Multiselect class="item-id form-control"
+														placeholder="Enter attribute ID, code or label"
+														value-prop="attribute.id"
+														track-by="attribute.id"
+														label="attribute.label"
+														@open="function(select) {return select.refreshOptions()}"
+														@input="useAttribute(index, attridx, $event)"
+														:value="attr"
+														:title="title(index, attridx)"
+														:disabled="!can('change', index, attridx)"
+														:options="async function(query) {return await fetchAttribute(query)}"
+														:resolve-on-load="false"
+														:filter-results="false"
+														:can-deselect="false"
+														:allow-absent="true"
+														:searchable="true"
+														:can-clear="false"
+														:required="true"
+														:min-chars="1"
+														:object="true"
+														:delay="300"
+													></Multiselect>
+												</td>
+												<td class="actions">
+													<div v-if="can('move', index, attridx)"
+														class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+														title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
+													</div>
+													<div v-if="can('delete', index, attridx)"
+														class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+														v-on:click.stop="removeAttribute(index, attridx)">
+													</div>
+												</td>
+											</tr>
+										</template>
 									</tbody>
 								</table>
 							</div>
