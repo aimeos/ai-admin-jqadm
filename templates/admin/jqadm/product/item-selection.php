@@ -204,10 +204,10 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										<tr v-for="(attr, attridx) in (element['attr'] || [])" :key="attridx">
 											<td>
 												<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
-													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr',  '_attridx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
+													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
 
 												<input class="item-attr-refid" type="hidden" v-model="attr['product.lists.refid']"
-													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr',  '_attridx_', 'product.lists.refid'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
+													v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', '_attridx_', 'product.lists.refid'] ) ) ?>`.replace('_idx_', index).replace( '_attridx_', attridx)">
 
 												<Multiselect class="item-id form-control"
 													placeholder="Enter attribute ID, code or label"
