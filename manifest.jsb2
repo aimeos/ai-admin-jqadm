@@ -6,9 +6,6 @@
 		"file": "aimeos-core.css",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "jqcombo.css",
-			"path": "themes/default/"
-		},{
 			"text": "jqtree.css",
 			"path": "themes/default/"
 		},{
