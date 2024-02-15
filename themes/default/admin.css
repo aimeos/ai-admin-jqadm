@@ -330,6 +330,14 @@
 
 /* Bulk edit */
 
+.aimeos .list-items .batch {
+	display: none;
+}
+
+.aimeos .list-items .batch.show {
+	display: table-row;
+}
+
 .aimeos .list-items .batch > td {
 	padding: 2rem 0;
 }

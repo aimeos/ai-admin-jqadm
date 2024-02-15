@@ -175,7 +175,7 @@ $columnList = [
 					?>
 
 					<?php if( $this->access( 'super' ) ) : ?>
-						<tr class="batch" style="display: none" v-show="batch">
+						<tr class="batch" v-bind:class="{show: batch}" v-show="batch">
 							<td colspan="<?= count( $fields ) + 2 ?>">
 								<div class="batch-header">
 									<div class="intro">
