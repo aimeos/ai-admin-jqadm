@@ -271,6 +271,11 @@
 	box-shadow: 0 0 0 2px rgba(2, 117, 216, .25);
 }
 
+.aimeos .list-items th button.btn-text.fileupload,
+.aimeos .list-items th input.btn-text.fileupload {
+	display: none;
+}
+
 .aimeos .list-items tr:not(.list-search) td.image {
 	height: 5rem;
 }

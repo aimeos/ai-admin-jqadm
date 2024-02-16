@@ -148,6 +148,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testImport()
+	{
+		$param = array(
+			'site' => 'unittest',
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->import();
+
+		$this->assertNull( $result );
+	}
+
+
 	public function testSave()
 	{
 		$param = array(

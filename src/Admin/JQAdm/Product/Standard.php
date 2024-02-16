@@ -252,6 +252,35 @@ class Standard
 
 
 	/**
+	 * Imports a file
+	 *
+	 * @return string|null Output to display or redirect
+	 */
+	public function import() : ?string
+	{
+		$context = $this->context();
+		$fs = $context->fs( 'fs-import' );
+		$site = $context->locale()->getSiteCode();
+		$dir = $context->config()->get( 'controller/jobs/product/import/csv/location', 'product' );
+
+		if( $fs instanceof \Aimeos\Base\Filesystem\DirIface && $fs->isDir( $dir . '/' . $site ) === false ) {
+			$fs->mkdir( $dir . '/' . $site );
+		}
+
+		$uploads = (array) $this->view()->request()->getUploadedFiles();
+		$files = $this->val( $uploads, 'import' );
+
+		foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
+		{
+			$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( microtime( true ) ), 0, 4 ) . '.csv';
+			$fs->writes( $dir . '/' . $site . '/' . $filename, $file->getStream()->detach() );
+		}
+
+		return $this->redirect( 'product', 'search', null, 'upload' );
+	}
+
+
+	/**
 	 * Saves the data
 	 *
 	 * @return string|null HTML output

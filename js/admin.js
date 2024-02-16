@@ -525,6 +525,10 @@ Aimeos.List = {
 				this.filters['val'][idx] = val;
 			},
 
+			upload() {
+				this.$refs.import.click()
+			},
+
 			value(idx) {
 				return this.filters['val'] && this.filters['val'][idx] ? this.filters['val'][idx] : null;
 			}
