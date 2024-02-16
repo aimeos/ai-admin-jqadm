@@ -234,6 +234,23 @@ abstract class Base
 
 
 	/**
+	 * Imports a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function import() : ?string
+	{
+		$body = null;
+
+		foreach( $this->getSubClients() as $client ) {
+			$body .= $client->import();
+		}
+
+		return $body;
+	}
+
+
+	/**
 	 * Saves the data
 	 *
 	 * @return string|null Output to display
@@ -689,6 +706,8 @@ abstract class Base
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
+			case 'upload':
+				$context->session()->set( 'info', [$context->translate( 'admin', 'File uploaded successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
