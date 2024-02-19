@@ -271,10 +271,13 @@ class Standard
 		$uploads = (array) $this->view()->request()->getUploadedFiles();
 		$files = $this->val( $uploads, 'import' );
 
-		foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
+		if( $files )
 		{
-			$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( microtime( true ) ), 0, 4 ) . '.csv';
-			$fs->writes( $dir . '/' . $site . '/' . $filename, $file->getStream()->detach() );
+			foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
+			{
+				$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( microtime( true ) ), 0, 4 ) . '.csv';
+				$fs->writes( $dir . '/' . $site . '/' . $filename, $file->getStream()->detach() );
+			}
 		}
 
 		return $this->redirect( 'product', 'search', null, 'upload' );
