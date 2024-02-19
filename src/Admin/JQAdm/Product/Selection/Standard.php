@@ -326,6 +326,10 @@ class Standard
 
 		foreach( $data as $entry )
 		{
+			if( $entry['stock.id'] === null && $entry['stock.stocklevel'] === null ) {
+				continue;
+			}
+
 			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
 
