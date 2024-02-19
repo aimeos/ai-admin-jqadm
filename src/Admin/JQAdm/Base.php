@@ -247,7 +247,7 @@ abstract class Base
 			$body .= $client->import();
 		}
 
-		return null;
+		return $body;
 	}
 
 
