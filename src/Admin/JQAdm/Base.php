@@ -707,6 +707,8 @@ abstract class Base
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
+			case 'upload':
+				$context->session()->set( 'info', [$context->translate( 'admin', 'File uploaded successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
