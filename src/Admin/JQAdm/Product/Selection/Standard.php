@@ -326,7 +326,7 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			if( $entry['stock.id'] === null && $entry['stock.stocklevel'] === null ) {
+			if( !isset( $entry['stock.id'] ) && !isset( $entry['stock.stocklevel'] ) ) {
 				continue;
 			}
 
