@@ -38,6 +38,15 @@
 		"file": "aimeos-core.js",
 		"isDebug": true,
 		"fileIncludes": [{
+			"text": "jquery.js",
+			"path": "js/"
+		},{
+			"text": "vue.js",
+			"path": "js/"
+		},{
+			"text": "bootstrap.js",
+			"path": "js/"
+		},{
 			"text": "serialize.js",
 			"path": "js/"
 		},{
