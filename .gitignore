@@ -1,3 +1,4 @@
+node_modules
 tests/tmp
 .phpunit.result.cache
 .phpunit.cache
