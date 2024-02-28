@@ -1,14 +1,27 @@
 {
-	"projectName": "Aimeos Core",
+	"projectName": "Aimeos",
 	"licenseText": "LGPLv3, http://www.gnu.org/licenses/lgpl.html",
 	"pkgs": [{
-		"name": "Aimeos Admin Core CSS",
-		"file": "aimeos-core.css",
+		"name": "Aimeos Admin LTR CSS",
+		"file": "index.ltr.css",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "jqtree.css",
+			"text": "bootstrap.min.css",
 			"path": "themes/default/"
-		},{
+		}]
+	}, {
+		"name": "Aimeos Admin RTL CSS",
+		"file": "index.rtl.css",
+		"isDebug": true,
+		"fileIncludes": [{
+			"text": "bootstrap.rtl.min.css",
+			"path": "themes/default/"
+		}]
+	}, {
+		"name": "Aimeos Admin CSS",
+		"file": "index.css",
+		"isDebug": true,
+		"fileIncludes": [{
 			"text": "bs-overwrite.css",
 			"path": "themes/default/"
 		},{
@@ -16,6 +29,9 @@
 			"path": "themes/default/"
 		},{
 			"text": "multiselect.css",
+			"path": "themes/default/"
+		},{
+			"text": "jqtree.css",
 			"path": "themes/default/"
 		},{
 			"text": "menu.css",
@@ -34,8 +50,8 @@
 			"path": "themes/default/"
 		}]
 	}, {
-		"name": "Aimeos Admin Core JS",
-		"file": "aimeos-core.js",
+		"name": "Aimeos Admin JS",
+		"file": "index.js",
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "jquery.js",
