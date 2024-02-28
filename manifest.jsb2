@@ -9,7 +9,7 @@
 			"text": "jqtree.css",
 			"path": "themes/default/"
 		},{
-			"text": "bootstrap.css",
+			"text": "bs-overwrite.css",
 			"path": "themes/default/"
 		},{
 			"text": "flatpickr.css",
