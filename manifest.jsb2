@@ -3,7 +3,7 @@
 	"licenseText": "LGPLv3, http://www.gnu.org/licenses/lgpl.html",
 	"pkgs": [{
 		"name": "Aimeos Admin LTR CSS",
-		"file": "index.ltr.css",
+		"file": "index-ltr-css",
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "bootstrap.min.css",
@@ -11,7 +11,7 @@
 		}]
 	}, {
 		"name": "Aimeos Admin RTL CSS",
-		"file": "index.rtl.css",
+		"file": "index-rtl-css",
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "bootstrap.rtl.min.css",
@@ -19,7 +19,7 @@
 		}]
 	}, {
 		"name": "Aimeos Admin CSS",
-		"file": "index.css",
+		"file": "index-css",
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "bs-overwrite.css",
@@ -51,7 +51,7 @@
 		}]
 	}, {
 		"name": "Aimeos Admin JS",
-		"file": "index.js",
+		"file": "index-js",
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "jquery.js",
