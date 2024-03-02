@@ -237,7 +237,7 @@ Aimeos.ProductRef = {
 							params = args;
 						}
 
-						fetch(url + jQuery.param(params)).then(function(response) {
+						fetch(url + serialize(params)).then(function(response) {
 							if(!response.ok) {
 								throw new Error(response.statusText);
 							}

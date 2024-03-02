@@ -78,7 +78,7 @@ Aimeos.Dashboard = {
 
 			const url = response.meta.resources[resource] + (response.meta.resources[resource].includes('?') ? '&' : '?');
 
-			return fetch(url + jQuery.param(params)).then(function(response) {
+			return fetch(url + serialize(params)).then(function(response) {
 				if(!response.ok) {
 					throw new Error(response.statusText);
 				}

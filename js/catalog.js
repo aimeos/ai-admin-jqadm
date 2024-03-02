@@ -43,7 +43,7 @@ Aimeos.options.then(function(result) {
 
 	const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
 
-	return fetch(url + jQuery.param(params)).then(function(response) {
+	return fetch(url + serialize(params)).then(function(response) {
 		if(!response.ok) {
 			throw new Error(response.statusText);
 		}
@@ -274,7 +274,7 @@ Aimeos.Catalog = {
 
 			const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
 
-			return fetch(url + jQuery.param(params), {
+			return fetch(url + serialize(params), {
 				method: 'PATCH',
 				body: JSON.stringify({"data": entry})
 			}).then(function(response) {
@@ -380,7 +380,7 @@ Aimeos.Catalog = {
 
 			const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
 
-			return fetch(url + jQuery.param(params), {
+			return fetch(url + serialize(params), {
 				method: 'DELETE'
 			}).then(function(response) {
 				if(!response.ok) {

@@ -20,7 +20,7 @@ import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 
 globalThis.$ = $
 globalThis.jQuery = jQuery
-globalThis.param = param
+globalThis.serialize = param
 globalThis.sprintf = require('sprintf-js').sprintf
 globalThis.createApp = createApp
 globalThis.Draggable = draggable
