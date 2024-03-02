@@ -635,56 +635,57 @@ body {
 	height: 25rem;
 }
 
-.leaflet-default-icon-path {
-	background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/marker-icon.png);
-}
 
-.leaflet-control-layers-toggle {
-	background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/images/layers.png);
-}
+/* 3rd party Vueform multiselect component */
 
-.leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/images/layers-2x.png);
-}
-
-
-/* 3rd party v-select component */
-
-.vs__dropdown-toggle {
+.multiselect {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid var(--bs-line, #bbb);
-	background-color: var(-bs-bg-light, #FFFFFF);
-	height: calc(1.5rem + .75rem + 2px);
-	padding: .375rem .75rem;
+	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.33) + var(--ms-py, .5rem)*2);
 }
 
-.vs__search::placeholder {
-	color: var(--bs-secondary, #707880);
+.multiselect.is-active {
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid var(--bs-line, #bbb);
 }
 
-.vs__actions {
-	padding: 0;
+.multiselect.is-disabled {
+	background-color: var(--bs-bg-light, #FFFFFF);
+	color: var(--bs-secondary-light, #9098A0);
 }
 
-.vs__open-indicator, .vs__clear {
-	fill: var(--bs-secondary, #707880);
-	transform: scale(0.66);
+.multiselect.is-disabled .multiselect-caret {
+	display: none;
 }
 
-.vs--open .vs__open-indicator {
-	transform: rotate(180deg) scale(0.66);
+.multiselect-search {
+	padding-left: 0;
 }
 
-.vs__search, .vs__search:focus {
-	margin: 0;
+.multiselect-option.is-selected,
+.multiselect-option.is-selected.is-pointed {
+	background: var(--bs-menu-bg)
 }
 
-.vs--single .vs__selected {
-	display: inline-block;
-	overflow: hidden;
-	height: 1.5rem;
-	margin: 0;
+.multiselect-wrapper {
+	min-height: auto;
+}
+
+.multiselect-multiple-label,
+.multiselect-placeholder,
+.multiselect-single-label {
+    padding: 0 !important;
+}
+
+.multiselect-caret,
+.multiselect-spinner {
+    margin: 0 !important;
+}
+
+.multiselect-fake-input {
+    display: none;
 }
 
 
@@ -739,6 +740,11 @@ span.flatpickr-weekday,
 .flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
 	fill: var(--bs-secondary, #505860);
 }
+
+.flatpickr-confirm {
+	cursor: pointer;
+}
+
 
 /* 3rd party CKEdior component */
 

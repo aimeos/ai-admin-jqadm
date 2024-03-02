@@ -6,7 +6,7 @@
 
 Aimeos.components['orderattr-table'] = {
 	components: {
-		VueformMultiselect
+		Multiselect
 	},
 	template: `
 		<table class="item-orderattr table table-default">
@@ -50,7 +50,7 @@ Aimeos.components['orderattr-table'] = {
 							v-model="entry['order.service.attribute.quantity']"
 							v-bind:name="fname('order.service.attribute.quantity', idx)">
 
-						<VueformMultiselect class="service-attr-type form-control"
+						<Multiselect class="service-attr-type form-control"
 							:name="fname('order.service.attribute.code', idx)"
 							:value="entry['order.service.attribute.code']"
 							:disabled="!can('change', idx)"
@@ -66,7 +66,7 @@ Aimeos.components['orderattr-table'] = {
 							:required="true"
 							:options="suggest"
 							:attrs="{tabindex: tabindex}"
-						></VueformMultiselect>
+						></Multiselect>
 					</td>
 					<td class="attr-value">
 						<input type="text" class="service-attr-value form-control" v-bind:tabindex="tabindex"

@@ -22,13 +22,10 @@
 		"file": "index-css",
 		"isDebug": true,
 		"fileIncludes": [{
+			"text": "index.css",
+			"path": "js/"
+		},{
 			"text": "bs-overwrite.css",
-			"path": "themes/default/"
-		},{
-			"text": "flatpickr.css",
-			"path": "themes/default/"
-		},{
-			"text": "multiselect.css",
 			"path": "themes/default/"
 		},{
 			"text": "jqtree.css",
@@ -54,31 +51,13 @@
 		"file": "index-js",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "jquery.js",
-			"path": "js/"
-		},{
-			"text": "vue.js",
+			"text": "index.js",
 			"path": "js/"
 		},{
 			"text": "bootstrap.js",
 			"path": "js/"
 		},{
-			"text": "serialize.js",
-			"path": "js/"
-		},{
-			"text": "sprintf.js",
-			"path": "js/"
-		},{
 			"text": "tree.jquery.js",
-			"path": "js/"
-		},{
-			"text": "flatpickr.js",
-			"path": "js/"
-		},{
-			"text": "multiselect.js",
-			"path": "js/"
-		},{
-			"text": "sortable.js",
 			"path": "js/"
 		},{
 			"text": "ckeditor.js",

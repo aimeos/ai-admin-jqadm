@@ -121,15 +121,14 @@ Aimeos = {
 
 
 	app(config = {}, props = {}) {
-		const { createApp } = Vue
 		const app = createApp(config, props);
 
-		app.component('flat-pickr', VueFlatpickr.default);
-		app.component('multiselect', VueformMultiselect);
-		app.component('draggable', vuedraggable);
-		// app.component('l-map', window.Vue3Leaflet.LMap);
-		// app.component('l-marker', window.Vue3Leaflet.LMarker);
-		// app.component('l-tile-layer', window.Vue3Leaflet.LTileLayer);
+		app.component('flat-pickr', Flatpickr);
+		app.component('multiselect', Multiselect);
+		app.component('draggable', Draggable);
+		app.component('l-map', LMap);
+		app.component('l-marker', LMarker);
+		app.component('l-tile-layer', LTileLayer);
 
 		for(const key in Aimeos.components) {
 			app.component(key, Aimeos.components[key]);

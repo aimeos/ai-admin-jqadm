@@ -83,7 +83,6 @@ Aimeos.Catalog = {
 		this.setupAdd();
 		this.setupSearch();
 
-		const { createApp } = Vue
 		const node = document.querySelector(".item-catalog .tree-toolbar");
 
 		if(node) {
