@@ -33,6 +33,11 @@ Aimeos.Address = {
 					this.Aimeos = Aimeos;
 					this.items = JSON.parse(this.data);
 
+					for(const entry of this.items) {
+						entry['_center'] = this.point(entry);
+						entry['_zoom'] = entry[this.domain + '.address.latitude'] ? 8 : 2;
+					}
+
 					if(this.items[0]) {
 						this.items[0]['_show'] = true;
 					}
@@ -136,7 +141,6 @@ Aimeos.Address = {
 
 			setPoint(idx, ev) {
 				this.items[idx]['_center'] = ev.latlng;
-				this.items[idx]['_zoom'] = this.zoom > 2 ? null : 8;
 				this.items[idx][this.domain + '.address.latitude'] = ev.latlng.lat || null;
 				this.items[idx][this.domain + '.address.longitude'] = ev.latlng.lng || null;
 			},
