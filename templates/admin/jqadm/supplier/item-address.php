@@ -354,7 +354,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.latitude' ) ) ) ?>`.replace('_idx_', index)">
 									<input type="hidden" v-bind:value="element['supplier.address.longitude']"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.longitude' ) ) ) ?>`.replace('_idx_', index)">
-									<l-map ref="map" v-if="show" :center="point(element)" :zoom="zoom(index)" @click="setPoint(index, $event)">
+									<l-map v-if="show"  v-model:zoom="items[index]['_zoom']" v-model:center="items[index]['_center']" :useGlobalLeaflet="false" @click="setPoint(index, $event)">
 										<l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors"></l-tile-layer>
 										<l-marker v-if="element['supplier.address.latitude'] && element['supplier.address.longitude']" :lat-lng="point(element)"></l-marker>
 									</l-map>

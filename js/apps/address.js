@@ -76,6 +76,8 @@ Aimeos.Address = {
 				entry[this.domain + '.address.company'] = null;
 				entry[this.domain + '.address.vatid'] = null;
 
+				entry['_center'] = [0, 0];
+				entry['_zoom'] = 2;
 				entry['_show'] = true;
 
 				this.items.push(entry);
@@ -133,11 +135,8 @@ Aimeos.Address = {
 
 
 			setPoint(idx, ev) {
-				const map = this.$refs.map[0].mapObject;
-
-				map.getZoom() > 2 ? null : map.setZoom(8);
-				map.panTo(ev.latlng);
-
+				this.items[idx]['_center'] = ev.latlng;
+				this.items[idx]['_zoom'] = this.zoom > 2 ? null : 8;
 				this.items[idx][this.domain + '.address.latitude'] = ev.latlng.lat || null;
 				this.items[idx][this.domain + '.address.longitude'] = ev.latlng.lng || null;
 			},
