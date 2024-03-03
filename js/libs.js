@@ -11,7 +11,7 @@ import Multiselect from '@vueform/multiselect'
 
 import 'flatpickr/dist/flatpickr.css'
 import flatpickr from 'vue-flatpickr-component'
-//import default as flatPickrLocales from 'flatpickr/dist/l10n/index.js'
+import l10n from 'flatpickr/dist/l10n/index.js'
 import confirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js'
 
 import "leaflet/dist/leaflet.css"
@@ -26,6 +26,7 @@ globalThis.createApp = createApp
 globalThis.Draggable = draggable
 globalThis.Multiselect = Multiselect
 globalThis.Flatpickr = flatpickr
+globalThis.FlatpickrL10n = l10n
 globalThis.confirmDatePlugin = confirmDatePlugin
 globalThis.LMap = LMap
 globalThis.LTileLayer = LTileLayer

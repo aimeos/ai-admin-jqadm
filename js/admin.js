@@ -823,7 +823,7 @@ $(function() {
 	Aimeos.siteid = $('.aimeos').data('user-siteid') || '';
 	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
 
-	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
+	flatpickr.localize(FlatpickrL10n[$('.aimeos').attr('locale') || 'en']);
 
 	$('.vue').each(function(idx, node) {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
