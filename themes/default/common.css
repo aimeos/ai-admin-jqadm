@@ -424,6 +424,11 @@ body {
 	content: "\F341";
 }
 
+.aimeos .card-header .header-label {
+    text-align: center;
+	width: 100%;
+}
+
 .aimeos .card-tools-start,
 .aimeos .card-tools-end {
 	display: inline-block;

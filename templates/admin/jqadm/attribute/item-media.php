@@ -42,7 +42,7 @@ $enc = $this->encoder();
 									v-bind:aria-controls="'item-media-group-data-' + index" aria-expanded="false">
 								</div>
 							</div>
-							<span class="item-label header-label" v-bind:class="{disabled: !active(index)}">{{ label(index) }}</span>
+							<div class="item-label header-label" v-bind:class="{disabled: !active(index)}" v-on:click="toggle('_show', index)">{{ label(index) }}</div>
 							<div class="card-tools-end">
 								<div v-if="can('move', index)"
 									class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"

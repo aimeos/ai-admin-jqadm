@@ -29,7 +29,7 @@ $enc = $this->encoder();
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this item' ) ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>">
 								</div>
 							</div>
-							<span class="item-label header-label">{{ label(index) }}</span>
+							<div class="item-label header-label">{{ label(index) }}</div>
 							<div class="card-tools-end">
 								<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate item (Ctrl+D)' ) ) ?>"

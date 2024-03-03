@@ -44,7 +44,7 @@ $enc = $this->encoder();
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>">
 								</div>
 							</div>
-							<span class="item-label header-label" v-bind:class="{disabled: !active(index)}">{{ label(index) }}</span>
+							<div class="item-label header-label" v-bind:class="{disabled: !active(index)}" v-on:click="toggle('_show', index)">{{ label(index) }}</div>
 							<div class="card-tools-end">
 								<a class="btn btn-card-header act-generate fa" href="#" v-on:click.prevent="generate(index)"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Generate text' ) ) ?>">
