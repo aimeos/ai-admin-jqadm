@@ -51,7 +51,7 @@ class Standard
 		$search->add( 'media.type.domain', '==', 'attribute' )->order( 'media.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->add( 'attribute.lists.type.domain', '==', 'attribute' )->order( 'attribute.lists.type.code' );
+		$listSearch->add( 'attribute.lists.type.domain', '==', 'media' )->order( 'attribute.lists.type.code' );
 
 		$view->mediaListTypes = $listTypeManager->search( $listSearch );
 		$view->mediaTypes = $typeManager->search( $search );
