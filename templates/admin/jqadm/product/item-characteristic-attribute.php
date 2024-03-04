@@ -107,7 +107,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 										<input is="vue:flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.datestart'] ) ) ?>`.replace( '_idx_', listtype + '-' + index )"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:disabled="element['product.lists.siteid'] != siteid"
+											v-bind:disabled="!can('change', index)"
 											v-bind:config="Aimeos.flatpickr.datetime"
 											v-model="element['product.lists.datestart']">
 									</div>
@@ -121,7 +121,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 										<input is="vue:flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.dateend'] ) ) ?>`.replace( '_idx_', listtype + '-' + index )"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:disabled="element['product.lists.siteid'] != siteid"
+											v-bind:disabled="!can('change', index)"
 											v-bind:config="Aimeos.flatpickr.datetime"
 											v-model="element['product.lists.dateend']">
 									</div>

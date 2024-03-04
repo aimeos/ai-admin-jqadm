@@ -203,7 +203,7 @@ $enc = $this->encoder();
 												v-bind:items="<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_index_', 'service.lists.type'] ) ) ?>`.replace('_index_', index)"
 												v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-												v-bind:readonly="element['service.lists.siteid'] != siteid"
+												v-bind:readonly="!can('change', index)"
 												v-model="element['service.lists.type']" >
 											</select>
 										</div>
@@ -223,7 +223,7 @@ $enc = $this->encoder();
 										<input is="vue:flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_index_', 'service.lists.datestart' ) ) ) ?>`.replace('_index_', index)"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:disabled="element['service.lists.siteid'] != siteid"
+											v-bind:disabled="!can('change', index)"
 											v-bind:config="Aimeos.flatpickr.datetime"
 											v-model="element['service.lists.datestart']">
 									</div>
@@ -237,7 +237,7 @@ $enc = $this->encoder();
 										<input is="vue:flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_index_', 'service.lists.dateend' ) ) ) ?>`.replace('_index_', index)"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:disabled="element['service.lists.siteid'] != siteid"
+											v-bind:disabled="!can('change', index)"
 											v-bind:config="Aimeos.flatpickr.datetime"
 											v-model="element['service.lists.dateend']">
 									</div>
@@ -251,7 +251,7 @@ $enc = $this->encoder();
 								<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 									v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/service/item/price/config/suggest', [] ) ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_index_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_index_', index)"
-									v-bind:index="index" v-bind:readonly="element['service.lists.siteid'] != siteid"
+									v-bind:index="index" v-bind:readonly="!can('change', index)"
 									v-bind:items="element['config']" v-on:update:items="element['config'] = $event"
 									v-bind:i18n="{
 										value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
