@@ -78,9 +78,6 @@
 			"text": "confirm-delete.js",
 			"path": "js/components/"
 		},{
-			"text": "html-editor.js",
-			"path": "js/components/"
-		},{
 			"text": "input-map.js",
 			"path": "js/components/"
 		},{
