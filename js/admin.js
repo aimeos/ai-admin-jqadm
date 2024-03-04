@@ -123,6 +123,7 @@ Aimeos = {
 	app(config = {}, props = {}) {
 		const app = createApp(config, props);
 
+		app.use(CKEditor);
 		app.component('flat-pickr', Flatpickr);
 		app.component('multiselect', Multiselect);
 		app.component('draggable', Draggable);

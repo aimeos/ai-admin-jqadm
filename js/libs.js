@@ -5,6 +5,7 @@ import param from 'jquery-param'
 
 import { createApp } from 'vue'
 import draggable from 'vuedraggable'
+import CKEditor from '@ckeditor/ckeditor5-vue'
 
 import '@vueform/multiselect/themes/default.css'
 import Multiselect from '@vueform/multiselect'
@@ -28,6 +29,7 @@ globalThis.Multiselect = Multiselect
 globalThis.Flatpickr = flatpickr
 globalThis.FlatpickrL10n = l10n
 globalThis.confirmDatePlugin = confirmDatePlugin
+globalThis.CKEditor = CKEditor
 globalThis.LMap = LMap
 globalThis.LTileLayer = LTileLayer
 globalThis.LMarker = LMarker

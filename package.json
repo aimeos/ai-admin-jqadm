@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/aimeos/ai-admin-jqadm#readme",
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^41.1.0",
+    "@ckeditor/ckeditor5-vue": "^5.1.0",
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vueform/multiselect": "^2.6.6",
     "flatpickr": "^4.6.13",

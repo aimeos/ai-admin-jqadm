@@ -113,16 +113,14 @@ $enc = $this->encoder();
 
 								<div class="form-group row mandatory">
 									<div class="col-sm-12">
-										<textarea is="vue:html-editor" v-if="element['_show']" class="form-control item-content" required="required"
+										<textarea is="vue:ckeditor" v-if="element['_show']" class="form-control item-content" required="required"
 											tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:id="'cke-' + index"
 											v-bind:editor="CKEditor"
 											v-bind:config="Aimeos.ckeditor"
-											v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', index)"
-											v-bind:readonly="!can('change', index)"
+											v-bind:disabled="!can('change', index)"
 											v-model="element['text.content']"
 										></textarea>
-										<textarea v-else class="form-control item-content" readonly
+										<textarea v-show="!element['_show']" class="form-control item-content" readonly
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', index)"
 										>{{ element['text.content'] }}</textarea>
 									</div>
