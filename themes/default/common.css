@@ -425,7 +425,8 @@ body {
 }
 
 .aimeos .card-header .header-label {
-    text-align: center;
+	text-align: center;
+	cursor: pointer;
 	width: 100%;
 }
 
@@ -681,16 +682,16 @@ body {
 .multiselect-multiple-label,
 .multiselect-placeholder,
 .multiselect-single-label {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 .multiselect-caret,
 .multiselect-spinner {
-    margin: 0 !important;
+	margin: 0 !important;
 }
 
 .multiselect-fake-input {
-    display: none;
+	display: none;
 }
 
 
