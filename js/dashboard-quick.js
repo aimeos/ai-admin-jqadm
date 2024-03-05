@@ -50,8 +50,8 @@ if(document.querySelector('.order-quick-counttotal')) {
 				const self = this;
 				self.state = 'load';
 
-				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
-					self.update(response.data);
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
 				}).then(function() {
 					self.state = 'done';
 				});
@@ -60,11 +60,11 @@ if(document.querySelector('.order-quick-counttotal')) {
 			update(data) {
 				let before = 0, current = 0;
 
-				for(const entry of data) {
-					if(new Date(entry['id']) < this.startdate) {
-						before += Number(entry['attributes']);
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
 					} else {
-						current += Number(entry['attributes']);
+						current += Number(data[key]);
 					}
 				}
 
@@ -123,8 +123,8 @@ if(document.querySelector('.order-quick-countcompleted')) {
 				const self = this;
 				self.state = 'load';
 
-				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
-					self.update(response.data);
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
 				}).then(function() {
 					self.state = 'done';
 				});
@@ -133,11 +133,11 @@ if(document.querySelector('.order-quick-countcompleted')) {
 			update(data) {
 				let before = 0, current = 0;
 
-				for(const entry of data) {
-					if(new Date(entry['id']) < this.startdate) {
-						before += Number(entry['attributes']);
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
 					} else {
-						current += Number(entry['attributes']);
+						current += Number(data[key]);
 					}
 				}
 
@@ -196,8 +196,8 @@ if(document.querySelector('.order-quick-countunfinished')) {
 				const self = this;
 				self.state = 'load';
 
-				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
-					self.update(response.data);
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
 				}).then(function() {
 					self.state = 'done';
 				});
@@ -206,11 +206,11 @@ if(document.querySelector('.order-quick-countunfinished')) {
 			update(data) {
 				let before = 0, current = 0;
 
-				for(const entry of data) {
-					if(new Date(entry['id']) < this.startdate) {
-						before += Number(entry['attributes']);
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
 					} else {
-						current += Number(entry['attributes']);
+						current += Number(data[key]);
 					}
 				}
 
@@ -263,8 +263,8 @@ if(document.querySelector('.order-quick-countcustomer')) {
 				const self = this;
 				self.state = 'load';
 
-				Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", 10000).then(function(response) {
-					self.update(response.data);
+				Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", 10000).then(function(result) {
+					self.update(result);
 				}).then(function() {
 					self.state = 'done';
 				});
@@ -273,8 +273,8 @@ if(document.querySelector('.order-quick-countcustomer')) {
 			update(data) {
 				let current = 0;
 
-				for(const entry of data) {
-					current += Number(entry['attributes']);
+				for(const key in data) {
+					current += Number(data[key]);
 				}
 
 				this.current = current;

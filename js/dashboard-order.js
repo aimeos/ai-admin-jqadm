@@ -4,7 +4,7 @@
  */
 
 
- Aimeos.Dashboard.Order = {
+Aimeos.Dashboard.Order = {
 
 	theme: 'light',
 	colorHour: '#30a0e0ff',
@@ -121,14 +121,13 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(map) {
 
-			const data = [], map = {}, date = startdate.clone();
+			const data = [], date = startdate.clone();
 			let max = 0;
 
-			for(const entry of response.data) {
-				map[entry['id']] = entry['attributes'];
-				max = Math.max(max, entry['attributes']);
+			for(const key in map) {
+				max = Math.max(max, map[key]);
 			}
 
 			do {
@@ -251,13 +250,9 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(map) {
 
-			const dset = [], map = {};
-
-			for(const entry of response.data) {
-				map[entry['id']] = entry['attributes'];
-			}
+			const dset = [];
 
 			for(let i=0; i<24; i++) {
 				dset.push(map[i] || 0);
@@ -327,8 +322,8 @@
 	chartPaymentStatus() {
 
 		const self = this;
-		const keys = "order.statuspayment,order.cdate";
 		const ctx = this.context('.order-countpaystatus');
+		const keys = ["order.statuspayment", "order.cdate"];
 		const labels = JSON.parse(document.querySelector('.order-countpaystatus').dataset.labels) || {};
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
 		const enddate = moment().utc().endOf('day');
@@ -337,13 +332,9 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(entries) {
 
-			const dsets = [], entries = {};
-
-			for(const entry of (response.data || [])) {
-				entries[entry['id']] = entry['attributes'];
-			}
+			const dsets = [];
 
 			for(const id of [-1, 0, 1, 2, 3, 4, 5, 6]) {
 				entries[id] = entries[id] || {};
@@ -450,17 +441,17 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(map) {
 
 			let max = 1;
-			const map = {};
+			const list = [];
 			const labels = JSON.parse(document.querySelector('.order-countcountry').dataset.labels);
 			const geo = JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
 			const countries = ChartGeo.topojson.feature(geo, geo.objects.countries).features;
 
-			for(const entry of response.data) {
-				map[entry.id] = entry.attributes;
-				max = Math.max(max, entry.attributes);
+			for(const key in map) {
+				list.push({id: key, val: map[key]});
+				max = Math.max(max, map[key]);
 			}
 
 			new Chart(ctx, {
@@ -499,9 +490,9 @@
 			const toplist = document.querySelector('.order-countcountry .toplist');
 
 			if(toplist) {
-				response.data.sort((a, b) => b.attributes - a.attributes);
+				list.sort((a, b) => b.val - a.val);
 
-				for(const entry of response.data.slice(0, self.topLimit)) {
+				for(const entry of list.slice(0, self.topLimit)) {
 
 					const country = document.createElement('td');
 					country.classList.add('country');
@@ -509,7 +500,7 @@
 
 					const number = document.createElement('td');
 					number.classList.add('number');
-					number.appendChild(document.createTextNode(entry.attributes));
+					number.appendChild(document.createTextNode(entry.val));
 
 					const item = document.createElement('tr');
 					item.classList.add('item');

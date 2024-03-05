@@ -4,7 +4,7 @@
  */
 
 
- Aimeos.Dashboard.Service = {
+Aimeos.Dashboard.Service = {
 
 	theme: 'light',
 	colorBg: {dark: '#202550', light: '#ffffff'},
@@ -145,14 +145,14 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(result) {
 
 			let num = 0;
 			const data = [], labels = [];
 
-			for(const entry of response.data) {
-				data.push(entry['attributes']);
-				labels.push(entry['id']);
+			for(const key in result) {
+				data.push(result[key]);
+				labels.push(key);
 				num++;
 			}
 
@@ -201,14 +201,14 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(result) {
 
 			let num = 0;
 			const data = [], labels = [];
 
-			for(const entry of response.data) {
-				data.push(entry['attributes']);
-				labels.push(entry['id']);
+			for(const key in result) {
+				data.push(result[key]);
+				labels.push(key);
 				num++;
 			}
 
