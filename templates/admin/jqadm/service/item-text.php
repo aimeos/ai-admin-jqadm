@@ -87,7 +87,7 @@ $enc = $this->encoder();
 											v-bind:editor="CKEditor"
 											v-bind:config="Aimeos.ckeditor"
 											v-bind:disabled="!can('change', index)"
-											v-model="element['text.content']"
+											v-bind:model-value="element['text.content']"
 											@blur="(...args) => update(element, ...args)"
 										></textarea>
 										<textarea v-show="!element['_show']" class="form-control item-content" readonly
