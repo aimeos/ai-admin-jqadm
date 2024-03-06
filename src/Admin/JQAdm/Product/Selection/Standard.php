@@ -191,6 +191,17 @@ class Standard
 
 
 	/**
+	 * Returns the domain names whose items should be fetched too
+	 *
+	 * @return string[] List of domain names
+	 */
+	protected function getDomains() : array
+	{
+		return $this->context()->config()->get( 'admin/jqadm/product/domains', [] );
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -244,11 +255,10 @@ class Standard
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
-		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$prodIds = map( $data )->col( 'product.id' )->toArray();
 		$filter = $manager->filter()->add( ['product.id' => $prodIds] );
-		$prodItems = $manager->search( $filter, ['attribute' => ['variant']] );
+		$prodItems = $manager->search( $filter, $this->getDomains() );
 
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 		$prodIds = [];
@@ -257,7 +267,7 @@ class Standard
 		{
 			$id = $this->val( $entry, 'product.id', '' );
 
-			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $listManager->create();
+			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $manager->createListItem();
 			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
 
 			$litem->fromArray( $entry, true )->setPosition( $idx );
