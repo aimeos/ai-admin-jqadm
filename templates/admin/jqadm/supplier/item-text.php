@@ -88,6 +88,7 @@ $enc = $this->encoder();
 											v-bind:config="Aimeos.ckeditor"
 											v-bind:disabled="!can('change', index)"
 											v-model="element['text.content']"
+											@blur="(...args) => update(element, ...args)"
 										></textarea>
 										<textarea v-show="!element['_show']" class="form-control item-content" readonly
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', index)"

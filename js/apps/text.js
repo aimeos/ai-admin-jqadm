@@ -208,6 +208,11 @@ Aimeos.Text = {
 				}).catch(error => {
 					alert(error);
 				});
+			},
+
+
+			update(element, ev, editor) {
+				element['text.content'] = editor.getData().replace(/^<p>/, '').replace(/<\/p>$/, '')
 			}
 		}
 	}
