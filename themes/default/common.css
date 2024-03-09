@@ -430,6 +430,10 @@ body {
 	width: 100%;
 }
 
+.aimeos .card .advanced .header-label {
+	margin-inline-start: 0.5rem;
+}
+
 .aimeos .card-tools-start,
 .aimeos .card-tools-end {
 	display: inline-block;
