@@ -89,7 +89,7 @@ Aimeos.Price = {
 
 				if(this.items[idx]) {
 					label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
-					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
+					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '...');
 					label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
 					label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
 					label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
