@@ -343,21 +343,12 @@ class Standard
 			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
 
-			unset( $stockItems[$stockItem->getId()] );
 			$list[] = $stockItem;
 		}
 
-		try
-		{
-			$manager->begin();
-			$manager->delete( $stockItems->toArray() )->save( $list, false );
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$manager->begin();
+		$manager->save( $list, false );
+		$manager->commit();
 	}
 
 
