@@ -38,7 +38,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$this->mock->expects( $this->once() )->method( 'copy' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'copy' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->copy() );
 	}
@@ -46,7 +46,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$this->mock->expects( $this->once() )->method( 'create' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'create' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->create() );
 	}
@@ -54,7 +54,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->mock->expects( $this->once() )->method( 'delete' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'delete' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->delete() );
 	}
@@ -62,7 +62,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$this->mock->expects( $this->once() )->method( 'get' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'get' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->get() );
 	}
@@ -76,7 +76,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$this->mock->expects( $this->once() )->method( 'save' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'save' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->save() );
 	}
@@ -84,7 +84,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->mock->expects( $this->once() )->method( 'search' )->will( $this->returnValue( 'test' ) );
+		$this->mock->expects( $this->once() )->method( 'search' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->search() );
 	}
@@ -92,7 +92,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->mock->expects( $this->once() )->method( 'getSubClient' )->will( $this->returnSelf() );
+		$this->mock->expects( $this->once() )->method( 'getSubClient' )->willReturnSelf();
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $this->object->getSubClient( 'unknown' ) );
 	}
 }

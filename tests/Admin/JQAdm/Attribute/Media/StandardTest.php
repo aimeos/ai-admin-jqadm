@@ -105,7 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
-			->will( $this->returnValue( ['media' => [0 => ['file' => $file]]] ) );
+			->willReturn( ['media' => [0 => ['file' => $file]]] );
 
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		\Aimeos\MShop::inject( \Aimeos\MShop\Media\Manager\Standard::class, $managerStub );
 
-		$managerStub->expects( $this->once() )->method( 'upload' )->will( $this->returnArgument( 0 ) );
+		$managerStub->expects( $this->once() )->method( 'upload' )->willReturnArgument( 0 );
 
 
 		$result = $this->object->save();

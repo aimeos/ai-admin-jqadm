@@ -96,14 +96,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->create();
 
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
-		$file->expects( $this->any() )->method( 'getError' )->will( $this->returnValue( UPLOAD_ERR_OK ) );
+		$file->expects( $this->any() )->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
 
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
-			->will( $this->returnValue( array( 'download' => array( 'file' => $file ) ) ) );
+			->willReturn( array( 'download' => array( 'file' => $file ) ) );
 
 		$this->object->expects( $this->once() )->method( 'storeFile' )
-			->will( $this->returnValue( 'test/file.ext' ) );
+			->willReturn( 'test/file.ext' );
 
 
 		$param = array(
