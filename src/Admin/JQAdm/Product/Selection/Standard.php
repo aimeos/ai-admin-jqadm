@@ -265,12 +265,13 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
+			$qty = $this->val( $entry, 'quantity', 1 );
 			$id = $this->val( $entry, 'product.id', '' );
 
 			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $manager->createListItem();
 			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
 
-			$litem->fromArray( $entry, true )->setPosition( $idx );
+			$litem->fromArray( $entry, true )->setPosition( $idx )->setConfigValue( 'quantity', $qty );
 			$refItem->fromArray( $entry, true );
 
 			if( isset( $entry['attr'] ) ) {
@@ -376,6 +377,7 @@ class Standard
 			}
 
 			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$list['quantity'] = $listItem->getConfigValue( 'quantity' );
 
 			if( $copy === true )
 			{
