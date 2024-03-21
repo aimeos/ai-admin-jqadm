@@ -963,10 +963,10 @@ msgid "Minimum quantity"
 msgstr "Cantitate minima"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Număr mobil"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1400,7 +1400,7 @@ msgid "Rabate"
 msgstr "Reducere"
 
 msgid "Rating"
-msgstr ""
+msgstr "Evaluare"
 
 msgid "Rating and number of ratings for the merchant"
 msgstr ""
@@ -2010,7 +2010,7 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
-msgstr ""
+msgstr "Voucher"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
@@ -2323,7 +2323,7 @@ msgstr "Produse"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Recenzii"
 
 #, php-format
 msgid "rule"
