@@ -1,5 +1,6 @@
 node_modules
 tests/tmp
+node_modules
 .phpunit.result.cache
 .phpunit.cache
 coveralls.json
