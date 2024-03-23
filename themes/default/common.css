@@ -698,6 +698,11 @@ body {
 	display: none;
 }
 
+.multiselect-single-label-text {
+    pointer-events: auto;
+	cursor: text;
+}
+
 
 /* 3rd party flatpickr component */
 
