@@ -332,13 +332,13 @@ Aimeos = {
 			},
 			computed: {
 				prefix() {
-					return this.domain.replace(/\//g, '.')
+					return this.domain ? this.domain.replace(/\//g, '.') + '.' : '';
 				}
 			},
 			methods: {
 				can(action) {
-					if(this.data[this.prefix + '.siteid']) {
-						return (new String(this.data[this.prefix + '.siteid'])).startsWith(this.siteid);
+					if(this.data[this.prefix + 'siteid']) {
+						return (new String(this.data[this.prefix + 'siteid'])).startsWith(this.siteid);
 					}
 
 					return false;
