@@ -22,7 +22,7 @@ $name = function( \Aimeos\MShop\Order\Item\Iface $item )
 
 	$address = $addresses[\Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT];
 
-	if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
+	if( $address->getSalutation() !== 'company' ) {
 		return $address->getFirstName() . ' ' . $address->getLastName();
 	} else {
 		return $address->getCompany();

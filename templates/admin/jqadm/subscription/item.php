@@ -311,11 +311,6 @@ $params = $this->get( 'pageParams', [] );
 										<div class="address-short">
 											<span class="address-text">
 												<?php
-													$salutations = array(
-														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
-														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
-													);
-
 													echo preg_replace( "/\n+/m", "<br>", trim( $enc->html( sprintf(
 														/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
 														/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
@@ -337,7 +332,7 @@ $params = $this->get( 'pageParams', [] );
 '
 														),
 														$addr->getCompany(),
-														( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
+														( in_array( $addr->getSalutation(), ['mr', 'ms'] ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
 														$addr->getTitle(),
 														$addr->getFirstName(),
 														$addr->getLastName(),
