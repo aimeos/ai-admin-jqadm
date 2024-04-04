@@ -8,6 +8,7 @@
 # Anderson Mendoza Aguiar <amendozaaguiar@outlook.com>, 2021
 # Daniel Cortés <skrd@hotmail.es>, 2018
 # Daniel Vega <danielvega131990@gmail.com>, 2015
+# Edu PM, 2024
 # Gonzalo Rocha <gonzalo@positivonetworks.com>, 2021
 # Jorge Moriñigo <jorgemorinigo@gmail.com>, 2020
 # Juan Ramos <juancagb.17@gmail.com>, 2017
@@ -20,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Rodolfo Ruival <ruileo1977@yahoo.com>, 2020\n"
+"Last-Translator: Edu PM, 2024\n"
 "Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +244,7 @@ msgstr "Idioma disponible para el sitio actual"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Valoración media del producto y número total de valoraciones realizadas por los clientes para este producto"
 
 msgid "Back in stock"
 msgstr "De nuevo en existencia"
@@ -371,7 +372,7 @@ msgid "Company name (optional)"
 msgstr "Nombre de la empresa (opcional)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Pedidos completados"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
@@ -435,7 +436,7 @@ msgid "Custom"
 msgstr "Personalizado"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Dominio personalizado o código único de tu tienda"
 
 msgid "Customer"
 msgstr "Cliente"
@@ -456,7 +457,7 @@ msgid "Customer Property Types"
 msgstr ""
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Características del cliente que no son compartidas con otros clientes"
 
 msgid "Customer comment (optional)"
 msgstr "Comentarios del cliente (opcional)"
@@ -471,10 +472,10 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Características del cliente que no se comparten con otros clientes."
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Referencia de cliente"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Referencia de cliente (opcional)"
 
 msgid "Dashboard"
 msgstr "Tablero"
@@ -528,7 +529,7 @@ msgid "Delivery date"
 msgstr "Fecha de entrega"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Entregar en"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -538,7 +539,7 @@ msgid "Delivery status"
 msgstr "Estado de la entrega"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Plazo de entrega (opcional)"
 
 msgid "Delivery types"
 msgstr "Tipos de entregas"
@@ -564,7 +565,7 @@ msgid "Descritive name of the site"
 msgstr "Nombre descriptivo del sitio"
 
 msgid "Discount"
-msgstr ""
+msgstr "Descuento"
 
 msgid "Display help texts"
 msgstr "Mostrar los textos de ayuda"
@@ -627,13 +628,13 @@ msgid "Error"
 msgstr "Error"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Sin impuestos"
 
 msgid "Execution order of the plugins"
 msgstr "Orden de ejecución de los plugins"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Orden de ejecución de las reglas."
 
 msgid "Export"
 msgstr "Exportar"
@@ -775,7 +776,7 @@ msgid "Import/Export jobs"
 msgstr "Importar/Exportar tareas"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Con impuestos"
 
 msgid "Info"
 msgstr "Informacion"
@@ -842,10 +843,10 @@ msgid "Invoice"
 msgstr "Factura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Nº de factura"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Número de factura del pedido"
 
 msgid "Item deleted successfully"
 msgstr "Artículo eliminado exitosamente"
@@ -889,7 +890,7 @@ msgid "Last name"
 msgstr "Apellido"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Apellidos (opcional)"
 
 msgid "Last name (required)"
 msgstr "Apellido (obligatorio)"
@@ -959,25 +960,25 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Menu"
-msgstr ""
+msgstr "Menú"
 
 msgid "Message"
 msgstr "Mensaje"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Cantidad mínima"
 
 msgid "Minimum quantity"
 msgstr "Cantidad mínima"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Móvil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Número móvil"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Número móvil (opcional)"
 
 msgid "Modifed"
 msgstr "Modificado"
@@ -1011,19 +1012,19 @@ msgid "Name of the reviewer"
 msgstr ""
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Nombre de tu tienda mostrado a tus clientes"
 
 msgid "New"
 msgstr "Nuevo"
 
 msgid "New customers"
-msgstr ""
+msgstr "Nuevos clientes"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Nuevos clientes en los últimos siete días"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Nuevos clientes en los últimos siete días comparados con el periodo anterior"
 
 msgid "Next"
 msgstr "Siguiente"
@@ -1050,7 +1051,7 @@ msgid "No product found"
 msgstr ""
 
 msgid "No theme options available"
-msgstr ""
+msgstr "No hay opciones de tema disponibles"
 
 #, php-format
 msgid "No view available"
@@ -1079,10 +1080,10 @@ msgid "Not implemented"
 msgstr "No implementado"
 
 msgid "Notes"
-msgstr ""
+msgstr "Anotaciones"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Anotaciones (no son mostradas al cliente)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1137,10 +1138,10 @@ msgid "Order totals"
 msgstr "Totales de pedidos"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Fecha de pedido"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Pedidos por país"
 
 msgid "Orders by day"
 msgstr "Pedidos por día"
@@ -1250,7 +1251,7 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Código postal para la entrega si se usa en el área donde vive el proveedor"
 
 msgid "Postition"
-msgstr ""
+msgstr "Posición"
 
 msgid "Potential problems"
 msgstr "Problemas potenciales"
@@ -1516,7 +1517,7 @@ msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
 msgid "Rules"
-msgstr ""
+msgstr "Reglas"
 
 msgid "SKU"
 msgstr "SKU"
@@ -1594,7 +1595,7 @@ msgid "Service rebate"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 msgid "Ship date"
 msgstr "Fecha de envío"
@@ -1618,25 +1619,25 @@ msgid "Shipping/item"
 msgstr ""
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Dominio de la tienda"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Dominio de la tienda (obligatorio)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "E-mail de la tienda"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "E-mail de la tienda (obligatorio)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Nombre de la tienda"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Nombre de la tienda (obligatorio)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Tema de la tienda"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1846,7 +1847,7 @@ msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Tema para cambiar el diseño de tu tienda"
 
 msgid "Three letter ISO currency code"
 msgstr "Código de moneda ISO de tres letras"
@@ -1864,13 +1865,13 @@ msgid "Toggle dropdown"
 msgstr "Alternar menú desplegable"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Países principales"
 
 msgid "Total"
 msgstr "Total"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Todos los pedidos"
 
 msgid "Total orders within the last seven days compared to the period before"
 msgstr ""
@@ -1919,7 +1920,7 @@ msgid "Unable to call method \"%1$s\""
 msgstr "No se ha podido invocar el método \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Pedidos sin completar"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
@@ -2012,7 +2013,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
 msgid "Verified"
-msgstr ""
+msgstr "Verificado"
 
 msgid "View details"
 msgstr "Ver detalles"
@@ -2037,7 +2038,7 @@ msgid "Weight"
 msgstr "Peso"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "La fecha cuando la cuenta y la dirección de correo han sido verificadas"
 
 msgid "Width"
 msgstr "Ancho"
@@ -2217,7 +2218,7 @@ msgid "mrs"
 msgstr "Señora"
 
 msgid "ms"
-msgstr ""
+msgstr "Srta"
 
 msgid "new"
 msgstr "nuevo"
@@ -2335,18 +2336,18 @@ msgstr "Comentarios"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "Reglas de precios"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "Ventas"
 
 #, php-format
 msgid "salesweekday"
 msgstr "Ventas de días laborables"
 
 msgid "selected"
-msgstr ""
+msgstr "seleccionado"
 
 #, php-format
 msgid "selection"
@@ -2366,11 +2367,11 @@ msgstr "Por tipo de pago"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Ajustes"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "configuración"
 
 #, php-format
 msgid "special"
@@ -2445,11 +2446,11 @@ msgstr "Textos"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "Tema"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "Transacción"
 
 #, php-format
 msgid "type"
