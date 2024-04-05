@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-09 17:16+0200\n"
+"POT-Creation-Date: 2024-04-04 16:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -486,6 +486,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr ""
 
+msgid "Delete this item"
+msgstr ""
+
 msgid "Deleting reviews is not allowed"
 msgstr ""
 
@@ -547,6 +550,9 @@ msgid "Download this file"
 msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
+msgid "Duplicate item (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
@@ -625,6 +631,9 @@ msgid "File"
 msgstr ""
 
 msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "File uploaded successfully"
 msgstr ""
 
 msgid "Find category"
@@ -750,6 +759,9 @@ msgstr ""
 msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
+msgid "Insert new item (Ctrl+I)"
+msgstr ""
+
 msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
 msgstr ""
 
@@ -798,6 +810,9 @@ msgid "Invoice"
 msgstr ""
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number"
 msgstr ""
 
 msgid "Invoice number for the order"
@@ -942,6 +957,9 @@ msgid "More"
 msgstr ""
 
 msgid "Move this entry up/down"
+msgstr ""
+
+msgid "Move this item up/down"
 msgstr ""
 
 msgid "Name"
@@ -1597,6 +1615,9 @@ msgstr ""
 msgid "Show/hide this entry"
 msgstr ""
 
+msgid "Show/hide this item"
+msgstr ""
+
 msgid "Shown if the article reached a stock level of zero"
 msgstr ""
 
@@ -1898,6 +1919,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr ""
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr ""
 
@@ -1926,6 +1950,9 @@ msgid "Variant attributes"
 msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Vendor"
 msgstr ""
 
 msgid "Verified"
