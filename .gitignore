@@ -3,5 +3,6 @@ tests/tmp
 .phpunit.cache
 coveralls.json
 coverage.xml
+node_modules
 *.log
 *.ser
