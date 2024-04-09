@@ -208,7 +208,7 @@ Vue.component('config-table', {
 							:readonly="readonly"
 							:list="entry.val || []"
 							@update="$set(entry, 'val', $event); $set(entry, 'show', false)"
-						></AimeosMapComponent>
+						></AimeosListComponent>
 					</div>
 
 					<div v-if="entry.type === 'map'">
