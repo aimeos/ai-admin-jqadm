@@ -97,7 +97,7 @@ return [
 		'groups' => ['admin', 'editor', 'super'],
 	],
 	'customer' => [
-		/** admin/jqadm/resource/groups
+		/** admin/jqadm/resource/customer/groups
 		 * List of user groups that are allowed to access the customer panel
 		 *
 		 * @param array List of user group names

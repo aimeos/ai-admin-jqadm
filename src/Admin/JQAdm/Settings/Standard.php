@@ -338,6 +338,18 @@ class Standard
 			$context = $this->context();
 			$mime = $this->mimetype( $file );
 			$siteId = $context->locale()->getSiteId();
+
+			/** admin/jqadm/settings/logo-size
+			 * Maximum width and height of the logo images
+			 *
+			 * This configuration setting allows to define the maximum width and height
+			 * of the logo images. The images will be scaled down to the given size if
+			 * they are larger than the configured values. If the width or height is
+			 * set to null, the image will be scaled proportionally to the other value.
+			 *
+			 * @param array Associative list with maxwidth/maxheight keys and the maximum width/height in pixels (or NULL)
+			 * @since 2024.04
+			 */
 			$sizes = $context->config()->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] );
 
 			if( !in_array( $mime, ['image/webp', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )

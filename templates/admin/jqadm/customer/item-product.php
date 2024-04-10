@@ -6,6 +6,24 @@
  */
 
 
+/** admin/jqadm/partial/productref
+ * Relative path to the partial template for displaying the list of associated products
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in templates/admin/jqadm).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with an unique name. You may use the
+ * name of your project for this. If you've implemented an alternative
+ * client class as well, use the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2023.04
+ */
+
 /** admin/jqadm/customer/product/fields
  * List of customer list and product columns that should be displayed in the customer product view
  *
