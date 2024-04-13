@@ -63,7 +63,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.id'] ) ) ?>`.replace('_idx_', index)">
 							<input type="hidden" v-model="element['product.lists.id']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', index)">
-							<input type="hidden" v-model="item['quantity']"
+							<input type="hidden" v-model="element['quantity']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'quantity'] ) ) ?>`.replace('_idx_', index)">
 
 							<div class="col-xl-6">
