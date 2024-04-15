@@ -260,7 +260,7 @@ class Standard
 	{
 		$context = $this->context();
 		$fs = $context->fs( 'fs-import' );
-		$site = $context->locale()->getSiteCode();
+		$site = $context->locale()->getSiteItem()->getCode();
 		$dir = $context->config()->get( 'controller/jobs/product/import/csv/location', 'product' );
 
 		if( $fs instanceof \Aimeos\Base\Filesystem\DirIface && $fs->isDir( $dir . '/' . $site ) === false ) {
