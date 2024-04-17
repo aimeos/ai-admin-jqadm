@@ -436,8 +436,8 @@ Aimeos.List = {
 			selected() {
 				let count = 0;
 
-				for(const key in this.items) {
-					if(this.items[key].checked) {
+				for(const key in this.entries) {
+					if(this.entries[key].checked) {
 						count++;
 					}
 				}
@@ -447,9 +447,9 @@ Aimeos.List = {
 
 			unconfirmed() {
 				let list = {};
-				for(const key in this.items) {
-					if(this.items[key].checked) {
-						list[key] = this.items[key][this.prefix + 'label'] || this.items[key][this.prefix + 'code'] || this.items[key][this.prefix + 'id'];
+				for(const key in this.entries) {
+					if(this.entries[key].checked) {
+						list[key] = this.entries[key][this.prefix + 'label'] || this.entries[key][this.prefix + 'code'] || this.entries[key][this.prefix + 'id'];
 					}
 				}
 
@@ -460,7 +460,7 @@ Aimeos.List = {
 			askDelete(id, ev) {
 				if(id) {
 					this.clear(false);
-					this.items[id]['checked'] = true;
+					this.entries[id]['checked'] = true;
 				}
 
 				this.deleteUrl = ev.target.href;
@@ -468,7 +468,7 @@ Aimeos.List = {
 			},
 
 			checked(id) {
-				return this.items[id] && this.items[id].checked;
+				return this.entries[id] && this.entries[id].checked;
 			},
 
 			confirmDelete(val) {
@@ -490,15 +490,15 @@ Aimeos.List = {
 
 			clear(val) {
 				this.all = val;
-				for(const key in this.items) {
-					if([this.siteid, ''].includes(this.items[key][this.prefix + 'siteid'])) {
-						this.items[key]['checked'] = val;
+				for(const key in this.entries) {
+					if([this.siteid, ''].includes(this.entries[key][this.prefix + 'siteid'])) {
+						this.entries[key]['checked'] = val;
 					}
 				};
 			},
 
 			readonly(id) {
-				return !(this.items[id] && this.items[id][this.prefix + 'siteid'] == this.siteid);
+				return !(this.entries[id] && this.entries[id][this.prefix + 'siteid'] == this.siteid);
 			},
 
 			reset() {
@@ -514,7 +514,7 @@ Aimeos.List = {
 			},
 
 			toggle(id) {
-				this.items[id]['checked'] = !this.items[id].checked;
+				this.entries[id]['checked'] = !this.entries[id].checked;
 			},
 
 			toggleAll() {
