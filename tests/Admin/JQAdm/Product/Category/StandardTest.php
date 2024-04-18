@@ -87,9 +87,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'category' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'default',
-				'product.lists.refid' => '-1',
+				'catalog.id' => '-1',
 			]]
 		);
 
@@ -111,9 +110,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'category' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'promotion',
-				'product.lists.refid' => '-1',
+				'catalog.id' => '-1',
 			]]
 		);
 

@@ -83,9 +83,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'supplier' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'default',
-				'product.lists.refid' => '-1',
+				'supplier.id' => '-1',
 			]]
 		);
 
