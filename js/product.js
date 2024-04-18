@@ -443,8 +443,7 @@ Aimeos.Product.Catalog = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], 'product.lists.refid', ev['catalog.id']);
-					this.$set(this.items[idx], 'catalog.label', ev['catalog.label'] + ' (' + ev['catalog.code'] + ')');
+					this.$set(this.items[idx], 'catalog.label', ev['catalog.label']);
 					this.$set(this.items[idx], 'catalog.id', ev['catalog.id']);
 				},
 			}
