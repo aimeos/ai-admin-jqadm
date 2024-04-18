@@ -79,9 +79,11 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'stock', [] );
 
-		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'stock', [] ) );
+
+		foreach( $data as $idx => $entry ) {
 			$data[$idx]['stock.siteid'] = $siteid;
 		}
 
