@@ -60,10 +60,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'supplier', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'supplier', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->supplierData = $data;
@@ -252,7 +254,12 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
+<<<<<<< HEAD
 				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
+=======
+				->setRefId( $this->val( $entry, 'supplier.id' ) )
+				->setPosition( $idx++ );
+>>>>>>> bd2013cf (Avoid loosing product supplier data on saving when an error occurs)
 
 			$item->addListItem( 'supplier', $litem );
 		}
