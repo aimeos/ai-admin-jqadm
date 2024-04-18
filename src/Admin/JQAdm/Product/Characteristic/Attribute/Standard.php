@@ -76,10 +76,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'characteristic/attribute', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data[$idx]['product.lists.siteid'] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/attribute', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->attributeData = $data;
@@ -262,9 +264,10 @@ class Standard
 		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
+			$refid = $this->val( $entry, 'attribute.id' );
 
 			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$listItem->fromArray( $entry, true )->setId( $id )->setPosition( $idx++ )->setConfig( [] );
+			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
