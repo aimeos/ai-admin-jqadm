@@ -78,7 +78,7 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="vue box <?= $this->site()->mismatch( $this->get( 'itemData/tag.type.siteid' ) ) ?>"
+				<div class="vue box" v-bind:class="{mismatch: !can('match')}"
 					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-domain="tag/type">
