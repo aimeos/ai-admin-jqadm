@@ -254,12 +254,8 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-<<<<<<< HEAD
-				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
-=======
 				->setRefId( $this->val( $entry, 'supplier.id' ) )
 				->setPosition( $idx++ );
->>>>>>> bd2013cf (Avoid loosing product supplier data on saving when an error occurs)
 
 			$item->addListItem( 'supplier', $litem );
 		}
