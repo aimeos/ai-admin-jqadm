@@ -10,7 +10,7 @@ $enc = $this->encoder();
 $data = map( $this->get( 'categoryData', [] ) )->groupBy( 'product.lists.type' );
 
 $keys = [
-	'product.lists.id', 'product.lists.siteid', 'product.lists.type', 'product.lists.refid',
+	'product.lists.id', 'product.lists.siteid', 'product.lists.type',
 	'catalog.label', 'catalog.code', 'catalog.id'
 ];
 
@@ -54,8 +54,14 @@ $keys = [
 									<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
-									<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
+									<input class="item-id" type="hidden" v-model="item['catalog.id']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )">
+
+									<input class="item-code" type="hidden" v-model="item['catalog.code']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )">
+
+									<input class="item-label" type="hidden" v-model="item['catalog.label']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )">
 
 									<Multiselect class="item-id form-control"
 										placeholder="Enter catalog ID, code or label"

@@ -395,8 +395,7 @@ Aimeos.Product.Catalog = {
 
 
 				use(idx, ev) {
-					this.items[idx]['product.lists.refid'] = ev['catalog.id'];
-					this.items[idx]['catalog.label'] = ev['catalog.label'] + ' (' + ev['catalog.code'] + ')';
+					this.items[idx]['catalog.label'] = ev['catalog.label'];
 					this.items[idx]['catalog.id'] = ev['catalog.id'];
 				},
 			}
