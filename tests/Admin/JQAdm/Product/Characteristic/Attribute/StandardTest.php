@@ -88,9 +88,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'characteristic' => [
 				'attribute' => [[
-					'product.lists.id' => '',
-					'product.lists.refid' => '123',
 					'product.lists.type' => 'default',
+					'attribute.id' => '123',
 				]],
 			],
 		);
