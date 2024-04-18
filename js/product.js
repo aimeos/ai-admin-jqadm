@@ -337,7 +337,6 @@ Aimeos.Product.Attribute = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], this.prefix + 'refid', ev['attribute.id']);
 					this.$set(this.items[idx], 'attribute.label', ev['attribute.label']);
 					this.$set(this.items[idx], 'attribute.id', ev['attribute.id']);
 				},
