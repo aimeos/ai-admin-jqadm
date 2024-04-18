@@ -1225,8 +1225,7 @@ Aimeos.Product.Supplier = {
 
 
 				use(idx, ev) {
-					this.items[idx]['product.lists.refid'] = ev['supplier.id'];
-					this.items[idx]['supplier.label'] = ev['supplier.label'] + ' (' + ev['supplier.label'] + ')';
+					this.items[idx]['supplier.label'] = ev['supplier.label'];
 					this.items[idx]['supplier.id'] = ev['supplier.id'];
 				},
 			}
