@@ -174,6 +174,12 @@ $params = $this->get( 'pageParams', [] );
 									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
 									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 								}">
+								<table class="table translations">
+									<tr>
+										<th colspan="2" class="head"><?= $enc->html( $this->translate( 'admin', 'Translations' ) ) ?></th>
+										<th class="action"><div class="btn fa"><div></th>
+									</tr>
+								</table>
 							</translations>
 						</div>
 
