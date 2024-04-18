@@ -259,9 +259,10 @@ class Standard
 		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
+			$refid = $this->val( $entry, 'attribute.id' );
 
 			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$listItem->fromArray( $entry, true )->setId( $id )->setPosition( $idx++ )->setConfig( [] );
+			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{

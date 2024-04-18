@@ -53,9 +53,9 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	 */
 	public function can( ?string $siteid ) : ?bool
 	{
-		$current = $this->siteItem->getSiteId();
+		$current = (string) $this->siteItem->getSiteId();
 
-		if( !strncmp( $current, $siteid, strlen( $current ) ) ) {
+		if( !strncmp( $current, (string) $siteid, strlen( $current ) ) ) {
 			return true;
 		}
 

@@ -247,6 +247,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'supplier' );
+		$idx = 0;
 
 		foreach( $data as $entry )
 		{
