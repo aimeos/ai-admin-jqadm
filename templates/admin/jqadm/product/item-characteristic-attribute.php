@@ -124,13 +124,13 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.type'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
-							<input class="item-id" type="hidden" v-model="element['attribute.id']"
+							<input class="item-id" type="hidden" v-model="item['attribute.id']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'attribute.id'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
-							<input class="item-label" type="hidden" v-model="element['attribute.type']"
+							<input class="item-label" type="hidden" v-model="item['attribute.type']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'attribute.type'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
-							<input class="item-label" type="hidden" v-model="element['attribute.label']"
+							<input class="item-label" type="hidden" v-model="item['attribute.label']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'attribute.label'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
 							<Multiselect v-if="item['attribute.type']" class="item-refid form-control"
