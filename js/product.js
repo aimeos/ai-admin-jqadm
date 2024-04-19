@@ -665,6 +665,7 @@ Aimeos.Product.Product = {
 					}
 
 					this.items[idx]['product.lists.siteid'] = this.siteid;
+					this.items[idx]['product.lists.type'] = this.listtype;
 				},
 
 
@@ -719,8 +720,7 @@ Aimeos.Product.Product = {
 
 
 				use(idx, ev) {
-					this.items[idx]['product.lists.refid'] = ev['product.id'];
-					this.items[idx]['product.label'] = ev['product.label'] + ' (' + ev['product.code'] + ')';
+					this.items[idx]['product.label'] = ev['product.label'];
 					this.items[idx]['product.id'] = ev['product.id'];
 				},
 			}
