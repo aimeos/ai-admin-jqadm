@@ -8,7 +8,7 @@
 $enc = $this->encoder();
 
 $keys = [
-	'product.lists.id', 'product.lists.siteid', 'product.lists.refid', 'product.label', 'product.code'
+	'product.lists.id', 'product.lists.siteid', 'product.id', 'product.label', 'product.code'
 ];
 
 
@@ -45,13 +45,19 @@ $keys = [
 					<tbody is="vue:draggable" item-key="product.id" group="bundle" :list="items" handle=".act-move" tag="tbody">
 						<template #item="{element, index}">
 
-							<tr v-bind:class="{'readonly': !can('change', index)}">
+							<tr v-bind:class="{readonly: !can('change', index)}">
 								<td v-bind:class="element['css'] ||''">
 									<input class="item-listid" type="hidden" v-model="element['product.lists.id']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', index )">
 
-									<input class="item-refid" type="hidden" v-model="element['product.lists.refid']"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', index )">
+									<input class="item-id" type="hidden" v-model="element['product.id']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.id'] ) ) ?>`.replace( '_idx_', index )">
+
+									<input class="item-code" type="hidden" v-model="element['product.code']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.code'] ) ) ?>`.replace( '_idx_', index )">
+
+									<input class="item-label" type="hidden" v-model="element['product.label']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.label'] ) ) ?>`.replace( '_idx_', index )">
 
 									<Multiselect class="item-id form-control"
 										placeholder="Enter product ID, code or label"
@@ -60,7 +66,7 @@ $keys = [
 										label="product.label"
 										@open="function(select) {return select.refreshOptions()}"
 										@input="use(index, $event)"
-										:value="item"
+										:value="element"
 										:title="title(index)"
 										:disabled="!can('change', index)"
 										:options="async function(query) {return await fetch(query, index)}"
