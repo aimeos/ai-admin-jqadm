@@ -58,12 +58,18 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'selection', [] );
 
-		foreach( $data as $idx => $entry )
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'selection', [] ) );
+
+		foreach( $data as $key => $entry )
 		{
-			$data[$idx]['product.lists.siteid'] = $siteid;
-			$data[$idx]['product.siteid'] = $siteid;
+			foreach( $entry['attr'] ?? [] as $idx => $attr ) {
+				$data[$key]['attr'][$idx]['product.lists.siteid'] = $siteid;
+			}
+
+			$data[$key]['product.lists.siteid'] = $siteid;
+			$data[$key]['product.siteid'] = $siteid;
 		}
 
 		$view->selectionData = $data;
@@ -307,7 +313,7 @@ class Standard
 		{
 			$listid = $this->val( $attr, 'product.lists.id' );
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
-			$litem->setRefId( $this->val( $attr, 'product.lists.refid' ) )->setType( 'variant' )->setPosition( $pos++ );
+			$litem->setRefId( $this->val( $attr, 'attribute.id' ) )->setType( 'variant' )->setPosition( $pos++ );
 
 			$refItem->addListItem( 'attribute', $litem );
 		}
