@@ -60,8 +60,8 @@ class Standard
 		$itemData = $this->toArray( $view->item );
 		$data = array_replace_recursive( $itemData, $view->param( 'related/bought', [] ) );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		foreach( $data as $key => $value ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->boughtData = $data;
