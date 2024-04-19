@@ -71,10 +71,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'related', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'related', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->relatedData = $data;
@@ -270,6 +272,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'product', $this->getTypes()->keys()->all() );
+		$idx = 0;
 
 		foreach( $data as $entry )
 		{
@@ -277,7 +280,8 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
+				->setRefId( $this->val( $entry, 'product.id' ) )
+				->setPosition( $idx++ );
 
 			$item->addListItem( 'product', $litem );
 		}
