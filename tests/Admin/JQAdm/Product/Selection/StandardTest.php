@@ -117,7 +117,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'selection' => array(
 				array(
-					'product.lists.id' => '',
 					'product.id' => '',
 					'product.code' => 'testprod',
 					'product.label' => 'test product',
@@ -125,8 +124,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'stock.stocklevel' => 20,
 					'attr' => array(
 						array(
-							'product.lists.id' => '',
-							'product.lists.refid' => '789',
+							'attribute.id' => '789',
 							'attribute.label' => 'test attribute',
 						)
 					)
