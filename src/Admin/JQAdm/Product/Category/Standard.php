@@ -261,7 +261,6 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'catalog' );
-		$idx = 0;
 
 		foreach( $data as $entry )
 		{
@@ -269,8 +268,7 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'catalog.id' ) )
-				->setPosition( $idx++ );
+				->setRefId( $this->val( $entry, 'catalog.id' ) );
 
 			$item->addListItem( 'catalog', $litem );
 		}
