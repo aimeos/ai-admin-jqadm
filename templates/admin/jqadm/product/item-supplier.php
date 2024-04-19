@@ -57,9 +57,6 @@ $keys = [
 									<input class="item-id" type="hidden" v-model="item['supplier.id']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', $type . '-idx', 'supplier.id'] ) ) ?>`.replace( 'idx', idx )">
 
-									<input class="item-code" type="hidden" v-model="item['supplier.code']"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', $type . '-idx', 'supplier.code'] ) ) ?>`.replace( 'idx', idx )">
-
 									<input class="item-label" type="hidden" v-model="item['supplier.label']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', $type . '-idx', 'supplier.label'] ) ) ?>`.replace( 'idx', idx )">
 
