@@ -56,9 +56,6 @@ $keys = [
 								<input class="item-id" type="hidden" v-model="item['supplier.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'supplier.id'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-code" type="hidden" v-model="item['supplier.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'supplier.code'] ) ) ?>`.replace( 'idx', idx )">
-
 								<input class="item-label" type="hidden" v-model="item['supplier.label']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'supplier.label'] ) ) ?>`.replace( 'idx', idx )">
 
@@ -134,14 +131,8 @@ $keys = [
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
-
 								<input class="item-id" type="hidden" v-model="item['supplier.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'supplier.id'] ) ) ?>`.replace( 'idx', idx )">
-
-								<input class="item-code" type="hidden" v-model="item['supplier.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'supplier.code'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-label" type="hidden" v-model="item['supplier.label']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'supplier.label'] ) ) ?>`.replace( 'idx', idx )">
