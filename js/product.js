@@ -932,7 +932,7 @@ Aimeos.Product.Selection = {
 						this.items[idx]['attr'][len] = {};
 					}
 
-					for(let key of ['product.lists.id', 'product.lists.refid', 'attribute.label']) {
+					for(let key of ['product.lists.id', 'attribute.id', 'attribute.label']) {
 						this.items[idx]['attr'][len][key] = '';
 					}
 
@@ -986,8 +986,7 @@ Aimeos.Product.Selection = {
 
 
 				useAttribute(idx, attridx, ev) {
-					this.items[idx]['attr'][attridx]['product.lists.refid'] = ev['attribute.id'];
-					this.items[idx]['attr'][attridx]['attribute.label'] = ev['attribute.label'] + ' (' + ev['attribute.label'] + ')';
+					this.items[idx]['attr'][attridx]['attribute.label'] = ev['attribute.label'];
 					this.items[idx]['attr'][attridx]['attribute.id'] = ev['attribute.id'];
 				}
 			}
