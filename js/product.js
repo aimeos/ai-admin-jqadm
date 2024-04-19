@@ -701,6 +701,7 @@ Aimeos.Product.Product = {
 					}
 
 					this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
+					this.$set(this.items[idx], this.prefix + 'type', this.listtype);
 				},
 
 
@@ -761,8 +762,7 @@ Aimeos.Product.Product = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], 'product.lists.refid', ev['product.id']);
-					this.$set(this.items[idx], 'product.label', ev['product.label'] + ' (' + ev['product.code'] + ')');
+					this.$set(this.items[idx], 'product.label', ev['product.label']);
 					this.$set(this.items[idx], 'product.id', ev['product.id']);
 				},
 			}

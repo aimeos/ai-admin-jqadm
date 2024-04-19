@@ -56,7 +56,9 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'related/suggest', [] );
+
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'related/suggest', [] ) );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;
@@ -242,7 +244,7 @@ class Standard
 		{
 			$listid = $this->val( $entry, 'product.lists.id' );
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem()->setType( 'suggestion' );
-			$litem->setRefId( $this->val( $entry, 'product.lists.refid' ) )->setPosition( $idx );
+			$litem->setRefId( $this->val( $entry, 'product.id' ) )->setPosition( $idx );
 
 			$item->addListItem( 'product', $litem );
 		}

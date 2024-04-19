@@ -46,8 +46,14 @@ $keys = [
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', idx )">
 
-						<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', idx )">
+						<input class="item-id" type="hidden" v-model="item['product.id']"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.id'] ) ) ?>`.replace( '_idx_', idx )">
+
+						<input class="item-code" type="hidden" v-model="item['product.code']"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.code'] ) ) ?>`.replace( '_idx_', idx )">
+
+						<input class="item-label" type="hidden" v-model="item['product.label']"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.label'] ) ) ?>`.replace( '_idx_', idx )">
 
 						<Multiselect class="item-id"
 							placeholder="Enter product ID, code or label"

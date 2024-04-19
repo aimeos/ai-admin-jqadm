@@ -88,8 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'related' => [
 				'bought' => [[
-					'product.lists.id' => '',
-					'product.lists.refid' => '123',
+					'product.id' => '123',
 				]]
 			]
 		);
