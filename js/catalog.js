@@ -86,7 +86,7 @@ Aimeos.Catalog = {
 		const node = document.querySelector(".item-catalog .tree-toolbar");
 
 		if(node) {
-			this.instance = Aimeos.app({el: node, mixins: [this.mixins]});
+			this.instance = Aimeos.app({mixins: [this.mixins]}).mount(node);
 		}
 	},
 
