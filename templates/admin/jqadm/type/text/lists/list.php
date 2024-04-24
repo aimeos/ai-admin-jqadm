@@ -285,11 +285,11 @@ $domains = [
 							<?php if( in_array( 'text.lists.type.id', $fields ) ) : ?>
 								<td class="text-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'text.lists.type.status', $fields ) ) : ?>
-								<td class="text-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'text.lists.type.domain', $fields ) ) : ?>
 								<td class="text-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'text.lists.type.status', $fields ) ) : ?>
+								<td class="text-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'text.lists.type.code', $fields ) ) : ?>
 								<td class="text-type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
