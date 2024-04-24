@@ -285,11 +285,11 @@ $domains = [
 							<?php if( in_array( 'plugin.type.id', $fields ) ) : ?>
 								<td class="plugin-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'plugin.type.status', $fields ) ) : ?>
-								<td class="plugin-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'plugin.type.domain', $fields ) ) : ?>
 								<td class="plugin-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'plugin.type.status', $fields ) ) : ?>
+								<td class="plugin-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'plugin.type.code', $fields ) ) : ?>
 								<td class="plugin-type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>

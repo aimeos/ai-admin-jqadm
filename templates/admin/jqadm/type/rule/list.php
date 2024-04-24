@@ -285,11 +285,11 @@ $domains = [
 							<?php if( in_array( 'rule.type.id', $fields ) ) : ?>
 								<td class="rule-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'rule.type.status', $fields ) ) : ?>
-								<td class="rule-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'rule.type.domain', $fields ) ) : ?>
 								<td class="rule-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'rule.type.status', $fields ) ) : ?>
+								<td class="rule-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'rule.type.code', $fields ) ) : ?>
 								<td class="rule-type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
