@@ -49,17 +49,14 @@ $keys = [
 
 								<tr v-bind:class="{'mismatch': !can('match', index)}">
 									<td v-bind:class="element['css'] || ''">
-										<input class="element-listtype" type="hidden" v-model="element['product.lists.type']"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type . '-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', index )">
-
 										<input class="item-listid" type="hidden" v-model="element['product.lists.id']"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type . '-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', index )">
+											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type, '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', index )">
 
 										<input class="item-id" type="hidden" v-model="element['product.id']"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type . '-idx', 'product.id'] ) ) ?>`.replace( 'idx', index )">
+											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type, '_idx_', 'product.id'] ) ) ?>`.replace( '_idx_', index )">
 
 										<input class="item-label" type="hidden" v-model="element['product.label']"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type . '-idx', 'product.label'] ) ) ?>`.replace( 'idx', index )">
+											v-bind:name="`<?= $enc->js( $this->formparam( ['related', $type, '_idx_', 'product.label'] ) ) ?>`.replace( '_idx_', index )">
 
 										<Multiselect class="item-id form-control"
 											placeholder="Enter product ID, code or label"

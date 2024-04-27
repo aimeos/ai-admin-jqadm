@@ -274,16 +274,19 @@ class Standard
 		$listItems = $item->getListItems( 'product', $this->getTypes()->keys()->all() );
 		$idx = 0;
 
-		foreach( $data as $entry )
+		foreach( $data as $type => $list )
 		{
-			$listid = $this->val( $entry, 'product.lists.id' );
-			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			foreach( $list as $entry )
+			{
+				$listid = $this->val( $entry, 'product.lists.id' );
+				$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
-			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'product.id' ) )
-				->setPosition( $idx++ );
+				$litem->setRefId( $this->val( $entry, 'product.id' ) )
+					->setPosition( $idx++ )
+					->setType( $type );
 
-			$item->addListItem( 'product', $litem );
+				$item->addListItem( 'product', $litem );
+			}
 		}
 
 		return $item->deleteListItems( $listItems );

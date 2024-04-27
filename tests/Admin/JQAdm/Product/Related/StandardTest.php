@@ -82,10 +82,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$param = array(
-			'related' => [[
-				'product.id' => '-1',
-				'product.lists.type' => 'suggestion',
-			]]
+			'related' => [
+				'suggestion' => [[
+					'product.id' => '-1',
+				]]
+			]
 		);
 
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
