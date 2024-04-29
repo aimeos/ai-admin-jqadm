@@ -498,28 +498,24 @@ class Standard
 			foreach( $services as $service )
 			{
 				$serviceId = $service->getId();
+				$attrItems = $service->getAttributeItems();
 
-				if( isset( $data['service'][$type] ) && isset( $data['service'][$type][$serviceId] ) && isset( $data['service'][$type][$serviceId]['order.service.attribute.id'] ) )
+				foreach( $data['service'][$type][$serviceId]['order.service.attribute.id'] ?? [] as $idx => $id )
 				{
-					$attrItems = $service->getAttributeItems();
+					$attrItem = $attrItems[$id] ?? $attrManager->create();
 
-					foreach( (array) $data['service'][$type][$serviceId]['order.service.attribute.id'] as $idx => $id )
-					{
-						$attrItem = $attrItems[$id] ?? $attrManager->create();
+					$attrItem->setAttributeId( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.attrid/' . $idx, '' ) );
+					$attrItem->setType( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.type/' . $idx, '' ) );
+					$attrItem->setName( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.name/' . $idx, '' ) );
+					$attrItem->setCode( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx, '' ) );
+					$attrItem->setValue( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx, '' ) );
+					$attrItem->setQuantity( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.quantity/' . $idx, '' ) );
 
-						$attrItem->setAttributeId( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.attrid/' . $idx, '' ) );
-						$attrItem->setType( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.type/' . $idx, '' ) );
-						$attrItem->setName( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.name/' . $idx, '' ) );
-						$attrItem->setCode( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx, '' ) );
-						$attrItem->setValue( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx, '' ) );
-						$attrItem->setQuantity( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.quantity/' . $idx, '' ) );
-
-						$attrManager->save( $attrItem->setParentId( $service->getId() ) );
-						unset( $attrItems[$id] );
-					}
-
-					$attrManager->delete( $attrItems );
+					$attrManager->save( $attrItem->setParentId( $service->getId() ) );
+					unset( $attrItems[$id] );
 				}
+
+				$attrManager->delete( $attrItems );
 			}
 		}
 
