@@ -133,9 +133,7 @@ Aimeos.Product.Basic = {
 					for(const name in config) {
 						if(Aimeos.apps[name]) {
 							for(const key in config[name]) {
-								if(Aimeos.apps[name]) {
-									Aimeos.apps[name].add(config[name][key]);
-								}
+								Aimeos.apps[name].add(config[name][key]);
 							}
 						}
 					}
