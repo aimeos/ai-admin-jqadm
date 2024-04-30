@@ -55,7 +55,7 @@ Aimeos.Address = {
 
 	mixins: {
 		methods: {
-			add() {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.address.siteid'] = this.siteid;
@@ -85,7 +85,7 @@ Aimeos.Address = {
 				entry['_zoom'] = 2;
 				entry['_show'] = true;
 
-				this.items.push(entry);
+				this.items.push(Object.assign(entry, data));
 			},
 
 

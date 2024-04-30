@@ -48,7 +48,7 @@ Aimeos.Price = {
 			},
 
 
-			add(data) {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;

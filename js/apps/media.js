@@ -48,7 +48,7 @@ Aimeos.Media = {
 			},
 
 
-			add() {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -72,7 +72,7 @@ Aimeos.Media = {
 				entry['_show'] = true;
 				entry['_nosort'] = true;
 
-				this.items.push(entry);
+				this.items.push(Object.assign(entry, data));
 			},
 
 
