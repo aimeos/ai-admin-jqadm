@@ -33,7 +33,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 
 	<?php foreach( $this->get( 'attributeTypes', [] ) as $type ) : ?>
 
-		<div id="characteristics-<?= $type ?>" class="attribute-list box"
+		<div id="characteristic-<?= $type ?>" class="attribute-list box"
 			data-data="<?= $enc->attr( array_values( $map[$type] ?? [] ) ) ?>"
 			data-listtype="<?= $enc->attr( $type ) ?>"
 			data-keys="<?= $enc->attr( $keys ) ?>"

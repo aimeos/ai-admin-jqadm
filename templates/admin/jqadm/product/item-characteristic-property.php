@@ -11,7 +11,9 @@ $enc = $this->encoder();
 
 ?>
 <div class="col-xl-12 vue" data-key="characteristic/property"
-	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
+	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>"
+	data-domain="product/property"
+	data-siteid="<?= $this->site()->siteid() ?>" >
 
 	<div class="box">
 		<property-table
