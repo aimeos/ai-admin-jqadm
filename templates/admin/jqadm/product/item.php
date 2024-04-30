@@ -151,11 +151,9 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *  [
  *    'T-Shirt' => [
  *      'characteristic/variant' => [['attribute.type' => 'color'], ['attribute.type' => 'size']],
- *      'characteristic/attribute' => [['attribute.type' => 'material']],
- *      'option/config' => [['attribute.type' => 'sticker']],
- *      'option/custom' => [['attribute.type' => 'print']],
- *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
- *      'stock' => [['stock.type' => 'default']],
+ *      'characteristic/default' => [['attribute.type' => 'material']],
+ *      'characteristic/config' => [['attribute.type' => 'sticker']],
+ *      'characteristic/custom' => [['attribute.type' => 'print']],
  *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
  *      'stock' => [['stock.type' => 'default']],
  *    ],
@@ -165,9 +163,9 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  * selects this data set defintion the following will appear:
  *
  * * two variant attribute select boxes (type "color" and "size") in the "Characteristics" tab
- * * one attribute select box (type "material") in the "Characteristics" tab
- * * one select box for configurable attributes (type: "sticker")
- * * one select box for customizable attributes (type: "print")
+ * * one default attribute select box (type "material") in the "Characteristics" tab
+ * * one select box for configurable attributes (type: "sticker") in the "Characteristics" tab
+ * * one select box for customizable attributes (type: "print") in the "Characteristics" tab
  * * a price item with currency "EUR" and tax rate pre-filled
  * * a stock item with of type "default" pre-filled
  *
@@ -175,33 +173,37 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  *  [
  *    'Book' => [
- *      'characteristic/attribute' => [['attribute.type' => 'binding']],
- *      'characteristic/property' => [['product.property.type' => 'isbn']],
- *      'related/suggest' => [[], []],
  *      'catalog/default' => [[]],
  *      'catalog/promotion' => [[]],
+ *      'characteristic/default' => [['attribute.type' => 'binding']],
+ *      'characteristic/property' => [['product.property.type' => 'isbn']],
  *      'media' => [['media.type' => 'default'], ['media.type' => 'download']],
+ *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '7.00']]],
+ *      'related/bought-together' => [[]],
+ *      'related/suggestion' => [[], []],
+ *      'supplier/default' => [[]],
+ *      'stock' => [['stock.type' => 'default']],
  *      'text' => [
  *        ['text.type' => 'name', 'text.languageid' => 'en'],
  *        ['text.type' => 'short', 'text.languageid' => 'en'],
  *        ['text.type' => 'long', 'text.languageid' => 'en'],
  *      ],
- *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '7.00']]],
- *      'stock' => [['stock.type' => 'default']],
  *    ],
  *  ]
  *
  * If an editor select the book dataset defintion, the following will appear:
  *
- * * one attribute select box (type "binding") in the "Characteristics" tab
- * * one property line (type "isbn") in the "Characteristics" tab
- * * two select boxes for suggested products in the "Related" tab
  * * one select box for a default category in the "Categories" tab
  * * one select box for a promotion category in the "Categories" tab
+ * * one attribute select box (type "binding") in the "Characteristics" tab
+ * * one property line (type "isbn") in the "Characteristics" tab
  * * two media items ("default" image and "download" file)
- * * three text items for name, short and long texts and "English" language pre-selected
  * * a price item with currency "EUR" and tax rate pre-filled
+ * * one select boxe for products bought together in the "Related" tab
+ * * two select boxes for suggested products in the "Related" tab
+ * * one select box for a default supplier in the "Suppliers" tab
  * * a stock item with of type "default" pre-filled
+ * * three text items for name, short and long texts and "English" language pre-selected
  *
  * All types in a template that should be pre-selected must already exist. Make
  * sure you've created them first in the appropriate type panels.
