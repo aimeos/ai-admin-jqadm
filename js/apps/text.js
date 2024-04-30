@@ -47,7 +47,7 @@ Aimeos.Text = {
 			},
 
 
-			add(data) {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
