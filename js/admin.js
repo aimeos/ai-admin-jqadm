@@ -198,13 +198,13 @@ Aimeos = {
 	vue(props = {}) {
 		return this.app({
 			props: {
-				data: {type: String, default: '{}'},
+				data: {type: String, default: '[]'},
 				siteid: {type: String, default: ''},
 				domain: {type: String, default: ''},
 			},
 			data() {
 				return {
-					dataset: {}
+					dataset: []
 				}
 			},
 			computed: {
@@ -217,8 +217,17 @@ Aimeos = {
 				this.dataset = JSON.parse(this.data)
 			},
 			methods: {
+				add: function(data) {
+					data[this.prefix + 'siteid'] = this.siteid
+					this.dataset.push(data)
+				},
+
 				can(action) {
 					return Aimeos.can(action, this.dataset[this.prefix + 'siteid'] || '', this.siteid)
+				},
+
+				remove: function(idx) {
+					this.dataset.splice(idx, 1);
 				},
 
 				set(data) {
