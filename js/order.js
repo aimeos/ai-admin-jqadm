@@ -37,8 +37,10 @@ Aimeos.Order = {
 			},
 
 			customer(input) {
-				const filter = {
-					'||': [
+				const filter = {}
+
+				if(input) {
+					filter['||'] = [
 						{'=~': {'customer.label': input}},
 						{'=~': {'customer.code': input}},
 						{'==': {'customer.id': input}}

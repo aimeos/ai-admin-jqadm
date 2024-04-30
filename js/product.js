@@ -201,13 +201,18 @@ Aimeos.Product.Attribute = {
 					const filter = {
 						'&&': [
 							{'==': {'attribute.type': this.items[idx]['attribute.type']}},
-							{'>': {'attribute.status': 0}},
-							{'||': [
+							{'>': {'attribute.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'attribute.label': input}},
 								{'=~': {'attribute.code': input}},
 								{'==': {'attribute.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
@@ -229,13 +234,18 @@ Aimeos.Product.Attribute = {
 				attrTypes(input) {
 					const filter = {
 						'&&': [
-							{'>': {'attribute.type.status': 0}},
-							{'||': [
+							{'>': {'attribute.type.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'attribute.type.label': input}},
 								{'=~': {'attribute.type.code': input}},
 								{'==': {'attribute.type.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
@@ -351,13 +361,18 @@ Aimeos.Product.Catalog = {
 				fetch(input, idx) {
 					const filter = {
 						'&&': [
-							{'>': {'catalog.status': 0}},
-							{'||': [
+							{'>': {'catalog.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'catalog.label': input}},
 								{'=~': {'catalog.code': input}},
 								{'==': {'catalog.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
@@ -677,13 +692,18 @@ Aimeos.Product.Product = {
 				fetch(input, idx) {
 					const filter = {
 						'&&': [
-							{'>': {'product.status': 0}},
-							{'||': [
+							{'>': {'product.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'product.label': input}},
 								{'=~': {'product.code': input}},
 								{'==': {'product.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
@@ -943,13 +963,18 @@ Aimeos.Product.Selection = {
 				fetchAttribute(input) {
 					const filter = {
 						'&&': [
-							{'>': {'attribute.status': 0}},
-							{'||': [
+							{'>': {'attribute.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'attribute.label': input}},
 								{'=~': {'attribute.code': input}},
 								{'==': {'attribute.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
@@ -1180,13 +1205,18 @@ Aimeos.Product.Supplier = {
 				fetch(input, idx) {
 					const filter = {
 						'&&': [
-							{'>': {'supplier.status': 0}},
-							{'||': [
+							{'>': {'supplier.status': 0}}
+						]
+					}
+
+					if(input) {
+						filter['&&'].push({
+							'||': [
 								{'=~': {'supplier.label': input}},
 								{'=~': {'supplier.code': input}},
 								{'==': {'supplier.id': input}}
-							]}
-						]
+							]
+						});
 					}
 
 					return Aimeos.query(`query {
