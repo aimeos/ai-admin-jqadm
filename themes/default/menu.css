@@ -60,7 +60,7 @@
 	height: 2.5rem;
 	width: 100%;
 	min-width: 12rem;
-	background-color: var(--bs-primary, #30a0e0);
+	background-color: var(--bs-menu-bg, #30a0e0);
 }
 
 .aimeos .logo img {
