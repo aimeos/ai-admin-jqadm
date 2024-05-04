@@ -776,6 +776,10 @@ Aimeos.Product.Selection = {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.data);
+
+				if(this.items[0]) {
+					this.items[0]['_show'] = true;
+				}
 			},
 			methods: {
 
@@ -792,6 +796,7 @@ Aimeos.Product.Selection = {
 					this.items[idx]['product.siteid'] = this.siteid;
 					this.items[idx]['product.status'] = 1;
 					this.items[idx]['product.id'] = '';
+					this.items[idx]['_show'] = true;
 					this.items[idx]['attr'] = [];
 				},
 
@@ -816,6 +821,7 @@ Aimeos.Product.Selection = {
 					}
 
 					this.items[len]['attr'] = [];
+					this.items[len]['_show'] = true;
 					this.items[len]['product.id'] = '';
 					this.items[len]['product.siteid'] = this.siteid;
 					this.items[len]['product.code'] = this.items[idx]['product.code'] + '_copy';
@@ -839,6 +845,7 @@ Aimeos.Product.Selection = {
 
 				create(idx, option) {
 					this.items[idx]['attr'] = []
+					this.items[idx]['_show'] = true;
 					this.items[idx]['product.id'] = ''
 					this.items[idx]['product.status'] = 1
 					this.items[idx]['product.siteid'] = this.siteid
@@ -850,8 +857,7 @@ Aimeos.Product.Selection = {
 
 
 				css(idx) {
-					return ( idx !== 0 && this.items[idx]['product.lists.id'] &&
-						this.items[idx]['attr'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
+					return this.items[idx]['_show'] ? 'show' : 'collapsed';
 				},
 
 
@@ -928,6 +934,11 @@ Aimeos.Product.Selection = {
 
 				remove(idx) {
 					this.items.splice(idx, 1);
+				},
+
+
+				toggle(idx) {
+					this.items[idx]['_show'] = this.items[idx]['_show'] ? false : true;
 				},
 
 

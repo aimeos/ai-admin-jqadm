@@ -24,13 +24,13 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 					<div class="group-item card box" v-bind:class="{mismatch: !can('match', index)}">
 						<div v-bind:id="'item-selection-group-item-' + index" class="card-header header">
 							<div class="card-tools-start">
-								<div class="btn btn-card-header act-show fa" v-bind:class="css(index)"
+								<div class="btn btn-card-header act-show fa" v-bind:class="css(index)" v-on:click="toggle(index)"
 									v-bind:aria-controls="'item-selection-group-data-' + index" aria-expanded="false"
 									data-bs-toggle="collapse" v-bind:data-bs-target="'#item-selection-group-data-' + index"
 									tabindex="<?= $this->get( 'tabindex' ) ?>" title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
 								</div>
 							</div>
-							<div class="item-label header-label" v-bind:class="'status-' + element['product.status']">
+							<div class="item-label header-label" v-bind:class="'status-' + element['product.status']" v-on:click="toggle(index)">
 								<span>{{ element['product.label'] }}</span>
 							</div>
 							<div class="card-tools-end">
