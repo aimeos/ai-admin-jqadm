@@ -67,14 +67,12 @@ Aimeos.Text = {
 				entry['property'] = [];
 				entry['config'] = [];
 				entry['_show'] = true;
-				entry['_nosort'] = true;
 
 				this.items.push(Object.assign(entry, data));
 			},
 
 
 			can(action, idx) {
-				if(action === 'move' && this.items[idx]['_nosort']) return false
 				return Aimeos.can(action, this.items[idx][this.domain + '.lists.siteid'] || null, this.siteid)
 			},
 
