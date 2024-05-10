@@ -359,7 +359,7 @@ $paymentStatusList = [
 																	'resource' => 'subscription'
 																];
 															?>
-															<a class="btn btn-subscription fa"
+															<a class="btn icon-subscription fa"
 																href="<?= $this->link( 'admin/jqadm/url/create', $newParams ) ?>"
 																title="<?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?>"></a>
 														</div>
@@ -536,7 +536,7 @@ $paymentStatusList = [
 												{{ addr['order.address.mobile'] }}<br>
 												{{ addr['order.address.vatid'] }}
 											</span>
-											<span class="address-edit"></span>
+											<span class="address-edit btn act-edit fa"></span>
 										</div>
 
 										<fieldset v-show="addr['_edit']" class="address-form">
