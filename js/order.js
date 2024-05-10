@@ -107,16 +107,15 @@ Aimeos.Order = {
 
 
 	setupServiceCodeSuggest() {
+		const self = this;
 
-		var node = $(".aimeos .item-order .service-attr");
-
-		if( node.length > 0 ) {
-			this.addServiceSuggest($(".service-attr-code", node), node);
+		$(".aimeos .item-order .service-attr").each(function(idx, node) {
+			self.addServiceSuggest($(".service-attr-code", node), $(node));
 
 			$(".aimeos .item-order .service-attr").on("click", ".service-attr-code", function(ev) {
 				$(this).autocomplete("search", "");
 			});
-		}
+		});
 	}
 };
 
