@@ -275,7 +275,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 

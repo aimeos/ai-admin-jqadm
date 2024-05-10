@@ -149,7 +149,7 @@ $paymentStatusList = [
 						</small>
 					</div>
 
-					<div class="more"></div>
+					<div class="icon more"></div>
 				</div>
 			</div>
 

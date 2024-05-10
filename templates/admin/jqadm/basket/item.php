@@ -82,7 +82,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 						</small>
 					</div>
 
-					<div class="more"></div>
+					<div class="icon more"></div>
 				</div>
 			</div>
 
