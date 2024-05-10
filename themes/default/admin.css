@@ -216,7 +216,7 @@
 	background-color: var(--bs-bg, #f8fafc);
 }
 
-.aimeos .list-items .btn.fa {
+.aimeos .list-items .btn.icon {
 	margin: 0 0.25rem;
 	padding: 0.5rem;
 }
