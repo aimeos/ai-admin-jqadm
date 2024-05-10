@@ -127,15 +127,15 @@ Aimeos.Text = {
 				let label = '';
 
 				if(this.items[idx]) {
-					label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
-					label += (this.items[idx]['text.type'] ? ' (' + this.items[idx]['text.type'] + ')' : '');
+					label += (this.items[idx]['text.type'] ? this.items[idx]['text.type'] : '');
+					label += (this.items[idx]['text.languageid'] ? ' (' + this.items[idx]['text.languageid'].toUpperCase() + ')' : '');
 
 					if(this.items[idx]['text.label']) {
-						label += ': ' + this.items[idx]['text.label'].substr(0, 40);
+						label += ' : ' + this.items[idx]['text.label'].substr(0, 40);
 					} else if(this.items[idx]['text.content']) {
 						const tmp = document.createElement("span");
 						tmp.innerHTML = this.items[idx]['text.content'];
-						label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
+						label += ' : ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
 					}
 				}
 
