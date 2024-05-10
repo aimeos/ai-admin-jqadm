@@ -266,7 +266,7 @@ $paymentStatusList = [
 									<div class="col-8">
 										<span class="form-control item-customerid">
 											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/groups', [] ) ) ) : ?>
-												<a class="link fa act-view" target="_blank"
+												<a class="link icon act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $this->item->getCustomerId() ) ?>
 												</a>
@@ -359,7 +359,7 @@ $paymentStatusList = [
 																	'resource' => 'subscription'
 																];
 															?>
-															<a class="btn icon-subscription fa"
+															<a class="btn icon-subscription icon"
 																href="<?= $this->link( 'admin/jqadm/url/create', $newParams ) ?>"
 																title="<?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?>"></a>
 														</div>
@@ -536,7 +536,7 @@ $paymentStatusList = [
 												{{ addr['order.address.mobile'] }}<br>
 												{{ addr['order.address.vatid'] }}
 											</span>
-											<span class="address-edit btn act-edit fa"></span>
+											<span class="address-edit btn act-edit icon"></span>
 										</div>
 
 										<fieldset v-show="addr['_edit']" class="address-form">

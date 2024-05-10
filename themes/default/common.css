@@ -300,7 +300,6 @@ body {
 
 /* Icons */
 
-.fa::after,
 .icon::after,
 [class^="icon-"]::after,
 [class*=" icon-"]::after {

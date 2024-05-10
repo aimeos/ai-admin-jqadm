@@ -57,11 +57,11 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							</div>
 						</th>
 						<th class="actions">
-							<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+							<a class="btn act-list icon" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ) ?>"
 								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => 'attribute'] + $this->get( 'pageParams', [] ) ) ) ?>">
 							</a>
-							<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<div class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								v-on:click="add()">
 							</div>
@@ -74,7 +74,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 
 						<tr v-bind:class="{mismatch: !can('match', index)}">
 							<td class="actions" v-bind:class="{advanced: element['_ext']}">
-								<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<div class="btn btn-card-header act-show icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide details' ) ) ?>"
 									v-on:click="toggle('_ext', index)">
 								</div>
@@ -185,11 +185,11 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							</td>
 							<td class="actions">
 								<div v-if="can('move', index)"
-									class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									class="btn btn-card-header act-move icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 								</div>
 								<div v-if="can('delete', index)"
-									class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									class="btn act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(index)">
 								</div>

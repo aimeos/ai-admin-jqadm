@@ -100,7 +100,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 									<div class="col-8">
 										<span class="form-control item-customerid">
 											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/groups', [] ) ) ) : ?>
-												<a class="link fa act-view" target="_blank"
+												<a class="link icon act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $this->item->getCustomerId() ) ?>
 												</a>
@@ -555,7 +555,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 													</th>
 													<th class="actions">
 														<?php if( !$this->site()->readonly( $this->item->getSiteId() ) ) : ?>
-															<div class="btn act-add fa" tabindex="1"
+															<div class="btn act-add icon" tabindex="1"
 																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>">
 															</div>
 														<?php endif ?>
@@ -594,7 +594,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 														</td>
 														<td class="actions">
 															<?php if( !$this->site()->readonly( $this->item->getSiteId() ) ) : ?>
-																<div class="btn act-delete fa" tabindex="1"
+																<div class="btn act-delete icon" tabindex="1"
 																	title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
 																</div>
 															<?php endif ?>

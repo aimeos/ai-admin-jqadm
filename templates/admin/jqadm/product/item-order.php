@@ -208,7 +208,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 
 						<th class="actions">
 							<div class="dropdown filter-columns">
-								<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
+								<button class="btn act-columns icon" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
 									data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>">
@@ -559,11 +559,11 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 						</td>
 
 						<td class="actions">
-							<a v-on:click.prevent="submit" class="btn act-search fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-on:click.prevent="submit" class="btn act-search icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 							</a>
-							<a v-on:click.prevent="reset" class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-on:click.prevent="reset" class="btn act-reset icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
 						</td>
@@ -724,13 +724,13 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				<li v-bind:class="{disabled: first === null}" class="page-item">
 					<button v-on:click.prevent="offset = first" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>">
-						<span class="fa icon-first" aria-hidden="true"></span>
+						<span class="icon icon-first" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li v-bind:class="{disabled: prev === null}" class="page-item">
 					<button v-on:click.prevent="offset = prev" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>">
-						<span class="fa icon-prev" aria-hidden="true"></span>
+						<span class="icon icon-prev" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li class="page-item disabled">
@@ -741,13 +741,13 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				--><li v-bind:class="{disabled: next === null}" class="page-item">
 					<button v-on:click.prevent="offset = next" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>">
-						<span class="fa icon-next" aria-hidden="true"></span>
+						<span class="icon icon-next" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li v-bind:class="{disabled: last === null}" class="page-item">
 					<button v-on:click.prevent="offset = last" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>">
-						<span class="fa icon-last" aria-hidden="true"></span>
+						<span class="icon icon-last" aria-hidden="true"></span>
 					</button>
 				</li>
 			</ul>

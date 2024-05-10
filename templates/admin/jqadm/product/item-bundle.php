@@ -34,7 +34,7 @@ $keys = [
 								</div>
 							</th>
 							<th class="actions">
-								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<div class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 									v-on:click="add()">
 								</div>
@@ -81,11 +81,11 @@ $keys = [
 								</td>
 								<td class="actions">
 									<div v-if="can('move', index)"
-										class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										class="btn btn-card-header act-move icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 									</div>
 									<div v-if="can('delete', index)"
-										class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										class="btn act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										v-on:click.stop="remove(index)">
 									</div>

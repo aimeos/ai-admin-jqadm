@@ -207,7 +207,7 @@ $params = $this->get( 'pageParams', [] );
 									<div class="col-8">
 										<span class="form-control item-customerid">
 											<?php if( $order->getCustomerId() ) : ?>
-												<a class="link fa act-view" target="_blank"
+												<a class="link icon act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $order->getCustomerId()] ) ) ?>">
 													<?= $enc->attr( $order->getCustomerId() ) ?>
 												</a>
@@ -219,7 +219,7 @@ $params = $this->get( 'pageParams', [] );
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ) ?></label>
 									<div class="col-8">
 										<span class="form-control item-orderid">
-											<a class="link fa act-view" target="_blank"
+											<a class="link icon act-view" target="_blank"
 												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $order->getId()] ) ) ?>">
 												<?= $enc->attr( $order->getId() ) ?>
 											</a>

@@ -172,7 +172,7 @@ $enc = $this->encoder();
 										>
 										</Multiselect>
 										<div v-if="can('change')" class="dropdown input-group-end">
-											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+											<div class="btn act-add icon" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
 												<li v-for="(name, idx) in JSON.parse(decorators)" :key="idx" class="dropdown-item">
 													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
@@ -219,7 +219,7 @@ $enc = $this->encoder();
 										<tr>
 											<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
 											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
-											<th class="actions"><div class="btn act-add fa"></div></th>
+											<th class="actions"><div class="btn act-add icon"></div></th>
 										</tr>
 									</thead>
 								</table>

@@ -157,7 +157,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ) ?></label>
 									<div class="col-sm-8">
 										<span class="form-control item-refid">
-											<a class="btn fa act-view" target="_blank"
+											<a class="btn icon act-view" target="_blank"
 												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()] ) ) ?>">
 												<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
 											</a>

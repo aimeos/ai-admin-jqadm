@@ -177,7 +177,7 @@ $params = $this->get( 'pageParams', [] );
 								<table class="table translations">
 									<tr>
 										<th colspan="2" class="head"><?= $enc->html( $this->translate( 'admin', 'Translations' ) ) ?></th>
-										<th class="action"><div class="btn fa"><div></th>
+										<th class="action"><div class="btn icon"><div></th>
 									</tr>
 								</table>
 							</translations>

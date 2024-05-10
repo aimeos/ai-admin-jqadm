@@ -231,7 +231,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													<tr>
 														<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
 														<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
-														<th class="actions"><div class="btn act-add fa"></div></th>
+														<th class="actions"><div class="btn act-add icon"></div></th>
 													</tr>
 												</thead>
 											</table>

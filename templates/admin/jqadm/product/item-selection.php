@@ -24,7 +24,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 					<div class="group-item card box" v-bind:class="{mismatch: !can('match', index)}">
 						<div v-bind:id="'item-selection-group-item-' + index" class="card-header header">
 							<div class="card-tools-start">
-								<div class="btn btn-card-header act-show fa" v-bind:class="css(index)" v-on:click="toggle(index)"
+								<div class="btn btn-card-header act-show icon" v-bind:class="css(index)" v-on:click="toggle(index)"
 									v-bind:aria-controls="'item-selection-group-data-' + index" aria-expanded="false"
 									data-bs-toggle="collapse" v-bind:data-bs-target="'#item-selection-group-data-' + index"
 									tabindex="<?= $this->get( 'tabindex' ) ?>" title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
@@ -34,22 +34,22 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<span>{{ element['product.label'] }}</span>
 							</div>
 							<div class="card-tools-end">
-								<a v-if="element['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<a v-if="element['product.id']" class="btn btn-card-header act-view icon" target="_blank" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['id' => '_ID_'] + $this->get( 'pageParams', [] ) ) ) ?>`.replace('_ID_', element['product.id'])"
 									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 
-								<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<div class="btn btn-card-header act-copy icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ) ?>"
 									v-on:click.stop="copy(index)">
 								</div>
 
 								<div v-if="can('move', index)"
-									class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									class="btn btn-card-header act-move icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 								</div>
 
 								<div v-if="can('delete', index)"
-									class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									class="btn btn-card-header act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(index)">
 								</div>
@@ -190,11 +190,11 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												</div>
 											</th>
 											<th class="actions">
-												<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+												<a class="btn act-list icon" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ) ?>"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => 'attribute'] + $this->get( 'pageParams', [] ) ) ) ?>">
 												</a>
-												<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												<div class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 													v-on:click.stop="addAttribute(index)">
 												</div>
@@ -240,11 +240,11 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												</td>
 												<td class="actions">
 													<div v-if="can('move', index, attridx)"
-														class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+														class="btn act-move icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 														title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 													</div>
 													<div v-if="can('delete', index, attridx)"
-														class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+														class="btn act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 														v-on:click.stop="removeAttribute(index, attridx)">
 													</div>
@@ -263,7 +263,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 			</div>
 
 			<div slot="footer" class="card-tools-more">
-				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+				<div class="btn btn-primary btn-card-more act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 					v-on:click="add()" >
 				</div>

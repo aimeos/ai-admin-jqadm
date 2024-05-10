@@ -63,7 +63,7 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a v-on:click.prevent.stop="remove()" class="btn act-delete fa"
+							<a v-on:click.prevent.stop="remove()" class="btn act-delete icon"
 								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
@@ -125,14 +125,14 @@ $columnList = [
 						</th>
 
 						<th class="actions">
-							<input class="btn fa icon-upload fileupload act-import" type="file" name="code[file]"
+							<input class="btn icon icon-upload fileupload act-import" type="file" name="code[file]"
 								tabindex="<?= $this->get( 'tabindex' ) ?>">
-							<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a class="btn icon act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:click="add()" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
-							<a class="btn fa act-columns" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn icon act-columns" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="colselect = true">
 							</a>
@@ -195,11 +195,11 @@ $columnList = [
 						</td>
 
 						<td class="actions">
-							<a v-on:click.prevent="fetch()" class="btn act-search fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-on:click.prevent="fetch()" class="btn act-search icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 							</a>
-							<a v-on:click.prevent="reset()" class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-on:click.prevent="reset()" class="btn act-reset icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
 						</td>
@@ -274,13 +274,13 @@ $columnList = [
 						<td class="actions">
 							<input type="hidden" v-if="item.edit" v-bind:value="item['id']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.id', ''] ) ) ?>`" >
-							<a v-if="!item.edit && can('change', idx)" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-if="!item.edit && can('change', idx)" class="btn act-edit icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
 								v-if="item['siteid'] === siteid"
 								v-on:click.prevent.stop="edit(idx)" >
 							</a>
-							<a v-if="can('delete', idx)" class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-if="can('delete', idx)" class="btn act-delete icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
 								v-on:click.prevent.stop="remove(idx)" >

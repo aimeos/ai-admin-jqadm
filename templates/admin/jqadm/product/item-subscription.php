@@ -53,7 +53,7 @@ $keys = [
 							<?= $enc->html( $this->translate( 'admin', 'Hours' ) ) ?>
 						</th>
 						<th class="actions">
-							<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<div class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								v-on:click="add()">
 							</div>
@@ -119,7 +119,7 @@ $keys = [
 								v-bind:value="entry['product.lists.siteid']">
 
 							<div v-if="can('delete', idx)" v-on:click="remove(idx)"
-								class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								class="btn act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
 							</div>
 						</td>

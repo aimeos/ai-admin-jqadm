@@ -15,7 +15,7 @@ $enc = $this->encoder();
 			data-bs-toggle="collapse" data-bs-target="#order-counthour-data"
 			aria-expanded="true" aria-controls="order-counthour-data">
 			<div class="card-tools-start">
-				<div class="btn act-show fa"></div>
+				<div class="btn act-show icon"></div>
 			</div>
 			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ) ?>

@@ -54,7 +54,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 			<thead class="list-header">
 				<tr>
 					<th class="select">
-						<a v-on:click.prevent.stop="remove()" class="btn act-delete fa"
+						<a v-on:click.prevent.stop="remove()" class="btn act-delete icon"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
@@ -110,12 +110,12 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</th>
 
 					<th class="actions">
-						<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<a class="btn icon act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:click.prevent.stop="add()" href="#"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 						</a>
-						<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 							v-on:click.prevent.stop="colselect = true">
 						</a>
@@ -179,11 +179,11 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 
 					<td class="actions">
-						<a v-on:click.prevent="fetch()" class="btn act-search fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<a v-on:click.prevent="fetch()" class="btn act-search icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 						</a>
-						<a v-on:click.prevent="reset()" class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<a v-on:click.prevent="reset()" class="btn act-reset icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
 					</td>
@@ -292,12 +292,12 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'refid']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-refid', ''] ) ) ?>`.replace('-prefix-', prefix)" >
 
-						<a v-if="!item.edit && can('change', idx)" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<a v-if="!item.edit && can('change', idx)" class="btn act-edit icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
 							v-on:click.prevent.stop="edit(idx)" >
 						</a>
-						<a v-if="can('delete', idx)" class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<a v-if="can('delete', idx)" class="btn act-delete icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
 							v-on:click.prevent.stop="remove(idx)" >

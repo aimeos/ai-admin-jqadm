@@ -298,7 +298,7 @@ $taxflagList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+								<a class="btn act-view icon" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 							</td>

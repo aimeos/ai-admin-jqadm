@@ -233,7 +233,7 @@ $statusList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -293,7 +293,7 @@ $statusList = [
 						<th class="actions">
 							<?php if( count( $actions = $this->config( 'admin/jqadm/order/actions', ['order-export'] ) ) > 0 ) : ?>
 								<div class="dropdown list-menu">
-									<button class="btn act-download fa" type="button" id="menuButton"
+									<button class="btn act-download icon" type="button" id="menuButton"
 										data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>">
@@ -301,7 +301,7 @@ $statusList = [
 									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuButton">
 										<?php foreach( $actions as $code ) : ?>
 											<li class="dropdown-item">
-												<a class="btn fa act-download" tabindex="1"
+												<a class="btn icon act-download" tabindex="1"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
 													aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>"
 													title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>">
@@ -313,7 +313,7 @@ $statusList = [
 								</div>
 							<?php endif ?>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -722,7 +722,7 @@ $statusList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa"
+								<a class="btn act-copy icon"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $item->getId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">

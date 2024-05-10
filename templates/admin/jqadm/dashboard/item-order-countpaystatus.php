@@ -26,7 +26,7 @@ $trans = array(
 			data-bs-toggle="collapse" data-bs-target="#order-countpaystatus-data"
 			aria-expanded="true" aria-controls="order-countpaystatus-data">
 			<div class="card-tools-start">
-				<div class="btn act-show fa"></div>
+				<div class="btn act-show icon"></div>
 			</div>
 			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ) ?>
