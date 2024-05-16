@@ -70,9 +70,6 @@ $enc = $this->encoder();
 										v-bind:name="'media[_idx_][file]'.replace('_idx_', index)"
 										v-bind:readonly="!can('change', index)"
 										v-on:change="files(index, $event.target.files)">
-									<input class="item-url" type="hidden"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>`.replace('_idx_', index)"
-										v-model="element['media.url']">
 									<img v-if="element['media.preview']" class="item-preview"
 										v-bind:src="element['media.preview']"
 										v-bind:alt="element['media.label']">
