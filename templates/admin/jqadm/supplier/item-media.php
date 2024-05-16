@@ -69,7 +69,7 @@ $enc = $this->encoder();
 									<input v-bind:files="element['file']" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="'media[_idx_][file]'.replace('_idx_', index)"
 										v-bind:readonly="!can('change', index)"
-										v-on:change="files(index, $event.target.files)">
+										v-on:change="files(files(items[index], $event.target.files)">
 									<img v-if="element['media.preview']" class="item-preview"
 										v-bind:src="element['media.preview']"
 										v-bind:alt="element['media.label']">
