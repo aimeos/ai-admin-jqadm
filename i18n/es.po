@@ -318,7 +318,7 @@ msgid "Channel"
 msgstr "Canal"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Canal por el que el pedido ha sido realizado"
 
 msgid "Choose file"
 msgstr "Elija el archivo"
@@ -357,7 +357,7 @@ msgid "Comment"
 msgstr "Comentarios"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Comentario del revisor"
 
 msgid "Communication"
 msgstr "Comunicación"
@@ -496,7 +496,7 @@ msgid "Date of the last payment status change"
 msgstr "Fecha del último cambio en el estado del pago"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Fecha de finalización de la suscripción"
 
 msgid "Days"
 msgstr "Días"
@@ -517,7 +517,7 @@ msgid "Delete this entry"
 msgstr "Eliminar este ingreso"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Eliminar reseñas no está permitido"
 
 msgid "Delivery"
 msgstr "Entrega"
