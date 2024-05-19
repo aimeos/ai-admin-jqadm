@@ -50,6 +50,32 @@ $enc = $this->encoder();
 						<div v-bind:id="'item-address-group-data-' + index" v-bind:class="element['_show'] ? 'show' : 'collapsed'"
 							v-bind:aria-labelledby="'item-address-group-item-' + index" role="tabpanel" class="card-block collapse row">
 
+							<?php if( count( $types = $this->config( 'mshop/customer/manager/address/types', ['delivery'] ) ) > 1 ) : ?>
+
+								<div class="col-xl-6">
+									<div class="form-group row mandatory">
+										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
+										<div class="col-sm-8">
+											<select class="form-select item-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.type' ) ) ) ?>`.replace('_idx_', index)"
+												v-bind:readonly="!can('change', index)"
+												v-model="element['customer.address.type']" >
+
+												<?php foreach( $types as $type ) : ?>
+													<option value="<?= $enc->attr( $type ) ?>" v-bind:selected="element['customer.address.type'] == `<?= $enc->js( $type ) ?>`" >
+														<?= $enc->html( $this->translate( 'admin', $type ) ) ?>
+													</option>
+												<?php endforeach ?>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-6"></div>
+
+							<?php endif ?>
+
+
 							<div class="col-xl-6">
 								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
