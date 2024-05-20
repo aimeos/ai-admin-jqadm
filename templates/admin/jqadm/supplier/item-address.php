@@ -17,7 +17,7 @@ $enc = $this->encoder();
 		data-domain="supplier" >
 
 		<div class="group-list">
-			<div is="vue:draggable" item-key="customer.address.id" group="address" :list="items" handle=".act-move" @start="drag=true" @end="drag=false">
+			<div is="vue:draggable" item-key="supplier.address.id" group="address" :list="items" handle=".act-move" @start="drag=true" @end="drag=false">
 				<template #item="{element, index}">
 
 					<div class="group-item card box" v-bind:class="{mismatch: !can('match', index)}">
@@ -49,6 +49,33 @@ $enc = $this->encoder();
 
 						<div v-bind:id="'item-address-group-data-' + index" v-bind:class="element['_show'] ? 'show' : 'collapsed'"
 							v-bind:aria-labelledby="'item-address-group-item-' + index" role="tabpanel" class="card-block collapse row">
+
+							<?php if( count( $types = $this->config( 'mshop/supplier/manager/address/types', ['delivery'] ) ) > 1 ) : ?>
+								<div class="col-xl-6">
+									<div class="form-group row mandatory">
+										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
+										<div class="col-sm-8">
+											<select class="form-select item-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.type' ) ) ) ?>`.replace('_idx_', index)"
+												v-bind:readonly="!can('change', index)"
+												v-model="element['supplier.address.type']" >
+
+												<?php foreach( $types as $type ) : ?>
+													<option value="<?= $enc->attr( $type ) ?>" v-bind:selected="element['supplier.address.type'] == `<?= $enc->js( $type ) ?>`" >
+														<?= $enc->html( $this->translate( 'admin', $type ) ) ?>
+													</option>
+												<?php endforeach ?>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xl-6"></div>
+							<?php else : ?>
+								<input class="item-type" type="hidden"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.type' ) ) ) ?>`.replace('_idx_', index)"
+									value="<?= $enc->attr( current( $types ) ) ?>">
+							<?php endif ?>
 
 							<div class="col-xl-6">
 								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
