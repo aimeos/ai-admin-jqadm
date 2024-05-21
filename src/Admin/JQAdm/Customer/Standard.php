@@ -74,9 +74,13 @@ class Standard
 
 		asort( $codes );
 
+		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
+		$filter = $manager->filter()->slice( 0, 1000 );
+
 		$view->itemSubparts = $this->getSubClientNames();
-		$view->itemGroups = $this->getGroupItems();
+		$view->itemGroups = $manager->search( $filter );
 		$view->countries = $codes;
+
 		return $view;
 	}
 
