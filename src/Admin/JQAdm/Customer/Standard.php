@@ -467,48 +467,6 @@ class Standard
 
 
 	/**
-	 * Returns the available group items
-	 *
-	 * @param \Aimeos\MShop\Customer\Item\Iface|null $item Customer item that should be updated
-	 * @return \Aimeos\MShop\Customer\Item\Group\Iface[] Associative list of group IDs as keys and group items as values
-	 */
-	protected function getGroupItems( \Aimeos\MShop\Customer\Item\Iface $item = null ) : array
-	{
-		$list = [];
-		$view = $this->view();
-		$context = $this->context();
-
-		$isSuper = $view->access( ['super'] );
-		$isAdmin = $view->access( ['admin'] );
-		$isEditor = $view->access( ['editor'] );
-
-		$manager = \Aimeos\MShop::create( $context, 'group' );
-		$search = $manager->filter( true )->slice( 0, 10000 )->order( 'group.label' );
-
-		foreach( $manager->search( $search ) as $groupId => $groupItem )
-		{
-			if( !$isSuper && $groupItem->getCode() === 'super' ) {
-				continue;
-			}
-
-			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'admin' ) {
-				continue;
-			}
-
-			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'editor'
-				&& ( !$isEditor || $item === null || (string) $context->user() !== (string) $item->getId() )
-			) {
-				continue;
-			}
-
-			$list[$groupId] = $groupItem;
-		}
-
-		return $list;
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -576,12 +534,8 @@ class Standard
 		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
 			->setDateVerified( $data['customer.dateverified'] ?? null );
 
-		if( $this->view()->access( ['super', 'admin'] ) )
-		{
-			$groupIds = $this->val( $data, 'groups', [] );
-			$gids = array_keys( $this->getGroupItems( $item ) );
-
-			$item->setGroups( array_intersect( $gids, $groupIds ) );
+		if( $this->view()->access( ['super', 'admin'] ) ) {
+			$item->setGroups( array_unique( $this->val( $data, 'groups', [] ) ) );
 		}
 
 		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
