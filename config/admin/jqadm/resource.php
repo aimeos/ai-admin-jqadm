@@ -370,7 +370,7 @@ return [
 		 * @param array List of user group names
 		 * @since 2017.10
 		 */
-		'groups' => ['admin', 'editor', 'super'],
+		'groups' => ['admin', 'super'],
 		'attribute' => [
 			/** admin/jqadm/resource/type/attribute/groups
 			 * List of user groups that are allowed to access the attribute type panel
@@ -378,7 +378,7 @@ return [
 			 * @param array List of user group names
 			 * @since 2017.10
 			 */
-			'groups' => ['admin', 'editor', 'super'],
+			'groups' => ['admin', 'super'],
 			'lists' => [
 				/** admin/jqadm/resource/type/attribute/lists/groups
 				 * List of user groups that are allowed to access the attribute lists type panel
@@ -516,7 +516,7 @@ return [
 				 * @param array List of user group names
 				 * @since 2017.10
 				 */
-				'groups' => ['admin', 'editor', 'super'],
+				'groups' => ['admin', 'super'],
 			],
 		],
 		'service' => [
