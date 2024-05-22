@@ -427,10 +427,7 @@ class Standard
 	 */
 	protected function getUserSiteId() : ?string
 	{
-		$context = $this->context();
-		$manager = \Aimeos\MShop::create( $context, 'customer' );
-
-		return $manager->get( $context->user() )->getSiteId();
+		return $this->context()->user()?->getSiteId();
 	}
 
 
