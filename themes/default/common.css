@@ -26,12 +26,15 @@ body {
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098A0;
 	--bs-shadow: 0px 3px 9px 0px #A8B8C825;
-}
 
-body .table {
-	--bs-table-striped-bg: var(--bs-bg);
-	--bs-table-hover-color: var(--bs-secondary);
-	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
+	--bs-body-bg: var(--bs-bg-light);
+	--bs-border-color: var(--bs-line);
+	--bs-emphasis-color: var(--bs-secondary);
+	--bs-emphasis-color-rgb: var(--bs-secondary);
+
+	--ms-empty-color: var(--bs-secondary);
+	--ms-dropdown-bg: var(--bs-bg);
+	--ms-bg: var(--bs-bg-light);
 }
 
 body.dark {
@@ -54,16 +57,6 @@ body.dark {
 	--bs-secondary-dark: #FFFFFF;
 	--bs-secondary-light: #90A8C0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
-	--bs-body-color: var(--bs-secondary);
-
-	--ms-empty-color: var(--bs-secondary);
-	--ms-dropdown-bg: var(--bs-bg);
-	--ms-bg: var(--bs-bg-light);
-}
-
-body.dark .table {
-	--bs-table-striped-bg: var(--bs-primary-dark);
-	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
 }
 
 body.dark img {
@@ -435,11 +428,6 @@ body {
 	vertical-align: middle;
 	padding: 0.125rem 0.25rem;
 	height: 2.5rem;
-}
-
-.aimeos .table:not(.list-items) th,
-.aimeos .table:not(.list-items) td {
-	vertical-align: top;
 }
 
 .aimeos .table .actions {
