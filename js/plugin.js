@@ -55,6 +55,7 @@ Aimeos.Plugin = {
 					}
 				}`).then(result => {
 					return (result?.getPluginConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
 						entry.key = entry.code
 						return entry
 					})
