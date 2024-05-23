@@ -35,13 +35,14 @@
 .aimeos .status--1::after,
 .aimeos .status--2::after {
 	content: "";
+	display: inline-block;
+	vertical-align: middle;
 	background-color: currentColor;
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-size: 75% 75%;
 	height: 1.5rem;
 	width: 1.5rem;
-	display: block;
 	margin: auto;
 }
 

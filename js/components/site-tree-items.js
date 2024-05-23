@@ -7,8 +7,8 @@ Aimeos.components['site-tree-items'] = {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
 			<li v-for="(item, id) in items" v-bind:key="id" v-bind:class="{active: current == id}">
-				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)"
-					v-bind:class="'status-' + item['locale.site.status']">
+				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)">
+					<i v-bind:class="'status-' + item['locale.site.status']"></i>
 					<span class="name">{{ item['locale.site.label'] }}</span>
 				</a><!--
 				--><span v-if="isTogglable(item)"

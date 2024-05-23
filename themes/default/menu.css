@@ -447,6 +447,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .name {
+	margin-inline-start: 0.5rem;
 	font-size: 90%;
 }
 
