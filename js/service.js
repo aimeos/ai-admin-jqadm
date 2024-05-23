@@ -55,6 +55,7 @@ Aimeos.Service = {
 					}
 				}`).then(result => {
 					return (result?.getServiceConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
 						entry.key = entry.code
 						return entry
 					})

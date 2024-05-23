@@ -55,6 +55,7 @@ Aimeos.Rule = {
 					}
 				}`).then(result => {
 					return (result?.getRuleConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
 						entry.key = entry.code
 						return entry
 					})

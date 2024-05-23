@@ -57,6 +57,7 @@ Aimeos.Coupon = {
 					}
 				}`).then(result => {
 					return (result?.getCouponConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
 						entry.key = entry.code
 						return entry
 					})
