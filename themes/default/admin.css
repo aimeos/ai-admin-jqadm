@@ -943,10 +943,3 @@
 .aimeos .list-log .log-message.show .content {
 	max-height: inherit;
 }
-
-
-.prototype-list,
-.prototype-map,
-.prototype {
-	display: none;
-}
