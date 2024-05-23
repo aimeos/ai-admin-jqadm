@@ -10,7 +10,7 @@ Aimeos.components['config-list'] = {
 			<tbody>
 				<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
 					<td class="actions">
-						<div v-if="!readonly" class="btn act-delete fa"
+						<div v-if="!readonly" class="btn act-delete icon"
 							:tabindex="tabindex"
 							@click="remove(idx)">
 						</div>
@@ -24,10 +24,10 @@ Aimeos.components['config-list'] = {
 				</tr>
 				<tr class="config-map-actions">
 					<td class="config-map-action-add">
-						<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
+						<div class="btn act-add icon" :tabindex="tabindex" @click="add()"></div>
 					</td>
 					<td class="config-map-action-update" colspan="2">
-						<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
+						<div class="btn btn-primary act-check icon" :tabindex="tabindex" @click="update()"></div>
 					</td>
 				</tr>
 			</tbody>
@@ -79,7 +79,7 @@ Aimeos.components['config-map'] = {
 		<tbody>
 			<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
 				<td class="actions">
-					<div v-if="!readonly" class="btn act-delete fa"
+					<div v-if="!readonly" class="btn act-delete icon"
 						:tabindex="tabindex"
 						@click="remove(idx)">
 					</div>
@@ -99,10 +99,10 @@ Aimeos.components['config-map'] = {
 			</tr>
 			<tr class="config-map-actions">
 				<td class="config-map-action-add">
-					<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
+					<div class="btn act-add icon" :tabindex="tabindex" @click="add()"></div>
 				</td>
 				<td class="config-map-action-update" colspan="2">
-					<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
+					<div class="btn btn-primary act-check icon" :tabindex="tabindex" @click="update()"></div>
 				</td>
 			</tr>
 		</tbody>
@@ -171,7 +171,7 @@ Aimeos.components['config-table'] = {
 				</th>
 				<th class="config-row-value">{{ i18n.value ||'Value' }}</th>
 				<th class="actions">
-					<div v-if="!readonly" class="btn act-add fa"
+					<div v-if="!readonly" class="btn act-add icon"
 						:title="i18n.insert ||'Insert new entry (Ctrl+I)'"
 						:tabindex="tabindex"
 						@click="add()" />
@@ -273,7 +273,7 @@ Aimeos.components['config-table'] = {
 						v-model="entry.val">
 				</td>
 				<td class="actions">
-					<div v-if="!readonly" class="btn act-delete fa"
+					<div v-if="!readonly" class="btn act-delete icon"
 						:title="i18n.delete ||'Delete this entry'"
 						:tabindex="tabindex"
 						@click="remove(pos)" />

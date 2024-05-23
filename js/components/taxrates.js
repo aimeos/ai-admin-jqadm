@@ -17,14 +17,14 @@ Aimeos.components['taxrates'] = {
 					</td>
 					<td v-if="(!disabled && !readonly) && types.length" class="actions">
 						<div v-if="(!disabled && !readonly) && type == 0 && types.length" class="dropdown">
-							<button class="btn act-add fa" v-bind:tabindex="tabindex"
+							<button class="btn act-add icon" v-bind:tabindex="tabindex"
 								type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							</button>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a v-for="(rate, code) in types" class="dropdown-item" href="#" v-on:click="add(code, rate)">{{ code.toUpperCase() }}</a>
 							</div>
 						</div>
-						<div v-if="(!disabled && !readonly) && type != 0" class="btn act-delete fa" v-on:click="remove(type)"></div>
+						<div v-if="(!disabled && !readonly) && type != 0" class="btn act-delete icon" v-on:click="remove(type)"></div>
 					</td>
 				</tr>
 			</table>

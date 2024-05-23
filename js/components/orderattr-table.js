@@ -20,7 +20,7 @@ Aimeos.components['orderattr-table'] = {
 					</th>
 					<th class="row-value">{{ i18n.value ||'Value' }}</th>
 					<th class="actions">
-						<div class="btn act-add fa"
+						<div class="btn act-add icon"
 							:title="i18n.insert ||'Insert new entry (Ctrl+I)'"
 							:tabindex="tabindex"
 							@click="add()" />
@@ -75,7 +75,7 @@ Aimeos.components['orderattr-table'] = {
 							v-bind:readonly="!can('change', idx)">
 					</td>
 					<td class="actions">
-						<div v-if="can('delete', idx)" class="btn act-delete fa" v-bind:tabindex="tabindex"
+						<div v-if="can('delete', idx)" class="btn act-delete icon" v-bind:tabindex="tabindex"
 							v-bind:title="i18n.delete ||'Delete this entry'" v-on:click.stop="remove(idx)">
 						</div>
 					</td>

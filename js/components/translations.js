@@ -13,7 +13,7 @@ Aimeos.components['translations'] = {
 					<tr>
 						<th colspan="2" class="head">{{ i18n.header || 'Translations' }}</th>
 						<th class="action">
-							<a v-if="!readonly" v-on:click="add()" class="btn act-add fa" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.insert || 'Insert new entry (Ctrl+I)'"></a>
+							<a v-if="!readonly" v-on:click="add()" class="btn act-add icon" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.insert || 'Insert new entry (Ctrl+I)'"></a>
 						</th>
 					</tr>
 				</thead>
@@ -33,7 +33,7 @@ Aimeos.components['translations'] = {
 					</td>
 
 					<td v-if="!readonly" class="action">
-						<a v-on:click="remove(idx)" class="btn act-delete fa" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.delete || 'Delete this entry'"></a>
+						<a v-on:click="remove(idx)" class="btn act-delete icon" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.delete || 'Delete this entry'"></a>
 					</td>
 				</tr>
 			</table>

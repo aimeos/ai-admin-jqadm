@@ -14,7 +14,7 @@ Aimeos.components['property-table'] = {
 						<div class="form-text text-muted help-text">{{ i18n.help ||'Non-shared properties for the item' }}</div>
 					</th>
 					<th class="actions">
-						<div class="btn act-add fa" v-bind:tabindex="tabindex" v-on:click="add()"
+						<div class="btn act-add icon" v-bind:tabindex="tabindex" v-on:click="add()"
 							v-bind:title="i18n.insert ||'Insert new entry (Ctrl+I)'">
 						</div>
 					</th>
@@ -49,7 +49,7 @@ Aimeos.components['property-table'] = {
 							v-model="propdata[domain +'.property.value']" >
 					</td>
 					<td class="actions">
-						<div v-if="can('delete', propidx)" class="btn act-delete fa" v-bind:tabindex="tabindex"
+						<div v-if="can('delete', propidx)" class="btn act-delete icon" v-bind:tabindex="tabindex"
 							v-bind:title="i18n.delete ||'Delete this entry'" v-on:click.stop="remove(propidx)">
 						</div>
 					</td>

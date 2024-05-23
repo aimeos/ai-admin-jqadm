@@ -19,14 +19,14 @@ Aimeos.components['input-map'] = {
 					</td>
 					<td v-else class="config-item-value">{{ entry.val }}</td>
 					<td v-if="editable" class="action">
-						<a v-on:click="remove(idx)" class="btn act-delete fa" href="#" v-bind:tabindex="tabindex"></a>
+						<a v-on:click="remove(idx)" class="btn act-delete icon" href="#" v-bind:tabindex="tabindex"></a>
 					</td>
 				</tr>
 				<tr v-if="editable" class="config-item">
 					<td></td>
 					<td></td>
 					<td class="action">
-						<a v-on:click="add()" class="btn act-add fa" href="#" v-bind:tabindex="tabindex"></a>
+						<a v-on:click="add()" class="btn act-add icon" href="#" v-bind:tabindex="tabindex"></a>
 					</td>
 				</tr>
 			</table>
