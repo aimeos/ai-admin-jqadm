@@ -325,6 +325,10 @@ td.is-invalid .form-select {
 	color: var(--bs-primary, #30a0e0);
 }
 
+.page-link span:not(.icon) {
+	font-size: 1.075rem;
+}
+
 .page-item.disabled .page-link {
 	color: var(--bs-secondary, #505860);
 	background-color: var(--bs-bg-light, #ffffff);
