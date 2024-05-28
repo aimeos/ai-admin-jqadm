@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  */
 
 $enc = $this->encoder();
@@ -65,7 +65,7 @@ $columnList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -111,7 +111,7 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -134,7 +134,7 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<tr class="<?= $this->site()->readonly( $item->getSiteId() ) ?>">
+						<tr class="<?= $this->site()->mismatch( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
 								<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ) ?></td>
 							<?php endif ?>

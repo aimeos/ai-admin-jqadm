@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -74,9 +74,13 @@ class Standard
 
 		asort( $codes );
 
+		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
+		$filter = $manager->filter()->slice( 0, 1000 );
+
 		$view->itemSubparts = $this->getSubClientNames();
-		$view->itemGroups = $this->getGroupItems();
+		$view->itemGroups = $manager->search( $filter );
 		$view->countries = $codes;
+
 		return $view;
 	}
 
@@ -104,7 +108,7 @@ class Standard
 				if( $view->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
 				{
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
-					!isset( $data['customer.groups'] ) ?: $item->setGroups( array_filter( (array) $data['customer.groups'] ) );
+					!isset( $data['groups'] ) ?: $item->setGroups( array_filter( (array) $data['groups'] ) );
 				}
 
 				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
@@ -467,48 +471,6 @@ class Standard
 
 
 	/**
-	 * Returns the available group items
-	 *
-	 * @param \Aimeos\MShop\Customer\Item\Iface|null $item Customer item that should be updated
-	 * @return \Aimeos\MShop\Customer\Item\Group\Iface[] Associative list of group IDs as keys and group items as values
-	 */
-	protected function getGroupItems( \Aimeos\MShop\Customer\Item\Iface $item = null ) : array
-	{
-		$list = [];
-		$view = $this->view();
-		$context = $this->context();
-
-		$isSuper = $view->access( ['super'] );
-		$isAdmin = $view->access( ['admin'] );
-		$isEditor = $view->access( ['editor'] );
-
-		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
-		$search = $manager->filter( true )->slice( 0, 10000 )->order( 'customer.group.label' );
-
-		foreach( $manager->search( $search ) as $groupId => $groupItem )
-		{
-			if( !$isSuper && $groupItem->getCode() === 'super' ) {
-				continue;
-			}
-
-			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'admin' ) {
-				continue;
-			}
-
-			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'editor'
-				&& ( !$isEditor || $item === null || (string) $context->user() !== (string) $item->getId() )
-			) {
-				continue;
-			}
-
-			$list[$groupId] = $groupItem;
-		}
-
-		return $list;
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -576,12 +538,8 @@ class Standard
 		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
 			->setDateVerified( $data['customer.dateverified'] ?? null );
 
-		if( $this->view()->access( ['super', 'admin'] ) )
-		{
-			$groupIds = $this->val( $data, 'customer.groups', [] );
-			$gids = array_keys( $this->getGroupItems( $item ) );
-
-			$item->setGroups( array_intersect( $gids, $groupIds ) );
+		if( $this->view()->access( ['super', 'admin'] ) ) {
+			$item->setGroups( array_unique( $this->val( $data, 'groups', [] ) ) );
 		}
 
 		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
@@ -604,7 +562,10 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $this->context()->user() ) {
+		if( $this->view()->access( ['super', 'admin'] )
+			|| $this->view()->access( ['editor'] ) && $item->getId() === null
+			|| $item->getId() === $this->context()->user()
+		) {
 			$data['.modify'] = true;
 		}
 

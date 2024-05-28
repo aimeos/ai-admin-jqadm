@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -59,10 +59,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'bundle', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data[$idx]['product.lists.siteid'] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'bundle', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->bundleData = $data;
@@ -242,21 +244,19 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-
-		$listItem = $listManager->create()->setType( 'default' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
 		{
-			$litem = $listItems->get( $entry['product.lists.id'] ?? null ) ?: clone $listItem;
-			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
-			$item->addListItem( 'product', $litem, $litem->getRefItem() );
+			$listid = $this->val( $entry, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem->setRefId( $this->val( $entry, 'product.id' ) )->setPosition( $idx );
 
-			unset( $listItems[$litem->getId()] );
+			$item->addListItem( 'product', $litem );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -282,7 +282,8 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$label = $refItem->getLabel() . ' (' . $refItem->getCode() . ')';
+			$list = ['product.label' => $label] + $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{

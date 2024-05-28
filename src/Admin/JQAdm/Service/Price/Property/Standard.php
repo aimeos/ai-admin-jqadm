@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -44,9 +44,10 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'price/property/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
-		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
+		$search = $manager->filter( true )
+			->add( 'price.property.type.domain', '==', 'price' )
+			->order( 'price.property.type.code' )
+			->slice( 0, 10000 );
 
 		$view->propertyTypes = $manager->search( $search );
 

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 /**
@@ -49,7 +49,7 @@ $enc = $this->encoder();
 					<?php if( $type === 'select' ) : ?>
 						<select class="form-select" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
+							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)">
 							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?></option>
 
 							<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
@@ -59,19 +59,19 @@ $enc = $this->encoder();
 							<?php endforeach ?>
 						</select>
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-model="value(`<?= $enc->js( $idx ) ?>`)"
+							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-model="value(`<?= $enc->js( $idx ) ?>`)"
+							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.daterange">
 					<?php else : ?>
 						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
+							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)">
 					<?php endif ?>
 				<?php endif ?>
 			</td>
@@ -79,11 +79,11 @@ $enc = $this->encoder();
 	<?php endforeach ?>
 
 	<td class="actions">
-		<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		<button type="submit" class="btn act-search icon" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 		</button>
-		<button v-on:click="reset()"  type="submit" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		<button v-on:click="reset()"  type="submit" class="btn act-reset icon" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>">
 		</button>

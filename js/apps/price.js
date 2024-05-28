@@ -14,25 +14,31 @@ $(function() {
 Aimeos.Price = {
 
 	init() {
-		Aimeos.components['price'] = new Vue({
-			el: document.querySelector('#item-price-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		const node = document.querySelector('#item-price-group');
 
-				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
-				}
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['price'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '[]'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
+
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 	mixins: {
@@ -42,7 +48,7 @@ Aimeos.Price = {
 			},
 
 
-			add(data) {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -66,26 +72,13 @@ Aimeos.Price = {
 				entry['property'] = [];
 				entry['config'] = [];
 				entry['_show'] = true;
-				entry['_nosort'] = true;
 
 				this.items.push(Object.assign(entry, data));
 			},
 
 
 			can(action, idx) {
-				if(!this.items[idx][this.domain + '.lists.siteid']) {
-					return false;
-				}
-
-				if(action === 'delete') {
-					return (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
-				}
-
-				if(action === 'move') {
-					return this.items[idx][this.domain + '.lists.siteid'] === this.siteid  && !this.items[idx]['_nosort'];
-				}
-
-				return false;
+				return Aimeos.can(action, this.items[idx][this.domain + '.lists.siteid'] || null, this.siteid)
 			},
 
 
@@ -94,7 +87,7 @@ Aimeos.Price = {
 
 				if(this.items[idx]) {
 					label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
-					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
+					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '...');
 					label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
 					label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
 					label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
@@ -111,7 +104,7 @@ Aimeos.Price = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			}
 		}

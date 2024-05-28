@@ -1,0 +1,2545 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ayshe Sammiyeva, 2023
+msgid ""
+msgstr ""
+"Project-Id-Version: aimeos-core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: Ayshe Sammiyeva, 2023\n"
+"Language-Team: Turkmen (http://app.transifex.com/aimeos/aimeos-core/language/tk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tk\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid " "
+msgstr " "
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
+msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s%6$s\n%8$s%9$s\n%10$s\n%11$s\n%12$s"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s%2$s"
+
+#, php-format
+msgid "%1$s (Ctrl+Alt+%2$s)"
+msgstr "%1$s (Ctrl+Alt+%2$s)"
+
+#, php-format
+msgid "%s/%s/%s.%s"
+msgstr "%s/%s/%s.%s"
+
+msgid ""
+"(International) facsimilie number without separation characters, can start "
+"with a \"+\""
+msgstr "(Halkara) faks belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
+
+msgid ""
+"(International) telephone number without separation characters, can start "
+"with a \"+\""
+msgstr "(Halkara) telefon belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
+
+msgid "+ Tax"
+msgstr "+ Salgyt"
+
+msgid "<hidden>"
+msgstr "1"
+
+msgid "?"
+msgstr "?"
+
+msgid "Account"
+msgstr "Hasap"
+
+msgid "Active"
+msgstr "Işjeň"
+
+msgid "Actual price"
+msgstr "Häzirki bahasy"
+
+msgid "Actual price customers can buy the article for on the web site"
+msgstr "Müşderileriň web sahypasyndan satyn alyp biljekleri harydyň häzirki bahasy"
+
+msgid "Add"
+msgstr "Goşmak"
+
+msgid ""
+"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
+" $100 for five items it total"
+msgstr "Her haryt üçin goşmaça eltip bermek bahasy goşulýar, meselem: 1 agyr haryt üçin 20TMT, bolsa 5 haryt üçin jemi 100TMT bolýar"
+
+msgid "Additional information where the customer's apartment can be found"
+msgstr "Müşderiniň ýerleşýän ýeri barada goşmaça maglumat"
+
+msgid "Additional information where the supplier's apartment can be found"
+msgstr "Üpjün edijiniň ýerleşýän ýeri barada goşmaça maglumat"
+
+msgid "Address 1"
+msgstr "Salgy 1"
+
+msgid "Address 2"
+msgstr "Salgy 2"
+
+msgid "Address 3"
+msgstr "Salgy 3"
+
+msgid "Address identifier of the customer's house for delivery"
+msgstr "Eltip bermek üçin müşderiniň öý salgysy"
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr "Eltip bermek üçin üpjün edijiniň öý salgysy"
+
+#, php-format
+msgid "Admin JQAdm type is empty"
+msgstr "Admin JQAdm görnüşi boş"
+
+msgid "Advanced"
+msgstr "Ösen"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr "Aimeos ýatda saklanmagy \"%1$s\" tarapyndan ýatyryldy"
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr "Aimeos düzediş ýazgysy \"%1$s\" tarapyndan işjeňleşdirildi"
+
+#, php-format
+msgid "Aimeos object not available"
+msgstr "Aimeos obýekti elýeterli däl"
+
+msgid "All"
+msgstr "Hemmesi"
+
+msgid ""
+"All attributes that uniquely define an article, e.g. width, length and color"
+" for jeans"
+msgstr "Harydyň özboluşlylygyny kesgitleýän ähli häsiýetler, meselem: jynsy üçin ini, uzynlygy, reňki"
+
+msgid "Allow custom price"
+msgstr "Aýratyn baha bermäge rugsat bermek"
+
+msgid "Allow customers to choose themselves how much they want to pay"
+msgstr "Müşderilere näçe tölemek isleýändiklerini saýlamaga rugsat bermek"
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr "Topary özboluşly kesgitläp bilýän harp sanlary"
+
+msgid "Apply"
+msgstr "Giriş"
+
+msgid ""
+"Article specific configuration options, will be available as key/value pairs"
+" in the templates"
+msgstr "Harydyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
+
+msgid "Attribute"
+msgstr "Aýratynlyk"
+
+msgid "Attribute Lists Type"
+msgstr "Aýratynlyk Sanawlarynyň Görnüşi"
+
+msgid "Attribute Lists Types"
+msgstr "Aýratynlyk Sanawlarynyň Görnüşleri"
+
+msgid "Attribute Property Type"
+msgstr "Aýratynlyk Häsiýetiniň Görnüşi"
+
+msgid "Attribute Property Types"
+msgstr "Aýratynlyk Häsiýetiniň Görnüşleri"
+
+msgid "Attribute Type"
+msgstr "Aýratynlyk Görnüşi"
+
+msgid "Attribute Types"
+msgstr "Aýratynlyk Görnüşleri"
+
+msgid "Attribute position (optional)"
+msgstr "Aýratynlyk ýagdaýy (islege görä)"
+
+msgid "Attribute properties that are not shared with other attributes"
+msgstr "Beýleki aýratynlyklar bilen paýlaşylmadyk aýratynlyk häsiýetleri"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr "Bar bolan aýratynlyklaryň sanawyny çäklendirýän aýratynlyk görnüşi"
+
+msgid "Attributes"
+msgstr "Aýratynlyklar"
+
+msgid "Available currency for the current site"
+msgstr "Häzirki sahypa üçin bar bolan walýutalar"
+
+msgid "Available intervals in the front-end"
+msgstr "Front-enddäki elýeterli aralyklar "
+
+msgid "Available language for the current site"
+msgstr "Häzirki sahypa üçin bar bolan diller"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr "Bu önüm üçin müşderileriň ortaça bahalandyrmasy we bahalarynyň umumy sany"
+
+msgid "Back in stock"
+msgstr "Täzeden stokda"
+
+msgid "Basic"
+msgstr "Ýönekeý"
+
+msgid "Basket"
+msgstr "Sebet"
+
+msgid "Billing address"
+msgstr "Hasaplaşyk salgysy"
+
+msgid "Birthday"
+msgstr "Doglan gün"
+
+msgid "Birthday of the customer"
+msgstr "Müşderiniň doglan güni"
+
+msgid "Boost factor"
+msgstr "Güýçlendiriji faktor"
+
+msgid "Boost factor (optional)"
+msgstr "Güýçlendiriji faktor (islege görä)"
+
+msgid "Bug or suggestion?"
+msgstr "Ýalňyşlyk ýa-da teklip?"
+
+msgid "Bulk edit"
+msgstr "Köpçülikleýin düzediş"
+
+msgid "Cancel"
+msgstr "Ýatyrmak"
+
+msgid "Cancel and return to list"
+msgstr "Ýatyrmak we sanawa dolanmak"
+
+msgid "Catalog"
+msgstr "Katalog"
+
+msgid "Catalog Lists Type"
+msgstr "Katalog Sanawlarynyň Görnüşi"
+
+msgid "Catalog Lists Types"
+msgstr "Katalog Sanawlarynyň Görnüşleri"
+
+msgid "Categories"
+msgstr "Kategoriýalar"
+
+msgid "Categories the product can be found in by the user on the web site"
+msgstr "Ulanyjy tarapyndan web sahypasynda önüm tapyp boljak kategoriýalar"
+
+msgid "Categories the product will be shown for in the promotional section"
+msgstr "Mahabat bölüminde görkeziljek harytlaryň kategoriýalary"
+
+msgid ""
+"Category specific configuration options, will be available as key/value "
+"pairs in the templates"
+msgstr "Kategoriýanyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
+
+msgid "Change costs/item in %"
+msgstr "Çykdaýjylar/haryt bahasyny % -de üýtgetmek"
+
+msgid "Change rebate in %"
+msgstr "Arzanladyşy % -de üýtgetmek"
+
+msgid "Change value in %"
+msgstr "Bahany % -de üýtgetmek"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Channel the order has been placed"
+msgstr "Sargydyň ýerleşdirilen kanaly"
+
+msgid "Choose file"
+msgstr "Faýly saýlamak"
+
+msgid "City"
+msgstr "Şäher"
+
+msgid "City or town name (required)"
+msgstr "Şäheriň ýa-da şäherçäniň ady (hökmäny)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "\"%1$s\" klasy \"%2$s\"-y amala aşyrmaýar"
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr "\"%1$s\" klas elýeterli däl"
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr "Klas \"%1$s\" tapylmady"
+
+msgid "Close"
+msgstr "Ýapmak"
+
+msgid "Code"
+msgstr "Kody"
+
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr "Sahypany özboluşly kesgitlemek üçin kod, adyny üýtgetmek howply!"
+
+msgid "Columns"
+msgstr "Sütünler"
+
+msgid "Comment"
+msgstr "Teswir"
+
+msgid "Comment of the reviewer"
+msgstr "Synçynyň teswiri"
+
+msgid "Communication"
+msgstr "Aragatnaşyk"
+
+msgid "Company"
+msgstr "Kompaniýa"
+
+msgid "Company details"
+msgstr "Kompaniýanyň maglumatlary"
+
+msgid "Company name (optional)"
+msgstr "Kompaniýanyň ady (islege görä)"
+
+msgid "Completed orders"
+msgstr "Tamamlanan sargytlar"
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr "Öňkiler bilen deňeşdirilende soňky ýedi günüň içinde tamamlanan sargytlar"
+
+msgid "Config"
+msgstr "Sazlamak"
+
+msgid "Configurable"
+msgstr "Sazlap bolýan"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
+msgstr "Sazlama görnüşleri, sanaw elementinde açar/baha jübütleri hökmünde elýeterli bolar"
+
+msgid "Copy"
+msgstr "Göçürmek"
+
+msgid "Copy this entry"
+msgstr "Bu ýazgyny göçürip almak"
+
+msgid "Costs"
+msgstr "Çykdajylar"
+
+msgid "Count"
+msgstr "Sanamak"
+
+msgid "Country"
+msgstr "Ýurt"
+
+msgid "Country ID"
+msgstr "Ýurt ID"
+
+msgid "Country code (required)"
+msgstr "Ýurt kody (hökmany)"
+
+msgid ""
+"Country specific tax rate to calculate and display the included tax (B2C) or"
+" add the tax if required (B2B)"
+msgstr ""
+
+msgid "Country state code (optional)"
+msgstr "Döwlet kody (islege görä)"
+
+msgid "Coupon"
+msgstr "Kupon"
+
+msgid "Coupon provider or coupon decorator configuration name"
+msgstr ""
+
+msgid "Created"
+msgstr "Döredildi"
+
+msgid "Currencies"
+msgstr "Walýutalar"
+
+msgid "Currency"
+msgstr "Walýuta"
+
+msgid "Custom"
+msgstr "Hususy"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
+
+msgid "Customer"
+msgstr "Müşderi"
+
+msgid "Customer ID"
+msgstr "Müşderiniň ID"
+
+msgid "Customer Lists Type"
+msgstr "Müşderi Sanawlarynyň Görnüşi"
+
+msgid "Customer Lists Types"
+msgstr "Müşderi Sanawlarynyň Görnüşleri"
+
+msgid "Customer Property Type"
+msgstr "Müşderiniň Häsiýetiniň Görnüşi"
+
+msgid "Customer Property Types"
+msgstr "Müşderiniň Häsiýetiniň Görnüşleri"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr "Müşderiniň başga müşderiler bilen paýlaşylmadyk häsiýetleri"
+
+msgid "Customer comment (optional)"
+msgstr "Müşderi teswiri (islege görä)"
+
+msgid "Customer e-mail address"
+msgstr "Müşderiniň elektron poçta salgysy"
+
+msgid "Customer password"
+msgstr "Müşderiniň açarsözi"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr "Müşderiniň başga müşderiler bilen paýlaşylmadyk häsiýetleri"
+
+msgid "Customer reference"
+msgstr ""
+
+msgid "Customer reference (optional)"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data"
+msgstr "Maglumat"
+
+msgid "Data set"
+msgstr ""
+
+msgid "Dataset"
+msgstr ""
+
+msgid "Date of the last delivery status change"
+msgstr ""
+
+msgid "Date of the last payment status change"
+msgstr ""
+
+msgid "Date the subscription ends"
+msgstr ""
+
+msgid "Days"
+msgstr "Günler"
+
+msgid "Default"
+msgstr ""
+
+msgid "Delete"
+msgstr "Pozuň"
+
+msgid "Delete items?"
+msgstr ""
+
+msgid "Delete selected entries"
+msgstr ""
+
+msgid "Delete this entry"
+msgstr ""
+
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
+msgid "Delivery"
+msgstr "Eltip bermek"
+
+msgid "Delivery address"
+msgstr "Eltip beriş salgysy"
+
+msgid "Delivery date"
+msgstr ""
+
+msgid "Delivery in"
+msgstr ""
+
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
+msgid "Delivery status"
+msgstr ""
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
+
+msgid "Delivery types"
+msgstr ""
+
+msgid "Delivery within"
+msgstr "Içinde eltip bermek"
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
+msgstr ""
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr ""
+
+msgid "Descritive name of the currency"
+msgstr ""
+
+msgid "Descritive name of the language"
+msgstr ""
+
+msgid "Descritive name of the site"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Display help texts"
+msgstr ""
+
+msgid "Domain"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download this file"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
+msgid "E-Mail"
+msgstr "E-Mail"
+
+msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address or account name (required)"
+msgstr ""
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "E-mail address (optional)"
+msgstr ""
+
+msgid "E-mail address that belongs to the address"
+msgstr ""
+
+msgid "EAN, SKU or article number (required)"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit this entry"
+msgstr ""
+
+msgid "Editor"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "End date"
+msgstr "Ahyrky senesi"
+
+msgid "End date (optional)"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Excl. tax"
+msgstr ""
+
+msgid "Execution order of the plugins"
+msgstr ""
+
+msgid "Execution order of the rules"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Facility"
+msgstr ""
+
+msgid "Facsimile"
+msgstr ""
+
+msgid "Facsimile number (optional)"
+msgstr ""
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
+
+msgid "Failed to write file to disk"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "Find category"
+msgstr ""
+
+msgid "Find site"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "First name"
+msgstr "Ady"
+
+msgid "First name (optional)"
+msgstr ""
+
+msgid "First name of the person if used in cultures where they are used"
+msgstr ""
+
+msgid "Floor"
+msgstr ""
+
+msgid "Floor / Appartment"
+msgstr ""
+
+msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "Generate text"
+msgstr ""
+
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
+msgid "Granted rebate"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group name describing for which members the group is for"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Hidden attributes"
+msgstr ""
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Highlighted suppliers of the product"
+msgstr ""
+
+msgid "Honorary title (optional)"
+msgstr ""
+
+msgid "Honorary titles like Dr., Ph.D, etc."
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+msgid "House number"
+msgstr ""
+
+msgid "House number (optional)"
+msgstr ""
+
+msgid "How the customer is addressed in e-mails"
+msgstr ""
+
+msgid "How the supplier is addressed in e-mails"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
+msgstr ""
+
+msgid "ISO currency code (required)"
+msgstr ""
+
+msgid "ISO language code (required)"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid ""
+"Images will only be shown for that language, useful if the media contains "
+"text or is language sepecific"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import/Export jobs"
+msgstr ""
+
+msgid "Incl. tax"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Insert new entry"
+msgstr ""
+
+msgid "Insert new entry (Ctrl+I)"
+msgstr ""
+
+msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr ""
+
+msgid ""
+"Internal article name, will be used on the web site if no product name for "
+"the language is available"
+msgstr ""
+
+msgid ""
+"Internal attribute name, will be used on the web site if no name for the "
+"language is available"
+msgstr ""
+
+msgid ""
+"Internal category name, will be used on the web site if no name for the "
+"language is available"
+msgstr ""
+
+msgid "Internal name (required)"
+msgstr ""
+
+msgid "Internal type name shown in the administration interface"
+msgstr ""
+
+msgid "Interval"
+msgstr "Aralyk"
+
+msgid "Interval (required)"
+msgstr ""
+
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr "\"%1$s\" klass adynda nädogry nyşanlar bar"
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr "\"%1$s\" müşderiniň adynda nädogry nyşanlar bar"
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr "\"%1$s\" nädogry klass ady"
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr "Nädogry domen \"%1$s\""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
+msgstr "Nädogry fabrika \"%1$s\""
+
+msgid "Invoice"
+msgstr ""
+
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
+msgid "Item deleted successfully"
+msgstr ""
+
+msgid "Item saved successfully"
+msgstr ""
+
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Label (required)"
+msgstr ""
+
+msgid "Label describing the interval, will be used if no name is available"
+msgstr ""
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Language ID"
+msgstr ""
+
+msgid "Language of the entered text"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
+msgid "Last delivery status of the order"
+msgstr ""
+
+msgid "Last name"
+msgstr "Familýasy"
+
+msgid "Last name (optional)"
+msgstr ""
+
+msgid "Last name (required)"
+msgstr ""
+
+msgid ""
+"Last name of the person or full name in cultures where no first names are "
+"used"
+msgstr ""
+
+msgid "Last payment status of the order"
+msgstr ""
+
+msgid "Latest orders"
+msgstr ""
+
+msgid "Length"
+msgstr ""
+
+msgid ""
+"List of articles that should be sold as one product, often at a reduced "
+"price"
+msgstr ""
+
+msgid "List of products often bought together"
+msgstr ""
+
+msgid "List of suggested products"
+msgstr ""
+
+msgid "List type"
+msgstr ""
+
+msgid "Loading items ..."
+msgstr ""
+
+msgid "Locale"
+msgstr ""
+
+msgid "Log"
+msgstr ""
+
+msgid "Manual transfer"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "Media Lists Type"
+msgstr ""
+
+msgid "Media Lists Types"
+msgstr ""
+
+msgid "Media Property Type"
+msgstr ""
+
+msgid "Media Property Types"
+msgstr ""
+
+msgid "Media Type"
+msgstr ""
+
+msgid "Media Types"
+msgstr ""
+
+msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Min. quantity"
+msgstr ""
+
+msgid "Minimum quantity"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
+msgid "Modifed"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+msgid "Months"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Move this entry up/down"
+msgstr ""
+
+msgid "Name"
+msgstr "Ady"
+
+msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
+msgstr ""
+
+msgid ""
+"Name of the downloaded file when customers saves the file on their computers"
+msgstr ""
+
+msgid "Name of the reviewer"
+msgstr ""
+
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
+msgid "New"
+msgstr "Täze"
+
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Next"
+msgstr "Indiki"
+
+msgid "Next date"
+msgstr ""
+
+msgid "Next date (optional)"
+msgstr ""
+
+msgid "Next date the subscription is renewed"
+msgstr ""
+
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
+msgid "No items found"
+msgstr ""
+
+msgid "No product found"
+msgstr ""
+
+msgid "No theme options available"
+msgstr ""
+
+#, php-format
+msgid "No view available"
+msgstr "Görnüş ýok"
+
+msgid "No voucher"
+msgstr ""
+
+msgid "Non-shared properties for the media item"
+msgstr ""
+
+msgid "Non-shared properties for the price item"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Not all items could be deleted"
+msgstr ""
+
+#, php-format
+msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr ""
+
+msgid "Not implemented"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
+msgstr ""
+
+msgid ""
+"Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
+msgstr ""
+
+msgid ""
+"One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
+msgstr ""
+
+msgid "Option"
+msgstr ""
+
+msgid ""
+"Optional product components that can be chosen by the customer together with"
+" the product"
+msgstr ""
+
+msgid "Order"
+msgstr "Sargyt"
+
+msgid "Order ID"
+msgstr "Sargyt ID"
+
+msgid "Order number entered by the customer"
+msgstr ""
+
+msgid "Order of the language/currency combinations"
+msgstr ""
+
+msgid "Order of the service options in the checkout process"
+msgstr ""
+
+msgid "Order of the types in the frontend"
+msgstr ""
+
+msgid "Order totals"
+msgstr ""
+
+msgid "Ordered at"
+msgstr ""
+
+msgid "Orders by country"
+msgstr ""
+
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
+msgid ""
+"Overwrite the existing file and customers bought it in the past can then "
+"download the new content too"
+msgstr ""
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
+msgstr ""
+
+#, php-format
+msgid "Page %1$d of %2$d"
+msgstr "%2$dyň %1$d-nji(y) sahypasy"
+
+msgid "Password"
+msgstr "Açar sözi"
+
+msgid "Password (required)"
+msgstr ""
+
+msgid "Path"
+msgstr ""
+
+msgid "Pay date"
+msgstr ""
+
+msgid "Pay status"
+msgstr ""
+
+msgid "Payment"
+msgstr "Töleg"
+
+msgid "Payment date"
+msgstr ""
+
+msgid "Payment status"
+msgstr "Töleg ýagdaýy"
+
+msgid "Payment types"
+msgstr ""
+
+msgid "Periods"
+msgstr ""
+
+#, php-format
+msgid "Permission denied"
+msgstr ""
+
+msgid "Personal data"
+msgstr ""
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
+
+msgid "Please select"
+msgstr "Saýlaň"
+
+msgid "Plugin"
+msgstr ""
+
+msgid "Plugin Type"
+msgstr ""
+
+msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin label for describing the configured plugin"
+msgstr ""
+
+msgid "Plugin position (required)"
+msgstr ""
+
+msgid "Plugin provider or plugin decorator configuration name"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Position (required)"
+msgstr ""
+
+msgid "Postal"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the customer is living"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Postition"
+msgstr ""
+
+msgid "Potential problems"
+msgstr ""
+
+msgid "Previous"
+msgstr "Öňki"
+
+msgid "Price"
+msgstr "Bahasy"
+
+msgid "Price Lists Type"
+msgstr ""
+
+msgid "Price Lists Types"
+msgstr ""
+
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
+msgid "Price Type"
+msgstr ""
+
+msgid "Price Types"
+msgstr ""
+
+msgid "Price properties"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "Problem"
+msgstr ""
+
+msgid "Product"
+msgstr "Haryt"
+
+msgid "Product ID"
+msgstr ""
+
+msgid "Product ID, SKU or label"
+msgstr ""
+
+msgid "Product Lists Type"
+msgstr ""
+
+msgid "Product Lists Types"
+msgstr ""
+
+msgid "Product Property Type"
+msgstr ""
+
+msgid "Product Property Types"
+msgstr ""
+
+msgid "Product Type"
+msgstr ""
+
+msgid "Product Types"
+msgstr ""
+
+msgid ""
+"Product attributes stored in the basket where customers can enter their own "
+"texts or values"
+msgstr ""
+
+msgid "Product attributes that are used by other products too"
+msgstr ""
+
+msgid "Product characteristics that are not shared with other products"
+msgstr ""
+
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
+msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product payment"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product shipping"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
+msgstr ""
+
+msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
+msgstr ""
+
+msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Products bought together"
+msgstr ""
+
+msgid "Promotion"
+msgstr ""
+
+msgid "Properties"
+msgstr "Aýratynlyklary"
+
+msgid "Property value (required)"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Provider/decorator class names (required)"
+msgstr ""
+
+msgid "Purchase"
+msgstr ""
+
+msgid "Quantity"
+msgstr "Mukdar"
+
+msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
+msgstr ""
+
+msgid "Rating"
+msgstr "Bahalandyrma"
+
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
+msgid "Reason"
+msgstr ""
+
+msgid "Rebate"
+msgstr ""
+
+msgid ""
+"Reduction from the original price, used to calculate the rebate in % and the"
+" cross price"
+msgstr ""
+
+msgid "Reference"
+msgstr "Salgylanma"
+
+msgid "Reference ID"
+msgstr ""
+
+msgid "Refund"
+msgstr ""
+
+msgid "Related ID"
+msgstr ""
+
+msgid "Related order"
+msgstr ""
+
+msgid "Related order ID (optional)"
+msgstr ""
+
+msgid "Related order of the customer"
+msgstr ""
+
+msgid "Renew"
+msgstr ""
+
+msgid "Replace file"
+msgstr ""
+
+msgid "Request"
+msgstr ""
+
+#, php-format
+msgid "Required parameter \"%1$s\" is missing"
+msgstr ""
+
+msgid ""
+"Required quantity of articles for block pricing, e.g. one article for $5.00,"
+" ten articles for $45.00"
+msgstr ""
+
+msgid "Reset"
+msgstr "Täzeden düzmek"
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr ""
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
+msgstr ""
+
+msgid ""
+"Route name or page ID of the category page if this category should shown on "
+"a different page"
+msgstr ""
+
+msgid ""
+"Route name or page ID of the product detail page if this product should "
+"shown on a different page"
+msgstr ""
+
+msgid "Route or page ID (optional)"
+msgstr ""
+
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
+msgid "Rules"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Sales by weekday"
+msgstr ""
+
+msgid "Sales of the last 30 days"
+msgstr ""
+
+msgid "Sales per month"
+msgstr ""
+
+msgid "Salutation"
+msgstr "Gutlag"
+
+msgid "Save"
+msgstr "Ýatda sakla"
+
+msgid "Save & Close"
+msgstr ""
+
+msgid "Save & Copy"
+msgstr ""
+
+msgid "Save & New"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
+msgstr ""
+
+msgid "Search"
+msgstr "Gözlemek"
+
+msgid "Second level type for grouping items"
+msgstr ""
+
+msgid "Select file"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Service Lists Type"
+msgstr ""
+
+msgid "Service Lists Types"
+msgstr ""
+
+msgid "Service Type"
+msgstr ""
+
+msgid "Service Types"
+msgstr ""
+
+msgid "Service attribute code"
+msgstr ""
+
+msgid "Service costs"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
+
+msgid "Service position (required)"
+msgstr ""
+
+msgid "Service price"
+msgstr ""
+
+msgid "Service provider or service decorator configuration name"
+msgstr ""
+
+msgid "Service rebate"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Ship date"
+msgstr ""
+
+msgid "Ship status"
+msgstr ""
+
+msgid "Shipping"
+msgstr "Eltip bermek"
+
+msgid "Shipping / Payment costs"
+msgstr ""
+
+msgid "Shipping costs/item"
+msgstr ""
+
+msgid "Shipping/Payment costs"
+msgstr ""
+
+msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
+msgstr ""
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the customer is living"
+msgstr ""
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
+msgid "Show"
+msgstr "Görkez"
+
+msgid "Show entry"
+msgstr ""
+
+msgid "Show search form"
+msgstr ""
+
+msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide details"
+msgstr ""
+
+msgid "Show/hide navigation labels"
+msgstr ""
+
+msgid "Show/hide this entry"
+msgstr ""
+
+msgid "Shown if the article reached a stock level of zero"
+msgstr ""
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr ""
+
+msgid "Site"
+msgstr ""
+
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
+msgstr ""
+
+msgid "Site the order was placed at"
+msgstr ""
+
+msgid "Sites"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Sorting of the attributes within the same attribute type"
+msgstr ""
+
+msgid "Sorting of the suppliers"
+msgstr ""
+
+msgid "Source of the invoice, e.g. by web or phone"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "Start typing ..."
+msgstr ""
+
+msgid "State"
+msgstr "Ýagdaý"
+
+msgid "Status"
+msgstr "Ýagdaý"
+
+msgid "Stock Type"
+msgstr ""
+
+msgid "Stock Types"
+msgstr ""
+
+msgid "Stock level"
+msgstr ""
+
+msgid "Stock type"
+msgstr ""
+
+msgid "Street"
+msgstr "Köçe"
+
+msgid "Street name (optional)"
+msgstr ""
+
+msgid "Sub-total"
+msgstr "Jemi"
+
+msgid "Subscription"
+msgstr ""
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
+msgstr ""
+
+msgid "Suggested products"
+msgstr "Teklip edilýän önümler"
+
+msgid "Sum"
+msgstr "Jemi"
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Supplier name or company"
+msgstr ""
+
+msgid "Supplier position (required)"
+msgstr ""
+
+msgid "Suppliers who manufacture the product"
+msgstr ""
+
+msgid "Tag Type"
+msgstr ""
+
+msgid "Tag Types"
+msgstr ""
+
+msgid "Tax"
+msgstr ""
+
+msgid "Tax rate"
+msgstr ""
+
+msgid "Tax rate in %"
+msgstr ""
+
+msgid "Telephone"
+msgstr "Telefon"
+
+msgid "Telephone number (optional)"
+msgstr ""
+
+msgid "Temporary folder is missing"
+msgstr ""
+
+msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Lists Types"
+msgstr ""
+
+msgid "Text Type"
+msgstr ""
+
+msgid "Text Types"
+msgstr ""
+
+msgid ""
+"The article is only shown on the web site after that date and time, useful "
+"or seasonal articles"
+msgstr ""
+
+msgid ""
+"The article is only shown on the web site until that date and time, useful "
+"or seasonal articles"
+msgstr ""
+
+msgid "The item is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The item is only shown on the web site until that date and time"
+msgstr ""
+
+msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid "The option is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The option is only shown on the web site until that date and time"
+msgstr ""
+
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
+
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
+msgid "Three letter ISO currency code"
+msgstr ""
+
+msgid "Time frame (optional)"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Toggle dropdown"
+msgstr ""
+
+msgid "Top countries"
+msgstr ""
+
+msgid "Total"
+msgstr "Jemi"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
+
+msgid "Translate text"
+msgstr ""
+
+msgid "Two letter ISO country code"
+msgstr ""
+
+msgid "Two letter ISO language code"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Type position (optional)"
+msgstr ""
+
+msgid "Types for additional images like icons"
+msgstr ""
+
+msgid "Types for additional prices like per one lb/kg or per month"
+msgstr ""
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr ""
+
+msgid "URL of the customer web site"
+msgstr ""
+
+msgid "URL of the supplier web site"
+msgstr ""
+
+msgid "URL segment"
+msgstr ""
+
+msgid "URL target"
+msgstr ""
+
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr "\"%1$s\" metodyny işledip bolmaýar"
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid ""
+"Unique article code related to stock levels, e.g. from the ERP system, an "
+"EAN/GTIN number or self invented"
+msgstr ""
+
+msgid "Unique attribute code (required)"
+msgstr ""
+
+msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
+msgstr ""
+
+msgid "Unique category code (required)"
+msgstr ""
+
+msgid "Unique category code, either from external system or self-invented"
+msgstr ""
+
+msgid "Unique code (required)"
+msgstr ""
+
+msgid "Unique code to identify the service, usually self-invented"
+msgstr ""
+
+msgid "Unique customer account name"
+msgstr ""
+
+msgid "Unique customer e-mail address"
+msgstr ""
+
+msgid "Unique group code (required)"
+msgstr ""
+
+msgid "Unique service code (required)"
+msgstr ""
+
+msgid "Unique site code (required)"
+msgstr ""
+
+msgid "Unique supplier code"
+msgstr ""
+
+msgid "Unique type code"
+msgstr ""
+
+msgid "Unique type code (required)"
+msgstr ""
+
+msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Unknown upload error"
+msgstr ""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
+
+msgid "Uploaded"
+msgstr ""
+
+msgid "User groups"
+msgstr ""
+
+msgid "Usual time frame for the delivery of the product"
+msgstr ""
+
+msgid "VAT ID"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Value added tax identifier (optional)"
+msgstr ""
+
+msgid "Variant attributes"
+msgstr ""
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Verified"
+msgstr ""
+
+msgid "View details"
+msgstr ""
+
+msgid "Voucher"
+msgstr ""
+
+msgid ""
+"Warehouse or local store if your articles are available at several locations"
+msgstr ""
+
+msgid "Web site"
+msgstr "Web sahypa"
+
+msgid "Web site URL (optional)"
+msgstr ""
+
+msgid "Weeks"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "YYYY-MM-DD hh:mm:ss (optional)"
+msgstr ""
+
+msgid "Years"
+msgstr ""
+
+msgid "You are going to delete one or more items. Would you like to proceed?"
+msgstr ""
+
+msgid "Your export will be available in a few minutes for download"
+msgstr ""
+
+msgid "Your response"
+msgstr ""
+
+msgid "Zip code"
+msgstr ""
+
+msgid "Zip code (optional)"
+msgstr ""
+
+msgid "__hidden__"
+msgstr ""
+
+#, php-format
+msgid "account"
+msgstr ""
+
+#, php-format
+msgid "address"
+msgstr "Salgylar"
+
+msgid "address:delivery"
+msgstr "Eltip beriş salgysy"
+
+msgid "address:payment"
+msgstr "Hasaplaşyk salgysy"
+
+#, php-format
+msgid "attribute"
+msgstr "Aýratynlyklar"
+
+#, php-format
+msgid "basket"
+msgstr ""
+
+#, php-format
+msgid "bundle"
+msgstr ""
+
+#, php-format
+msgid "catalog"
+msgstr "Kategoriýalar"
+
+#, php-format
+msgid "category"
+msgstr "Kategoriýalar"
+
+#, php-format
+msgid "characteristic"
+msgstr "Häsiýetleri"
+
+#, php-format
+msgid "code"
+msgstr ""
+
+msgid "company"
+msgstr "Kompanýa"
+
+#, php-format
+msgid "configuration"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
+msgstr ""
+
+#, php-format
+msgid "countday"
+msgstr ""
+
+#, php-format
+msgid "counthour"
+msgstr ""
+
+#, php-format
+msgid "countpaystatus"
+msgstr ""
+
+#, php-format
+msgid "coupon"
+msgstr ""
+
+#, php-format
+msgid "customer"
+msgstr ""
+
+#, php-format
+msgid "dashboard"
+msgstr ""
+
+#, php-format
+msgid "day"
+msgstr ""
+
+#, php-format
+msgid "deliverytype"
+msgstr ""
+
+#, php-format
+msgid "download"
+msgstr ""
+
+#, php-format
+msgid "goods"
+msgstr "Katalog"
+
+#, php-format
+msgid "group"
+msgstr ""
+
+#, php-format
+msgid "hour"
+msgstr ""
+
+#, php-format
+msgid "image"
+msgstr ""
+
+#, php-format
+msgid "invoice"
+msgstr ""
+
+#, php-format
+msgid "latest"
+msgstr "Iň soňky"
+
+#, php-format
+msgid "locale"
+msgstr ""
+
+#, php-format
+msgid "locale/currency"
+msgstr "Walýutalar"
+
+#, php-format
+msgid "locale/language"
+msgstr ""
+
+#, php-format
+msgid "locale/site"
+msgstr ""
+
+#, php-format
+msgid "log"
+msgstr ""
+
+#, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
+msgid "media"
+msgstr ""
+
+msgid "miss"
+msgstr ""
+
+msgid "mr"
+msgstr ""
+
+msgid "mrs"
+msgstr ""
+
+msgid "ms"
+msgstr ""
+
+msgid "new"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "none"
+msgstr "hijisi"
+
+msgid "not available any more"
+msgstr ""
+
+#, php-format
+msgid "option"
+msgstr "Görnüşler"
+
+#, php-format
+msgid "order"
+msgstr ""
+
+msgid "order:phone"
+msgstr ""
+
+msgid "order:web"
+msgstr ""
+
+msgid "pay:-1"
+msgstr ""
+
+msgid "pay:0"
+msgstr ""
+
+msgid "pay:1"
+msgstr ""
+
+msgid "pay:2"
+msgstr ""
+
+msgid "pay:3"
+msgstr ""
+
+msgid "pay:4"
+msgstr ""
+
+msgid "pay:5"
+msgstr ""
+
+msgid "pay:6"
+msgstr ""
+
+msgid "pay:7"
+msgstr ""
+
+#, php-format
+msgid "paymentstatus"
+msgstr ""
+
+#, php-format
+msgid "paymenttype"
+msgstr ""
+
+#, php-format
+msgid "physical"
+msgstr ""
+
+#, php-format
+msgid "plugin"
+msgstr ""
+
+#, php-format
+msgid "price"
+msgstr ""
+
+#, php-format
+msgid "product"
+msgstr ""
+
+#, php-format
+msgid "property"
+msgstr "Aýratynlyklary"
+
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
+msgid "reason:-1"
+msgstr ""
+
+msgid "reason:0"
+msgstr ""
+
+msgid "reason:1"
+msgstr ""
+
+#, php-format
+msgid "related"
+msgstr ""
+
+#, php-format
+msgid "review"
+msgstr "Synlar"
+
+#, php-format
+msgid "rule"
+msgstr ""
+
+#, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
+msgid "salesweekday"
+msgstr ""
+
+msgid "selected"
+msgstr ""
+
+#, php-format
+msgid "selection"
+msgstr ""
+
+#, php-format
+msgid "service"
+msgstr "Hyzmatlar"
+
+#, php-format
+msgid "servicedelivery"
+msgstr ""
+
+#, php-format
+msgid "servicepayment"
+msgstr ""
+
+#, php-format
+msgid "settings"
+msgstr ""
+
+#, php-format
+msgid "setup"
+msgstr ""
+
+#, php-format
+msgid "special"
+msgstr ""
+
+msgid "stat:-1"
+msgstr ""
+
+msgid "stat:0"
+msgstr ""
+
+msgid "stat:1"
+msgstr ""
+
+msgid "stat:2"
+msgstr ""
+
+msgid "stat:3"
+msgstr ""
+
+msgid "stat:4"
+msgstr ""
+
+msgid "stat:5"
+msgstr ""
+
+msgid "stat:6"
+msgstr ""
+
+msgid "stat:7"
+msgstr ""
+
+msgid "status:-1"
+msgstr ""
+
+msgid "status:-2"
+msgstr ""
+
+msgid "status:0"
+msgstr ""
+
+msgid "status:1"
+msgstr ""
+
+msgid "status:2"
+msgstr ""
+
+#, php-format
+msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "subscription"
+msgstr "Abunalar"
+
+#, php-format
+msgid "supplier"
+msgstr "Üpjün edijiler"
+
+msgid "tag"
+msgstr ""
+
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
+#, php-format
+msgid "text"
+msgstr ""
+
+#, php-format
+msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
+msgstr ""
+
+#, php-format
+msgid "type"
+msgstr ""
+
+#, php-format
+msgid "type/attribute"
+msgstr "Aýratynlyklar"
+
+#, php-format
+msgid "type/attribute/lists"
+msgstr ""
+
+#, php-format
+msgid "type/attribute/property"
+msgstr ""
+
+#, php-format
+msgid "type/catalog/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/property"
+msgstr ""
+
+#, php-format
+msgid "type/media"
+msgstr ""
+
+#, php-format
+msgid "type/media/lists"
+msgstr ""
+
+#, php-format
+msgid "type/media/property"
+msgstr ""
+
+#, php-format
+msgid "type/plugin"
+msgstr ""
+
+#, php-format
+msgid "type/price"
+msgstr ""
+
+#, php-format
+msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/price/property"
+msgstr ""
+
+#, php-format
+msgid "type/product"
+msgstr ""
+
+#, php-format
+msgid "type/product/lists"
+msgstr ""
+
+#, php-format
+msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/rule"
+msgstr ""
+
+#, php-format
+msgid "type/service"
+msgstr "Hyzmatlar"
+
+#, php-format
+msgid "type/service/lists"
+msgstr ""
+
+#, php-format
+msgid "type/stock"
+msgstr ""
+
+#, php-format
+msgid "type/tag"
+msgstr ""
+
+#, php-format
+msgid "type/text"
+msgstr ""
+
+#, php-format
+msgid "type/text/lists"
+msgstr ""
+
+#, php-format
+msgid "users"
+msgstr ""
+
+msgid "yes"
+msgstr ""

@@ -47,40 +47,36 @@ Aimeos.Dashboard = {
 	 */
 	getData(resource, key, criteria, sort, limit, value, type) {
 
-		return $.when( Aimeos.options ).then(function(data) {
+		const method = 'aggregate' + resource.charAt(0).toUpperCase() + resource.slice(1) + 's';
+		let str = 'key: ' + JSON.stringify(key)
 
-			var params = {}, param = {};
+		if(criteria) {
+			str += ', filter: ' + JSON.stringify(JSON.stringify(criteria))
+		}
 
-			param["aggregate"] = key;
-			param["filter"] = criteria;
+		if(sort) {
+			sort = Array.isArray(sort) ? sort : [sort]
+			str += ', sort: ' + JSON.stringify(sort);
+		}
 
-			if(sort) {
-				param["sort"] = sort;
+		if(limit) {
+			str += ', limit: ' + limit;
+		}
+
+		if(value) {
+			str += ', value: ' + JSON.stringify(value);
+		}
+
+		if(type) {
+			str += ', type: ' + JSON.stringify(type);
+		}
+
+		return Aimeos.query(`query {
+			` + method + `(` + str + `) {
+				aggregates
 			}
-
-			if(limit) {
-				param["page"] = {"limit": limit};
-			}
-
-			if(value) {
-				param["value"] = value;
-			}
-
-			if(type) {
-				param["type"] = type;
-			}
-
-			if( data.meta && data.meta.prefix ) {
-				params[data.meta.prefix] = param;
-			} else {
-				params = param;
-			}
-
-			return $.ajax({
-				dataType: "json",
-				url: data.meta.resources[resource] || null,
-				data: params
-			});
-		});
+		}`).then(result => {
+			return JSON.parse(result[method]?.aggregates || '{}')
+		})
 	}
 };

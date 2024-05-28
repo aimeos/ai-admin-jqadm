@@ -4,15 +4,17 @@
 # 
 # Translators:
 # Bistra Kumanova <b.kumanova@creato.bg>, 2015
+# Chiarra, 2024
 # Plamen Petkov <mcplamen@gmail.com>, 2016,2019
 # Stefan Taskov, 2022
+# Chiarra, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Stefan Taskov, 2022\n"
+"Last-Translator: Chiarra, 2024\n"
 "Language-Team: Bulgarian (http://app.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +105,7 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Account"
 msgstr "Регистрация"
@@ -155,11 +157,11 @@ msgstr "Напреднал"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos кеширането е деактивирано от \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos отстраняването на грешки при регистрацията е активирано от \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -180,62 +182,62 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Позволи на купувачите да изберат сами как искат да платят"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Алфанумеричен низ, който може да идентифицира групата уникално"
 
 msgid "Apply"
-msgstr ""
+msgstr "Приложи"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Специфичните настройки за статията ще бъдат достъпни като ключ/стойност в шаблоните."
 
 msgid "Attribute"
 msgstr "Атрибут"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Атрибутни списъци тип"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Атрибутни списъци типове"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Атрибут Свойство Тип"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Атрибут Свойство Типове"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Тип на атрибут"
 
 msgid "Attribute Types"
 msgstr ""
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Атрибут позиция (по избор)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Атрибутни свойства, които не се споделят с други атрибути"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Атрибут тип, който ограничава списъка с наличните атрибути"
 
 msgid "Attributes"
 msgstr "Атрибути"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Налична валута за текущия сайт"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "На разположение са интервали в предния край"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "<text_to_translate>Наличният език за текущия сайт</text_to_translate>"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Среден рейтинг на продукта и общ брой оценки от клиенти за този продукт"
 
 msgid "Back in stock"
 msgstr "Попълване на склад"
@@ -256,45 +258,45 @@ msgid "Birthday of the customer"
 msgstr "Рожден ден на клиента"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Увеличителен фактор"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Фактор за увеличение (по избор)"
 
 msgid "Bug or suggestion?"
 msgstr "Грешка или предложение?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Групово редактиране"
 
 msgid "Cancel"
 msgstr "Отмяна"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Отказ и връщане към списъка"
 
 msgid "Catalog"
 msgstr "Каталог"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Каталог списъци тип"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Каталог списъци тип"
 
 msgid "Categories"
 msgstr "Категории"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Категории, в които потребителят може да намери продукта на уебсайта."
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Категориите, в които продуктът ще бъде показан в промоционалния раздел."
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Специфичните настройки за категорията ще бъдат достъпни като ключ/стойност в шаблоните."
 
 msgid "Change costs/item in %"
 msgstr ""
@@ -642,7 +644,7 @@ msgstr ""
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Фактор за повишаване на продукта в потребителското търсене пред други продукти (>1.0 положително повишаване, <1.0 отрицателно повишаване)"
 
 msgid "Failed to write file to disk"
 msgstr ""
@@ -962,6 +964,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr "Минимално количество"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -981,6 +992,9 @@ msgid "Name"
 msgstr "Име"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1079,7 +1093,7 @@ msgid ""
 msgstr ""
 
 msgid "Only super users and administrators can delete items"
-msgstr ""
+msgstr "Само супер потребители и администратори могат да изтриват елементи"
 
 msgid "Open"
 msgstr ""
@@ -1425,6 +1439,9 @@ msgstr ""
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1633,6 +1650,9 @@ msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide details"
 msgstr ""
 
 msgid "Show/hide navigation labels"
@@ -1949,6 +1969,9 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -1962,7 +1985,7 @@ msgid "Uploaded"
 msgstr "Качени"
 
 msgid "User groups"
-msgstr ""
+msgstr "Групи потребители"
 
 msgid "Usual time frame for the delivery of the product"
 msgstr ""
@@ -2054,6 +2077,10 @@ msgstr "Разплащателен адрес"
 #, php-format
 msgid "attribute"
 msgstr "Атрибути"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"
@@ -2436,7 +2463,7 @@ msgstr ""
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "Каталожни списъци"
 
 #, php-format
 msgid "type/customer/lists"
@@ -2516,7 +2543,7 @@ msgstr ""
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "Потребители"
 
 msgid "yes"
 msgstr ""

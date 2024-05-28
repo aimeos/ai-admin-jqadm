@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -495,40 +495,22 @@ class Standard
 
 		foreach( $basket->getServices() as $type => $services )
 		{
-			foreach( $services as $index => $service )
+			foreach( $services as $service )
 			{
-				$list = [];
+				$serviceId = $service->getId();
 				$attrItems = $service->getAttributeItems();
 
-				if( isset( $data['service'][$type][$service->getServiceId()] ) )
+				foreach( $data['service'][$type][$serviceId] ?? [] as $idx => $entry )
 				{
-					foreach( (array) $data['service'][$type][$service->getServiceId()] as $key => $pair )
-					{
-						foreach( $pair as $pos => $value ) {
-							$list[$pos][$key] = $value;
-						}
-					}
+					$entry = array_filter( $entry );
+					$id = $entry['order.service.attribute.id'] ?? '';
+					$attrItem = $attrItems[$id] ?? $attrManager->create();
 
-					foreach( $list as $array )
-					{
-						if( isset( $attrItems[$array['order.service.attribute.id']] ) )
-						{
-							$attrItem = $attrItems[$array['order.service.attribute.id']];
-							unset( $attrItems[$array['order.service.attribute.id']] );
-						}
-						else
-						{
-							$attrItem = $attrManager->create();
-						}
-
-						$attrItem->fromArray( $array, true );
-						$attrItem->setParentId( $service->getId() );
-
-						$item = $attrManager->save( $attrItem );
-					}
+					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() ) );
+					unset( $attrItems[$id] );
 				}
 
-				$attrManager->delete( $attrItems->toArray() );
+				$attrManager->delete( $attrItems );
 			}
 		}
 
@@ -549,10 +531,8 @@ class Standard
 
 		if( $item->getCustomerId() != '' )
 		{
-			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
-
 			try {
-				$data += $manager->get( $item->getCustomerId() )->toArray();
+				$data += \Aimeos\MShop::create( $this->context(), 'customer' )->get( $item->getCustomerId() )->toArray();
 			} catch( \Exception $e ) {};
 		}
 
@@ -567,11 +547,7 @@ class Standard
 		{
 			foreach( $addresses as $pos => $addrItem )
 			{
-				$list = $addrItem->toArray( true );
-
-				foreach( $list as $key => $value ) {
-					$data['address'][$type][$pos][$key] = $value;
-				}
+				$data['address'][$type][$pos] = $addrItem->toArray( true );
 
 				if( $copy === true )
 				{
@@ -581,26 +557,58 @@ class Standard
 			}
 		}
 
-		if( $copy !== true )
+		foreach( $item->getProducts() as $pos => $productItem )
 		{
-			foreach( $item->getServices() as $type => $services )
-			{
-				foreach( $services as $serviceItem )
-				{
-					$serviceId = $serviceItem->getServiceId();
+			$data['product'][$pos] = $productItem->toArray( true );
+			$data['product'][$pos]['attributes'] = [];
 
-					foreach( $serviceItem->getAttributeItems() as $attrItem )
-					{
-						foreach( $attrItem->toArray( true ) as $key => $value ) {
-							$data['service'][$type][$serviceId][$key][] = $value;
-						}
-					}
+			foreach( $productItem->getAttributeItems() as $attrItem )
+			{
+				$entry = $attrItem->toArray( true );
+
+				if( $copy === true )
+				{
+					$entry['order.product.attribute.siteid'] = $siteId;
+					$entry['order.product.attribute.id'] = '';
 				}
+
+				$data['product'][$pos]['attributes'][] = $entry;
+			}
+
+			if( $copy === true )
+			{
+				$data['product'][$pos]['order.product.siteid'] = $siteId;
+				$data['product'][$pos]['order.product.id'] = '';
 			}
 		}
 
-		foreach( $item->getProducts() as $pos => $productItem ) {
-			$data['product'][$pos] = $productItem->toArray();
+		foreach( $item->getServices() as $type => $services )
+		{
+			foreach( $services as $serviceItem )
+			{
+				$serviceId = $serviceItem->getId();
+				$data['service'][$type][$serviceId] = $serviceItem->toArray( true );
+				$data['service'][$type][$serviceId]['attributes'] = [];
+
+				foreach( $serviceItem->getAttributeItems() as $attrItem )
+				{
+					$entry = $attrItem->toArray( true );
+
+					if( $copy === true )
+					{
+						$entry['order.service.attribute.siteid'] = $siteId;
+						$entry['order.service.attribute.id'] = '';
+					}
+
+					$data['service'][$type][$serviceId]['attributes'][] = $entry;
+				}
+
+				if( $copy === true )
+				{
+					$data['service'][$type][$serviceId]['order.service.siteid'] = $siteId;
+					$data['service'][$type][$serviceId]['order.service.id'] = '';
+				}
+			}
 		}
 
 		return $data;

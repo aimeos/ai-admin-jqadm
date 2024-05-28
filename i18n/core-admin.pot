@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2024-04-04 16:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -486,6 +486,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr ""
 
+msgid "Delete this item"
+msgstr ""
+
 msgid "Deleting reviews is not allowed"
 msgstr ""
 
@@ -547,6 +550,9 @@ msgid "Download this file"
 msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
+msgid "Duplicate item (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
@@ -625,6 +631,9 @@ msgid "File"
 msgstr ""
 
 msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "File uploaded successfully"
 msgstr ""
 
 msgid "Find category"
@@ -750,6 +759,9 @@ msgstr ""
 msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
+msgid "Insert new item (Ctrl+I)"
+msgstr ""
+
 msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
 msgstr ""
 
@@ -798,6 +810,9 @@ msgid "Invoice"
 msgstr ""
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number"
 msgstr ""
 
 msgid "Invoice number for the order"
@@ -920,6 +935,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr ""
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -935,10 +959,16 @@ msgstr ""
 msgid "Move this entry up/down"
 msgstr ""
 
+msgid "Move this item up/down"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid "Name of the downloaded file when customers saves the file on their computers"
@@ -1371,6 +1401,9 @@ msgstr ""
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1573,10 +1606,16 @@ msgstr ""
 msgid "Show/hide advanced data"
 msgstr ""
 
+msgid "Show/hide details"
+msgstr ""
+
 msgid "Show/hide navigation labels"
 msgstr ""
 
 msgid "Show/hide this entry"
+msgstr ""
+
+msgid "Show/hide this item"
 msgstr ""
 
 msgid "Shown if the article reached a stock level of zero"
@@ -1780,6 +1819,9 @@ msgstr ""
 msgid "Translate text"
 msgstr ""
 
+msgid "Translations"
+msgstr ""
+
 msgid "Two letter ISO country code"
 msgstr ""
 
@@ -1871,7 +1913,13 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
+msgstr ""
+
+msgid "Upload CSV"
 msgstr ""
 
 msgid "Upload shop icon"
@@ -1902,6 +1950,9 @@ msgid "Variant attributes"
 msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Vendor"
 msgstr ""
 
 msgid "Verified"
@@ -1975,6 +2026,10 @@ msgstr "Billing address"
 #, php-format
 msgid "attribute"
 msgstr "Attributes"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

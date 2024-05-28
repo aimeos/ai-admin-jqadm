@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $price = function( \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
@@ -22,7 +22,7 @@ $name = function( \Aimeos\MShop\Order\Item\Iface $item )
 
 	$address = $addresses[\Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT];
 
-	if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
+	if( $address->getSalutation() !== 'company' ) {
 		return $address->getFirstName() . ' ' . $address->getLastName();
 	} else {
 		return $address->getCompany();
@@ -298,7 +298,7 @@ $taxflagList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+								<a class="btn act-view icon" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 							</td>

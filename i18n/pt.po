@@ -6,14 +6,15 @@
 # b5fdd37cec45d8078af7e530465bb050, 2016
 # Bruno Faria <email@brunofaria.pt>, 2018
 # Márcio Bortolini <marcio@agenciavirtuos.com.br>, 2020
+# Rui Gomes, 2023
 # b5fdd37cec45d8078af7e530465bb050, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: b5fdd37cec45d8078af7e530465bb050, 2016\n"
+"Last-Translator: Rui Gomes, 2023\n"
 "Language-Team: Portuguese (http://app.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid " "
-msgstr ""
+msgstr "Aplicar"
 
 #, php-format
 msgid "%1$d/%2$d"
@@ -184,7 +185,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -266,13 +267,13 @@ msgid "Bug or suggestion?"
 msgstr "Erro ou sugestão?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Editar em volume"
 
 msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Cancelar e voltar para lista"
 
 msgid "Catalog"
 msgstr "Catálogo"
@@ -319,7 +320,7 @@ msgid "City"
 msgstr "Cidade"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Nome cidade ou localidade (obrigatório)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -364,7 +365,7 @@ msgid "Company name (optional)"
 msgstr "Nome da empresa (opcional)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Completar compras"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
@@ -425,10 +426,10 @@ msgid "Currency"
 msgstr "Moeda"
 
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Domínio próprio ou código único para a sua loja"
 
 msgid "Customer"
 msgstr "Cliente"
@@ -437,25 +438,25 @@ msgid "Customer ID"
 msgstr "ID de Cliente"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Tipo de listas clientes"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Tipo de listas clientes"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Tipo de propriedades de cliente"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Tipo de propriedades de cliente"
 
 msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Comentários de cliente (opcional)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Endereço de E-mail de cliente"
 
 msgid "Customer password"
 msgstr "Password do Cliente"
@@ -963,6 +964,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr "Quantidade mínima"
 
+msgid "Mobile"
+msgstr "Movel"
+
+msgid "Mobile number"
+msgstr "Numero telemovel"
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -982,6 +992,9 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1426,6 +1439,9 @@ msgstr ""
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Renovar"
 
@@ -1634,6 +1650,9 @@ msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide details"
 msgstr ""
 
 msgid "Show/hide navigation labels"
@@ -1950,6 +1969,9 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2055,6 +2077,10 @@ msgstr "Endereço de cobrança"
 #, php-format
 msgid "attribute"
 msgstr "Atributos"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

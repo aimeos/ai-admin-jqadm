@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -78,7 +78,7 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'customer/group', 'group' );
+		return $this->batchBase( 'group', 'group' );
 	}
 
 
@@ -99,7 +99,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -128,10 +128,10 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->context(), 'customer/group' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'group' )->create();
 			}
 
-			$data['customer.group.siteid'] = $view->item->getSiteId();
+			$data['group.siteid'] = $view->item->getSiteId();
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
@@ -154,7 +154,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 		$manager->begin();
 
 		try
@@ -165,8 +165,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'customer.group.id', $ids ) );
+			$search = $manager->filter()->add( 'group.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -207,7 +206,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -231,7 +230,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 		$manager->begin();
 
 		try
@@ -268,7 +267,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'group' );
-			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -438,14 +437,14 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Customer\Item\Group\Iface New group item object
+	 * @return \Aimeos\MShop\Group\Item\Iface New group item object
 	 */
-	protected function fromArray( array $data ) : \Aimeos\MShop\Customer\Item\Group\Iface
+	protected function fromArray( array $data ) : \Aimeos\MShop\Group\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 
-		if( isset( $data['customer.group.id'] ) && $data['customer.group.id'] != '' ) {
-			$item = $manager->get( $data['customer.group.id'] );
+		if( isset( $data['group.id'] ) && $data['group.id'] != '' ) {
+			$item = $manager->get( $data['group.id'] );
 		} else {
 			$item = $manager->create();
 		}
@@ -459,17 +458,18 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Customer\Item\Group\Iface $item Group item object
+	 * @param \Aimeos\MShop\Group\Item\Iface $item Group item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Customer\Item\Group\Iface $item, bool $copy = false ) : array
+	protected function toArray( \Aimeos\MShop\Group\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
 
 		if( $copy === true )
 		{
-			$data['customer.group.siteid'] = $this->context()->locale()->getSiteId();
-			$data['customer.group.id'] = '';
+			$data['product.siteid'] = $this->context()->locale()->getSiteId();
+			$data['group.code'] = $data['group.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$data['group.id'] = '';
 		}
 
 		return $data;

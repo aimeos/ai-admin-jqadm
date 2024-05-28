@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -167,8 +167,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'locale.site.id', $ids ) );
+			$search = $manager->filter()->add( 'locale.site.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $id => $item )
@@ -428,10 +427,7 @@ class Standard
 	 */
 	protected function getUserSiteId() : ?string
 	{
-		$context = $this->context();
-		$manager = \Aimeos\MShop::create( $context, 'customer' );
-
-		return $manager->get( $context->user() )->getSiteId();
+		return $this->context()->user()?->getSiteId();
 	}
 
 
@@ -502,10 +498,10 @@ class Standard
 
 		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		foreach( (array) $this->val( $data, 'config', [] ) as $cfg )
 		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
+			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 			}
 		}
 

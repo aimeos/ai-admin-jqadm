@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 /**
@@ -30,10 +30,10 @@ $sort = function( $sortcode, $code ) {
 
 $sortclass = function( $sortcode, $code ) {
 	if( $sortcode === $code ) {
-		return 'sort-asc';
+		return 'icon sort-asc';
 	}
 	if( $sortcode === '-' . $code ) {
-		return 'sort-desc';
+		return 'icon sort-desc';
 	}
 };
 
@@ -65,7 +65,7 @@ else
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ) ?>">
-			<?php if( strpos( $key, '.' ) !== false ) : ?>
+			<?php if( !in_array( $key, ['image'] ) ) : ?>
 				<a class="<?= $sortclass( $sortcode, $key ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?= $enc->attr( $this->link( $cfgkey, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, [], $fragment ) ) ?>">
 					<?= $enc->html( $name ) ?>

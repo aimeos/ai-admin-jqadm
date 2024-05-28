@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  */
 
 
@@ -95,8 +95,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'characteristic' => [
 				'attribute' => [[
-					'product.lists.id' => '',
-					'product.lists.refid' => $attrManager->find( 'xs', [], 'product', 'size' )->getId(),
+					'product.lists.type' => 'default',
+					'attribute.id' => $attrManager->find( 'xs', [], 'product', 'size' )->getId(),
 				]],
 			],
 		);

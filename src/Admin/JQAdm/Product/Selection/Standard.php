@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -58,12 +58,18 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'selection', [] );
 
-		foreach( $data as $idx => $entry )
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'selection', [] ) );
+
+		foreach( $data as $key => $entry )
 		{
-			$data[$idx]['product.lists.siteid'] = $siteid;
-			$data[$idx]['product.siteid'] = $siteid;
+			foreach( $entry['attr'] ?? [] as $idx => $attr ) {
+				$data[$key]['attr'][$idx]['product.lists.siteid'] = $siteid;
+			}
+
+			$data[$key]['product.lists.siteid'] = $siteid;
+			$data[$key]['product.siteid'] = $siteid;
 		}
 
 		$view->selectionData = $data;
@@ -191,6 +197,17 @@ class Standard
 
 
 	/**
+	 * Returns the domain names whose items should be fetched too
+	 *
+	 * @return string[] List of domain names
+	 */
+	protected function getDomains() : array
+	{
+		return $this->context()->config()->get( 'admin/jqadm/product/domains', [] );
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -244,23 +261,23 @@ class Standard
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
-		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$prodIds = map( $data )->col( 'product.id' )->toArray();
 		$filter = $manager->filter()->add( ['product.id' => $prodIds] );
-		$prodItems = $manager->search( $filter, ['attribute' => ['variant']] );
+		$prodItems = $manager->search( $filter, $this->getDomains() );
 
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 		$prodIds = [];
 
 		foreach( $data as $idx => $entry )
 		{
+			$qty = $this->val( $entry, 'quantity', 1 );
 			$id = $this->val( $entry, 'product.id', '' );
 
-			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $listManager->create();
+			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $manager->createListItem();
 			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
 
-			$litem->fromArray( $entry, true )->setPosition( $idx );
+			$litem->fromArray( $entry, true )->setPosition( $idx )->setConfigValue( 'quantity', $qty );
 			$refItem->fromArray( $entry, true );
 
 			if( isset( $entry['attr'] ) ) {
@@ -283,32 +300,25 @@ class Standard
 	 * Updates the variant attributes of the given product item
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $refItem Article item object
-	 * @param array $entry Associative list of key/values for product attribute references
+	 * @param array $data Associative list of key/values for product attribute references
 	 * @return \Aimeos\MShop\Product\Item\Iface Updated artice item object
 	 */
-	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
+	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $refItem->getListItems( 'attribute', 'variant', null, false );
 		$pos = 0;
 
-		foreach( $entry as $attr )
+		foreach( $data as $attr )
 		{
-			if( !isset( $attr['product.lists.refid'] ) || $attr['product.lists.refid'] == '' ) {
-				continue;
-			}
+			$listid = $this->val( $attr, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem->setRefId( $this->val( $attr, 'attribute.id' ) )->setType( 'variant' )->setPosition( $pos++ );
 
-			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'], false ) ) === null ) {
-				$litem = $listManager->create()->setType( 'variant' );
-			}
-
-			$litem = $litem->fromArray( $attr, true )->setPosition( $pos++ );
-
-			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );
-			unset( $litems[$litem->getId()] );
+			$refItem->addListItem( 'attribute', $litem );
 		}
 
-		return $refItem->deleteListItems( $litems->toArray() );
+		return $refItem->deleteListItems( $listItems );
 	}
 
 
@@ -333,24 +343,19 @@ class Standard
 
 		foreach( $data as $entry )
 		{
+			if( !isset( $entry['stock.id'] ) && !isset( $entry['stock.stocklevel'] ) ) {
+				continue;
+			}
+
 			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
 
-			unset( $stockItems[$stockItem->getId()] );
 			$list[] = $stockItem;
 		}
 
-		try
-		{
-			$manager->begin();
-			$manager->delete( $stockItems->toArray() )->save( $list, false );
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$manager->begin();
+		$manager->save( $list, false );
+		$manager->commit();
 	}
 
 
@@ -378,6 +383,7 @@ class Standard
 			}
 
 			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$list['quantity'] = $listItem->getConfigValue( 'quantity' );
 
 			if( $copy === true )
 			{
@@ -386,18 +392,24 @@ class Standard
 				$list['product.siteid'] = $siteId;
 				$list['product.id'] = '';
 				$list['product.code'] = $list['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+
+				$list['stock.stocklevel'] = 0;
+			}
+			else
+			{
+				$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 			}
 
 			$idx = 0;
 
 			foreach( $refItem->getListItems( 'attribute', 'variant', null, false ) as $litem )
 			{
-				if( ( $attrItem = $litem->getRefItem() ) !== null ) {
-					$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );
+				if( ( $attrItem = $litem->getRefItem() ) !== null )
+				{
+					$label = $attrItem->getLabel() . ' (' . $attrItem->getType() . ')';
+					$list['attr'][$idx++] = ['attribute.label' => $label] + $litem->toArray( true ) + $attrItem->toArray( true );
 				}
 			}
-
-			$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 
 			$data[] = $list;
 		}

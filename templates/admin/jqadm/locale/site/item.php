@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
@@ -80,7 +80,7 @@ $params = $this->get( 'pageParams', [] );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
@@ -173,7 +173,7 @@ $params = $this->get( 'pageParams', [] );
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
 								v-bind:readonly="false"
-								v-bind:items="data['config']" v-on:change="data['config'] = $event"
+								v-bind:items="dataset['config']" v-on:update:items="dataset['config'] = $event"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
@@ -186,7 +186,7 @@ $params = $this->get( 'pageParams', [] );
 										<tr>
 											<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
 											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
-											<th class="actions"><div class="btn act-add fa"></div></th>
+											<th class="actions"><div class="btn act-add icon"></div></th>
 										</tr>
 									</thead>
 								</table>

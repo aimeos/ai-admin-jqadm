@@ -1,11 +1,12 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
-Vue.component('column-select', {
+Aimeos.components['column-select'] = {
 	template: '#column-select',
+	emits: ['close', 'submit'],
 	props: {
 		'titles': {type: Object, required: true},
 		'fields': {type: Array, required: true},
@@ -44,4 +45,4 @@ Vue.component('column-select', {
 			}
 		}
 	}
-});
+};

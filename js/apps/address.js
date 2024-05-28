@@ -14,37 +14,48 @@ $(function() {
 Aimeos.Address = {
 
 	init() {
-		Aimeos.components['address'] = new Vue({
-			el: document.querySelector('#item-address-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null,
-				show: false
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		const node = document.querySelector('#item-address-group');
 
-				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
-				}
+		if(node) {
+			Aimeos.apps['address'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '[]'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+						show: false
+					}
+				},
+				mounted() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
 
-				const self = this;
-				Aimeos.lazy(this.$el, function() {
-					self.show = true;
-				});
-			},
-			mixins: [this.mixins]
-		});
+					for(const entry of this.items) {
+						entry['_center'] = this.point(entry);
+						entry['_zoom'] = entry[this.domain + '.address.latitude'] ? 8 : 2;
+					}
+
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
+
+					const self = this;
+					Aimeos.lazy(node, function() {
+						self.show = true;
+					});
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 
 	mixins: {
 		methods: {
-			add() {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.address.siteid'] = this.siteid;
@@ -70,21 +81,22 @@ Aimeos.Address = {
 				entry[this.domain + '.address.company'] = null;
 				entry[this.domain + '.address.vatid'] = null;
 
+				entry['_center'] = [0, 0];
+				entry['_zoom'] = 2;
 				entry['_show'] = true;
 
-				this.items.push(entry);
+				this.items.push(Object.assign(entry, data));
 			},
 
 
-			/* @deprecated 2022.01 */
-			countries() {
-				return Aimeos.getCountries;
+			can(action, idx) {
+				return Aimeos.can(action, this.items[idx][this.domain + '.address.siteid'] || null, this.siteid)
 			},
 
 
 			duplicate(idx) {
 				if(this.items[idx]) {
-					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
+					this.items[this.items.length] = JSON.parse(JSON.stringify(this.items[idx]));
 				}
 			},
 
@@ -117,7 +129,7 @@ Aimeos.Address = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			},
 
@@ -128,13 +140,9 @@ Aimeos.Address = {
 
 
 			setPoint(idx, ev) {
-				const map = this.$refs.map[0].mapObject;
-
-				map.getZoom() > 2 ? null : map.setZoom(8);
-				map.panTo(ev.latlng);
-
-				this.$set(this.items[idx], this.domain + '.address.latitude', ev.latlng.lat || null);
-				this.$set(this.items[idx], this.domain + '.address.longitude', ev.latlng.lng || null);
+				this.items[idx]['_center'] = ev.latlng;
+				this.items[idx][this.domain + '.address.latitude'] = ev.latlng.lat || null;
+				this.items[idx][this.domain + '.address.longitude'] = ev.latlng.lng || null;
 			},
 
 

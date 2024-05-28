@@ -57,7 +57,7 @@ return [
 	'customer' => [
 		'domains' => [
 			'customer/address' => 'customer/address',
-			'customer/group' => 'customer/group',
+			'group' => 'group',
 			'customer/property' => 'customer/property',
 		],
 		'subparts' => [
@@ -129,7 +129,6 @@ return [
 			'stock' => 'stock',
 			'category' => 'category',
 			'characteristic' => 'characteristic',
-			'option' => 'option',
 			'related' => 'related',
 			'supplier' => 'supplier',
 			'physical' => 'physical',
@@ -140,9 +139,7 @@ return [
 		'characteristic' => [
 			'subparts' => [
 				'property' => 'property',
-				'variant' => 'variant',
 				'attribute' => 'attribute',
-				'hidden' => 'hidden',
 			],
 		],
 		'media' => [
@@ -150,31 +147,9 @@ return [
 				'property' => 'property'
 			],
 		],
-		'option' => [
-			'config' => [
-				'exclude' => [
-					'interval' => 'interval',
-				],
-			],
-			'custom' => [
-				'exclude' => [
-					'price' => 'price',
-				],
-			],
-			'subparts' => [
-				'config' => 'config',
-				'custom' => 'custom',
-			],
-		],
 		'price' => [
 			'subparts' => [
 				'property' => 'property',
-			],
-		],
-		'related' => [
-			'subparts' => [
-				'suggest' => 'suggest',
-				'bought' => 'bought',
 			],
 		],
 		'physical' => [

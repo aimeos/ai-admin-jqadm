@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $selected = function( $key, $code ) {
@@ -70,18 +70,16 @@ $params = $this->get( 'pageParams', [] );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) : '' ) ?>
-
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/supplier.siteid' ) ) ?>">
 					<div class="row">
-						<div class="col-xl-6 <?= $readonly ?>">
+						<div class="col-xl-6">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">

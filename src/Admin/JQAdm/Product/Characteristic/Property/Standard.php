@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -57,10 +57,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'characteristic/property', [] );
+
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/property', [] ) );
 
 		foreach( $data as $idx => $entry ) {
-			$data[$idx]['product.lists.siteid'] = $siteid;
+			$data[$idx]['product.property.siteid'] = $siteid;
 		}
 
 		$view->propertyTypes = $this->getPropertyTypes();
@@ -255,9 +257,10 @@ class Standard
 		$excludes = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 )
+		$search = $manager->filter( true )
 			->add( 'product.property.type.code', '!=', $excludes )
-			->order( ['product.property.type.position', 'product.property.type.label'] );
+			->order( 'product.property.type.code' )
+			->slice( 0, 10000 );
 
 		return $manager->search( $search );
 	}

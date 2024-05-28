@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -44,9 +44,10 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'stock/type' );
 
-		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
+		$search = $typeManager->filter( true )
+			->add( 'stock.type.domain', '==', 'product' )
+			->order( 'stock.type.code' )
+			->slice( 0, 10000 );
 
 		$view->stockTypes = $typeManager->search( $search );
 
@@ -78,9 +79,11 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'stock', [] );
 
-		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'stock', [] ) );
+
+		foreach( $data as $idx => $entry ) {
 			$data[$idx]['stock.siteid'] = $siteid;
 		}
 
@@ -295,20 +298,17 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$stocks = map();
 		$stockItems = [];
-
 		$ids = map( $data )->col( 'stock.id' )->filter();
-		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 
-		if( !$ids->isEmpty() ) {
-			$stocks = $manager->search( $manager->filter()->add( ['stock.id' => $ids->all()] ) );
-		}
+		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
+		$filter = $manager->filter()->add( 'stock.productid', '==', $item->getId() );
+		$stocks = $manager->search( $filter );
 
 		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'stock.id' );
-			$stockItem = $stocks->get( $id ) ?: $manager->create();
+			$stockItem = $stocks->pull( $id ) ?: $manager->create();
 			$stockItem->fromArray( $entry )->setProductId( $item->getId() );
 
 			if( $entry['stock.stockflag'] ?? false ) {
@@ -318,7 +318,6 @@ class Standard
 			$item->setInStock( (int) $stockItem->getStockLevel() > 0 || $stockItem->getStockLevel() === null );
 
 			$stockItems[] = $stockItem;
-			$stocks->remove( $id );
 		}
 
 		$manager->delete( $stocks );

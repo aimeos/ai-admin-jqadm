@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -965,6 +965,15 @@ msgstr "最小數量"
 msgid "Minimum quantity"
 msgstr "最小數量"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "修改"
 
@@ -985,6 +994,9 @@ msgstr "姓名"
 
 msgid "Name in URL (optional)"
 msgstr "名稱在網址 (選項)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1428,6 +1440,9 @@ msgstr "關聯的訂單"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "續訂"
 
@@ -1637,6 +1652,9 @@ msgstr "显示搜索表单"
 
 msgid "Show/hide advanced data"
 msgstr "顯示/隱藏進階數據"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "显示/隐藏导航标签"
@@ -1952,6 +1970,9 @@ msgstr "唯一类型代码（必须）"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "独特的类型代码，例如，\"绿色\"、\"蓝色\"、\"红色 \"等属性的 \"颜色\"。"
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr "未知的上传错误"
 
@@ -2057,6 +2078,10 @@ msgstr "帳單地址"
 #, php-format
 msgid "attribute"
 msgstr "屬性"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

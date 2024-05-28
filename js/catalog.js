@@ -20,7 +20,7 @@
 /**
  * Load categories and create catalog tree
  */
- Aimeos.options.done(function(result) {
+Aimeos.options.then(function(result) {
 
 	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog || $(".aimeos .item-catalog").length === 0) {
 		return;
@@ -41,10 +41,14 @@
 		}
 	}
 
-	$.ajax(result.meta.resources.catalog, {
-		"data": params,
-		"dataType": "json"
-	}).done(function(result) {
+	const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
+
+	return fetch(url + serialize(params)).then(function(response) {
+		if(!response.ok) {
+			throw new Error(response.statusText);
+		}
+		return response.json();
+	}).then(function(result) {
 
 		if(!result || !result.data || !result.meta) {
 			throw {"msg": "No valid data in response", "result": result};
@@ -80,8 +84,9 @@ Aimeos.Catalog = {
 		this.setupSearch();
 
 		const node = document.querySelector(".item-catalog .tree-toolbar");
+
 		if(node) {
-			this.instance = new Vue({el: node, mixins: [this.mixins]});
+			this.instance = Aimeos.app({mixins: [this.mixins]}).mount(node);
 		}
 	},
 
@@ -222,14 +227,13 @@ Aimeos.Catalog = {
 	onMove(event) {
 		event.preventDefault();
 
-		Aimeos.options.done(function(result) {
+		Aimeos.options.then(function(result) {
 
 			if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
 				throw {"msg": "No valid data in response", "result": result};
 			}
 
 			var params = {};
-			var url = result.meta.resources.catalog;
 
 			if(result.meta.prefix) {
 				params[result.meta.prefix] = {id: event.move_info.moved_node.id};
@@ -268,11 +272,17 @@ Aimeos.Catalog = {
 				}
 			}
 
-			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params), {
-				"dataType": "json",
-				"method": "PATCH",
-				"data": JSON.stringify({"data": entry})
-			}).done(function(result) {
+			const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
+
+			return fetch(url + serialize(params), {
+				method: 'PATCH',
+				body: JSON.stringify({"data": entry})
+			}).then(function(response) {
+				if(!response.ok) {
+					throw new Error(response.statusText);
+				}
+				return response.json();
+			}).then(function(result) {
 				event.move_info.do_move();
 
 				if(result.meta.csrf) {
@@ -350,14 +360,13 @@ Aimeos.Catalog = {
 
 	deleteNode(nodeid, parentid) {
 
-		Aimeos.options.done(function(result) {
+		Aimeos.options.then(function(result) {
 
 			if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
 				throw {"msg": "No valid data in response", "result": result};
 			}
 
 			var params = {};
-			var url = result.meta.resources.catalog;
 
 			if(result.meta.prefix) {
 				params[result.meta.prefix] = {id: nodeid};
@@ -369,11 +378,16 @@ Aimeos.Catalog = {
 				params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
 			}
 
-			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params), {
-				"dataType": "json",
-				"method": "DELETE"
-			}).done(function(result) {
+			const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
 
+			return fetch(url + serialize(params), {
+				method: 'DELETE'
+			}).then(function(response) {
+				if(!response.ok) {
+					throw new Error(response.statusText);
+				}
+				return response.json();
+			}).then(function(result) {
 				if(result.meta.csrf) {
 					Aimeos.Catalog.csrf = result.meta.csrf;
 				}

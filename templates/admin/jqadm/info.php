@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 /** admin/jqadm/partial/info
@@ -36,7 +36,7 @@ $enc = $this->encoder();
 	<?php foreach( $this->get( 'info', [] ) as $key => $entry ) : ?>
 		<div class="row info toast hide" role="alert" aria-live="assertive" aria-atomic="true">
 			<div class="col-1 toast-icon">
-				<span class="fa icon-attention"></span>
+				<span class="icon icon-attention"></span>
 			</div>
 			<div class="col-9">
 				<div class="toast-header">
@@ -57,7 +57,7 @@ $enc = $this->encoder();
 	<?php foreach( $this->get( 'error', [] ) as $key => $entry ) : ?>
 		<div class="row error toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
 			<div class="col-1 toast-icon">
-				<span class="fa icon-attention"></span>
+				<span class="icon icon-attention"></span>
 			</div>
 			<div class="col-9">
 				<div class="toast-header">

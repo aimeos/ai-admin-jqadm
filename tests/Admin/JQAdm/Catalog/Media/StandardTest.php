@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
@@ -104,23 +104,20 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
-			->will( $this->returnValue( ['media' => [0 => ['file' => $file]]] ) );
+			->willReturn( ['media' => [0 => ['file' => $file]]] );
 
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 
-		$name = 'AdminJQAdmCatalogMediaSave';
-		$this->context->config()->set( 'controller/common/media/name', $name );
-
-		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
+		$managerStub = $this->getMockBuilder( \Aimeos\MShop\Media\Manager\Standard::class )
 			->setConstructorArgs( array( $this->context ) )
-			->onlyMethods( array( 'add' ) )
+			->onlyMethods( ['upload'] )
 			->getMock();
 
-		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
+		\Aimeos\MShop::inject( \Aimeos\MShop\Media\Manager\Standard::class, $managerStub );
 
-		$cntlStub->expects( $this->once() )->method( 'add' )->will( $this->returnArgument( 0 ) );
+		$managerStub->expects( $this->once() )->method( 'upload' )->willReturnArgument( 0 );
 
 
 		$result = $this->object->save();

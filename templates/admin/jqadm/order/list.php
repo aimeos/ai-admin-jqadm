@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $enc = $this->encoder();
@@ -135,7 +135,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 
 
 $columnList = [
-	'order.id' => $this->translate( 'admin', 'Invoice' ),
+	'order.id' => $this->translate( 'admin', 'ID' ),
 	'order.channel' => $this->translate( 'admin', 'Type' ),
 	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
 	'order.datepayment' => $this->translate( 'admin', 'Pay date' ),
@@ -172,6 +172,7 @@ $columnList = [
 	'order.address.languageid' => $this->translate( 'admin', 'Language' ),
 	'order.address.telephone' => $this->translate( 'admin', 'Telephone' ),
 	'order.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
+	'order.address.mobile' => $this->translate( 'admin', 'Mobile' ),
 	'order.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.address.website' => $this->translate( 'admin', 'Web site' ),
 	'order.coupon.code' => $this->translate( 'admin', 'Coupon' ),
@@ -232,7 +233,7 @@ $statusList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -292,7 +293,7 @@ $statusList = [
 						<th class="actions">
 							<?php if( count( $actions = $this->config( 'admin/jqadm/order/actions', ['order-export'] ) ) > 0 ) : ?>
 								<div class="dropdown list-menu">
-									<button class="btn act-download fa" type="button" id="menuButton"
+									<button class="btn act-download icon" type="button" id="menuButton"
 										data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>">
@@ -300,7 +301,7 @@ $statusList = [
 									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuButton">
 										<?php foreach( $actions as $code ) : ?>
 											<li class="dropdown-item">
-												<a class="btn fa act-download" tabindex="1"
+												<a class="btn icon act-download" tabindex="1"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
 													aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>"
 													title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>">
@@ -312,7 +313,7 @@ $statusList = [
 								</div>
 							<?php endif ?>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -332,9 +333,6 @@ $statusList = [
 								'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 								'order.datedelivery' => ['op' => '-', 'type' => 'date'],
 								'order.relatedid' => ['op' => '=='],
-								'order.ctime' => ['op' => '-', 'type' => 'date'],
-								'order.mtime' => ['op' => '-', 'type' => 'date'],
-								'order.editor' => [],
 								'order.customerid' => ['op' => '=='],
 								'order.sitecode' => ['op' => '=='],
 								'order.languageid' => ['op' => '=='],
@@ -346,6 +344,9 @@ $statusList = [
 								'order.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 								'order.customerref' => [],
 								'order.comment' => [],
+								'order.ctime' => ['op' => '-', 'type' => 'date'],
+								'order.mtime' => ['op' => '-', 'type' => 'date'],
+								'order.editor' => [],
 								'order.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 									'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 								]],
@@ -364,6 +365,7 @@ $statusList = [
 								'order.address.languageid' => ['op' => '=='],
 								'order.address.telephone' => [],
 								'order.address.telefax' => [],
+								'order.address.mobile' => [],
 								'order.address.email' => [],
 								'order.address.website' => [],
 								'order.coupon.code' => ['op' => '=~'],
@@ -376,7 +378,7 @@ $statusList = [
 						] );
 					?>
 
-					<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" v-bind:class="{show: batch}" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
@@ -389,14 +391,14 @@ $statusList = [
 							</div>
 							<div class="card">
 								<div class="card-header">
-									<span><?= $enc->html( $this->translate( 'admin', 'Invoice' ) ) ?></span>
+									<span><?= $enc->html( $this->translate( 'admin', 'Order' ) ) ?></span>
 									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'order'] ) ) ?>">
 										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 									</button>
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')">
@@ -428,7 +430,7 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 													   v-bind:disabled="state('item/order.datepayment')"
 													   v-bind:config="Aimeos.flatpickr.date"
@@ -449,7 +451,7 @@ $statusList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')">
@@ -481,7 +483,7 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 													   v-bind:disabled="state('item/order.datedelivery')"
 													   v-bind:config="Aimeos.flatpickr.date"
@@ -518,7 +520,7 @@ $statusList = [
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $item->getId()] + $params ) ) ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
+						<tr class="list-item <?= $this->site()->mismatch( $item->getSiteId() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
@@ -529,6 +531,9 @@ $statusList = [
 							</td>
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.channel', $fields ) ) : ?>
+								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a></td>
@@ -542,20 +547,8 @@ $statusList = [
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 								<td class="order-datedelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateDelivery() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.channel', $fields ) ) : ?>
-								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
 								<td class="order-relatedid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRelatedId() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
-								<td class="order-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
-								<td class="order-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.editor', $fields ) ) : ?>
-								<td class="order-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.customerid', $fields ) ) : ?>
 								<td class="order-customerid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCustomerId() ) ?></a></td>
@@ -589,6 +582,15 @@ $statusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.comment', $fields ) ) : ?>
 								<td class="order-comment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getComment() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
+								<td class="order-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
+								<td class="order-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.editor', $fields ) ) : ?>
+								<td class="order-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<?php $addrItem = ( $item ? current( $item->getAddress( \Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT ) ) : null ) ?>
@@ -640,6 +642,9 @@ $statusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.address.telefax', $fields ) ) : ?>
 								<td class="order-address-telefax"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : '' ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.address.mobile', $fields ) ) : ?>
+								<td class="order-address-mobile"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getMobile() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.address.email', $fields ) ) : ?>
 								<td class="order-address-email"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : '' ?></a></td>
@@ -717,7 +722,7 @@ $statusList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa"
+								<a class="btn act-copy icon"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $item->getId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">

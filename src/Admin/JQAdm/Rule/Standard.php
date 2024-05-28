@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2021-2023
+ * @copyright Aimeos (aimeos.org), 2021-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -66,11 +66,9 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$ds = DIRECTORY_SEPARATOR;
-
-		$view->itemDecorators = $this->getClassNames( 'MShop' . $ds . 'Rule' . $ds . 'Provider' . $ds . 'Catalog' . $ds . 'Decorator' );
+		$view->itemDecorators = $this->getClassNames( 'MShop/Rule/Provider/Catalog/Decorator' );
 		$view->itemProviders = [
-			'catalog' => $this->getClassNames( 'MShop' . $ds . 'Rule' . $ds . 'Provider' . $ds . 'Catalog' )
+			'catalog' => $this->getClassNames( 'MShop/Rule/Provider/Catalog' )
 		];
 
 		$view->itemSubparts = $this->getSubClientNames();
@@ -175,8 +173,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'rule.id', $ids ) );
+			$search = $manager->filter()->add( 'rule.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -281,8 +278,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'rule' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '+', 'rule.type' ), $search->sort( '+', 'rule.position' )] );
+			$search = $manager->filter()->order( ['rule.type', 'rule.position'] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -409,7 +405,7 @@ class Standard
 	 * Returns the backend configuration attributes of the provider and decorators
 	 *
 	 * @param \Aimeos\MShop\Rule\Item\Iface $item Rule item incl. provider/decorator property
-	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 * @return \Aimeos\Base\Critera\Attribute\Iface[] List of configuration attributes
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Rule\Item\Iface $item ) : array
 	{
@@ -474,7 +470,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'rule/type' );
-		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['rule.type.position', 'rule.type.code'] );
+		$search = $typeManager->filter( true )->order( 'rule.type.code' )->slice( 0, 10000 );
 
 		return $typeManager->search( $search );
 	}
@@ -488,23 +484,6 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Rule\Item\Iface
 	{
-		$conf = [];
-
-		if( isset( $data['config']['key'] ) )
-		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
-				{
-					if( ( $val = json_decode( $data['config']['val'][$idx], true ) ) === null ) {
-						$conf[$key] = $data['config']['val'][$idx];
-					} else {
-						$conf[$key] = $val;
-					}
-				}
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 		if( isset( $data['rule.id'] ) && $data['rule.id'] != '' ) {
@@ -513,11 +492,19 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item = $item->fromArray( $data, true )->setConfig( $conf );
+		$item = $item->fromArray( $data, true );
+		$conf = [];
+
+		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
+				$conf[$key] = json_decode( $val, true ) ?? $val;
+			}
+		}
 
 		$this->notify( $manager->getProvider( $item, $item->getType() )->checkConfigBE( $conf ) );
 
-		return $item;
+		return $item->setConfig( $conf );
 	}
 
 
@@ -529,22 +516,23 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Rule\Item\Iface $item, bool $copy = false ) : array
 	{
-		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
+
+		$config = $item->getConfig();
+		ksort( $config );
+		$idx = 0;
+
+		foreach( $config as $key => $value )
+		{
+			$data['config'][$idx]['key'] = $key;
+			$data['config'][$idx++]['val'] = $value;
+		}
 
 		if( $copy === true )
 		{
 			$data['rule.siteid'] = $this->context()->locale()->getSiteId();
 			$data['rule.id'] = '';
-		}
-
-		ksort( $config );
-
-		foreach( $config as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
 		}
 
 		return $data;

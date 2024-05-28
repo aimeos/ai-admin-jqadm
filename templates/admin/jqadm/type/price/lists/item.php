@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $selected = function( $key, $code ) {
@@ -70,7 +70,7 @@ $params = $this->get( 'pageParams', [] );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
@@ -78,15 +78,20 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="vue box" v-bind:class="{mismatch: !can('match')}"
+					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+					data-domain="price/lists/type">
+
 					<div class="row">
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?>">
+
+						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-domain" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'price.lists.type.domain' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?> >
+										:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -104,7 +109,7 @@ $params = $this->get( 'pageParams', [] );
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'price.lists.type.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?> >
+										:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -130,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'price.lists.type.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/price.lists.type.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ) ?>
@@ -143,7 +148,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'price.lists.type.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/price.lists.type.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ) ?>
@@ -156,12 +161,33 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'price.lists.type.position' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/price.lists.type.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/price.lists.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ) ?>
 								</div>
 							</div>
+						</div>
+
+						<div class="col-xl-6 block">
+							<translations tabindex="1"
+								:value="<?= $enc->attr( $this->get( 'itemData/price.lists.type.i18n', new \stdClass ) ) ?>"
+								:name="`<?= $enc->js( $this->formparam( array( 'item', 'price.lists.type.i18n' ) ) ) ?>`"
+								:readonly="!can('change')"
+								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
+								:i18n="{
+									header: `<?= $enc->js( $this->translate( 'admin', 'Translations' ) ) ?>`,
+									select: `<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`,
+									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+								}">
+								<table class="table translations">
+									<tr>
+										<th colspan="2" class="head"><?= $enc->html( $this->translate( 'admin', 'Translations' ) ) ?></th>
+										<th class="action"><div class="btn icon"><div></th>
+									</tr>
+								</table>
+							</translations>
 						</div>
 
 					</div>

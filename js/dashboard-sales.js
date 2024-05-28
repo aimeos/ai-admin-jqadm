@@ -151,41 +151,46 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesday');
-		const keys = "order.currencyid,order.cdate";
+		const keys = ["order.currencyid", "order.cdate"];
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000, "agg:order.product:total()", "sum").then(function(result) {
 
 			let num = 0;
 			const dsets = [];
-			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of data) {
+			if(Object.keys(result).length === 0) {
+				result[''] = {};
+			}
+
+			for(const currencyid in result) {
 				let data = [];
 				let date = startdate.clone();
 
 				do {
 					let day = date.toISOString().substr(0, 10);
 
-					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed(2)});
+					data.push({x: date.toISOString(), y: Number(result[currencyid][day] || 0).toFixed(2)});
 					date.add(1, 'days');
 				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
 				dsets.push({
-					pointRadius: 2,
-					label: entry['id'], data: data,
+					data: data,
+					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
 					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					pointRadius: 2,
 				});
 				num++;
 			}
@@ -215,41 +220,46 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
-		const keys = "order.currencyid,order.cmonth";
+		const keys = ["order.currencyid", "order.cmonth"];
 		const startdate = moment().utc().startOf('month').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", 10000, "agg:order.product:total()", "sum").then(function(result) {
 
 			let num = 0;
 			const dsets = [];
-			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of data) {
+			if(Object.keys(result).length === 0) {
+				result[''] = {};
+			}
+
+			for(const currencyid in result) {
 				let data = [];
 				let date = startdate.clone();
 
 				do {
 					let month = date.toISOString().substr(0, 7);
 
-					data.push({x: date.toISOString(), y: Number(entry['attributes'][month] || 0).toFixed(2)});
+					data.push({x: date.toISOString(), y: Number(result[currencyid][month] || 0).toFixed(2)});
 					date.add(1, 'months');
 				} while(date.isBefore(enddate, 'month') || date.isSame(enddate, 'month'));
 
 				dsets.push({
-					pointRadius: 2,
-					label: entry['id'], data: data,
+					data: data,
+					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
 					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					pointRadius: 2,
 				});
 				num++;
 			}
@@ -282,37 +292,42 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesweekday');
-		const keys = "order.currencyid,order.cwday";
+		const keys = ["order.currencyid", "order.cwday"];
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000, "agg:order.product:total()", "sum").then(function(result) {
 
 			let num = 0;
 			const dsets = [];
-			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of data) {
+			if(Object.keys(result).length === 0) {
+				result[''] = {};
+			}
+
+			for(const currencyid in result) {
 				let data = [];
 
 				for(const wday in [...Array(7).keys()]) {
-					data[wday] = Number(entry['attributes'][wday] || 0).toFixed(2);
+					data[wday] = Number(result[currencyid][wday] || 0).toFixed(2);
 				}
 
 				dsets.push({
-					pointRadius: 2,
-					label: entry['id'], data: data,
+					data: data,
+					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
 					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					pointRadius: 2,
 				});
 				num++;
 			}

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -194,13 +194,9 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
 
-		$search = $manager->filter();
-		$expr = [
-			$search->compare( '==', 'attribute.type', 'interval' ),
-			$search->compare( '==', 'attribute.domain', 'product' ),
-		];
-		$search->setConditions( $search->and( $expr ) );
-		$search->setSortations( [$search->sort( '+', 'attribute.code' )] );
+		$search = $manager->filter()
+			->add( ['attribute.type' => 'interval', 'attribute.domain' => 'product'] )
+			->order( 'attribute.code' );
 
 		return $manager->search( $search );
 	}
@@ -265,7 +261,7 @@ class Standard
 
 		$listItems = $item->getListItems( 'attribute', 'config', 'interval', false );
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
 			if( !array_key_exists( 'attribute.id', $entry ) ) {
 				continue;
@@ -283,7 +279,7 @@ class Standard
 
 			unset( $listItems[$listItem->getId()] );
 
-			$item->addListItem( 'attribute', $listItem->setPosition( $idx ), $refItem );
+			$item->addListItem( 'attribute', $listItem, $refItem );
 		}
 
 		return $item->deleteListItems( $listItems->toArray() );

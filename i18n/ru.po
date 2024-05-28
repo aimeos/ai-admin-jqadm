@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Not Yourbuisness, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -967,6 +967,15 @@ msgstr "Мин. количество"
 msgid "Minimum quantity"
 msgstr "Минимальное количество"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Изменено"
 
@@ -986,6 +995,9 @@ msgid "Name"
 msgstr "названию"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1430,6 +1442,9 @@ msgstr "Связанный заказ"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Возобновить"
 
@@ -1639,6 +1654,9 @@ msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "Показать/скрыть расширенные данные"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr ""
@@ -1954,6 +1972,9 @@ msgstr "Уникальный тип кода (обязательно)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Уникальный тип кода, например «цвет» для таких атрибутов, как «зеленый», «синий», «красный»"
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2059,6 +2080,10 @@ msgstr "Платёжный адрес"
 #, php-format
 msgid "attribute"
 msgstr "Атрибуты"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

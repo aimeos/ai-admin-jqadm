@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  */
 
 $enc = $this->encoder();
@@ -15,7 +15,7 @@ $enc = $this->encoder();
 			data-bs-toggle="collapse" data-bs-target="#order-servicepayment-data"
 			aria-expanded="true" aria-controls="order-servicepayment-data">
 			<div class="card-tools-start">
-				<div class="btn act-show fa"></div>
+				<div class="btn act-show icon"></div>
 			</div>
 			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Payment types' ) ) ?>

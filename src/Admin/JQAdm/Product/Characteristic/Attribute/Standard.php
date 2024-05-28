@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -33,6 +33,26 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+
+		$filter = $manager->filter()
+			->add( 'product.lists.type.domain', '==', 'attribute' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
+
+		$view->attributeTypes = $manager->search( $filter )->getCode();
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -56,10 +76,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'characteristic/attribute', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data[$idx]['product.lists.siteid'] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/attribute', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->attributeData = $data;
@@ -235,21 +257,29 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-		$listItems = $item->getListItems( 'attribute', 'default', null, false );
+		$idx = 0;
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $item->getListItems( 'attribute', null, null, false );
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
-			$refid = $this->val( $entry, 'product.lists.refid' );
+			$refid = $this->val( $entry, 'attribute.id' );
 
-			$litem = $listItems->pull( $id ) ?: $listManager->create()->setType( 'default' );
-			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx );
+			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
+			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfig( [] );
 
-			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
+			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
+			{
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
+				}
+			}
+
+			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -265,7 +295,7 @@ class Standard
 		$data = [];
 		$siteId = $this->context()->locale()->getSiteId();
 
-		foreach( $item->getListItems( 'attribute', 'default', null, false ) as $listItem )
+		foreach( $item->getListItems( 'attribute', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
@@ -277,6 +307,12 @@ class Standard
 			{
 				$list['product.lists.siteid'] = $siteId;
 				$list['product.lists.id'] = '';
+			}
+
+			$list['config'] = [];
+
+			foreach( $listItem->getConfig() as $key => $value ) {
+				$list['config'][] = ['key' => $key, 'val' => $value];
 			}
 
 			$data[] = $list;

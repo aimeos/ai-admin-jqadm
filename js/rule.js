@@ -1,63 +1,74 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2021-2023
+ * @copyright Aimeos (aimeos.org), 2021-2024
  */
 
 
 
- Aimeos.Rule = {
+Aimeos.Rule = {
 
 	init() {
+		const node = document.querySelector('.item-rule #basic')
 
-		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
-	},
-
-
-	setupConfig() {
-
-		var delegate = $(".aimeos .item-rule .item-basic");
-
-		if(delegate.length > 0 ) {
-			Aimeos.Config.setup('rule/config', $("input.item-provider", delegate).val(), delegate);
+		if(node) {
+			Aimeos.apps['rule'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+					providers: {type: String, default: '[]'},
+					decorators: {type: String, default: '[]'},
+				},
+				data() {
+					return {
+						item: null,
+						cache: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
 		}
-
-		delegate.on("change input blur", "input.item-provider", function(ev) {
-			Aimeos.Config.setup('rule/config', $(ev.currentTarget).val(), ev.delegateTarget);
-		});
 	},
 
 
-	setupDecorator() {
-
-		$(".aimeos .item-rule .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
-
-			var name = $(this).data("name");
-			var input = $("input.item-provider", ev.delegateTarget);
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger("change");
-			}
-		});
-	},
+	mixins: {
+		methods: {
+			can(action) {
+				return Aimeos.can(action, this.item['rule.siteid'] || null, this.siteid)
+			},
 
 
-	setupProvider() {
+			config(provider, type) {
+				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
 
-		$(".aimeos .item-rule").on("focus", ".item-provider", function(ev) {
+				return this.cache[provider] = Aimeos.query(`query {
+					getRuleConfig(provider: ` + JSON.stringify(provider) + `, type: ` + JSON.stringify(type) + `) {
+						code
+						label
+						type
+						default
+						required
+					}
+				}`).then(result => {
+					return (result?.getRuleConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
 
-			var type = $(".item-type option:selected", ev.delegateTarget).val() || 'catalog';
 
-			$(this).autocomplete({
-				source: $(this).data(type).split(","),
-				minLength: 0,
-				delay: 0
-			});
-
-			$(this).autocomplete("search", "");
-		});
+			decorate(name) {
+				if(!(new String(this.item['rule.provider'])).includes(name)) {
+					this.item['rule.provider'] = this.item['rule.provider'] + ',' + name
+				}
+			},
+		}
 	}
 };
 

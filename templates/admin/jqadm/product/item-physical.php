@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $enc = $this->encoder();
@@ -11,8 +11,8 @@ $enc = $this->encoder();
 ?>
 <div id="physical" class="item-physical tab-pane fade" role="tabpanel" aria-labelledby="physical">
 	<div class="row">
-		<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>">
-			<div class="box">
+		<div class="col-xl-6 block">
+			<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/product.siteid' ) ) ?>">
 				<div class="form-group row optional">
 					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Length' ) ) ?></label>
 					<div class="col-sm-8">

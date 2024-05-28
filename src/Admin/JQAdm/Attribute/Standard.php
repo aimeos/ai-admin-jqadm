@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -465,7 +465,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
-		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['attribute.type.position', 'attribute.type.code'] );
+		$search = $typeManager->filter( true )->order( 'attribute.type.code' )->slice( 0, 10000 );
 
 		return $typeManager->search( $search );
 	}

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 
@@ -20,6 +20,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelper::view();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+		$request->expects( $this->any() )->method( 'getUploadedFiles' )->willReturn( [] );
+
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
@@ -143,6 +145,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->get();
+	}
+
+
+	public function testImport()
+	{
+		$param = array(
+			'site' => 'unittest',
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->import();
+
+		$this->assertNull( $result );
 	}
 
 

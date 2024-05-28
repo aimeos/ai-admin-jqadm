@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 
@@ -18,7 +18,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 	<div class="box">
 		<div class="table-responsive">
 			<table class="stock-list table table-default"
-				data-items="<?= $enc->attr( $this->get( 'stockData', [] ) ) ?>"
+				data-data="<?= $enc->attr( $this->get( 'stockData', [] ) ) ?>"
 				data-keys="<?= $enc->attr( $keys ) ?>"
 				data-siteid="<?= $this->site()->siteid() ?>"
 				data-numtypes="<?= $stockTypes->count() ?>" >
@@ -52,7 +52,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							</div>
 						</th>
 						<th class="actions">
-							<div v-if="(items || []).length < numtypes" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<div v-if="(items || []).length < numtypes" class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								v-on:click="add()">
 							</div>
@@ -61,12 +61,12 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 				</thead>
 				<tbody>
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row" v-bind:class="{mismatch: !can('match', idx)}" v-bind:title="title(idx)">
 						<?php if( $stockTypes->count() !== 1 ) : ?>
 							<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
-								<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
+								<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 									v-bind:items="<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.type'] ) ) ?>`.replace( 'idx', idx )"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.type'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 									v-bind:readonly="!can('change', idx)"
 									v-model="item['stock.type']" >
@@ -76,29 +76,29 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						<td class="stock-stocklevel optional">
 							<div class="item-stockflag">
 								<input class="form-check-input" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stockflag'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="!can('change', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.stockflag'] ) ) ?>`.replace( '_idx_', idx )"
+									v-bind:disabled="!can('change', idx)"
 									v-bind:checked="checked(idx)"
 									v-on:click="toggle(idx)">
 							</div><!--
 							--><div v-if="!checked(idx)" class="form-control item-stocklevel">
 								&infin;
 								<input type="hidden" value=""
-									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ) ?>`.replace( 'idx', idx )"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.stocklevel'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:readonly="!can('change', idx)">
 							</div><!--
 							--><div v-else class="form-control item-stocklevel">
 								<span class="item-stocklevel-value">{{ item['stock.stocklevel'] || 0 }} +</span>
 								<input class="item-stocklevel-diff" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stockdiff'] ) ) ?>`.replace( 'idx', idx )"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.stockdiff'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:readonly="!can('change', idx)"
 									v-bind:value="item['stock.stockdiff'] || 0"
 									v-on:input="item['stock.stockdiff'] = $event.target.value">
 							</div>
 						</td>
 						<td class="stock-dateback optional">
-							<input is="flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.dateback'] ) ) ?>`.replace( 'idx', idx )"
+							<input is="vue:flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.dateback'] ) ) ?>`.replace( '_idx_', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 								v-bind:config="Aimeos.flatpickr.datetime"
 								v-bind:disabled="!can('change', idx)"
@@ -106,22 +106,22 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						</td>
 						<td class="stock-timeframe optional">
 							<input class="form-control item-timeframe" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.timeframe'] ) ) ?>`.replace( 'idx', idx )"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.timeframe'] ) ) ?>`.replace( '_idx_', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Time frame (optional)' ) ) ?>"
 								v-bind:readonly="!can('change', idx)"
 								v-model="item['stock.timeframe']">
 						</td>
 						<td class="actions">
 							<input class="item-id" type="hidden" v-model="item['stock.id']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.id'] ) ) ?>`.replace( 'idx', idx )">
+								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.id'] ) ) ?>`.replace( '_idx_', idx )">
 
 							<?php if( $stockTypes->count() === 1 ) : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.type'] ) ) ?>`.replace( 'idx', idx )"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.type'] ) ) ?>`.replace( '_idx_', idx )"
 									value="<?= $enc->attr( $stockTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
-							<div v-if="can('delete', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<div v-if="can('delete', idx)" class="btn act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
 							</div>

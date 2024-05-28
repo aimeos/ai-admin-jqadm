@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -198,9 +198,10 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'media/property/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
-		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
+		$search = $manager->filter( true )
+			->add( 'media.property.type.domain', '==', 'media' )
+			->order( 'media.property.type.code' )
+			->slice( 0, 10000 );
 
 		$view->propertyTypes = $manager->search( $search );
 

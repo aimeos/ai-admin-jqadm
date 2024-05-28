@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -48,12 +48,10 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'supplier/lists/type' );
 
 		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.type.domain', 'supplier' ) );
-		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
+		$search->add( 'media.type.domain', '==', 'supplier' )->order( 'media.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'media' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'supplier.lists.type.position' )] );
+		$listSearch->add( 'supplier.lists.type.domain', '==', 'media' )->order( 'supplier.lists.type.code' );
 
 		$view->mediaListTypes = $listTypeManager->search( $listSearch );
 		$view->mediaTypes = $typeManager->search( $search );
@@ -245,7 +243,7 @@ class Standard
 	protected function deleteMediaItems( \Aimeos\MShop\Supplier\Item\Iface $item, array $listItems )
 	{
 		$context = $this->context();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
+		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$manager = \Aimeos\MShop::create( $context, 'supplier' );
 		$search = $manager->filter();
 
@@ -257,7 +255,7 @@ class Standard
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
+				$mediaManager->delete( $refItem );
 			}
 
 			$item->deleteListItem( 'media', $listItem, $refItem );
@@ -321,44 +319,39 @@ class Standard
 	{
 		$context = $this->context();
 
+		$manager = \Aimeos\MShop::create( $context, 'supplier' );
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
-		$listManager = \Aimeos\MShop::create( $context, 'supplier/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->view()->request()->getUploadedFiles();
 
 		foreach( $data as $idx => $entry )
 		{
+			// disallow overwriting for security reasons
+			unset( $entry['media.url'], $entry['media.preview'], $entry['media.previews'] );
+
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'supplier.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'supplier' );
-			$file = $this->val( $files, 'media/' . $idx . '/file' );
+
 			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
+			$file = $this->val( $files, 'media/' . $idx . '/file' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem = $cntl->add( $refItem, $file );
-
-				if( $preview && $preview->getError() !== UPLOAD_ERR_NO_FILE ) {
-					$refItem = $cntl->addPreview( $refItem, $preview );
-				}
-			}
-
+			$refItem = $mediaManager->upload( $refItem, $file, $preview );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 				}
 			}
 

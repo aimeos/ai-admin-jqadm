@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -79,7 +79,30 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'product' );
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), 'index' );
+			$filter = $manager->filter()->add( ['product.id' => $ids] )->slice( 0, count( $ids ) );
+			$items = $manager->search( $filter, $this->getDomains() );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item ) {
+				$temp = $data; $item->fromArray( $temp, true );
+			}
+
+			$view->items = $items;
+
+			foreach( $this->getSubClients() as $client ) {
+				$client->batch();
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( 'product', 'search', null, 'save' );
 	}
 
 
@@ -168,8 +191,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'product.id', $ids ) );
+			$search = $manager->filter()->add( 'product.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $id => $item )
@@ -230,6 +252,35 @@ class Standard
 
 
 	/**
+	 * Imports a file
+	 *
+	 * @return string|null Output to display or redirect
+	 */
+	public function import() : ?string
+	{
+		$context = $this->context();
+		$fs = $context->fs( 'fs-import' );
+		$site = $context->locale()->getSiteItem()->getCode();
+		$dir = $context->config()->get( 'controller/jobs/product/import/csv/location', 'product' );
+
+		if( $fs instanceof \Aimeos\Base\Filesystem\DirIface && $fs->isDir( $dir . '/' . $site ) === false ) {
+			$fs->mkdir( $dir . '/' . $site );
+		}
+
+		$uploads = (array) $this->view()->request()->getUploadedFiles();
+		$files = $this->val( $uploads, 'import' );
+
+		foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
+		{
+			$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( microtime( true ) ), 0, 4 ) . '.csv';
+			$fs->writes( $dir . '/' . $site . '/' . $filename, $file->getStream()->detach() );
+		}
+
+		return $this->redirect( 'product', 'search', null, 'upload' );
+	}
+
+
+	/**
 	 * Saves the data
 	 *
 	 * @return string|null HTML output
@@ -279,8 +330,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'product' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '+', 'product.id' )] );
+			$search = $manager->filter()->order( 'product.id' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, $domains->toArray(), $total );
@@ -475,7 +525,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'product/type' );
-		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['product.type.position', 'product.type.code'] );
+		$search = $typeManager->filter( true )->order( 'product.type.code' )->slice( 0, 10000 );
 
 		return $typeManager->search( $search );
 	}
@@ -499,10 +549,10 @@ class Standard
 
 		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		foreach( (array) $this->val( $data, 'config', [] ) as $cfg )
 		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
+			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 			}
 		}
 
@@ -523,7 +573,9 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['product.code'] = $data['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$hash = substr( md5( microtime( true ) ), -5 );
+			$data['product.code'] = $data['product.code'] . '_' . $hash;
+			$data['product.label'] = $data['product.label'] . '_' . $hash;
 			$data['product.siteid'] = $this->context()->locale()->getSiteId();
 			$data['product.ctime'] = '';
 			$data['product.url'] = '';

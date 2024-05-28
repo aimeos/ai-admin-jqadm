@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: R M <roberto@proprionoi.it>, 2019\n"
 "Language-Team: Italian (http://app.transifex.com/aimeos/aimeos-core/language/it/)\n"
@@ -965,6 +965,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr ""
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Modificato"
 
@@ -984,6 +993,9 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1428,6 +1440,9 @@ msgstr "Ordine collegato"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1636,6 +1651,9 @@ msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide details"
 msgstr ""
 
 msgid "Show/hide navigation labels"
@@ -1952,6 +1970,9 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2057,6 +2078,10 @@ msgstr "Indirizzo di fatturazione"
 #, php-format
 msgid "attribute"
 msgstr "Attributi"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

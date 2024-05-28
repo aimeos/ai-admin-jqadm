@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $enc = $this->encoder();
@@ -71,7 +71,7 @@ $columnList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -135,13 +135,13 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn fa act-add" tabindex="1"
+							<a class="btn icon act-add" tabindex="1"
 								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -172,7 +172,7 @@ $columnList = [
 						] );
 					?>
 
-					<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" v-bind:class="{show: batch}" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
@@ -192,7 +192,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-supplier-status" class="form-check-input" type="checkbox" v-on:click="setState('item/supplier.status')">
@@ -212,7 +212,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 										</div>
 									</div>
 								</div>
@@ -230,7 +230,7 @@ $columnList = [
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+						<tr class="list-item <?= $this->site()->mismatch( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
@@ -246,7 +246,7 @@ $columnList = [
 								<td class="supplier-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'supplier.status', $fields ) ) : ?>
-								<td class="supplier-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+								<td class="supplier-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'supplier.code', $fields ) ) : ?>
 								<td class="supplier-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
@@ -268,15 +268,15 @@ $columnList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa" tabindex="1"
+								<a class="btn act-copy icon" tabindex="1"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-									<a class="btn act-delete fa" tabindex="1"
+									<a class="btn act-delete icon" tabindex="1"
 										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
-										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['id' => $id] + $params ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>

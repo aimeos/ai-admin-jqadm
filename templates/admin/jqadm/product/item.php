@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $selected = function( $key, $code ) {
@@ -98,6 +98,7 @@ $enc = $this->encoder();
  * @param string List of suggested config keys
  * @since 2017.10
  * @see admin/jqadm/catalog/item/config/suggest
+ * @see admin/jqadm/product/item/characteristic/attribute/config/suggest
  */
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
 
@@ -150,11 +151,9 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *  [
  *    'T-Shirt' => [
  *      'characteristic/variant' => [['attribute.type' => 'color'], ['attribute.type' => 'size']],
- *      'characteristic/attribute' => [['attribute.type' => 'material']],
- *      'option/config' => [['attribute.type' => 'sticker']],
- *      'option/custom' => [['attribute.type' => 'print']],
- *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
- *      'stock' => [['stock.type' => 'default']],
+ *      'characteristic/default' => [['attribute.type' => 'material']],
+ *      'characteristic/config' => [['attribute.type' => 'sticker']],
+ *      'characteristic/custom' => [['attribute.type' => 'print']],
  *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
  *      'stock' => [['stock.type' => 'default']],
  *    ],
@@ -164,9 +163,9 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  * selects this data set defintion the following will appear:
  *
  * * two variant attribute select boxes (type "color" and "size") in the "Characteristics" tab
- * * one attribute select box (type "material") in the "Characteristics" tab
- * * one select box for configurable attributes (type: "sticker")
- * * one select box for customizable attributes (type: "print")
+ * * one default attribute select box (type "material") in the "Characteristics" tab
+ * * one select box for configurable attributes (type: "sticker") in the "Characteristics" tab
+ * * one select box for customizable attributes (type: "print") in the "Characteristics" tab
  * * a price item with currency "EUR" and tax rate pre-filled
  * * a stock item with of type "default" pre-filled
  *
@@ -174,33 +173,37 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  *  [
  *    'Book' => [
- *      'characteristic/attribute' => [['attribute.type' => 'binding']],
- *      'characteristic/property' => [['product.property.type' => 'isbn']],
- *      'related/suggest' => [[], []],
  *      'catalog/default' => [[]],
  *      'catalog/promotion' => [[]],
+ *      'characteristic/default' => [['attribute.type' => 'binding']],
+ *      'characteristic/property' => [['product.property.type' => 'isbn']],
  *      'media' => [['media.type' => 'default'], ['media.type' => 'download']],
+ *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '7.00']]],
+ *      'related/bought-together' => [[]],
+ *      'related/suggestion' => [[], []],
+ *      'supplier/default' => [[]],
+ *      'stock' => [['stock.type' => 'default']],
  *      'text' => [
  *        ['text.type' => 'name', 'text.languageid' => 'en'],
  *        ['text.type' => 'short', 'text.languageid' => 'en'],
  *        ['text.type' => 'long', 'text.languageid' => 'en'],
  *      ],
- *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '7.00']]],
- *      'stock' => [['stock.type' => 'default']],
  *    ],
  *  ]
  *
  * If an editor select the book dataset defintion, the following will appear:
  *
- * * one attribute select box (type "binding") in the "Characteristics" tab
- * * one property line (type "isbn") in the "Characteristics" tab
- * * two select boxes for suggested products in the "Related" tab
  * * one select box for a default category in the "Categories" tab
  * * one select box for a promotion category in the "Categories" tab
+ * * one attribute select box (type "binding") in the "Characteristics" tab
+ * * one property line (type "isbn") in the "Characteristics" tab
  * * two media items ("default" image and "download" file)
- * * three text items for name, short and long texts and "English" language pre-selected
  * * a price item with currency "EUR" and tax rate pre-filled
+ * * one select boxe for products bought together in the "Related" tab
+ * * two select boxes for suggested products in the "Related" tab
+ * * one select box for a default supplier in the "Suppliers" tab
  * * a stock item with of type "default" pre-filled
+ * * three text items for name, short and long texts and "English" language pre-selected
  *
  * All types in a template that should be pre-selected must already exist. Make
  * sure you've created them first in the appropriate type panels.
@@ -272,7 +275,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
@@ -280,13 +283,13 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 			<div id="basic" class="item-basic tab-pane fade show active g-0" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box"
-					data-siteid="<?= $this->site()->siteid() ?>"
+				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/product.siteid' ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
 					data-datasets="<?= $enc->attr( (object) $this->config( 'admin/jqadm/dataset/product', [] ) ) ?>">
 
 					<div class="row">
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('modify')}">
+						<div class="col-xl-6 block">
 
 							<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
 								<div class="form-group row optional">
@@ -294,7 +297,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<div class="col-sm-8">
 										<select class="form-select item-set" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ) ?>"
-											v-bind:readonly="!can('modify')"
+											v-bind:readonly="!can('change')"
 											v-on:change="dataset($event)">
 
 											<option value="">
@@ -318,7 +321,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ) ?>"
-										v-bind:readonly="!can('modify')" >
+										v-bind:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -344,11 +347,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" class="form-select item-type" required v-bind:tabindex="'1'"
+										<select is="vue:select-component" class="form-select item-type" required v-bind:tabindex="'1'"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['item', 'product.type'] ) ) ?>`"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
-											v-bind:readonly="!can('modify')"
+											v-bind:readonly="!can('change')"
 											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
@@ -369,7 +372,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ) ?>"
 										v-bind:class="{'is-invalid': duplicate}"
-										v-bind:readonly="!can('modify')"
+										v-bind:readonly="!can('change')"
 										v-on:change="exists($event)">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -383,7 +386,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ) ?>
@@ -412,7 +415,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.url' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.url' ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The name of the product shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
@@ -424,7 +427,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>"
 										value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.scale', 1 ) ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ) ?>
@@ -433,11 +436,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ) ?>`"
-										v-bind:disabled="!can('modify')"
+										v-bind:disabled="!can('change')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -447,11 +450,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ) ?>`"
-										v-bind:disabled="!can('modify')"
+										v-bind:disabled="!can('change')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -461,11 +464,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ) ?>`"
-										v-bind:disabled="!can('modify')"
+										v-bind:disabled="!can('change')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -475,11 +478,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Boost factor' ) ) ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-boost" type="number" min="0" max="10" step="0.1" tabindex="1"
+									<input class="form-control item-boost" type="number" min="0" max="100" step="0.1" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.boost' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Boost factor (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.boost' ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)' ) ) ?>
@@ -492,7 +495,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.target' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.target' ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the product detail page if this product should shown on a different page' ) ) ?>
@@ -500,13 +503,13 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('modify')}">
+						<div class="col-xl-6 block">
 
 							<config-table tabindex="1"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
-								v-bind:items="item['config']" v-on:change="item['config'] = $event"
-								v-bind:readonly="!can('modify')"
+								v-bind:items="item['config']" v-on:update:items="item['config'] = $event"
+								v-bind:readonly="!can('change')"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
@@ -519,7 +522,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										<tr>
 											<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
 											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
-											<th class="actions"><div class="btn act-add fa"></div></th>
+											<th class="actions"><div class="btn act-add icon"></div></th>
 										</tr>
 									</thead>
 								</table>

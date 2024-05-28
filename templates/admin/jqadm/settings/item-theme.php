@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2021-2023
+ * @copyright Aimeos (aimeos.org), 2021-2024
  */
 
 $selected = function( $key, $code ) {
@@ -19,7 +19,7 @@ $enc = $this->encoder();
 
 		<?php foreach( $this->get( 'themeData', [] ) as $name => $values ) : ?>
 
-			<div class="col-lg-6">
+			<div class="col-xl-6">
 				<div class="box">
 					<h2 class="item-header"><?= $enc->html( $this->config( 'client/html/themes/' . $name, $name ) ) ?></h2>
 

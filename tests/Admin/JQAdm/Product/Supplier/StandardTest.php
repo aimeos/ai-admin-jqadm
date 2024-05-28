@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2020-2023
+ * @copyright Aimeos (aimeos.org), 2020-2024
  */
 
 
@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001 \(unitSupplier001\)&quot;/', $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001 \(unitSupplier001\)&quot;/', $result );
 	}
 
 
@@ -83,7 +83,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'supplier' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'default',
 				'supplier.id' => '-1',
 			]]

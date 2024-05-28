@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $enc = $this->encoder();
@@ -413,6 +413,87 @@ $enc = $this->encoder();
  */
 
 
+/** admin/jqadm/url/import/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2023.10
+ * @see admin/jqadm/url/import/controller
+ * @see admin/jqadm/url/import/action
+ * @see admin/jqadm/url/import/config
+ * @see admin/jqadm/url/import/filter
+ */
+
+/** admin/jqadm/url/import/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2023.10
+ * @see admin/jqadm/url/import/target
+ * @see admin/jqadm/url/import/action
+ * @see admin/jqadm/url/import/config
+ * @see admin/jqadm/url/import/filter
+ */
+
+/** admin/jqadm/url/import/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2023.10
+ * @see admin/jqadm/url/import/target
+ * @see admin/jqadm/url/import/controller
+ * @see admin/jqadm/url/import/config
+ * @see admin/jqadm/url/import/filter
+ */
+
+/** admin/jqadm/url/import/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/import/config = ['absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2023.10
+ * @see admin/jqadm/url/import/target
+ * @see admin/jqadm/url/import/controller
+ * @see admin/jqadm/url/import/action
+ * @see admin/jqadm/url/import/filter
+ */
+
+/** admin/jqadm/url/import/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2023.10
+ * @see admin/jqadm/url/import/target
+ * @see admin/jqadm/url/import/controller
+ * @see admin/jqadm/url/import/action
+ * @see admin/jqadm/url/import/config
+ */
+
+
 /** admin/jqadm/url/batch/target
  * Destination of the URL where the controller specified in the URL is known
  *
@@ -693,7 +774,7 @@ $columnList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -737,6 +818,11 @@ $columnList = [
 							</button>
 							<ul class="dropdown-menu">
 								<li>
+									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
+									<input type="file" id="import" name="import" class="btn-text fileupload" tabindex="<?= $this->get( 'tabindex' ) ?>" v-on:change="upload()">
+									<button ref="import" class="btn-text fileupload" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/import', $params ) ) ?>" formenctype="multipart/form-data"></button>
+								</li>
+								<li>
 									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
 										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
 									</a>
@@ -758,13 +844,13 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn fa act-add" tabindex="1"
+							<a class="btn icon act-add" tabindex="1"
 								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -804,7 +890,7 @@ $columnList = [
 						] );
 					?>
 
-					<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" v-bind:class="{show: batch}" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
@@ -824,7 +910,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<?php if( !empty( $datasets = $this->config( 'admin/jqadm/dataset/product', [] ) ) ) : ?>
 												<div class="row">
@@ -901,7 +987,7 @@ $columnList = [
 											</div>
 										</div>
 
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-product-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')">
@@ -910,7 +996,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/product.datestart')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -926,7 +1012,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/product.dateend')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -942,7 +1028,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="vue:flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 														v-bind:disabled="state('item/product.ctime')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -962,7 +1048,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<div class="row">
 												<div class="col-1">
@@ -1004,7 +1090,7 @@ $columnList = [
 											</div>
 
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<div class="row">
 												<div class="col-1">
@@ -1014,7 +1100,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Tax rate' ) ) ?>
 												</label>
 												<div class="col-7">
-													<div is="taxrates" tabindex="1"
+													<div is="vue:taxrates" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrates' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ) ?>"
 														v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
@@ -1042,7 +1128,7 @@ $columnList = [
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+						<tr class="list-item <?= $this->site()->mismatch( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
@@ -1058,7 +1144,7 @@ $columnList = [
 								<td class="product-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'product.status', $fields ) ) : ?>
-								<td class="product-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+								<td class="product-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'product.type', $fields ) ) : ?>
 								<td class="product-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getType() ) ?></a></td>
@@ -1115,15 +1201,15 @@ $columnList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa" tabindex="1"
+								<a class="btn act-copy icon" tabindex="1"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-									<a class="btn act-delete fa" tabindex="1"
+									<a class="btn act-delete icon" tabindex="1"
 										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
-										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['id' => $id] + $params ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>

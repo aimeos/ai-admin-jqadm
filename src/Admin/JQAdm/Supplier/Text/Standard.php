@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -48,12 +48,10 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'supplier/lists/type' );
 
 		$search = $textTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'text.type.domain', 'supplier' ) );
-		$search->setSortations( array( $search->sort( '+', 'text.type.position' ) ) );
+		$search->add( 'text.type.domain', '==', 'supplier' )->order( 'text.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'text' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'supplier.lists.type.position' ) ) );
+		$listSearch->add( 'supplier.lists.type.domain', '==', 'text' )->order( 'supplier.lists.type.code' );
 
 		$view->textListTypes = $listTypeManager->search( $listSearch );
 		$view->textTypes = $textTypeManager->search( $search );
@@ -308,8 +306,8 @@ class Standard
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 				}
 			}
 

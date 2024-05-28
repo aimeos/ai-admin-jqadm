@@ -1,283 +1,284 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2021-2023
+ * @copyright Aimeos (aimeos.org), 2021-2024
  */
 
 
-Vue.component('dashboard-order-quick-counttotal', {
-
-	data() {
-		return {
-			mood: '',
-			state: '',
-			before: 0,
-			current: 0,
-			enddate: null,
-			startdate: null,
-			lastdate: null,
-		}
-	},
-
-	mounted() {
-		this.enddate = moment().utc();
-		this.startdate = moment().utc().subtract(7, 'days');
-		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
-
-		this.fetch();
-	},
-
-	computed: {
-		percent() {
-			const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
-			this.mood = num >= 1 ? 'positive' : (num < 0 ? 'negative' : 'neutral');
-			return (num >= 1 ? '+' : '') + num + '%';
+if(document.querySelector('.order-quick-counttotal')) {
+	Aimeos.apps['dashboard-order-quick-counttotal'] = Aimeos.app({
+		data() {
+			return {
+				mood: '',
+				state: '',
+				before: 0,
+				current: 0,
+				enddate: null,
+				startdate: null,
+				lastdate: null,
+			}
 		},
 
-		width() {
-			return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
-		}
-	},
+		beforeMount() {
+			this.enddate = moment().utc();
+			this.startdate = moment().utc().subtract(7, 'days');
+			this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
 
-	methods: {
-		criteria() {
-			return {"&&": [
-				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
-			]};
+			this.fetch();
 		},
 
-		fetch() {
-			const self = this;
-			self.state = 'load';
+		computed: {
+			percent() {
+				const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
+				this.mood = num >= 1 ? 'positive' : (num < 0 ? 'negative' : 'neutral');
+				return (num >= 1 ? '+' : '') + num + '%';
+			},
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
-				self.update(response.data);
-			}).then(function() {
-				self.state = 'done';
-			});
+			width() {
+				return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
+			}
 		},
 
-		update(data) {
-			let before = 0, current = 0;
+		methods: {
+			criteria() {
+				return {"&&": [
+					{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+					{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
+				]};
+			},
 
-			for(const entry of data) {
-				if(new Date(entry['id']) < this.startdate) {
-					before += Number(entry['attributes']);
-				} else {
-					current += Number(entry['attributes']);
+			fetch() {
+				const self = this;
+				self.state = 'load';
+
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
+				}).then(function() {
+					self.state = 'done';
+				});
+			},
+
+			update(data) {
+				let before = 0, current = 0;
+
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
+					} else {
+						current += Number(data[key]);
+					}
 				}
+
+				this.before = before;
+				this.current = current;
 			}
-
-			this.before = before;
-			this.current = current;
 		}
-	}
-});
+	}).mount('.order-quick-counttotal');
+}
 
 
-
-Vue.component('dashboard-order-quick-countcompleted', {
-
-	data() {
-		return {
-			mood: '',
-			state: '',
-			before: 0,
-			current: 0,
-			enddate: null,
-			startdate: null,
-			lastdate: null,
-		}
-	},
-
-	mounted() {
-		this.enddate = moment().utc();
-		this.startdate = moment().utc().subtract(7, 'days');
-		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
-
-		this.fetch();
-	},
-
-	computed: {
-		percent() {
-			const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
-			this.mood = num >= 1 ? 'positive' : (num < 0 ? 'negative' : 'neutral');
-			return (num >= 1 ? '+' : '') + num + '%';
+if(document.querySelector('.order-quick-countcompleted')) {
+	Aimeos.apps['dashboard-order-quick-countcompleted'] = Aimeos.app({
+		data() {
+			return {
+				mood: '',
+				state: '',
+				before: 0,
+				current: 0,
+				enddate: null,
+				startdate: null,
+				lastdate: null,
+			}
 		},
 
-		width() {
-			return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
-		}
-	},
+		beforeMount() {
+			this.enddate = moment().utc();
+			this.startdate = moment().utc().subtract(7, 'days');
+			this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
 
-	methods: {
-		criteria() {
-			return {"&&": [
-				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
-				{"==": {"order.statuspayment": {0: 4, 1: 5, 2:6}}},
-			]};
+			this.fetch();
 		},
 
-		fetch() {
-			const self = this;
-			self.state = 'load';
+		computed: {
+			percent() {
+				const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
+				this.mood = num >= 1 ? 'positive' : (num < 0 ? 'negative' : 'neutral');
+				return (num >= 1 ? '+' : '') + num + '%';
+			},
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
-				self.update(response.data);
-			}).then(function() {
-				self.state = 'done';
-			});
+			width() {
+				return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
+			}
 		},
 
-		update(data) {
-			let before = 0, current = 0;
+		methods: {
+			criteria() {
+				return {"&&": [
+					{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+					{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
+					{"==": {"order.statuspayment": {0: 4, 1: 5, 2:6}}},
+				]};
+			},
 
-			for(const entry of data) {
-				if(new Date(entry['id']) < this.startdate) {
-					before += Number(entry['attributes']);
-				} else {
-					current += Number(entry['attributes']);
+			fetch() {
+				const self = this;
+				self.state = 'load';
+
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
+				}).then(function() {
+					self.state = 'done';
+				});
+			},
+
+			update(data) {
+				let before = 0, current = 0;
+
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
+					} else {
+						current += Number(data[key]);
+					}
 				}
+
+				this.before = before;
+				this.current = current;
 			}
-
-			this.before = before;
-			this.current = current;
 		}
-	}
-});
+	}).mount('.order-quick-countcompleted');
+}
 
 
-
-Vue.component('dashboard-order-quick-countunfinished', {
-
-	data() {
-		return {
-			mood: '',
-			state: '',
-			before: 0,
-			current: 0,
-			enddate: null,
-			startdate: null,
-			lastdate: null,
-		}
-	},
-
-	mounted() {
-		this.enddate = moment().utc();
-		this.startdate = moment().utc().subtract(7, 'days');
-		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
-
-		this.fetch();
-	},
-
-	computed: {
-		percent() {
-			const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
-			this.mood = num >= 1 ? 'negative' : (num < 0 ? 'positive' : 'neutral');
-			return (num >= 1 ? '+' : '') + num + '%';
+if(document.querySelector('.order-quick-countunfinished')) {
+	Aimeos.apps['dashboard-order-quick-countunfinished'] = Aimeos.app({
+		data() {
+			return {
+				mood: '',
+				state: '',
+				before: 0,
+				current: 0,
+				enddate: null,
+				startdate: null,
+				lastdate: null,
+			}
 		},
 
-		width() {
-			return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
-		}
-	},
+		beforeMount() {
+			this.enddate = moment().utc();
+			this.startdate = moment().utc().subtract(7, 'days');
+			this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
 
-	methods: {
-		criteria() {
-			return {"&&": [
-				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
-				{"==": {"order.statuspayment": -1}},
-			]};
+			this.fetch();
 		},
 
-		fetch() {
-			const self = this;
-			self.state = 'load';
+		computed: {
+			percent() {
+				const num = Math.round((this.current - this.before) * 100 / (this.before || 1));
+				this.mood = num >= 1 ? 'negative' : (num < 0 ? 'positive' : 'neutral');
+				return (num >= 1 ? '+' : '') + num + '%';
+			},
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
-				self.update(response.data);
-			}).then(function() {
-				self.state = 'done';
-			});
+			width() {
+				return this.current - this.before < 0 ? 100 - (this.before - this.current) * 100 / (this.before || 1) : 100;
+			}
 		},
 
-		update(data) {
-			let before = 0, current = 0;
+		methods: {
+			criteria() {
+				return {"&&": [
+					{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+					{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
+					{"==": {"order.statuspayment": -1}},
+				]};
+			},
 
-			for(const entry of data) {
-				if(new Date(entry['id']) < this.startdate) {
-					before += Number(entry['attributes']);
-				} else {
-					current += Number(entry['attributes']);
+			fetch() {
+				const self = this;
+				self.state = 'load';
+
+				Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(result) {
+					self.update(result);
+				}).then(function() {
+					self.state = 'done';
+				});
+			},
+
+			update(data) {
+				let before = 0, current = 0;
+
+				for(const key in data) {
+					if(new Date(key) < this.startdate) {
+						before += Number(data[key]);
+					} else {
+						current += Number(data[key]);
+					}
 				}
+
+				this.before = before;
+				this.current = current;
 			}
-
-			this.before = before;
-			this.current = current;
 		}
-	}
-});
+	}).mount('.order-quick-countunfinished');
+}
 
 
-
-Vue.component('dashboard-order-quick-countcustomer', {
-
-	data() {
-		return {
-			mood: '',
-			state: '',
-			current: 0,
-			enddate: null,
-			startdate: null,
-		}
-	},
-
-	mounted() {
-		this.enddate = moment().utc();
-		this.startdate = moment().utc().subtract(7, 'days');
-
-		this.fetch();
-	},
-
-	computed: {
-		percent() {
-			return '';
-		},
-
-		width() {
-			return this.current ? 100 : 0;
-		}
-	},
-
-	methods: {
-		criteria() {
-			return {"&&": [
-				{">": {"customer.ctime": this.startdate.toISOString().substr(0, 19)}},
-				{"<=": {"customer.ctime": this.enddate.toISOString().substr(0, 19)}},
-			]};
-		},
-
-		fetch() {
-			const self = this;
-			self.state = 'load';
-
-			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime").then(function(response) {
-				self.update(response.data);
-			}).then(function() {
-				self.state = 'done';
-			});
-		},
-
-		update(data) {
-			let current = 0;
-
-			for(const entry of data) {
-				current += Number(entry['attributes']);
+if(document.querySelector('.order-quick-countcustomer')) {
+	Aimeos.apps['dashboard-order-quick-countcustomer'] = Aimeos.app({
+		data() {
+			return {
+				mood: '',
+				state: '',
+				current: 0,
+				enddate: null,
+				startdate: null,
 			}
+		},
 
-			this.current = current;
+		beforeMount() {
+			this.enddate = moment().utc();
+			this.startdate = moment().utc().subtract(7, 'days');
+
+			this.fetch();
+		},
+
+		computed: {
+			percent() {
+				return '';
+			},
+
+			width() {
+				return this.current ? 100 : 0;
+			}
+		},
+
+		methods: {
+			criteria() {
+				return {"&&": [
+					{">": {"customer.ctime": this.startdate.toISOString().substr(0, 19)}},
+					{"<=": {"customer.ctime": this.enddate.toISOString().substr(0, 19)}},
+				]};
+			},
+
+			fetch() {
+				const self = this;
+				self.state = 'load';
+
+				Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", 10000).then(function(result) {
+					self.update(result);
+				}).then(function() {
+					self.state = 'done';
+				});
+			},
+
+			update(data) {
+				let current = 0;
+
+				for(const key in data) {
+					current += Number(data[key]);
+				}
+
+				this.current = current;
+			}
 		}
-	}
-});
+	}).mount('.order-quick-countcustomer');
+}

@@ -40,7 +40,7 @@ msgid ">="
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Vyhledávání"
 
 msgid "~="
 msgstr ""

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $enc = $this->encoder();
@@ -71,7 +71,7 @@ $columnList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -110,7 +110,7 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a href="#" class="btn act-delete fa" tabindex="1"
+							<a href="#" class="btn act-delete icon" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
@@ -124,13 +124,13 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn fa act-add" tabindex="1"
+							<a class="btn icon act-add" tabindex="1"
 								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -164,7 +164,7 @@ $columnList = [
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+						<tr class="list-item <?= $this->site()->mismatch( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
@@ -177,7 +177,7 @@ $columnList = [
 								<td class="coupon-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'coupon.status', $fields ) ) : ?>
-								<td class="coupon-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+								<td class="coupon-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'coupon.provider', $fields ) ) : ?>
 								<td class="coupon-provider"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getProvider() ) ?></a></td>
@@ -213,15 +213,15 @@ $columnList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa" tabindex="1"
+								<a class="btn act-copy icon" tabindex="1"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-									<a class="btn act-delete fa" tabindex="1"
+									<a class="btn act-delete icon" tabindex="1"
 										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
-										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['id' => $id] + $params ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>

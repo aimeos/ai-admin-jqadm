@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package MW
  * @subpackage View
  */
@@ -48,18 +48,14 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	/**
 	 * Checks if the item can be deleted or modified
 	 *
-	 * @param string $siteid ID of a site item
+	 * @param string|null $siteid ID of a site item
 	 * @return bool TRUE if the item can be deleted/modified
 	 */
-	public function can( string $siteid ) : ?bool
+	public function can( ?string $siteid ) : ?bool
 	{
-		if( $this->view()->access( ['super'] ) ) {
-			return true;
-		}
+		$current = (string) $this->siteItem->getSiteId();
 
-		$current = $this->siteItem->getSiteId();
-
-		if( !strncmp( $current, $siteid, strlen( $current ) ) ) {
+		if( !strncmp( $current, (string) $siteid, strlen( $current ) ) ) {
 			return true;
 		}
 
@@ -84,7 +80,7 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	 * @param string|null $siteid ID of a site item
 	 * @return string|null Label of the site item or null if not found
 	 */
-	public function match( string $siteid = null ) : ?string
+	public function match( ?string $siteid ) : ?string
 	{
 		if( $this->siteItem->getSiteId() == $siteid ) {
 			return $this->siteItem->getLabel();
@@ -95,22 +91,26 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 
 
 	/**
+	 * Returns "mismatch" if the item is from another site
+	 *
+	 * @param string|null $siteid ID of a site item
+	 * @return string|null "mismatch" if item is from another site, empty if not
+	 */
+	public function mismatch( ?string $siteid ) : ?string
+	{
+		return $this->siteItem->getSiteId() != $siteid ? 'mismatch' : '';
+	}
+
+
+	/**
 	 * Returns "readonly" if the item is inherited from another site
 	 *
 	 * @param string|null $siteid ID of a site item
-	 * @return string|null "readonly" if item is from a parent site, null if not
+	 * @return string|null "readonly" if item is from a parent site, empty if not
 	 */
-	public function readonly( string $siteid = null ) : ?string
+	public function readonly( ?string $siteid ) : ?string
 	{
-		if( !$siteid && $this->view()->access( ['super'] ) ) {
-			return null;
-		}
-
-		if( $this->siteItem->getSiteId() != $siteid ) {
-			return 'readonly';
-		}
-
-		return null;
+		return $this->can( $siteid ) ? '' : 'readonly';
 	}
 
 

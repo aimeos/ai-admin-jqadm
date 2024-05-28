@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -969,6 +969,15 @@ msgstr "Minimális rendelési mennyiség"
 msgid "Minimum quantity"
 msgstr "Minimális mennyiség"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Módosítva"
 
@@ -989,6 +998,9 @@ msgstr "Név"
 
 msgid "Name in URL (optional)"
 msgstr "Url cím (opcionális)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1432,6 +1444,9 @@ msgstr "Kapcsolódó rendelés"
 msgid "Related order ID (optional)"
 msgstr "Kapcsolódó rendelés azonosító (opcionális)"
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Megújít"
 
@@ -1641,6 +1656,9 @@ msgstr "Keresési űrlap megjelenítése"
 
 msgid "Show/hide advanced data"
 msgstr "Speciális adatok megjelenítése/elrejtése"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "Navigációs címkék megjelenítése/elrejtése"
@@ -1956,6 +1974,9 @@ msgstr "Egyedi típuskód (kötelező)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Egyedi típusú kód, pl. \"szín\" olyan attribútumokhoz, mint a \"zöld\", \"kék\", \"piros\""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr "Ismeretlen feltöltési hiba"
 
@@ -2061,6 +2082,10 @@ msgstr "Számlázási cím"
 #, php-format
 msgid "attribute"
 msgstr "Jellemzők"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

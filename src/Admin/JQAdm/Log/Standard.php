@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -72,8 +72,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'log' );
 			$manager = \Aimeos\MAdmin::create( $this->context(), 'log' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
+			$search = $manager->filter()->order( '-log.timestamp' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -35,11 +35,11 @@ class Page extends Base
 
 		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
-		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		if( $userId = $context->user() )
+		if( $user = $context->user() )
 		{
-			$siteid = $customerManager->get( $userId )->getSiteId();
+			$siteid = $user->getSiteId();
+			$view->pageUserSiteid = $siteid;
 
 			$search = $siteManager->filter();
 			$search->add( $search->and( [

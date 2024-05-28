@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -35,6 +35,25 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter( true )
+			->add( 'product.lists.type.domain', '==', 'catalog' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
+
+		$view->categoryTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -59,10 +78,12 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'category', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'category', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->categoryData = $data;
@@ -234,8 +255,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'catalog' );
@@ -251,7 +273,7 @@ class Standard
 			$item->addListItem( 'catalog', $litem );
 		}
 
-		$item->deleteListItems( $listItems );
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -273,7 +295,8 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$label = $refItem->getLabel() . ' (' . $refItem->getCode() . ')';
+			$list = ['catalog.label' => $label] + $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{

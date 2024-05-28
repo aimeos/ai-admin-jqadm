@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -261,12 +261,10 @@ class Standard
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 		$search = $priceTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.type.domain', 'attribute' ) );
-		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
+		$search->add( 'price.type.domain', '==', 'attribute' )->order( 'price.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'price' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'attribute.lists.type.position' )] );
+		$listSearch->add( 'attribute.lists.type.domain', '==', 'price' )->order( 'attribute.lists.type.code' );
 
 		$curSearch = $currencyManager->filter( true )->slice( 0, 10000 );
 
@@ -314,8 +312,8 @@ class Standard
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 				}
 			}
 

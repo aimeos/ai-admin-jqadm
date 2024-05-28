@@ -8,60 +8,67 @@
 Aimeos.Service = {
 
 	init() {
+		const node = document.querySelector('.item-service #basic')
 
-		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
-	},
-
-
-	setupConfig() {
-
-		var delegate = $(".aimeos .item-service .item-basic");
-
-		if(delegate.length > 0 ) {
-			var type = $(".item-type option:selected", delegate).val();
-			Aimeos.Config.setup('service/config', $("input.item-provider", delegate).val(), delegate, type);
+		if(node) {
+			Aimeos.apps['service'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+					providers: {type: String, default: '[]'},
+					decorators: {type: String, default: '[]'},
+				},
+				data() {
+					return {
+						item: null,
+						cache: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
 		}
-
-		delegate.on("change input blur", "input.item-provider", function(ev) {
-			var type = $(".item-type option:selected", delegate).val();
-			Aimeos.Config.setup('service/config', $(ev.currentTarget).val(), ev.delegateTarget, type);
-		});
 	},
 
 
-	setupDecorator() {
-
-		$(".aimeos .item-service .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
-
-			var name = $(this).data("name");
-			var input = $("input.item-provider", ev.delegateTarget);
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger("change");
-			}
-		});
-	},
+	mixins: {
+		methods: {
+			can(action) {
+				return Aimeos.can(action, this.item['service.siteid'] || null, this.siteid)
+			},
 
 
-	setupProvider() {
+			config(provider, type) {
+				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
 
-		var input = $(".aimeos .item-service").on("focus", ".item-provider", function(ev) {
+				return this.cache[provider] = Aimeos.query(`query {
+					getServiceConfig(provider: ` + JSON.stringify(provider) + `, type: ` + JSON.stringify(type) + `) {
+						code
+						label
+						type
+						default
+						required
+					}
+				}`).then(result => {
+					return (result?.getServiceConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
 
-			var type = $(".item-type option:selected", ev.delegateTarget).val();
 
-			if(type) {
-				$(this).autocomplete({
-					source: $(this).data(type).split(","),
-					minLength: 0,
-					delay: 0
-				});
-
-				$(this).autocomplete("search", "");
-			}
-		});
+			decorate(name) {
+				if(!(new String(this.item['service.provider'])).includes(name)) {
+					this.item['service.provider'] = this.item['service.provider'] + ',' + name
+				}
+			},
+		}
 	}
 };
 

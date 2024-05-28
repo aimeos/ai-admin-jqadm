@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -142,8 +142,9 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', str_replace( '/', '.', $path ) . '.type.id', $ids ) );
+			$search = $manager->filter()
+				->add( str_replace( '/', '.', $path ) . '.type.id', '==', $ids )
+				->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -276,7 +277,9 @@ abstract class Base
 	 */
 	protected function fromArray( string $path, array $data ) : \Aimeos\MShop\Common\Item\Type\Iface
 	{
-		$key = str_replace( '/', '.', $path ) . '.type.id';
+		$prefix = str_replace( '/', '.', $path );
+		$key = $prefix . '.type.id';
+
 		$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 
 		if( isset( $data[$key] ) && $data[$key] != '' ) {
@@ -285,6 +288,7 @@ abstract class Base
 			$item = $manager->create();
 		}
 
+		$data[$prefix . '.type.i18n'] = json_decode( $data[$prefix . '.type.i18n'] ?? '{}', true );
 		$item->fromArray( $data, true );
 
 		return $item;
@@ -306,6 +310,7 @@ abstract class Base
 
 		if( $copy === true )
 		{
+			$data[$key . '.type.siteid'] = $this->context()->locale()->getSiteId();
 			$data[$key . '.type.code'] = $data[$key . '.type.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data[$key . '.type.id'] = '';
 		}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2024-04-04 16:07+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -97,9 +97,8 @@ msgstr ""
 msgid "?"
 msgstr ""
 
-#, fuzzy
 msgid "Account"
-msgstr "By day"
+msgstr ""
 
 msgid "Active"
 msgstr ""
@@ -486,6 +485,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr ""
 
+msgid "Delete this item"
+msgstr ""
+
 msgid "Deleting reviews is not allowed"
 msgstr ""
 
@@ -495,9 +497,8 @@ msgstr ""
 msgid "Delivery address"
 msgstr ""
 
-#, fuzzy
 msgid "Delivery date"
-msgstr "By delivery type"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -548,6 +549,9 @@ msgid "Download this file"
 msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
+msgid "Duplicate item (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
@@ -628,6 +632,9 @@ msgstr ""
 msgid "File upload stopped by extension"
 msgstr ""
 
+msgid "File uploaded successfully"
+msgstr ""
+
 msgid "Find category"
 msgstr ""
 
@@ -679,9 +686,8 @@ msgstr ""
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
-#, fuzzy
 msgid "Groups"
-msgstr "Groups"
+msgstr ""
 
 msgid "Height"
 msgstr ""
@@ -752,6 +758,9 @@ msgstr ""
 msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
+msgid "Insert new item (Ctrl+I)"
+msgstr ""
+
 msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
 msgstr ""
 
@@ -799,9 +808,11 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
-#, fuzzy
 msgid "Invoice No."
-msgstr "Invoices"
+msgstr ""
+
+msgid "Invoice number"
+msgstr ""
 
 msgid "Invoice number for the order"
 msgstr ""
@@ -923,6 +934,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr ""
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -938,10 +958,16 @@ msgstr ""
 msgid "Move this entry up/down"
 msgstr ""
 
+msgid "Move this item up/down"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid "Name of the downloaded file when customers saves the file on their computers"
@@ -1124,9 +1150,8 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
-#, fuzzy
 msgid "Payment date"
-msgstr "Orders by payment type"
+msgstr ""
 
 msgid "Payment status"
 msgstr ""
@@ -1363,9 +1388,8 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
-#, fuzzy
 msgid "Refund"
-msgstr "refund"
+msgstr ""
 
 msgid "Related ID"
 msgstr ""
@@ -1374,6 +1398,9 @@ msgid "Related order"
 msgstr ""
 
 msgid "Related order ID (optional)"
+msgstr ""
+
+msgid "Related order of the customer"
 msgstr ""
 
 msgid "Renew"
@@ -1578,10 +1605,16 @@ msgstr ""
 msgid "Show/hide advanced data"
 msgstr ""
 
+msgid "Show/hide details"
+msgstr ""
+
 msgid "Show/hide navigation labels"
 msgstr ""
 
 msgid "Show/hide this entry"
+msgstr ""
+
+msgid "Show/hide this item"
 msgstr ""
 
 msgid "Shown if the article reached a stock level of zero"
@@ -1785,6 +1818,9 @@ msgstr ""
 msgid "Translate text"
 msgstr ""
 
+msgid "Translations"
+msgstr ""
+
 msgid "Two letter ISO country code"
 msgstr ""
 
@@ -1876,7 +1912,13 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
+msgstr ""
+
+msgid "Upload CSV"
 msgstr ""
 
 msgid "Upload shop icon"
@@ -1907,6 +1949,9 @@ msgid "Variant attributes"
 msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Vendor"
 msgstr ""
 
 msgid "Verified"
@@ -1982,6 +2027,10 @@ msgid "attribute"
 msgstr "Attributes"
 
 #, php-format
+msgid "basket"
+msgstr "Baskets"
+
+#, php-format
 msgid "bundle"
 msgstr "Bundles"
 
@@ -2008,9 +2057,9 @@ msgstr "Company"
 msgid "configuration"
 msgstr "Configuration"
 
-#, fuzzy, php-format
+#, php-format
 msgid "countcountry"
-msgstr "By hour"
+msgstr "By country"
 
 #, php-format
 msgid "countday"
@@ -2205,9 +2254,9 @@ msgstr ""
 msgid "quick/counttotal"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "quick/countunfinished"
-msgstr "unfinished"
+msgstr ""
 
 msgid "reason:-1"
 msgstr ""
@@ -2238,9 +2287,8 @@ msgstr "Sales"
 msgid "salesweekday"
 msgstr "Sales by weekday"
 
-#, fuzzy
 msgid "selected"
-msgstr "Variants"
+msgstr ""
 
 #, php-format
 msgid "selection"
@@ -2309,9 +2357,8 @@ msgstr "disabled"
 msgid "status:1"
 msgstr "enabled"
 
-#, fuzzy
 msgid "status:2"
-msgstr "archive"
+msgstr "hidden"
 
 #, php-format
 msgid "stock"
@@ -2342,9 +2389,9 @@ msgstr "Texts"
 msgid "theme"
 msgstr "Theme"
 
-#, fuzzy, php-format
+#, php-format
 msgid "transaction"
-msgstr "Variants"
+msgstr "Transactions"
 
 #, php-format
 msgid "type"
@@ -2414,9 +2461,9 @@ msgstr "Product lists"
 msgid "type/product/property"
 msgstr "Product properties"
 
-#, fuzzy, php-format
+#, php-format
 msgid "type/rule"
-msgstr "Prices"
+msgstr "Rules"
 
 #, php-format
 msgid "type/service"

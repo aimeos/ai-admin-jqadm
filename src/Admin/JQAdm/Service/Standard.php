@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -66,12 +66,10 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$ds = DIRECTORY_SEPARATOR;
-
-		$view->itemDecorators = $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Decorator' );
+		$view->itemDecorators = $this->getClassNames( 'MShop/Service/Provider/Decorator' );
 		$view->itemProviders = [
-			'delivery' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Delivery' ),
-			'payment' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Payment' ),
+			'delivery' => $this->getClassNames( 'MShop/Service/Provider/Delivery' ),
+			'payment' => $this->getClassNames( 'MShop/Service/Provider/Payment' ),
 		];
 
 		$view->itemSubparts = $this->getSubClientNames();
@@ -176,8 +174,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'service.id', $ids ) );
+			$search = $manager->filter()->add( 'service.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
@@ -282,8 +279,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'service' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'service' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '+', 'service.type' ), $search->sort( '+', 'service.position' )] );
+			$search = $manager->filter()->order( ['service.type', 'service.position'] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, $this->getDomains(), $total );
@@ -410,7 +406,7 @@ class Standard
 	 * Returns the backend configuration attributes of the provider and decorators
 	 *
 	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item incl. provider/decorator property
-	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 * @return \Aimeos\Base\Critera\Attribute\Iface[] List of configuration attributes
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Service\Item\Iface $item ) : array
 	{
@@ -496,7 +492,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'service/type' );
-		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['service.type.position', 'service.type.code'] );
+		$search = $typeManager->filter( true )->order( 'service.type.code' )->slice( 0, 10000 );
 
 		return $typeManager->search( $search );
 	}
@@ -510,23 +506,6 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Service\Item\Iface
 	{
-		$conf = [];
-
-		if( isset( $data['config']['key'] ) )
-		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
-				{
-					if( ( $val = json_decode( $data['config']['val'][$idx], true ) ) === null ) {
-						$conf[$key] = $data['config']['val'][$idx];
-					} else {
-						$conf[$key] = $val;
-					}
-				}
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->context(), 'service' );
 
 		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
@@ -535,11 +514,19 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item = $item->fromArray( $data, true )->setConfig( $conf );
+		$item = $item->fromArray( $data, true );
+		$conf = [];
+
+		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
+				$conf[$key] = json_decode( $val, true ) ?? $val;
+			}
+		}
 
 		$this->notify( $manager->getProvider( $item, $item->getType() )->checkConfigBE( $conf ) );
 
-		return $item;
+		return $item->setConfig( $conf );
 	}
 
 
@@ -551,23 +538,24 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, bool $copy = false ) : array
 	{
-		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
+
+		$config = $item->getConfig();
+		ksort( $config );
+		$idx = 0;
+
+		foreach( $config as $key => $value )
+		{
+			$data['config'][$idx]['key'] = $key;
+			$data['config'][$idx++]['val'] = $value;
+		}
 
 		if( $copy === true )
 		{
 			$data['service.siteid'] = $this->context()->locale()->getSiteId();
 			$data['service.code'] = $data['service.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['service.id'] = '';
-		}
-
-		ksort( $config );
-
-		foreach( $config as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
 		}
 
 		return $data;

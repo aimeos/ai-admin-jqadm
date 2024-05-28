@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  */
 
 $selected = function( $key, $code ) {
@@ -77,15 +77,15 @@ $params = $this->get( 'pageParams', [] );
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) : '' ) ?>
-
 			<div id="basic" class="item-basic vue tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
-				data-data="<?= $enc->attr( $this->get( 'subscriptionData' ) ) ?>">
+				data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+				data-domain="subscription">
 
 				<input class="item-orderid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.orderid' ) ) ) ?>"
 					value="<?= $enc->attr( $this->param( 'subscription.orderid', $this->get( 'itemData/subscription.orderid' ) ) ) ?>">
@@ -93,8 +93,8 @@ $params = $this->get( 'pageParams', [] );
 					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>">
 
 				<div class="row">
-					<div class="col-xl-6 <?= $readonly ?>">
-						<div class="box">
+					<div class="col-xl-6">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/subscription.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -135,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datenext select" type="date" required="required" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-datenext select" type="date" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.datenext' ) ) ?>`"
@@ -149,7 +149,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateend select" type="date" tabindex="1"
+									<input is="vue:flat-pickr" class="form-control item-dateend select" type="date" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.dateend' ) ) ?>`"
@@ -207,7 +207,7 @@ $params = $this->get( 'pageParams', [] );
 									<div class="col-8">
 										<span class="form-control item-customerid">
 											<?php if( $order->getCustomerId() ) : ?>
-												<a class="link fa act-view" target="_blank"
+												<a class="link icon act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $order->getCustomerId()] ) ) ?>">
 													<?= $enc->attr( $order->getCustomerId() ) ?>
 												</a>
@@ -219,7 +219,7 @@ $params = $this->get( 'pageParams', [] );
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ) ?></label>
 									<div class="col-8">
 										<span class="form-control item-orderid">
-											<a class="link fa act-view" target="_blank"
+											<a class="link icon act-view" target="_blank"
 												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $order->getId()] ) ) ?>">
 												<?= $enc->attr( $order->getId() ) ?>
 											</a>
@@ -245,7 +245,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="box">
-										<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
+										<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
 										<div class="table-responsive">
 											<table class="item-product-list table table-striped">
 												<thead>
@@ -311,11 +311,6 @@ $params = $this->get( 'pageParams', [] );
 										<div class="address-short">
 											<span class="address-text">
 												<?php
-													$salutations = array(
-														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
-														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
-													);
-
 													echo preg_replace( "/\n+/m", "<br>", trim( $enc->html( sprintf(
 														/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
 														/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
@@ -337,7 +332,7 @@ $params = $this->get( 'pageParams', [] );
 '
 														),
 														$addr->getCompany(),
-														( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
+														( in_array( $addr->getSalutation(), ['mr', 'ms'] ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
 														$addr->getTitle(),
 														$addr->getFirstName(),
 														$addr->getLastName(),

@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -162,8 +162,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'locale.currency.id', $ids ) );
+			$search = $manager->filter()->add( 'locale.currency.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -267,8 +266,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'locale/currency' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'locale.currency.status' ), $search->sort( '+', 'locale.currency.id' )] );
+			$search = $manager->filter()->order( ['-locale.currency.status', 'locale.currency.id'] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

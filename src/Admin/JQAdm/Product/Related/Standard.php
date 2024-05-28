@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -35,6 +35,18 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		return $view->set( 'relatedTypes', $this->getTypes() );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -42,6 +54,8 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+
+		$view->relatedData = $this->toArray( $view->item, true );
 		$view->relatedBody = parent::copy();
 
 		return $this->render( $view );
@@ -56,6 +70,16 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		$siteid = $this->context()->locale()->getSiteId();
+
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'related', [] ) );
+
+		foreach( $data as $key => $entry ) {
+			$data[$key]['product.lists.siteid'] = $siteid;
+		}
+
+		$view->relatedData = $data;
 		$view->relatedBody = parent::create();
 
 		return $this->render( $view );
@@ -70,6 +94,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		$view->relatedData = $this->toArray( $view->item );
 		$view->relatedBody = parent::get();
 
 		return $this->render( $view );
@@ -84,6 +109,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->view();
+
+		$this->fromArray( $view->item, $view->param( 'related', [] ) );
 		$view->relatedBody = parent::save();
 
 		return null;
@@ -213,6 +240,90 @@ class Standard
 		 * @since 2016.01
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/product/related/subparts', [] );
+	}
+
+
+	/**
+	 * Returns the product list types to update
+	 *
+	 * @return \Aimeos\Map Associative map with type codes as keys and type labels as values
+	 */
+	protected function getTypes() : \Aimeos\Map
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+
+		$filter = $manager->filter( true )
+			->add( 'product.lists.type.domain', '==', 'product' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
+
+		return $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' )->except( 'default' );
+	}
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
+	 */
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $item->getListItems( 'product', $this->getTypes()->keys()->all() );
+		$idx = 0;
+
+		foreach( $data as $type => $list )
+		{
+			foreach( $list as $entry )
+			{
+				$listid = $this->val( $entry, 'product.lists.id' );
+				$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+
+				$litem->setRefId( $this->val( $entry, 'product.id' ) )
+					->setPosition( $idx++ )
+					->setType( $type );
+
+				$item->addListItem( 'product', $litem );
+			}
+		}
+
+		return $item->deleteListItems( $listItems );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param bool $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
+	{
+		$data = [];
+		$siteId = $this->context()->locale()->getSiteId();
+
+		foreach( $item->getListItems( 'product', $this->getTypes()->keys()->all() ) as $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
+
+			$label = $refItem->getLabel() . ' (' . $refItem->getCode() . ')';
+			$list = ['product.label' => $label] + $listItem->toArray( true ) + $refItem->toArray( true );
+
+			if( $copy === true )
+			{
+				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
+			}
+
+			$data[] = $list;
+		}
+
+		return $data;
 	}
 
 

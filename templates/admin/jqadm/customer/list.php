@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 $enc = $this->encoder();
@@ -93,7 +93,7 @@ $columnList = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
-		<div class="btn fa act-search" v-on:click="search = true"
+		<div class="btn icon act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
@@ -157,13 +157,13 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn fa act-add" tabindex="1"
+							<a class="btn icon act-add" tabindex="1"
 								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
@@ -214,7 +214,7 @@ $columnList = [
 						] );
 					?>
 
-					<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" v-bind:class="{show: batch}" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
@@ -235,7 +235,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.status')">
@@ -286,7 +286,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
 														v-bind:disabled="state('item/customer.dateverified')"
 														v-bind:config="Aimeos.flatpickr.date"
@@ -295,17 +295,17 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-customer-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.groups')">
+													<input id="batch-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/groups')">
 												</div>
-												<label class="col-4 form-control-label" for="batch-customer-groups">
+												<label class="col-4 form-control-label" for="batch-groups">
 													<?= $enc->html( $this->translate( 'admin', 'Groups' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select item-groups" tabindex="1" size="6" multiple v-bind:disabled="state('item/customer.groups')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
+													<select class="form-select item-groups" tabindex="1" size="6" multiple v-bind:disabled="state('item/groups')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>">
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'None' ) ) ?></option>
 
 														<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
@@ -330,7 +330,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-languageid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.languageid')">
@@ -411,7 +411,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
+													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
 														v-bind:disabled="state('item/customer.birthday')"
 														v-bind:config="Aimeos.flatpickr.date"
@@ -420,7 +420,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-address1" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.address1')">
@@ -525,7 +525,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-telephone" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.telephone')">
@@ -551,7 +551,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-website" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.website')">
@@ -578,7 +578,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-company" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.company')">
@@ -592,7 +592,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-vatid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.vatid')">
@@ -624,7 +624,7 @@ $columnList = [
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $address = $item->getPaymentAddress() ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ?: $item->getCode() ) ?>">
+						<tr class="list-item <?= $this->site()->mismatch( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ?: $item->getCode() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
@@ -637,7 +637,7 @@ $columnList = [
 								<td class="customer-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.status', $fields ) ) : ?>
-								<td class="customer-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+								<td class="customer-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.code', $fields ) ) : ?>
 								<td class="customer-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
@@ -716,15 +716,15 @@ $columnList = [
 							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-copy fa" tabindex="1"
+								<a class="btn act-copy icon" tabindex="1"
 									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( $this->access( ['super', 'admin'] ) && !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-									<a class="btn act-delete fa" tabindex="1"
+									<a class="btn act-delete icon" tabindex="1"
 										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
-										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['id' => $id] + $params ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>

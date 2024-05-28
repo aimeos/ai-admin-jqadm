@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -465,10 +465,10 @@ class Standard
 
 		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		foreach( (array) $this->val( $data, 'config', [] ) as $cfg )
 		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
+			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 			}
 		}
 

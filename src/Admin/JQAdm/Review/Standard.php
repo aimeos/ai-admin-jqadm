@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2020-2023
+ * @copyright Aimeos (aimeos.org), 2020-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -202,8 +202,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'review' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'review.ctime' )] );
+			$search = $manager->filter()->order( 'review.ctime' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -460,7 +459,7 @@ class Standard
 				'review.status' => 1
 			] );
 
-			$rateManager = \Aimeos\MShop::create( $context, $domain );
+			$rateManager = \Aimeos\MShop::create( $context, $domain === 'product' ? 'index' : $domain );
 			$entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first( [] );
 
 			if( !empty( $cnt = current( $entry ) ) ) {

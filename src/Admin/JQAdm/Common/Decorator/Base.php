@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -127,17 +127,6 @@ abstract class Base
 	public function get() : ?string
 	{
 		return $this->client->get();
-	}
-
-
-	/**
-	 * Imports a resource
-	 *
-	 * @return string|null HTML output
-	 */
-	public function import() : ?string
-	{
-		return $this->client->import();
 	}
 
 

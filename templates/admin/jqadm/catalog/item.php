@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $selected = function( $key, $code ) {
@@ -116,7 +116,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 								</small>
 							</div>
 
-							<div class="more"></div>
+							<div class="icon more"></div>
 						</div>
 					</div>
 
@@ -124,9 +124,9 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 						<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-							<div class="box">
+							<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/catalog.siteid' ) ) ?>">
 								<div class="row">
-									<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>">
+									<div class="col-xl-6 block">
 										<div class="form-group row mandatory">
 											<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 											<div class="col-sm-8">
@@ -211,14 +211,14 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										</div>
 									</div><!--
 
-									--><div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>"
+									--><div class="col-xl-6 block vue"
 										data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 										<config-table
 											v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] ) ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
-											v-bind:readonly="data['catalog.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
-											v-bind:items="data['config']" v-on:change="data['config'] = $event"
+											v-bind:readonly="dataset['catalog.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
+											v-bind:items="dataset['config']" v-on:update:items="dataset['config'] = $event"
 											v-bind:i18n="{
 												value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 												option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
@@ -231,7 +231,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													<tr>
 														<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
 														<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
-														<th class="actions"><div class="btn act-add fa"></div></th>
+														<th class="actions"><div class="btn act-add icon"></div></th>
 													</tr>
 												</thead>
 											</table>

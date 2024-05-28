@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 
@@ -54,9 +54,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet \(internet\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee \(cafe\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu \(new\)&quot;/', $result );
 	}
 
 
@@ -77,9 +77,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet \(internet\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee \(cafe\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu \(new\)&quot;/', $result );
 	}
 
 
@@ -87,7 +87,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'category' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'default',
 				'catalog.id' => '-1',
 			]]
@@ -111,7 +110,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'category' => [[
-				'product.lists.id' => '',
 				'product.lists.type' => 'promotion',
 				'catalog.id' => '-1',
 			]]

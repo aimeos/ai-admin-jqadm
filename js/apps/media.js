@@ -14,25 +14,31 @@ $(function() {
 Aimeos.Media = {
 
 	init() {
-		Aimeos.components['media'] = new Vue({
-			el: document.querySelector('#item-media-group'),
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
-			},
-			mounted() {
-				this.Aimeos = Aimeos;
-				this.items = JSON.parse(this.$el.dataset.items || '{}');
-				this.siteid = this.$el.dataset.siteid;
-				this.domain = this.$el.dataset.domain;
+		const node = document.querySelector('#item-media-group');
 
-				if(this.items[0]) {
-					this.$set(this.items[0], '_show', true);
-				}
-			},
-			mixins: [this.mixins]
-		});
+		if(node) {
+			Aimeos.apps['media'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '[]'},
+					domain: {type: String, default: ''},
+					siteid: {type: String, default: ''},
+				},
+				data() {
+					return {
+						items: [],
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.items = JSON.parse(this.data);
+
+					if(this.items[0]) {
+						this.items[0]['_show'] = true;
+					}
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 	mixins: {
@@ -42,7 +48,7 @@ Aimeos.Media = {
 			},
 
 
-			add() {
+			add(data = {}) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -64,26 +70,13 @@ Aimeos.Media = {
 				entry['property'] = [];
 				entry['config'] = [];
 				entry['_show'] = true;
-				entry['_nosort'] = true;
 
-				this.items.push(entry);
+				this.items.push(Object.assign(entry, data));
 			},
 
 
 			can(action, idx) {
-				if(!this.items[idx][this.domain + '.lists.siteid']) {
-					return false;
-				}
-
-				if(action === 'delete') {
-					return (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
-				}
-
-				if(action === 'move') {
-					return this.items[idx][this.domain + '.lists.siteid'] === this.siteid  && !this.items[idx]['_nosort'];
-				}
-
-				return false;
+				return Aimeos.can(action, this.items[idx][this.domain + '.lists.siteid'] || null, this.siteid)
 			},
 
 
@@ -95,33 +88,33 @@ Aimeos.Media = {
 					this.add();
 				}
 
-				Vue.nextTick(function() {
+				this.$nextTick(function() {
 					for(let i = 0; i < len; i++) {
 						const dt = new DataTransfer();
 						const idx = self.items.length - len + i;
+						const item = self.items[idx];
 
 						dt.items.add(ev.target.files[i]);
-						self.$refs.file[idx].files = dt.files;
-						self.files(idx, dt.files);
+						item.file = dt.files;
+						self.files(item, dt.files);
 					}
 				});
 			},
 
 
-			files(idx, files) {
+			files(item, files) {
 
 				if(!files.length) {
 					return;
 				}
 
-				const self = this;
 				let cnt = sum = 0;
 
 				for(let i=0; i<files.length; i++) {
-					self.$set(self.items[idx], 'media.mimetype', files[i].type);
+					item['media.mimetype'] = files[i].type;
 
 					if(files[i].type.startsWith('image/')) {
-						self.$set(self.items[idx], 'media.preview', URL.createObjectURL(files[i]));
+						item['media.preview'] = URL.createObjectURL(files[i]);
 					} else if(files[i].type.startsWith('video/')) {
 						const video = document.createElement('video');
 
@@ -138,16 +131,15 @@ Aimeos.Media = {
 							canvas.height = video.videoHeight;
 
 							context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-							self.$set(self.items[idx], 'media.preview', canvas.toDataURL());
+							item['media.preview'] = canvas.toDataURL();
 
 							canvas.toBlob(function(blob) {
 								const container = new DataTransfer();
-								const preview = self.$refs.preview[idx];
 
 								container.items.add(new File([blob], files[i].name, {
 									type: 'image/png', lastModified: new Date().getTime()
 								}));
-								preview.files = container.files;
+								item.preview = container.files;
 							});
 						});
 
@@ -181,7 +173,7 @@ Aimeos.Media = {
 					}
 				}
 
-				this.$set(this.items[idx], 'media.label', files[0].name);
+				item['media.label'] = files[0].name;
 			},
 
 
@@ -207,7 +199,7 @@ Aimeos.Media = {
 
 			toggle(what, idx) {
 				if(this.items[idx]) {
-					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
 			}
 		}

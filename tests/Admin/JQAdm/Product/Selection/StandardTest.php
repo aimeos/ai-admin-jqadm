@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 
@@ -85,8 +85,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03_', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04_', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05_', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30 (length)&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32 (length)&quot;', $result );
 	}
 
 
@@ -103,8 +103,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04&quot;', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30 (length)&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32 (length)&quot;', $result );
 	}
 
 
@@ -117,7 +117,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'selection' => array(
 				array(
-					'product.lists.id' => '',
 					'product.id' => '',
 					'product.code' => 'testprod',
 					'product.label' => 'test product',
@@ -125,8 +124,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'stock.stocklevel' => 20,
 					'attr' => array(
 						array(
-							'product.lists.id' => '',
-							'product.lists.refid' => '789',
+							'attribute.id' => '789',
 							'attribute.label' => 'test attribute',
 						)
 					)

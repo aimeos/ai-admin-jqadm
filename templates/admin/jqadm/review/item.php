@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 $selected = function( $key, $code ) {
@@ -72,7 +72,7 @@ $enc = $this->encoder();
 					</small>
 				</div>
 
-				<div class="more"></div>
+				<div class="icon more"></div>
 			</div>
 		</div>
 
@@ -81,8 +81,8 @@ $enc = $this->encoder();
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
 				<div class="row">
-					<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?>">
-						<div class="box">
+					<div class="col-xl-6 block">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/review.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -150,14 +150,14 @@ $enc = $this->encoder();
 						</div>
 					</div>
 
-					<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?>">
-						<div class="box">
+					<div class="col-xl-6 block">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/review.siteid' ) ) ?>">
 							<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
 								<div class="form-group row">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ) ?></label>
 									<div class="col-sm-8">
 										<span class="form-control item-refid">
-											<a class="btn fa act-view" target="_blank"
+											<a class="btn icon act-view" target="_blank"
 												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()] ) ) ?>">
 												<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
 											</a>

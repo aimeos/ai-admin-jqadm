@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
 "Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -861,7 +861,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 msgid "Language ID"
 msgstr ""
@@ -963,6 +963,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr ""
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -982,6 +991,9 @@ msgid "Name"
 msgstr "Jméno"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1089,7 +1101,7 @@ msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "Možnost"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1426,6 +1438,9 @@ msgstr ""
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1634,6 +1649,9 @@ msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide details"
 msgstr ""
 
 msgid "Show/hide navigation labels"
@@ -1950,6 +1968,9 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2055,6 +2076,10 @@ msgstr "Fakturační adresa"
 #, php-format
 msgid "attribute"
 msgstr "Atributy"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

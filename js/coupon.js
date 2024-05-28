@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
@@ -8,130 +8,121 @@
 Aimeos.Coupon = {
 
 	init() {
+		const node = document.querySelector('.item-coupon #basic')
 
-		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
+		if(node) {
+			Aimeos.apps['coupon'] = Aimeos.app({
+				props: {
+					data: {type: String, default: '{}'},
+					siteid: {type: String, default: ''},
+					providers: {type: String, default: '[]'},
+					decorators: {type: String, default: '[]'},
+				},
+				data() {
+					return {
+						item: null,
+						cache: {},
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.item = JSON.parse(this.data);
+				},
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
+		}
 
 		Aimeos.Coupon.Code.init();
 	},
 
 
-	setupConfig() {
+	mixins: {
+		methods: {
+			can(action) {
+				return Aimeos.can(action, this.item['coupon.siteid'] || null, this.siteid)
+			},
 
-		const delegate = $(".aimeos .item-coupon .item-basic");
-		const input = $(".block:not(.readonly) input.item-provider", delegate);
 
-		if(input.length > 0 ) {
-			Aimeos.Config.setup('coupon/config', input.val(), delegate);
+			config(provider) {
+				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
 
-			delegate.on("change", "input.item-provider", function(ev) {
-				Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
-			});
+				return this.cache[provider] = Aimeos.query(`query {
+					getCouponConfig(provider: ` + JSON.stringify(provider) + `) {
+						code
+						label
+						type
+						default
+						required
+					}
+				}`).then(result => {
+					return (result?.getCouponConfig || []).map(entry => {
+						entry.default = JSON.parse(entry.default)
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
+
+
+			decorate(name) {
+				if(!(new String(this.item['coupon.provider'])).includes(name)) {
+					this.item['coupon.provider'] = this.item['coupon.provider'] + ',' + name
+				}
+			},
 		}
-	},
-
-
-	setupDecorator() {
-
-		$(".aimeos .item-coupon").on("click", ".block:not(.readonly) .provider .dropdown .decorator-name", function() {
-
-			var name = $(this).data("name");
-			var input = $(this).closest(".provider").find('input.item-provider');
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger('change');
-			}
-		});
-	},
-
-
-	setupProvider() {
-
-		$(".aimeos .item-coupon").on("focus click", ".block:not(.readonly) input.item-provider", function() {
-			const self = $(this);
-
-			self.autocomplete({
-				source: self.data("names").split(","),
-				select(ev, ui) {
-					self.val(ui.item.value);
-					self.trigger('change');
-				},
-				minLength: 0,
-				delay: 0
-			});
-
-			self.autocomplete("search", "");
-		});
 	}
 };
-
-
-
 
 
 
 Aimeos.Coupon.Code = {
 
 	init() {
-
-		const node = document.querySelector('.item-coupon .coupon-code-list');
+		const node = document.querySelector('.item-coupon .coupon-code-list')
 
 		if(node) {
-			Aimeos.components['coupon.code'] = new Vue({
-				'el': node,
+			Aimeos.apps['coupon'] = Aimeos.app({
 				'mixins': [Aimeos.Coupon.Code.mixins]
-			});
+			}, {...node.dataset || {}}).mount(node);
 		}
 
 		Aimeos.lazy('.item-coupon .coupon-code-list', function() {
-			Aimeos.components['coupon.code'] && Aimeos.components['coupon.code'].reset();
+			Aimeos.apps['coupon.code'] && Aimeos.apps['coupon.code'].reset();
 		});
 	},
 
 
 	mixins: {
-		'data'() {
+		props: {
+			parentid: {type: String, required: true},
+			siteid: {type: String, required: true},
+			fields: {type: String, required: true},
+		},
+		data() {
 			return {
-				'parentid': null,
-				'siteid': '',
-				'items': [],
-				'fields': [],
-				'filter': {},
-				'offset': 0,
-				'limit': 25,
-				'total': 0,
-				'order': '',
-				'colselect': false,
-				'checked': false,
-				'loading': true
+				items: [],
+				fieldlist: [],
+				filter: {},
+				offset: 0,
+				limit: 25,
+				total: 0,
+				order: '',
+				colselect: false,
+				checked: false,
+				loading: true
 			}
 		},
 
 
 		beforeMount() {
 			this.Aimeos = Aimeos;
-			try {
-				if(!this.$el.dataset) {
-					throw 'Missing "data" attributes';
-				}
-				if(!this.$el.dataset.siteid) {
-					throw 'Missing "data-siteid" attribute';
-				}
-				if(!this.$el.dataset.parentid) {
-					throw 'Missing "data-parentid" attribute';
-				}
+			this.order = 'coupon.code.id';
 
-				this.siteid = this.$el.dataset.siteid;
-				this.parentid = this.$el.dataset.parentid;
-				this.order = 'coupon.code.id';
+			const fieldkey = 'aimeos/jqadm/couponcode/fields';
+			this.fieldlist = this.columns(this.fields || [], fieldkey);
 
-				const fieldkey = 'aimeos/jqadm/couponcode/fields';
-				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
-			} catch(e) {
-				console.log( '[Aimeos] Init coupon code list failed: ' + e);
-			}
+			this.fetch();
 		},
 
 
@@ -139,17 +130,21 @@ Aimeos.Coupon.Code = {
 			add() {
 				const obj = {};
 
-				obj['coupon.code.id'] = null;
-				obj['coupon.code.siteid'] = this.siteid;
-				obj['coupon.code.code'] = '';
-				obj['coupon.code.count'] = 1;
-				obj['coupon.code.datestart'] = null;
-				obj['coupon.code.dateend'] = null;
-				obj['coupon.code.ref'] = null;
+				obj['id'] = null;
+				obj['siteid'] = this.siteid;
+				obj['code'] = '';
+				obj['count'] = 1;
+				obj['datestart'] = null;
+				obj['dateend'] = null;
+				obj['ref'] = null;
 				obj['edit'] = true;
 
 				this.items.unshift(obj);
-				return this;
+			},
+
+
+			can(action, idx) {
+				return Aimeos.can(action, this.items[idx]['siteid'] || null, this.siteid)
 			},
 
 
@@ -163,7 +158,7 @@ Aimeos.Coupon.Code = {
 						list = JSON.parse(json);
 					}
 				} catch(e) {
-					console.log('[Aimeos] Failed to get list of columns: ' + e);
+					console.error('[Aimeos] Failed to get list of columns: ' + e);
 				}
 				return list;
 			},
@@ -174,51 +169,10 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			delete(resource, id, callback) {
-
-				const self = this;
-				self.waiting(true);
-
-				Aimeos.options.done(function(response) {
-
-					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
-
-						let params = {};
-
-						if(response.meta.prefix && response.meta.prefix) {
-							params[response.meta.prefix] = {'id': id};
-						} else {
-							params = {'id': id};
-						}
-
-						if(response.meta.csrf) {
-							params[response.meta.csrf.name] = response.meta.csrf.value;
-						}
-
-						let url = new URL(response.meta.resources[resource]);
-						url.search = url.search ? url.search + '&' + window.param(params) : '?' + window.param(params);
-
-						fetch(url, {
-							method: "DELETE"
-						}).then(function(response) {
-							return response.json();
-						}).then(function() {
-							callback ? callback(response.data) : null;
-						}).finally(function() {
-							self.waiting(false);
-						});
-					}
-				});
-
-				return this;
-			},
-
-
 			edit(idx) {
-				if(this.siteid === this.items[idx]['coupon.code.siteid']) {
-					this.$set(this.items[idx], 'edit', true);
+				if(this.can('change', idx)) {
+					this.items[idx]['edit'] = true;
 				}
-				return this;
 			},
 
 
@@ -228,9 +182,9 @@ Aimeos.Coupon.Code = {
 					const expr = {};
 					expr[op || '=='] = {};
 					expr[op || '==']['coupon.code.' + key] = value;
-					this.$set(this.filter, 'coupon.code.' + key, expr);
+					this.filter['coupon.code.' + key] = expr;
 				} else {
-					this.$delete(this.filter, 'coupon.code.' + key);
+					delete this.filter['coupon.code.' + key];
 				}
 
 				return this;
@@ -238,117 +192,65 @@ Aimeos.Coupon.Code = {
 
 
 			fetch() {
-				const self = this;
-				const args = {
-					'filter': {'&&': []},
-					'fields': {},
-					'page': {'offset': self.offset, 'limit': self.limit},
-					'sort': self.order
-				};
+				const filter = {'&&': Object.values(this.filter)};
+				this.loading = true;
 
-				for(let key in self.filter) {
-					args['filter']['&&'].push(self.filter[key]);
-				}
-
-				this.get('coupon/code', args, function(data) {
-					self.total = data.total || 0;
-					self.items = data.items || [];
-				});
-
-				return this;
-			},
-
-
-			get(resource, args, callback) {
-
-				const self = this;
-				self.waiting(true);
-
-				Aimeos.options.done(function(response) {
-
-					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
-
-						if(args.fields) {
-							const include = [];
-							for(let key in args.fields) {
-								args.fields[key] = args.fields[key].join(',');
-								include.push(key);
-							}
-							args['include'] = include.join(',');
+				return Aimeos.query(`query {
+					searchCouponCodes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ` + JSON.stringify([this.order]) + `, offset: ` + this.offset + `, limit: ` + this.limit + `) {
+						items {
+							id
+							siteid
+							parentid
+							code
+							count
+							dateend
+							datestart
+							ref
+							mtime
+							ctime
+							editor
 						}
-
-						const config = {
-							'paramsSerializer': (params) => {
-								return jQuery.param(params); // workaround, Axios and QS fail on [==]
-							},
-							'params': {}
-						};
-
-						if(response.meta.prefix && response.meta.prefix) {
-							config['params'][response.meta.prefix] = args;
-						} else {
-							config['params'] = args;
-						}
-
-						axios.get(response.meta.resources[resource], config).then(function(response) {
-							const list = [];
-							const included = {};
-
-							(response.data.included || []).forEach(function(entry) {
-								if(!included[entry.type]) {
-									included[entry.type] = {};
-								}
-								included[entry.type][entry.id] = entry;
-							});
-
-							(response.data.data || []).forEach(function(entry) {
-								for(let type in (entry.relationships || {})) {
-									const relitem = entry.relationships[type]['data'] && entry.relationships[type]['data'][0] || null;
-									if(relitem && relitem['id'] && included[type][relitem['id']]) {
-										Object.assign(entry['attributes'], included[type][relitem['id']]['attributes'] || {});
-									}
-								}
-								list.push(entry.attributes || {});
-							});
-
-							callback({
-								total: response.data.meta ? response.data.meta.total || 0 : 0,
-								items: list
-							});
-
-						}).then(function() {
-							self.waiting(false);
-						});
+						total
 					}
+				  }
+				`).then((result) => {
+					this.total = result?.searchCouponCodes?.total || 0;
+					this.items = result?.searchCouponCodes?.items || [];
+					this.loading = false;
 				});
-
-				return this;
 			},
 
 
 			remove(idx) {
-				const self = this;
+				const map = {};
+
+				this.loading = true;
 				this.checked = false;
 
 				if(idx !== undefined) {
-					this.delete('coupon/code', this.items[idx]['coupon.code.id'], () => self.waiting(false));
-					return this.items.splice(idx, 1);
+					map[this.items[idx]['id']] = idx;
+				} else {
+					for(const pos in this.items) {
+						if(this.items[pos].checked) {
+							map[this.items[pos]['id']] = pos;
+						}
+					}
 				}
 
-				this.items = this.items.filter(function(item) {
-					if(item.checked) {
-						self.delete('coupon/code', item['coupon.code.id']);
+				return Aimeos.query(`mutation {
+					deleteCouponCodes(id: ` + JSON.stringify(Object.keys(map)) + `)
+				  }
+				`).then((result) => {
+					for(const id of (result?.deleteCouponCodes || [])) {
+						this.items.splice(map[id], 1)
 					}
-					return !item.checked;
+					this.loading = false;
 				});
-
-				this.waiting(false);
-				return this;
 			},
 
 
 			reset() {
-				Object.assign(this.$data, {filter: {'base': {'==': {'coupon.code.parentid': this.parentid}}}});
+				this.filter = {'base': {'==': {'coupon.code.parentid': this.parentid}}};
 				return this.fetch();
 			},
 
@@ -365,12 +267,12 @@ Aimeos.Coupon.Code = {
 
 
 			toggle(fields) {
-				this.fields = fields;
+				this.fieldlist = fields;
 
 				if(window.sessionStorage) {
 					window.sessionStorage.setItem(
 						'aimeos/jqadm/couponcode/fields',
-						JSON.stringify(this.fields)
+						JSON.stringify(this.fieldlist)
 					);
 				}
 
@@ -381,12 +283,6 @@ Aimeos.Coupon.Code = {
 			value(key) {
 				const op = Object.keys(this.filter['coupon.code.' + key] || {}).pop();
 				return this.filter['coupon.code.' + key] && this.filter['coupon.code.' + key][op]['coupon.code.' + key] || '';
-			},
-
-
-			waiting(val) {
-				this.loading = val;
-				return this;
 			}
 		},
 
@@ -394,7 +290,7 @@ Aimeos.Coupon.Code = {
 		watch: {
 			checked() {
 				for(let item of this.items) {
-					this.$set(item, 'checked', this.checked);
+					item['checked'] = this.checked;
 				}
 			},
 
@@ -414,6 +310,5 @@ Aimeos.Coupon.Code = {
 
 
 $(function() {
-
 	Aimeos.Coupon.init();
 });

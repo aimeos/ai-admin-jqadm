@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -49,16 +49,15 @@ class Standard
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 		$search = $priceTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.type.domain', 'product' ) );
-		$search->setSortations( array( $search->sort( '+', 'price.type.position' ) ) );
+		$search->add( 'price.type.domain', '==', 'product' )->order( 'price.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'price' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'product.lists.type.position' ) ) );
+		$listSearch->add( 'product.lists.type.domain', '==', 'price' )->order( 'product.lists.type.code' );
 
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );
 		$view->priceCurrencies = $currencyManager->search( $currencyManager->filter( true )->slice( 0, 10000 ) );
+		$view->priceCustomItem = $this->getAttributeItem();
 
 		if( $view->priceCurrencies->isEmpty() )
 		{
@@ -278,6 +277,23 @@ class Standard
 
 
 	/**
+	 * Returns the custom price attribute item
+	 *
+	 * @return \Aimeos\MShop\Attribute\Item\Iface Custom price attribute item
+	 */
+	protected function getAttributeItem() : \Aimeos\MShop\Attribute\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
+
+		try {
+			return $manager->find( 'custom', [], 'product', 'price' );
+		} catch( \Aimeos\MShop\Exception $e ) {
+			return $manager->save( $manager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' ) );
+		}
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -350,8 +366,8 @@ class Standard
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 				}
 			}
 
@@ -431,24 +447,13 @@ class Standard
 	 */
 	protected function setCustom( \Aimeos\MShop\Product\Item\Iface $item, $value ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->context();
-
-		try
-		{
-			$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
-			$attrItem = $attrManager->find( 'custom', [], 'product', 'price' );
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$attrItem = $attrManager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
-			$attrItem = $attrManager->save( $attrItem );
-		}
+		$attrItem = $this->getAttributeItem();
 
 		if( $value )
 		{
 			if( $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) === null )
 			{
-				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListItem();
+				$listItem = \Aimeos\MShop::create( $this->context(), 'product' )->createListItem();
 				$item = $item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
 			}
 		}

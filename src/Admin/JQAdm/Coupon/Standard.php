@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -389,7 +389,7 @@ class Standard
 	 * Returns the backend configuration attributes of the provider and decorators
 	 *
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item incl. provider/decorator property
-	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 * @return \Aimeos\Base\Critera\Attribute\Iface[] List of configuration attributes
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Coupon\Item\Iface $item ) : array
 	{
@@ -454,23 +454,6 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Coupon\Item\Iface
 	{
-		$conf = [];
-
-		if( isset( $data['config']['key'] ) )
-		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
-				{
-					if( ( $val = json_decode( $data['config']['val'][$idx], true ) ) === null ) {
-						$conf[$key] = $data['config']['val'][$idx];
-					} else {
-						$conf[$key] = $val;
-					}
-				}
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 
 		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
@@ -479,11 +462,19 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item = $item->fromArray( $data, true )->setConfig( $conf );
+		$item = $item->fromArray( $data, true );
+		$conf = [];
+
+		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
+				$conf[$key] = json_decode( $val, true ) ?? $val;
+			}
+		}
 
 		$this->notify( $manager->getProvider( $item, '' )->checkConfigBE( $conf ) );
 
-		return $item;
+		return $item->setConfig( $conf );
 	}
 
 
@@ -495,22 +486,23 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, bool $copy = false ) : array
 	{
-		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
+
+		$config = $item->getConfig();
+		ksort( $config );
+		$idx = 0;
+
+		foreach( $config as $key => $value )
+		{
+			$data['config'][$idx]['key'] = $key;
+			$data['config'][$idx++]['val'] = $value;
+		}
 
 		if( $copy === true )
 		{
 			$data['coupon.siteid'] = $this->context()->locale()->getSiteId();
 			$data['coupon.id'] = '';
-		}
-
-		ksort( $config );
-
-		foreach( $config as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
 		}
 
 		return $data;

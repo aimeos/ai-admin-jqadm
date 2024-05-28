@@ -1,15 +1,14 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
-
-Vue.component('site-tree-items', {
+Aimeos.components['site-tree-items'] = {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
 			<li v-for="(item, id) in items" v-bind:key="id" v-bind:class="{active: current == id}">
-				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)"
-					v-bind:class="'status-' + item['locale.site.status']">
+				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)">
+					<i v-bind:class="'status-' + item['locale.site.status']"></i>
 					<span class="name">{{ item['locale.site.label'] }}</span>
 				</a><!--
 				--><span v-if="isTogglable(item)"
@@ -21,7 +20,6 @@ Vue.component('site-tree-items', {
 					}">
 				</span>
 				<site-tree-items v-if="isAvailable(item) && item.isOpen"
-					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
 					v-bind:promise="promise"
@@ -30,12 +28,15 @@ Vue.component('site-tree-items', {
 					v-bind:filter="filter"
 					v-bind:parent="id"
 					v-bind:tree="tree"
-					v-bind:url="url">
+					v-bind:url="url"
+					v-bind="$attrs">
 				</site-tree-items>
 			</li>
 			<li v-if="more()" class="more" v-on:click="next()"></li>
 		</ul>
 	`,
+
+	emits: ['loading', 'select'],
 
 	props: {
 		url: {type: String, required: true},
@@ -89,13 +90,14 @@ Vue.component('site-tree-items', {
 			const self = this;
 			self.$emit('loading', true);
 
-			this.promise.done(function(response) {
+			this.promise.then(function(response) {
 				const param = {filter: {'==': {'locale.site.parentid': self.parent}}};
 
 				if(self.filter) {
 					param['filter'] = {'&&': [
 						param['filter'],
 						{'||': [
+							{'=~': {'locale.site.siteid': self.filter}},
 							{'=~': {'locale.site.code': self.filter}},
 							{'=~': {'locale.site.label': self.filter}}
 						]}
@@ -106,30 +108,26 @@ Vue.component('site-tree-items', {
 				param['page'] = {'offset': self.offset, 'limit': self.limit};
 				param['sort'] = 'locale.site.position';
 
-				const config = {
-					'paramsSerializer': (params) => {
-						return jQuery.param(params); // workaround, Axios and QS fail on [==]
-					},
-					'params': {}
-				};
+				let params = {};
+				let url = response.meta.resources['locale/site'] + (response.meta.resources['locale/site'].includes('?') ? '&' : '?');
 
 				if(response.meta.prefix && response.meta.prefix) {
-					config['params'][response.meta.prefix] = param;
+					params[response.meta.prefix] = param;
 				} else {
-					config['params'] = param;
+					params = param;
 				}
 
-				axios.get(response.meta.resources['locale/site'], config).then(response => {
-					if(!response.data || !response.data.data) {
-						console.error( '[Aimeos] Invalid response for locale/site resource:', response );
-						return;
+				fetch(url + serialize(params)).then(function(response) {
+					if(!response.ok) {
+						throw new Error(response.statusText);
+					}
+					return response.json();
+				}).then(function(response) {
+					for(const entry of (response.data || [])) {
+						self.items[entry['id']] = entry['attributes'];
 					}
 
-					for(const entry of (response.data.data || [])) {
-						self.$set(self.items, entry['id'], entry['attributes']);
-					}
-
-					self.total = response.data.meta && response.data.meta.total || 0;
+					self.total = response.meta && response.meta.total || 0;
 
 				}).then(function() {
 					self.$emit('loading', false);
@@ -142,11 +140,11 @@ Vue.component('site-tree-items', {
 		},
 
 		isTogglable(item) {
-			return this.tree && !this.filter && (item['locale.site.hasChildren'] || Object.keys(item.children || {}).length);
+			return this.tree && (item['locale.site.hasChildren'] || Object.keys(item.children || {}).length);
 		},
 
 		loading(id, val) {
-			this.$set(this.items[id], 'isLoading', val);
+			this.items[id]['isLoading'] = val;
 		},
 
 		more() {
@@ -161,22 +159,28 @@ Vue.component('site-tree-items', {
 		},
 
 		toggle(id) {
-			this.$set(this.items[id], 'isOpen', !this.items[id].isOpen);
+			this.items[id]['isOpen'] = !this.items[id].isOpen;
 		}
 	},
 
 	watch: {
-		initial(items) {
-			if(Object.keys(this.initial).length) {
-				this.items = items;
+		initial: {
+			deep: true,
+			handler: function(items) {
+				if(Object.keys(this.initial).length) {
+					this.items = items;
+				}
 			}
 		},
 
-		filter(val) {
-			if(val && this.level === 0) {
-				this.items = {};
-				this.fetch();
+		filter: {
+			deep: true,
+			handler: function(val) {
+				if(val && this.level === 0) {
+					this.items = {};
+					this.fetch();
+				}
 			}
 		}
 	}
-});
+};

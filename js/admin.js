@@ -1,14 +1,14 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  */
 
 /* Check for preferred theme mode (dark/light) */
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-const setLight = document.cookie.includes('aimeos_backend_theme=light');
+const isLight = document.cookie.includes('aimeos_backend_theme=light');
 
 //Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
-if (prefersDark.matches && !setLight){
+if (prefersDark.matches && !isLight){
 	document.body.classList.remove('light');
 	document.body.classList.add('dark')
 }
@@ -18,7 +18,7 @@ document.querySelectorAll(".btn-theme").forEach(item => {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
 		const cookieName = "aimeos_backend_theme"
 		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		const expires = "expires=" + (new Date()).setTime(d.getTime() + (7*84600000)).toUTCString(); // 7 days (Safari does not allow for more)
+		const expires = "expires=" + (new Date((new Date()).getTime() + (7*84600000))).toUTCString(); // 7 days (Safari does not allow for more)
 		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
 	});
 });
@@ -27,8 +27,10 @@ document.querySelectorAll(".btn-theme").forEach(item => {
 
 Aimeos = {
 
+	siteid: null,
 	options: null,
 	components: {},
+	apps: {},
 
 	ckeditor: {
 		htmlSupport: {
@@ -57,6 +59,7 @@ Aimeos = {
 
 	flatpickr : {
 		datetimerange: {
+			allowInput: true,
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
@@ -67,26 +70,28 @@ Aimeos = {
 			plugins: [new confirmDatePlugin({})],
 			position: 'below',
 			time_24hr: true,
-			wrap: false
+			wrap: true
 		},
 		datetime: {
 			// altFormat: 'M j, Y H:i K',
+			allowInput: true,
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
 			plugins: [new confirmDatePlugin({})],
 			position: 'below',
 			time_24hr: true,
-			wrap: false
+			wrap: true
 		},
 		daterange: {
+			allowInput: true,
 			defaultDate: null,
 			locale: {
 				rangeSeparator: ' - '
 			},
 			mode: "range",
 			position: 'below',
-			wrap: false,
+			wrap: true,
 			dateFormat: "Y-m-d H:i:S",
 			onChange: function (selectedDates, datestr) {
 				if( typeof selectedDates[1] !== 'undefined' ) {
@@ -99,164 +104,47 @@ Aimeos = {
 		},
 		date: {
 			// altFormat: 'M j, Y',
+			allowInput: true,
 			defaultDate: null,
 			position: 'below',
-			wrap: false
+			wrap: true
 		},
 		time: {
+			allowInput: true,
 			defaultHour: 0,
 			enableTime: true,
 			time_24hr: true,
 			position: 'below',
-			wrap: false
+			wrap: true
 		}
 	},
 
-	addClone(node, getfcn, selectfn, after) {
 
-		var clone = node.clone().removeClass("prototype");
-		var combo = $(".combobox-prototype", clone);
+	app(config = {}, props = {}) {
+		const app = createApp(config, props);
 
-		combo.combobox({getfcn: getfcn, select: selectfn});
-		combo.removeClass("combobox-prototype");
-		combo.addClass("combobox");
+		app.use(CKEditor);
+		app.component('flat-pickr', Flatpickr);
+		app.component('multiselect', Multiselect);
+		app.component('draggable', Draggable);
+		app.component('l-map', LMap);
+		app.component('l-marker', LMarker);
+		app.component('l-tile-layer', LTileLayer);
 
-		$("[disabled='disabled']", clone).prop("disabled", false);
-
-		if(typeof Modernizr != 'undefined') {
-			if(!Modernizr.inputtypes['datetime-local']) {
-				$("input[type='datetime-local']", clone).each(function(idx, elem) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				});
-			}
-
-			if(!Modernizr.inputtypes['date']) {
-				$("input[type='date']", clone).each(function(idx, elem) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				});
-			}
+		for(const key in Aimeos.components) {
+			app.component(key, Aimeos.components[key]);
 		}
 
-		if(after) {
-			clone.insertAfter(node);
-		} else {
-			clone.insertBefore(node);
+		return app;
+	},
+
+
+	can(action, siteid, siteID) {
+		if(action === 'match') {
+			return siteid == siteID;
 		}
 
-		return clone;
-	},
-
-
-	focusBefore(node) {
-
-		var elem = $(":focus", node);
-		var elements = $(".aimeos [tabindex=" + elem.attr("tabindex") + "]:visible");
-		var idx = elements.index(elem) - $("[tabindex=" + elem.attr("tabindex") + "]:visible", node).length;
-
-		if(idx > -1) {
-			elements[idx].focus();
-		}
-
-		return node;
-	},
-
-
-	getOptions(request, response, element, domain, key, sort, criteria, labelFcn) {
-
-		Aimeos.options.done(function(data) {
-
-			let field = {}, list = {}, params = {}, param = {};
-			let compare = {'||': []};
-
-			for(entry of Array.isArray(key) ? key : [key]) {
-				let term = {};
-				term[entry] = request.term;
-				compare['||'].push({'=~': term});
-			}
-
-			param['filter'] = criteria ? {'&&': [compare, criteria]} : compare;
-			param['fields'] = field;
-			param['sort'] = sort;
-
-			if( data.meta && data.meta.prefix ) {
-				params[data.meta.prefix] = param;
-			} else {
-				params = param;
-			}
-
-			$.ajax({
-				dataType: "json",
-				url: data.meta.resources[domain] || null,
-				data: params,
-				success: (result) => {
-					var list = result.data || [];
-
-					if(!labelFcn) {
-						labelFcn = function(attr) {
-							return attr[key] || null;
-						}
-					}
-
-					$("option", element).remove();
-
-					response( list.map(function(obj) {
-
-						var opt = $("<option/>");
-
-						opt.attr("value", obj.id);
-						opt.text(labelFcn(obj.attributes));
-						opt.appendTo(element);
-
-						return {
-							label: labelFcn(obj.attributes),
-							value: obj.id,
-							option: opt
-						};
-					}));
-				}
-			});
-		});
-	},
-
-
-	getOptionsAttributes(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria, labelFcn);
-	},
-
-
-	getOptionsCategories(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', criteria, labelFcn);
-	},
-
-
-	getOptionsCustomers(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'customer', 'customer.code', 'customer.code', criteria, labelFcn);
-	},
-
-
-	getOptionsCurrencies(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'locale/currency', 'locale.currency.id', '-locale.currency.status,locale.currency.id', criteria, labelFcn);
-	},
-
-
-	getOptionsLanguages(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'locale/language', 'locale.language.id', '-locale.language.status,locale.language.id', criteria, labelFcn);
-	},
-
-
-	getOptionsSites(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'locale/site', 'locale.site.label', '-locale.site.status,locale.site.label', criteria, labelFcn);
-	},
-
-
-	getOptionsProducts(request, response, element, criteria, labelFcn) {
-		Aimeos.getOptions(request, response, element, 'product', ['product.label', 'product.code'], 'product.label', criteria, labelFcn);
+		return (new String(siteid)).startsWith(siteID);
 	},
 
 
@@ -283,345 +171,70 @@ Aimeos = {
 	},
 
 
-	vue(node) {
-		return new Vue({
-			el: node,
+	query(gql) {
+		return fetch($('.aimeos').data('graphql'), {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: { // Laravel only
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
+			},
+			body: JSON.stringify({'query': gql})
+		}).then(response => {
+			if(!response.ok) {
+				console.error(response)
+				throw new Error(response.statusText)
+			}
+			return response.json();
+		}).then(result => {
+			if(result.errors) {
+				console.error(result)
+				throw new Error('GraphQL query failed')
+			}
+			return result?.data
+		})
+	},
+
+
+	vue(props = {}) {
+		return this.app({
+			props: {
+				data: {type: String, default: '[]'},
+				siteid: {type: String, default: ''},
+				domain: {type: String, default: ''},
+			},
 			data() {
 				return {
-					data: null
+					dataset: []
+				}
+			},
+			computed: {
+				prefix() {
+					return this.domain ? this.domain.replace(/\//g, '.') + '.' : '';
 				}
 			},
 			beforeMount() {
-				this.Aimeos = Aimeos;
-				if(this.$el.dataset && this.$el.dataset.data) {
-					this.data = JSON.parse(this.$el.dataset.data);
-				}
+				this.Aimeos = Aimeos
+				this.dataset = JSON.parse(this.data)
 			},
 			methods: {
-				add(data) {
-					this.$refs[key].add(data);
+				add: function(data) {
+					data[this.prefix + 'siteid'] = this.siteid
+					this.dataset.push(data)
 				},
-				remove(idx) {
-					this.$refs[key].remove(idx);
-				}
-			},
-			provide() {
-				return {
-					Aimeos: Aimeos
-				};
+
+				can(action) {
+					return Aimeos.can(action, this.dataset[this.prefix + 'siteid'] || '', this.siteid)
+				},
+
+				remove: function(idx) {
+					this.dataset.splice(idx, 1);
+				},
+
+				set(data) {
+					this.dataset = data
+				},
 			}
-		});
-	}
-};
-
-
-
-Aimeos.Config = {
-
-	init() {
-
-		this.addConfigLine();
-		this.deleteConfigLine();
-		this.configComplete();
-
-		this.addConfigMapLine();
-		this.deleteConfigMapLine();
-		this.hideConfigMap();
-		this.showConfigMap();
-
-		this.addConfigListLine();
-		this.deleteConfigListLine();
-		this.hideConfigList();
-		this.showConfigList();
-	},
-
-
-	setup(resource, provider, target, type) {
-
-		if(!provider) {
-			return;
-		}
-
-		Aimeos.options.done(function(data) {
-
-			if(!data.meta || !data.meta.resources || !data.meta.resources[resource]) {
-				return;
-			}
-
-			var params = {}, param = {id: provider};
-
-			if(type) {
-				param["type"] = type;
-			}
-
-			if(data.meta && data.meta.prefix) {
-				params[data.meta.prefix] = param;
-			} else {
-				params = param;
-			}
-
-			$.ajax({
-				url: data.meta.resources[resource],
-				dataType: "json",
-				data: params
-			}).done(function(result) {
-
-				$(result.data).each(function(idx, entry) {
-					var nodes = $("table.item-config input.config-key", target);
-					var node = null;
-					var value = '';
-
-					nodes.each(function() {
-						if($(this).val() === entry.id) {
-							node = $(this);
-						}
-					})
-
-					if(node) {
-						var el = $("table.item-config .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
-						var row = node.closest(".config-item");
-						var valnode = $(".config-value", row);
-						value = valnode.val();
-
-						$("> [disabled='disabled']", el).prop("disabled", false);
-						$("> input", el).val(value);
-						el.prop("disabled", false);
-						el.val(value);
-						valnode.remove();
-
-						$(".help-text", row).text(entry.attributes.label);
-						$(".config-row-value", row).append(el);
-					} else {
-						var row = Aimeos.addClone($("table.item-config .config-item.prototype", target));
-
-						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
-						$(".config-row-key .help-text", row).text(entry.attributes.label);
-						$(".config-value", row).val(entry.attributes.default);
-						$(".config-key", row).val(entry.id);
-					}
-
-					if(entry.attributes.type === 'select') {
-						$.each(entry.attributes.default, function(idx, label) {
-							var opt = $('<option/>');
-							opt.text(label);
-							if(value === label) {
-								opt.prop('selected', true);
-							}
-							$(".config-value", row).append(opt);
-						});
-					}
-
-					if(!entry.attributes.required) {
-						$(".config-value", row).prop("required", false);
-						row.removeClass("mandatory");
-					} else {
-						$(".config-value", row).prop("required", true);
-						row.addClass("mandatory");
-					}
-				});
-			});
-		});
-	},
-
-
-	addConfigLine() {
-
-		$(".aimeos .item .tab-pane").on("click", ".item-config .actions .act-add", function(ev) {
-
-			var node = $(this).closest(".item-config");
-			var clone = Aimeos.addClone($(".prototype", node));
-			var types = $(".config-type", clone);
-
-			var count = $(".group-item:not(.prototype)", $(this).closest(".tab-pane")).length;
-
-			if(count === 0) {
-				count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
-			} else {
-				count -= 1; // minus already added block
-			}
-
-			if(types.length > 0 ) {
-				$(".config-type:not(.config-type-string)", clone).remove();
-			}
-
-			$("input", clone).each(function() {
-				$(this).attr("name", $(this).attr("name").replace("idx", count));
-			});
-
-			$(".config-key", clone).autocomplete({
-				source: node.data("keys") || [],
-				minLength: 0,
-				delay: 0
-			});
-		});
-	},
-
-
-	deleteConfigLine() {
-
-		$(".aimeos .item .tab-pane").on("click", ".item-config .config-item .actions .act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	configComplete() {
-
-		var node = $(".aimeos .item-config");
-		$(".config-item .config-key", node).autocomplete({
-			source: node.data("keys") || [],
-			minLength: 0,
-			delay: 0
-		});
-
-		$(".aimeos .item").on("click", " .config-key", function(ev) {
-			$(this).autocomplete("search", "");
-		});
-	},
-
-
-	addConfigListLine() {
-
-		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-add", function(ev) {
-
-			var node = $(this).closest(".config-list-table");
-			var clone = Aimeos.addClone($(".prototype-list", node));
-
-			clone.removeClass("prototype-list");
-			$(".act-delete", clone).focus();
-
-			return false;
-		});
-	},
-
-
-	addConfigMapLine() {
-
-		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
-
-			var node = $(this).closest(".config-map-table");
-			var clone = Aimeos.addClone($(".prototype-map", node));
-
-			clone.removeClass("prototype-map");
-			$(".act-delete", clone).focus();
-
-			return false;
-		});
-	},
-
-
-	deleteConfigListLine() {
-
-		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	deleteConfigMapLine() {
-
-		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	hideConfigList() {
-
-		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-update", function(ev) {
-
-			var obj = [];
-			var table = $(this).closest(".config-list-table");
-			var lines = $(".config-list-row:not(.prototype-list)", table)
-
-			lines.each(function() {
-				obj.push($("input.config-list-value", this).val());
-			});
-
-			$(".config-value", table.parent()).val(JSON.stringify(obj));
-
-			table.hide();
-			lines.remove();
-
-			return false;
-		});
-	},
-
-
-	hideConfigMap() {
-
-		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-update", function(ev) {
-
-			var obj = {};
-			var table = $(this).closest(".config-map-table");
-			var lines = $(".config-map-row:not(.prototype-map)", table)
-
-			lines.each(function() {
-				obj[ $("input.config-map-key", this).val() ] = $("input.config-map-value", this).val();
-			});
-
-			$(".config-value", table.parent()).val(JSON.stringify(obj));
-
-			table.hide();
-			lines.remove();
-
-			return false;
-		});
-	},
-
-
-	showConfigList() {
-
-		$(".aimeos .item-config").on("focus", ".config-value", function() {
-
-			var table = $(".config-list-table", $(this).parent());
-
-			if(table.is(":visible")) {
-				return false;
-			}
-
-			try {
-				var obj = JSON.parse($(this).val())
-			} catch(e) {
-				var obj = [];
-			}
-
-			for(var val of obj) {
-				var clone = Aimeos.addClone($(".prototype-list", table));
-				$(".config-list-value", clone).val(val);
-				clone.removeClass("prototype-list");
-			}
-
-			table.show();
-		});
-	},
-
-
-	showConfigMap() {
-
-		$(".aimeos .item-config").on("focus", ".config-value", function() {
-
-			var table = $(".config-map-table", $(this).parent());
-
-			if(table.is(":visible")) {
-				return false;
-			}
-
-			try {
-				var obj = JSON.parse($(this).val())
-			} catch(e) {
-				var obj = {};
-			}
-
-			for(var key in obj) {
-				var clone = Aimeos.addClone($(".prototype-map", table));
-				$(".config-map-value", clone).val(obj[key]);
-				$(".config-map-key", clone).val(key);
-				clone.removeClass("prototype-map");
-			}
-
-			table.show();
-		});
+		}, props);
 	}
 };
 
@@ -680,7 +293,7 @@ Aimeos.Form = {
 			$(".item-header", this).removeClass("is-invalid");
 			$(".item-navbar .nav-link", this).removeClass("is-invalid");
 
-			$("input,select", this).each(function(idx, element) {
+			$("input,select,textarea", this).each(function(idx, element) {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
@@ -789,53 +402,51 @@ Aimeos.List = {
 
 
 	init() {
+		const node = document.querySelector(".list-view");
 
-		let node = document.querySelector(".list-view");
 		if(node) {
-			this.instance = new Vue({el: node, mixins: [this.mixins]});
+			this.instance = Aimeos.app({
+				mixins: [this.mixins]
+			}, {...node.dataset || {}}).mount(node);
 		}
 	},
 
 
 	mixins : {
+		props: {
+			items: {type: String, default: '{}'},
+			filter: {type: String, default: '{}'},
+			domain: {type: String, default: ''},
+			siteid: {type: String, default: ''},
+		},
 		data() {
 			return {
 				all: false,
 				batch: false,
 				columns: false,
 				dialog: false,
-				items: {},
-				filter: {},
-				domain: null,
+				entries: {},
+				filters: {},
 				search: false,
-				siteid: null,
 				states: {}
 			}
 		},
 		beforeMount() {
 			this.Aimeos = Aimeos;
-
-			if(this.$el.dataset) {
-				if(this.$el.dataset.items) {
-					this.items = JSON.parse(this.$el.dataset.items);
-				}
-				if(this.$el.dataset.filter) {
-					this.filter = JSON.parse(this.$el.dataset.filter);
-				}
-				if(this.$el.dataset.domain) {
-					this.domain = this.$el.dataset.domain.replace(/\//g, '.');
-				}
-				if(this.$el.dataset.siteid) {
-					this.siteid = this.$el.dataset.siteid;
-				}
-			}
+			this.entries = JSON.parse(this.items);
+			this.filters = JSON.parse(this.filter);
+			this.filters['val'] = this.filters['val'] || {}
 		},
 		computed: {
+			prefix() {
+				return this.domain.replace(/\//g, '.') + '.'
+			},
+
 			selected() {
 				let count = 0;
 
-				for(const key in this.items) {
-					if(this.items[key].checked) {
+				for(const key in this.entries) {
+					if(this.entries[key].checked) {
 						count++;
 					}
 				}
@@ -845,10 +456,9 @@ Aimeos.List = {
 
 			unconfirmed() {
 				let list = {};
-
-				for(const key in this.items) {
-					if(this.items[key].checked) {
-						list[key] = this.items[key][this.domain + '.label'] || this.items[key][this.domain + '.code'];
+				for(const key in this.entries) {
+					if(this.entries[key].checked) {
+						list[key] = this.entries[key][this.prefix + 'label'] || this.entries[key][this.prefix + 'code'] || this.entries[key][this.prefix + 'id'];
 					}
 				}
 
@@ -859,7 +469,7 @@ Aimeos.List = {
 			askDelete(id, ev) {
 				if(id) {
 					this.clear(false);
-					this.$set(this.items[id], 'checked', true);
+					this.entries[id]['checked'] = true;
 				}
 
 				this.deleteUrl = ev.target.href;
@@ -867,7 +477,7 @@ Aimeos.List = {
 			},
 
 			checked(id) {
-				return this.items[id] && this.items[id].checked;
+				return this.entries[id] && this.entries[id].checked;
 			},
 
 			confirmDelete(val) {
@@ -889,28 +499,23 @@ Aimeos.List = {
 
 			clear(val) {
 				this.all = val;
-				for(const key in this.items) {
-					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
-						this.$set(this.items[key], 'checked', val);
+				for(const key in this.entries) {
+					if([this.siteid, ''].includes(this.entries[key][this.prefix + 'siteid'])) {
+						this.entries[key]['checked'] = val;
 					}
 				};
 			},
 
 			readonly(id) {
-				return !(this.items[id] && this.items[id][this.domain + '.siteid'] == this.siteid);
+				return !(this.entries[id] && this.entries[id][this.prefix + 'siteid'] == this.siteid);
 			},
 
 			reset() {
-				if(this.filter['val'])
-				{
-					for(let idx of Object.keys(this.filter['val'])) {
-						this.$set(this.filter['val'], idx, '');
-					}
-				}
+				this.filters['val'] = {}
 			},
 
 			setState(key) {
-				this.$set(this.states, key, !this.states[key]);
+				this.states[key] = !this.states[key];
 			},
 
 			state(key) {
@@ -918,15 +523,23 @@ Aimeos.List = {
 			},
 
 			toggle(id) {
-				this.$set(this.items[id], 'checked', !this.items[id].checked);
+				this.entries[id]['checked'] = !this.entries[id].checked;
 			},
 
 			toggleAll() {
 				this.clear(this.all = !this.all);
 			},
 
+			update(idx, val) {
+				this.filters['val'][idx] = val;
+			},
+
+			upload() {
+				this.$refs.import.click()
+			},
+
 			value(idx) {
-				return this.filter['val'] && this.filter['val'][idx] || null;
+				return this.filters['val'] && this.filters['val'][idx] ? this.filters['val'][idx] : null;
 			}
 		}
 	},
@@ -1217,22 +830,17 @@ $(function() {
 		new bootstrap.Toast(el, {delay: 3000}).show();
 	});
 
+	Aimeos.siteid = $('.aimeos').data('user-siteid') || '';
 	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
 
-	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
-	Vue.component('flat-pickr', VueFlatpickr);
-	Vue.component('v-select', VueSelect.VueSelect);
-	Vue.component('l-map', window.Vue2Leaflet.LMap);
-	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
-	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
+	flatpickr.localize(FlatpickrL10n[$('.aimeos').attr('locale') || 'en']);
 
-	$('.vue').each(function() {
+	$('.vue').each(function(idx, node) {
 		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
-		Aimeos.components[key] = Aimeos.vue(this);
+		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
 	});
 
 	Aimeos.Menu.init();
-	Aimeos.Config.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Log.init();
@@ -1244,7 +852,11 @@ $(function() {
 /**
  * Load JSON admin resource definition immediately
  */
-Aimeos.options = $.ajax($(".aimeos").data("url"), {
-	"method": "OPTIONS",
-	"dataType": "json"
+Aimeos.options = fetch($(".aimeos").data("url"), {
+	"method": "OPTIONS"
+}).then(function(response) {
+	if(!response.ok) {
+		throw new Error(response.statusText);
+	}
+	return response.json();
 });

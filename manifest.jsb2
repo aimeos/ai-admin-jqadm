@@ -1,18 +1,34 @@
 {
-	"projectName": "Aimeos Core",
+	"projectName": "Aimeos",
 	"licenseText": "LGPLv3, http://www.gnu.org/licenses/lgpl.html",
 	"pkgs": [{
-		"name": "Aimeos Admin Core CSS",
-		"file": "aimeos-core.css",
+		"name": "Aimeos Admin LTR CSS",
+		"file": "index-ltr-css",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "jqcombo.css",
+			"text": "bootstrap.min.css",
+			"path": "themes/default/"
+		}]
+	}, {
+		"name": "Aimeos Admin RTL CSS",
+		"file": "index-rtl-css",
+		"isDebug": true,
+		"fileIncludes": [{
+			"text": "bootstrap.rtl.min.css",
+			"path": "themes/default/"
+		}]
+	}, {
+		"name": "Aimeos Admin CSS",
+		"file": "index-css",
+		"isDebug": true,
+		"fileIncludes": [{
+			"text": "index.css",
+			"path": "js/"
+		},{
+			"text": "bs-overwrite.css",
 			"path": "themes/default/"
 		},{
 			"text": "jqtree.css",
-			"path": "themes/default/"
-		},{
-			"text": "bootstrap.css",
 			"path": "themes/default/"
 		},{
 			"text": "menu.css",
@@ -31,38 +47,29 @@
 			"path": "themes/default/"
 		}]
 	}, {
-		"name": "Aimeos Admin Core JS",
-		"file": "aimeos-core.js",
+		"name": "Aimeos Admin JS",
+		"file": "index-js",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "serialize.js",
+			"text": "index.js",
 			"path": "js/"
 		},{
-			"text": "combo.jquery.js",
+			"text": "bootstrap.js",
 			"path": "js/"
 		},{
 			"text": "tree.jquery.js",
 			"path": "js/"
 		},{
-			"text": "sortable.js",
-			"path": "js/"
-		},{
-			"text": "axios.js",
-			"path": "js/"
-		},{
 			"text": "ckeditor.js",
 			"path": "js/"
 		},{
-			"text": "auto-complete.js",
-			"path": "js/components/"
+			"text": "admin.js",
+			"path": "js/"
 		},{
 			"text": "catalog-tree.js",
 			"path": "js/components/"
 		},{
 			"text": "column-select.js",
-			"path": "js/components/"
-		},{
-			"text": "combo-box.js",
 			"path": "js/components/"
 		},{
 			"text": "config-table.js",
@@ -71,13 +78,13 @@
 			"text": "confirm-delete.js",
 			"path": "js/components/"
 		},{
-			"text": "html-editor.js",
-			"path": "js/components/"
-		},{
 			"text": "input-map.js",
 			"path": "js/components/"
 		},{
 			"text": "nav-search.js",
+			"path": "js/components/"
+		},{
+			"text": "orderattr-table.js",
 			"path": "js/components/"
 		},{
 			"text": "page-limit.js",
@@ -101,8 +108,8 @@
 			"text": "taxrates.js",
 			"path": "js/components/"
 		},{
-			"text": "admin.js",
-			"path": "js/"
+			"text": "translations.js",
+			"path": "js/components/"
 		},{
 			"text": "address.js",
 			"path": "js/apps/"
@@ -141,6 +148,9 @@
 			"path": "js/"
 		},{
 			"text": "dashboard-service.js",
+			"path": "js/"
+		},{
+			"text": "basket.js",
 			"path": "js/"
 		},{
 			"text": "order.js",

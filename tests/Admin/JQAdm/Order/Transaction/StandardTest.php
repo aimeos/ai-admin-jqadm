@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2022-2023
+ * @copyright Aimeos (aimeos.org), 2022-2024
  */
 
 
@@ -85,29 +85,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 		$this->assertEmpty( $result );
-	}
-
-
-	public function testSavePayPal()
-	{
-		$this->view->item = $this->getOrderBaseItem( '13.50' );
-		$serviceId = current( $this->view->item->getService( 'payment' ) )->getId();
-
-		$param = [
-			'site' => 'unittest',
-			'transaction' => [
-				$serviceId => [
-					'order.service.transaction.value' => 10,
-					'order.service.transaction.costs' => 1,
-				]
-			],
-		];
-
-		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
-		$this->view->addHelper( 'param', $helper );
-
-		$this->expectException( \Aimeos\MShop\Service\Exception::class );
-		$this->object->save();
 	}
 
 

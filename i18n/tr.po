@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2023\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -95,7 +95,7 @@ msgid ""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
 
 msgid "+ Tax"
-msgstr "+ Vergi"
+msgstr "+ KDV"
 
 msgid "<hidden>"
 msgstr "<hidden>"
@@ -242,13 +242,13 @@ msgid "Basic"
 msgstr "Temel bilgiler"
 
 msgid "Basket"
-msgstr "Ürün Sepetiniz"
+msgstr "Sepet"
 
 msgid "Billing address"
 msgstr "Fatura adresi"
 
 msgid "Birthday"
-msgstr "Doğum günü"
+msgstr "Doğum tarihi"
 
 msgid "Birthday of the customer"
 msgstr "Müşterinin doğum tarihi"
@@ -679,7 +679,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Metin oluştur"
 
 msgid "Given rebate amount"
 msgstr "Belirlenmiş indirim tutarı"
@@ -960,6 +960,15 @@ msgstr "Minimum miktar"
 msgid "Minimum quantity"
 msgstr "Minimum miktar"
 
+msgid "Mobile"
+msgstr "Cep telefonu"
+
+msgid "Mobile number"
+msgstr "Cep telefonu numarası"
+
+msgid "Mobile number (optional)"
+msgstr "Cep telefonu numarası (isteğe bağlı)"
+
 msgid "Modifed"
 msgstr "Değiştirildi"
 
@@ -980,6 +989,9 @@ msgstr "Ad"
 
 msgid "Name in URL (optional)"
 msgstr "URL'deki ad (isteğe bağlı)"
+
+msgid "Name of the basket"
+msgstr "Sepet ismi"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1189,7 +1201,7 @@ msgstr "Kişisel veri"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Lütfen burada oluşturulması gereken metnin açıklamasını girin"
 
 msgid "Please select"
 msgstr "Lütfen seçiniz"
@@ -1423,6 +1435,9 @@ msgstr "İlgili sipariş"
 msgid "Related order ID (optional)"
 msgstr "İlgili sipariş kimliği (isteğe bağlı)"
 
+msgid "Related order of the customer"
+msgstr "Müşterinin ilgili siparişi"
+
 msgid "Renew"
 msgstr "Yenile"
 
@@ -1633,6 +1648,9 @@ msgstr "Arama formunu göster"
 msgid "Show/hide advanced data"
 msgstr "Gelişmiş verileri göster/gizle"
 
+msgid "Show/hide details"
+msgstr "Detayları göster/gizle"
+
 msgid "Show/hide navigation labels"
 msgstr "Gezinme etiketlerini göster/gizle"
 
@@ -1736,13 +1754,13 @@ msgid "Tag Types"
 msgstr "Etiket Türleri"
 
 msgid "Tax"
-msgstr "Vergi"
+msgstr "KDV"
 
 msgid "Tax rate"
-msgstr "Vergi oranı"
+msgstr "KDV oranı"
 
 msgid "Tax rate in %"
-msgstr "% vergi oranı"
+msgstr "% kdv oranı"
 
 msgid "Telephone"
 msgstr "Telefon"
@@ -1830,7 +1848,7 @@ msgid "Timestamp"
 msgstr "Zaman Damgası"
 
 msgid "Title"
-msgstr "Başlık"
+msgstr "Ünvan"
 
 msgid "Toggle dropdown"
 msgstr "Açılır menüyü aç/kapat"
@@ -1947,6 +1965,9 @@ msgstr "Benzersiz tür kodu (gerekli)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
 
+msgid "Unit price"
+msgstr "Birim fiyat"
+
 msgid "Unknown upload error"
 msgstr "Bilinmeyen yükleme hatası"
 
@@ -1966,7 +1987,7 @@ msgid "Usual time frame for the delivery of the product"
 msgstr "Ürünün teslimatı için normal zaman aralığı"
 
 msgid "VAT ID"
-msgstr "Vergi Dairesi/Numarası"
+msgstr "Vergi Dairesi ve Numarası"
 
 msgid "Value"
 msgstr "Değer"
@@ -2052,6 +2073,10 @@ msgstr "Fatura adresi"
 #, php-format
 msgid "attribute"
 msgstr "Nitelikler"
+
+#, php-format
+msgid "basket"
+msgstr "sepet"
 
 #, php-format
 msgid "bundle"

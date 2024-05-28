@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018-2023
+ * @copyright Aimeos (aimeos.org), 2018-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -176,8 +176,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'subscription.id', $ids ) );
+			$search = $manager->filter()->add( 'subscription.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -320,8 +319,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'subscription' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 
-			$search = $manager->filter( false, true );
-			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
+			$search = $manager->filter( false, true )->order( '-subscription.ctime' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, ['order', 'order/address', 'order/product'], $total );

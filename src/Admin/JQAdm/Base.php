@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2023
+ * @copyright Aimeos (aimeos.org), 2015-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -237,7 +237,6 @@ abstract class Base
 	 * Imports a resource
 	 *
 	 * @return string|null Output to display
-	 * @deprecated 2021.01
 	 */
 	public function import() : ?string
 	{
@@ -247,7 +246,7 @@ abstract class Base
 			$body .= $client->import();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -707,6 +706,8 @@ abstract class Base
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
 				$context->session()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
+			case 'upload':
+				$context->session()->set( 'info', [$context->translate( 'admin', 'File uploaded successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );

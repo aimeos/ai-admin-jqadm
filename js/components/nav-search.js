@@ -1,10 +1,10 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2023
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
-Vue.component('nav-search', {
+Aimeos.components['nav-search'] = {
 	template: '#nav-search',
 	props: {
 		'attributes': {type: Object, required: true},
@@ -20,11 +20,13 @@ Vue.component('nav-search', {
 			'op': null,
 			'ops': {
 				'string': ['=~', '~=', '==', '!='],
+				'int': ['==', '!=', '>', '<', '>=', '<='],
 				'integer': ['==', '!=', '>', '<', '>=', '<='],
 				'datetime': ['>', '<', '>=', '<=', '==', '!='],
 				'date': ['>', '<', '>=', '<=', '==', '!='],
 				'float': ['>', '<', '>=', '<=', '==', '!='],
-				'boolean': ['==', '!=']
+				'boolean': ['==', '!='],
+				'bool': ['==', '!=']
 			},
 			'type': 'text',
 		}
@@ -50,8 +52,11 @@ Vue.component('nav-search', {
 			const type = this.attributes[key] && this.attributes[key]['type'] || 'string';
 
 			switch(type) {
+				case 'bool':
 				case 'boolean':
+				case 'decimal':
 				case 'integer':
+				case 'int':
 				case 'float':
 					this.type = 'number'; break;
 				case 'date':
@@ -67,4 +72,4 @@ Vue.component('nav-search', {
 			}
 		}
 	}
-});
+};

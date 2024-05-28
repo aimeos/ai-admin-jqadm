@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2022-2023
+ * @copyright Aimeos (aimeos.org), 2022-2024
  * @package Admin
  * @subpackage JQAdm
  */
@@ -216,8 +216,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Order\Item\Iface $order Order item object
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Order\Item\Iface Modified order item
 	 */
-	protected function fromArray( \Aimeos\MShop\Order\Item\Iface $order, array $data )
+	protected function fromArray( \Aimeos\MShop\Order\Item\Iface $order, array $data ) : \Aimeos\MShop\Order\Item\Iface
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
@@ -249,6 +250,8 @@ class Standard
 
 			$service->addTransaction( $txItem );
 		}
+
+		return $order;
 	}
 
 

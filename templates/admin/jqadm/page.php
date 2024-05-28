@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2023
+ * @copyright Aimeos (aimeos.org), 2016-2024
  */
 
 $enc = $this->encoder();
@@ -125,8 +125,9 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 ?>
 <div class="aimeos" lang="<?= $this->param( 'locale' ) ?>"
-	data-graphql="<?= $enc->attr( $this->link( 'admin/graphql/url', ['site' => $site] ) ) ?>"
-	data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url/options', array( 'site' => $site ) ) ) ?>">
+	data-graphql="<?= $enc->attr( $this->link( 'admin/graphql/url', ['site' => $site, $this->csrf()->name() => $this->csrf()->value()] ) ) ?>"
+	data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url/options', array( 'site' => $site ) ) ) ?>"
+	data-user-siteid="<?= $enc->attr( $this->get( 'pageUserSiteid' ) ) ?>">
 
 	<nav class="main-sidebar">
 		<div class="sidebar-wrapper">
