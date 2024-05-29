@@ -118,6 +118,7 @@ Aimeos.Coupon.Code = {
 		beforeMount() {
 			this.Aimeos = Aimeos;
 			this.order = 'coupon.code.id';
+			this.filter['coupon.code.parentid'] = {'==': {'coupon.code.parentid': this.parentid}};
 
 			const fieldkey = 'aimeos/jqadm/couponcode/fields';
 			this.fieldlist = this.columns(this.fields || [], fieldkey);
