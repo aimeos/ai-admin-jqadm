@@ -182,14 +182,7 @@ Aimeos = {
 			}
 		})
 
-		client.request(gql, vars).then(result => {
-			if(result.errors) {
-				console.error(result)
-				throw new Error('GraphQL query failed')
-			}
-			return result?.data
-		})
-		.catch(error => {
+		return client.request(gql, vars).catch(error => {
 			console.error(error)
 			throw new Error('GraphQL query failed')
 		})
