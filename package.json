@@ -28,6 +28,7 @@
     "@ckeditor/ckeditor5-vue": "^5.1.0",
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vueform/multiselect": "^2.6.6",
+    "awesome-graphql-client": "^2.0.0",
     "flatpickr": "^4.6.13",
     "jquery": "^3.7.1",
     "jquery-param": "^1.2.3",

@@ -171,26 +171,27 @@ Aimeos = {
 	},
 
 
-	query(gql) {
-		return fetch($('.aimeos').data('graphql'), {
-			method: 'POST',
-			credentials: 'same-origin',
-			headers: { // Laravel only
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
-			},
-			body: JSON.stringify({'query': gql})
-		}).then(response => {
-			if(!response.ok) {
-				console.error(response)
-				throw new Error(response.statusText)
+	query(gql, vars = {}) {
+		const client = new AwesomeGraphQLClient({
+			endpoint: $('.aimeos').data('graphql'),
+			fetchOptions: {
+				credentials: 'same-origin',
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
+				}
 			}
-			return response.json();
-		}).then(result => {
+		})
+
+		client.request(gql, vars).then(result => {
 			if(result.errors) {
 				console.error(result)
 				throw new Error('GraphQL query failed')
 			}
 			return result?.data
+		})
+		.catch(error => {
+			console.error(error)
+			throw new Error('GraphQL query failed')
 		})
 	},
 
