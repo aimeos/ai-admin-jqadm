@@ -488,7 +488,7 @@ class Standard
 
 		$siteId = (string) $manager->get( $context->getUserId() )->getSiteId();
 
-		if( $this->view()->access( ['super'] ) || strlen( $siteId ) > 0 && !strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) )
+		if( $this->getView()->access( ['super'] ) || strlen( $siteId ) > 0 && !strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) )
 		{
 			$addr = $item->getPaymentAddress();
 			$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
