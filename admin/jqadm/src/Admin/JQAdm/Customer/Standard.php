@@ -486,21 +486,27 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$addr = $item->getPaymentAddress();
-		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
-		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
-		$groupIds = $this->getValue( $data, 'customer.groups', [] );
+		$siteId = (string) $manager->get( $context->getUserId() )->getSiteId();
 
-		$pass = $data['customer.password'] ?? null;
-		unset( $data['customer.password'] );
+		if( $this->view()->access( ['super'] ) || strlen( $siteId ) > 0 && !strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) )
+		{
+			$addr = $item->getPaymentAddress();
+			$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
+			$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-		$item->fromArray( $data, true )
-			->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $groupIds ) )
-			->setCode( $item->getCode() ?: $addr->getEmail() )
-			->setLabel( $label );
+			$groupIds = $this->getValue( $data, 'customer.groups', [] );
+			$gids = array_keys( $this->getGroupItems( $item ) );
 
-		if( $pass && ( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() ) ) {
-			$item->setPassword( $pass );
+			$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
+				->setGroups( array_intersect( $gids, $groupIds ) );
+
+			if( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() )
+			{
+				!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+				!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
+			}
+
+			$item->fromArray( $data );
 		}
 
 		return $item;
