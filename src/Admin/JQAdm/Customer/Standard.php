@@ -569,28 +569,35 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$addr = $item->getPaymentAddress();
-		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
-		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
+		$siteId = (string) $context->user()?->getSiteId();
 
-		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
-			->setDateVerified( $data['customer.dateverified'] ?? null );
-
-		if( $this->view()->access( ['super', 'admin'] ) )
+		if( $this->view()->access( ['super'] ) || strlen( $siteId ) > 0 && !strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) )
 		{
-			$groupIds = $this->val( $data, 'groups', [] );
-			$gids = array_keys( $this->getGroupItems( $item ) );
+			$addr = $item->getPaymentAddress();
+			$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
+			$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-			$item->setGroups( array_intersect( $gids, $groupIds ) );
+			$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
+				->setDateVerified( $data['customer.dateverified'] ?? null );
+
+			if( $this->view()->access( ['super', 'admin'] ) )
+			{
+				$groupIds = $this->val( $data, 'groups', [] );
+				$gids = array_keys( $this->getGroupItems( $item ) );
+
+				$item->setGroups( array_intersect( $gids, $groupIds ) );
+			}
+
+			if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
+			{
+				!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+				!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
+			}
+
+			$item->fromArray( $data );
 		}
 
-		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
-		{
-			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
-			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
-		}
-
-		return $item->fromArray( $data );
+		return $item;
 	}
 
 
