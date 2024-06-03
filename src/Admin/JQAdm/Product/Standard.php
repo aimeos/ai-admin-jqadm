@@ -268,7 +268,7 @@ class Standard
 		}
 
 		$uploads = (array) $this->view()->request()->getUploadedFiles();
-		$files = $this->val( $uploads, 'import' );
+		$files = $this->val( $uploads, 'import', [] );
 
 		foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
 		{
