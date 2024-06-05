@@ -34,7 +34,7 @@ class Bundle
 			{
 				$file = $basepath . '/' . $singleFile->path . $singleFile->text;
 
-				if( $data = file_get_contents( $file ) !== false ) {
+				if( $data = file_get_contents( $file ) ) {
 					$content .= $data;
 				}
 			}
@@ -72,9 +72,9 @@ class Bundle
 				}
 
 				if( $package->overwrite ?? false ) {
-					$list[$basepath] = $package;
-				} else {
 					$list = [$basepath => $package];
+				} else {
+					$list[$basepath] = $package;
 				}
 			}
 		}
