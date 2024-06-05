@@ -47,7 +47,7 @@ class Bundle
 	/**
 	 * Get the packages from a JSON decoded manifests
 	 *
-	 * @param array List of JSON decoded manifests
+	 * @param array $manifests List of JSON decoded manifests
 	 * @param string $resource Name of the resource, i.e. "index-js", "index-css", "index-ltr-css" or "index-rtl-css"
 	 * @return array
 	 */
