@@ -226,6 +226,16 @@ Vue.component('config-table', {
 						></AimeosMapComponent>
 					</div>
 
+					<select v-if="entry.type === 'select'" class="form-select config-type config-type-select"
+						:tabindex="tabindex"
+						:readonly="readonly"
+						:required="entry.required"
+						:name="fname('val', pos)"
+						v-model="entry.val">
+						<option value=""></option>
+						<option v-for="val in (entry.default || [])" :value="val">{{ val }}</option>
+					</select>
+
 					<select v-if="entry.type === 'boolean' || entry.type === 'bool'" class="form-select config-type config-type-boolean"
 						:tabindex="tabindex"
 						:readonly="readonly"
@@ -336,6 +346,7 @@ Vue.component('config-table', {
 				if(item) {
 					this.$set(item, 'type', entry.type)
 					this.$set(item, 'label', entry.label)
+					this.$set(item, 'default', entry.default)
 					this.$set(item, 'required', entry.required || false )
 				} else {
 					this.$set(entry, 'required', entry.required || false )
