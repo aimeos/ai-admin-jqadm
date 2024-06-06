@@ -226,6 +226,16 @@ Aimeos.components['config-table'] = {
 						></config-map>
 					</div>
 
+					<select v-if="entry.type === 'select'" class="form-select config-type config-type-select"
+						:tabindex="tabindex"
+						:readonly="readonly"
+						:required="entry.required"
+						:name="fname('val', pos)"
+						v-model="entry.val">
+						<option value=""></option>
+						<option v-for="val in (entry.default || [])" :value="val">{{ val }}</option>
+					</select>
+
 					<select v-if="entry.type === 'boolean' || entry.type === 'bool'" class="form-select config-type config-type-boolean"
 						:tabindex="tabindex"
 						:readonly="readonly"
@@ -339,6 +349,7 @@ Aimeos.components['config-table'] = {
 				if(item) {
 					item['type'] = entry.type
 					item['label'] = entry.label
+					item['default'] = entry.default
 					item['required'] = entry.required || false
 				} else {
 					entry['required'] = entry.required || false
