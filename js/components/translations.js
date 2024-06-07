@@ -7,7 +7,7 @@
 Aimeos.components['translations'] = {
 	template: `
 		<div>
-			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" />
+			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(modelValue)" />
 			<table class="table translations" v-on:keydown="keyboard">
 				<thead>
 					<tr>
@@ -44,7 +44,7 @@ Aimeos.components['translations'] = {
         'i18n': {type: Object, required: true},
         'langs': {type: Object, required: true},
 		'name': {type: String, required: true},
-		'value': {type: Object, required: true},
+		'modelValue': {type: Object, required: true},
 		'readonly': {type: Boolean, default: true},
 		'tabindex': {type: String, default: '1'}
 	},
@@ -56,7 +56,7 @@ Aimeos.components['translations'] = {
 	},
 
 	created() {
-		this.list = this.toList(this.value);
+		this.list = this.toList(this.modelValue);
 	},
 
 	methods: {
@@ -99,7 +99,7 @@ Aimeos.components['translations'] = {
 		list: {
 			deep: true,
 			handler: function() {
-				this.$emit('value', this.toObject(this.list));
+				this.$emit('update:modelValue', this.toObject(this.list));
 			}
 		}
 	}
