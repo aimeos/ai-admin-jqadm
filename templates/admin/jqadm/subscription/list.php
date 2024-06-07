@@ -239,8 +239,8 @@ $reasonList = [
 									'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 								]],
 								'subscription.interval' => ['op' => '=~', 'type' => 'string'],
-								'subscription.datenext' => ['op' => '-', 'type' => 'date'],
-								'subscription.dateend' => ['op' => '-', 'type' => 'date'],
+								'subscription.datenext' => ['op' => '-', 'type' => 'datetime-local'],
+								'subscription.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 								'subscription.reason' => ['op' => '==', 'type' => 'select', 'val' => $reasonList],
 								'subscription.period' => ['op' => '==', 'type' => 'string'],
 								'subscription.ctime' => ['op' => '-', 'type' => 'datetime-local'],
@@ -370,7 +370,7 @@ $reasonList = [
 													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.datenext')"
-														v-bind:config="Aimeos.flatpickr.date">
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 											<div class="row">
@@ -384,7 +384,7 @@ $reasonList = [
 													<input is="vue:flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.dateend')"
-														v-bind:config="Aimeos.flatpickr.date">
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 										</div>
