@@ -22,7 +22,7 @@ class Bundle
 	 * @param string $resource Name of the resource, i.e. "index-js", "index-css", "index-ltr-css" or "index-rtl-css"
 	 * @return string Concatenated files for the requested resource
 	 */
-	static public function get( array $filenames, string $resource ) : string
+	public static function get( array $filenames, string $resource ) : string
 	{
 		$content = '';
 		$manifests = self::manifests( $filenames );
@@ -51,7 +51,7 @@ class Bundle
 	 * @param string $resource Name of the resource, i.e. "index-js", "index-css", "index-ltr-css" or "index-rtl-css"
 	 * @return array
 	 */
-	static protected function packages( array $manifests, string $resource ) : array
+	protected static function packages( array $manifests, string $resource ) : array
 	{
 		$list = [];
 
@@ -89,7 +89,7 @@ class Bundle
 	 * @param array $filepaths List of paths to the manifest files
 	 * @return array Manifest file contents
 	 */
-	static protected function manifests( array $filepaths )
+	protected static function manifests( array $filepaths )
 	{
 		$list = [];
 
