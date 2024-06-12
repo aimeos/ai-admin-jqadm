@@ -433,7 +433,7 @@ Aimeos.List = {
 		},
 		computed: {
 			prefix() {
-				return this.domain.replace(/\//g, '.') + '.'
+				return this.domain ? this.domain.replace(/\//g, '.') + '.' : ''
 			},
 
 			selected() {
