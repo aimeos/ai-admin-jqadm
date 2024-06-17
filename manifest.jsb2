@@ -18,13 +18,18 @@
 			"path": "themes/default/"
 		}]
 	}, {
+		"name": "Vendor CSS",
+		"file": "vendor-css",
+		"overwrite": true,
+		"fileIncludes": [{
+			"text": "vendor.css",
+			"path": "js/"
+		}]
+	}, {
 		"name": "Aimeos Admin CSS",
 		"file": "index-css",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "index.css",
-			"path": "js/"
-		},{
 			"text": "bs-overwrite.css",
 			"path": "themes/default/"
 		},{
@@ -47,13 +52,18 @@
 			"path": "themes/default/"
 		}]
 	}, {
+		"name": "Vendor JS",
+		"file": "vendor-js",
+		"overwrite": true,
+		"fileIncludes": [{
+			"text": "vendor.js",
+			"path": "js/"
+		}]
+	}, {
 		"name": "Aimeos Admin JS",
 		"file": "index-js",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "index.js",
-			"path": "js/"
-		},{
 			"text": "bootstrap.js",
 			"path": "js/"
 		},{

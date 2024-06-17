@@ -171,26 +171,20 @@ Aimeos = {
 	},
 
 
-	query(gql) {
-		return fetch($('.aimeos').data('graphql'), {
-			method: 'POST',
-			credentials: 'same-origin',
-			headers: { // Laravel only
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
-			},
-			body: JSON.stringify({'query': gql})
-		}).then(response => {
-			if(!response.ok) {
-				console.error(response)
-				throw new Error(response.statusText)
+	query(gql, vars = {}) {
+		const client = new AwesomeGraphQLClient({
+			endpoint: $('.aimeos').data('graphql'),
+			fetchOptions: {
+				credentials: 'same-origin',
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
+				}
 			}
-			return response.json();
-		}).then(result => {
-			if(result.errors) {
-				console.error(result)
-				throw new Error('GraphQL query failed')
-			}
-			return result?.data
+		})
+
+		return client.request(gql, vars).catch(error => {
+			console.error(error)
+			throw new Error('GraphQL query failed')
 		})
 	},
 
@@ -439,7 +433,7 @@ Aimeos.List = {
 		},
 		computed: {
 			prefix() {
-				return this.domain.replace(/\//g, '.') + '.'
+				return this.domain ? this.domain.replace(/\//g, '.') + '.' : ''
 			},
 
 			selected() {

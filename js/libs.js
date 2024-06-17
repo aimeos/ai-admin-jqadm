@@ -18,6 +18,7 @@ import confirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js
 import "leaflet/dist/leaflet.css"
 import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 
+import { AwesomeGraphQLClient } from 'awesome-graphql-client'
 
 globalThis.$ = $
 globalThis.jQuery = jQuery
@@ -33,3 +34,4 @@ globalThis.CKEditor = CKEditor
 globalThis.LMap = LMap
 globalThis.LTileLayer = LTileLayer
 globalThis.LMarker = LMarker
+globalThis.AwesomeGraphQLClient = AwesomeGraphQLClient

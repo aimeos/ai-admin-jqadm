@@ -165,7 +165,7 @@ $params = $this->get( 'pageParams', [] );
 
 						<div class="col-xl-6 block">
 							<translations tabindex="1"
-								:value="<?= $enc->attr( $this->get( 'itemData/media.property.type.i18n', new \stdClass ) ) ?>"
+								v-model="dataset['media.property.type.i18n']"
 								:name="`<?= $enc->js( $this->formparam( array( 'item', 'media.property.type.i18n' ) ) ) ?>`"
 								:readonly="!can('change')"
 								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
