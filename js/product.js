@@ -779,20 +779,18 @@ Aimeos.Product.Selection = {
 			},
 			methods: {
 
-				add(data) {
+				add(data = {}) {
+					const entry = {};
 
-					const idx = this.items.length;
-					this.items[idx] = {};
+					entry['product.lists.siteid'] = this.siteid;
+					entry['product.siteid'] = this.siteid;
+					entry['product.type'] = 'default';
+					entry['product.status'] = 1;
+					entry['product.id'] = '';
+					entry['_show'] = true;
+					entry['attr'] = [];
 
-					for(let key of this.keys) {
-						this.items[idx][key] = (data && data[key] || '');
-					}
-
-					this.items[idx]['product.lists.siteid'] = this.siteid;
-					this.items[idx]['product.siteid'] = this.siteid;
-					this.items[idx]['product.status'] = 1;
-					this.items[idx]['product.id'] = '';
-					this.items[idx]['attr'] = [];
+					this.items[this.items.length] = Object.assign(entry, data);
 				},
 
 
@@ -856,17 +854,22 @@ Aimeos.Product.Selection = {
 
 
 				fetch(input, type) {
-
 					const siteid = this.siteid
 					const used = this.items.map((item) => {
 						return item['product.code'] || ''
 					})
 					const filter = {'&&': [
-						{'!=': {'product.code': used || []}},
 						{'=~': {'product.code': input || ''}},
-						{'==': {'product.type': type || []}},
 						{'>': {'product.status': 0}}
 					]};
+
+					if(used) {
+						filter['&&'].push({'!=': {'product.code': used}})
+					}
+
+					if(type) {
+						filter['&&'].push({'==': {'product.type': type}})
+					}
 
 					return Aimeos.query(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["attribute"], sort: ["product.code"]) {
@@ -933,7 +936,7 @@ Aimeos.Product.Selection = {
 
 				use(idx, ev) {
 					if(ev) {
-						this.items[idx] = ev;
+						this.items[idx] = Object.assign(this.items[idx], ev);
 					}
 				},
 
