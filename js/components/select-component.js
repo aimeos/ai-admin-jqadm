@@ -6,7 +6,7 @@
 
 Aimeos.components['select-component'] = {
 	template: `
-		<select @update:modelValue="$emit('update:modelValue', $event.target.value)">
+		<select @change="$emit('update:modelValue', $event.target.value)">
 			<option v-if="text" value="">{{ text }}</option>
 			<option v-if="modelValue && !items[modelValue]" v-bind:value="modelValue" selected>{{ modelValue }}</option>
 			<option v-if="all" value="" v-bind:selected="modelValue === null">{{ all }}</option>
