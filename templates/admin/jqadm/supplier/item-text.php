@@ -152,7 +152,7 @@ $enc = $this->encoder();
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 										<div class="col-sm-8">
 											<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-												v-bind:items="<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>"
+												v-bind:items="<?= $enc->attr( $textTypes->col( null, 'text.type.code' )->getName()->toArray() ) ?>"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.type'] ) ) ?>`.replace('_idx_', index)"
 												v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 												v-bind:readonly="!can('change', index)"
@@ -221,7 +221,7 @@ $enc = $this->encoder();
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
 										<div class="col-sm-8">
 											<select is="vue:select-component" required class="form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-												v-bind:items="<?= $enc->attr( $listTypes->col( 'supplier.lists.type.label', 'supplier.lists.type.code' )->toArray() ) ?>"
+												v-bind:items="<?= $enc->attr( $listTypes->col( null, 'supplier.lists.type.code' )->getName()->toArray() ) ?>"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'supplier.lists.type'] ) ) ?>`.replace('_idx_', index)"
 												v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 												v-bind:readonly="!can('change', index)"

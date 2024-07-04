@@ -110,7 +110,7 @@ $enc = $this->encoder();
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 										<div class="col-sm-8">
 											<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
-												v-bind:items="<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>"
+												v-bind:items="<?= $enc->attr( $mediaTypes->col( null, 'media.type.code' )->getName()->toArray() ) ?>"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>`.replace('_idx_', index)"
 												v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 												v-bind:readonly="!can('change', index)"
@@ -194,7 +194,7 @@ $enc = $this->encoder();
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
 										<div class="col-sm-8">
 											<select is="vue:select-component" required class="form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
-												v-bind:items="<?= $enc->attr( $listTypes->col( 'attribute.lists.type.label', 'attribute.lists.type.code' )->toArray() ) ?>"
+												v-bind:items="<?= $enc->attr( $listTypes->col( null, 'attribute.lists.type.code' )->getName()->toArray() ) ?>"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ) ?>`.replace('_idx_', index)"
 												v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 												v-bind:readonly="!can('change', index)"

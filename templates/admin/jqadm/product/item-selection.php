@@ -93,7 +93,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										</select>
 									</div>
 								</div>
-								<?php if( ( $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->only( ['default', 'event', 'voucher'] ) )->count() !== 1 ) : ?>
+								<?php if( ( $types = $this->get( 'itemTypes', map() )->col( null, 'product.type.code' )->only( ['default', 'event', 'voucher'] ) )->count() !== 1 ) : ?>
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 										<div class="col-sm-8">
@@ -101,7 +101,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												v-bind:readonly="!can('change', index)"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 												v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.type' ) ) ) ?>`.replace('_idx_', index)"
-												v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
+												v-bind:items="<?= $enc->attr( $types->getName()->toArray() ) ?>"
 												v-model="element['product.type']" >
 												<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 													<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>

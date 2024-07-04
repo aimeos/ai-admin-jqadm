@@ -7,7 +7,7 @@
 
 
 $enc = $this->encoder();
-$types = $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toArray();
+$types = $this->get( 'propertyTypes', map() )->col( null, 'price.property.type.code' )->getName()->toArray();
 
 
 ?>

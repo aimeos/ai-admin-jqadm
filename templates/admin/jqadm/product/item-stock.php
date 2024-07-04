@@ -65,7 +65,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						<?php if( $stockTypes->count() !== 1 ) : ?>
 							<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 								<select is="vue:select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-									v-bind:items="<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>"
+									v-bind:items="<?= $enc->attr( $stockTypes->col( null, 'stock.type.code' )->getName()->toArray() ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.type'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 									v-bind:readonly="!can('change', idx)"

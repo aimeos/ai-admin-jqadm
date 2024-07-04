@@ -18,7 +18,7 @@ $enc = $this->encoder();
 	<div class="box">
 		<property-table
 			v-bind:domain="'product'" v-bind:siteid="`<?= $enc->js( $this->site()->siteid() ) ?>`" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-			v-bind:types="<?= $enc->attr( (object) $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->all() ) ?>"
+			v-bind:types="<?= $enc->attr( (object) $this->get( 'propertyTypes', map() )->col( null, 'product.property.type.code' )->getName()->all() ) ?>"
 			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->unshift( $this->translate( 'admin', '__hidden__' ), 'xx' )->all() ) ?>"
 			v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'property', '_propidx_', '_key_'] ) ) ?>`"
 			v-bind:items="dataset" v-on:update:property="dataset = $event"

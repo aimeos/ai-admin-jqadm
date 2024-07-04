@@ -7,7 +7,7 @@
 
 
 $enc = $this->encoder();
-$types = $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toArray();
+$types = $this->get( 'propertyTypes', map() )->col( null, 'media.property.type.code' )->getName()->toArray();
 
 
 ?>

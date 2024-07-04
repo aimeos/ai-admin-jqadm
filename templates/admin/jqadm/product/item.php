@@ -343,14 +343,14 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									</select>
 								</div>
 							</div>
-							<?php if( ( $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' ) )->count() !== 1 ) : ?>
+							<?php if( ( $types = $this->get( 'itemTypes', map() )->col( null, 'product.type.code' ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="vue:select-component" class="form-select item-type" required v-bind:tabindex="'1'"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['item', 'product.type'] ) ) ?>`"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
+											v-bind:items="<?= $enc->attr( $types->getName()->toArray() ) ?>"
 											v-bind:readonly="!can('change')"
 											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
