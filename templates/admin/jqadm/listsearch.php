@@ -49,7 +49,7 @@ $enc = $this->encoder();
 					<?php if( $type === 'select' ) : ?>
 						<select class="form-select" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)">
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
 							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?></option>
 
 							<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
@@ -61,17 +61,17 @@ $enc = $this->encoder();
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
 						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
 						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.daterange">
 					<?php else : ?>
 						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:modelValue="value(`<?= $enc->js( $idx ) ?>`)">
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
 					<?php endif ?>
 				<?php endif ?>
 			</td>
