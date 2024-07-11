@@ -122,7 +122,7 @@ $domains = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
 								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
 							</button>
 							<ul class="dropdown-menu">

@@ -51,7 +51,7 @@ $enc = $this->encoder();
 								</a>
 								<div class="dropdown">
 									<a v-bind:id="'translate-menu-' + index" class="btn btn-card-header act-translate icon dropdown-toggle" href="#"
-										tabindex="<?= $this->get( 'tabindex' ) ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+										tabindex="<?= $this->get( 'tabindex' ) ?>" role="button" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}' aria-haspopup="true" aria-expanded="false"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ) ?>">
 									</a>
 									<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + index">
