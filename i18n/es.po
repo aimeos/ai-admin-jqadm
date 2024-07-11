@@ -2069,7 +2069,7 @@ msgstr ""
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "cuenta"
 
 #, php-format
 msgid "address"
@@ -2087,7 +2087,7 @@ msgstr "Atributos"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "cesta"
 
 #, php-format
 msgid "bundle"

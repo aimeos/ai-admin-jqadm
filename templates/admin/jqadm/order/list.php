@@ -272,7 +272,7 @@ $statusList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
 								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
 							</button>
 							<ul class="dropdown-menu">
@@ -294,7 +294,7 @@ $statusList = [
 							<?php if( count( $actions = $this->config( 'admin/jqadm/order/actions', ['order-export'] ) ) > 0 ) : ?>
 								<div class="dropdown list-menu">
 									<button class="btn act-download icon" type="button" id="menuButton"
-										data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}' aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ) ?>">
 									</button>
