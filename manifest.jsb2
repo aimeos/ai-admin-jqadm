@@ -145,6 +145,9 @@
 			"text": "coupon.js",
 			"path": "js/"
 		},{
+			"text": "customer.js",
+			"path": "js/"
+		},{
 			"text": "dashboard.js",
 			"path": "js/"
 		},{

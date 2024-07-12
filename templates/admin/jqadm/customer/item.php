@@ -75,13 +75,11 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
-				<div class="row vue"
-					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-					data-siteid="<?= $this->site()->siteid() ?>"
-					data-domain="customer" >
-
+				<div class="row">
 					<div class="col-xl-6">
 						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
@@ -163,16 +161,28 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-select item-groups" tabindex="1" size="8" multiple
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>"
-										v-bind:readonly="!can('change')" >
-
-										<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
-											<option value="<?= $enc->attr( $groupId ) ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/groups', [] ) ), true ) ?> >
-												<?= $enc->html( $groupItem->getLabel() . ' (' . $groupItem->getCode() . ')' ) ?>
-											</option>
-										<?php endforeach ?>
-									</select>
+									<input v-for="id in (item?.groups || {})" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
+									<Multiselect class="item-groups form-control"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"
+										value-prop="id"
+										track-by="id"
+										label="code"
+										mode="tags"
+										@clear="clear"
+										@deselect="deselect"
+										@open="function(select) {return select.refreshOptions()}"
+										@select="use"
+										:value="list"
+										:disabled="!can('change')"
+										:options="async function(query) {return await fetch(query)}"
+										:hide-selected="true"
+										:searchable="true"
+										:min-chars="1"
+										:object="true"
+										:delay="300"
+									>
+										<input placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"/>
+									</Multiselect>
 								</div>
 							</div>
 						</div>
