@@ -20,6 +20,8 @@ Aimeos.Text = {
 					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
+					openai: {type: String, default: '{}'},
+					translate: {type: String, default: '{}'},
 				},
 				data() {
 					return {
@@ -83,7 +85,7 @@ Aimeos.Text = {
 					return;
 				}
 
-				const config = JSON.parse(this.$el.dataset.openai || '{}');
+				const config = JSON.parse(this.openai || '{}');
 
 				if(!config['key']) {
 					alert('No OpenAI API key configured in "admin/jqadm/api/openai/key" setting');
@@ -91,7 +93,7 @@ Aimeos.Text = {
 				}
 
 				if(!(this.items[idx]['text.content'] || '').trim().length) {
-					this.items[idx]['text.content'] = this.$el.dataset.openaiprompt;
+					this.items[idx]['text.content'] = this.openaiprompt;
 					return;
 				}
 
@@ -163,7 +165,7 @@ Aimeos.Text = {
 					return;
 				}
 
-				const config = JSON.parse(this.$el.dataset.translate || '{}');
+				const config = JSON.parse(this.translate || '{}');
 
 				if(!config['key']) {
 					alert('No DeepL API key configured in "admin/jqadm/api/translate/key" setting');
