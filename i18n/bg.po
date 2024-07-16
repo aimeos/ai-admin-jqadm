@@ -507,7 +507,7 @@ msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Изтриване на записа"
 
 msgid "Deleting reviews is not allowed"
 msgstr ""
