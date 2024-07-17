@@ -20,6 +20,13 @@ import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 
 import { AwesomeGraphQLClient } from 'awesome-graphql-client'
 
+import moment from 'moment'
+import Chart from 'chart.js'
+import { MatrixController, MatrixElement } from 'chartjs-chart-matrix'
+
+Chart.register(MatrixController, MatrixElement)
+
+
 globalThis.$ = $
 globalThis.jQuery = jQuery
 globalThis.serialize = param
@@ -35,3 +42,5 @@ globalThis.LMap = LMap
 globalThis.LTileLayer = LTileLayer
 globalThis.LMarker = LMarker
 globalThis.AwesomeGraphQLClient = AwesomeGraphQLClient
+globalThis.moment = moment
+globalThis.Chart = Chart
