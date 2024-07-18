@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2018
+ * @copyright Aimeos (aimeos.org), 2016-2024
  */
 
 
@@ -9,6 +9,7 @@ Aimeos.Dashboard.Sales = {
 	theme: 'light',
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
 	colorsText: {'dark': '#c0c8d0', 'light': '#505860'},
+	rtl: false,
 
 	config: {
 		type: 'line',
@@ -16,61 +17,53 @@ Aimeos.Dashboard.Sales = {
 		options: {
 			responsive: true,
 			maintainAspectRatio: false,
-			tooltips: {
-				mode: 'index',
-				position: 'nearest',
-				intersect: false,
-				callbacks: {}
-			},
+			tension: 0.33,
 			hover: {
 				mode: 'nearest',
 				intersect: true
 			},
+			plugins: {
+				legend: {
+					labels: {
+						usePointStyle: true,
+					},
+				},
+				tooltip: {
+					axis: 'x',
+					mode: 'index',
+					position: 'nearest',
+					intersect: false,
+					rtl: this.rtl,
+					callbacks: {}
+				},
+			},
 			scales: {
-				xAxes: [{
-					display: true,
+				x: {
 					distribution: 'series',
-					gridLines: {
+					grid: {
 						drawOnChartArea: false
 					},
-					ticks: {}
-				}],
-				yAxes: [{
-					display: true,
-					gridLines: {
+					ticks: {
+					}
+				},
+				y: {
+					grid: {
 						drawOnChartArea: false
 					},
+					min: 0,
 					position: 'left',
 					ticks: {
-						min: 0
 					}
-				}]
+				}
 			},
-			legend: false,
 		}
 	},
 
 
-	addLegend(chart, selector) {
-		const legend = chart.generateLegend();
-		document.querySelector(selector + ' .chart-legend').appendChild(legend);
-
-		legend.querySelectorAll('.item').forEach(function(item) {
-			item.addEventListener('click', function() {
-				const index = item.dataset.index;
-				const meta = chart.getDatasetMeta(index);
-
-				meta.hidden = !meta.hidden;
-				item.classList.toggle('disabled');
-
-				chart.update();
-			});
-		});
-	},
-
 	color(index) {
 		return this.colors[index % this.colors.length];
 	},
+
 
 	context(selector) {
 		const canvas = document.querySelector(selector + ' .chart canvas');
@@ -80,65 +73,45 @@ Aimeos.Dashboard.Sales = {
 		return canvas.getContext('2d');
 	},
 
+
 	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
 		});
 	},
 
+
 	gradient(ctx, index) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
-		gradient.addColorStop(0, Color(this.color(index)).alpha(0.5).rgbaString());
-		gradient.addColorStop(0.66, Color(this.color(index)).alpha(0).rgbaString());
+		gradient.addColorStop(0, this.color(index) + '80');
+		gradient.addColorStop(0.66, this.color(index) + '00');
 		gradient.addColorStop(1, '#000000ff');
 
 		return gradient;
 	},
 
-	legend(chart) {
-		const legend = document.createElement('div');
-		legend.classList.add('legend');
-
-		chart.config.data.datasets.forEach(function(dset, idx) {
-
-			const label = document.createElement('span');
-			label.classList.add('label');
-			label.appendChild(document.createTextNode(dset.label));
-
-			const color = document.createElement('span');
-			color.classList.add('color');
-			color.style.backgroundColor = Color(dset.borderColor).alpha(0.75).rgbaString();
-
-			const item = document.createElement('div');
-			item.classList.add('item');
-			item.dataset.index = idx;
-
-			item.appendChild(color);
-			item.appendChild(label);
-			legend.appendChild(item);
-		});
-
-		return legend;
-	},
-
 
 	init() {
+		this.theme = document.querySelector('body.dark') ? 'dark' : 'light';
+		this.rtl = document.documentElement.getAttribute('dir') === 'rtl' ? true : false;
 
-		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
-			this.config.options.scales.yAxes[0].position = 'right';
-			this.config.options.tooltips.bodyAlign = 'right';
-			this.config.options.tooltips.rtl = true;
+		if(this.rtl) {
+			this.config.options.scales.x.position = 'right';
 		}
 
-		if(document.querySelector('body.dark')) {
-			this.config.options.scales.xAxes[0].ticks.fontColor = this.colorsText.dark;
-			this.config.options.scales.yAxes[0].ticks.fontColor = this.colorsText.dark;
-			this.theme = 'dark';
+		if(this.theme === 'dark') {
+			this.config.options.plugins.legend.labels.color = this.colorsText['dark'];
+			this.config.options.scales.x.ticks.color = this.colorsText['dark'];
+			this.config.options.scales.y.ticks.color = this.colorsText['dark'];
+			this.config.options.scales.x.grid.color = this.colorsText['dark'];
+			this.config.options.scales.y.grid.color = this.colorsText['dark'];
 		} else {
-			this.config.options.scales.xAxes[0].ticks.fontColor = this.colorsText.light;
-			this.config.options.scales.yAxes[0].ticks.fontColor = this.colorsText.light;
-			this.theme = 'light';
+			this.config.options.plugins.legend.labels.color = this.colorsText['light'];
+			this.config.options.scales.x.ticks.color = this.colorsText['light'];
+			this.config.options.scales.y.ticks.color = this.colorsText['light'];
+			this.config.options.scales.x.grid.color = this.colorsText['light'];
+			this.config.options.scales.y.grid.color = this.colorsText['light'];
 		}
 
 		Aimeos.lazy(".order-salesday .chart", this.chartDay.bind(this));
@@ -189,7 +162,7 @@ Aimeos.Dashboard.Sales = {
 					data: data,
 					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
-					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					borderColor: self.color(num) + (self.theme == 'dark' ? 'bf' : 'ff'),
 					pointRadius: 2,
 				});
 				num++;
@@ -198,17 +171,13 @@ Aimeos.Dashboard.Sales = {
 			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
 			config.data.datasets = dsets;
-			config.options.scales.xAxes[0].type = 'time';
-			config.options.scales.xAxes[0].time = {unit: 'day'};
-			config.options.legendCallback = self.legend;
-			config.options.tooltips.callbacks.title = function(item) {
-				return moment.utc(item[0].label).format('ll');
-			};
-			config.options.tooltips.callbacks.labelColor = function(item) {
-				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
+			config.options.scales.x.type = 'time';
+			config.options.scales.x.time = {unit: 'day'};
+			config.options.plugins.tooltip.callbacks.title = function(item) {
+				return moment.utc(item[0].raw.x).format('ll');
 			};
 
-			self.addLegend(new Chart(ctx, config), '.order-salesday');
+			new Chart(ctx, config);
 
 		}).then(function() {
 			self.done('.order-salesday');
@@ -258,7 +227,7 @@ Aimeos.Dashboard.Sales = {
 					data: data,
 					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
-					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					borderColor: self.color(num) + (self.theme == 'dark' ? 'bf' : 'ff'),
 					pointRadius: 2,
 				});
 				num++;
@@ -267,20 +236,16 @@ Aimeos.Dashboard.Sales = {
 			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
 			config.data.datasets = dsets;
-			config.options.legendCallback = self.legend;
-			config.options.scales.xAxes[0].type = 'time';
-			config.options.scales.xAxes[0].time = {unit: 'month'};
-			config.options.scales.xAxes[0].ticks.callback = function(item) {
-				return item.substr(0, 3);
+			config.options.scales.x.type = 'time';
+			config.options.scales.x.time = {unit: 'month'};
+			config.options.scales.x.ticks.callback = function(item) {
+				return moment(item).format('MMM');
 			};
-			config.options.tooltips.callbacks.title = function(item) {
-				return moment(item[0].label).format('MMM YYYY');
-			};
-			config.options.tooltips.callbacks.labelColor = function(item) {
-				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
+			config.options.plugins.tooltip.callbacks.title = function(item) {
+				return moment(item[0].raw.x).format('MMM YYYY');
 			};
 
-			self.addLegend(new Chart(ctx, config), '.order-salesmonth');
+			new Chart(ctx, config);
 
 		}).then(function() {
 			self.done('.order-salesmonth');
@@ -326,7 +291,7 @@ Aimeos.Dashboard.Sales = {
 					data: data,
 					label: currencyid,
 					backgroundColor: self.gradient(ctx, num),
-					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
+					borderColor: self.color(num) + (self.theme == 'dark' ? 'bf' : 'ff'),
 					pointRadius: 2,
 				});
 				num++;
@@ -335,13 +300,9 @@ Aimeos.Dashboard.Sales = {
 			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
 			config.data.datasets = dsets;
-			config.data.labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-			config.options.legendCallback = self.legend;
-			config.options.tooltips.callbacks.labelColor = function(item) {
-				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
-			};
+			config.data.labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-			self.addLegend(new Chart(ctx, config), '.order-salesweekday');
+			new Chart(ctx, config);
 
 		}).then(function() {
 			self.done('.order-salesweekday');

@@ -22,14 +22,7 @@ $enc = $this->encoder();
 			</h2>
 		</div>
 		<div id="order-servicepayment-data" class="collapse show loading">
-			<div class="row">
-				<div class="content col-md-7">
-					<div class="chart"><canvas></canvas></div>
-				</div>
-				<div class="content col-md-5">
-					<div class="chart-legend"></div>
-				</div>
-			</div>
+			<div class="chart"><canvas></canvas></div>
 		</div>
 	</div>
 </div>

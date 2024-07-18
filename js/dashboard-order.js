@@ -7,7 +7,7 @@
 Aimeos.Dashboard.Order = {
 
 	theme: 'light',
-	colorHour: '#30a0e0ff',
+	colorHour: '#30a0e0',
 	colorDayHover: '#00b0a0',
 	colorsBg: {dark: '#404570', light: '#ffffff'},
 	colorsText: {dark: '#c0c8d0', light: '#505860'},
@@ -21,24 +21,6 @@ Aimeos.Dashboard.Order = {
 	rtl: false,
 
 
-	addLegend(chart, selector) {
-		const legend = chart.generateLegend();
-		document.querySelector(selector + ' .chart-legend').appendChild(legend);
-
-		legend.querySelectorAll('.item').forEach(function(item) {
-			item.addEventListener('click', function() {
-				const index = item.dataset.index;
-				const meta = chart.getDatasetMeta(index);
-
-				meta.hidden = !meta.hidden;
-				item.classList.toggle('disabled');
-
-				chart.update();
-			});
-		});
-	},
-
-
 	context(selector) {
 		const canvas = document.querySelector(selector + ' .chart canvas');
 		if(!canvas) {
@@ -47,55 +29,27 @@ Aimeos.Dashboard.Order = {
 		return canvas.getContext('2d');
 	},
 
+
 	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
 		});
 	},
 
+
 	gradient(color, alpha, ctx) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
-		gradient.addColorStop(0, Color(color).alpha(alpha).rgbaString());
-		gradient.addColorStop(1, Color(this.colorsBg[this.theme]).rgbaString());
+		gradient.addColorStop(0, color + alpha);
+		gradient.addColorStop(1, this.colorsBg[this.theme]);
 
 		return gradient;
 	},
 
-	legend(chart) {
-		const legend = document.createElement('div');
-		legend.classList.add('legend');
-
-		chart.config.data.datasets.forEach(function(dset, idx) {
-
-			const label = document.createElement('span');
-			label.classList.add('label');
-			label.appendChild(document.createTextNode(dset.label));
-
-			const color = document.createElement('span');
-			color.classList.add('color');
-			color.style.backgroundColor = Color(dset.backgroundColor).alpha(self.theme == 'dark' ? 1 : 0.75).rgbaString();
-
-			const item = document.createElement('div');
-			item.classList.add('item');
-			item.dataset.index = idx;
-
-			item.appendChild(color);
-			item.appendChild(label);
-			legend.appendChild(item);
-		});
-
-		return legend;
-	},
-
 
 	init() {
-
-		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
-			this.rtl = true;
-		}
-
 		this.theme = document.querySelector('body.dark') ? 'dark' : 'light';
+		this.rtl = document.documentElement.getAttribute('dir') === 'rtl' ? true : false;
 
 		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
 		Aimeos.lazy(".order-counthour .chart", this.chartHour.bind(this));
@@ -167,26 +121,27 @@ Aimeos.Dashboard.Order = {
 					},
 					responsive: true,
 					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						displayColors: false,
-						callbacks: {
-							title: () => { return '';},
-							label: (item, data) => {
-								const entry = data.datasets[item.datasetIndex].data[item.index] || {};
-								return [moment(entry.x).format('ll') + ": " + entry.v];
-							}
+					plugins: {
+						legend: {
+							display: false
 						},
-						bodyAlign: self.rtl ? 'right' : 'left',
-						rtl: self.rtl
+						tooltip: {
+							displayColors: false,
+							callbacks: {
+								title: () => '',
+								label: (item) => {
+									const entry = item.dataset.data[item.dataIndex] || {};
+									return [moment(entry.x).format('ll') + ": " + entry.v];
+								}
+							},
+							bodyAlign: self.rtl ? 'right' : 'left',
+							rtl: self.rtl
+						},
 					},
 					scales: {
-						xAxes: [{
+						x: {
 							type: 'time',
 							position: 'bottom',
-							offset: true,
 							time: {
 								unit: 'month',
 								round: 'week',
@@ -194,18 +149,14 @@ Aimeos.Dashboard.Order = {
 									month: 'MMM'
 								}
 							},
-							ticks: {
-								maxRotation: 0,
-								autoSkip: true,
-								fontColor: self.colorsText[self.theme]
-							},
-							gridLines: {
+							grid: {
 								display: false,
-								drawBorder: false,
-								tickMarkLength: 0,
+							},
+							ticks: {
+								color: self.colorsText[self.theme]
 							}
-						}],
-						yAxes: [{
+						},
+						y: {
 							type: 'time',
 							offset: true,
 							position: self.rtl ? 'right' : 'left',
@@ -216,18 +167,13 @@ Aimeos.Dashboard.Order = {
 									day: 'ddd'
 								}
 							},
-							ticks: {
-								 // workaround, see: https://github.com/chartjs/Chart.js/pull/6257
-								maxRotation: 90,
-								reverse: true,
-								fontColor: self.colorsText[self.theme]
-							},
-							gridLines: {
+							grid: {
 								display: false,
-								drawBorder: false,
-								tickMarkLength: 0
+							},
+							ticks: {
+								color: self.colorsText[self.theme]
 							}
-						}]
+						}
 					}
 				}
 			});
@@ -265,39 +211,50 @@ Aimeos.Dashboard.Order = {
 					datasets: [{
 						data: dset,
 						borderWidth: 0,
-						backgroundColor: self.gradient(self.colorHour, 1, ctx),
-						hoverBackgroundColor: self.gradient(self.colorHour, 0.5, ctx)
+						backgroundColor: self.gradient(self.colorHour, 'ff', ctx),
+						hoverBackgroundColor: self.gradient(self.colorHour, '80', ctx)
 					}]
 				},
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
-					legend: false,
-					tooltips: {
-						mode: 'index',
-						intersect: false,
-						position: 'nearest',
-						bodyAlign: self.rtl ? 'right' : 'left',
-						rtl: self.rtl
-					},
 					hover: {
 						mode: 'index',
 						intersect: false
 					},
+					plugins: {
+						legend: {
+							display: false
+						},
+						tooltip: {
+							mode: 'index',
+							intersect: false,
+							position: 'nearest',
+							rtl: self.rtl,
+							callbacks: {
+								title: () => '',
+								label: (item) => {
+									return [item.label + ':00 - ' + item.label + ':59' + " : " + item.formattedValue];
+								}
+							},
+						},
+					},
 					scales: {
-						xAxes: [{
+						x: {
 							display: true,
 							distribution: 'series',
-							gridLines: {
+							grid: {
+								color: self.colorsText[self.theme],
 								drawOnChartArea: false
 							},
 							ticks: {
-								fontColor: self.colorsText[self.theme]
+								color: self.colorsText[self.theme]
 							}
-						}],
-						yAxes: [{
+						},
+						y: {
 							display: true,
-							gridLines: {
+							grid: {
+								color: self.colorsText[self.theme],
 								drawOnChartArea: false
 							},
 							position: self.rtl ? 'right' : 'left',
@@ -306,9 +263,9 @@ Aimeos.Dashboard.Order = {
 								callback: (value) => {
 									return Number.isInteger(value) ? value : '';
 								},
-								fontColor: self.colorsText[self.theme]
+								color: self.colorsText[self.theme]
 							}
-						}]
+						}
 					}
 				}
 			});
@@ -353,8 +310,8 @@ Aimeos.Dashboard.Order = {
 				dsets.push({
 					id: id, data: data,
 					label: labels[id], borderWidth: 0,
-					backgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(self.theme == 'dark' ? 0.75 : 1).rgbString(),
-					hoverBackgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(self.theme == 'dark' ? 1 : 0.75).rgbaString(),
+					backgroundColor: self.paystatusColor[Number(id)+1] + (self.theme == 'dark' ? 'bf' : 'ff'),
+					hoverBackgroundColor: self.paystatusColor[Number(id)+1] + (self.theme == 'dark' ? 'ff' : 'bf'),
 				});
 			}
 
@@ -366,43 +323,52 @@ Aimeos.Dashboard.Order = {
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
-					tooltips: {
-						mode: 'index',
-						intersect: false,
-						position: 'nearest',
-						bodyAlign: self.rtl ? 'right' : 'left',
-						multiKeyBackground: '#000000',
-						rtl: self.rtl,
-						callbacks: {
-							title(item) {
-								return moment.utc(item[0].label).format('ll');
-							}
-						}
-					},
 					hover: {
 						mode: 'index',
 						intersect: false
 					},
+					plugins: {
+						legend: {
+							labels: {
+								color: self.colorsText[self.theme],
+								position: self.rtl ? 'right' : 'left',
+								usePointStyle: true,
+							},
+						},
+						tooltip: {
+							mode: 'index',
+							intersect: false,
+							position: 'nearest',
+							rtl: self.rtl,
+							callbacks: {
+								title(item) {
+									return moment.utc(item[0].raw.x).format('ll');
+								}
+							}
+						},
+					},
 					scales: {
-						xAxes: [{
+						x: {
 							type: 'time',
 							time: {
 								unit: 'day'
 							},
 							display: true,
 							distribution: 'series',
-							gridLines: {
+							grid: {
+								color: self.colorsText[self.theme],
 								drawOnChartArea: false
 							},
 							offset: true,
 							stacked: true,
 							ticks: {
-								fontColor: self.colorsText[self.theme]
+								color: self.colorsText[self.theme]
 							}
-						}],
-						yAxes: [{
+						},
+						y: {
 							display: true,
-							gridLines: {
+							grid: {
+								color: self.colorsText[self.theme],
 								drawOnChartArea: false
 							},
 							position: self.rtl ? 'right' : 'left',
@@ -412,16 +378,14 @@ Aimeos.Dashboard.Order = {
 								callback: (value) => {
 									return Number.isInteger(value) ? value : '';
 								},
-								fontColor: self.colorsText[self.theme]
+								color: self.colorsText[self.theme]
 							}
-						}]
+						}
 					},
-					legend: false,
-					legendCallback: self.legend
 				}
 			};
 
-			self.addLegend(new Chart(ctx, config), '.order-countpaystatus');
+			new Chart(ctx, config);
 
 		}).then(function() {
 			self.done('.order-countpaystatus');
@@ -447,7 +411,7 @@ Aimeos.Dashboard.Order = {
 			const list = [];
 			const labels = JSON.parse(document.querySelector('.order-countcountry').dataset.labels);
 			const geo = JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
-			const countries = ChartGeo.topojson.feature(geo, geo.objects.countries).features;
+			const countries = topojson.feature(geo, geo.objects.countries).features;
 
 			for(const key in map) {
 				list.push({id: key, val: map[key]});
@@ -470,17 +434,19 @@ Aimeos.Dashboard.Order = {
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
-					showOutline: false,
-					showGraticule: false,
-					legend: {
-						display: false
-					},
-					scale: {
-						projection: 'naturalEarth1'
-					},
-					geo: {
-						colorScale: {
+					plugins: {
+						legend: {
 							display: false,
+						}
+					},
+					scales: {
+						color: {
+							axis: 'x',
+							display: false
+						},
+						projection: {
+							axis: 'x',
+							projection: 'naturalEarth1',
 						}
 					}
 				}

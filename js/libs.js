@@ -21,11 +21,13 @@ import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 import { AwesomeGraphQLClient } from 'awesome-graphql-client'
 
 import moment from 'moment'
-import Chart from 'chart.js'
+import 'chartjs-adapter-moment';
+
+import Chart from 'chart.js/auto'
 import { MatrixController, MatrixElement } from 'chartjs-chart-matrix'
+import { ChoroplethChart, ChoroplethController, ColorScale, GeoFeature, ProjectionScale, topojson } from 'chartjs-chart-geo'
 
-Chart.register(MatrixController, MatrixElement)
-
+Chart.register(MatrixController, MatrixElement, ChoroplethChart, ChoroplethController, ColorScale, GeoFeature, ProjectionScale)
 
 globalThis.$ = $
 globalThis.jQuery = jQuery
@@ -44,3 +46,4 @@ globalThis.LMarker = LMarker
 globalThis.AwesomeGraphQLClient = AwesomeGraphQLClient
 globalThis.moment = moment
 globalThis.Chart = Chart
+globalThis.topojson = topojson

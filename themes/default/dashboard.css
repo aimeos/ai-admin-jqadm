@@ -143,9 +143,8 @@ body.dark .dashboard .quick-percent.negative {
 	position: relative;
 }
 
-.dashboard .chart.bar .chart,
-.dashboard .chart.line .chart {
-	padding-top: 3rem;
+.dashboard .chart .chart {
+	padding-top: 1rem;
 }
 
 .dashboard .chart.bar .chart-legend,
