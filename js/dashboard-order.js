@@ -10,7 +10,7 @@ Aimeos.Dashboard.Order = {
 	colorHour: '#30a0e0ff',
 	colorDayHover: '#00b0a0',
 	colorsBg: {dark: '#404570', light: '#ffffff'},
-	colorsText: {dark: '#c0c8d0', light: '#505860'},
+	colorsText: {dark: '#d0e8ff', light: '#505860'},
 	colorScale: {
 		dark: ['#404570', '#4a5082', '#545a92', '#5d64a2', '#6d73ab', '#7d83b5', '#8e92be', '#9ea1c7', '#aeb0d0', '#bec0da'],
 		light: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490']
