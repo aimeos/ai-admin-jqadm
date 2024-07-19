@@ -85,8 +85,8 @@ a, a:hover {
 
 .btn-primary {
 	border: 1px solid transparent;
-	background-color: var(--bs-primary-alt, #00b0a0);
-	border-color: var(--bs-primary-alt, #00b0a0);
+	border-color: var(--bs-line-light);
+	background-color: var(--bs-primary-alt);
 	color: var(--bs-menu, #ffffff) !important;
 }
 
@@ -101,7 +101,7 @@ a, a:hover {
 .btn-primary:focus,
 .show>.btn-primary.dropdown-toggle {
 	background-color: var(--bs-primary-alt-light, #00ccbb);
-	border-color: var(--bs-primary-alt-light, #00ccbb);
+	border-color: var(--bs-line-light);
 }
 
 .btn-primary.dropdown-toggle-split {
