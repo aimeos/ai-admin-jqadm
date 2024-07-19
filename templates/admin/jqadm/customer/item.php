@@ -162,7 +162,7 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
 									<input v-for="id in (item?.groups || {})" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
-									<Multiselect class="item-groups form-control"
+									<Multiselect class="item-groups"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"
 										value-prop="id"
 										track-by="id"
@@ -181,7 +181,7 @@ $params = $this->get( 'pageParams', [] );
 										:object="true"
 										:delay="300"
 									>
-										<input placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"/>
+										<input class="form-control">
 									</Multiselect>
 								</div>
 							</div>

@@ -89,7 +89,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							</div><!--
 							--><div v-else class="form-control item-stocklevel">
 								<span class="item-stocklevel-value">{{ item['stock.stocklevel'] || 0 }} +</span>
-								<input class="item-stocklevel-diff" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<input class="form-control item-stocklevel-diff" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.stockdiff'] ) ) ?>`.replace( '_idx_', idx )"
 									v-bind:readonly="!can('change', idx)"
 									v-bind:value="item['stock.stockdiff'] || 0"

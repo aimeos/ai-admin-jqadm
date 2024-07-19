@@ -8,7 +8,7 @@ Aimeos.Dashboard.Sales = {
 
 	theme: 'light',
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
-	colorsText: {'dark': '#c0c8d0', 'light': '#505860'},
+	colorsText: {'dark': '#d0e8ff', 'light': '#505860'},
 	rtl: false,
 
 	config: {

@@ -8,7 +8,7 @@ Aimeos.Dashboard.Service = {
 
 	theme: 'light',
 	colorBg: {dark: '#202550', light: '#ffffff'},
-	colorsText: {dark: '#c0c8d0', light: '#505860'},
+	colorsText: {dark: '#d0e8ff', light: '#505860'},
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
 	rtl: false,
 
