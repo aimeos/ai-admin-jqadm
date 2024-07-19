@@ -1,37 +1,10 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2018
+ * @copyright Aimeos (aimeos.org), 2016-2024
  */
 
 
 Aimeos.Dashboard = {
-
-	/**
-	 * Adds a HTML legend for the given data to the selector
-	 *
-	 * @param string selector CSS selector of the container the legend should be added to
-	 * @param array data List of labels for the legend
-	 * @param function colorScale D3js scale for the color of the legend squares
-	 */
-	addLegend(selector, data, colorScale) {
-
-		var legendItem = d3.select(selector)
-			.append("div")
-				.attr("class", "legend")
-			.selectAll("div")
-			.data(data)
-			.enter().append("div")
-				.attr("class", "legend-item");
-
-		legendItem.append("div")
-			.attr("class", "legend-square")
-			.attr("style", function(d) { return "background-color: " + colorScale(d); });
-
-		legendItem.append("span")
-			.attr("class", "legend-text")
-			.text(function(d) { return d; });
-	},
-
 
 	/**
 	 * Returns a jQuery promise for the constructed request
