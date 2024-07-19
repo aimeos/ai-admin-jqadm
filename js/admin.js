@@ -817,7 +817,7 @@ Aimeos.Menu = {
 
 
 
-$(function() {
+(function() {
 
 	// show toast notifications
 	document.querySelectorAll('.toast').forEach(el => {
@@ -840,7 +840,7 @@ $(function() {
 	Aimeos.Log.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
-});
+})();
 
 
 /**

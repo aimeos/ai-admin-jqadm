@@ -201,6 +201,6 @@ Aimeos.Dashboard.Service = {
 
 
 
-$(function() {
+(function() {
 	Aimeos.Dashboard.Service.init();
-});
+})();

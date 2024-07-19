@@ -74,7 +74,6 @@ Aimeos.Plugin = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Plugin.init();
-});
+})();

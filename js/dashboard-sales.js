@@ -312,7 +312,6 @@ Aimeos.Dashboard.Sales = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Dashboard.Sales.init();
-});
+})();

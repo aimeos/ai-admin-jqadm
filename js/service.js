@@ -74,7 +74,6 @@ Aimeos.Service = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Service.init();
-});
+})();

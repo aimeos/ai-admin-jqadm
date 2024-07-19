@@ -5,9 +5,9 @@
 
 
 
-$(function() {
+(function() {
 	Aimeos.Media.init();
-});
+})();
 
 
 

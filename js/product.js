@@ -1274,7 +1274,6 @@ Aimeos.Product.Supplier = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Product.init();
-});
+})();

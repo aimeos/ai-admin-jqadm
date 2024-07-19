@@ -73,7 +73,6 @@ Aimeos.Order = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Order.init();
-});
+})();

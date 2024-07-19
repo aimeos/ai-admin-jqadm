@@ -41,7 +41,6 @@ Aimeos.Basket = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Basket.init();
-});
+})();

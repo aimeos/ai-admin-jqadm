@@ -438,7 +438,6 @@ Aimeos.Catalog = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Catalog.init();
-});
+})();

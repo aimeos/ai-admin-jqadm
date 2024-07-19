@@ -310,6 +310,6 @@ Aimeos.Coupon.Code = {
 
 
 
-$(function() {
+(function() {
 	Aimeos.Coupon.init();
-});
+})();

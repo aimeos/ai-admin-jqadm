@@ -74,7 +74,6 @@ Aimeos.Rule = {
 
 
 
-$(function() {
-
+(function() {
 	Aimeos.Rule.init();
-});
+})();

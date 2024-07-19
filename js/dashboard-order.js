@@ -485,6 +485,6 @@ Aimeos.Dashboard.Order = {
 
 
 
-$(function() {
+(function() {
 	Aimeos.Dashboard.Order.init();
-});
+})();

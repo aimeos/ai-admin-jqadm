@@ -4,9 +4,9 @@
  */
 
 
-$(function() {
+(function() {
 	Aimeos.Text.init();
-});
+})();
 
 
 Aimeos.Text = {

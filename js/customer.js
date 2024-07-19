@@ -86,6 +86,6 @@ Aimeos.Customer = {
 
 
 
-$(function() {
+(function() {
 	Aimeos.Customer.init();
-});
+})();
