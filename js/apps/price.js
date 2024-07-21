@@ -102,8 +102,7 @@ Aimeos.Price = {
 			}
 		}
 	}
-}
-
+};
 
 
 (function() {
