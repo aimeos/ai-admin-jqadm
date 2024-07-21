@@ -798,7 +798,7 @@ Aimeos.Log = {
 			return false;
 		});
 	}
-}
+};
 
 
 Aimeos.Menu = {
@@ -813,7 +813,7 @@ Aimeos.Menu = {
 			$(".app-menu").removeClass("open");
 		});
 	}
-}
+};
 
 
 
