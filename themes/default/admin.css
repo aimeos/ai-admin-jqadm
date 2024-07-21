@@ -534,6 +534,13 @@
 }
 
 
+/* Customer */
+
+.aimeos .item-groups {
+	border-bottom: none;
+}
+
+
 /* Download */
 
 .aimeos .item-download item-file {
