@@ -354,7 +354,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 											v-bind:readonly="!can('change')"
 											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
-												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
+												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )]?->getName() ?? $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
 										</select>
 									</div>
