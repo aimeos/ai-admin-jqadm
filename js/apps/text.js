@@ -4,11 +4,6 @@
  */
 
 
-(function() {
-	Aimeos.Text.init();
-})();
-
-
 Aimeos.Text = {
 
 	init() {
@@ -217,3 +212,8 @@ Aimeos.Text = {
 		}
 	}
 };
+
+
+(function() {
+	Aimeos.Text.init();
+})();

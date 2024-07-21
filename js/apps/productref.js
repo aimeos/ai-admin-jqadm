@@ -4,13 +4,6 @@
  */
 
 
-
-(function() {
-	Aimeos.ProductRef.init();
-})();
-
-
-
 Aimeos.ProductRef = {
 
 	init() {
@@ -448,3 +441,8 @@ Aimeos.ProductRef = {
 		}
 	}
 };
+
+
+(function() {
+	Aimeos.ProductRef.init();
+})();

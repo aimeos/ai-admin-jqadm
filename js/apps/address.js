@@ -4,13 +4,6 @@
  */
 
 
-
-(function() {
-	Aimeos.Address.init();
-})();
-
-
-
 Aimeos.Address = {
 
 	init() {
@@ -152,3 +145,8 @@ Aimeos.Address = {
 		}
 	}
 };
+
+
+(function() {
+	Aimeos.Address.init();
+})();

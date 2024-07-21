@@ -4,13 +4,6 @@
  */
 
 
-
-(function() {
-	Aimeos.ProductList.init();
-})();
-
-
-
 Aimeos.ProductList = {
 
 	init() {
@@ -443,3 +436,8 @@ Aimeos.ProductList = {
 		}
 	}
 };
+
+
+(function() {
+	Aimeos.ProductList.init();
+})();

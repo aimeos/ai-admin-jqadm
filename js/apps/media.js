@@ -4,13 +4,6 @@
  */
 
 
-
-(function() {
-	Aimeos.Media.init();
-})();
-
-
-
 Aimeos.Media = {
 
 	init() {
@@ -205,3 +198,8 @@ Aimeos.Media = {
 		}
 	}
 };
+
+
+(function() {
+	Aimeos.Media.init();
+})();

@@ -4,13 +4,6 @@
  */
 
 
-
-(function() {
-	Aimeos.Price.init();
-})();
-
-
-
 Aimeos.Price = {
 
 	init() {
@@ -109,4 +102,10 @@ Aimeos.Price = {
 			}
 		}
 	}
-};
+}
+
+
+
+(function() {
+	Aimeos.Price.init();
+})();
