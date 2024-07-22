@@ -25,13 +25,58 @@ $enc = $this->encoder();
 $fields = ['order.id', 'order.currencyid', 'order.price', 'order.address.firstname', 'order.address.lastname', 'order.address.city'];
 $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 
+$columnList = [
+	'order.id' => $this->translate( 'admin', 'ID' ),
+	'order.sitecode' => $this->translate( 'admin', 'Site' ),
+	'order.languageid' => $this->translate( 'admin', 'Language' ),
+	'order.currencyid' => $this->translate( 'admin', 'Currency' ),
+	'order.price' => $this->translate( 'admin', 'Price' ),
+	'order.costs' => $this->translate( 'admin', 'Costs' ),
+	'order.rebate' => $this->translate( 'admin', 'Rebate' ),
+	'order.taxvalue' => $this->translate( 'admin', 'Tax' ),
+	'order.customerref' => $this->translate( 'admin', 'Customer reference' ),
+	'order.comment' => $this->translate( 'admin', 'Comment' ),
+	'order.address.company' => $this->translate( 'admin', 'Company' ),
+	'order.address.vatid' => $this->translate( 'admin', 'VAT ID' ),
+	'order.address.salutation' => $this->translate( 'admin', 'Salutation' ),
+	'order.address.title' => $this->translate( 'admin', 'Title' ),
+	'order.address.firstname' => $this->translate( 'admin', 'First name' ),
+	'order.address.lastname' => $this->translate( 'admin', 'Last name' ),
+	'order.address.address1' => $this->translate( 'admin', 'Address 1' ),
+	'order.address.address2' => $this->translate( 'admin', 'Address 2' ),
+	'order.address.address3' => $this->translate( 'admin', 'Address 3' ),
+	'order.address.postal' => $this->translate( 'admin', 'Zip code' ),
+	'order.address.city' => $this->translate( 'admin', 'City' ),
+	'order.address.state' => $this->translate( 'admin', 'State' ),
+	'order.address.countryid' => $this->translate( 'admin', 'Country' ),
+	'order.address.mobile' => $this->translate( 'admin', 'Mobile' ),
+	'order.address.telephone' => $this->translate( 'admin', 'Telephone' ),
+	'order.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
+	'order.address.email' => $this->translate( 'admin', 'E-Mail' ),
+	'order.address.website' => $this->translate( 'admin', 'Web site' ),
+	'order.ctime' => $this->translate( 'admin', 'Created' ),
+	'order.mtime' => $this->translate( 'admin', 'Modified' ),
+	'order.editor' => $this->translate( 'admin', 'Editor' ),
+];
+
 
 ?>
 <div id="order" class="item-order tab-pane fade" role="tabpanel" aria-labelledby="order">
 
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
+
 	<div class="order-list box"
 		data-id="<?= $enc->attr( $this->param( 'id' ) ) ?>"
 		data-fields="<?= $enc->attr( $fields ) ?>">
+
+		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+			v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+			v-bind:fields="<?= $enc->attr( $fields ) ?>"
+			v-bind:submit="false"
+			v-bind:show="columns"
+			v-on:close="columns = false"
+			v-on:submit="update($event)">
+		</column-select>
 
 		<div class="table-responsive">
 			<table class="list-items table table-striped">
@@ -207,267 +252,10 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 						</th>
 
 						<th class="actions">
-							<div class="dropdown filter-columns">
-								<button class="btn act-columns icon" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-									data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}' aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>">
-								</button>
-								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.id')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.id')"
-												v-bind:checked="fieldlist.includes('order.id')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.sitecode')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.sitecode')"
-												v-bind:checked="fieldlist.includes('order.sitecode')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.languageid')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.languageid')"
-												v-bind:checked="fieldlist.includes('order.languageid')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.currencyid')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.currencyid')"
-												v-bind:checked="fieldlist.includes('order.currencyid')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.price')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.price')"
-												v-bind:checked="fieldlist.includes('order.price')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.costs')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.costs')"
-												v-bind:checked="fieldlist.includes('order.costs')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Costs' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.rebate')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.rebate')"
-												v-bind:checked="fieldlist.includes('order.rebate')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Rebate' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.taxvalue')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.taxvalue')"
-												v-bind:checked="fieldlist.includes('order.taxvalue')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Tax' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.customerref')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.customerref')"
-												v-bind:checked="fieldlist.includes('order.customerref')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.comment')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.comment')"
-												v-bind:checked="fieldlist.includes('order.comment')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Comment' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.company')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.company')"
-												v-bind:checked="fieldlist.includes('order.address.company')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.vatid')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.vatid')"
-												v-bind:checked="fieldlist.includes('order.address.vatid')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.salutation')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.salutation')"
-												v-bind:checked="fieldlist.includes('order.address.salutation')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.title')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.title')"
-												v-bind:checked="fieldlist.includes('order.address.title')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.firstname')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.firstname')"
-												v-bind:checked="fieldlist.includes('order.address.firstname')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'First name' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.lastname')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.lastname')"
-												v-bind:checked="fieldlist.includes('order.address.lastname')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.address1')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.address1')"
-												v-bind:checked="fieldlist.includes('order.address.address1')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Address 1' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.address2')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.address2')"
-												v-bind:checked="fieldlist.includes('order.address.address2')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Address 2' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.address3')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.address3')"
-												v-bind:checked="fieldlist.includes('order.address.address3')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Address 3' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.postal')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.postal')"
-												v-bind:checked="fieldlist.includes('order.address.postal')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Zip code' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.city')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.city')"
-												v-bind:checked="fieldlist.includes('order.address.city')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'City' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.state')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.state')"
-												v-bind:checked="fieldlist.includes('order.address.state')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'State' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.countryid')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.countryid')"
-												v-bind:checked="fieldlist.includes('order.address.countryid')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.mobile')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.mobile')"
-												v-bind:checked="fieldlist.includes('order.address.mobile')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Mobile' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.telephone')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.telephone')"
-												v-bind:checked="fieldlist.includes('order.address.telephone')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.telefax')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.telefax')"
-												v-bind:checked="fieldlist.includes('order.address.telefax')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.email')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.email')"
-												v-bind:checked="fieldlist.includes('order.address.email')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?>
-										</label></a>
-									</li>
-									<li class="dropdown-item">
-										<a v-on:click.prevent.stop="toggleField('order.address.website')" href="#"><label>
-											<input class="form-check-input"
-												v-on:click.capture.stop="toggleField('order.address.website')"
-												v-bind:checked="fieldlist.includes('order.address.website')"
-												type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-											<?= $enc->html( $this->translate( 'admin', 'Web site' ) ) ?>
-										</label></a>
-									</li>
-								</ul>
-							</div>
+							<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
+								v-on:click.prevent.stop="columns = true">
+							</a>
 						</th>
 					</tr>
 				</thead>

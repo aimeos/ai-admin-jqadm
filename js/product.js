@@ -442,6 +442,7 @@ Aimeos.Product.Order = {
 			},
 			data() {
 				return {
+					columns: false,
 					items: [],
 					fieldlist: [],
 					filter: {},
@@ -584,12 +585,10 @@ Aimeos.Product.Order = {
 					return this.sort === key ? 'sort-desc' : (this.sort === '-' + key ? 'sort-asc' : '');
 				},
 
-				toggleField(key) {
-					let idx = this.fields.indexOf(key);
-					idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
-
+				update(keys) {
+					this.fieldlist = keys;
 					if(window.sessionStorage) {
-						window.sessionStorage.setItem('aimeos/jqadm/productorder/fields', JSON.stringify(this.fields));
+						window.sessionStorage.setItem('aimeos/jqadm/productorder/fields', JSON.stringify(this.fieldlist));
 					}
 				}
 			},
