@@ -729,37 +729,36 @@ Aimeos.Tabs = {
 
 
 	setupTabSwitch() {
+		const self = this
+		const hash = document.location.hash
 
-		var hash = '';
-		var url = document.location.toString();
-
-		if(url.match(/#[a-z0-9]+/i)) {
-			hash = url.split('#')[1];
-			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
-
-			$("form").each(function() {
-				if($(this).attr("action") !== undefined) {
-					$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
-				}
-			});
-		}
+		$('.nav-tabs a[href="' + hash + '"]').tab('show')
+		self.toForm(hash)
 
 		$('.nav-tabs a').on('shown.bs.tab', function (e) {
-			hash = e.target.hash;
+			self.toState(e.target.hash)
+			self.toForm(e.target.hash)
+		})
+	},
 
-			if(history.pushState) {
-				history.pushState(null, null, hash);
-			} else {
-				window.location.hash = hash;
-				window.scrollTo(0, 0);
-			}
 
+	toForm(hash) {
+		if(hash) {
 			$("form").each(function() {
 				if($(this).attr("action") !== undefined) {
-					$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+					$(this).attr("action", $(this).attr("action").split('#')[0] + hash)
 				}
-			});
-		})
+			})
+		}
+	},
+
+
+	toState(hash) {
+		if(hash) {
+			if(history.pushState) {
+				history.pushState(null, null, hash)
+			}
+		}
 	}
 };
 
@@ -839,12 +838,17 @@ Aimeos.Menu = {
 	Aimeos.List.init();
 	Aimeos.Log.init();
 	Aimeos.Nav.init();
-	Aimeos.Tabs.init();
 })();
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	Aimeos.Tabs.init();
+});
 
 
 /**
  * Load JSON admin resource definition immediately
+ * @deprecated Use GraphQL API
  */
 Aimeos.options = fetch($(".aimeos").data("url"), {
 	"method": "OPTIONS"
