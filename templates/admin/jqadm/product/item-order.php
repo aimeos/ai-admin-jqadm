@@ -722,33 +722,34 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 		<nav class="list-page">
 			<ul class="page-offset pagination">
 				<li v-bind:class="{disabled: first === null}" class="page-item">
-					<button v-on:click.prevent="offset = first" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>">
+					<a v-on:click.prevent="offset = first" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>" href="#">
 						<span class="icon icon-first" aria-hidden="true"></span>
-					</button>
+					</a>
 				</li><!--
 				--><li v-bind:class="{disabled: prev === null}" class="page-item">
-					<button v-on:click.prevent="offset = prev" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>">
+					<a v-on:click.prevent="offset = prev" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>" href="#">
 						<span class="icon icon-prev" aria-hidden="true"></span>
-					</button>
+					</a>
 				</li><!--
 				--><li class="page-item disabled">
-					<button class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-						{{ pagecnt(`<?= $enc->js( $this->translate( 'admin', 'Page %1$d of %2$d' ) ) ?>`) }}
-					</button>
+					<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>" href="#">
+						<span class="d-none d-lg-block">{{ pagecnt(`<?= $enc->js( $this->translate( 'admin', 'Page %1$d of %2$d' ) ) ?>`) }}</span>
+						<span class="d-lg-none">{{ pagecnt(`<?= $enc->js( $this->translate( 'admin', '%1$d/%2$d' ) ) ?>`) }}</span>
+					</a>
 				</li><!--
 				--><li v-bind:class="{disabled: next === null}" class="page-item">
-					<button v-on:click.prevent="offset = next" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>">
+					<a v-on:click.prevent="offset = next" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>" href="#">
 						<span class="icon icon-next" aria-hidden="true"></span>
-					</button>
+					</a>
 				</li><!--
 				--><li v-bind:class="{disabled: last === null}" class="page-item">
-					<button v-on:click.prevent="offset = last" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>">
+					<a v-on:click.prevent="offset = last" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>" href="#">
 						<span class="icon icon-last" aria-hidden="true"></span>
-					</button>
+					</a>
 				</li>
 			</ul>
 			<div class="page-limit btn-group dropup" role="group">
