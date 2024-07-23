@@ -63,11 +63,22 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a v-on:click.prevent.stop="remove()" class="btn act-delete icon"
-								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
+									<input id="import" class="btn-text fileupload" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>">
+								</li>
+								<li>
+									<a v-on:click.prevent.stop="remove()" class="btn"
+										tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>">
+										<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>
+									</a>
+								</li>
+							</ul>
 						</th>
 						<th v-if="fieldlist.includes('coupon.code.id')" v-bind:class="css('id')">
 							<a v-bind:class="sortclass('id')" v-on:click.prevent="sort('id')"
@@ -125,8 +136,6 @@ $columnList = [
 						</th>
 
 						<th class="actions">
-							<input class="btn icon icon-upload fileupload act-import" type="file" name="code[file]"
-								tabindex="<?= $this->get( 'tabindex' ) ?>">
 							<a class="btn icon act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:click="add()" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
