@@ -8,25 +8,25 @@ Aimeos.components['page-offset'] = {
 	template: `
 		<ul class="page-offset pagination">
 			<li v-bind:class="{disabled: first === null}" class="page-item">
-				<button v-on:click.prevent="$emit('input', first)" class="page-link" v-bind:tabindex="tabindex" aria-label="First">
+				<a v-on:click.prevent="$emit('input', first)" class="page-link" v-bind:tabindex="tabindex" title="First" href="#">
 					<span class="icon icon-first" aria-hidden="true"></span>
-				</button>
+				</a>
 			</li><li v-bind:class="{disabled: prev === null}" class="page-item">
-				<button v-on:click.prevent="$emit('input', prev)" class="page-link" v-bind:tabindex="tabindex" aria-label="Previous">
+				<a v-on:click.prevent="$emit('input', prev)" class="page-link" v-bind:tabindex="tabindex" title="Previous" href="#">
 					<span class="icon icon-prev" aria-hidden="true"></span>
-				</button>
+				</a>
 			</li><li class="page-item disabled">
-				<button class="page-link" v-bind:tabindex="tabindex">
-					{{ string }}
-				</button>
+				<a class="page-link" v-bind:tabindex="tabindex">
+					<span>{{ string }}</span>
+				</a>
 			</li><li v-bind:class="{disabled: next === null}" class="page-item">
-				<button v-on:click.prevent="$emit('input', next)" class="page-link" v-bind:tabindex="tabindex" aria-label="Next">
+				<a v-on:click.prevent="$emit('input', next)" class="page-link" v-bind:tabindex="tabindex" title="Next" href="#">
 					<span class="icon icon-next" aria-hidden="true"></span>
-				</button>
+				</a>
 			</li><li v-bind:class="{disabled: last === null}" class="page-item">
-				<button v-on:click.prevent="$emit('input', last)" class="page-link" v-bind:tabindex="tabindex" aria-label="Last">
+				<a v-on:click.prevent="$emit('input', last)" class="page-link" v-bind:tabindex="tabindex" title="Last" href="#">
 					<span class="icon icon-last" aria-hidden="true"></span>
-				</button>
+				</a>
 			</li>
 		</ul>
 	`,
