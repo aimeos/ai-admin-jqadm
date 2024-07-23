@@ -469,32 +469,6 @@ Aimeos.Product.Order = {
 				this.fetch();
 			},
 
-			computed : {
-				first() {
-					return this.offset > 0 ? 0 : null;
-				},
-
-				prev() {
-					return this.offset - this.limit >= 0 ? this.offset - this.limit : null;
-				},
-
-				next() {
-					return this.offset + this.limit < this.total ? this.offset + this.limit : null;
-				},
-
-				last() {
-					return Math.floor((this.total - 1) / this.limit) * this.limit > this.offset ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
-				},
-
-				current() {
-					return Math.floor( this.offset / this.limit ) + 1;
-				},
-
-				pages() {
-					return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
-				}
-			},
-
 			methods : {
 				address(item, code) {
 					return item.address && item.address[0] && item.address[0][code] ? item.address[0][code] : '';

@@ -508,58 +508,8 @@ $columnList = [
 		<div v-if="!items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 		<nav class="list-page">
-			<ul class="page-offset pagination">
-				<li v-bind:class="{disabled: first === null}" class="page-item">
-					<a v-on:click.prevent="offset = first" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>" href="#">
-						<span class="icon icon-first" aria-hidden="true"></span>
-					</a>
-				</li><!--
-				--><li v-bind:class="{disabled: prev === null}" class="page-item">
-					<a v-on:click.prevent="offset = prev" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>" href="#">
-						<span class="icon icon-prev" aria-hidden="true"></span>
-					</a>
-				</li><!--
-				--><li class="page-item disabled">
-					<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>" href="#">
-						<span class="d-none d-lg-block">{{ pagecnt(`<?= $enc->js( $this->translate( 'admin', 'Page %1$d of %2$d' ) ) ?>`) }}</span>
-						<span class="d-lg-none">{{ pagecnt(`<?= $enc->js( $this->translate( 'admin', '%1$d/%2$d' ) ) ?>`) }}</span>
-					</a>
-				</li><!--
-				--><li v-bind:class="{disabled: next === null}" class="page-item">
-					<a v-on:click.prevent="offset = next" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>" href="#">
-						<span class="icon icon-next" aria-hidden="true"></span>
-					</a>
-				</li><!--
-				--><li v-bind:class="{disabled: last === null}" class="page-item">
-					<a v-on:click.prevent="offset = last" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>" href="#">
-						<span class="icon icon-last" aria-hidden="true"></span>
-					</a>
-				</li>
-			</ul>
-			<div class="page-limit btn-group dropup" role="group">
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
-					tabindex="<?= $this->get( 'tabindex', 1 ) ?>" aria-haspopup="true" aria-expanded="false">
-					{{ limit }} <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li class="dropdown-item">
-						<a v-on:click.prevent="limit = 25" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">25</a>
-					</li>
-					<li class="dropdown-item">
-						<a v-on:click.prevent="limit = 50" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">50</a>
-					</li>
-					<li class="dropdown-item">
-						<a v-on:click.prevent="limit = 100" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">100</a>
-					</li>
-					<li class="dropdown-item">
-						<a v-on:click.prevent="limit = 250" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">250</a>
-					</li>
-				</ul>
-			</div>
+			<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-offset>
+			<page-limit v-model="limit" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-limit>
 		</nav>
 
 	</div>
