@@ -569,7 +569,8 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$siteId = (string) $manager->get( $context->user() )->getSiteId();
+		$userid = $context->user();
+		$siteId = $userid ? (string) $manager->get( $userid )->getSiteId() : '';
 
 		if( $this->view()->access( ['super'] ) || strlen( $siteId ) > 0 && !strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) )
 		{
