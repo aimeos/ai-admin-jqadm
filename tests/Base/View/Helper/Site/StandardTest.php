@@ -17,7 +17,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$view = new \Aimeos\Base\View\Standard();
-		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( [
+		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( 'locale.site.', [
 			'locale.site.siteid' => '0.',
 			'locale.site.label' => 'label1'
 		] );
