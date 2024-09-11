@@ -93,6 +93,10 @@ class TestHelper
 		$ctx->setI18n( array( 'de' => $i18n ) );
 
 
+		$passwd = new \Aimeos\Base\Password\Standard();
+		$ctx->setPassword( $passwd );
+
+
 		$session = new \Aimeos\Base\Session\None();
 		$ctx->setSession( $session );
 
