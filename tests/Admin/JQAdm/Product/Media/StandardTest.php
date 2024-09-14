@@ -112,12 +112,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$managerStub = $this->getMockBuilder( \Aimeos\MShop\Media\Manager\Standard::class )
 			->setConstructorArgs( array( $this->context ) )
-			->onlyMethods( ['upload', 'getDomain'] )
+			->onlyMethods( ['upload', 'domain'] )
 			->getMock();
 
 		\Aimeos\MShop::inject( \Aimeos\MShop\Media\Manager\Standard::class, $managerStub );
 
-		$managerStub->method( 'getDomain' )->willReturn( 'media' );
+		$managerStub->method( 'domain' )->willReturn( 'media' );
 		$managerStub->expects( $this->once() )->method( 'upload' )->willReturnArgument( 0 );
 
 
