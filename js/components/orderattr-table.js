@@ -69,7 +69,33 @@ Aimeos.components['orderattr-table'] = {
 						></Multiselect>
 					</td>
 					<td class="attr-value">
-						<input type="text" class="service-attr-value form-control" v-bind:tabindex="tabindex"
+						<div v-if="entry['order.service.attribute.value'] !== null && Array.isArray(JSON.parse(JSON.stringify(entry['order.service.attribute.value'])))" >
+							<input class="form-control" readonly
+								:tabindex="tabindex"
+								:name="fname('order.service.attribute.value', idx)"
+								:value="JSON.stringify(entry['order.service.attribute.value'] || [])"
+								@click="entry['_show'] = true">
+							<config-list v-if="entry._show"
+								:readonly="!can('change', idx)"
+								:list="entry['order.service.attribute.value'] || []"
+								@update="entry['order.service.attribute.value'] = $event; entry['_show'] = false"
+							></config-list>
+						</div>
+						<div v-else-if="entry['order.service.attribute.value'] !== null && typeof JSON.parse(JSON.stringify(entry['order.service.attribute.value'])) === 'object'">
+							<input class="form-control" readonly
+								:tabindex="tabindex"
+								:name="fname('order.service.attribute.value', idx)"
+								:value="JSON.stringify(entry['order.service.attribute.value'] || {})"
+								@click="entry['_show'] = true">
+							<config-map v-if="entry._show"
+								:tabindex="tabindex"
+								:readonly="!can('change', idx)"
+								:map="entry['order.service.attribute.value'] || {}"
+								@update="entry['order.service.attribute.value'] = $event; entry['_show'] = false"
+							></config-map>
+						</div>
+						<input v-else
+							class="service-attr-value form-control" v-bind:tabindex="tabindex"
 							v-model="entry['order.service.attribute.value']"
 							v-bind:name="fname('order.service.attribute.value', idx)"
 							v-bind:readonly="!can('change', idx)">
@@ -129,9 +155,9 @@ Aimeos.components['orderattr-table'] = {
 		title(idx) {
 			if(this.items[idx]['order.service.attribute.ctime']) {
 				return 'Site ID: ' + this.items[idx]['order.service.attribute.siteid'] + "\n"
-					+ 'Editor: ' + this.items[idx]['order.service.attribute.orderattr.editor'] + "\n"
-					+ 'Created: ' + this.items[idx]['order.service.attribute.orderattr.ctime'] + "\n"
-					+ 'Modified: ' + this.items[idx]['order.service.attribute.orderattr.mtime'];
+					+ 'Editor: ' + this.items[idx]['order.service.attribute.editor'] + "\n"
+					+ 'Created: ' + this.items[idx]['order.service.attribute.ctime'] + "\n"
+					+ 'Modified: ' + this.items[idx]['order.service.attribute.mtime'];
 			}
 			return ''
 		}

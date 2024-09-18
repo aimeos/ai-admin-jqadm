@@ -506,6 +506,9 @@ class Standard
 					$id = $entry['order.service.attribute.id'] ?? '';
 					$attrItem = $attrItems[$id] ?? $attrManager->create();
 
+					$value = $entry['order.service.attribute.value'] ?? '';
+					$entry['order.service.attribute.value'] = json_decode( $value, true ) ?? $value;
+
 					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() ) );
 					unset( $attrItems[$id] );
 				}
