@@ -816,9 +816,7 @@ Aimeos.Menu = {
 }
 
 
-
-$(function() {
-
+document.addEventListener("DOMContentLoaded", function() {
 	// show toast notifications
 	document.querySelectorAll('.toast').forEach(el => {
 		new bootstrap.Toast(el, {delay: 3000}).show();
