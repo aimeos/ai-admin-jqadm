@@ -66,7 +66,7 @@ $keys = [
 						<td class="interval-check">
 							<input class="form-check-input item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', '_idx_', 'attribute.id' ) ) ) ?>`.replace( '_idx_', idx )"
-								v-bind:checked="entry['product.lists.id'] || !entry['attribute.id'] ? 'checked' : ''"
+								v-bind:checked="entry['product.lists.id'] || !entry['attribute.id'] ? true : false"
 								v-bind:value="entry['attribute.id']">
 						</td>
 						<td class="interval-label mandatory">
