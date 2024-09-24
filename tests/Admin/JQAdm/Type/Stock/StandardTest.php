@@ -39,7 +39,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
-				'stock.type.domain' => 'product',
+				'stock.type.domain' => 'stock',
 				'stock.type.position' => 1,
 				'stock.type.status' => -1,
 			),
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'stock/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'default', [], 'product' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'default', [], 'stock' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -133,7 +133,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'stock/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'default', [], 'product' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'default', [], 'stock' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -168,7 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'item' => array(
 				'stock.type.id' => '',
 				'stock.type.status' => '1',
-				'stock.type.domain' => 'product',
+				'stock.type.domain' => 'stock',
 				'stock.type.code' => 'jqadm@test',
 				'stock.type.label' => 'jqadm test',
 			),
@@ -179,7 +179,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->delete( $manager->find( 'jqadm@test', [], 'product' )->getId() );
+		$manager->delete( $manager->find( 'jqadm@test', [], 'stock' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -275,7 +275,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'stock/type' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'default', [], 'product' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'default', [], 'stock' )->getId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
