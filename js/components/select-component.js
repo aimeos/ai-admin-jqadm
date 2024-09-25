@@ -10,7 +10,7 @@ Aimeos.components['select-component'] = {
 			<option v-if="text" value="">{{ text }}</option>
 			<option v-if="modelValue && !items[modelValue]" v-bind:value="modelValue" selected>{{ modelValue }}</option>
 			<option v-if="all" value="" v-bind:selected="modelValue === null">{{ all }}</option>
-			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="modelValue === key">
+			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="String(modelValue) === String(key)">
 				{{ label || key }}
 			</option>
 		</select>
