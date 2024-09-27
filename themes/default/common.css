@@ -659,7 +659,13 @@ body {
 .multiselect-multiple-label,
 .multiselect-placeholder,
 .multiselect-single-label {
-	padding: 0 !important;
+	padding: 0;
+}
+
+.multiselect-multiple-label:has(+.multiselect-clear),
+.multiselect-placeholder:has(+.multiselect-clear),
+.multiselect-single-label:has(+.multiselect-clear) {
+	padding-right: calc(var(--ms-px, .875rem)* 3);
 }
 
 .multiselect-caret,
