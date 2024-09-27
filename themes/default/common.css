@@ -643,7 +643,23 @@ body {
 
 .multiselect-tags-search {
 	background-color: var(--bs-bg-light);
-	border-bottom: 1px solid var(--bs-line, #bbb);
+}
+
+.multiselect-multiple-label,
+.multiselect-placeholder,
+.multiselect-single-label,
+.multiselect-tags-search-wrapper,
+.multiselect-tags {
+	padding: 0;
+	margin: 0;
+}
+
+.multiselect-tag {
+	--ms-tag-py: 0;
+}
+
+.multiselect-wrapper {
+	min-height: auto;
 }
 
 .multiselect-option.is-selected,
@@ -651,21 +667,10 @@ body {
 	background: var(--bs-menu-bg)
 }
 
-.multiselect-wrapper {
-	min-height: auto;
-	padding: 0.2rem;
-}
-
-.multiselect-multiple-label,
-.multiselect-placeholder,
-.multiselect-single-label {
-	padding: 0;
-}
-
 .multiselect-multiple-label:has(+.multiselect-clear),
 .multiselect-placeholder:has(+.multiselect-clear),
 .multiselect-single-label:has(+.multiselect-clear) {
-	padding-right: calc(var(--ms-px, .875rem)* 3);
+	padding-right: calc(var(--ms-px, .875rem) * 3);
 }
 
 .multiselect-caret,

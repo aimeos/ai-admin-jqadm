@@ -23,7 +23,7 @@ Aimeos.Customer = {
 				},
 				beforeMount() {
 					this.Aimeos = Aimeos;
-					this.item = JSON.parse(this.data);
+					this.item = JSON.parse(this.data) || {};
 				},
 				mixins: [this.mixins]
 			}, {...node.dataset || {}}).mount(node);

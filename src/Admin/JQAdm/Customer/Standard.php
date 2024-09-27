@@ -576,7 +576,7 @@ class Standard
 			$data['.modify'] = true;
 		}
 
-		$data['groups'] = array_flip( $item->getGroups() );
+		$data['groups'] = !empty( $item->getGroups() ) ? array_flip( $item->getGroups() ) : new \stdClass();
 
 		if( $copy === true )
 		{

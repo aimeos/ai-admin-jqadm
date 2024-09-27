@@ -161,8 +161,8 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
-									<input v-for="id in (item?.groups || {})" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
-									<Multiselect class="item-groups"
+									<input v-for="id in (item['groups'] || {})" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
+									<Multiselect class="item-groups form-control multiselect"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"
 										value-prop="id"
 										track-by="id"
@@ -180,9 +180,7 @@ $params = $this->get( 'pageParams', [] );
 										:min-chars="1"
 										:object="true"
 										:delay="300"
-									>
-										<input class="form-control">
-									</Multiselect>
+									></Multiselect>
 								</div>
 							</div>
 						</div>
