@@ -30,7 +30,6 @@ $fields = $this->config( 'admin/jqadm/supplier/product/fields', $fields );
 		'tabindex' => $this->get( 'tabindex' ),
 		'siteid' => $this->site()->siteid(),
 		'refid' => $this->param( 'id' ),
-		'resource' => 'product/lists',
 		'domain' => 'supplier',
 		'fields' => $fields,
 	] ) ?>

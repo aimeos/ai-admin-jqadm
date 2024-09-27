@@ -510,20 +510,15 @@
 
 /* Catalog */
 
-.aimeos .list-search .catalog-lists-position,
-.aimeos .list-search .customer-lists-position,
-.aimeos .list-search .catalog-lists-status,
-.aimeos .list-search .customer-lists-status,
-.aimeos .list-search .catalog-lists-type,
-.aimeos .list-search .customer-lists-type,
-.aimeos .list-search .catalog-lists-config,
-.aimeos .list-search .customer-lists-config {
-	width: 15%;
+.aimeos .product-lists-position,
+.aimeos .product-lists-status,
+.aimeos .product-lists-type,
+.aimeos .product-lists-config {
+	max-width: 15%;
 }
 
-.aimeos .list-search .catalog-lists-refid,
-.aimeos .list-search .customer-lists-refid {
-	width: 35%;
+.aimeos .product-lists-refid {
+	width: 30%;
 }
 
 @media (max-width: 991px) {

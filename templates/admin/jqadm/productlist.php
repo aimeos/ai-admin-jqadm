@@ -7,7 +7,6 @@
 
 
 $enc = $this->encoder();
-$prefix = str_replace( '/', '.', $this->get( 'resource' ) ) . '.';
 
 $status = [
 	1 => $this->translate( 'mshop/code', 'status:1' ),
@@ -17,13 +16,13 @@ $status = [
 ];
 
 $columnList = [
-	$prefix . 'id' => $this->translate( 'admin', 'ID' ),
-	$prefix . 'position' => $this->translate( 'admin', 'Position' ),
-	$prefix . 'status' => $this->translate( 'admin', 'Status' ),
-	$prefix . 'type' => $this->translate( 'admin', 'Type' ),
-	$prefix . 'config' => $this->translate( 'admin', 'Config' ),
-	$prefix . 'datestart' => $this->translate( 'admin', 'Start date' ),
-	$prefix . 'dateend' => $this->translate( 'admin', 'End date' ),
+	'product.lists.id' => $this->translate( 'admin', 'ID' ),
+	'product.lists.position' => $this->translate( 'admin', 'Position' ),
+	'product.lists.status' => $this->translate( 'admin', 'Status' ),
+	'product.lists.type' => $this->translate( 'admin', 'Type' ),
+	'product.lists.config' => $this->translate( 'admin', 'Config' ),
+	'product.lists.datestart' => $this->translate( 'admin', 'Start date' ),
+	'product.lists.dateend' => $this->translate( 'admin', 'End date' ),
 ];
 
 $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_id_'] );
@@ -33,20 +32,20 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
 
 <div class="list productlist"
-	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
 	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
 	data-domain="<?= $enc->attr( $this->get( 'domain' ) ) ?>"
 	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>"
-	data-refid="<?= $enc->attr( $this->get( 'refid' ) ) ?>">
+	data-refid="<?= $enc->attr( $this->get( 'refid' ) ) ?>"
+	data-status="<?= $enc->attr( $status ) ?>">
 
 	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
-		v-bind:fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
 		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+		v-bind:fields="fieldlist"
 		v-bind:show="colselect"
 		v-bind:submit="false"
-		v-on:submit="toggle($event)"
+		v-on:submit="fieldlist = columns($event)"
 		v-on:close="colselect = false">
 	</column-select>
 
@@ -55,67 +54,59 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 			<thead class="list-header">
 				<tr>
 					<th class="select">
-						<a v-on:click.prevent.stop="remove()" class="btn act-delete icon"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-						</a>
+						<button class="btn icon-menu" type="button" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
+							aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a v-on:click.prevent="toggle()" class="btn"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>" href="#"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Select all entries' ) ) ?>">
+									<?= $enc->attr( $this->translate( 'admin', 'Toogle selection' ) ) ?>
+								</a>
+							</li>
+							<li>
+								<a v-on:click.prevent="edit()" class="btn"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>" href="#"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Edit selected entries' ) ) ?>">
+									<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>
+								</a>
+							</li>
+							<li>
+								<a v-on:click.prevent="remove()" class="btn"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>" href="#"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>">
+									<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>
+								</a>
+							</li>
+						</ul>
 					</th>
-					<th v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
-						<a v-bind:class="sortclass('id')" v-on:click.prevent="sort('id')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.id')" v-bind:class="css('id')">
+						<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
-						<a v-bind:class="sortclass('position')" v-on:click.prevent="sort('position')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Postition' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.position')" v-bind:class="css('position')">
+						<?= $enc->html( $this->translate( 'admin', 'Postition' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
-						<a v-bind:class="sortclass('status')" v-on:click.prevent="sort('status')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.status')" v-bind:class="css('status')">
+						<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
-						<a v-bind:class="sortclass('type')" v-on:click.prevent="sort('type')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.type')" v-bind:class="css('type')">
+						<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
-						<a v-bind:class="sortclass('config')" v-on:click.prevent="sort('config')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.config')" v-bind:class="css('config')">
+						<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-						<a v-bind:class="sortclass('datestart')" v-on:click.prevent="sort('datestart')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.datestart')" v-bind:class="css('datestart')">
+						<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-						<a v-bind:class="sortclass('dateend')" v-on:click.prevent="sort('dateend')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.dateend')" v-bind:class="css('dateend')">
+						<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 					</th>
-					<th v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
-						<a v-bind:class="sortclass('parentid')" v-on:click.prevent="sort('parentid')"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
-						</a>
+					<th v-if="fieldlist.includes('product.lists.parentid')" v-bind:class="css('parentid')">
+						<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
 					</th>
 
 					<th class="actions">
-						<a class="btn icon act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:click.prevent.stop="add()" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
-						</a>
 						<a class="btn act-columns icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 							v-on:click.prevent.stop="colselect = true">
@@ -123,189 +114,112 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
-				<tr class="list-search">
-					<td class="select">
-						<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>">
-					</td>
-					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
-						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:change="find($event, 'id')"
-							v-bind:value="value('id')">
-					</td>
-					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
-						<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:change="find($event, 'position', '=~')"
-							v-bind:value="value('position')">
-					</td>
-					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
-						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="vue:select-component"
-							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
-							v-bind:items="<?= $enc->attr( $status ) ?>"
-							v-bind:modelValue="value('status')"
-							v-on:update:modelValue="find($event, 'status')">
-						</select>
-					</td>
-					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
-						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="vue:select-component"
-							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
-							v-bind:items="typelist"
-							v-bind:modelValue="value('type')"
-							v-on:update:modelValue="find($event, 'type')">
-						</select>
-					</td>
-					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
-						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:change="find($event, 'config', '~=')"
-							v-bind:value="value('config')">
-					</td>
-					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="value('datestart')"
-							v-on:input="find($event, 'datestart')"
-							v-bind:config="Aimeos.flatpickr.datetimerange">
-					</td>
-					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-						<input is="vue:flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="value('dateend')"
-							v-on:input="find($event, 'dateend')"
-							v-bind:config="Aimeos.flatpickr.datetimerange">
-					</td>
-					<td v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
-						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:change="find($event, 'parentid')"
-							v-bind:value="value('parentid')">
-					</td>
+				<template v-for="(item, idx) in items" v-bind:key="idx">
+					<template v-for="(litem, index) in (item.lists[domain] || [])" v-bind:key="index">
+						<tr v-if="litem.refid === refid" class="list-item" v-bind:class="{mismatch: !can('match', litem)}" v-bind:title="title(litem)">
+							<td class="select">
+								<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									v-model="litem._checked">
+							</td>
+							<td v-if="fieldlist.includes('product.lists.id')" v-bind:class="css('id')">
+								<div class="items-field">{{ litem['id'] }}</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.position')" v-bind:class="css('position')">
+								<input type="number" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.position', ''] ) ) ?>"
+									v-if="litem._edit" v-model="litem['position']">
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ litem['position'] }}
+								</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.status')" v-bind:class="css('status')">
+								<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									is="vue:select-component" v-if="litem._edit"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.status', ''] ) ) ?>"
+									v-bind:items="<?= $enc->attr( $status ) ?>"
+									v-model="litem['status']">
+								</select>
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ statuslist[litem['status']] || litem['status'] }}
+								</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.type')" v-bind:class="css('type')">
+								<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									is="vue:select-component" v-if="litem._edit"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.type', ''] ) ) ?>"
+									v-bind:items="<?= $enc->attr( $this->get( 'types' ) ) ?>"
+									v-model="litem['type']">
+								</select>
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ typelist[litem['type']] || litem['type'] }}
+								</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.config')" v-bind:class="css('config')">
+								<input v-if="litem._edit" class="form-control" readonly
+									:tabindex="`<?= $enc->js( $this->get( 'tabindex', 1 ) ) ?>`"
+									:required="true"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.config', ''] ) ) ?>"
+									:value="litem['config'] || '{}'"
+									@click="litem._show = true">
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ litem['config'] }}
+								</div>
+								<config-map v-if="litem._show"
+									:tabindex="`<?= $enc->js( $this->get( 'tabindex', 1 ) ) ?>`"
+									:readonly="false"
+									:map="JSON.parse(litem.config) || {}"
+									@update="litem['config'] = JSON.stringify($event); litem._show = false"
+								></config-map>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.datestart')" v-bind:class="css('datestart')">
+								<input is="vue:flat-pickr" v-if="litem._edit" class="form-control novalidate custom-datetime" type="datetime-local"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.datestart', ''] ) ) ?>"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									v-bind:value="litem['datestart']"
+									v-bind:config="Aimeos.flatpickr.datetime">
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ litem['datestart'] || '-' }}
+								</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.dateend')" v-bind:class="css('dateend')">
+								<input is="vue:flat-pickr" v-if="litem._edit" class="form-control novalidate custom-datetime" type="datetime-local"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.dateend', ''] ) ) ?>"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									v-bind:value="litem['dateend']"
+									v-bind:config="Aimeos.flatpickr.datetime">
+								<div v-else v-on:click="edit(litem)" class="items-field">
+									{{ litem['dateend'] || '-' }}
+								</div>
+							</td>
+							<td v-if="fieldlist.includes('product.lists.parentid')" v-bind:class="css('parentid')">
+								<a class="items-field act-view" v-bind:class="'status-' + litem['product.status']"
+									tabindex="<?= $this->get( 'tabindex', 1 ) ?>" target="_blank"
+									v-bind:href="`<?= $url ?>`.replace('_id_', item['id'] || '')">
+									{{ item['label'] }}<br>({{ item['code'] }})
+								</a>
+							</td>
+							<td class="actions">
+								<input type="hidden" v-if="litem._edit" v-model="litem['id']"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.id', ''] ) ) ?>" >
+								<input type="hidden" v-if="litem._edit" v-model="item['id']"
+									name="<?= $enc->attr( $this->formparam( ['product', 'product.lists.parentid', ''] ) ) ?>">
 
-					<td class="actions">
-						<a v-on:click.prevent="fetch()" class="btn act-search icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
-						</a>
-						<a v-on:click.prevent="reset()" class="btn act-reset icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
-					</td>
-				</tr>
-
-				<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item" v-bind:class="{mismatch: !can('match', idx)}" v-bind:title="title(idx)">
-					<td class="select">
-						<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-model="item['checked']">
-					</td>
-					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
-						<div class="items-field">{{ item[prefix + 'id'] }}</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
-						<input type="number" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-position', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-if="item.edit" v-model="item[prefix + 'position']">
-						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ item[prefix + 'position'] }}
-						</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
-						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="vue:select-component" v-if="item.edit"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:items="<?= $enc->attr( $status ) ?>"
-							v-model="item[prefix + 'status']">
-						</select>
-						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ status(JSON.parse(`<?= $enc->js( $status ) ?>`), item[prefix + 'status']) }}
-						</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
-						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							is="vue:select-component" v-if="item.edit"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:items="typelist"
-							v-model="item[prefix + 'type']">
-						</select>
-						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ types[item[prefix + 'type']] || item[prefix + 'type'] }}
-						</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
-						<input-map
-							v-bind:editable="siteid === item[prefix + 'siteid'] && item.edit"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-							v-model="item[prefix + 'config']">
-						</input-map>
-					</td>
-					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="item[prefix + 'datestart']"
-							v-bind:config="Aimeos.flatpickr.datetime">
-						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ item[prefix + 'datestart'] || '-' }}
-						</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-						<input is="vue:flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="item[prefix + 'dateend']"
-							v-bind:config="Aimeos.flatpickr.datetime">
-						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ item[prefix + 'dateend'] || '-' }}
-						</div>
-					</td>
-					<td v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
-						<div v-if="item.edit">
-							<Multiselect class="item-id form-control"
-								placeholder="Enter product ID, code or label"
-								:value-prop="prefix + 'parentid'"
-								:track-by="prefix + 'parentid'"
-								label="product.label"
-								@open="function(select) {return select.refreshOptions()}"
-								@input="use(idx, $event)"
-								:value="item"
-								:title="title(idx)"
-								:disabled="!can('change', idx)"
-								:options="async function(query) {return await suggest(query)}"
-								:resolve-on-load="false"
-								:filter-results="false"
-								:can-deselect="false"
-								:allow-absent="true"
-								:searchable="true"
-								:can-clear="false"
-								:required="true"
-								:min-chars="1"
-								:object="true"
-								:delay="300"
-							></Multiselect>
-						</div>
-						<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
-							tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
-							v-bind:href="`<?= $url ?>`.replace('_id_', item[prefix + 'parentid'] || '')">
-							{{ label(idx) }}
-						</a>
-					</td>
-					<td class="actions">
-						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>`.replace('-prefix-', prefix)" >
-						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'parentid']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-parentid', ''] ) ) ?>`.replace('-prefix-', prefix)">
-
-						<a v-if="!item.edit && can('change', idx)" class="btn act-edit icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
-							v-on:click.prevent.stop="edit(idx)" >
-						</a>
-						<a v-if="can('delete', idx)" class="btn act-delete icon" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
-							v-on:click.prevent.stop="remove(idx)" >
-						</a>
-					</td>
-				</tr>
-
+								<a v-if="!litem._edit && can('change', litem)" class="btn act-edit icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
+									v-on:click.prevent.stop="edit(litem)" >
+								</a>
+								<a v-if="can('delete', litem)" class="btn act-delete icon" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
+									v-on:click.prevent.stop="remove(idx, index)" >
+								</a>
+							</td>
+						</tr>
+					</template>
+				</template>
 			</tbody>
 		</table>
 	</div>
@@ -314,8 +228,8 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 	<nav class="list-page">
-		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-offset>
-		<page-limit v-model="limit" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"></page-limit>
+		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" tabindex="<?= $enc->attr( $this->get( 'tabindex', 1 ) ) ?>"></page-offset>
+		<page-limit v-model="limit" tabindex="<?= $enc->attr( $this->get( 'tabindex', 1 ) ) ?>"></page-limit>
 	</nav>
 
 </div>

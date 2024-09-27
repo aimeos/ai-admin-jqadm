@@ -88,21 +88,8 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$total = 0;
 		$view = $this->object()->data( $this->view() );
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
-
-		$filter = $manager->filter();
-		$func = $filter->make( 'product:has', ['catalog', ['default', 'promotion'], $view->item->getId()] );
-
-		$params = $this->storeFilter( $view->param( 'cp', [] ), 'catalogproduct' );
-		$filter = $this->initCriteria( $filter, $params )->add( $func, '!=', null );
-		$products = $manager->search( $filter, [], $total );
-
-		$view->productItems = $products;
-		$view->productData = $this->toArray( $view->item, $products );
 		$view->productBody = parent::get();
-		$view->productTotal = $total;
 
 		return $this->render( $view );
 	}
@@ -311,27 +298,6 @@ class Standard
 		\Aimeos\MShop::create( $context, 'index' )->save( $products );
 
 		return $item;
-	}
-
-
-	/**
-	 * Constructs the data array for the view from the given item
-	 *
-	 * @param \Aimeos\Map $listItems Catalog list items implementing \Aimeos\MShop\Common\Item\Lists\Iface and referencing the products
-	 * @return string[] Multi-dimensional associative list of item data
-	 */
-	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, \Aimeos\Map $products ) : array
-	{
-		$data = [];
-
-		foreach( $products->getListItems( 'catalog', null, $item->getId() )->flat( 1 ) as $listItem )
-		{
-			foreach( $listItem->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
-			}
-		}
-
-		return $data;
 	}
 
 
