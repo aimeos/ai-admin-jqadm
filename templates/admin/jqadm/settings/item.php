@@ -131,10 +131,10 @@ $params = $this->get( 'pageParams', [] );
 											<?= $enc->html( $this->translate( 'admin', 'Name of your shop shown to your customers' ) ) ?>
 										</div>
 									</div>
-									<div class="form-group row mandatory">
+									<div class="form-group row">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop e-mail' ) ) ?></label>
 										<div class="col-sm-8">
-											<input class="form-control item-email-address" type="email" required="required" tabindex="1"
+											<input class="form-control item-email-address" type="email" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.config', 'resource', 'email', 'from-email' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop e-mail address (required)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/locale.site.config/resource/email/from-email' ) ) ?>">
