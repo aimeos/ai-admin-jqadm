@@ -70,13 +70,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
-
 		$item = $manager->find( 'test@example.com' );
-		$item->setCode( 'jqadm-test-save' );
-		$item->setId( null );
-
-		$item = $manager->save( $item );
-
 
 		$param = array(
 			'site' => 'unittest',
@@ -87,7 +81,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'customer.lists.type' => [0 => 'favorite'],
 				'customer.lists.datestart' => [0 => '2000-01-01 00:00:00'],
 				'customer.lists.dateend' => [0 => '2100-01-01 00:00:00'],
-				'config' => [0 => ['key' => [0 => 'test'], 'val' => [0 => 'value']]],
+				'customer.lists.config' => [0 => '{"test": "value"}'],
 			),
 		);
 
@@ -97,16 +91,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$item = $manager->get( $item->getId(), ['product'] );
-		$manager->delete( $item->getId() );
-
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'product' ) as $listItem )
 		{
-			$this->assertEquals( $item->getId(), $listItem->getParentId() );
 			$this->assertEquals( 'favorite', $listItem->getType() );
 			$this->assertEquals( 'product', $listItem->getDomain() );
 			$this->assertEquals( '2000-01-01 00:00:00', $listItem->getDateStart() );

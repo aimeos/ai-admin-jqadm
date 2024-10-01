@@ -63,6 +63,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		$view->productData = $this->toArray( $view->item, true );
 		$view->productBody = parent::copy();
 
 		return $this->render( $view );
@@ -77,6 +78,14 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		$siteid = $this->context()->locale()->getSiteId();
+		$data = $view->param( 'product', [] );
+
+		foreach( $data as $idx => $entry ) {
+			$data[$idx]['customer.lists.siteid'] = $siteid;
+		}
+
+		$view->productData = $data;
 		$view->productBody = parent::create();
 
 		return $this->render( $view );
@@ -91,15 +100,8 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-
-		$total = 0;
-		$params = $this->storeFilter( $view->param( 'up', [] ), 'customerproduct' );
-		$listItems = $this->getListItems( $view->item, $params, $total );
-
-		$view->productItems = $this->getProductItems( $listItems );
-		$view->productData = $this->toArray( $listItems );
-		$view->productBody = parent::search();
-		$view->productTotal = $total;
+		$view->productData = $this->toArray( $view->item );
+		$view->productBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -114,22 +116,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/lists' );
-		$manager->begin();
-
-		try
-		{
-			$this->storeFilter( $view->param( 'up', [] ), 'customerproduct' );
-			$this->fromArray( $view->item, $view->param( 'product', [] ) );
-			$view->productBody = parent::save();
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$this->fromArray( $view->item, $view->param( 'product', [] ) );
+		$view->productBody = parent::save();
 
 		return null;
 	}
@@ -219,50 +207,6 @@ class Standard
 
 
 	/**
-	 * Returns the customer list items referencing the products
-	 *
-	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
-	 * @param array $params Associative list of GET/POST parameters
-	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\Map Customer list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
-	 */
-	protected function getListItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/lists' );
-
-		$search = $manager->filter();
-		$search->setSortations( [$search->sort( '-', 'customer.lists.ctime' )] );
-
-		$search = $this->initCriteria( $search, $params );
-		$expr = [
-			$search->getConditions(),
-			$search->compare( '==', 'customer.lists.parentid', $item->getId() ),
-			$search->compare( '==', 'customer.lists.domain', 'product' ),
-		];
-		$search->setConditions( $search->and( $expr ) );
-
-		return $manager->search( $search, [], $total );
-	}
-
-
-	/**
-	 * Returns the product items referenced by the given list items
-	 *
-	 * @param \Aimeos\Map $listItems Customer list items implementing \Aimeos\MShop\Common\Item\List\Iface and referencing the products
-	 * @return \Aimeos\Map List of product IDs as keys and items implementing \Aimeos\MShop\Product\Item\Iface
-	 */
-	protected function getProductItems( \Aimeos\Map $listItems ) : \Aimeos\Map
-	{
-		$list = $listItems->getRefId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
-
-		$search = $manager->filter()->add( 'product.id', '==', $list )->slice( 0, count( $list ) );
-
-		return $manager->search( $search );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -314,70 +258,29 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$listIds = $this->val( $data, 'customer.lists.id', [] );
-		$listManager = \Aimeos\MShop::create( $this->context(), 'customer/lists' );
+		$listItem = \Aimeos\MShop::create( $this->context(), 'customer' )->createListItem();
+		$listItems = $item->getListItems( 'product', null, null, false );
 
-		$search = $listManager->filter()->add( 'customer.lists.id', '==', $listIds )->slice( 0, count( $listIds ) );
-
-		$listItems = $listManager->search( $search );
-
-
-		foreach( (array) $listIds as $idx => $listid )
+		foreach( (array) $this->val( $data, 'customer.lists.id', [] ) as $idx => $listId )
 		{
-			if( isset( $listItems[$listid] ) ) {
-				$litem = $listItems[$listid];
-			} else {
-				$litem = $listManager->create();
+			$listItem = $listItems->get( $listId ) ?: clone $listItem;
+
+			$listItem->setType( $this->val( $data, 'customer.lists.type/' . $idx, 'default' ) )
+				->setConfig( (array) json_decode( $this->val( $data, 'customer.lists.config/' . $idx, '{}' ) ) )
+				->setPosition( (int) $this->val( $data, 'customer.lists.position/' . $idx, 0 ) )
+				->setStatus( (int) $this->val( $data, 'customer.lists.status/' . $idx, 1 ) )
+				->setDateStart( $this->val( $data, 'customer.lists.datestart/' . $idx ) )
+				->setDateEnd( $this->val( $data, 'customer.lists.dateend/' . $idx ) )
+				->setRefId( $this->val( $data, 'customer.lists.refid/' . $idx ) );
+
+			$item->addListItem( 'product', $listItem );
+		}
+
+		foreach( (array) $this->val( $data, 'delete', [] ) as $idx => $listId )
+		{
+			if( $listItem = $listItems->get( $listId ) ) {
+				$item->deleteListItem( 'product', $listItem );
 			}
-
-			$litem->setParentId( $item->getId() );
-			$litem->setDomain( 'product' );
-
-			if( isset( $data['customer.lists.refid'][$idx] ) ) {
-				$litem->setRefId( $this->val( $data, 'customer.lists.refid/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.status'][$idx] ) ) {
-				$litem->setStatus( (int) $this->val( $data, 'customer.lists.status/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.type'][$idx] ) ) {
-				$litem->setType( $this->val( $data, 'customer.lists.type/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.position'][$idx] ) ) {
-				$litem->setPosition( (int) $this->val( $data, 'customer.lists.position/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.datestart'][$idx] ) ) {
-				$litem->setDateStart( $this->val( $data, 'customer.lists.datestart/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.dateend'][$idx] ) ) {
-				$litem->setDateEnd( $this->val( $data, 'customer.lists.dateend/' . $idx ) );
-			}
-
-			if( isset( $data['customer.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->val( $data, 'customer.lists.config/' . $idx, '' ), true ) ) !== null
-			) {
-				$litem->setConfig( $conf );
-			}
-
-			if( $litem->getId() === null && isset( $data['config'][$idx]['key'] ) )
-			{
-				$conf = [];
-
-				foreach( (array) $data['config'][$idx]['key'] as $pos => $key )
-				{
-					if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
-						$conf[$key] = $data['config'][$idx]['val'][$pos];
-					}
-				}
-
-				$litem->setConfig( $conf );
-			}
-
-			$listManager->save( $litem, false );
 		}
 
 		return $item;
@@ -387,18 +290,26 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\Map $listItems Customer list items implementing \Aimeos\MShop\Common\Item\Lists\Iface and referencing the products
+	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object including referenced domain items
+	 * @param bool $copy True if items should be copied, false if not
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\Map $listItems ) : array
+	protected function toArray( \Aimeos\MShop\Customer\Item\Iface $item, bool $copy = false ) : array
 	{
+		$siteId = $this->context()->locale()->getSiteId();
 		$data = [];
 
-		foreach( $listItems as $listItem )
+		foreach( $item->getListItems( 'product', null, null, false ) as $listItem )
 		{
-			foreach( $listItem->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
+			$list = $listItem->toArray( true ) + ( $listItem->getRefItem()?->toArray( true ) ?? [] );
+
+			if( $copy === true )
+			{
+				$list['customer.lists.siteid'] = $siteId;
+				$list['customer.lists.id'] = '';
 			}
+
+			$data[] = $list;
 		}
 
 		return $data;

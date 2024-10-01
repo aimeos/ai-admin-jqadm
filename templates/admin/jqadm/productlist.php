@@ -141,9 +141,8 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 									v-bind:items="<?= $enc->attr( $status ) ?>"
 									v-model="litem['status']">
 								</select>
-								<div v-else v-on:click="edit(litem)" class="items-field">
-									{{ statuslist[litem['status']] || litem['status'] }}
-								</div>
+								<div v-else v-on:click="edit(litem)" class="items-field" :class="'status-' + litem['status']"
+									:title="statuslist[litem['status']] || litem['status']"></div>
 							</td>
 							<td v-if="fieldlist.includes('product.lists.type')" v-bind:class="css('type')">
 								<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
