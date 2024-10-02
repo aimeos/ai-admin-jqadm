@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-01 15:20+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -501,8 +501,8 @@ msgstr "預設"
 msgid "Delete"
 msgstr "删除"
 
-msgid "Delete items?"
-msgstr "删除項目？"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "删除选中的实体"
@@ -603,6 +603,9 @@ msgstr "歐洲商品編碼，最小存貨單位 or 產品號碼 (必填)"
 msgid "Edit"
 msgstr "編輯"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "修改此紀錄"
 
@@ -617,6 +620,20 @@ msgstr "結束日期"
 
 msgid "End date (optional)"
 msgstr "結束日期（可不填）"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "錯誤"
@@ -653,8 +670,15 @@ msgstr "文件写入磁盘失败"
 msgid "File"
 msgstr "檔案"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
 msgstr "文件上传被扩展停止"
+
+msgid "File uploaded successfully"
+msgstr ""
 
 msgid "Find category"
 msgstr "查找類別"
@@ -839,19 +863,11 @@ msgstr "發票"
 msgid "Invoice No."
 msgstr ""
 
-msgid "Invoice number for the order"
+msgid "Invoice number"
 msgstr ""
 
-msgid "Item deleted successfully"
-msgstr "刪除項目成功"
-
-msgid "Item saved successfully"
-msgstr "儲存項目成功"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "项目特定的配置选项，将在模板中作为键/值对提供。"
+msgid "Invoice number for the order"
+msgstr ""
 
 msgid "Label"
 msgstr "標籤"
@@ -917,8 +933,8 @@ msgstr "建議產品清單"
 msgid "List type"
 msgstr "列表類型"
 
-msgid "Loading items ..."
-msgstr "正在加載項目"
+msgid "Loading entries ..."
+msgstr ""
 
 msgid "Locale"
 msgstr "區域"
@@ -1035,11 +1051,11 @@ msgstr "下一个续订日期"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "没有可用的币种。请最少启用一个币种"
 
+msgid "No entries found"
+msgstr ""
+
 msgid "No file was uploaded"
 msgstr "没有上传文件"
-
-msgid "No items found"
-msgstr "找不到項目"
 
 msgid "No product found"
 msgstr "找不到產品"
@@ -1063,8 +1079,8 @@ msgstr "价格条目不共享的特性"
 msgid "None"
 msgstr "沒有"
 
-msgid "Not all items could be deleted"
-msgstr "不是所有的项目都能被删除"
+msgid "Not all entries could be deleted"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1093,8 +1109,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "一个提供者和0个或多个装饰器类名，以逗号分隔"
 
-msgid "Only super users and administrators can delete items"
-msgstr "只有超级用户和管理员才能删除条目"
+msgid "Only super users and administrators can delete entries"
+msgstr ""
 
 msgid "Open"
 msgstr "开放中"
@@ -1473,8 +1489,8 @@ msgstr "回复评论人"
 msgid "Review"
 msgstr "狀態：已審核"
 
-msgid "Reviewed item"
-msgstr "已评论的产品"
+msgid "Reviewed entry"
+msgstr ""
 
 msgid "Reviewer name"
 msgstr "评论人名称"
@@ -1546,8 +1562,11 @@ msgstr "儲存紀錄（Ctrl+S)"
 msgid "Search"
 msgstr "搜尋"
 
-msgid "Second level type for grouping items"
-msgstr "用于分组项目的二级类型"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "選擇檔案"
@@ -1602,9 +1621,6 @@ msgstr "運送"
 
 msgid "Shipping / Payment costs"
 msgstr "物流/支付 费用"
-
-msgid "Shipping costs/item"
-msgstr "物流费用/条目"
 
 msgid "Shipping/Payment costs"
 msgstr "物流/支付 费用"
@@ -1798,11 +1814,11 @@ msgid ""
 "or seasonal articles"
 msgstr "该产品只在该日期和时间之前才会显示，适用于季节性产品"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "该产品只在该日期和时间之后才会在网站上显示"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "该项目仅在该日期和时间之前显示在网站上"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "媒体标题用于网站上的 title 标签"
@@ -1858,6 +1874,9 @@ msgstr "標題"
 msgid "Toggle dropdown"
 msgstr "切换下拉"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr "热门国家"
 
@@ -1875,6 +1894,9 @@ msgstr "总评分"
 
 msgid "Translate text"
 msgstr "翻译文本"
+
+msgid "Translations"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "兩碼 ISO 國家碼"
@@ -1912,6 +1934,10 @@ msgstr "URL target"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "無法呼叫method \"%1$s\""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr "未完成订单"
@@ -1976,6 +2002,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr "未知的上传错误"
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr "上传商店图标"
 
@@ -2005,6 +2034,9 @@ msgstr "變量屬性"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "与下单产品一起存储的变体产品属性"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr ""
@@ -2043,8 +2075,9 @@ msgstr "YYYY-MM-DD hh:mm:ss (選填)"
 msgid "Years"
 msgstr "年"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "你將要刪除一個或多個項目, 確定嗎？"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "您的导出将在几分钟内提供下载。"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-01 15:20+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Jean-Marc Kutyla, 2023\n"
 "Language-Team: French (http://app.transifex.com/aimeos/aimeos-core/language/fr/)\n"
@@ -507,8 +507,8 @@ msgstr "Défaut"
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "Delete items?"
-msgstr "Supprimer les entrées ?"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "Supprimer les entrées sélectionnées"
@@ -609,6 +609,9 @@ msgstr "EAN, SKU ou numéro d'article (obligatoire)"
 msgid "Edit"
 msgstr "Modifier"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "Modifier cette entrée"
 
@@ -623,6 +626,20 @@ msgstr "Date de fin"
 
 msgid "End date (optional)"
 msgstr "Date de fin (optionnel)"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "Erreur"
@@ -659,8 +676,15 @@ msgstr "Échec de l'écriture du fichier sur le disque"
 msgid "File"
 msgstr "Fichier"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
 msgstr "Téléchargement de fichier arrêté par extension"
+
+msgid "File uploaded successfully"
+msgstr ""
 
 msgid "Find category"
 msgstr "Trouver une catégorie"
@@ -845,19 +869,11 @@ msgstr "Facture"
 msgid "Invoice No."
 msgstr "Facture N°."
 
+msgid "Invoice number"
+msgstr ""
+
 msgid "Invoice number for the order"
 msgstr "Numéro de facture pour la commande"
-
-msgid "Item deleted successfully"
-msgstr "Item supprimé avec succès"
-
-msgid "Item saved successfully"
-msgstr "Item sauvegardé avec succès"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "Les options de configuration spécifiques à l'élément seront disponibles sous forme de paires clé/valeur dans les templates. "
 
 msgid "Label"
 msgstr "Étiquette"
@@ -923,8 +939,8 @@ msgstr "Liste des produits suggérés"
 msgid "List type"
 msgstr "Type de liste"
 
-msgid "Loading items ..."
-msgstr "Chargement des articles..."
+msgid "Loading entries ..."
+msgstr ""
 
 msgid "Locale"
 msgstr "Emplacement"
@@ -1041,11 +1057,11 @@ msgstr "Prochaine date de renouvellement de l'abonnement"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "Aucune devise n'est disponible. Veuillez en activer au moins une"
 
+msgid "No entries found"
+msgstr ""
+
 msgid "No file was uploaded"
 msgstr "Aucun fichier n'a été transmis"
-
-msgid "No items found"
-msgstr "Aucunes entrées trouvées"
 
 msgid "No product found"
 msgstr "Aucun produit trouvé"
@@ -1069,8 +1085,8 @@ msgstr "Propriétés non partagées pour l'élément prix"
 msgid "None"
 msgstr "Aucun"
 
-msgid "Not all items could be deleted"
-msgstr "Tous les éléments n'ont pas pu être supprimés"
+msgid "Not all entries could be deleted"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1099,8 +1115,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
-msgid "Only super users and administrators can delete items"
-msgstr "Seuls les super utilisateurs et les administrateurs peuvent supprimer des éléments"
+msgid "Only super users and administrators can delete entries"
+msgstr ""
 
 msgid "Open"
 msgstr "Ouvrir"
@@ -1479,8 +1495,8 @@ msgstr "Réponse à la personne ayant donné son avis"
 msgid "Review"
 msgstr "à l'étude"
 
-msgid "Reviewed item"
-msgstr "Article évalué"
+msgid "Reviewed entry"
+msgstr ""
 
 msgid "Reviewer name"
 msgstr ""
@@ -1552,8 +1568,11 @@ msgstr "Sauvegarder l'entrée (Ctrl+S)"
 msgid "Search"
 msgstr "Recherche"
 
-msgid "Second level type for grouping items"
-msgstr "Type de second niveau pour regroupe les items"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "Choisissez un fichier"
@@ -1608,9 +1627,6 @@ msgstr "Livraison"
 
 msgid "Shipping / Payment costs"
 msgstr "Frais expédition/paiement"
-
-msgid "Shipping costs/item"
-msgstr "Frais d'envoi/item"
 
 msgid "Shipping/Payment costs"
 msgstr "Frais d'envoi / de paiement"
@@ -1804,11 +1820,11 @@ msgid ""
 "or seasonal articles"
 msgstr "Cet article apparait uniquement jusqu'à cette date / heure, pratique pour les articles saisonniers"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "L'item sera affiché sur le site uniquement après cette date et heure"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "L'item sera affiché sur le site uniquement jusqu'à cette date et heure"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Le titre du média est utilisé pour les mot-clé de titre du média sur le site Web."
@@ -1864,6 +1880,9 @@ msgstr "Titre"
 msgid "Toggle dropdown"
 msgstr "Afficher le menu déroulant"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr "Principaux pays"
 
@@ -1881,6 +1900,9 @@ msgstr ""
 
 msgid "Translate text"
 msgstr "Traduire le texte"
+
+msgid "Translations"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "Code ISO du pays à deux lettres"
@@ -1918,6 +1940,10 @@ msgstr "URL cible"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Impossible d'appeler la méthode \"%1$s\""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr "Commandes non finalisées"
@@ -1982,6 +2008,9 @@ msgstr "Prix unitaire"
 msgid "Unknown upload error"
 msgstr "Erreur inconnue de téléchargement"
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr "Télécharger l'icône de la boutique"
 
@@ -2011,6 +2040,9 @@ msgstr "Caractéristiques de la variante"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Caractéristiques de produits variantes stockés avec les produits commandés"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr "Vérifié"
@@ -2049,8 +2081,9 @@ msgstr "JJ-MM-AAAA hh:mm:ss (optionnel)"
 msgid "Years"
 msgstr "Années"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Vous êtes sur le point de supprimer un ou plusieurs entrées. Confirmez-vous cette action ?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Votre export sera disponible dans quelques minutes en téléchargement"

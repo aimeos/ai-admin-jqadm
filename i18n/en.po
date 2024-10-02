@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 16:07+0200\n"
+"POT-Creation-Date: 2024-10-01 14:57+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -581,6 +581,9 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr ""
 
@@ -594,6 +597,9 @@ msgid "End date"
 msgstr ""
 
 msgid "End date (optional)"
+msgstr ""
+
+msgid "Enter group ID, code or label"
 msgstr ""
 
 msgid "Error"
@@ -627,6 +633,10 @@ msgid "Failed to write file to disk"
 msgstr ""
 
 msgid "File"
+msgstr ""
+
+#, php-format
+msgid "File does not exists: \"%1$s\""
 msgstr ""
 
 msgid "File upload stopped by extension"
@@ -1503,6 +1513,9 @@ msgstr ""
 msgid "Second level type for grouping items"
 msgstr ""
 
+msgid "Select all entries"
+msgstr ""
+
 msgid "Select file"
 msgstr ""
 
@@ -1800,6 +1813,10 @@ msgstr ""
 msgid "Toggle dropdown"
 msgstr ""
 
+#, fuzzy
+msgid "Toogle selection"
+msgstr "Variants"
+
 msgid "Top countries"
 msgstr ""
 
@@ -1856,6 +1873,10 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
 msgstr ""
 
 msgid "Unfinished orders"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-01 15:20+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -505,8 +505,8 @@ msgstr "Alapértelmezett"
 msgid "Delete"
 msgstr "Törlés"
 
-msgid "Delete items?"
-msgstr "Törli az elemeket?"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "Kijelölt elemek törlése"
@@ -607,6 +607,9 @@ msgstr "EAN, SKU vagy cikkszám (kötelező)"
 msgid "Edit"
 msgstr "Szerkesztés"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "Bejegyzés szerkesztése"
 
@@ -621,6 +624,20 @@ msgstr "Befejezés dátuma"
 
 msgid "End date (optional)"
 msgstr "Záró dátum (nem kötelező)"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "Hiba"
@@ -657,8 +674,15 @@ msgstr "Fájlok lemezre írása sikertelen"
 msgid "File"
 msgstr "Fájl"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
 msgstr "Kiterjesztés miatt a feltöltés leállítva"
+
+msgid "File uploaded successfully"
+msgstr ""
 
 msgid "Find category"
 msgstr "Termékkör keresése"
@@ -843,19 +867,11 @@ msgstr "Számla"
 msgid "Invoice No."
 msgstr "Számlaszám"
 
+msgid "Invoice number"
+msgstr ""
+
 msgid "Invoice number for the order"
 msgstr "A rendelés számlaszáma"
-
-msgid "Item deleted successfully"
-msgstr "A tétel törlése sikerült"
-
-msgid "Item saved successfully"
-msgstr "A tétel mentése sikerült"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "Az egyes tételekre vonatkozó konfigurációs beállítások kulcs/érték párokként állnak rendelkezésre a sablonokban"
 
 msgid "Label"
 msgstr "Címke"
@@ -921,8 +937,8 @@ msgstr "Javasolt termékek listája"
 msgid "List type"
 msgstr "Lista típusa"
 
-msgid "Loading items ..."
-msgstr "Elemek betöltése ..."
+msgid "Loading entries ..."
+msgstr ""
 
 msgid "Locale"
 msgstr "Helyi beállítás"
@@ -1039,11 +1055,11 @@ msgstr "Az előfizetés megújításának következő dátuma"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "Nincs elérhető pénznem. Kérjük, engedélyezzen legalább egy pénznemet"
 
+msgid "No entries found"
+msgstr ""
+
 msgid "No file was uploaded"
 msgstr "Nem történt fájl feltöltés"
-
-msgid "No items found"
-msgstr "Nincs találat"
 
 msgid "No product found"
 msgstr "Nem található termék"
@@ -1067,8 +1083,8 @@ msgstr "Nem megosztott ártulajdonság"
 msgid "None"
 msgstr "Egyik sem"
 
-msgid "Not all items could be deleted"
-msgstr "Nem lehet minden elemet törölni"
+msgid "Not all entries could be deleted"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1097,8 +1113,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Egy szolgáltató és nulla vagy több dekorációs osztály neve vesszővel elválasztva"
 
-msgid "Only super users and administrators can delete items"
-msgstr "Csak szuper felhasználók és rendszergazdák törölhetnek elemeket"
+msgid "Only super users and administrators can delete entries"
+msgstr ""
 
 msgid "Open"
 msgstr "Megnyit"
@@ -1477,8 +1493,8 @@ msgstr "Válasz a véleményezőnek"
 msgid "Review"
 msgstr "állapot:felülvizsgálat alatt"
 
-msgid "Reviewed item"
-msgstr "Véleményezett elem"
+msgid "Reviewed entry"
+msgstr ""
 
 msgid "Reviewer name"
 msgstr "Véleményező neve"
@@ -1550,8 +1566,11 @@ msgstr "Bejegyzés mentése (Ctrl+S)"
 msgid "Search"
 msgstr "Keresés"
 
-msgid "Second level type for grouping items"
-msgstr "Második szintű típus, elemek csoportosítására"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "Kiválasztott állomány"
@@ -1606,9 +1625,6 @@ msgstr "Szállítás"
 
 msgid "Shipping / Payment costs"
 msgstr "Szállítási / fizetési költségek"
-
-msgid "Shipping costs/item"
-msgstr "Szállítás ára tételenként"
 
 msgid "Shipping/Payment costs"
 msgstr "Szállítási / fizetési költségek"
@@ -1802,11 +1818,11 @@ msgid ""
 "or seasonal articles"
 msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "Az elem csak addig a dátumig és időpontig jelenik meg a webhelyen"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "Az elem csak addig a dátumig és időpontig jelenik meg a webhelyen"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "A média címe a webhelyen található média címcímkéje"
@@ -1862,6 +1878,9 @@ msgstr "Cím"
 msgid "Toggle dropdown"
 msgstr "Váltás a legördülő menüre"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr "Top országok"
 
@@ -1879,6 +1898,9 @@ msgstr "Összes értékelés"
 
 msgid "Translate text"
 msgstr "Fordítási szöveg"
+
+msgid "Translations"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "Kétbetűs ISO országkód"
@@ -1916,6 +1938,10 @@ msgstr "Cél URL"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Nem lehet, meghívni a \"%1$s\" eljárást"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr "Befejezetlen rendelések"
@@ -1980,6 +2006,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr "Ismeretlen feltöltési hiba"
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr "Üzleti ikon feltöltése"
 
@@ -2009,6 +2038,9 @@ msgstr "Jellemző változat"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Változatos termékattribútumok, amelyeket a megrendelt termékekkel együtt tárolnak"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr "Hitelesített"
@@ -2047,8 +2079,9 @@ msgstr "ÉÉÉÉ-HH-NN hh:mm:ss (választható)"
 msgid "Years"
 msgstr "Évek"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Egy vagy több elemet akar törölni. Szeretné folytatni?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Néhány percen belül letölthető lesz a kért állomány"
