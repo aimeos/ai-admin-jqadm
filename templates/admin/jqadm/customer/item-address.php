@@ -26,22 +26,22 @@ $enc = $this->encoder();
 								<div class="btn btn-card-header act-show icon" v-bind:class="element['_show'] ? 'show' : 'collapsed'"
 									v-bind:data-bs-target="'#item-address-group-data-' + index" data-bs-toggle="collapse"
 									v-bind:aria-controls="'item-address-group-data-' + index" aria-expanded="false" v-on:click="toggle('_show', index)"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this item' ) ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>">
+									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>">
 								</div>
 							</div>
 							<div class="item-label header-label">{{ label(index) }}</div>
 							<div class="card-tools-end">
 								<div class="btn btn-card-header act-copy icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate item (Ctrl+D)' ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ) ?>"
 									v-on:click.stop="duplicate(index)">
 								</div>
 								<div v-if="can('change', index)"
 									class="btn btn-card-header act-move icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Move this item up/down' ) ) ?>">
+									title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 								</div>
 								<div v-if="can('change', index)"
 									class="btn btn-card-header act-delete icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this item' ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click="remove(index)">
 								</div>
 							</div>
@@ -417,7 +417,7 @@ $enc = $this->encoder();
 
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new item (Ctrl+I)' ) ) ?>"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 					v-on:click="add()" >
 				</div>
 			</div>

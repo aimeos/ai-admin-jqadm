@@ -309,7 +309,7 @@ $taxflagList = [
 		</div>
 
 		<?php if( $this->get( 'orderItems', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No entries found' ) ) ) ?></div>
 		<?php endif ?>
 
 		<?= $this->partial(

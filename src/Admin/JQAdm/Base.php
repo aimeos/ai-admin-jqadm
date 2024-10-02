@@ -703,9 +703,9 @@ abstract class Base
 		switch( $method )
 		{
 			case 'save':
-				$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
+				$context->session()->set( 'info', [$context->translate( 'admin', 'Entry saved successfully' )] ); break;
 			case 'delete':
-				$context->session()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
+				$context->session()->set( 'info', [$context->translate( 'admin', 'Entry deleted successfully' )] ); break;
 			case 'upload':
 				$context->session()->set( 'info', [$context->translate( 'admin', 'File uploaded successfully' )] ); break;
 		}

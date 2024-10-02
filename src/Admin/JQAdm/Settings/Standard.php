@@ -99,7 +99,7 @@ class Standard
 			$params = $this->getClientParams();
 			$params['site'] = $view->item->getCode();
 
-			$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] );
+			$context->session()->set( 'info', [$context->translate( 'admin', 'Entry saved successfully' )] );
 
 			$view->response()->withStatus( 302 );
 			$view->response()->withHeader( 'Cache-Control', 'no-store' );

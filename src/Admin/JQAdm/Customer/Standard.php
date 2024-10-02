@@ -210,7 +210,7 @@ class Standard
 
 			if( !$view->access( ['super', 'admin'] ) )
 			{
-				$msg = $context->translate( 'admin', 'Only super users and administrators can delete items' );
+				$msg = $context->translate( 'admin', 'Only super users and administrators can delete entries' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
@@ -233,7 +233,7 @@ class Standard
 
 			if( $items->count() !== count( (array) $ids ) )
 			{
-				$msg = $context->translate( 'admin', 'Not all items could be deleted' );
+				$msg = $context->translate( 'admin', 'Not all entries could be deleted' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 

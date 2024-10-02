@@ -154,7 +154,7 @@ $enc = $this->encoder();
 						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/review.siteid' ) ) ?>">
 							<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
 								<div class="form-group row">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ) ?></label>
+									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed entry' ) ) ?></label>
 									<div class="col-sm-8">
 										<span class="form-control item-refid">
 											<a class="btn icon act-view" target="_blank"

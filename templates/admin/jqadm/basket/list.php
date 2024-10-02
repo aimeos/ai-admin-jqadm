@@ -200,7 +200,7 @@ $columnList = [
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?>
+			<?= $enc->html( sprintf( $this->translate( 'admin', 'No entries found' ) ) ) ?>
 		<?php endif ?>
 	</form>
 

@@ -264,7 +264,7 @@ $enc = $this->encoder();
 											</select>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping items' ) ) ?>
+											<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping entries' ) ) ?>
 										</div>
 									</div>
 								<?php else : ?>
@@ -284,7 +284,7 @@ $enc = $this->encoder();
 											v-model="element['product.lists.datestart']">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ) ?>
+										<?= $enc->html( $this->translate( 'admin', 'The entry is only shown on the web site after that date and time' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row optional">
@@ -298,7 +298,7 @@ $enc = $this->encoder();
 											v-model="element['product.lists.dateend']">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ) ?>
+										<?= $enc->html( $this->translate( 'admin', 'The entry is only shown on the web site until that date and time' ) ) ?>
 									</div>
 								</div>
 							</div>
@@ -312,7 +312,7 @@ $enc = $this->encoder();
 									v-bind:i18n="{
 										value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 										option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
-										help: `<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
+										help: `<?= $enc->js( $this->translate( 'admin', 'Entry specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
 										insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
 										delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 									}">

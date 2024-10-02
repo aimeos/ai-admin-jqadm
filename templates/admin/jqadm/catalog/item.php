@@ -222,7 +222,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											v-bind:i18n="{
 												value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 												option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
-												help: `<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
+												help: `<?= $enc->js( $this->translate( 'admin', 'Entry specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
 												insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
 												delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 											}">

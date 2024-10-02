@@ -35,12 +35,12 @@ $enc = $this->encoder();
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete items?' ) ) ?></h4>
+					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete entries?' ) ) ?></h4>
 					<button type="button" class="btn-close" v-on:click="$emit('close')"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>"></button>
 				</div>
 				<div class="modal-body">
-					<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ) ?></p>
+					<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more entries. Would you like to proceed?' ) ) ?></p>
 					<ul class="items">
 						<li class="item" v-for="entry in items">{{ entry }}</li>
 					</ul>
