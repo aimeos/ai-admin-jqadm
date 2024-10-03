@@ -77,6 +77,7 @@ $params = $this->get( 'pageParams', [] );
 		<div class="col-xl-9 item-content tab-content">
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
 				data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
+				data-groups="<?= $enc->attr( $this->get( 'itemGroups', new stdClass() ) ) ?>"
 				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 				<div class="row">
@@ -161,7 +162,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
-									<input v-for="id in (item['groups'] || {})" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
+									<input v-if="item.groups.length" v-for="id in item.groups" :key="id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>" :value="id" />
 									<Multiselect class="item-groups form-control multiselect"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Enter group ID, code or label' ) ) ?>"
 										value-prop="id"

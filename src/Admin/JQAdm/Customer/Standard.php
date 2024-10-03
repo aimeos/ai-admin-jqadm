@@ -543,7 +543,7 @@ class Standard
 				->setDateVerified( $data['customer.dateverified'] ?? null );
 
 			if( $this->view()->access( ['super', 'admin'] ) ) {
-				$item->setGroups( array_flip( array_unique( $this->val( $data, 'groups', [] ) ) ) );
+				$item->setGroups( array_unique( $this->val( $data, 'groups', [] ) ) );
 			}
 
 			if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
@@ -576,7 +576,7 @@ class Standard
 			$data['.modify'] = true;
 		}
 
-		$data['groups'] = !empty( $item->getGroups() ) ? array_flip( $item->getGroups() ) : new \stdClass();
+		$data['groups'] = $item->getGroups();
 
 		if( $copy === true )
 		{

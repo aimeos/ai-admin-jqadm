@@ -14,16 +14,19 @@ Aimeos.Customer = {
 			Aimeos.apps['customer'] = Aimeos.app({
 				props: {
 					data: {type: String, default: '{}'},
+					groups: {type: String, default: '{}'},
 					siteid: {type: String, default: ''},
 				},
 				data() {
 					return {
 						item: null,
+						groupList: {}
 					}
 				},
 				beforeMount() {
 					this.Aimeos = Aimeos;
 					this.item = JSON.parse(this.data) || {};
+					this.groupList = JSON.parse(this.groups) || {};
 				},
 				mixins: [this.mixins]
 			}, {...node.dataset || {}}).mount(node);
@@ -35,8 +38,8 @@ Aimeos.Customer = {
 		computed: {
 			list() {
 				const list = []
-				for(const code in (this.item['groups'] || {})) {
-					list.push({id: this.item['groups'][code], code: code})
+				for(const id of (this.item['groups'] || [])) {
+					list.push({id: id, code: this.groupList[id] ? this.groupList[id]['group.code'] : id})
 				}
 				return list
 			}
@@ -48,12 +51,13 @@ Aimeos.Customer = {
 
 
 			clear() {
-				this.item['groups'] = {}
+				this.item['groups'] = []
 			},
 
 
 			deselect(option) {
-				delete this.item.groups[option.code]
+				const idx = this.item.groups?.indexOf(option.id)
+				if(idx !== -1) this.item.groups?.splice(idx, 1)
 			},
 
 
@@ -78,7 +82,8 @@ Aimeos.Customer = {
 
 
 			use(option) {
-				this.item['groups'][option.code] = option.id
+				const idx = this.item.groups.indexOf(option.id)
+				if(idx === -1) this.item.groups.push(option.id)
 			}
 		}
 	}
