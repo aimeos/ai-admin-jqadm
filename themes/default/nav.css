@@ -37,9 +37,9 @@
 	content: " ";
 }
 
-.aimeos .main-navbar span.placeholder {
+.aimeos .main-navbar span.btnspace {
 	display: inline-block;
-	height: 35px;
+	height: 2.4rem;
 }
 
 .aimeos .main-navbar .act-search {
