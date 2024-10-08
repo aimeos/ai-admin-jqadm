@@ -16,7 +16,8 @@ Aimeos.Text = {
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
 					openai: {type: String, default: '{}'},
-					translate: {type: String, default: '{}'},
+					deepl: {type: String, default: '{}'},
+					prompt: {type: String, default: 'Please enter what kind of text you want to generate'},
 				},
 				data() {
 					return {
@@ -74,7 +75,7 @@ Aimeos.Text = {
 			},
 
 
-			generate(idx) {
+			async generate(idx) {
 
 				if(!this.items[idx]) {
 					return;
@@ -88,20 +89,25 @@ Aimeos.Text = {
 				}
 
 				if(!(this.items[idx]['text.content'] || '').trim().length) {
-					this.items[idx]['text.content'] = this.openaiprompt;
+					this.items[idx]['text.content'] = this.prompt;
 					return;
 				}
 
 				const self = this;
 				const params = {
-					'model': 'text-davinci-003',
-					'prompt' : this.items[idx]['text.content'],
-					'max_tokens': 4000 - Math.round(this.items[idx]['text.content'].length / 3 + 1)
+					model: config['model'] || 'gpt-4o-mini',
+					messages: [{
+						role: 'system',
+						content: config['context'] || 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup'
+					}, {
+						role: 'user',
+						content: this.items[idx]['text.content']
+					}]
 				};
 
 				this.items[idx]['loading'] = true;
 
-				fetch('https://api.openai.com/v1/completions', {
+				await fetch(config['url'] || 'https://api.openai.com/v1/chat/completions', {
 					body: JSON.stringify(params),
 					headers: {
 						'Content-Type': 'application/json',
@@ -111,7 +117,7 @@ Aimeos.Text = {
 				}).then(response => {
 					return response.json();
 				}).then(data => {
-					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['text'] || '').trim().replace(/\n/g, "<br>");
+					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['message'] && data['choices'][0]['message']['content'] || '').trim();
 				}).finally(() => {
 					this.items[idx]['loading'] = false;
 				}).catch((error) => {
@@ -160,7 +166,7 @@ Aimeos.Text = {
 					return;
 				}
 
-				const config = JSON.parse(this.translate || '{}');
+				const config = JSON.parse(this.deepl || '{}');
 
 				if(!config['key']) {
 					alert('No DeepL API key configured in "admin/jqadm/api/translate/key" setting');
@@ -198,7 +204,9 @@ Aimeos.Text = {
 				}).then(data => {
 					self.add({
 						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
-						'text.languageid': langid.toLowerCase().replace(/-/g, '_')
+						'text.languageid': langid.toLowerCase().replace(/-/g, '_'),
+						'text.type': this.items[idx]['text.type'] || '',
+						'text.label': (this.items[idx]['text.label'] || '') + ' (' + langid + ')'
 					});
 				}).catch(error => {
 					alert(error);
@@ -207,7 +215,12 @@ Aimeos.Text = {
 
 
 			update(element, ev, editor) {
-				element['text.content'] = editor.getData().replace(/^<p>/, '').replace(/<\/p>$/, '')
+				const text = editor.getData();
+				if(text.indexOf('<p>', 3) === -1 && text.lastIndexOf('</p>', 4) === -1) {
+					element['text.content'] = text.replace(/^<p>/, '').replace(/<\/p>$/, '')
+				} else {
+					element['text.content'] = text
+				}
 			}
 		}
 	}
