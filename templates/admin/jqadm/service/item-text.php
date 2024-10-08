@@ -24,9 +24,9 @@ $enc = $this->encoder();
 <div id="text" class="item-text tab-pane fade" role="tablist" aria-labelledby="text">
 
 	<div id="item-text-group"
-		data-openaiprompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
+		data-prompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
 		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai' ) ) ?>"
-		data-translate="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
+		data-deepl="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="service" >
@@ -56,7 +56,7 @@ $enc = $this->encoder();
 									</a>
 									<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + index">
 										<?php foreach( ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'id', 'it', 'ja', 'lt', 'lv', 'nl', 'no', 'pl', 'pt', 'pt_BR', 'ro', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'zh'] as $lang ) : ?>
-											<a class="dropdown-item" href="#" v-on:click="translate(index, `<?= $lang ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
+											<a class="dropdown-item" href="#" v-on:click.prevent="translate(index, `<?= $lang ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
 										<?php endforeach ?>
 									</div>
 								</div>

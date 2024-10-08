@@ -20,13 +20,14 @@
 /** admin/jqadm/api/translate
  * Configuration for realtime online translation service
  *
- * Contains the required settings for configuring the online translation service.
- * Currently, only DeepL is supported and a paid DeepL API account is required to
- * use the service. The necessary settings for DeepL are:
+ * Contains the settings for configuring the online translation service.
+ * Currently, only DeepL is supported and a DeepL API account is required to
+ * use the service. You have to configure at least the API "key", all other
+ * settings are optional:
  *
  *  [
- *    'url' => 'https://api.deepl.com/v2',
  *    'key' => '<your-DeepL-API-key>',
+ *    'url' => 'https://api.deepl.com/v2',
  *  ]
  *
  * @param array Associative list of key/value pairs
@@ -36,11 +37,14 @@
 /** admin/jqadm/api/openai
  * Configuration for ChatGPT API to generate texts
  *
- * Contains the required settings for configuring the ChatGPT API.
- * The necessary settings for ChatGPT are:
+ * Contains the settings for configuring the ChatGPT API. You have to configure at
+ * least the API "key" created in your OpenAI account, all other settings are optional:
  *
  *  [
  *    'key' => '<your-OpenAI-API-key>',
+ *    'context' => 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup'
+ *    'model' => 'gpt-4o-mini',
+ *    'url' => 'https://api.openai.com/v1/chat/completions',
  *  ]
  *
  * @param array Associative list of key/value pairs
@@ -55,9 +59,9 @@ $enc = $this->encoder();
 <div id="text" class="item-text tab-pane fade" role="tablist" aria-labelledby="text">
 
 	<div id="item-text-group"
-		data-openaiprompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
+		data-prompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
 		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai' ) ) ?>"
-		data-translate="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
+		data-deepl="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
@@ -87,7 +91,7 @@ $enc = $this->encoder();
 									</a>
 									<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + index">
 										<?php foreach( ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'id', 'it', 'ja', 'lt', 'lv', 'nl', 'no', 'pl', 'pt', 'pt_BR', 'ro', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'zh'] as $lang ) : ?>
-											<a class="dropdown-item" href="#" v-on:click="translate(index, `<?= $lang ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
+											<a class="dropdown-item" href="#" v-on:click.prevent="translate(index, `<?= $lang ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
 										<?php endforeach ?>
 									</div>
 								</div>
