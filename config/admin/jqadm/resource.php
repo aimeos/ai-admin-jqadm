@@ -335,6 +335,15 @@ return [
 		 * @since 2017.10
 		 */
 		'groups' => ['admin', 'super'],
+
+		/** admin/jqadm/resource/locale/key
+		 * Shortcut key to switch to the locale panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2017.10
+		 */
+		'key' => '',
+
 		'site' => [
 			/** admin/jqadm/resource/locale/site/groups
 			 * List of user groups that are allowed to access the locale site panel
@@ -343,6 +352,15 @@ return [
 			 * @since 2017.10
 			 */
 			'groups' => ['super'],
+
+			/** admin/jqadm/resource/locale/site/key
+			 * Shortcut key to switch to the locale site panel by using the keyboard
+			 *
+			 * @param string Single character in upper case
+			 * @since 2017.10
+			 */
+			'key' => '',
+
 		],
 		'language' => [
 			/** admin/jqadm/resource/locale/language/groups
@@ -352,6 +370,14 @@ return [
 			 * @since 2017.10
 			 */
 			'groups' => ['super'],
+
+			/** admin/jqadm/resource/locale/language/key
+			 * Shortcut key to switch to the locale language panel by using the keyboard
+			 *
+			 * @param string Single character in upper case
+			 * @since 2017.10
+			 */
+			'key' => '',
 		],
 		'currency' => [
 			/** admin/jqadm/resource/locale/currency/groups
@@ -361,6 +387,14 @@ return [
 			 * @since 2017.10
 			 */
 			'groups' => ['super'],
+
+			/** admin/jqadm/resource/locale/currency/key
+			 * Shortcut key to switch to the locale currency panel by using the keyboard
+			 *
+			 * @param string Single character in upper case
+			 * @since 2017.10
+			 */
+			'key' => '',
 		],
 	],
 	'type' => [
