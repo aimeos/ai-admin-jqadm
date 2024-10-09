@@ -99,7 +99,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
 									<div class="col-8">
 										<span class="form-control item-customerid">
-											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/groups', [] ) ) ) : ?>
+											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 												<a class="link icon act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $this->item->getCustomerId() ) ?>
