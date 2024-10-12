@@ -7,6 +7,23 @@
 
 $enc = $this->encoder();
 
+/** admin/jqadm/api/translate
+ * Configuration for realtime online translation service
+ *
+ * Contains the settings for configuring the online translation service.
+ * Currently, only DeepL is supported and a DeepL API account is required to
+ * use the service. You have to configure at least the API "key", all other
+ * settings are optional:
+ *
+ *  [
+ *    'key' => '<your-DeepL-API-key>',
+ *    'url' => 'https://api.deepl.com/v2',
+ *  ]
+ *
+ * @param array Associative list of key/value pairs
+ * @since 2019.10
+ */
+
 
 ?>
 <div class="row">

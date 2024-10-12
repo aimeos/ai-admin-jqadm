@@ -7,6 +7,23 @@
 
 $enc = $this->encoder();
 
+/** admin/jqadm/api/openai
+ * Configuration for ChatGPT API to generate texts
+ *
+ * Contains the settings for configuring the ChatGPT API. You have to configure at
+ * least the API "key" created in your OpenAI account, all other settings are optional:
+ *
+ *  [
+ *    'key' => '<your-OpenAI-API-key>',
+ *    'context' => 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup'
+ *    'model' => 'gpt-4o-mini',
+ *    'url' => 'https://api.openai.com/v1/chat/completions',
+ *  ]
+ *
+ * @param array Associative list of key/value pairs
+ * @since 2022.10
+ */
+
 
 ?>
 <div class="row">
