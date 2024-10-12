@@ -38,10 +38,10 @@ $enc = $this->encoder();
 			<div class="form-group row">
 				<label class="col-sm-4 form-control-label"><?= $this->translate( 'admin', 'Context' ) ?></label>
 				<div class="col-sm-8">
-					<text class="form-control" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<textarea class="form-control" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						name="<?= $enc->attr( $this->formparam( ['api', 'openai', 'context'] ) ) ?>">
 						<?= $enc->html( $this->get( 'openaiData/context', 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup' ) ) ?>
-					</text>
+					</textarea>
 				</div>
 			</div>
 

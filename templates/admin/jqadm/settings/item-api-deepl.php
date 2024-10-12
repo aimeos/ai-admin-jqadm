@@ -20,7 +20,7 @@ $enc = $this->encoder();
 				<div class="col-sm-8">
 					<input class="form-control" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						name="<?= $enc->attr( $this->formparam( ['api', 'deepl', 'key'] ) ) ?>"
-						value="<?= $enc->attr( $this->get( 'deeplData/key') ) ?>"
+						value="<?= $enc->attr( $this->get( 'deeplData/key' ) ) ?>"
 					>
 				</div>
 			</div>
