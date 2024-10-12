@@ -190,6 +190,7 @@ return [
 		'api' => [
 			'subparts' => [
 				'deepl' => 'deepl',
+				'openai' => 'openai',
 			],
 		],
 		'subparts' => [
