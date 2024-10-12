@@ -41,7 +41,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->itemBody = parent::search();
+		$view->apiBody = parent::search();
 
 		return $this->render( $view );
 	}
