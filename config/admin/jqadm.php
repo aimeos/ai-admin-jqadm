@@ -187,8 +187,14 @@ return [
 		],
 	],
 	'settings' => [
+		'api' => [
+			'subparts' => [
+				'deepl' => 'deepl',
+			],
+		],
 		'subparts' => [
 			'theme' => 'theme',
+			'api' => 'api',
 		],
 	],
 	'supplier' => [
