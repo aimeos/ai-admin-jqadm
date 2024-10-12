@@ -191,6 +191,7 @@ return [
 			'subparts' => [
 				'deepl' => 'deepl',
 				'openai' => 'openai',
+				'removebg' => 'removebg',
 			],
 		],
 		'subparts' => [
