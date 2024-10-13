@@ -41,7 +41,7 @@ class Standard
 	public function save() : ?string
 	{
 		$data = array_filter( $this->view()->param( 'api/deepl', [] ), fn( $val ) => $val !== '' && $val !== null );
-		$this->context()->locale()->getSiteItem()->setConfigValue( 'api/translate', $data );
+		$this->context()->locale()->getSiteItem()->setConfigValue( 'admin/jqadm/api/translate', $data );
 
 		return null;
 	}
@@ -55,7 +55,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->deeplData = $this->context()->locale()->getSiteItem()->getConfigValue( 'api/translate', [] );
+		$view->deeplData = $this->context()->locale()->getSiteItem()->getConfigValue( 'admin/jqadm/api/translate', [] );
 
 		return $this->render( $view );
 	}

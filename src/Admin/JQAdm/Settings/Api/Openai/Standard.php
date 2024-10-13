@@ -41,7 +41,7 @@ class Standard
 	public function save() : ?string
 	{
 		$data = array_filter( $this->view()->param( 'api/openai', [] ), fn( $val ) => $val !== '' && $val !== null );
-		$this->context()->locale()->getSiteItem()->setConfigValue( 'api/openai', $data );
+		$this->context()->locale()->getSiteItem()->setConfigValue( 'admin/jqadm/api/openai', $data );
 
 		return null;
 	}
@@ -55,7 +55,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->openaiData = $this->context()->locale()->getSiteItem()->getConfigValue( 'api/openai', [] );
+		$view->openaiData = $this->context()->locale()->getSiteItem()->getConfigValue( 'admin/jqadm/api/openai', [] );
 
 		return $this->render( $view );
 	}

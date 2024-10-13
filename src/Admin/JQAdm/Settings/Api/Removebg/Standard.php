@@ -41,7 +41,7 @@ class Standard
 	public function save() : ?string
 	{
 		$data = array_filter( $this->view()->param( 'api/removebg', [] ), fn( $val ) => $val !== '' && $val !== null );
-		$this->context()->locale()->getSiteItem()->setConfigValue( 'api/removebg', $data );
+		$this->context()->locale()->getSiteItem()->setConfigValue( 'admin/jqadm/api/removebg', $data );
 
 		return null;
 	}
@@ -55,7 +55,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->removebgData = $this->context()->locale()->getSiteItem()->getConfigValue( 'api/removebg', [] );
+		$view->removebgData = $this->context()->locale()->getSiteItem()->getConfigValue( 'admin/jqadm/api/removebg', [] );
 
 		return $this->render( $view );
 	}
