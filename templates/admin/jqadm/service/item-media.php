@@ -24,6 +24,7 @@ $enc = $this->encoder();
 <div id="media" class="item-media tab-pane fade" role="tablist" aria-labelledby="media">
 
 	<div id="item-media-group"
+		data-removebg="<?= $enc->attr( $this->config( 'admin/jqadm/api/removebg', new \stdClass ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'mediaData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="service" >
@@ -32,7 +33,7 @@ $enc = $this->encoder();
 			<div is="vue:draggable" item-key="media.id" group="media" :list="items" handle=".act-move">
 				<template #item="{element, index}">
 
-					<div class="group-item card box" v-bind:class="{mismatch: !can('match', index)}">
+					<div class="group-item card box" v-bind:class="{loading: element['_loading'], mismatch: !can('match', index)}">
 						<div v-bind:id="'item-media-group-item-' + index" class="card-header header">
 							<div class="card-tools-start">
 								<div class="btn btn-card-header act-show icon" v-bind:class="element['_show'] ? 'show' : 'collapsed'"
@@ -65,6 +66,11 @@ $enc = $this->encoder();
 							<div class="col-xl-6">
 
 								<div class="form-group media-preview">
+									<div v-if="element['file'] && element['file'][0] && element['media.mimetype']?.startsWith('image/')"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Remove background' ) ) ?>"
+										class="btn act-magic icon btn-background"
+										@click.stop="background(element)">
+									</div>
 									<input v-bind:files="element['preview']" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', index)">
 									<input v-bind:files="element['file']" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="'media[_idx_][file]'.replace('_idx_', index)"

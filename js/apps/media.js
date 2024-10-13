@@ -15,6 +15,7 @@ Aimeos.Media = {
 					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
+					removebg: {type: String, default: '{}'},
 				},
 				data() {
 					return {
@@ -65,6 +66,53 @@ Aimeos.Media = {
 				entry['_show'] = true;
 
 				this.items.push(Object.assign(entry, data));
+			},
+
+
+			async background(entry) {
+				const config = JSON.parse(this.removebg || '{}');
+
+				if(!config['key']) {
+					alert('Add the RemoveBG API key in the Setting > API panel first');
+					return;
+				}
+
+				const formData = new FormData();
+				formData.append("crop", true);
+				formData.append("size", "auto");
+				formData.append("format", "png");
+				formData.append("image_file", entry['file'][0]);
+
+				entry['_loading'] = true;
+
+				await fetch(config['url'] || 'https://api.remove.bg/v1.0/removebg', {
+					body: formData,
+					headers: {
+						'X-Api-Key': config['key']
+					},
+					method: 'POST'
+				}).then(response => {
+					if(!response.ok) {
+						throw new Error(`${response.status}: ${response.statusText}`)
+					}
+					return response.arrayBuffer()
+				}).then(data => {
+					const file = new File([data], entry['file'][0].name, {
+						lastModified: new Date().getTime(),
+						type: 'image/png'
+					});
+
+					URL.revokeObjectURL(entry['media.preview']);
+					entry['media.preview'] = URL.createObjectURL(file);
+
+					const tx = new DataTransfer();
+					tx.items.add(file);
+					entry['file'] = tx.files;
+				}).finally(() => {
+					entry['_loading'] = false;
+				}).catch((error) => {
+					alert(error);
+				});
 			},
 
 
