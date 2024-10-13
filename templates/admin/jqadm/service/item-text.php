@@ -35,7 +35,7 @@ $enc = $this->encoder();
 			<div is="vue:draggable" item-key="text.id" group="text" :list="items" handle=".act-move">
 				<template #item="{element, index}">
 
-					<div class="group-item card box" v-bind:class="{loading: element['loading'], mismatch: !can('match', index)}">
+					<div class="group-item card box" v-bind:class="{loading: element['_loading'], mismatch: !can('match', index)}">
 						<div v-bind:id="'item-text-group-item-' + index" class="card-header header">
 							<div class="card-tools-start">
 								<div class="btn btn-card-header act-show icon" v-bind:class="element['_show'] ? 'show' : 'collapsed'" v-on:click="toggle('_show', index)"

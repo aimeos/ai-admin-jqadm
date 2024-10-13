@@ -105,7 +105,7 @@ Aimeos.Text = {
 					}]
 				};
 
-				this.items[idx]['loading'] = true;
+				this.items[idx]['_loading'] = true;
 
 				await fetch(config['url'] || 'https://api.openai.com/v1/chat/completions', {
 					body: JSON.stringify(params),
@@ -119,7 +119,7 @@ Aimeos.Text = {
 				}).then(data => {
 					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['message'] && data['choices'][0]['message']['content'] || '').trim();
 				}).finally(() => {
-					this.items[idx]['loading'] = false;
+					this.items[idx]['_loading'] = false;
 				}).catch((error) => {
 					alert(error);
 				});
