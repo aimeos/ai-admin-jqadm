@@ -17,41 +17,6 @@
  */
 
 
-/** admin/jqadm/api/translate
- * Configuration for realtime online translation service
- *
- * Contains the settings for configuring the online translation service.
- * Currently, only DeepL is supported and a DeepL API account is required to
- * use the service. You have to configure at least the API "key", all other
- * settings are optional:
- *
- *  [
- *    'key' => '<your-DeepL-API-key>',
- *    'url' => 'https://api.deepl.com/v2',
- *  ]
- *
- * @param array Associative list of key/value pairs
- * @since 2019.10
- */
-
-/** admin/jqadm/api/openai
- * Configuration for ChatGPT API to generate texts
- *
- * Contains the settings for configuring the ChatGPT API. You have to configure at
- * least the API "key" created in your OpenAI account, all other settings are optional:
- *
- *  [
- *    'key' => '<your-OpenAI-API-key>',
- *    'context' => 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup'
- *    'model' => 'gpt-4o-mini',
- *    'url' => 'https://api.openai.com/v1/chat/completions',
- *  ]
- *
- * @param array Associative list of key/value pairs
- * @since 2022.10
- */
-
-
 $enc = $this->encoder();
 
 

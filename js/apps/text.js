@@ -84,7 +84,7 @@ Aimeos.Text = {
 				const config = JSON.parse(this.openai || '{}');
 
 				if(!config['key']) {
-					alert('No OpenAI API key configured in "admin/jqadm/api/openai/key" setting');
+					alert('Add the OpenAI API key in the Setting > API panel first');
 					return;
 				}
 
@@ -169,7 +169,7 @@ Aimeos.Text = {
 				const config = JSON.parse(this.deepl || '{}');
 
 				if(!config['key']) {
-					alert('No DeepL API key configured in "admin/jqadm/api/translate/key" setting');
+					alert('Add the DeepL API key in the Setting > API panel first');
 					return;
 				}
 
