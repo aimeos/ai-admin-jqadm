@@ -257,7 +257,7 @@ class Standard
 			}
 			else
 			{
-				$item->deletePropertyItems( $propItems->toArray() );
+				$item->deletePropertyItems( $propItems );
 			}
 		}
 

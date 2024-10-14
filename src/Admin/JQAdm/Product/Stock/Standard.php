@@ -104,7 +104,7 @@ class Standard
 
 		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 		$filter = $manager->filter()->add( ['stock.productid' => $this->view()->item->getId()] );
-		$manager->delete( $manager->search( $filter )->toArray() );
+		$manager->delete( $manager->search( $filter ) );
 
 		return null;
 	}

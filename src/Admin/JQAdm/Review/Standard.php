@@ -106,10 +106,10 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
-			$this->update( $items->toArray() )->redirect( 'review', 'search', null, 'delete' );
+			$this->update( $items )->redirect( 'review', 'search', null, 'delete' );
 		}
 		catch( \Exception $e )
 		{
@@ -442,10 +442,10 @@ class Standard
 	/**
 	 * Updates the average rating and the number of ratings in the domain item
 	 *
-	 * @param \Aimeos\MShop\Review\Item\Iface[] $item List of review items with domain and refid
+	 * @param iterable $item List of review items with domain and refid
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin client for fluent interface
 	 */
-	protected function update( array $items ) : \Aimeos\Admin\JQAdm\Iface
+	protected function update( iterable $items ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'review' );

@@ -262,7 +262,7 @@ class Standard
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 
-		$prodIds = map( $data )->col( 'product.id' )->toArray();
+		$prodIds = map( $data )->col( 'product.id' );
 		$filter = $manager->filter()->add( ['product.id' => $prodIds] );
 		$prodItems = $manager->search( $filter, $this->getDomains() );
 
@@ -292,7 +292,7 @@ class Standard
 
 		$this->fromArrayStocks( $prodIds, $data );
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 

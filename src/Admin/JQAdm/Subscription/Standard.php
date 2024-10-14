@@ -185,7 +185,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
 			return $this->redirect( 'subscription', 'search', null, 'delete' );

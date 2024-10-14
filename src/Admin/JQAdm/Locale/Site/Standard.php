@@ -177,7 +177,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
 			return $this->redirect( 'locale/site', 'search', null, 'delete' );

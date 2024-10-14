@@ -287,7 +287,7 @@ class Standard
 			$item->addPropertyItem( $propItem );
 		}
 
-		return $item->deletePropertyItems( $propItems->toArray() );
+		return $item->deletePropertyItems( $propItems );
 	}
 
 

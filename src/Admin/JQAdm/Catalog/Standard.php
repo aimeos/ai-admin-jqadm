@@ -170,7 +170,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
 			$context->cache()->deleteByTags( $tags );

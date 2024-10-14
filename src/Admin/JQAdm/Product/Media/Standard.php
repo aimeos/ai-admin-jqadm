@@ -238,10 +238,10 @@ class Standard
 	 * Then, the images will only be shown if the customer selected the product variant
 	 *
 	 * @param \Aimeos\MShop\Media\Item\Iface $mediaItem Media item, maybe with referenced attribute items
-	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $attrListItems Product list items referencing variant attributes
+	 * @param iterable $attrListItems Product list items referencing variant attributes
 	 * @return \Aimeos\MShop\Media\Item\Iface Modified media item
 	 */
-	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $mediaItem, array $attrListItems ) : \Aimeos\MShop\Media\Item\Iface
+	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $mediaItem, iterable $attrListItems ) : \Aimeos\MShop\Media\Item\Iface
 	{
 		$listManager = \Aimeos\MShop::create( $this->context(), 'media/lists' );
 		$listItems = $mediaItem->getListItems( 'attribute', 'variant', null, false );
@@ -255,7 +255,7 @@ class Standard
 			}
 		}
 
-		return $mediaItem->deleteListItems( $listItems->toArray() );
+		return $mediaItem->deleteListItems( $listItems );
 	}
 
 
@@ -263,10 +263,10 @@ class Standard
 	 * Removes the media reference and the media item if not shared
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including media reference
-	 * @param \Aimeos\Map $listItems Media list items to be removed
+	 * @param iterable $listItems Media list items to be removed
 	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, \Aimeos\Map $listItems ) : \Aimeos\MShop\Product\Item\Iface
+	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, iterable $listItems ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->context();
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
@@ -381,7 +381,7 @@ class Standard
 				}
 			}
 
-			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false )->toArray();
+			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false );
 			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
 			$item->addListItem( 'media', $listItem, $refItem );
 

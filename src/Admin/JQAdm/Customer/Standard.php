@@ -228,7 +228,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
 			if( $items->count() !== count( (array) $ids ) )

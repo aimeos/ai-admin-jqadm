@@ -201,10 +201,10 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->delete( $items->toArray() );
+			\Aimeos\MShop::create( $context, 'index' )->delete( $items );
 			$context->cache()->deleteByTags( $tags );
 
 			return $this->redirect( 'product', 'search', null, 'delete' );

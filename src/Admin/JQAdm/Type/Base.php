@@ -153,7 +153,7 @@ abstract class Base
 				parent::delete();
 			}
 
-			$manager->delete( $items->toArray() );
+			$manager->delete( $items );
 			$manager->commit();
 
 			return $this->redirect( 'type/' . $path, 'search', null, 'delete' );

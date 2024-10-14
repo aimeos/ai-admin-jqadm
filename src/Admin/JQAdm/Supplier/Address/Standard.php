@@ -253,7 +253,7 @@ class Standard
 			$item->addAddressItem( $addrItem );
 		}
 
-		return $item->deleteAddressItems( $addrItems->toArray() );
+		return $item->deleteAddressItems( $addrItems );
 	}
 
 

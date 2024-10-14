@@ -114,7 +114,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->view()->item;
-		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false )->toArray() );
+		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false ) );
 
 		return null;
 	}
@@ -239,10 +239,10 @@ class Standard
 	 * Removes the media reference and the media item if not shared
 	 *
 	 * @param \Aimeos\MShop\Attribute\Item\Iface $item Attribute item including media reference
-	 * @param array $listItems Media list items to be removed
+	 * @param iterable $listItems Media list items to be removed
 	 * @return \Aimeos\MShop\Attribute\Item\Iface Modified attribute item
 	 */
-	protected function deleteMediaItems( \Aimeos\MShop\Attribute\Item\Iface $item, array $listItems ) : \Aimeos\MShop\Attribute\Item\Iface
+	protected function deleteMediaItems( \Aimeos\MShop\Attribute\Item\Iface $item, iterable $listItems ) : \Aimeos\MShop\Attribute\Item\Iface
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'attribute' );
@@ -361,7 +361,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-		return $this->deleteMediaItems( $item, $listItems->toArray() );
+		return $this->deleteMediaItems( $item, $listItems );
 	}
 
 
