@@ -115,6 +115,9 @@ Aimeos.Text = {
 					},
 					method: 'POST'
 				}).then(response => {
+					if(!response.ok) {
+						throw new Error(`${response.status}: ${response.statusText}`)
+					}
 					return response.json();
 				}).then(data => {
 					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['message'] && data['choices'][0]['message']['content'] || '').trim();
