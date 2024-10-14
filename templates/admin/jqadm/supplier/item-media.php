@@ -25,6 +25,7 @@ $enc = $this->encoder();
 
 	<div id="item-media-group"
 		data-removebg="<?= $enc->attr( $this->config( 'admin/jqadm/api/removebg', new \stdClass ) ) ?>"
+		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai', new \stdClass ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'mediaData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="supplier" >
@@ -294,8 +295,18 @@ $enc = $this->encoder();
 					v-on:click="$refs.add.click()" >
 					<input ref="add" class="d-none" type="file" multiple v-on:change="create($event)">
 				</div>
+				<div class="btn btn-primary btn-card-more act-magic icon" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Generate image' ) ) ?>"
+					v-on:click="generate = true" >
+				</div>
 			</div>
 		</div>
 
+		<imagegen v-bind:show="generate" v-bind:config="JSON.parse(openai)"
+			v-on:close="generate = false" v-on:confirm="use($event)">
+		</imagegen>
+
 	</div>
+
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/imagegen', 'imagegen' ) ) ?>
 </div>

@@ -16,10 +16,12 @@ Aimeos.Media = {
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
 					removebg: {type: String, default: '{}'},
+					openai: {type: String, default: '{}'},
 				},
 				data() {
 					return {
 						items: [],
+						generate: false,
 					}
 				},
 				beforeMount() {
@@ -66,6 +68,8 @@ Aimeos.Media = {
 				entry['_show'] = true;
 
 				this.items.push(Object.assign(entry, data));
+
+				return this.items[this.items.length-1];
 			},
 
 
@@ -242,6 +246,21 @@ Aimeos.Media = {
 				if(this.items[idx]) {
 					this.items[idx][what] = (!this.items[idx][what] ? true : false);
 				}
+			},
+
+
+			use(file) {
+				const self = this;
+				const item = this.add();
+
+				this.$nextTick(function() {
+					const dt = new DataTransfer();
+					dt.items.add(file);
+					item.file = dt.files;
+					self.files(item, dt.files);
+				});
+
+				this.generate = false;
 			}
 		}
 	}
