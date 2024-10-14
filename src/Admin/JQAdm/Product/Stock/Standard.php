@@ -45,7 +45,6 @@ class Standard
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'stock/type' );
 
 		$search = $typeManager->filter( true )
-			->add( 'stock.type.domain', '==', 'product' )
 			->order( 'stock.type.code' )
 			->slice( 0, 10000 );
 
