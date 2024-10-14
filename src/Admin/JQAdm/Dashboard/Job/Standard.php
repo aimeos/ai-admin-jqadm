@@ -41,22 +41,32 @@ class Standard
 	{
 		$view = $this->view();
 		$context = $this->context();
-
-		if( ( $id = $view->param( 'id' ) ) === null )
-		{
-			$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
-		}
-
-		$fs = $context->fs( 'fs-admin' );
 		$manager = \Aimeos\MAdmin::create( $context, 'job' );
-		$item = $manager->get( $id );
+		$manager->begin();
 
-		if( ( $path = $item->getPath() ) && $fs->has( $path ) ) {
-			$fs->rm( $path );
+		try
+		{
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
+			}
+
+			$fs = $context->fs( 'fs-admin' );
+			$item = $manager->get( $id );
+
+			if( ( $path = $item->getPath() ) && $fs->has( $path ) ) {
+				$fs->rm( $path );
+			}
+
+			$manager->delete( $id );
+			$manager->commit();
 		}
-
-		$manager->delete( $id );
+		catch( \Exception $e )
+		{
+			$manager->rollback();
+			$this->report( $e, 'delete' );
+		}
 
 		return $this->search();
 	}
