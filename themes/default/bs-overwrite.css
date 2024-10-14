@@ -43,6 +43,11 @@ textarea {
 	margin: 1rem;
 }
 
+.modal .form-control-label {
+	justify-content: start;
+}
+
+
 .navbar-brand {
 	margin: 0;
 }
