@@ -259,18 +259,26 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$context = $this->context();
 		$listItems = $item->getListItems( 'catalog' );
+
+		$manager = \Aimeos\MShop::create( $context, 'catalog' );
+		$filter = $manager->filter()
+			->add( 'catalog.id', '==', array_column( $data, 'catalog.id' ) )
+			->slice( 0, count( $data ) );
+		$refItems = $manager->search( $filter );
+
+		$manager = \Aimeos\MShop::create( $context, 'product' );
 
 		foreach( $data as $entry )
 		{
+			$refid = $this->val( $entry, 'catalog.id' );
 			$listid = $this->val( $entry, 'product.lists.id' );
+
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem->setType( $this->val( $entry, 'product.lists.type' ) )->setRefId( $refid );
 
-			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'catalog.id' ) );
-
-			$item->addListItem( 'catalog', $litem );
+			$item->addListItem( 'catalog', $litem, $refItems->get( $refid ) );
 		}
 
 		return $item->deleteListItems( $listItems );

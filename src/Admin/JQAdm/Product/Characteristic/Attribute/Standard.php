@@ -258,8 +258,16 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$idx = 0;
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$context = $this->context();
 		$listItems = $item->getListItems( 'attribute', null, null, false );
+
+		$manager = \Aimeos\MShop::create( $context, 'attribute' );
+		$filter = $manager->filter()
+			->add( 'attribute.id', '==', array_column( $data, 'attribute.id' ) )
+			->slice( 0, count( $data ) );
+		$refItems = $manager->search( $filter );
+
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 		foreach( $data as $entry )
 		{
@@ -276,7 +284,7 @@ class Standard
 				}
 			}
 
-			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
+			$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ) );
 		}
 
 		return $item->deleteListItems( $listItems );
