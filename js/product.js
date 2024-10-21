@@ -456,8 +456,6 @@ Aimeos.Product.Order = {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 
-				this.filter['order.product.productid'] = {'==':{'order.product.productid': this.id}};
-
 				let list = [];
 				if(window.sessionStorage) {
 					list = JSON.parse(window.sessionStorage.getItem('aimeos/jqadm/productorder/fields')) || [];
@@ -466,7 +464,8 @@ Aimeos.Product.Order = {
 					list = JSON.parse(this.fields);
 				}
 				this.fieldlist = list;
-				this.fetch();
+
+				this.filter['order.product.productid'] = {'==':{'order.product.productid': this.id}};
 			},
 
 			methods : {
