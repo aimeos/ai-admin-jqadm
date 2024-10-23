@@ -293,7 +293,6 @@ $paymentStatusList = [
 												:allow-absent="true"
 												:searchable="true"
 												:can-clear="false"
-												:required="true"
 												:min-chars="1"
 												:object="true"
 												:delay="300"
