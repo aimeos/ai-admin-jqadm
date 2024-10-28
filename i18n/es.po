@@ -786,7 +786,7 @@ msgid "ISO language code (required)"
 msgstr "Código ISO de idioma (obligatorio)"
 
 msgid "Image"
-msgstr "Imágen"
+msgstr "Imagen"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
