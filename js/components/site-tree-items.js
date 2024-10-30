@@ -91,6 +91,10 @@ Aimeos.components['site-tree-items'] = {
 			self.$emit('loading', true);
 
 			this.promise.then(function(response) {
+				if(!response.meta.resources['locale/site']) {
+					return;
+				}
+
 				const param = {filter: {'==': {'locale.site.parentid': self.parent}}};
 
 				if(self.filter) {
