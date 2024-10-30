@@ -2063,7 +2063,7 @@ msgstr "Billing address"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "APIs"
 
 #, php-format
 msgid "attribute"
