@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -111,6 +111,9 @@ msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Felhasználói fiók"
@@ -386,6 +389,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Beállítási lehetőségek, a felsorolás elemeiben kulcs-érték párokként lesznek elérhetők"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Másolás"
 
@@ -550,6 +556,9 @@ msgid ""
 " will be different"
 msgstr "A kiválasztott adatállománytól függően a terméknél megjelenített mezők listája eltérő lesz"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Szöveges tartalom leírása, ha az idegen nyelven van"
 
@@ -711,6 +720,12 @@ msgstr "Emelet / Lakás"
 msgid "Floor and/or apartment (optional)"
 msgstr "Emelet és/vagy lakás (nem kötelező) "
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -771,6 +786,9 @@ msgstr "A vásárló megszólítása emailekben"
 msgid "How the supplier is addressed in e-mails"
 msgstr "A beszállító megszólítása emailekben"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "Azonosító"
 
@@ -785,6 +803,9 @@ msgstr "ISO nyelvkód (kötelező)"
 
 msgid "Image"
 msgstr "Kép"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -994,6 +1015,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Módosítva"
 
@@ -1027,6 +1051,9 @@ msgstr "Véleményező neve"
 
 msgid "Name of your shop shown to your customers"
 msgstr "Vásárlóknak megjelenő üzletnév"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "Új"
@@ -1463,6 +1490,9 @@ msgstr "Kapcsolódó rendelés azonosító (opcionális)"
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Megújít"
 
@@ -1743,6 +1773,9 @@ msgstr "Utca"
 msgid "Street name (optional)"
 msgstr "Utca neve (opcionális)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Részösszeg"
 
@@ -2018,6 +2051,9 @@ msgstr "Üzleti logó felöltése"
 msgid "Uploaded"
 msgstr "Feltöltött"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "Felhasználói csoportok"
 
@@ -2111,6 +2147,10 @@ msgstr "Szállítási cím"
 
 msgid "address:payment"
 msgstr "Számlázási cím"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

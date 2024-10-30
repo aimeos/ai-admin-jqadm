@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Edu PM, 2024\n"
 "Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -113,6 +113,9 @@ msgstr ""
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Cuenta"
@@ -388,6 +391,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Copiar"
 
@@ -552,6 +558,9 @@ msgid ""
 " will be different"
 msgstr ""
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr ""
 
@@ -713,6 +722,12 @@ msgstr "Piso / Departamento"
 msgid "Floor and/or apartment (optional)"
 msgstr "Piso y/o departamento (opcional)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -773,6 +788,9 @@ msgstr "Cómo se dirige al cliente en los correos electrónicos"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Cómo se dirige a los proveedores en los correos electrónicos"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "Identificacion"
 
@@ -787,6 +805,9 @@ msgstr "Código ISO de idioma (obligatorio)"
 
 msgid "Image"
 msgstr "Imagen"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -996,6 +1017,9 @@ msgstr "Número móvil"
 msgid "Mobile number (optional)"
 msgstr "Número móvil (opcional)"
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Modificado"
 
@@ -1029,6 +1053,9 @@ msgstr ""
 
 msgid "Name of your shop shown to your customers"
 msgstr "Nombre de tu tienda mostrado a tus clientes"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "Nuevo"
@@ -1465,6 +1492,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Renovar"
 
@@ -1745,6 +1775,9 @@ msgstr "Calle"
 msgid "Street name (optional)"
 msgstr "Nombre de la calle (opcional)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Subtotal"
 
@@ -2020,6 +2053,9 @@ msgstr ""
 msgid "Uploaded"
 msgstr "Subido"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "Grupos de usuarios"
 
@@ -2113,6 +2149,10 @@ msgstr "Dirección de Entrega"
 
 msgid "address:payment"
 msgstr "Dirección de Envio"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

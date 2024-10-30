@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Aimeos, 2024\n"
 "Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
@@ -103,6 +103,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -379,6 +382,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "אפשרויות תצורה, יהיו זמינות כצמדי מפתח/ערך בפריט הרשימה"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "העתק"
 
@@ -543,6 +549,9 @@ msgid ""
 " will be different"
 msgstr "בהתאם למערך הנתונים שנבחר, רשימת השדות המוצגים עבור המוצר תהיה שונה"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "תיאור של תוכן הטקסט אם הוא בשפה זרה"
 
@@ -704,6 +713,12 @@ msgstr "קומה / דירה"
 msgid "Floor and/or apartment (optional)"
 msgstr "קומה ו/או דירה (אופציונלי)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr "צור טקסט"
 
@@ -764,6 +779,9 @@ msgstr "איך פונים ללקוח בדואר אלקטרוני"
 msgid "How the supplier is addressed in e-mails"
 msgstr "איך הספק פונה במיילים"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr ""
 
@@ -778,6 +796,9 @@ msgstr "קוד שפה ISO (נדרש)"
 
 msgid "Image"
 msgstr "תמונה"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -987,6 +1008,9 @@ msgstr "מספר נייד"
 msgid "Mobile number (optional)"
 msgstr "מספר נייד (אופציונלי)"
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "שונה"
 
@@ -1020,6 +1044,9 @@ msgstr "שם המבקר"
 
 msgid "Name of your shop shown to your customers"
 msgstr "שם החנות שלך מוצג ללקוחות שלך"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "חדש"
@@ -1456,6 +1483,9 @@ msgstr "מזהה הזמנה קשור (אופציונלי)"
 msgid "Related order of the customer"
 msgstr "הזמנה קשורה של הלקוח"
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "תחדש"
 
@@ -1736,6 +1766,9 @@ msgstr "רחוב"
 msgid "Street name (optional)"
 msgstr "שם רחוב (אופציונלי)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "סה\"כ משנה"
 
@@ -2011,6 +2044,9 @@ msgstr "העלה לוגו של החנות"
 msgid "Uploaded"
 msgstr "הועלה"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "קבוצות משתמשים"
 
@@ -2104,6 +2140,10 @@ msgstr "כתובת:משלוח"
 
 msgid "address:payment"
 msgstr "כתובת:תשלום"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

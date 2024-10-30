@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ali y, 2022\n"
 "Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -108,6 +108,9 @@ msgstr ""
 
 msgid "?"
 msgstr "؟"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "حساب کاربری"
@@ -383,6 +386,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "گزینه های پیکربندی، به صورت جفت کلید/مقدار در آیتم فهرست در دسترس خواهند بود"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "کپی"
 
@@ -547,6 +553,9 @@ msgid ""
 " will be different"
 msgstr "بسته به مجموعه داده انتخابی، لیست فیلدهای نشان داده شده برای محصول متفاوت خواهد بود"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "توضیح محتوای متن اگر به زبان خارجی باشد"
 
@@ -708,6 +717,12 @@ msgstr "طبقه / آپارتمان"
 msgid "Floor and/or apartment (optional)"
 msgstr "طبقه و/یا آپارتمان (اختیاری)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -768,6 +783,9 @@ msgstr "نحوه خطاب به مشتری در ایمیل ها"
 msgid "How the supplier is addressed in e-mails"
 msgstr "نحوه آدرس دهی تامین کننده در ایمیل ها"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "شناسه"
 
@@ -782,6 +800,9 @@ msgstr "کد ISO زبان (الزامی)"
 
 msgid "Image"
 msgstr "تصویر"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -991,6 +1012,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "اصلاح شده"
 
@@ -1024,6 +1048,9 @@ msgstr "نام داور"
 
 msgid "Name of your shop shown to your customers"
 msgstr "نام فروشگاه شما به مشتریان شما نشان داده شده است"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "جدید"
@@ -1460,6 +1487,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "تمدید کنید"
 
@@ -1740,6 +1770,9 @@ msgstr "خیابان"
 msgid "Street name (optional)"
 msgstr "نام خیابان (اختیاری)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "زیر کل"
 
@@ -2015,6 +2048,9 @@ msgstr "لوگوی فروشگاه را بارگذاری کنید"
 msgid "Uploaded"
 msgstr "آپلود شد"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "گروه های کاربری"
 
@@ -2108,6 +2144,10 @@ msgstr "آدرس تحویل"
 
 msgid "address:payment"
 msgstr "آدرس صورتحساب"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

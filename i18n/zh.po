@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -107,6 +107,9 @@ msgstr ""
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "帳戶"
@@ -382,6 +385,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "配置选项，将作为列表项中的键/值对提供"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "複製"
 
@@ -546,6 +552,9 @@ msgid ""
 " will be different"
 msgstr "取决于选择的数据集，展示的产品列表字段将会不同"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "當文字內容為外文時的敘述"
 
@@ -707,6 +716,12 @@ msgstr "樓層 / 公寓"
 msgid "Floor and/or apartment (optional)"
 msgstr "樓層 和/或 公寓 (選項)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -767,6 +782,9 @@ msgstr "在电子邮件中如何称呼客户"
 msgid "How the supplier is addressed in e-mails"
 msgstr "在电子邮件中如何称呼供应商"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -781,6 +799,9 @@ msgstr "ISO 語言代碼（必填）"
 
 msgid "Image"
 msgstr "圖片"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -990,6 +1011,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "修改"
 
@@ -1023,6 +1047,9 @@ msgstr "評論人姓名"
 
 msgid "Name of your shop shown to your customers"
 msgstr "向客户展示的商店名称"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "新紀錄"
@@ -1459,6 +1486,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "續訂"
 
@@ -1739,6 +1769,9 @@ msgstr "街"
 msgid "Street name (optional)"
 msgstr "街名（可不填）"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "小計"
 
@@ -2014,6 +2047,9 @@ msgstr "上传商店 logo"
 msgid "Uploaded"
 msgstr "已上傳"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "用戶群組"
 
@@ -2107,6 +2143,10 @@ msgstr "配送地址"
 
 msgid "address:payment"
 msgstr "帳單地址"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

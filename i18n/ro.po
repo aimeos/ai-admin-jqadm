@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yolo San, 2021\n"
 "Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
@@ -104,6 +104,9 @@ msgstr ""
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Contul meu"
@@ -379,6 +382,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Opțiunile de configurare vor fi disponibile ca perechi cheie / valoare în lista articolului"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Copiaza"
 
@@ -543,6 +549,9 @@ msgid ""
 " will be different"
 msgstr "În funcție de setul de date selectat, lista de câmpuri afișate pentru produs va fi diferită"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Descrierea conținutului textului dacă este într-o limbă străină"
 
@@ -704,6 +713,12 @@ msgstr "Etaj / Apartament"
 msgid "Floor and/or apartment (optional)"
 msgstr "Etaj si/sau apartament (optional)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -764,6 +779,9 @@ msgstr "Modul în care clientul este adresat în e-mailuri"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Modul în care furnizorul este adresat în e-mailuri"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID-ul"
 
@@ -778,6 +796,9 @@ msgstr "Codul ISO al limbii (obligatoriu)"
 
 msgid "Image"
 msgstr "Imagine"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -987,6 +1008,9 @@ msgstr "Număr mobil"
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Modificat"
 
@@ -1019,6 +1043,9 @@ msgid "Name of the reviewer"
 msgstr ""
 
 msgid "Name of your shop shown to your customers"
+msgstr ""
+
+msgid "Natural"
 msgstr ""
 
 msgid "New"
@@ -1456,6 +1483,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Innoieste"
 
@@ -1736,6 +1766,9 @@ msgstr "Street"
 msgid "Street name (optional)"
 msgstr ""
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Subtotal"
 
@@ -2011,6 +2044,9 @@ msgstr ""
 msgid "Uploaded"
 msgstr ""
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr ""
 
@@ -2104,6 +2140,10 @@ msgstr "Adresa de livrare"
 
 msgid "address:payment"
 msgstr "Adresa de facturare"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

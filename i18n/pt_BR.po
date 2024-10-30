@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Webert Max, 2023\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
@@ -110,6 +110,9 @@ msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Conta"
@@ -385,6 +388,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "As opções de configuração estarão disponíveis como pares de chave/valor no item da lista"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Copiar"
 
@@ -549,6 +555,9 @@ msgid ""
 " will be different"
 msgstr "Dependendo do conjunto de dados selecionado, a lista de campos exibidos para o produto será diferente"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Descrição do conteúdo do texto se estiver em um idioma estrangeiro"
 
@@ -710,6 +719,12 @@ msgstr "Andar / Apartamento"
 msgid "Floor and/or apartment (optional)"
 msgstr "Andar e/ou apartamento (opcional)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr "Gerar texto"
 
@@ -770,6 +785,9 @@ msgstr "Como o cliente é abordado nos e-mails"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Como o fornecedor é abordado nos e-mails"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -784,6 +802,9 @@ msgstr "Código ISO do idioma (obrigatório)"
 
 msgid "Image"
 msgstr "Imagem"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -993,6 +1014,9 @@ msgstr "Número de telemóvel"
 msgid "Mobile number (optional)"
 msgstr "Número de telemóvel (opcional)"
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Modificado"
 
@@ -1026,6 +1050,9 @@ msgstr "Nome do revisor"
 
 msgid "Name of your shop shown to your customers"
 msgstr "Nome da sua loja exibido para seus clientes"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "Novo"
@@ -1462,6 +1489,9 @@ msgstr "ID do pedido relacionado (opcional)"
 msgid "Related order of the customer"
 msgstr "Pedido relacionado do cliente"
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Renovar"
 
@@ -1742,6 +1772,9 @@ msgstr "Rua"
 msgid "Street name (optional)"
 msgstr "Nome da rua (opcional)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Sub-total"
 
@@ -2017,6 +2050,9 @@ msgstr "Carregar logotipo da loja"
 msgid "Uploaded"
 msgstr "Enviado"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "Grupos de usuários"
 
@@ -2110,6 +2146,10 @@ msgstr "Endereço de entrega"
 
 msgid "address:payment"
 msgstr "Endereço de cobrança"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"
