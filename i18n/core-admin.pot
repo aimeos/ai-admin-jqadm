@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,6 +96,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -360,6 +363,9 @@ msgstr ""
 msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr ""
 
@@ -519,6 +525,9 @@ msgstr ""
 msgid "Depending on the selected data set, the list of shown fields for the product will be different"
 msgstr ""
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr ""
 
@@ -676,6 +685,12 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr ""
 
@@ -736,6 +751,9 @@ msgstr ""
 msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr ""
 
@@ -749,6 +767,9 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
+msgstr ""
+
+msgid "Image description"
 msgstr ""
 
 msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
@@ -945,6 +966,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -976,6 +1000,9 @@ msgid "Name of the reviewer"
 msgstr ""
 
 msgid "Name of your shop shown to your customers"
+msgstr ""
+
+msgid "Natural"
 msgstr ""
 
 msgid "New"
@@ -1402,6 +1429,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1673,6 +1703,9 @@ msgstr ""
 msgid "Street name (optional)"
 msgstr ""
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr ""
 
@@ -1933,6 +1966,9 @@ msgstr ""
 msgid "Uploaded"
 msgstr ""
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr ""
 
@@ -2024,6 +2060,10 @@ msgstr "Delivery address"
 
 msgid "address:payment"
 msgstr "Billing address"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

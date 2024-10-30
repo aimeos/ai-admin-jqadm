@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ruslan Melnychenko, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/aimeos/aimeos-core/language/uk/)\n"
@@ -103,6 +103,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -379,6 +382,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Параметри конфігурації, будуть доступні у вигляді пар ключ/значення в списку товару"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -543,6 +549,9 @@ msgid ""
 " will be different"
 msgstr "Залежно від обраного набору даних, список відображених полів для товару може бути іншим"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Опис текстового контенту, якщо він на іноземній мові"
 
@@ -704,6 +713,12 @@ msgstr "Поверх / Квартира"
 msgid "Floor and/or apartment (optional)"
 msgstr "Поверх і/або квартира (опціонально)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr "Згенерувати текст"
 
@@ -764,6 +779,9 @@ msgstr "Як звертаються до клієнта в електронні�
 msgid "How the supplier is addressed in e-mails"
 msgstr "Як звертаються до постачальника в електронній пошті"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -778,6 +796,9 @@ msgstr "Код мови ISO (обов`язково)"
 
 msgid "Image"
 msgstr "Зображення"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -987,6 +1008,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Змінено"
 
@@ -1020,6 +1044,9 @@ msgstr "Ім`я оглядача"
 
 msgid "Name of your shop shown to your customers"
 msgstr "Назва вашого магазину, що показується покупцям"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "Новий"
@@ -1456,6 +1483,9 @@ msgstr "Пов'язаний ідентифікатор замовлення (н�
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Відновити"
 
@@ -1736,6 +1766,9 @@ msgstr "Вулиця"
 msgid "Street name (optional)"
 msgstr "Назва вулиці (опціонально)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Проміжна сума"
 
@@ -2011,6 +2044,9 @@ msgstr "Завантажити логотип магазину"
 msgid "Uploaded"
 msgstr "Завантажено"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "Групи користувачів"
 
@@ -2104,6 +2140,10 @@ msgstr "Адреса доставки"
 
 msgid "address:payment"
 msgstr "Платіжна адреса"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 15:20+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2024\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -102,6 +102,9 @@ msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Hesap"
@@ -377,6 +380,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Yapılandırma seçenekleri, liste öğesinde anahtar/değer çifti olarak bulunacaktır"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -541,6 +547,9 @@ msgid ""
 " will be different"
 msgstr "Seçilen veri kümesine bağlı olarak ürün için gösterilen alanların listesi farklı olacaktır"
 
+msgid "Describe your image"
+msgstr ""
+
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Eğer yabancı bir dilde ise metin içeriğinin açıklaması "
 
@@ -702,6 +711,12 @@ msgstr "Kat/Daire"
 msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
+
 msgid "Generate text"
 msgstr "Metin oluştur"
 
@@ -762,6 +777,9 @@ msgstr "E-maillerde müşteriye nasıl hitap edilir"
 msgid "How the supplier is addressed in e-mails"
 msgstr "E-maillerde tedarikçiye nasıl hitap edilir"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "Kimlik numarası"
 
@@ -776,6 +794,9 @@ msgstr "ISO dil kodu (gerekli)"
 
 msgid "Image"
 msgstr "Görüntü"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -985,6 +1006,9 @@ msgstr "Cep telefonu numarası"
 msgid "Mobile number (optional)"
 msgstr "Cep telefonu numarası (isteğe bağlı)"
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Değiştirildi"
 
@@ -1018,6 +1042,9 @@ msgstr "Değerlendirenin adı"
 
 msgid "Name of your shop shown to your customers"
 msgstr "Mağazanızın müşterilerinize gösterilecek adı"
+
+msgid "Natural"
+msgstr ""
 
 msgid "New"
 msgstr "Yeni"
@@ -1454,6 +1481,9 @@ msgstr "İlgili sipariş kimliği (isteğe bağlı)"
 msgid "Related order of the customer"
 msgstr "Müşterinin ilgili siparişi"
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Yenile"
 
@@ -1734,6 +1764,9 @@ msgstr "Sokak"
 msgid "Street name (optional)"
 msgstr "Sokak adı (isteğe bağlı)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Ara Toplam"
 
@@ -2009,6 +2042,9 @@ msgstr "Mağaza logosunu yükle"
 msgid "Uploaded"
 msgstr "Yüklendi"
 
+msgid "Use"
+msgstr ""
+
 msgid "User groups"
 msgstr "Kullanıcı grupları"
 
@@ -2102,6 +2138,10 @@ msgstr "Teslimat adresi"
 
 msgid "address:payment"
 msgstr "Fatura adresi"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"
