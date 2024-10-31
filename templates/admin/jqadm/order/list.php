@@ -117,7 +117,7 @@ $enc = $this->encoder();
  * @param array List of field names, i.e. search keys
  * @since 2017.07
  */
-$default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.address.lastname'] );
+$default = $this->config( 'admin/jqadm/order/fields', ['order.invoiceno', 'order.ctime', 'order.statuspayment', 'order.address.lastname'] );
 $fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -136,6 +136,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 
 $columnList = [
 	'order.id' => $this->translate( 'admin', 'ID' ),
+	'order.invoiceno' => $this->translate( 'admin', 'Invoice no.' ),
 	'order.channel' => $this->translate( 'admin', 'Type' ),
 	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
 	'order.datepayment' => $this->translate( 'admin', 'Pay date' ),
@@ -327,6 +328,7 @@ $statusList = [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
 							'data' => [
 								'order.id' => ['op' => '=='],
+								'order.invoiceno' => ['op' => '=~'],
 								'order.channel' => [],
 								'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
 								'order.datepayment' => ['op' => '-', 'type' => 'date'],
@@ -531,6 +533,9 @@ $statusList = [
 							</td>
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.invoiceno', $fields ) ) : ?>
+								<td class="order-invoiceno"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getInvoiceNumber() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.channel', $fields ) ) : ?>
 								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
