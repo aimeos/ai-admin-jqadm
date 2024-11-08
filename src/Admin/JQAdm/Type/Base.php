@@ -50,7 +50,7 @@ abstract class Base
 	 * @param string|null $resource Resource name or null for domain name
 	 * @return string|null Output to display
 	 */
-	protected function batchBase( string $domain, string $resource = null ) : ?string
+	protected function batchBase( string $domain, ?string $resource = null ) : ?string
 	{
 		return parent::batchBase( $domain . '/type', 'type/' . $domain );
 	}
