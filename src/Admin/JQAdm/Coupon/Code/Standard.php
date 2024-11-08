@@ -121,7 +121,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/coupon/code/decorators/excludes
 		 * Excludes decorators added by the "common" option from the coupon JQAdm client
@@ -241,7 +241,7 @@ class Standard
 	 * @param int $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\Map Coupon code items implementing \Aimeos\MShop\Coupon\Item\Code\Iface associated to the coupon item
 	 */
-	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], int &$total = null ) : \Aimeos\Map
+	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], ?int &$total = null ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
 

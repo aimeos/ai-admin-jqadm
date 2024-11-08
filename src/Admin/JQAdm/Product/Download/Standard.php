@@ -132,7 +132,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/product/download/decorators/excludes
 		 * Excludes decorators added by the "common" option from the product JQAdm client
@@ -258,7 +258,7 @@ class Standard
 	 * @param string|null $path Path the file should be stored at
 	 * @return string Path to the uploaded file
 	 */
-	protected function storeFile( \Psr\Http\Message\UploadedFileInterface $file, string $path = null ) : string
+	protected function storeFile( \Psr\Http\Message\UploadedFileInterface $file, ?string $path = null ) : string
 	{
 		$fs = $this->context()->fs( 'fs-secure' );
 

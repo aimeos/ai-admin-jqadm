@@ -362,7 +362,7 @@ abstract class Base
 	 * @param string|null $resource Resource name or null for domain name
 	 * @return string|null Output to display
 	 */
-	protected function batchBase( string $domain, string $resource = null ) : ?string
+	protected function batchBase( string $domain, ?string $resource = null ) : ?string
 	{
 		$view = $this->view();
 
@@ -399,7 +399,7 @@ abstract class Base
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-part object
 	 * @throws \LogicException If class can't be instantiated
 	 */
-	protected function createSubClient( string $path, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	protected function createSubClient( string $path, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$path = strtolower( $path );
 		$name = $name ?: $this->context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
@@ -568,7 +568,7 @@ abstract class Base
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$msg = $this->context()->translate( 'admin', 'Not implemented' );
 		throw new \Aimeos\Admin\JQAdm\Exception( $msg );
@@ -678,8 +678,8 @@ abstract class Base
 	 * @param array $params URL parameters to use
 	 * @return string|null Returns value for the actions
 	 */
-	protected function redirect( string $resource, ?string $action, string $id = null,
-		string $method = null, array $params = [] ) : ?string
+	protected function redirect( string $resource, ?string $action, ?string $id = null,
+		?string $method = null, array $params = [] ) : ?string
 	{
 		$params += $this->getClientParams();
 		$context = $this->context();
