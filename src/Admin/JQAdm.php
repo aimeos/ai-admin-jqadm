@@ -33,7 +33,7 @@ class JQAdm
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
 	public static function create( \Aimeos\MShop\ContextIface $context, \Aimeos\Bootstrap $aimeos,
-		string $path, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+		string $path, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( empty( $path ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'Component path is empty', 400 );
@@ -71,7 +71,7 @@ class JQAdm
 	 * @param string $classname Full name of the class for which the object should be returned
 	 * @param \Aimeos\Admin\JQAdm\Iface|null $client ExtJS client object
 	 */
-	public static function inject( string $classname, \Aimeos\Admin\JQAdm\Iface $client = null )
+	public static function inject( string $classname, ?\Aimeos\Admin\JQAdm\Iface $client = null )
 	{
 		self::$objects['\\' . ltrim( $classname, '\\' )] = $client;
 	}

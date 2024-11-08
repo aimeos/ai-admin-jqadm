@@ -327,7 +327,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/locale/site/decorators/excludes
 		 * Excludes decorators added by the "common" option from the locale JQAdm client
@@ -410,7 +410,7 @@ class Standard
 	 * @param string $id ID of the site to access
 	 * @throws \Aimeos\Admin\JQAdm\Exception If user isn't allowed to access the site
 	 */
-	protected function checkSite( bool $super, string $id = null )
+	protected function checkSite( bool $super, ?string $id = null )
 	{
 		if( $super === true || $id === null || (string) $this->getUserSiteId() === (string) $id ) {
 			return;
