@@ -16,6 +16,7 @@ Aimeos.Customer = {
 					data: {type: String, default: '{}'},
 					groups: {type: String, default: '{}'},
 					siteid: {type: String, default: ''},
+					super: {type: Number, default: 0},
 				},
 				data() {
 					return {
@@ -46,7 +47,7 @@ Aimeos.Customer = {
 		},
 		methods: {
 			can(action) {
-				return Aimeos.can(action, this.item['customer.siteid'] || null, this.siteid)
+				return this.super || Aimeos.can(action, this.item['customer.siteid'] || null, this.siteid)
 			},
 
 

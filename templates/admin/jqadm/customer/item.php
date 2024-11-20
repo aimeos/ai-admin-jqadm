@@ -78,11 +78,12 @@ $params = $this->get( 'pageParams', [] );
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
 				data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
 				data-groups="<?= $enc->attr( $this->get( 'itemGroups', new stdClass() ) ) ?>"
-				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+				data-super="<?= $enc->attr( $this->access( ['super'] ) ) ?>">
 
 				<div class="row">
 					<div class="col-xl-6">
-						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box" v-bind:class="{mismatch: !can('match')}">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -158,7 +159,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 
 					<div class="col-xl-6">
-						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box" v-bind:class="{mismatch: !can('match')}">
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
@@ -188,7 +189,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 
 					<div class="col-xl-12">
-						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box" v-bind:class="{mismatch: !can('match')}">
 							<div class="row">
 								<div class="col-xl-6">
 									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
