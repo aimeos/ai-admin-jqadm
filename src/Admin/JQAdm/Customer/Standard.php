@@ -571,7 +571,7 @@ class Standard
 
 		if( $this->view()->access( ['super', 'admin'] )
 			|| $this->view()->access( ['editor'] ) && $item->getId() === null
-			|| $item->getId() === $this->context()->user()
+			|| $item->getId() === (string) $this->context()->user()
 		) {
 			$data['.modify'] = true;
 		}
