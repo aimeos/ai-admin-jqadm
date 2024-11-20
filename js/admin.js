@@ -337,6 +337,10 @@ Aimeos = {
 			},
 			methods: {
 				can(action) {
+					if(this.super && this.domain === 'customer') {
+						return true;
+					}
+
 					if(this.data[this.prefix + 'siteid']) {
 						return (new String(this.data[this.prefix + 'siteid'])).startsWith(this.siteid);
 					}
