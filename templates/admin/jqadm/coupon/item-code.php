@@ -69,7 +69,8 @@ $columnList = [
 							<ul class="dropdown-menu">
 								<li>
 									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
-									<input id="import" class="btn-text fileupload" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>">
+									<input id="import" class="btn-text fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										name="<?= $enc->attr( $this->formparam( ['code', 'file'] ) ) ?>">
 								</li>
 								<li>
 									<a v-on:click.prevent.stop="remove()" class="btn"
