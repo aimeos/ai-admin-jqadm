@@ -819,7 +819,8 @@ $columnList = [
 							<ul class="dropdown-menu">
 								<li>
 									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
-									<input type="file" id="import" name="import" class="btn-text fileupload" tabindex="<?= $this->get( 'tabindex' ) ?>" v-on:change="upload()">
+									<input type="file" id="import" class="btn-text fileupload" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										name="<?= $enc->attr( $this->formparam( ['import'] ) ) ?>" v-on:change="upload()">
 									<button ref="import" class="btn-text fileupload" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/import', $params ) ) ?>" formenctype="multipart/form-data"></button>
 								</li>
 								<li>

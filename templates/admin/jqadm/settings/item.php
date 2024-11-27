@@ -82,7 +82,7 @@ $params = $this->get( 'pageParams', [] );
 
 							<div class="form-group media-preview">
 								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-									name="media[logo]">
+									name="<?= $enc->attr( $this->formparam( ['media', 'logo'] ) ) ?>">
 								<?php if( $logos = $this->get( 'itemData/locale.site.logo' ) ) : ?>
 									<img class="item-preview"
 										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>">
@@ -101,7 +101,7 @@ $params = $this->get( 'pageParams', [] );
 
 							<div class="form-group media-preview">
 								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-									name="media[icon]">
+									name="<?= $enc->attr( $this->formparam( ['media', 'icon'] ) ) ?>">
 								<?php if( $icon = $this->get( 'itemData/locale.site.icon' ) ) : ?>
 									<img class="item-preview"
 										src="<?= $enc->attr( $this->content( $icon ) ) ?>">

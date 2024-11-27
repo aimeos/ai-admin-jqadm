@@ -72,9 +72,10 @@ $enc = $this->encoder();
 										class="btn act-magic icon btn-background"
 										@click.stop="background(element)">
 									</div>
-									<input v-bind:files="element['preview']" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', index)">
+									<input v-bind:files="element['preview']" class="d-none"
+										type="file" v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'preview'] ) ) ?>`.replace('_idx_', index)">
 									<input v-bind:files="element['file']" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'media[_idx_][file]'.replace('_idx_', index)"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'file'] ) ) ?>`.replace('_idx_', index)"
 										v-bind:readonly="!can('change', index)"
 										v-on:change="files(items[index], $event.target.files)">
 									<img v-if="element['media.preview']" class="item-preview"
