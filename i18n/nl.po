@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -113,6 +113,9 @@ msgstr ""
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "Account"
@@ -388,6 +391,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Configuratieopties, zullen beschikbaar zijn als sleutel/waarde set in het lijstitem"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Kopie"
 
@@ -507,8 +513,8 @@ msgstr "Standaard"
 msgid "Delete"
 msgstr "Verwijderen"
 
-msgid "Delete items?"
-msgstr "Verwijder items?"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "Verwijder geselecteerde opties"
@@ -551,6 +557,9 @@ msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
 msgstr "Afhankelijk van de selectie zal de lijst met getoonde velden voor het product variëren"
+
+msgid "Describe your image"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Omschrijving van de tekst indien een andere taal"
@@ -609,6 +618,9 @@ msgstr "EAN, SKU of artikelnummer (verplicht)"
 msgid "Edit"
 msgstr "Aanpassen"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "Bewerk deze invoer"
 
@@ -623,6 +635,20 @@ msgstr "Eind datum"
 
 msgid "End date (optional)"
 msgstr "Einddatum (optioneel)"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "Fout"
@@ -659,7 +685,14 @@ msgstr ""
 msgid "File"
 msgstr "Bestand"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "File uploaded successfully"
 msgstr ""
 
 msgid "Find category"
@@ -688,6 +721,12 @@ msgstr "Verdieping / Apartement"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Verdieping en/of appartement (optioneel)"
+
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
 
 msgid "Generate text"
 msgstr ""
@@ -749,6 +788,9 @@ msgstr "Hoe de klant wordt aangesproken in e-mails"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Hoe de leverancier wordt aangesproken in e-mails"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -763,6 +805,9 @@ msgstr "ISO taal code (verplicht)"
 
 msgid "Image"
 msgstr "Afbeelding"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -845,18 +890,10 @@ msgstr "Factuur"
 msgid "Invoice No."
 msgstr ""
 
-msgid "Invoice number for the order"
+msgid "Invoice number"
 msgstr ""
 
-msgid "Item deleted successfully"
-msgstr "Item succesvol verwijderd"
-
-msgid "Item saved successfully"
-msgstr "Item succesvol opgeslagen"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
+msgid "Invoice number for the order"
 msgstr ""
 
 msgid "Label"
@@ -923,7 +960,7 @@ msgstr "Lijst van productsuggesties"
 msgid "List type"
 msgstr "Lijst Type"
 
-msgid "Loading items ..."
+msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
@@ -980,6 +1017,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Aangepast"
 
@@ -1014,6 +1054,9 @@ msgstr ""
 msgid "Name of your shop shown to your customers"
 msgstr ""
 
+msgid "Natural"
+msgstr ""
+
 msgid "New"
 msgstr "Nieuw"
 
@@ -1041,11 +1084,11 @@ msgstr "Volgende datum dat de aanmelding wordt vernieuwd"
 msgid "No currencies available. Please enable at least one currency"
 msgstr ""
 
-msgid "No file was uploaded"
+msgid "No entries found"
 msgstr ""
 
-msgid "No items found"
-msgstr "Geen items gevonden"
+msgid "No file was uploaded"
+msgstr ""
 
 msgid "No product found"
 msgstr ""
@@ -1069,7 +1112,7 @@ msgstr "Niet-gedeelde eigenschappen voor het prijs-item"
 msgid "None"
 msgstr "Geen"
 
-msgid "Not all items could be deleted"
+msgid "Not all entries could be deleted"
 msgstr ""
 
 #, php-format
@@ -1099,7 +1142,7 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Een provider en nul of meer decorator klassenamen, gescheiden door komma"
 
-msgid "Only super users and administrators can delete items"
+msgid "Only super users and administrators can delete entries"
 msgstr ""
 
 msgid "Open"
@@ -1449,6 +1492,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Vernieuwen"
 
@@ -1479,7 +1525,7 @@ msgstr ""
 msgid "Review"
 msgstr "status:review"
 
-msgid "Reviewed item"
+msgid "Reviewed entry"
 msgstr ""
 
 msgid "Reviewer name"
@@ -1552,8 +1598,11 @@ msgstr "Invoer bewaren (Ctrl+S)"
 msgid "Search"
 msgstr "Zoeken"
 
-msgid "Second level type for grouping items"
-msgstr "Tweede niveau type voor groeperings items"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "Bestand selecteren"
@@ -1607,9 +1656,6 @@ msgid "Shipping"
 msgstr "Bezorging"
 
 msgid "Shipping / Payment costs"
-msgstr ""
-
-msgid "Shipping costs/item"
 msgstr ""
 
 msgid "Shipping/Payment costs"
@@ -1729,6 +1775,9 @@ msgstr "Straat"
 msgid "Street name (optional)"
 msgstr "Straatnaam (optioneel)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Subtotaal"
 
@@ -1804,11 +1853,11 @@ msgid ""
 "or seasonal articles"
 msgstr "Het artikel wordt tot die datum en tijd alleen op de website getoond, nuttige of seizoensartikelen"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "Het item wordt pas na die datum en tijd op de website weergegeven"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "Het item wordt tot die datum en tijd alleen op de website weergegeven"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "De mediatitel wordt gebruikt voor de titeltag van de media op de website"
@@ -1864,6 +1913,9 @@ msgstr "Titel"
 msgid "Toggle dropdown"
 msgstr "Toggle dropdown"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr ""
 
@@ -1881,6 +1933,9 @@ msgstr ""
 
 msgid "Translate text"
 msgstr "Vertaal tekst"
+
+msgid "Translations"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "Tweeletterige ISO-landcode"
@@ -1918,6 +1973,10 @@ msgstr "Bestemmingsurl"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Call method \"%1$s\" kon niet worden aangeroepen"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1982,6 +2041,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr ""
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr ""
 
@@ -1990,6 +2052,9 @@ msgstr ""
 
 msgid "Uploaded"
 msgstr "Geupload"
+
+msgid "Use"
+msgstr ""
 
 msgid "User groups"
 msgstr "Gebruikersgroepen"
@@ -2011,6 +2076,9 @@ msgstr "Variant attributen"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Variante productkenmerken die worden opgeslagen bij de bestelde producten"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr ""
@@ -2049,8 +2117,9 @@ msgstr "DD-MM-YYYY hh:mm:ss (optioneel)"
 msgid "Years"
 msgstr "Jaren"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Er zullen meerdere items verwijderd worden. Doorgaan?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2080,6 +2149,10 @@ msgstr "Bezorg adres"
 
 msgid "address:payment"
 msgstr "Factuur adres"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

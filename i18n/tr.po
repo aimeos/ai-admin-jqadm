@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2023
+# Metal <meteoramic@yahoo.com>, 2015-2024
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2023\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2024\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,6 +102,9 @@ msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr "API anahtarı"
 
 msgid "Account"
 msgstr "Hesap"
@@ -377,6 +380,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Yapılandırma seçenekleri, liste öğesinde anahtar/değer çifti olarak bulunacaktır"
 
+msgid "Context"
+msgstr "İçerik"
+
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -496,8 +502,8 @@ msgstr "Varsayılan"
 msgid "Delete"
 msgstr "Sil"
 
-msgid "Delete items?"
-msgstr "Öğeleri sil?"
+msgid "Delete entries?"
+msgstr "Kayıtları silmek istiyor musunuz?"
 
 msgid "Delete selected entries"
 msgstr "Seçili girişleri sil"
@@ -540,6 +546,9 @@ msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
 msgstr "Seçilen veri kümesine bağlı olarak ürün için gösterilen alanların listesi farklı olacaktır"
+
+msgid "Describe your image"
+msgstr "Resminizi tanımlayın"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Eğer yabancı bir dilde ise metin içeriğinin açıklaması "
@@ -598,6 +607,9 @@ msgstr "EAN, SKU veya ürün numarası (gerekli)"
 msgid "Edit"
 msgstr "Düzenle"
 
+msgid "Edit selected entries"
+msgstr "Seçili kayıtları düzenle"
+
 msgid "Edit this entry"
 msgstr "Bu girişi düzenle"
 
@@ -612,6 +624,20 @@ msgstr "Bitiş tarihi"
 
 msgid "End date (optional)"
 msgstr "Bitiş tarihi (opsiyonel)"
+
+msgid "Enter group ID, code or label"
+msgstr "Grup kimlik numarasını, kodunu veya etiketini girin"
+
+msgid "Entry deleted successfully"
+msgstr "Kayıt başarıyla silindi"
+
+msgid "Entry saved successfully"
+msgstr "Kayıt başarıyla eklendi"
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr "Kayda özgü yapılandırma seçenekleri şablonlarda anahtar/değer çiftleri olarak bulunacak"
 
 msgid "Error"
 msgstr "Hata"
@@ -648,8 +674,15 @@ msgstr "Dosya diske yazılamadı"
 msgid "File"
 msgstr "Dosya"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr "\"%1$s\" dosyası mevcut değil"
+
 msgid "File upload stopped by extension"
 msgstr "Dosya yüklemesi eklenti tarafından durduruldu"
+
+msgid "File uploaded successfully"
+msgstr "Dosya başarıyla yüklendi"
 
 msgid "Find category"
 msgstr "Kategori bul"
@@ -677,6 +710,12 @@ msgstr "Kat/Daire"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
+
+msgid "Generate"
+msgstr "Oluştur"
+
+msgid "Generate image"
+msgstr "Resim oluştur"
 
 msgid "Generate text"
 msgstr "Metin oluştur"
@@ -738,6 +777,9 @@ msgstr "E-maillerde müşteriye nasıl hitap edilir"
 msgid "How the supplier is addressed in e-mails"
 msgstr "E-maillerde tedarikçiye nasıl hitap edilir"
 
+msgid "Hyper-real and dramatic"
+msgstr "Hiper-gerçek ve dramatik"
+
 msgid "ID"
 msgstr "Kimlik numarası"
 
@@ -752,6 +794,9 @@ msgstr "ISO dil kodu (gerekli)"
 
 msgid "Image"
 msgstr "Görüntü"
+
+msgid "Image description"
+msgstr "Resim açıklaması"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -834,19 +879,11 @@ msgstr "Fatura"
 msgid "Invoice No."
 msgstr "Fatura Numarası"
 
+msgid "Invoice number"
+msgstr "Fatura numarası"
+
 msgid "Invoice number for the order"
 msgstr "Siparişe ait fatura numarası"
-
-msgid "Item deleted successfully"
-msgstr "Öğe başarıyla silindi"
-
-msgid "Item saved successfully"
-msgstr "Öğe başarıyla kaydedildi"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "Ürüne özel yapılandırma seçenekleri; şablonlarda anahtar/değer çifti olarak kullanılacaktır"
 
 msgid "Label"
 msgstr "Etiket"
@@ -912,8 +949,8 @@ msgstr "Önerilen ürünler listesi"
 msgid "List type"
 msgstr "Liste türü"
 
-msgid "Loading items ..."
-msgstr "Öğeler yükleniyor ..."
+msgid "Loading entries ..."
+msgstr "Kayıtlar yükleniyor..."
 
 msgid "Locale"
 msgstr "Yerel"
@@ -969,6 +1006,9 @@ msgstr "Cep telefonu numarası"
 msgid "Mobile number (optional)"
 msgstr "Cep telefonu numarası (isteğe bağlı)"
 
+msgid "Model"
+msgstr "Model"
+
 msgid "Modifed"
 msgstr "Değiştirildi"
 
@@ -1003,6 +1043,9 @@ msgstr "Değerlendirenin adı"
 msgid "Name of your shop shown to your customers"
 msgstr "Mağazanızın müşterilerinize gösterilecek adı"
 
+msgid "Natural"
+msgstr "Doğal"
+
 msgid "New"
 msgstr "Yeni"
 
@@ -1030,11 +1073,11 @@ msgstr "Aboneliğin yenileneceği bir sonraki tarih"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "Hiç bir para birimi mevcut değil. Lütfen en az bir para birimini etkinleştirin"
 
+msgid "No entries found"
+msgstr "Kayıt bulunamadı"
+
 msgid "No file was uploaded"
 msgstr "Hiçbir dosya yüklenmedi"
-
-msgid "No items found"
-msgstr "Hiç bir öğe bulunamadı"
 
 msgid "No product found"
 msgstr "Ürün bulunamadı"
@@ -1058,8 +1101,8 @@ msgstr "Fiyat öğesi için paylaşılmayan mülkler"
 msgid "None"
 msgstr "Hiçbiri"
 
-msgid "Not all items could be deleted"
-msgstr "Tüm ürünler silinemedi"
+msgid "Not all entries could be deleted"
+msgstr "Tüm kayıtlar silinemedi"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1088,8 +1131,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Virgüllerle ayrılmış bir sağlayıcı ve sıfır veya daha fazla dekatör sınıfı isimleri"
 
-msgid "Only super users and administrators can delete items"
-msgstr "Ürünleri sadece süper kullanıcılar ve yöneticiler silebilir"
+msgid "Only super users and administrators can delete entries"
+msgstr "Kayıtları sadece süper kullanıcılar ve yöneticiler silebilir"
 
 msgid "Open"
 msgstr "Aç"
@@ -1438,6 +1481,9 @@ msgstr "İlgili sipariş kimliği (isteğe bağlı)"
 msgid "Related order of the customer"
 msgstr "Müşterinin ilgili siparişi"
 
+msgid "Remove background"
+msgstr "Arkaplanı kaldır"
+
 msgid "Renew"
 msgstr "Yenile"
 
@@ -1468,8 +1514,8 @@ msgstr "Değerlendireni yanıtla"
 msgid "Review"
 msgstr "İncelemede"
 
-msgid "Reviewed item"
-msgstr "Değerlendirilen ürün"
+msgid "Reviewed entry"
+msgstr "İncelenen kayıtlar"
 
 msgid "Reviewer name"
 msgstr "Değerlendirenin adı"
@@ -1541,8 +1587,11 @@ msgstr "Girişi kaydet (Ctrl+S)"
 msgid "Search"
 msgstr "Ara"
 
-msgid "Second level type for grouping items"
-msgstr "Öğeleri gruplamak için ikinci seviye türü"
+msgid "Second level type for grouping entries"
+msgstr "Kayıtları gruplamak için ikinci seviye türü"
+
+msgid "Select all entries"
+msgstr "Tüm kayıtları seç"
 
 msgid "Select file"
 msgstr "Dosya seç"
@@ -1597,9 +1646,6 @@ msgstr "Nakliye"
 
 msgid "Shipping / Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
-
-msgid "Shipping costs/item"
-msgstr "Nakliye masrafları/ürün"
 
 msgid "Shipping/Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
@@ -1718,6 +1764,9 @@ msgstr "Sokak"
 msgid "Street name (optional)"
 msgstr "Sokak adı (isteğe bağlı)"
 
+msgid "Style"
+msgstr "Stil"
+
 msgid "Sub-total"
 msgstr "Ara Toplam"
 
@@ -1793,11 +1842,11 @@ msgid ""
 "or seasonal articles"
 msgstr "Ürün web sitesinde sadece o tarih ve saate kadar gösterilir, sezonluk ürünler için kullanışlıdır"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "Öğe, web sitesinde sadece o tarih ve saatten sonra gösterilir"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr "Kayıt web sitesinde sadece bu tarih ve saatten sonra gösterilir"
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "Öğe, web sitesinde sadece o tarih ve saate kadar gösterilir"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr "Kayıt web sitesinde sadece bu tarih ve saate kadar gösterilir"
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Medya başlığı sitedeki medyanın başlık etiketi için kullanılır"
@@ -1853,6 +1902,9 @@ msgstr "Ünvan"
 msgid "Toggle dropdown"
 msgstr "Açılır menüyü aç/kapat"
 
+msgid "Toogle selection"
+msgstr "Seçimi aç/kapat"
+
 msgid "Top countries"
 msgstr "Başlıca ülkeler"
 
@@ -1870,6 +1922,9 @@ msgstr "Toplam puanlar"
 
 msgid "Translate text"
 msgstr "Metin çevir"
+
+msgid "Translations"
+msgstr "Çeviriler"
 
 msgid "Two letter ISO country code"
 msgstr "İki harfli ülke ISO kodu"
@@ -1907,6 +1962,10 @@ msgstr "URL hedefi"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Metot \"%1$s\" çağrılamıyor"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr "\"%1$s\"dan içerik okunamıyor"
 
 msgid "Unfinished orders"
 msgstr "Tamamlanmamış siparişler"
@@ -1971,6 +2030,9 @@ msgstr "Birim fiyat"
 msgid "Unknown upload error"
 msgstr "Bilinmeyen yükleme hatası"
 
+msgid "Upload CSV"
+msgstr "CSV dosyası yükle"
+
 msgid "Upload shop icon"
 msgstr "Mağaza simgesi yükle"
 
@@ -1979,6 +2041,9 @@ msgstr "Mağaza logosunu yükle"
 
 msgid "Uploaded"
 msgstr "Yüklendi"
+
+msgid "Use"
+msgstr "Kullan"
 
 msgid "User groups"
 msgstr "Kullanıcı grupları"
@@ -2000,6 +2065,9 @@ msgstr "Değişken nitelikleri"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Sipariş edilen ürünlerle birlikte saklanan değişken ürün nitellikleri"
+
+msgid "Vendor"
+msgstr "Satıcı"
 
 msgid "Verified"
 msgstr "Doğrulandı"
@@ -2038,8 +2106,9 @@ msgstr "YYYY-AA-GG ss:dd:ss (isteğe bağlı)"
 msgid "Years"
 msgstr "Yıllar"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Bir veya daha fazla öğeyi sileceksiniz. Devam etmek istiyor musunuz?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr "Bir veya daha fazla kaydı sileceksiniz. Devam etmek istiyor musunuz?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Dışa aktarma işleminiz birkaç dakika içinde indirilmeye hazır olacak"
@@ -2069,6 +2138,10 @@ msgstr "Teslimat adresi"
 
 msgid "address:payment"
 msgstr "Fatura adresi"
+
+#, php-format
+msgid "api"
+msgstr "api"
 
 #, php-format
 msgid "attribute"

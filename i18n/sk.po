@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Tomas G <tomas.gmitro@gmail.com>, 2016\n"
 "Language-Team: Slovak (http://app.transifex.com/aimeos/aimeos-core/language/sk/)\n"
@@ -106,6 +106,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -382,6 +385,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Kopírovať"
 
@@ -501,8 +507,8 @@ msgstr "Predvolené"
 msgid "Delete"
 msgstr "Zmazať"
 
-msgid "Delete items?"
-msgstr "Zmazať položky?"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr ""
@@ -544,6 +550,9 @@ msgstr ""
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
+msgstr ""
+
+msgid "Describe your image"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -603,6 +612,9 @@ msgstr "EAN, SKU alebo kód artiklu (povinné)"
 msgid "Edit"
 msgstr "Upraviť"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr ""
 
@@ -616,6 +628,20 @@ msgid "End date"
 msgstr "Konečný dátum"
 
 msgid "End date (optional)"
+msgstr ""
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
 msgstr ""
 
 msgid "Error"
@@ -653,7 +679,14 @@ msgstr ""
 msgid "File"
 msgstr "Súbor"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "File uploaded successfully"
 msgstr ""
 
 msgid "Find category"
@@ -681,6 +714,12 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
 msgstr ""
 
 msgid "Generate text"
@@ -743,6 +782,9 @@ msgstr ""
 msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -756,6 +798,9 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
+msgstr ""
+
+msgid "Image description"
 msgstr ""
 
 msgid ""
@@ -839,18 +884,10 @@ msgstr "Faktúra"
 msgid "Invoice No."
 msgstr ""
 
+msgid "Invoice number"
+msgstr ""
+
 msgid "Invoice number for the order"
-msgstr ""
-
-msgid "Item deleted successfully"
-msgstr ""
-
-msgid "Item saved successfully"
-msgstr ""
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
 msgstr ""
 
 msgid "Label"
@@ -917,7 +954,7 @@ msgstr ""
 msgid "List type"
 msgstr "Typ záznamu"
 
-msgid "Loading items ..."
+msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
@@ -974,6 +1011,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr ""
 
@@ -1008,6 +1048,9 @@ msgstr ""
 msgid "Name of your shop shown to your customers"
 msgstr ""
 
+msgid "Natural"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -1035,10 +1078,10 @@ msgstr ""
 msgid "No currencies available. Please enable at least one currency"
 msgstr ""
 
-msgid "No file was uploaded"
+msgid "No entries found"
 msgstr ""
 
-msgid "No items found"
+msgid "No file was uploaded"
 msgstr ""
 
 msgid "No product found"
@@ -1063,7 +1106,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-msgid "Not all items could be deleted"
+msgid "Not all entries could be deleted"
 msgstr ""
 
 #, php-format
@@ -1093,7 +1136,7 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
-msgid "Only super users and administrators can delete items"
+msgid "Only super users and administrators can delete entries"
 msgstr ""
 
 msgid "Open"
@@ -1443,6 +1486,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr ""
 
@@ -1473,7 +1519,7 @@ msgstr ""
 msgid "Review"
 msgstr "status:review"
 
-msgid "Reviewed item"
+msgid "Reviewed entry"
 msgstr ""
 
 msgid "Reviewer name"
@@ -1546,7 +1592,10 @@ msgstr ""
 msgid "Search"
 msgstr "Hľadať"
 
-msgid "Second level type for grouping items"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
 msgstr ""
 
 msgid "Select file"
@@ -1601,9 +1650,6 @@ msgid "Shipping"
 msgstr ""
 
 msgid "Shipping / Payment costs"
-msgstr ""
-
-msgid "Shipping costs/item"
 msgstr ""
 
 msgid "Shipping/Payment costs"
@@ -1723,6 +1769,9 @@ msgstr "Ulica"
 msgid "Street name (optional)"
 msgstr ""
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr ""
 
@@ -1798,10 +1847,10 @@ msgid ""
 "or seasonal articles"
 msgstr ""
 
-msgid "The item is only shown on the web site after that date and time"
+msgid "The entry is only shown on the web site after that date and time"
 msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
+msgid "The entry is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
@@ -1858,6 +1907,9 @@ msgstr "Titulok"
 msgid "Toggle dropdown"
 msgstr ""
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr ""
 
@@ -1874,6 +1926,9 @@ msgid "Total ratings"
 msgstr ""
 
 msgid "Translate text"
+msgstr ""
+
+msgid "Translations"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1912,6 +1967,10 @@ msgstr ""
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Nepodarilo sa zavolať metódu \"%1$s\""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1976,6 +2035,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr ""
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr ""
 
@@ -1984,6 +2046,9 @@ msgstr ""
 
 msgid "Uploaded"
 msgstr "Nahrané"
+
+msgid "Use"
+msgstr ""
 
 msgid "User groups"
 msgstr ""
@@ -2004,6 +2069,9 @@ msgid "Variant attributes"
 msgstr "Atribúty variantu"
 
 msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Vendor"
 msgstr ""
 
 msgid "Verified"
@@ -2043,8 +2111,9 @@ msgstr "d. m. Y hh:mm:ss (voliteľné)"
 msgid "Years"
 msgstr ""
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Chystáte sa zmazať jeden alebo viac položiek. Chcete pokračovať?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2074,6 +2143,10 @@ msgstr "Adresa doručenia"
 
 msgid "address:payment"
 msgstr "Fakturačná adresa"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Not Yourbuisness, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -108,6 +108,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -384,6 +387,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Параметры конфигурации, будут доступны в виде пар ключ/значение в списке товара"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "Копировать"
 
@@ -503,8 +509,8 @@ msgstr "По умолчанию"
 msgid "Delete"
 msgstr "Удалить"
 
-msgid "Delete items?"
-msgstr "Подтвердите удаление"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "Удалить выбранные записи"
@@ -547,6 +553,9 @@ msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
 msgstr "В зависимости от выбранного набора данных список отображаемых полей для товара будет разным"
+
+msgid "Describe your image"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Описание текстового контента, если он на иностранном языке"
@@ -605,6 +614,9 @@ msgstr "EAN, SKU или артикулярный номер (обязатель�
 msgid "Edit"
 msgstr "Правка"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "Редактировать эту запись"
 
@@ -619,6 +631,20 @@ msgstr "Конечная дата"
 
 msgid "End date (optional)"
 msgstr "Дата окончания (необязательно)"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "Ошибка"
@@ -655,8 +681,15 @@ msgstr "Не удалось записать файл на диск"
 msgid "File"
 msgstr "Файл"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
 msgstr "Загрузка файла остановлена расширением"
+
+msgid "File uploaded successfully"
+msgstr ""
 
 msgid "Find category"
 msgstr "Найти категорию"
@@ -684,6 +717,12 @@ msgstr "Этаж / Квартира"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
+
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
 
 msgid "Generate text"
 msgstr ""
@@ -745,6 +784,9 @@ msgstr "Как клиент обращается в эл. почте"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Как поставщик обращается в эл. почте"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -759,6 +801,9 @@ msgstr "Код языка ISO (обязательно)"
 
 msgid "Image"
 msgstr "Изображение"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -841,19 +886,11 @@ msgstr "Счёт"
 msgid "Invoice No."
 msgstr ""
 
-msgid "Invoice number for the order"
+msgid "Invoice number"
 msgstr ""
 
-msgid "Item deleted successfully"
-msgstr "Элемент успешно удален"
-
-msgid "Item saved successfully"
-msgstr "Элемент успешно сохранен"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "Параметры конфигурации, специфичные для элемента, будут доступны в виде пар ключ/значение в шаблонах"
+msgid "Invoice number for the order"
+msgstr ""
 
 msgid "Label"
 msgstr "Надпись"
@@ -919,8 +956,8 @@ msgstr "Список предлагаемых товаров"
 msgid "List type"
 msgstr "Тип списка"
 
-msgid "Loading items ..."
-msgstr "Загрузка элементов ..."
+msgid "Loading entries ..."
+msgstr ""
 
 msgid "Locale"
 msgstr "Локаль"
@@ -976,6 +1013,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Изменено"
 
@@ -1010,6 +1050,9 @@ msgstr ""
 msgid "Name of your shop shown to your customers"
 msgstr ""
 
+msgid "Natural"
+msgstr ""
+
 msgid "New"
 msgstr "Новый"
 
@@ -1037,11 +1080,11 @@ msgstr "Очередная дата продления подписки"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "Нет доступных валют. Пожалуйста, включите хотя бы одну валюту."
 
+msgid "No entries found"
+msgstr ""
+
 msgid "No file was uploaded"
 msgstr "Файл не был загружен"
-
-msgid "No items found"
-msgstr "Элементы не найдены"
 
 msgid "No product found"
 msgstr "Продукт не найден"
@@ -1065,7 +1108,7 @@ msgstr ""
 msgid "None"
 msgstr "Нет"
 
-msgid "Not all items could be deleted"
+msgid "Not all entries could be deleted"
 msgstr ""
 
 #, php-format
@@ -1095,7 +1138,7 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Один провайдер, ноль или более названий классов декораторов, разделенных запятыми"
 
-msgid "Only super users and administrators can delete items"
+msgid "Only super users and administrators can delete entries"
 msgstr ""
 
 msgid "Open"
@@ -1445,6 +1488,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "Возобновить"
 
@@ -1475,7 +1521,7 @@ msgstr ""
 msgid "Review"
 msgstr "Рассмотрение"
 
-msgid "Reviewed item"
+msgid "Reviewed entry"
 msgstr ""
 
 msgid "Reviewer name"
@@ -1548,8 +1594,11 @@ msgstr "Сохранить запись (Ctrl+S)"
 msgid "Search"
 msgstr "Поиск"
 
-msgid "Second level type for grouping items"
-msgstr "Тип второго уровня для группировки элементов"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "Выбрать файл"
@@ -1603,9 +1652,6 @@ msgid "Shipping"
 msgstr "Перевозка"
 
 msgid "Shipping / Payment costs"
-msgstr ""
-
-msgid "Shipping costs/item"
 msgstr ""
 
 msgid "Shipping/Payment costs"
@@ -1725,6 +1771,9 @@ msgstr "Улица"
 msgid "Street name (optional)"
 msgstr "Название улицы (необязательно)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "Промежуточная сумма"
 
@@ -1800,11 +1849,11 @@ msgid ""
 "or seasonal articles"
 msgstr "Товар отображается только на веб-сайте до этой даты и времени, полезные или сезонные товары"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "Товар отображается только на веб-сайте после этой даты и времени"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "Товар отображается на веб-сайте только до этой даты и времени"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Название мультимедиа используется для тега заголовка мультимедиа на веб-сайте"
@@ -1860,6 +1909,9 @@ msgstr "Титул"
 msgid "Toggle dropdown"
 msgstr "Флажок выпадающего списка"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr ""
 
@@ -1876,6 +1928,9 @@ msgid "Total ratings"
 msgstr ""
 
 msgid "Translate text"
+msgstr ""
+
+msgid "Translations"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1914,6 +1969,10 @@ msgstr "Целевой URL-адрес"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Невозможно вызвать метод \"%1$s\""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1978,6 +2037,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr ""
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr ""
 
@@ -1986,6 +2048,9 @@ msgstr ""
 
 msgid "Uploaded"
 msgstr "Загружено"
+
+msgid "Use"
+msgstr ""
 
 msgid "User groups"
 msgstr "Группы пользователей"
@@ -2007,6 +2072,9 @@ msgstr "Вариант атрибутов"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Варианты атрибутов товара, которые хранятся вместе с заказными товарами"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr ""
@@ -2045,8 +2113,9 @@ msgstr "ГГГГ-ММ-ДД чч:мм:сс (опционально)"
 msgid "Years"
 msgstr "Лет"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Подтверждаете удаление одного или нескольких элементов?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2076,6 +2145,10 @@ msgstr "Адрес доставки"
 
 msgid "address:payment"
 msgstr "Платёжный адрес"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2023
+# Aimeos, 2015-2024
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aimeos, 2015-2023\n"
+"Last-Translator: Aimeos, 2015-2024\n"
 "Language-Team: German (http://app.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,6 +106,9 @@ msgstr ">hidden<"
 
 msgid "?"
 msgstr "?"
+
+msgid "API key"
+msgstr "API Schlüssel"
 
 msgid "Account"
 msgstr "Benutzerkonto"
@@ -381,6 +384,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Konfigurationsoptionen, sind in den Listeneinträgen als Schlüssel/Wert Paare verfügbar"
 
+msgid "Context"
+msgstr "Kontext"
+
 msgid "Copy"
 msgstr "Kopieren"
 
@@ -500,7 +506,7 @@ msgstr "Standard"
 msgid "Delete"
 msgstr "Löschen"
 
-msgid "Delete items?"
+msgid "Delete entries?"
 msgstr "Einträge löschen?"
 
 msgid "Delete selected entries"
@@ -544,6 +550,9 @@ msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
 msgstr "Basierend auf dem ausgewählten Datensatz werden andere Felder für das Produkt angezeigt"
+
+msgid "Describe your image"
+msgstr "Beschreiben Sie das Bild"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Beschreibung falls der Text in einer fremden Sprache ist"
@@ -602,6 +611,9 @@ msgstr "EAN oder Artikelnummer (benötigt)"
 msgid "Edit"
 msgstr "Bearbeiten"
 
+msgid "Edit selected entries"
+msgstr "Ausgewählte Einträge editieren"
+
 msgid "Edit this entry"
 msgstr "Eintrag ändern"
 
@@ -616,6 +628,20 @@ msgstr "Enddatum"
 
 msgid "End date (optional)"
 msgstr "Enddatum (optional)"
+
+msgid "Enter group ID, code or label"
+msgstr "Gruppen-ID, Schlüssel oder Bezeichnung"
+
+msgid "Entry deleted successfully"
+msgstr "Eintrag erfolgreich gelöscht"
+
+msgid "Entry saved successfully"
+msgstr "Eintrag erfolgreich gespeichert"
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr "Konfigurationsoptionen spezifisch für diesen Eintrag, Ist als Schlüssel/Wert-Paar im Template verfügbar"
 
 msgid "Error"
 msgstr "Fehler"
@@ -652,8 +678,15 @@ msgstr "Speichern der Datei fehlgeschlagen"
 msgid "File"
 msgstr "Datei"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr "Datei \"%1$s\" existiert nicht"
+
 msgid "File upload stopped by extension"
 msgstr "Hochladen der Datei wurde von einer Erweiterung unterbunden"
+
+msgid "File uploaded successfully"
+msgstr "Datei erfolgreich hoch geladen"
 
 msgid "Find category"
 msgstr "Kategorie suchen"
@@ -681,6 +714,12 @@ msgstr "Etage / Wohnung"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Etage und/oder Wohnung (optional)"
+
+msgid "Generate"
+msgstr "Generieren"
+
+msgid "Generate image"
+msgstr "Bild generieren"
 
 msgid "Generate text"
 msgstr "Text generieren"
@@ -742,6 +781,9 @@ msgstr "Wie der Kunden in E-Mail angesprochen wird"
 msgid "How the supplier is addressed in e-mails"
 msgstr "Wie der Lieferant in E-Mails angesprochen wird"
 
+msgid "Hyper-real and dramatic"
+msgstr "Hyper-real und dramatisch"
+
 msgid "ID"
 msgstr "ID"
 
@@ -756,6 +798,9 @@ msgstr "ISO Sprachcode (benötigt)"
 
 msgid "Image"
 msgstr "Bild"
+
+msgid "Image description"
+msgstr "Bildbeschreibung"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -838,19 +883,11 @@ msgstr "Rechnung"
 msgid "Invoice No."
 msgstr "Rechnungsnummer"
 
+msgid "Invoice number"
+msgstr "Rechnungsnummer"
+
 msgid "Invoice number for the order"
 msgstr "Rechnungsnummer der Bestellung"
-
-msgid "Item deleted successfully"
-msgstr "Eintrag erfolgreich gelöscht"
-
-msgid "Item saved successfully"
-msgstr "Eintrag erfolgreich gespeichert"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "Spezifische Konfigurationsoptionen für den Eintrag, sind in den Templates als Schlüssel/Wert Paare verfügbar"
 
 msgid "Label"
 msgstr "Bezeichnung"
@@ -916,8 +953,8 @@ msgstr "Liste der empfohlenen Produkte"
 msgid "List type"
 msgstr "Typ (Zuordnung)"
 
-msgid "Loading items ..."
-msgstr "Lade Daten ..."
+msgid "Loading entries ..."
+msgstr "Lade Einträge ..."
 
 msgid "Locale"
 msgstr "Gebiete"
@@ -973,6 +1010,9 @@ msgstr "Handynummer"
 msgid "Mobile number (optional)"
 msgstr "Handynummer (optional)"
 
+msgid "Model"
+msgstr "Modell"
+
 msgid "Modifed"
 msgstr "Geändert"
 
@@ -1007,6 +1047,9 @@ msgstr "Name des Rezensenten"
 msgid "Name of your shop shown to your customers"
 msgstr "Name des Shops auf der Webseite"
 
+msgid "Natural"
+msgstr "Natürlich"
+
 msgid "New"
 msgstr "Neu"
 
@@ -1034,11 +1077,11 @@ msgstr "Nächstes Datum wenn das Abonnement erneuert wird"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "Keine Währungen verfügbar. Bitte aktivieren Sie mindestens eine Währung"
 
+msgid "No entries found"
+msgstr "Keine Einträge gefunden"
+
 msgid "No file was uploaded"
 msgstr "Es wurde keine Datei hochgeladen"
-
-msgid "No items found"
-msgstr "Keine Einträge gefunden"
 
 msgid "No product found"
 msgstr "Kein Produkt gefunden"
@@ -1062,7 +1105,7 @@ msgstr "Eigenschaften von Preiseinträgen"
 msgid "None"
 msgstr "Keine"
 
-msgid "Not all items could be deleted"
+msgid "Not all entries could be deleted"
 msgstr "Nicht alle Einträge konnten gelöscht werden"
 
 #, php-format
@@ -1092,8 +1135,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Klassennamen von einem Provider und beliebig vielen Dekoratoren, getrennt durch Kommas"
 
-msgid "Only super users and administrators can delete items"
-msgstr "Nur Superuser und Administratoren können Einträge löschen"
+msgid "Only super users and administrators can delete entries"
+msgstr "Nur Super-User und Administratoren können Einträge löschen"
 
 msgid "Open"
 msgstr "Öffnen"
@@ -1442,6 +1485,9 @@ msgstr "Zugehörige Bestellnummer (optional)"
 msgid "Related order of the customer"
 msgstr "Verbundene Bestellung des Kunden"
 
+msgid "Remove background"
+msgstr "Hintergrund entfernen"
+
 msgid "Renew"
 msgstr "Erneuern"
 
@@ -1472,8 +1518,8 @@ msgstr "Rückantwort für den Rezensenten"
 msgid "Review"
 msgstr "Rezension"
 
-msgid "Reviewed item"
-msgstr "Rezensiertes Objekt"
+msgid "Reviewed entry"
+msgstr "Geprüfter Eintrag"
 
 msgid "Reviewer name"
 msgstr "Name des Rezensenten"
@@ -1545,8 +1591,11 @@ msgstr "Eintrag speichern (Strg+S)"
 msgid "Search"
 msgstr "Suchen"
 
-msgid "Second level type for grouping items"
-msgstr "Zweiter Typ zur Gruppierung von Einträgen"
+msgid "Second level type for grouping entries"
+msgstr "Typ zur Gruppierung der Einträge auf einer zweiten Ebene"
+
+msgid "Select all entries"
+msgstr "Alle Einträge auswählen"
 
 msgid "Select file"
 msgstr "Datei auswählen"
@@ -1601,9 +1650,6 @@ msgstr "Versandkosten"
 
 msgid "Shipping / Payment costs"
 msgstr "Versand- oder Zahlungskosten"
-
-msgid "Shipping costs/item"
-msgstr "Versandkosten / Stück"
 
 msgid "Shipping/Payment costs"
 msgstr "Versand- oder Zahlungskosten"
@@ -1722,6 +1768,9 @@ msgstr "Straße"
 msgid "Street name (optional)"
 msgstr "Straße (optional)"
 
+msgid "Style"
+msgstr "Stil"
+
 msgid "Sub-total"
 msgstr "Zwischensumme"
 
@@ -1797,11 +1846,11 @@ msgid ""
 "or seasonal articles"
 msgstr "Der Artikel wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt, praktisch für Saisonartikel"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "Dieser Eintrag wird auf der Webseite erst nach dem Datum und der Uhrzeit angezeigt"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr "Der Eintrag wird auf der Webseite nur nach diesem Datum und Uhrzeit angezeigt"
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "Dieser Eintrag wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr "Der Eintrag wird auf der Webseite nur bis diesem Datum und Uhrzeit angezeigt"
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Wird für den Titel des Bildes auf der Webseite verwendet"
@@ -1857,6 +1906,9 @@ msgstr "Titel"
 msgid "Toggle dropdown"
 msgstr "Menü anzeigen/ausblenden"
 
+msgid "Toogle selection"
+msgstr "Auswahl umkehren"
+
 msgid "Top countries"
 msgstr "Spitzenländer"
 
@@ -1874,6 +1926,9 @@ msgstr "Gesamtbewertungen"
 
 msgid "Translate text"
 msgstr "Text übersetzen"
+
+msgid "Translations"
+msgstr "Übersetzungen"
 
 msgid "Two letter ISO country code"
 msgstr "Zweistelliger ISO Ländercode"
@@ -1911,6 +1966,10 @@ msgstr "URL Ziel"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Methode \"%1$s\" kann nicht aufgerufen werden"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr "Kann Inhalt aus \"%1$s\" nicht lesen"
 
 msgid "Unfinished orders"
 msgstr "Unvollendete Bestellungen"
@@ -1975,6 +2034,9 @@ msgstr "Einzelpreis"
 msgid "Unknown upload error"
 msgstr "Unbekannter Upload-Fehler"
 
+msgid "Upload CSV"
+msgstr "CSV hochladen"
+
 msgid "Upload shop icon"
 msgstr "Shop-Icon hochlanden"
 
@@ -1983,6 +2045,9 @@ msgstr "Shop-Logo hochladen"
 
 msgid "Uploaded"
 msgstr "Hochgeladen"
+
+msgid "Use"
+msgstr "Verwenden"
 
 msgid "User groups"
 msgstr "Kundengruppen"
@@ -2004,6 +2069,9 @@ msgstr "Variantenattribute"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Variantenattribute, die zusammen mit den bestellten Produkten gespeichert werden"
+
+msgid "Vendor"
+msgstr "Verkäufer"
 
 msgid "Verified"
 msgstr "Bestätigt"
@@ -2042,8 +2110,9 @@ msgstr "JJJJ-MM-TT hh:mm:ss (optional)"
 msgid "Years"
 msgstr "Jahre"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Sie werden ein oder mehrere Einträge löschen. Wollen Sie fortfahren?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr "Sie werden einen oder mehrere Einträge löschen. Wollen sie fortfahren?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Ihr Export wird in ein paar Minuten zum Download bereit stehen"
@@ -2073,6 +2142,10 @@ msgstr "Lieferadresse"
 
 msgid "address:payment"
 msgstr "Rechnungsadresse"
+
+#, php-format
+msgid "api"
+msgstr "APIs"
 
 #, php-format
 msgid "attribute"

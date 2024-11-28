@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ali y, 2022\n"
 "Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -108,6 +108,9 @@ msgstr ""
 
 msgid "?"
 msgstr "؟"
+
+msgid "API key"
+msgstr ""
 
 msgid "Account"
 msgstr "حساب کاربری"
@@ -383,6 +386,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "گزینه های پیکربندی، به صورت جفت کلید/مقدار در آیتم فهرست در دسترس خواهند بود"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "کپی"
 
@@ -502,8 +508,8 @@ msgstr "پیش فرض"
 msgid "Delete"
 msgstr "پاک کردن"
 
-msgid "Delete items?"
-msgstr "آیتم ها پاک شود؟"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr "حذف ورودی های انتخاب شده"
@@ -546,6 +552,9 @@ msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
 msgstr "بسته به مجموعه داده انتخابی، لیست فیلدهای نشان داده شده برای محصول متفاوت خواهد بود"
+
+msgid "Describe your image"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "توضیح محتوای متن اگر به زبان خارجی باشد"
@@ -604,6 +613,9 @@ msgstr "EAN، SKU یا شماره مقاله (الزامی)"
 msgid "Edit"
 msgstr "ویرایش"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "این مدخل را ویرایش کنید"
 
@@ -618,6 +630,20 @@ msgstr "تاریخ پایان"
 
 msgid "End date (optional)"
 msgstr "تاریخ پایان (اختیاری)"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "خطا"
@@ -654,8 +680,15 @@ msgstr "نوشتن فایل روی دیسک انجام نشد"
 msgid "File"
 msgstr "فایل"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
 msgstr "آپلود فایل با پسوند متوقف شد"
+
+msgid "File uploaded successfully"
+msgstr ""
 
 msgid "Find category"
 msgstr "دسته بندی را پیدا کنید"
@@ -683,6 +716,12 @@ msgstr "طبقه / آپارتمان"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "طبقه و/یا آپارتمان (اختیاری)"
+
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
 
 msgid "Generate text"
 msgstr ""
@@ -744,6 +783,9 @@ msgstr "نحوه خطاب به مشتری در ایمیل ها"
 msgid "How the supplier is addressed in e-mails"
 msgstr "نحوه آدرس دهی تامین کننده در ایمیل ها"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "شناسه"
 
@@ -758,6 +800,9 @@ msgstr "کد ISO زبان (الزامی)"
 
 msgid "Image"
 msgstr "تصویر"
+
+msgid "Image description"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -840,19 +885,11 @@ msgstr "صورتحساب"
 msgid "Invoice No."
 msgstr ""
 
-msgid "Invoice number for the order"
+msgid "Invoice number"
 msgstr ""
 
-msgid "Item deleted successfully"
-msgstr "مورد با موفقیت حذف شد"
-
-msgid "Item saved successfully"
-msgstr "مورد با موفقیت ذخیره شد"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
-msgstr "گزینه های پیکربندی خاص مورد، به صورت جفت کلید/مقدار در قالب ها در دسترس خواهند بود"
+msgid "Invoice number for the order"
+msgstr ""
 
 msgid "Label"
 msgstr "برچسب"
@@ -918,8 +955,8 @@ msgstr "لیست محصولات پیشنهادی"
 msgid "List type"
 msgstr "نوع فهرست"
 
-msgid "Loading items ..."
-msgstr "در حال بارگیری موارد..."
+msgid "Loading entries ..."
+msgstr ""
 
 msgid "Locale"
 msgstr "محلی"
@@ -975,6 +1012,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "اصلاح شده"
 
@@ -1009,6 +1049,9 @@ msgstr "نام داور"
 msgid "Name of your shop shown to your customers"
 msgstr "نام فروشگاه شما به مشتریان شما نشان داده شده است"
 
+msgid "Natural"
+msgstr ""
+
 msgid "New"
 msgstr "جدید"
 
@@ -1036,11 +1079,11 @@ msgstr "تاریخ بعدی اشتراک تمدید می شود"
 msgid "No currencies available. Please enable at least one currency"
 msgstr "ارز موجود نیست. لطفا حداقل یک ارز را فعال کنید"
 
+msgid "No entries found"
+msgstr ""
+
 msgid "No file was uploaded"
 msgstr "هیچ فایلی آپلود نشد"
-
-msgid "No items found"
-msgstr "موردی یافت نشد"
 
 msgid "No product found"
 msgstr "محصولی یافت نشد"
@@ -1064,8 +1107,8 @@ msgstr "ویژگی های غیر مشترک برای آیتم قیمت"
 msgid "None"
 msgstr "هیچ یک"
 
-msgid "Not all items could be deleted"
-msgstr "همه موارد را نمی توان حذف کرد"
+msgid "Not all entries could be deleted"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1094,8 +1137,8 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "یک ارائه دهنده و صفر یا چند نام کلاس دکوراتوربا کاما از هم جدا شده اند"
 
-msgid "Only super users and administrators can delete items"
-msgstr "فقط کاربران فوق العاده و مدیران می توانند موارد را حذف کنند"
+msgid "Only super users and administrators can delete entries"
+msgstr ""
 
 msgid "Open"
 msgstr "باز"
@@ -1444,6 +1487,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "تمدید کنید"
 
@@ -1474,8 +1520,8 @@ msgstr "پاسخ به بازبین"
 msgid "Review"
 msgstr "مرور"
 
-msgid "Reviewed item"
-msgstr "مورد بررسی شده"
+msgid "Reviewed entry"
+msgstr ""
 
 msgid "Reviewer name"
 msgstr "نام بازبین"
@@ -1547,8 +1593,11 @@ msgstr "ذخیره ورودی (Ctrl+S)"
 msgid "Search"
 msgstr "جستجو"
 
-msgid "Second level type for grouping items"
-msgstr "نوع سطح دوم برای گروه بندی اقلام"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "انتخاب فایل"
@@ -1603,9 +1652,6 @@ msgstr "حمل و نقل"
 
 msgid "Shipping / Payment costs"
 msgstr "هزینه های حمل و نقل / پرداخت"
-
-msgid "Shipping costs/item"
-msgstr "هزینه های حمل و نقل/مورد"
 
 msgid "Shipping/Payment costs"
 msgstr "هزینه های حمل و نقل/پرداخت"
@@ -1724,6 +1770,9 @@ msgstr "خیابان"
 msgid "Street name (optional)"
 msgstr "نام خیابان (اختیاری)"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "زیر کل"
 
@@ -1799,11 +1848,11 @@ msgid ""
 "or seasonal articles"
 msgstr "مقاله فقط تا آن تاریخ و زمان در وب سایت نشان داده می شود، مقالات مفید یا فصلی"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "مورد فقط پس از آن تاریخ و زمان در وب سایت نشان داده می شود"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "مورد فقط تا آن تاریخ و زمان در وب سایت نشان داده می شود"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "عنوان رسانه برای برچسب عنوان رسانه در وب سایت استفاده می شود"
@@ -1859,6 +1908,9 @@ msgstr "عنوان"
 msgid "Toggle dropdown"
 msgstr "تغییر وضعیت کشویی"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr "کشورهای برتر"
 
@@ -1876,6 +1928,9 @@ msgstr "مجموع رتبه بندی ها"
 
 msgid "Translate text"
 msgstr "ترجمه متن"
+
+msgid "Translations"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "کد ایزو کشور دو حرفی"
@@ -1913,6 +1968,10 @@ msgstr "هدف آدرس وب سایت"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "صدا زدن متد \"%1$s\" غیرممکن می‌باشد"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr "سفارشات ناتمام"
@@ -1977,6 +2036,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr "خطای ناشناخته آپلود"
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr "آپلود نماد فروشگاه"
 
@@ -1985,6 +2047,9 @@ msgstr "لوگوی فروشگاه را بارگذاری کنید"
 
 msgid "Uploaded"
 msgstr "آپلود شد"
+
+msgid "Use"
+msgstr ""
 
 msgid "User groups"
 msgstr "گروه های کاربری"
@@ -2006,6 +2071,9 @@ msgstr "ویژگی های متفاوت"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "ویژگی های محصول متفاوتی که با محصولات سفارش داده شده ذخیره می شوند"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr "تایید شد"
@@ -2044,8 +2112,9 @@ msgstr "YYYY-MM-DD hh:mm:ss (اختیاری)"
 msgid "Years"
 msgstr "سال"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "شما می خواهید یک یا چند مورد را حذف کنید. آیا مایل به ادامه هستید؟"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "صادرات شما تا چند دقیقه دیگر برای دانلود در دسترس خواهد بود"
@@ -2075,6 +2144,10 @@ msgstr "آدرس تحویل"
 
 msgid "address:payment"
 msgstr "آدرس صورتحساب"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"

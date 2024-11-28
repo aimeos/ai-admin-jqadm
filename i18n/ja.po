@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 15:47+0200\n"
+"POT-Creation-Date: 2024-10-30 11:41+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -103,6 +103,9 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "API key"
 msgstr ""
 
 msgid "Account"
@@ -379,6 +382,9 @@ msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "設定オプションは、リスト項目のキー/値のペアとして使用できます"
 
+msgid "Context"
+msgstr ""
+
 msgid "Copy"
 msgstr "コピー"
 
@@ -498,8 +504,8 @@ msgstr "デフォルト"
 msgid "Delete"
 msgstr "削除"
 
-msgid "Delete items?"
-msgstr "商品を削除しますか？"
+msgid "Delete entries?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr ""
@@ -541,6 +547,9 @@ msgstr ""
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
+msgstr ""
+
+msgid "Describe your image"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -600,6 +609,9 @@ msgstr "EAN、SKUまたは品目番号（必須）"
 msgid "Edit"
 msgstr "編集"
 
+msgid "Edit selected entries"
+msgstr ""
+
 msgid "Edit this entry"
 msgstr "このエントリを編集する"
 
@@ -614,6 +626,20 @@ msgstr "終了日"
 
 msgid "End date (optional)"
 msgstr "終了日（オプション）"
+
+msgid "Enter group ID, code or label"
+msgstr ""
+
+msgid "Entry deleted successfully"
+msgstr ""
+
+msgid "Entry saved successfully"
+msgstr ""
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr ""
 
 msgid "Error"
 msgstr "エラー"
@@ -650,7 +676,14 @@ msgstr ""
 msgid "File"
 msgstr "ファイル"
 
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr ""
+
 msgid "File upload stopped by extension"
+msgstr ""
+
+msgid "File uploaded successfully"
 msgstr ""
 
 msgid "Find category"
@@ -679,6 +712,12 @@ msgstr "階//アパート"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "階および/またはアパート（オプション）"
+
+msgid "Generate"
+msgstr ""
+
+msgid "Generate image"
+msgstr ""
 
 msgid "Generate text"
 msgstr ""
@@ -740,6 +779,9 @@ msgstr "顧客は、どのように電子メールで宛てられますか"
 msgid "How the supplier is addressed in e-mails"
 msgstr "サプライヤが電子メールでどのように宛てられますか"
 
+msgid "Hyper-real and dramatic"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -753,6 +795,9 @@ msgid "ISO language code (required)"
 msgstr "ISO言語コード（必須）"
 
 msgid "Image"
+msgstr ""
+
+msgid "Image description"
 msgstr ""
 
 msgid ""
@@ -836,18 +881,10 @@ msgstr "請求書"
 msgid "Invoice No."
 msgstr ""
 
-msgid "Invoice number for the order"
+msgid "Invoice number"
 msgstr ""
 
-msgid "Item deleted successfully"
-msgstr "項目が正常に削除された"
-
-msgid "Item saved successfully"
-msgstr "項目が正常に保存された"
-
-msgid ""
-"Item specific configuration options, will be available as key/value pairs in"
-" the templates"
+msgid "Invoice number for the order"
 msgstr ""
 
 msgid "Label"
@@ -914,7 +951,7 @@ msgstr "推奨商品のリスト"
 msgid "List type"
 msgstr "リストタイプ"
 
-msgid "Loading items ..."
+msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
@@ -971,6 +1008,9 @@ msgstr ""
 msgid "Mobile number (optional)"
 msgstr ""
 
+msgid "Model"
+msgstr ""
+
 msgid "Modifed"
 msgstr "変更された"
 
@@ -1005,6 +1045,9 @@ msgstr ""
 msgid "Name of your shop shown to your customers"
 msgstr ""
 
+msgid "Natural"
+msgstr ""
+
 msgid "New"
 msgstr "新しい"
 
@@ -1032,11 +1075,11 @@ msgstr "次回のサブスクリプションは更新されます"
 msgid "No currencies available. Please enable at least one currency"
 msgstr ""
 
-msgid "No file was uploaded"
+msgid "No entries found"
 msgstr ""
 
-msgid "No items found"
-msgstr "項目は見つかりませんでした"
+msgid "No file was uploaded"
+msgstr ""
 
 msgid "No product found"
 msgstr ""
@@ -1060,7 +1103,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-msgid "Not all items could be deleted"
+msgid "Not all entries could be deleted"
 msgstr ""
 
 #, php-format
@@ -1090,7 +1133,7 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "1つのプロバイダと、コンマで区切られた0個以上のデコレータクラス名"
 
-msgid "Only super users and administrators can delete items"
+msgid "Only super users and administrators can delete entries"
 msgstr ""
 
 msgid "Open"
@@ -1440,6 +1483,9 @@ msgstr ""
 msgid "Related order of the customer"
 msgstr ""
 
+msgid "Remove background"
+msgstr ""
+
 msgid "Renew"
 msgstr "更新"
 
@@ -1470,7 +1516,7 @@ msgstr ""
 msgid "Review"
 msgstr "レビュー"
 
-msgid "Reviewed item"
+msgid "Reviewed entry"
 msgstr ""
 
 msgid "Reviewer name"
@@ -1543,8 +1589,11 @@ msgstr "エントリを保存する（Ctrl + S）"
 msgid "Search"
 msgstr "検索"
 
-msgid "Second level type for grouping items"
-msgstr "アイテムをグループ化するための第2レベルのタイプ"
+msgid "Second level type for grouping entries"
+msgstr ""
+
+msgid "Select all entries"
+msgstr ""
 
 msgid "Select file"
 msgstr "ファイルを選ぶ"
@@ -1598,9 +1647,6 @@ msgid "Shipping"
 msgstr "出荷"
 
 msgid "Shipping / Payment costs"
-msgstr ""
-
-msgid "Shipping costs/item"
 msgstr ""
 
 msgid "Shipping/Payment costs"
@@ -1720,6 +1766,9 @@ msgstr "道"
 msgid "Street name (optional)"
 msgstr "道名（オプション）"
 
+msgid "Style"
+msgstr ""
+
 msgid "Sub-total"
 msgstr "小計"
 
@@ -1795,11 +1844,11 @@ msgid ""
 "or seasonal articles"
 msgstr "品物はその日時までのウェブサイトにのみ表示され、有用な記事や季節の品物"
 
-msgid "The item is only shown on the web site after that date and time"
-msgstr "項目はその日時以降にウェブサイトにのみ表示されます"
+msgid "The entry is only shown on the web site after that date and time"
+msgstr ""
 
-msgid "The item is only shown on the web site until that date and time"
-msgstr "項目はその日時までウェブサイトにのみ表示されます"
+msgid "The entry is only shown on the web site until that date and time"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr ""
@@ -1855,6 +1904,9 @@ msgstr "タイトル"
 msgid "Toggle dropdown"
 msgstr "ドロップダウンの切り替え"
 
+msgid "Toogle selection"
+msgstr ""
+
 msgid "Top countries"
 msgstr ""
 
@@ -1871,6 +1923,9 @@ msgid "Total ratings"
 msgstr ""
 
 msgid "Translate text"
+msgstr ""
+
+msgid "Translations"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1909,6 +1964,10 @@ msgstr "URLターゲット"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "メソッド \"%1$s\"を呼び出すことができません"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1973,6 +2032,9 @@ msgstr ""
 msgid "Unknown upload error"
 msgstr ""
 
+msgid "Upload CSV"
+msgstr ""
+
 msgid "Upload shop icon"
 msgstr ""
 
@@ -1981,6 +2043,9 @@ msgstr ""
 
 msgid "Uploaded"
 msgstr "アップロードされた"
+
+msgid "Use"
+msgstr ""
 
 msgid "User groups"
 msgstr "ユーザーグループ"
@@ -2002,6 +2067,9 @@ msgstr "バリアント属性"
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されているバリアント商品属性"
+
+msgid "Vendor"
+msgstr ""
 
 msgid "Verified"
 msgstr ""
@@ -2040,8 +2108,9 @@ msgstr "YYYY-MM-DD hh：mm：ss（オプション）"
 msgid "Years"
 msgstr "年"
 
-msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "1つまたは複数の項目を削除します。 続行しますか？"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2071,6 +2140,10 @@ msgstr "配信先住所"
 
 msgid "address:payment"
 msgstr "請求先住所"
+
+#, php-format
+msgid "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"
