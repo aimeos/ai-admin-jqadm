@@ -27,7 +27,7 @@ $enc = $this->encoder();
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ) ?>"
 							value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ) ?>">
 						<input id="download-file" class="form-control fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							name="`<?= $enc->js( $this->formparam( ['download', 'file'] ) ) ?>`">
+							name="<?= $enc->attr( $this->formparam( ['download', 'file'] ) ) ?>">
 					</div>
 				</div>
 				<div class="form-group row optional">
