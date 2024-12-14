@@ -10,9 +10,7 @@ Aimeos.Product = {
 	init() {
 
 		Aimeos.Product.Price.init();
-		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Download.init();
-		Aimeos.Product.Selection.init();
 
 		this.components();
 	},
@@ -153,6 +151,24 @@ Aimeos.Product.Basic = {
 						this.duplicate = result?.searchProducts?.items?.length > 0
 							&& result?.searchProducts?.items[0]?.id !== this.item['product.id']
 					})
+				}
+			},
+			watch: {
+				item: {
+					handler(val) {
+						document.querySelectorAll(".item-navbar .nav-item").forEach(function(item) {
+							item.style.removeProperty("display")
+						})
+
+						const tab = document.querySelector(".item-navbar .nav-item." + val['product.type'])
+						if(tab) tab.style.display = 'initial'
+
+						if(['group', 'select'].includes(val['product.type'])) {
+							const tab = document.querySelector(".item-navbar .nav-item.selection")
+							if(tab) tab.style.display = 'initial'
+						}
+					},
+					deep: true
 				}
 			}
 		}
@@ -300,19 +316,6 @@ Aimeos.Product.Attribute = {
 				}
 			}
 		}
-	}
-};
-
-
-Aimeos.Product.Bundle = {
-
-	init()  {
-		let tab = $(".item-navbar .bundle");
-		$(".item-basic .item-type").val() === 'bundle' ? tab.show() : tab.hide();
-
-		$(".item-basic .item-type").on("change", function() {
-			$("option:selected", this).val() === 'bundle' ? tab.show() : tab.hide();
-		});
 	}
 };
 
@@ -719,17 +722,6 @@ Aimeos.Product.Product = {
 
 
 Aimeos.Product.Selection = {
-
-	init() {
-
-		const tab = $(".item-navbar .selection");
-		['group', 'select'].includes($(".item-basic .item-type").val()) ? tab.show() : tab.hide();
-
-		$(".item-product").on("change", ".item-basic .item-type", function() {
-			['group', 'select'].includes($("option:selected", this).val()) ? tab.show() : tab.hide();
-		});
-	},
-
 
 	mixins() {
 		return {
