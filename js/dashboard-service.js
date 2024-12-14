@@ -201,6 +201,6 @@ Aimeos.Dashboard.Service = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Dashboard.Service.init();
-})();
+});

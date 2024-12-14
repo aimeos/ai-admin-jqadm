@@ -310,6 +310,6 @@ Aimeos.Coupon.Code = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Coupon.init();
-})();
+});

@@ -259,6 +259,6 @@ Aimeos.ProductList = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.ProductList.init();
-})();
+});

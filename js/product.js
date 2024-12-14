@@ -1246,6 +1246,6 @@ Aimeos.Product.Supplier = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Product.init();
-})();
+});

@@ -485,6 +485,6 @@ Aimeos.Dashboard.Order = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Dashboard.Order.init();
-})();
+});

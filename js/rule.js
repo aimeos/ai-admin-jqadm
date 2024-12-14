@@ -74,6 +74,6 @@ Aimeos.Rule = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Rule.init();
-})();
+});

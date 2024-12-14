@@ -73,6 +73,6 @@ Aimeos.Order = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Order.init();
-})();
+});

@@ -267,6 +267,6 @@ Aimeos.Media = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Media.init();
-})();
+});

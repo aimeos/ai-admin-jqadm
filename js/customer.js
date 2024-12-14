@@ -92,6 +92,6 @@ Aimeos.Customer = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Customer.init();
-})();
+});
