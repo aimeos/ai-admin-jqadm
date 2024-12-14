@@ -751,43 +751,6 @@ Aimeos.Tabs = {
 };
 
 
-
-Aimeos.Log = {
-
-	time : null,
-
-
-	init() {
-
-		this.toggleItem();
-	},
-
-
-	toggleItem() {
-
-		$(".aimeos .list-log .log-message").on("mousedown", function(ev) {
-			this.time = (new Date()).getTime();
-		});
-
-		$(".aimeos .list-log .log-message").on("mouseup", function(ev) {
-			var el = $(this);
-
-			if(this.time < (new Date()).getTime() - 500) {
-				return false;
-			}
-
-			if(el.hasClass("show")) {
-				el.removeClass("show");
-			} else {
-				el.addClass("show");
-			}
-
-			return false;
-		});
-	}
-};
-
-
 Aimeos.Menu = {
 	init() {
 		$("body").on("click", ".app-menu .menu", function(ev) {
@@ -822,7 +785,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Menu.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
-	Aimeos.Log.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 });

@@ -169,6 +169,9 @@
 			"text": "basket.js",
 			"path": "js/"
 		},{
+			"text": "log.js",
+			"path": "js/"
+		},{
 			"text": "order.js",
 			"path": "js/"
 		},{
