@@ -147,6 +147,6 @@ Aimeos.Address = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Address.init();
-})();
+});

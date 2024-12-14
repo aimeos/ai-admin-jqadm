@@ -278,6 +278,6 @@ Aimeos.ProductRef = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.ProductRef.init();
-})();
+});

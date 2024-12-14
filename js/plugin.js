@@ -74,6 +74,6 @@ Aimeos.Plugin = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Plugin.init();
-})();
+});

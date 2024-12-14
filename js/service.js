@@ -74,6 +74,6 @@ Aimeos.Service = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Service.init();
-})();
+});

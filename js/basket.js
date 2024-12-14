@@ -41,6 +41,6 @@ Aimeos.Basket = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Basket.init();
-})();
+});

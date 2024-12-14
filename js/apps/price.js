@@ -105,6 +105,6 @@ Aimeos.Price = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Price.init();
-})();
+});

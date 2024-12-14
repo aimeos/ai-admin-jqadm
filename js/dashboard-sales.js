@@ -312,6 +312,6 @@ Aimeos.Dashboard.Sales = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Dashboard.Sales.init();
-})();
+});

@@ -230,6 +230,6 @@ Aimeos.Text = {
 };
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Text.init();
-})();
+});

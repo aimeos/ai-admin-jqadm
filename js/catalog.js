@@ -438,6 +438,6 @@ Aimeos.Catalog = {
 
 
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Aimeos.Catalog.init();
-})();
+});
