@@ -196,25 +196,31 @@ Aimeos.Media = {
 					cnt++;
 				}
 
-				if($("#problem .file_uploads").data("value") != 1) {
-					$("#problem .file_uploads").show();
-					$("#problem").modal("show");
+				const modal = new bootstrap.Modal('#problem');
+				const fileUploads = document.querySelector('#problem .file_uploads');
+				const postMaxSize = document.querySelector('#problem .post_max_size');
+				const maxFileUploads = document.querySelector('#problem .max_file_uploads');
+				const uploadMaxFilesize = document.querySelector('#problem .upload_max_filesize');
+
+				if(fileUploads?.dataset.value != 1) {
+					fileUploads.classList.toggle('hidden');
+					modal.show();
 				}
 
-				if(sum > $("#problem .post_max_size").data("value")) {
-					$("#problem .upload_max_filesize").show();
-					$("#problem").modal("show");
+				if(sum > postMaxSize?.dataset.value) {
+					postMaxSize.classList.toggle('hidden');
+					modal.show();
 				}
 
-				if(cnt > $("#problem .max_file_uploads").data("value")) {
-					$("#problem .max_file_uploads").show();
-					$("#problem").modal("show");
+				if(cnt > maxFileUploads?.dataset.value) {
+					maxFileUploads.classList.toggle('hidden');
+					modal.show();
 				}
 
 				for(let i=0; i<files.length; i++) {
-					if(files[i].size > $("#problem .upload_max_filesize").data("value")) {
-						$("#problem .upload_max_filesize").show();
-						$("#problem").modal("show");
+					if(files[i].size > uploadMaxFilesize?.dataset.value) {
+						uploadMaxFilesize.classList.toggle('hidden');
+						modal.show();
 					}
 				}
 
