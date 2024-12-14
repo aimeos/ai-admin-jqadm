@@ -595,25 +595,23 @@ Aimeos.Product.Order = {
 Aimeos.Product.Price = {
 
 	init()  {
-		$(".item-price .item-pricecustom").on("change", function(ev) {
-			const item = $(ev.target).data('attr')
+		document.querySelector(".item-price .item-pricecustom")?.addEventListener("change", function(ev) {
+			const item = JSON.parse(ev.currentTarget?.dataset?.attr || '{}')
 			item['product.lists.refid'] = item['attribute.id']
 
-			if(Aimeos.apps['characteristics/custom']) {
-				const items = Aimeos.apps['characteristics/custom'].items || []
+			if(Aimeos.apps['characteristic/custom']) {
+				const items = Aimeos.apps['characteristic/custom'].items || []
 
 				for(const key in items) {
 					if(items[key]['attribute.type'] === 'price' && items[key]['attribute.code'] === 'custom') {
-						if(!ev.target.checked) {
-							Aimeos.apps['characteristics/custom'].remove(key)
-							return
-						} else {
-							return
+						if(!ev.currentTarget.checked) {
+							Aimeos.apps['characteristic/custom'].remove(key)
 						}
+						return
 					}
 				}
 
-				Aimeos.apps['characteristics/custom'].add(item)
+				Aimeos.apps['characteristic/custom'].add(item)
 			}
 		});
 	}
