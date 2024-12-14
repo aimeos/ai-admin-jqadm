@@ -564,9 +564,11 @@ Aimeos.Nav = {
 
 		this.addShortcuts();
 		this.hoverMenu();
+		this.menu();
 		this.toggleFormItems();
 		this.toggleNavItems();
 		this.toggleSubmenu();
+		this.tabs();
 	},
 
 
@@ -644,6 +646,22 @@ Aimeos.Nav = {
 	},
 
 
+	menu() {
+		document.querySelector(".app-menu .menu")?.addEventListener("click", function(ev) {
+			const sidebar = document.querySelector(".main-sidebar");
+			const menu = document.querySelector(".app-menu");
+
+			if(menu.classList.contains('open')) {
+				sidebar.classList.remove("open");
+				menu.classList.remove("open");
+			} else {
+				sidebar.classList.add("open");
+				menu.classList.add("open");
+			}
+		});
+	},
+
+
 	toggleNavItems() {
 
 		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/navbar') == 1) {
@@ -708,66 +726,31 @@ Aimeos.Nav = {
 				ev.stopPropagation();
 			});
 		});
-	}
-};
-
-
-
-Aimeos.Tabs = {
-
-	init() {
-		this.setupTabSwitch();
 	},
 
 
-	setupTabSwitch() {
-		const self = this
-		const hash = document.location.hash
+	tabs() {
+		if(document.location.hash) {
+			const item = document.querySelector('.nav-tabs a.nav-link[href="' + document.location.hash + '"]')
+			new bootstrap.Tab(item).show()
+		}
 
-		$('.nav-tabs a[href="' + hash + '"]').tab('show')
-		self.toForm(hash)
+		document.querySelectorAll('.nav-tabs .nav-link').forEach(function(item) {
+			item.addEventListener('click', function(ev) {
+				document.querySelectorAll("form").forEach(function(form) {
+					form.setAttribute('action', form.getAttribute('action')?.split('#')[0] + ev.target.hash)
+				})
 
-		$('.nav-tabs a').on('shown.bs.tab', function (e) {
-			self.toState(e.target.hash)
-			self.toForm(e.target.hash)
-		})
-	},
-
-
-	toForm(hash) {
-		if(hash) {
-			$("form").each(function() {
-				if($(this).attr("action") !== undefined) {
-					$(this).attr("action", $(this).attr("action").split('#')[0] + hash)
+				if(history.pushState) {
+					history.pushState(null, null, ev.target.hash)
 				}
 			})
-		}
-	},
-
-
-	toState(hash) {
-		if(hash) {
-			if(history.pushState) {
-				history.pushState(null, null, hash)
-			}
-		}
+		})
 	}
 };
 
 
-Aimeos.Menu = {
-	init() {
-		$("body").on("click", ".app-menu .menu", function(ev) {
-			$(".main-sidebar").addClass("open");
-			$(".app-menu").addClass("open");
-		});
 
-		$("body").on("click", ".app-menu.open .menu", function(ev) {
-			$(".main-sidebar").removeClass("open");
-			$(".app-menu").removeClass("open");
-		});
-	}
-};
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -786,11 +769,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
 	});
 
-	Aimeos.Menu.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Nav.init();
-	Aimeos.Tabs.init();
 });
 
 
