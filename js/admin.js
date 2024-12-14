@@ -9,17 +9,14 @@ const isLight = document.cookie.includes('aimeos_backend_theme=light');
 
 //Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
 if (prefersDark.matches && !isLight){
-	document.body.classList.remove('light');
-	document.body.classList.add('dark')
+	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+	Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
 }
 
 document.querySelectorAll(".btn-theme").forEach(item => {
 	item.addEventListener("click", function() {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-		const cookieName = "aimeos_backend_theme"
-		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		const expires = "expires=" + (new Date((new Date()).getTime() + (7*84600000))).toUTCString(); // 7 days (Safari does not allow for more)
-		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
+		Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
 	});
 });
 
@@ -186,6 +183,13 @@ Aimeos = {
 			console.error(error)
 			throw new Error('GraphQL query failed')
 		})
+	},
+
+
+	theme(name) {
+		const cookieName = "aimeos_backend_theme"
+		const expires = "expires=" + (new Date((new Date()).getTime() + (7*84600000))).toUTCString(); // 7 days (Safari does not allow for more)
+		document.cookie = cookieName + "=" + name + ";" + expires + ";path=/";
 	},
 
 
