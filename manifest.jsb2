@@ -142,6 +142,9 @@
 			"text": "text.js",
 			"path": "js/apps/"
 		},{
+			"text": "nav.js",
+			"path": "js/"
+		},{
 			"text": "lists.js",
 			"path": "js/"
 		},{
