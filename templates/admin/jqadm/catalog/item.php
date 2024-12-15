@@ -124,7 +124,10 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 						<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-							<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/catalog.siteid' ) ) ?>">
+							<div class="box" v-bind:class="{mismatch: !can('match')}"
+								data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
+								data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
+
 								<div class="row">
 									<div class="col-xl-6 block">
 										<div class="form-group row mandatory">
@@ -132,7 +135,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											<div class="col-sm-8">
 												<select class="form-select item-status" required="required" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.status' ) ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?> >
+													v-bind:readonly="!can('change')" >
 													<option value="">
 														<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 													</option>
@@ -161,7 +164,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.code' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique category code (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.code' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
+													v-bind:readonly="!can('change')" >
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Unique category code, either from external system or self-invented' ) ) ?>
@@ -174,7 +177,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $this->formparam( array( 'item', 'catalog.label' ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.label' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
+													v-bind:readonly="!can('change')" >
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Internal category name, will be used on the web site if no name for the language is available' ) ) ?>
@@ -190,7 +193,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $this->formparam( array( 'item', 'catalog.url' ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.url' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
+													v-bind:readonly="!can('change')" >
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'The name of the category shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
@@ -203,21 +206,19 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.target' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.target' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
+													v-bind:readonly="!can('change')" >
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the category page if this category should shown on a different page' ) ) ?>
 											</div>
 										</div>
-									</div><!--
+									</div>
 
-									--><div class="col-xl-6 block vue"
-										data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
-
+									<div class="col-xl-6 block">
 										<config-table
 											v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] ) ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
-											v-bind:readonly="dataset['catalog.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
+											v-bind:readonly="!can('change')"
 											v-bind:items="dataset['config']" v-on:update:items="dataset['config'] = $event"
 											v-bind:i18n="{
 												value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,

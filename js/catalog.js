@@ -17,57 +17,59 @@
 
 
 
-/**
- * Load categories and create catalog tree
- */
-Aimeos.options.then(function(result) {
-
-	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog || $(".aimeos .item-catalog").length === 0) {
-		return;
-	}
-
-	if(result.meta.prefix) {
-		Aimeos.Catalog.prefix = result.meta.prefix;
-	}
-
-	var params = {};
-	var rootId = $(".aimeos .item-catalog").data("rootid");
-
-	if(rootId) {
-		if(result.meta.prefix) {
-			params[result.meta.prefix] = {id: rootId, include: "catalog"};
-		} else {
-			params = {id: rootId, include: "catalog"};
-		}
-	}
-
-	const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
-
-	return fetch(url + serialize(params)).then(function(response) {
-		if(!response.ok) {
-			throw new Error(response.statusText);
-		}
-		return response.json();
-	}).then(function(result) {
-
-		if(!result || !result.data || !result.meta) {
-			throw {"msg": "No valid data in response", "result": result};
-		}
-
-		if(result.meta.csrf) {
-			Aimeos.Catalog.csrf = result.meta.csrf;
-		}
-
-		var root = Aimeos.Catalog.createTree(Aimeos.Catalog.transformNodes(result));
-
-		root.bind("tree.click", Aimeos.Catalog.onClick);
-		root.bind("tree.move", Aimeos.Catalog.onMove);
-	});
-});
-
-
-
 Aimeos.Catalog = {
+
+	init() {
+		Aimeos.Catalog.Tree.init()
+		Aimeos.Catalog.Basic.init()
+	}
+}
+
+
+
+Aimeos.Catalog.Basic = {
+
+	init() {
+		const node = document.querySelector(".item-catalog .item-basic");
+
+		if(node) {
+			this.instance = Aimeos.app({mixins: [this.mixins]}).mount(node);
+		}
+	},
+
+
+	mixins : {
+		props: {
+			data: {type: String, required: true},
+			siteid: {type: String, required: true}
+		},
+
+
+		data() {
+			return {
+				item: {},
+				_ext: false
+			}
+		},
+
+
+		beforeMount() {
+			this.Aimeos = Aimeos;
+			this.item = JSON.parse(this.data);
+		},
+
+
+		methods: {
+			can(action) {
+				return Aimeos.can(action, this.item['catalog.siteid'] || null, this.siteid)
+			}
+		}
+	}
+}
+
+
+
+Aimeos.Catalog.Tree = {
 
 	csrf : null,
 	element : null,
@@ -435,6 +437,56 @@ Aimeos.Catalog = {
 		});
 	}
 };
+
+
+
+/**
+ * Load categories and create catalog tree
+ */
+Aimeos.options.then(function(result) {
+
+	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog || $(".aimeos .item-catalog").length === 0) {
+		return;
+	}
+
+	if(result.meta.prefix) {
+		Aimeos.Catalog.prefix = result.meta.prefix;
+	}
+
+	var params = {};
+	var rootId = $(".aimeos .item-catalog").data("rootid");
+
+	if(rootId) {
+		if(result.meta.prefix) {
+			params[result.meta.prefix] = {id: rootId, include: "catalog"};
+		} else {
+			params = {id: rootId, include: "catalog"};
+		}
+	}
+
+	const url = result.meta.resources.catalog + (result.meta.resources.catalog.includes('?') ? '&' : '?');
+
+	return fetch(url + serialize(params)).then(function(response) {
+		if(!response.ok) {
+			throw new Error(response.statusText);
+		}
+		return response.json();
+	}).then(function(result) {
+
+		if(!result || !result.data || !result.meta) {
+			throw {"msg": "No valid data in response", "result": result};
+		}
+
+		if(result.meta.csrf) {
+			Aimeos.Catalog.csrf = result.meta.csrf;
+		}
+
+		var root = Aimeos.Catalog.createTree(Aimeos.Catalog.transformNodes(result));
+
+		root.bind("tree.click", Aimeos.Catalog.onClick);
+		root.bind("tree.move", Aimeos.Catalog.onMove);
+	});
+});
 
 
 
