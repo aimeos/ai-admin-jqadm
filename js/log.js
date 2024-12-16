@@ -12,11 +12,11 @@ Aimeos.Log = {
 
 	init() {
 
-		document.querySelector(".aimeos .list-log .log-message").addEventListener("mousedown", function() {
+		document.querySelector(".aimeos .list-log .log-message")?.addEventListener("mousedown", function() {
 			this.time = (new Date()).getTime();
 		});
 
-		document.querySelector(".aimeos .list-log .log-message").addEventListener("mouseup", function(ev) {
+		document.querySelector(".aimeos .list-log .log-message")?.addEventListener("mouseup", function(ev) {
 			if(this.time < (new Date()).getTime() - 500) {
 				return false;
 			}
