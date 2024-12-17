@@ -423,12 +423,10 @@ Aimeos.Product.Catalog = {
 Aimeos.Product.Download = {
 
 	init() {
-
-		$(".item-download").on("change", ".fileupload", function(ev) {
-			$(this.files).each(function(idx, file) {
-				$("input.item-label", ev.delegateTarget).val(file.name);
-				$(".custom-file-label", ev.delegateTarget).text(file.name);
-			});
+		document.querySelector(".item-download .fileupload").addEventListener("change", function() {
+			for(file of this.files) {
+				document.querySelector(".item-download input.item-label").value = file.name;
+			}
 		});
 	}
 };
