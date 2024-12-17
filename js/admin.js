@@ -24,10 +24,10 @@ document.querySelectorAll(".btn-theme").forEach(item => {
 
 Aimeos = {
 
-	siteid: null,
-	options: null,
-	components: {},
 	apps: {},
+	components: {},
+	options: null,
+	siteid: document.querySelector('.aimeos')?.dataset['user-siteid'] || '',
 
 	ckeditor: {
 		htmlSupport: {
@@ -37,7 +37,7 @@ Aimeos = {
 			}],
 			disallow: []
 		},
-		language: $('html').attr('lang'),
+		language: document.querySelector('html').getAttribute('lang') || 'en',
 		mediaEmbed: {
 			previewsInData: true,
 			toolbar: ['|']
@@ -158,11 +158,11 @@ Aimeos = {
 				};
 			};
 
-			$(selector).each(function() {
-				(new IntersectionObserver(callback, {})).observe(this);
+			document.querySelectorAll(selector).forEach(function(item) {
+				(new IntersectionObserver(callback, {})).observe(item);
 			});
 
-		} else if($(selector).length) {
+		} else if(document.querySelectorAll(selector).length) {
 			renderFcn();
 		}
 	},
@@ -170,11 +170,11 @@ Aimeos = {
 
 	query(gql, vars = {}) {
 		const client = new AwesomeGraphQLClient({
-			endpoint: $('.aimeos').data('graphql'),
+			endpoint: document.querySelector('.aimeos')?.dataset.graphql,
 			fetchOptions: {
 				credentials: 'same-origin',
 				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
+					'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
 				}
 			}
 		})
@@ -394,23 +394,18 @@ Aimeos.Form = {
 
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
+
+	flatpickr.localize(FlatpickrL10n[document.querySelector('.aimeos')?.dataset.locale || 'en']);
+
+	document.querySelectorAll('.vue').forEach(function(node) {
+		const key = node.dataset.key || Math.floor(Math.random() * 1000);
+		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
+	});
+
 	// show toast notifications
 	document.querySelectorAll('.toast').forEach(el => {
 		new bootstrap.Toast(el, {delay: 3000}).show();
-	});
-
-	Aimeos.siteid = $('.aimeos').data('user-siteid') || '';
-	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
-
-	flatpickr.localize(FlatpickrL10n[$('.aimeos').attr('locale') || 'en']);
-
-	$('.vue').each(function(idx, node) {
-		const key = $(this).data('key') || Math.floor(Math.random() * 1000);
-		Aimeos.apps[key] = Aimeos.vue({...node.dataset || {}}).mount(node);
 	});
 
 	Aimeos.Form.init();
@@ -421,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function() {
  * Load JSON admin resource definition immediately
  * @deprecated Use GraphQL API
  */
-Aimeos.options = fetch($(".aimeos").data("url"), {
+Aimeos.options = fetch(document.querySelector('.aimeos').dataset.url, {
 	"method": "OPTIONS"
 }).then(function(response) {
 	if(!response.ok) {
