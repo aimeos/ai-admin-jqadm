@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
@@ -48,20 +48,26 @@ Aimeos.Catalog.Basic = {
 		data() {
 			return {
 				item: {},
-				_ext: false
+				show: false
 			}
 		},
 
 
 		beforeMount() {
-			this.Aimeos = Aimeos;
-			this.item = JSON.parse(this.data);
+			this.Aimeos = Aimeos
+			this.item = JSON.parse(this.data)
+			this.show = Aimeos.session('aimeos/jqadm/item/form') == 1
 		},
 
 
 		methods: {
 			can(action) {
 				return Aimeos.can(action, this.item['catalog.siteid'] || null, this.siteid)
+			},
+
+
+			toggle() {
+				this.show = Aimeos.session('aimeos/jqadm/item/form', +!this.show)
 			}
 		}
 	}

@@ -406,9 +406,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								</div>
 							<?php endif ?>
 
-							<div class="separator"><i class="icon more"></i></div>
+							<div class="separator" v-on:click="toggle()">
+								<i class="icon more" v-bind:class="{less: show}"></i>
+							</div>
 
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" tabindex="1"
@@ -421,7 +423,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'The name of the product shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
@@ -433,7 +435,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="vue:flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
@@ -447,7 +449,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="vue:flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
@@ -461,7 +463,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="vue:flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
@@ -475,7 +477,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Boost factor' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-boost" type="number" min="0" max="100" step="0.1" tabindex="1"
@@ -488,7 +490,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced warning">
+							<div class="form-group row optional warning collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-target" type="text" tabindex="1"

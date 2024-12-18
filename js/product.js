@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2017-2024
  */
 
 
@@ -112,12 +112,14 @@ Aimeos.Product.Basic = {
 					item: {},
 					dsets: [],
 					duplicate: false,
+					show: false
 				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
 				this.item = JSON.parse(this.data);
 				this.dsets = JSON.parse(this.datasets);
+				this.show = Aimeos.session('aimeos/jqadm/item/form') == 1
 			},
 			methods: {
 				can(action) {
@@ -151,6 +153,11 @@ Aimeos.Product.Basic = {
 						this.duplicate = result?.searchProducts?.items?.length > 0
 							&& result?.searchProducts?.items[0]?.id !== this.item['product.id']
 					})
+				},
+
+
+				toggle() {
+					this.show = Aimeos.session('aimeos/jqadm/item/form', +!this.show)
 				}
 			},
 			watch: {

@@ -184,9 +184,11 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											</div>
 										</div>
 
-										<div class="separator"><i class="icon more"></i></div>
+										<div class="separator" v-on:click="toggle()">
+											<i class="icon more" v-bind:class="{less: show}"></i>
+										</div>
 
-										<div class="form-group row optional advanced">
+										<div class="form-group row optional collapse" v-bind:class="{show: show}">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ) ?></label>
 											<div class="col-sm-8">
 												<input class="form-control item-label" type="text" tabindex="1"
@@ -199,7 +201,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 												<?= $enc->html( $this->translate( 'admin', 'The name of the category shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
 											</div>
 										</div>
-										<div class="form-group row optional advanced warning">
+										<div class="form-group row optional warning collapse" v-bind:class="{show: show}">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ) ?></label>
 											<div class="col-sm-8">
 												<input class="form-control item-target" type="text" tabindex="1"

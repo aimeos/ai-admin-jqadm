@@ -8,37 +8,12 @@
 Aimeos.Nav = {
 
 	init() {
-		this.advanced();
 		this.hover();
 		this.menu();
 		this.navitems();
 		this.shortcuts();
 		this.submenu();
 		this.tabs();
-	},
-
-
-	advanced() {
-		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/form') == 1) {
-			$(".aimeos .item-content .separator .more").removeClass("more").addClass("less");
-			$(".aimeos .item-content .form-group.advanced").css("display", "flex");
-		}
-
-		$(".aimeos .item-content").on("click", ".separator .more", function(ev) {
-			$(".form-group.advanced", ev.delegateTarget).css("display", "flex");
-			$(ev.currentTarget).removeClass("more").addClass("less");
-			if(window.sessionStorage) {
-				window.sessionStorage.setItem('aimeos/jqadm/item/form', 1);
-			}
-		});
-
-		$(".aimeos .item-content").on("click", ".separator .less", function(ev) {
-			$(".form-group.advanced", ev.delegateTarget).css("display", "none");
-			$(ev.currentTarget).removeClass("less").addClass("more");
-			if(window.sessionStorage) {
-				window.sessionStorage.setItem('aimeos/jqadm/item/form', 0);
-			}
-		});
 	},
 
 

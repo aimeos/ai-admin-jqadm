@@ -22,11 +22,13 @@ Aimeos.Rule = {
 					return {
 						item: null,
 						cache: {},
+						show: false
 					}
 				},
 				beforeMount() {
 					this.Aimeos = Aimeos;
 					this.item = JSON.parse(this.data);
+					this.show = Aimeos.session('aimeos/jqadm/item/form') == 1
 				},
 				mixins: [this.mixins]
 			}, {...node.dataset || {}}).mount(node);
@@ -68,6 +70,11 @@ Aimeos.Rule = {
 					this.item['rule.provider'] = this.item['rule.provider'] + ',' + name
 				}
 			},
+
+
+			toggle() {
+				this.show = Aimeos.session('aimeos/jqadm/item/form', +!this.show)
+			}
 		}
 	}
 };

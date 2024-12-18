@@ -199,9 +199,11 @@ $enc = $this->encoder();
 								</div>
 							</div>
 
-							<div class="separator"><i class="icon more"></i></div>
+							<div class="separator" v-on:click="toggle()">
+								<i class="icon more" v-bind:class="{less: show}"></i>
+							</div>
 
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="vue:flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
@@ -215,7 +217,7 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'The rule is only used after that date and time' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row optional advanced">
+							<div class="form-group row optional collapse" v-bind:class="{show: show}">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="vue:flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
