@@ -30,10 +30,10 @@ Aimeos.Catalog = {
 Aimeos.Catalog.Basic = {
 
 	init() {
-		const node = document.querySelector(".item-catalog .item-basic");
+		const node = document.querySelector(".item-catalog .item-basic .box");
 
 		if(node) {
-			this.instance = Aimeos.app({mixins: [this.mixins]}).mount(node);
+			this.instance = Aimeos.app({mixins: [this.mixins]}, {...node.dataset || {}}).mount(node);
 		}
 	},
 
@@ -478,13 +478,13 @@ Aimeos.options.then(function(result) {
 		}
 
 		if(result.meta.csrf) {
-			Aimeos.Catalog.csrf = result.meta.csrf;
+			Aimeos.Catalog.Tree.csrf = result.meta.csrf;
 		}
 
-		var root = Aimeos.Catalog.createTree(Aimeos.Catalog.transformNodes(result));
+		var root = Aimeos.Catalog.Tree.createTree(Aimeos.Catalog.Tree.transformNodes(result));
 
-		root.bind("tree.click", Aimeos.Catalog.onClick);
-		root.bind("tree.move", Aimeos.Catalog.onMove);
+		root.bind("tree.click", Aimeos.Catalog.Tree.onClick);
+		root.bind("tree.move", Aimeos.Catalog.Tree.onMove);
 	});
 });
 
