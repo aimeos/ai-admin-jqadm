@@ -9,10 +9,12 @@ Aimeos.Product = {
 
 	init() {
 
-		Aimeos.Product.Price.init();
-		Aimeos.Product.Download.init();
+		if(document.querySelector('.item-product')) {
+			Aimeos.Product.Price.init();
+			Aimeos.Product.Download.init();
 
-		this.components();
+			this.components();
+		}
 	},
 
 
@@ -430,7 +432,7 @@ Aimeos.Product.Catalog = {
 Aimeos.Product.Download = {
 
 	init() {
-		document.querySelector(".item-download .fileupload").addEventListener("change", function() {
+		document.querySelector(".item-download .fileupload")?.addEventListener("change", function() {
 			for(file of this.files) {
 				document.querySelector(".item-download input.item-label").value = file.name;
 			}
