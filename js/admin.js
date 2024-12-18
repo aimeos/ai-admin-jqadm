@@ -186,6 +186,19 @@ Aimeos = {
 	},
 
 
+	session(key, val = null) {
+		if(window.sessionStorage) {
+			if(val === null) {
+				return window.sessionStorage.getItem(key)
+			} else {
+				window.sessionStorage.setItem(key, val)
+			}
+		}
+
+		return val
+	},
+
+
 	theme(name) {
 		const cookieName = "aimeos_backend_theme"
 		const expires = "expires=" + (new Date((new Date()).getTime() + (7*84600000))).toUTCString(); // 7 days (Safari does not allow for more)
