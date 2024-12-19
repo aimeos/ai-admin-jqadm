@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Metal <meteoramic@yahoo.com>, 2015-2024
 msgid ""
@@ -577,8 +577,8 @@ msgstr "İndir"
 msgid "Download this file"
 msgstr "Bu dosyayı indir"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Girişi kopyala (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Girişi kopyala"
 
 msgid "E-Mail"
 msgstr "E-Posta"
@@ -1581,8 +1581,8 @@ msgstr "Kaydet & Kopyala"
 msgid "Save & New"
 msgstr "Kaydet & Yeni"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Girişi kaydet (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Girişi kaydet (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Ara"

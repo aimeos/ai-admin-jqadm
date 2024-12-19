@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Chriz See, 2023
 # Jan Konieczny <whooof@outlook.com>, 2020
@@ -584,7 +584,7 @@ msgstr "Pobierz"
 msgid "Download this file"
 msgstr "Pobierz ten plik"
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr ""
 
 msgid "E-Mail"
@@ -1588,8 +1588,8 @@ msgstr "Zapisz i kopiuj"
 msgid "Save & New"
 msgstr "Zapisz i utwórz nowy"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Zapisz wpis (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Zapisz wpis (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Szukaj"

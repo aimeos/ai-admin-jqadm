@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Aimeos, 2024
 # shmuel adler, 2024
@@ -579,7 +579,7 @@ msgstr "הורד"
 msgid "Download this file"
 msgstr "הורד את הקובץ הזה"
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr "כפל ערך (Ctrl D)"
 
 msgid "E-Mail"
@@ -1583,8 +1583,8 @@ msgstr "שמור והעתק"
 msgid "Save & New"
 msgstr "שמור וצור חדש"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "שמור ערך (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "שמור ערך (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "חפש"

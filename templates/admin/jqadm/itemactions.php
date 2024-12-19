@@ -33,7 +33,7 @@ $enc = $this->encoder();
 
 <div class="btn-group">
 	<button type="submit" class="btn btn-primary act-save"
-		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ) ?>">
+		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+Enter)' ) ) ?>">
 		<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 	</button>
 	<?php if( !empty( $actions ) ) : ?>

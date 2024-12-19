@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Amiskatonic, 2023
@@ -588,8 +588,8 @@ msgstr "Téléchargement"
 msgid "Download this file"
 msgstr "Télécharger ce fichier"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Dupliquer l'entrée (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Dupliquer l'entrée"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -1592,8 +1592,8 @@ msgstr "Sauvegarder & Copier"
 msgid "Save & New"
 msgstr "Sauvegarder & Nouveau"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Sauvegarder l'entrée (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Sauvegarder l'entrée (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Recherche"

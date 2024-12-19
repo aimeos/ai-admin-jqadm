@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Ali y, 2022
 # hasan monfared <hasandoulabi@gmail.com>, 2020
@@ -583,8 +583,8 @@ msgstr "دانلود"
 msgid "Download this file"
 msgstr "این فایل را دانلود کنید"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "مدخل تکراری (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "مدخل تکراری"
 
 msgid "E-Mail"
 msgstr "پست الکترونیک"
@@ -1587,8 +1587,8 @@ msgstr "ذخیره & کپی"
 msgid "Save & New"
 msgstr "ذخیره & جدید"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "ذخیره ورودی (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "ذخیره ورودی (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "جستجو"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Aimeos, 2018
 # Aimeos, 2018
@@ -579,8 +579,8 @@ msgstr "ダウンロード"
 msgid "Download this file"
 msgstr "このファイルをダウンロードする"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "複製のエントリ (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "複製のエントリ"
 
 msgid "E-Mail"
 msgstr "メール"
@@ -1583,7 +1583,7 @@ msgstr "保存してコピー"
 msgid "Save & New"
 msgstr "保存＆新規"
 
-msgid "Save entry (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
 msgstr "エントリを保存する（Ctrl + S）"
 
 msgid "Search"

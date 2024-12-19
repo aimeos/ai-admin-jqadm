@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Oleksandr Kropyvko <akropivko@gmail.com>, 2021
 # Ruslan Melnychenko, 2023
@@ -579,8 +579,8 @@ msgstr "Завантажити"
 msgid "Download this file"
 msgstr "Завантажити цей файл"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Дублювати запис (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Дублювати запис"
 
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -1583,8 +1583,8 @@ msgstr "Зберегти та Копіювати"
 msgid "Save & New"
 msgstr "Зберегти та Створити"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Зберегти запис (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Зберегти запис (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Пошук"

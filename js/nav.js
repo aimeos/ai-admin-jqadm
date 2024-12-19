@@ -82,48 +82,39 @@ Aimeos.Nav = {
 
 
 	shortcuts() {
-		$(document).bind('keydown', function(ev) {
-			if(ev.ctrlKey || ev.metaKey) {
-				var key = String.fromCharCode(ev.which).toLowerCase();
+		document.addEventListener('keydown', function(ev) {
+			if((ev.ctrlKey || ev.metaKey) && ev.altKey && ev.key.match(/[a-z]/)) {
+				const link = document.querySelector(".aimeos .sidebar-menu a[data-ctrlkey=" + ev.key + "]")
 
-				if(ev.altKey) {
-					if(key.match(/[a-z]/)) {
-						var link = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first();
+				if(link) {
+					window.location = link.getAttribute("href");
+				}
+				return false
+			}
 
-						if(link.length) {
-							window.location = link.attr("href");
-						}
+			if((ev.ctrlKey || ev.metaKey) && ev.key === 'i') {
+				for(btn of (document.activeElement?.closest('.card')?.querySelectorAll(".actions .act-add") || [])) {
+					if(btn.clientWidth && btn.clientHeight) {
+						btn.click()
+						return false
 					}
 				}
-				switch(key) {
-					case 'i':
-						var node = $(".aimeos :focus").closest(".card,.box").find(".act-add:visible").first();
-						if(node.length > 0) {
-							node.trigger("click");
-							return false;
-						}
-
-						node = $(".aimeos .act-add:visible").first();
-						if(node.attr("href")) {
-							window.location = node.attr('href');
-						} else {
-							node.trigger("click");
-							return false;
-						}
-					case 'd':
-						var node = $(".aimeos .act-copy:visible").first();
-						if(node.attr("href")) {
-							window.location = node.attr('href');
-						} else {
-							node.trigger("click");
-							return false;
-						}
-					case 's':
-						$(".aimeos form.item").first().submit();
-						return false;
+				for(btn of document.querySelectorAll(".aimeos .card-tools-more .act-add")) {
+					if(btn.clientWidth && btn.clientHeight) {
+						btn.click()
+						return false
+					}
 				}
-			} else if(ev.which === 13) {
-				$(".btn:focus").trigger("click");
+				return false
+			}
+
+			if((ev.ctrlKey || ev.metaKey) && ev.keyCode === 13) {
+				document.querySelector(".aimeos form.item")?.submit()
+				return
+			}
+
+			if(ev.keyCode === 13) {
+				document.querySelector(".btn:focus")?.click()
 			}
 		});
 	},
@@ -168,5 +159,5 @@ Aimeos.Nav = {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    Aimeos.Nav.init();
+	Aimeos.Nav.init();
 })

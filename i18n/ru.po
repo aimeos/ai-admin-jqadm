@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Aleksei Pirogov, 2022
 # Emiliya Adigozalova <emiliyaadigozalova@gmail.com>, 2021
@@ -584,8 +584,8 @@ msgstr "Скачать"
 msgid "Download this file"
 msgstr "Скачать этот файл"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Дублировать запись (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Дублировать запись"
 
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -1588,8 +1588,8 @@ msgstr "Сохранить и Копировать"
 msgid "Save & New"
 msgstr "Сохранить и Создать"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Сохранить запись (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Сохранить запись (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Поиск"

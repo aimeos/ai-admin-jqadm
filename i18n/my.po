@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Shoon Lae Won <wonshoonlae@gmail.com>, 2018
 msgid ""
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Download this file"
 msgstr ""
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr ""
 
 msgid "E-Mail"
@@ -1581,7 +1581,7 @@ msgstr ""
 msgid "Save & New"
 msgstr ""
 
-msgid "Save entry (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
 msgstr ""
 
 msgid "Search"

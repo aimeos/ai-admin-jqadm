@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # iulian iulian <iulian.abc@gmail.com>, 2020
 # Yolo San, 2021
@@ -579,7 +579,7 @@ msgstr "Descarca"
 msgid "Download this file"
 msgstr "Descarca acest fisier"
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr "Intrare dublicat (CTRL+D)"
 
 msgid "E-Mail"
@@ -1583,7 +1583,7 @@ msgstr "Salvare si copiere"
 msgid "Save & New"
 msgstr "Salvare si nou"
 
-msgid "Save entry (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
 msgstr "Salveaza intrarea (CTRL+S)"
 
 msgid "Search"

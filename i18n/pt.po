@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # b5fdd37cec45d8078af7e530465bb050, 2016
 # Bruno Faria <email@brunofaria.pt>, 2018
@@ -581,7 +581,7 @@ msgstr "Baixar"
 msgid "Download this file"
 msgstr "Descarregar este arquivo"
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr ""
 
 msgid "E-Mail"
@@ -1585,8 +1585,8 @@ msgstr "Guardar & Copiar"
 msgid "Save & New"
 msgstr "Guardar & Novo"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Guardar entrada (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Guardar entrada (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Pesquisar"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Csaba Balazs <support@webstergeek.eu>, 2022
 # Csernus Zoltan <d3v3lop3r1@gmail.com>, 2022
@@ -586,8 +586,8 @@ msgstr "Letöltés"
 msgid "Download this file"
 msgstr "Állomány letöltése"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Bejegyzés kettőzése (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Bejegyzés kettőzése"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -1590,8 +1590,8 @@ msgstr "Mentés és másolás"
 msgid "Save & New"
 msgstr "Mentés és új"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Bejegyzés mentése (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Bejegyzés mentése (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Keresés"

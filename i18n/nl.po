@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Boyd Lamers <boyd.lamers@webits.nl>, 2015
 # Bram Verhaegh <bram@beech.it>, 2015
@@ -588,8 +588,8 @@ msgstr "Download"
 msgid "Download this file"
 msgstr "Download dit bestand"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Invoer dupliceren (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Invoer dupliceren"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -1592,8 +1592,8 @@ msgstr "Bewaren & Kopiëren"
 msgid "Save & New"
 msgstr "Bewaren & Nieuw"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Invoer bewaren (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Invoer bewaren (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Zoeken"

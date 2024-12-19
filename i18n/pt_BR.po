@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Bruno Rodrigues <brunojti@gmail.com>, 2016
 # Cesar Devesa <unit.cesar@gmail.com>, 2020
@@ -585,8 +585,8 @@ msgstr "Baixar"
 msgid "Download this file"
 msgstr "Baixe este arquivo"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Duplicar registro (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Duplicar registro"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -1589,8 +1589,8 @@ msgstr "Salvar & Copiar"
 msgid "Save & New"
 msgstr "Salvar & Novo"
 
-msgid "Save entry (Ctrl+S)"
-msgstr "Salvar registro (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Salvar registro (Ctrl+Enter)"
 
 msgid "Search"
 msgstr "Pesquisar"

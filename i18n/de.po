@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Aimeos, 2015-2024
 # Cris <cristoph@berane.eu>, 2018
@@ -581,7 +581,7 @@ msgstr "Download"
 msgid "Download this file"
 msgstr "Datei herunter laden"
 
-msgid "Duplicate entry (Ctrl+D)"
+msgid "Duplicate entry"
 msgstr "Eintrag duplizieren (Strg+D)"
 
 msgid "E-Mail"
@@ -1585,7 +1585,7 @@ msgstr "Speichern & Kopieren"
 msgid "Save & New"
 msgstr "Speichern & Neu"
 
-msgid "Save entry (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
 msgstr "Eintrag speichern (Strg+S)"
 
 msgid "Search"

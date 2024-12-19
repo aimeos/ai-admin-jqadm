@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Cao Anh Nhat <anhnhata8cool@gmail.com>, 2018
 # hh hh <minhtrung.4791@gmail.com>, 2020
@@ -580,8 +580,8 @@ msgstr "Tải xuống"
 msgid "Download this file"
 msgstr "Tải xuống file này"
 
-msgid "Duplicate entry (Ctrl+D)"
-msgstr "Nhân đôi bản ghi (Ctrl+D)"
+msgid "Duplicate entry"
+msgstr "Nhân đôi bản ghi"
 
 msgid "E-Mail"
 msgstr "Email"
@@ -1584,7 +1584,7 @@ msgstr ""
 msgid "Save & New"
 msgstr ""
 
-msgid "Save entry (Ctrl+S)"
+msgid "Save entry (Ctrl+Enter)"
 msgstr ""
 
 msgid "Search"
