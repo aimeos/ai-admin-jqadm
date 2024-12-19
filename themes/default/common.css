@@ -615,9 +615,6 @@ body {
 /* 3rd party Vueform multiselect component */
 
 .multiselect {
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid var(--bs-line);
 	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.33) + var(--ms-py, .5rem)*2);
 }
 
