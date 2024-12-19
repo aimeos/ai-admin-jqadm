@@ -257,8 +257,6 @@ Aimeos.Form = {
 
 		this.checkFields();
 		this.checkSubmit();
-		this.editFields();
-		this.noedit();
 		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
@@ -348,23 +346,6 @@ Aimeos.Form = {
 				$("#problem").modal("show");
 				return false;
 			}
-		});
-	},
-
-
-	editFields() {
-
-		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
-			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
-			return false;
-		});
-	},
-
-
-	noedit() {
-
-		$("input.noedit, select.noedit").on('keydown paste', function(ev){
-			if(ev.which != 9) return false; // ignore tab
 		});
 	},
 
