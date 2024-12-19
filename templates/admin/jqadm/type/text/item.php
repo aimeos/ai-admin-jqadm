@@ -70,7 +70,7 @@ $params = $this->get( 'pageParams', [] );
 					</small>
 				</div>
 
-				<div class="icon more"></div>
+				<div class="icon more" v-bind:class="{less: show}" v-on:click="toggle()"></div>
 			</div>
 		</div>
 

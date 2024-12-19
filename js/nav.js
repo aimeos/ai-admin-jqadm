@@ -10,10 +10,30 @@ Aimeos.Nav = {
 	init() {
 		this.hover();
 		this.menu();
-		this.navitems();
 		this.shortcuts();
 		this.submenu();
 		this.tabs();
+
+		const node = document.querySelector('.item-navbar')
+
+		if(node) {
+			Aimeos.apps['navbar'] = Aimeos.app({
+				data() {
+					return {
+						show: false
+					}
+				},
+				beforeMount() {
+					this.Aimeos = Aimeos;
+					this.show = Aimeos.session('aimeos/jqadm/item/navbar') == 1
+				},
+				methods: {
+					toggle() {
+						this.show = Aimeos.session('aimeos/jqadm/item/navbar', +!this.show)
+					}
+				}
+			}, {...node.dataset || {}}).mount(node);
+		}
 	},
 
 
@@ -53,30 +73,6 @@ Aimeos.Nav = {
 				sidebar.classList.add("open");
 				menu.classList.add("open");
 			}
-		});
-	},
-
-
-	navitems() {
-		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/navbar') == 1) {
-			$(".aimeos .item-navbar .navbar-content .more").removeClass("more").addClass("less");
-			$(".aimeos .item-navbar .navbar-content").addClass("show");
-		}
-
-		$(".aimeos .item-navbar .navbar-content").on("click", ".more", function(ev) {
-			if(window.sessionStorage) {
-				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 1);
-			}
-			$(ev.currentTarget).removeClass("more").addClass("less");
-			$(ev.delegateTarget).addClass("show");
-		});
-
-		$(".aimeos .item-navbar .navbar-content").on("click", ".less", function(ev) {
-			if(window.sessionStorage) {
-				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 0);
-			}
-			$(ev.currentTarget).removeClass("less").addClass("more");
-			$(ev.delegateTarget).removeClass("show");
 		});
 	},
 
