@@ -37,6 +37,12 @@ Aimeos.Form = {
 			}
 		});
 
+		if(!result) {
+			form?.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
+				el.classList.add('is-invalid');
+			});
+		}
+
 		return result
 	},
 
@@ -95,10 +101,6 @@ Aimeos.Form = {
 
 		document.querySelector(".aimeos form.item")?.addEventListener("submit", function(ev) {
 			if(!Aimeos.Form.check(ev.target)) {
-				ev.target?.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
-					el.classList.add('is-invalid');
-				});
-
 				document.querySelector('body').scrollTop = 0
 				ev.preventDefault()
 				return false;
