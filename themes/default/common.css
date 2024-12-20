@@ -620,6 +620,10 @@ body {
 	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.33) + var(--ms-py, .5rem)*2);
 }
 
+.multiselect:not(.form-control, .form-select) {
+	border: none;
+}
+
 .multiselect.is-active {
 	border: none;
 	box-shadow: none;

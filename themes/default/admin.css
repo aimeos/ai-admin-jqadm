@@ -15,10 +15,10 @@
 	text-decoration-skip-ink: all;
 }
 
-.aimeos .btn:first-child:hover,
-.aimeos .btn:first-child:focus,
-.aimeos :not(.btn-check)+.btn:hover,
-.aimeos :not(.btn-check)+.btn:focus {
+.aimeos .btn:not(.is-invalid):first-child:hover,
+.aimeos .btn:not(.is-invalid):first-child:focus,
+.aimeos :not(.btn-check)+.btn:not(.is-invalid):hover,
+.aimeos :not(.btn-check)+.btn:not(.is-invalid):focus {
 	background-color: var(--bs-primary-alt-light);
 	border-color: var(--bs-line-light);
 }
