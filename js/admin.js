@@ -369,20 +369,17 @@ Aimeos.Form = {
 
 
 	toggleHelp() {
-
-		$(".aimeos").on("click", ".help", function(ev) {
-			var list = $(this).closest("table.item-config");
-
-			if( list.length === 0 ) {
-				list = $(this).parent();
+		document.querySelector(".aimeos")?.addEventListener("click", function(ev) {
+			if(ev.target.classList.contains("help")) {
+				ev.target?.parentNode?.querySelector(".help-text")?.classList?.toggle('show')
 			}
 
-			$(".help-text", list).slideToggle(300);
-		});
-
-		$(".aimeos").on("click", ".act-help", function(ev) {
-			$(".help-text", ev.delegateTarget).slideToggle(300);
-		});
+			if(ev.target.classList.contains("act-help")) {
+				document.querySelectorAll(".help-text").forEach(function(el) {
+					el.classList.toggle('show')
+				})
+			}
+		})
 	}
 };
 

@@ -293,7 +293,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 							<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
 								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Data set' ) ) ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Data set' ) ) ?></label>
 									<div class="col-sm-8">
 										<select class="form-select item-set" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ) ?>"

@@ -444,6 +444,10 @@
 	display: none;
 }
 
+.aimeos .help-text.show {
+	display: block;
+}
+
 
 .aimeos .list-items .config-item input {
 	width: 7.5rem;
