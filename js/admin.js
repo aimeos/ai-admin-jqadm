@@ -254,97 +254,55 @@ Aimeos = {
 Aimeos.Form = {
 
 	init() {
-		this.checkFields()
-		this.checkSubmit()
+		this.fields()
 		this.help()
 		this.next()
+		this.submit()
 	},
 
 
-	checkFields() {
+	check(form) {
+		let result = true
 
-		$(".aimeos form .readonly").on("change", "input,select", function(ev) {
-			$(this).addClass("is-invalid");
+		form?.querySelectorAll('.is-invalid').forEach(function(el) {
+			el.classList.remove('is-invalid');
 		});
 
-
-		$(".aimeos form").on("blur", "input,select", function(ev) {
-
-			if($(this).closest(".readonly").length > 0 || $(this).hasClass("novalidate")) {
-				return;
-			}
-
-			if($(this).is(":invalid") === true) {
-				$(this).removeClass("is-valid").addClass("is-invalid");
-			} else {
-				$(this).removeClass("is-invalid").addClass("is-valid");
-			}
-		});
-	},
-
-
-	checkSubmit() {
-
-		$(".aimeos form").each(function() {
-			this.noValidate = true;
-		});
-
-		$(".aimeos form").on("submit", function(ev) {
-			var nodes = [];
-
-			document.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
-				el.classList.remove('is-invalid');
-			});
-
-			$(".card-header", this).removeClass("is-invalid");
-			$(".item-header", this).removeClass("is-invalid");
-			$(".item-navbar .nav-link", this).removeClass("is-invalid");
-
-			$("input,select,textarea", this).each(function(idx, element) {
-				var elem = $(element);
-
-				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
-					if(!element.classList.contains('.form-control') && !element.classList.contains('form-select')) {
-						elem = elem.closest('.form-control');
-					}
-
-					nodes.push(elem.addClass("is-invalid"));
-				} else {
-					elem.removeClass("is-invalid");
+		form?.querySelectorAll("input,select,textarea").forEach(function(node) {
+			if(!node.checkValidity() && !node.closest(".prototype")?.length) {
+				if(!node.classList.contains('.form-control') && !node.classList.contains('form-select')) {
+					node = node.closest('.form-control')
 				}
-			});
 
-			$("td.is-invalid", this).each(function(idx, element) {
-				nodes.push(element);
-			});
+				const id = node.closest(".tab-pane")?.getAttribute('id')
+				document.querySelector(".item-navbar .nav-item." + id + " .nav-link")?.classList.add("is-invalid");
 
-			$.each(nodes, function() {
-				$(".card-header", $(this).closest(".card")).addClass("is-invalid");
-				$(".item-header", $(this).closest(".card, .box")).addClass("is-invalid");
-
-				$(this).closest(".tab-pane").each(function() {
-					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("is-invalid");
-				});
-			});
-
-			if( nodes.length > 0 ) {
-				$('html, body').animate({
-					scrollTop: '0px'
-				});
-
-				document.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
-					el.classList.add('is-invalid');
-				});
-
-				return false;
-			}
-
-			if($("input,select").length > $("#problem .max_input_vars").data("value")) {
-				$("#problem .max_input_vars").show();
-				$("#problem").modal("show");
-				return false;
+				node.closest(".card")?.querySelector(".card-header")?.classList?.add("is-invalid");
+				node.classList.add("is-invalid")
+				result = false
 			}
 		});
+
+		return result
+	},
+
+
+	fields() {
+		document.querySelectorAll(".aimeos form").forEach(function(el) {
+			el.addEventListener("blur", function(ev) {
+				const node = ev.target
+
+				if(node.tagName === 'INPUT' || node.tagName === 'SELECT') {
+					if(node.checkValidity() && !node.classList.contains('novalidate')) {
+						node.classList.remove('is-invalid')
+						node.classList.add('is-valid')
+					} else {
+						node.classList.remove('is-valid')
+						node.classList.add('is-invalid')
+					}
+				}
+			}, true)
+		})
 	},
 
 
@@ -373,6 +331,38 @@ Aimeos.Form = {
 				}
 			})
 		})
+	},
+
+
+	submit() {
+		document.querySelectorAll(".aimeos form").forEach(function(el) {
+			el.noValidate = true;
+		});
+
+		document.querySelector(".aimeos form.item")?.addEventListener("submit", function(ev) {
+			if(!Aimeos.Form.check(ev.target)) {
+				ev.target?.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
+					el.classList.add('is-invalid');
+				});
+
+				document.querySelector('body').scrollTop = 0
+				ev.preventDefault()
+				return false;
+			}
+
+			const maxInput = document.querySelector("#problem .max_input_vars")
+			const value = maxInput?.dataset?.value
+
+			if(value && value < document.querySelectorAll("input,select").length) {
+				(new bootstrap.Modal('#problem')).show();
+				maxInput.classList.toggle('hidden');
+
+				ev.preventDefault()
+				return false;
+			}
+
+			return true
+		});
 	}
 };
 

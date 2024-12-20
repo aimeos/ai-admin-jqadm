@@ -105,7 +105,10 @@ Aimeos.Nav = {
 			}
 
 			if((ev.ctrlKey || ev.metaKey) && ev.keyCode === 13) {
-				document.querySelector(".aimeos form.item")?.submit()
+				const form = document.querySelector(".aimeos form.item")
+				if(form && Aimeos.Form.check(form)) {
+					form.submit()
+				}
 				return
 			}
 
