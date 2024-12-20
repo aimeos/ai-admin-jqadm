@@ -139,7 +139,9 @@ body {
 	position: fixed;
 	bottom: 0.5rem;
 	right: 0.5rem;
-	z-index: 5;
+	z-index: 1500;
+	overflow: auto;
+	max-height: calc(100vh - 1rem);
 }
 
 [dir="rtl"] .aimeos .toast-list {
