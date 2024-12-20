@@ -148,6 +148,9 @@
 			"text": "list.js",
 			"path": "js/"
 		},{
+			"text": "form.js",
+			"path": "js/"
+		},{
 			"text": "catalog.js",
 			"path": "js/"
 		},{
