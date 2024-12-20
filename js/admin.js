@@ -254,12 +254,10 @@ Aimeos = {
 Aimeos.Form = {
 
 	init() {
-
-		this.checkFields();
-		this.checkSubmit();
-		this.setupNext();
-		this.showErrors();
-		this.toggleHelp();
+		this.checkFields()
+		this.checkSubmit()
+		this.help()
+		this.next()
 	},
 
 
@@ -350,25 +348,7 @@ Aimeos.Form = {
 	},
 
 
-	setupNext() {
-
-		$(".aimeos .item").on("click", ".next-action", function(ev) {
-			$("#item-next", ev.delegateTarget).val($(this).data('next'));
-			$(ev.delegateTarget).submit();
-			return false;
-		});
-	},
-
-
-	showErrors() {
-
-		$(".aimeos .error-list .error-item").each(function() {
-			$(".aimeos ." + $(this).data("key") + " .header").addClass("is-invalid");
-		});
-	},
-
-
-	toggleHelp() {
+	help() {
 		document.querySelector(".aimeos")?.addEventListener("click", function(ev) {
 			if(ev.target.classList.contains("help")) {
 				ev.target?.parentNode?.querySelector(".help-text")?.classList?.toggle('show')
@@ -379,6 +359,19 @@ Aimeos.Form = {
 					el.classList.toggle('show')
 				})
 			}
+		})
+	},
+
+
+	next() {
+		document.querySelectorAll(".aimeos form.item").forEach(function(el) {
+			el.addEventListener("click", function(ev) {
+				if(ev.target.classList.contains("next-action")) {
+					document.querySelector("#item-next").value = ev.target?.dataset?.next
+					el.submit()
+					return false
+				}
+			})
 		})
 	}
 };
