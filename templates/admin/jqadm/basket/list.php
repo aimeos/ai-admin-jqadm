@@ -16,12 +16,12 @@ $enc = $this->encoder();
  * interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "order.basket.id" for the order basket ID.
+ * e.g. "basket.id" for the order basket ID.
  *
  * @param array List of field names, i.e. search keys
  * @since 2023.10
  */
-$default = $this->config( 'admin/jqadm/basket/fields', ['order.basket.id', 'order.basket.customerid', 'order.basket.name', 'order.basket.ctime'] );
+$default = $this->config( 'admin/jqadm/basket/fields', ['basket.id', 'basket.customerid', 'basket.name', 'basket.ctime'] );
 $fields = $this->session( 'aimeos/admin/jqadm/basket/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -39,12 +39,12 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 
 
 $columnList = [
-	'order.basket.id' => $this->translate( 'admin', 'ID' ),
-	'order.basket.customerid' => $this->translate( 'admin', 'Customer ID' ),
-	'order.basket.name' => $this->translate( 'admin', 'Name' ),
-	'order.basket.ctime' => $this->translate( 'admin', 'Created' ),
-	'order.basket.mtime' => $this->translate( 'admin', 'Modified' ),
-	'order.basket.editor' => $this->translate( 'admin', 'Editor' ),
+	'basket.id' => $this->translate( 'admin', 'ID' ),
+	'basket.customerid' => $this->translate( 'admin', 'Customer ID' ),
+	'basket.name' => $this->translate( 'admin', 'Name' ),
+	'basket.ctime' => $this->translate( 'admin', 'Created' ),
+	'basket.mtime' => $this->translate( 'admin', 'Modified' ),
+	'basket.editor' => $this->translate( 'admin', 'Editor' ),
 
 ];
 
@@ -57,7 +57,7 @@ $columnList = [
 
 
 <div class="list-view"
-	data-domain="order/basket"
+	data-domain="basket"
 	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/basket/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray', [true] )->all() ) ?>">
@@ -141,12 +141,12 @@ $columnList = [
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/basket/filter', [] ),
 							'data' => [
-								'order.basket.id' => ['op' => '=='],
-								'order.basket.customerid' => ['op' => '=='],
-								'order.basket.name' => [],
-								'order.basket.ctime' => ['op' => '-', 'type' => 'date'],
-								'order.basket.mtime' => ['op' => '-', 'type' => 'date'],
-								'order.basket.editor' => [],
+								'basket.id' => ['op' => '=='],
+								'basket.customerid' => ['op' => '=='],
+								'basket.name' => [],
+								'basket.ctime' => ['op' => '-', 'type' => 'date'],
+								'basket.mtime' => ['op' => '-', 'type' => 'date'],
+								'basket.editor' => [],
 
 							]
 						] );
@@ -164,23 +164,23 @@ $columnList = [
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
 									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
-							<?php if( in_array( 'order.basket.id', $fields ) ) : ?>
-								<td class="order-basket-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php if( in_array( 'basket.id', $fields ) ) : ?>
+								<td class="basket-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.basket.customerid', $fields ) ) : ?>
-								<td class="order-basket-customerid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCustomerId() ) ?></a></td>
+							<?php if( in_array( 'basket.customerid', $fields ) ) : ?>
+								<td class="basket-customerid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCustomerId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.basket.name', $fields ) ) : ?>
-								<td class="order-basket-name"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getName() ) ?></a></td>
+							<?php if( in_array( 'basket.name', $fields ) ) : ?>
+								<td class="basket-name"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getName() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.basket.ctime', $fields ) ) : ?>
-								<td class="order-basket-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php if( in_array( 'basket.ctime', $fields ) ) : ?>
+								<td class="basket-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.basket.mtime', $fields ) ) : ?>
-								<td class="order-basket-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php if( in_array( 'basket.mtime', $fields ) ) : ?>
+								<td class="basket-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.basket.editor', $fields ) ) : ?>
-								<td class="order-basket-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
+							<?php if( in_array( 'basket.editor', $fields ) ) : ?>
+								<td class="basket-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<td class="actions">

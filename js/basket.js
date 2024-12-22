@@ -33,7 +33,7 @@ Aimeos.Basket = {
 	mixins: {
 		methods: {
 			can(action) {
-				return Aimeos.can(action, this.item['order.basket.siteid'] || null, this.siteid)
+				return Aimeos.can(action, this.item['basket.siteid'] || null, this.siteid)
 			},
 		}
 	},

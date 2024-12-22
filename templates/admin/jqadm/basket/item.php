@@ -26,7 +26,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 	<?php $currency = $this->translate( 'currency', $this->item->getItem()->getPrice()->getCurrencyId() ) ?>
 
 	<form class="item item-basket item-order form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-		<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'order.basket.id' ) ) ) ?>" value="<?= $enc->attr( $this->item->getId() ) ?>">
+		<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'basket.id' ) ) ) ?>" value="<?= $enc->attr( $this->item->getId() ) ?>">
 		<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 		<?= $this->csrf()->formfield() ?>
 

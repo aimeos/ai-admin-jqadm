@@ -103,11 +103,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest', 'locale' => 'de',
 			'filter' => array(
-				'key' => array( 0 => 'order.basket.name' ),
+				'key' => array( 0 => 'basket.name' ),
 				'op' => array( 0 => '=~' ),
 				'val' => array( 0 => 'unittest' ),
 			),
-			'sort' => array( 'order.basket.ctime' ),
+			'sort' => array( 'basket.ctime' ),
 		);
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
@@ -180,9 +180,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getBasketId( $name = 'unittest name' )
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/basket' );
-		$search = $manager->filter()->slice( 0, 1 );
-		$search->setConditions( $search->compare( '==', 'order.basket.name', $name ) );
+		$manager = \Aimeos\MShop::create( $this->context, 'basket' );
+		$search = $manager->filter()->add( 'basket.name', '==', $name )->slice( 0, 1 );
 
 		return $manager->search( $search )
 			->first( new \Exception( sprintf( 'No basket item found for name "%1$s"', $name ) ) )

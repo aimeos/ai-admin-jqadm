@@ -100,7 +100,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'order/basket' );
+			$manager = \Aimeos\MShop::create( $context, 'basket' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -124,7 +124,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/basket' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'basket' );
 		$manager->begin();
 
 		try
@@ -136,7 +136,7 @@ class Standard
 			}
 
 			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'order.basket.id', $ids ) );
+			$search->setConditions( $search->compare( '==', 'basket.id', $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -178,7 +178,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'order/basket' );
+			$manager = \Aimeos\MShop::create( $context, 'basket' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -206,9 +206,9 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'basket' );
-			$manager = \Aimeos\MShop::create( $this->context(), 'order/basket' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'basket' );
 
-			$search = $manager->filter( false, true )->order( 'order.basket.ctime' );
+			$search = $manager->filter( false, true )->order( 'basket.ctime' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -376,18 +376,18 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Basket\Iface $item Basket item object
+	 * @param \Aimeos\MShop\Basket\Item\Iface $item Basket item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Order\Item\Basket\Iface $item, bool $copy = false ) : array
+	protected function toArray( \Aimeos\MShop\Basket\Item\Iface $item, bool $copy = false ) : array
 	{
 		$siteId = $this->context()->locale()->getSiteId();
 		$data = $item->toArray( true );
 
 		if( $copy === true )
 		{
-			$data['order.basket.siteid'] = $siteId;
-			$data['order.basket.id'] = '';
+			$data['basket.siteid'] = $siteId;
+			$data['basket.id'] = '';
 		}
 
 		return $data;
