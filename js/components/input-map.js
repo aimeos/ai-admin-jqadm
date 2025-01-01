@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2024
+ * @copyright Aimeos (aimeos.org), 2017-2025
  * @deprecated Use config-map instead
  */
 
