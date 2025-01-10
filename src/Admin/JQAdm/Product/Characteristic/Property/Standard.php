@@ -250,7 +250,7 @@ class Standard
 	/**
 	 * Returns the available product property types
 	 *
-	 * @return \Aimeos\Map List of IDs as keys and items implementing \Aimeos\MShop\Common\Item\Type\Iface
+	 * @return \Aimeos\Map List of IDs as keys and items implementing \Aimeos\MShop\Type\Item\Iface
 	 */
 	protected function getPropertyTypes() : \Aimeos\Map
 	{

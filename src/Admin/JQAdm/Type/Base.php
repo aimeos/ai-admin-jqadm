@@ -273,9 +273,9 @@ abstract class Base
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface New type item object
+	 * @return \Aimeos\MShop\Type\Item\Iface New type item object
 	 */
-	protected function fromArray( string $path, array $data ) : \Aimeos\MShop\Common\Item\Type\Iface
+	protected function fromArray( string $path, array $data ) : \Aimeos\MShop\Type\Item\Iface
 	{
 		$prefix = str_replace( '/', '.', $path );
 		$key = $prefix . '.type.id';
@@ -299,11 +299,11 @@ abstract class Base
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
-	 * @param \Aimeos\MShop\Common\Item\Type\Iface $item Type item object
+	 * @param \Aimeos\MShop\Type\Item\Iface $item Type item object
 	 * @param bool True if item is going to be copied, false if not
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( string $path, \Aimeos\MShop\Common\Item\Type\Iface $item, bool $copy = false )
+	protected function toArray( string $path, \Aimeos\MShop\Type\Item\Iface $item, bool $copy = false )
 	{
 		$key = str_replace( '/', '.', $path );
 		$data = $item->toArray( true );
