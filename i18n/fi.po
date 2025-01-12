@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Finnish (http://app.transifex.com/aimeos/aimeos-core/language/fi/)\n"
@@ -18,28 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr "stocktype:default"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -118,7 +100,7 @@ msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -183,7 +165,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Hae"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -579,6 +561,9 @@ msgstr ""
 msgid "Duplicate entry"
 msgstr ""
 
+msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
 msgid "E-Mail"
 msgstr "Sähköposti"
 
@@ -690,7 +675,7 @@ msgid "Find site"
 msgstr ""
 
 msgid "First"
-msgstr ""
+msgstr "Ensimmäinen"
 
 msgid "First name"
 msgstr "Etunimi"
@@ -873,9 +858,12 @@ msgid "Invalid factory \"%1$s\""
 msgstr "Virheellinen tehdas \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Lasku"
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice no."
 msgstr ""
 
 msgid "Invoice number"
@@ -906,7 +894,7 @@ msgid "Languages"
 msgstr ""
 
 msgid "Last"
-msgstr ""
+msgstr "Viimeinen"
 
 msgid "Last delivery status of the order"
 msgstr ""
@@ -932,7 +920,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "pituus"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -997,10 +985,10 @@ msgid "Minimum quantity"
 msgstr ""
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobiili"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Matkapuhelinnumero"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1018,7 +1006,7 @@ msgid "Months"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Lisää"
 
 msgid "Move this entry up/down"
 msgstr ""
@@ -1046,7 +1034,7 @@ msgid "Natural"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 msgid "New customers"
 msgstr ""
@@ -1140,7 +1128,7 @@ msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "vaihtoehto"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1377,7 +1365,7 @@ msgid "Product payment"
 msgstr ""
 
 msgid "Product price"
-msgstr ""
+msgstr "Tuotteen hinta"
 
 msgid "Product quantity"
 msgstr ""
@@ -1410,7 +1398,7 @@ msgid "Products"
 msgstr ""
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Yhdessä ostetut tuotteet"
 
 msgid "Promotion"
 msgstr ""
@@ -1494,7 +1482,7 @@ msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Vaadittu parametri \"%1$s\" puuttuu."
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
@@ -1581,6 +1569,9 @@ msgid "Save & New"
 msgstr ""
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
@@ -1722,7 +1713,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "koko"
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1896,7 +1887,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Otsikko"
 
 msgid "Toggle dropdown"
 msgstr ""
@@ -2075,7 +2066,7 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
-msgstr ""
+msgstr "Voucher"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
@@ -2097,7 +2088,7 @@ msgid "When the account and e-mail address has been verified"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "leveys"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr ""

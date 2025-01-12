@@ -1,8 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Ainārs Keišs, 2024
 # Ainārs Keišs, 2024
 # Edgars Volkovs <edgarsloskots@gmail.com>, 2020
 # Martins Nav <mveisis1@gmail.com>, 2021
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Ainārs Keišs, 2024\n"
+"Last-Translator: Martins Nav <mveisis1@gmail.com>, 2021\n"
 "Language-Team: Latvian (http://app.transifex.com/aimeos/aimeos-core/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,25 +26,7 @@ msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -55,7 +38,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -72,7 +55,7 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
@@ -80,33 +63,33 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(starptautiskais) faksimila numurs bez atdalītājzīmēm, var sākties ar \"+\"."
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(starptautiskais) tālruņa numurs bez atdalītājzīmēm, var sākties ar \"+\"."
 
 msgid "+ Tax"
 msgstr "+ Nodokļi"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<slēptas>"
 
 msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API atslēga"
 
 msgid "Account"
 msgstr "Konts"
@@ -126,13 +109,13 @@ msgstr "Pievienot"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Papildu piegādes izmaksas par katru vienību, piemēram, 20 $ par vienu smagu vienību būs 100 $ par piecām vienībām."
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Papildu informācija par to, kur var atrast klienta dzīvokli"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Papildu informācija, kur var atrast piegādātāja dzīvokli"
 
 msgid "Address 1"
 msgstr "Adrese 1"
@@ -144,29 +127,29 @@ msgid "Address 3"
 msgstr "Adrese 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Adreses identifikators klienta mājai, uz kuru tiks piegādāts sūtījums."
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Piegādātāja mājas adreses identifikators piegādei"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Admin JQAdm tips ir tukšs"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Advanced"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos kešatmiņa ir atspējota ar \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos atkļūdošanas reģistrēšana ir iespējota ar \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos objekts nav pieejams"
 
 msgid "All"
 msgstr "Visi"
@@ -174,39 +157,39 @@ msgstr "Visi"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Visi atribūti, kas unikāli raksturo izstrādājumu, piemēram, džinsu platums, garums un krāsa."
 
 msgid "Allow custom price"
 msgstr "Atļaut pielāgotu cenu"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Ļaujiet klientiem pašiem izvēlēties, cik daudz viņi vēlas maksāt."
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Burtciparu virkne, kas ļauj unikāli identificēt grupu."
 
 msgid "Apply"
-msgstr ""
+msgstr "Piesakies"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Rakstam specifiskas konfigurācijas opcijas, kas veidnēs būs pieejamas kā atslēgu/vērtību pāri."
 
 msgid "Attribute"
 msgstr "Atribūts"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Atribūtu saraksti Tips"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Atribūtu sarakstu veidi"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Atribūts Īpašums Tips"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Atribūtu īpašību tipi"
 
 msgid "Attribute Type"
 msgstr "Atribūtu tips"
@@ -218,30 +201,30 @@ msgid "Attribute position (optional)"
 msgstr "Atribūta pozīcija (neobligāti)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Atribūtu īpašības, kas nav kopīgas ar citiem atribūtiem"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Atribūta tips, kas ierobežo pieejamo atribūtu sarakstu."
 
 msgid "Attributes"
 msgstr "Atribūti"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Pieejamā valūta pašreizējā vietnē"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Pieejamie intervāli front-end lietojumprogrammā"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Pašreizējās vietnes pieejamā valoda"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Vidējais produkta vērtējums un kopējais klientu vērtējumu skaits šim produktam"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "Atgriezties noliktavā"
 
 msgid "Basic"
 msgstr "Vienkāršs"
@@ -259,16 +242,16 @@ msgid "Birthday of the customer"
 msgstr "Klienta dzimšanas diena"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Paaugstināšanas koeficients"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Paaugstināšanas koeficients (pēc izvēles)"
 
 msgid "Bug or suggestion?"
 msgstr "Kļūda vai ieteikums?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Lielgabarīta rediģēšana"
 
 msgid "Cancel"
 msgstr "Atcelt"
@@ -280,39 +263,39 @@ msgid "Catalog"
 msgstr "Katalogs"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Kataloga saraksti Tips"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Kataloga saraksti Veidi"
 
 msgid "Categories"
 msgstr "Kategorijas"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Kategorijas, kurās lietotājs var atrast produktu tīmekļa vietnē."
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Kategorijas, kurās produkts tiks parādīts reklāmas sadaļā."
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Kategorijai specifiskas konfigurācijas opcijas būs pieejamas kā atslēgu/vērtību pāri veidnēs."
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Izmaiņas izmaksās/pozīcijā %"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Izmaiņas atlaide %"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Izmaiņas vērtība %"
 
 msgid "Channel"
 msgstr "Kanāls"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Kanāls pasūtījums ir iesniegts"
 
 msgid "Choose file"
 msgstr "Izvēlēties failu"
@@ -321,19 +304,19 @@ msgid "City"
 msgstr "Pilsēta"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Pilsētas vai pilsētas nosaukums (obligāts)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "Klase \"%1$s\" neimplementē \"%2$s\"."
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Klase \"%1$s\" nav pieejama"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Klase \"%1$s\" nav atrasta"
 
 msgid "Close"
 msgstr "Aizvērt"
@@ -342,7 +325,7 @@ msgid "Code"
 msgstr "Kods"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Kods, lai unikāli identificētu vietni, pārdēvēšana ir bīstama!"
 
 msgid "Columns"
 msgstr "Kolonnas"
@@ -351,10 +334,10 @@ msgid "Comment"
 msgstr "Komentārs"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Recenzenta komentārs"
 
 msgid "Communication"
-msgstr ""
+msgstr "Saziņa"
 
 msgid "Company"
 msgstr "Uzņēmums"
@@ -366,11 +349,11 @@ msgid "Company name (optional)"
 msgstr "Uzņēmums nosaukums (neobligāts)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Pabeigtie pasūtījumi"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Pēdējo septiņu dienu laikā izpildītie pasūtījumi salīdzinājumā ar iepriekšējo periodu"
 
 msgid "Config"
 msgstr "Konfigurācija"
@@ -380,19 +363,19 @@ msgstr "Konfigurējams"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Konfigurācijas opcijas būs pieejamas kā atslēgu/vērtību pāri saraksta elementā."
 
 msgid "Context"
-msgstr ""
+msgstr "Konteksts"
 
 msgid "Copy"
 msgstr "Kopēt"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Kopēt šo ierakstu"
 
 msgid "Costs"
-msgstr ""
+msgstr "Izmaksas"
 
 msgid "Count"
 msgstr "Skaits"
@@ -409,16 +392,16 @@ msgstr "Valsts kods (obligāts)"
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Valstij noteikta nodokļa likme, lai aprēķinātu un parādītu iekļauto nodokli (B2C) vai pievienotu nodokli, ja nepieciešams (B2B)."
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Valsts valsts kods (nav obligāts)"
 
 msgid "Coupon"
-msgstr ""
+msgstr "Kupons"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Kupona pakalpojumu sniedzēja vai kupona dekoratora konfigurācijas nosaukums"
 
 msgid "Created"
 msgstr "Izveidots"
@@ -430,10 +413,10 @@ msgid "Currency"
 msgstr "Valūta"
 
 msgid "Custom"
-msgstr ""
+msgstr "Pielāgots"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Pielāgots domēns vai unikāls jūsu veikala kods"
 
 msgid "Customer"
 msgstr "Klients"
@@ -442,79 +425,79 @@ msgid "Customer ID"
 msgstr "Klienta ID"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Klientu sarakstu veids"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Klientu sarakstu veidi"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Klienta īpašuma tips"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Klientu īpašumu veidi"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Klientu īpašības, kas nav kopīgas ar citiem klientiem"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Klienta komentārs (pēc izvēles)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Klienta e-pasta adrese"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Klienta parole"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Klientu īpašības, kas netiek kopīgotas ar citiem klientiem"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Klientu atsauce"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Klienta atsauce (pēc izvēles)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Vadības panelis"
 
 msgid "Data"
-msgstr ""
+msgstr "Dati"
 
 msgid "Data set"
-msgstr ""
+msgstr "Datu kopa"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Datu kopa"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Pēdējās piegādes statusa maiņas datums"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Pēdējās maksājuma statusa maiņas datums"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Abonēšanas beigu datums"
 
 msgid "Days"
 msgstr "Dienas"
 
 msgid "Default"
-msgstr ""
+msgstr "Noklusējuma"
 
 msgid "Delete"
 msgstr "Dzēst"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Dzēst ierakstus?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Izdzēst atlasītos ierakstus"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Dzēst šo ierakstu"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Pārskatu dzēšana nav atļauta"
 
 msgid "Delivery"
 msgstr "Piegāde"
@@ -523,52 +506,52 @@ msgid "Delivery address"
 msgstr "Piegādes adrese"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Piegādes datums"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Piegāde"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Piegādes vai maksājumu izmaksas par klienta grozā esošajiem produktiem."
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Piegādes statuss"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Piegādes termiņš (pēc izvēles)"
 
 msgid "Delivery types"
 msgstr "Piegādes tipi"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Piegāde"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Atkarībā no izvēlētā datu kopuma, parādīto lauku saraksts produktam būs atšķirīgs."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Aprakstiet savu tēlu"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Teksta satura apraksts, ja tas ir svešvalodā."
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Valūtas aprakstošais nosaukums"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Valodas aprakstošais nosaukums"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Vietnes aprakstošais nosaukums"
 
 msgid "Discount"
-msgstr ""
+msgstr "Atlaide"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Rādīt palīdzības tekstus"
 
 msgid "Domain"
 msgstr "Domēns"
@@ -580,7 +563,10 @@ msgid "Download this file"
 msgstr "Lejupielādēt šo failu"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Dublējošs ieraksts"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Ieraksta dublēšana (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-pasts"
@@ -589,10 +575,10 @@ msgid "E-Mail address (required)"
 msgstr "E-pasta adrese (obligāts)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "E-pasta adrese vai konta nosaukums (obligāti)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "E-pasta adrese, ko izmanto ar veikalu saistītu e-pasta vēstuļu nosūtīšanai"
 
 msgid "E-mail"
 msgstr "E-pasts"
@@ -601,19 +587,19 @@ msgid "E-mail address (optional)"
 msgstr "E-pasta adrese (neobligāti)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "E-pasta adrese, kas pieder adresei"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU vai izstrādājuma numurs (obligāti)"
 
 msgid "Edit"
 msgstr "Labot"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Atlasīto ierakstu rediģēšana"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Rediģēt šo ierakstu"
 
 msgid "Editor"
 msgstr "Autors"
@@ -625,276 +611,279 @@ msgid "End date"
 msgstr "Beigu datums"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Beigu datums (pēc izvēles)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Ievadiet grupas ID, kodu vai etiķeti"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Ieraksts veiksmīgi dzēsts"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Ieraksts veiksmīgi saglabāts"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "ieraksta īpašās konfigurācijas opcijas, kas būs pieejamas kā atslēgu/vērtību pāri veidnēs."
 
 msgid "Error"
 msgstr "Kļūda"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Bez nodokļiem"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Spraudņu izpildes secība"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Noteikumu izpildes kārtība"
 
 msgid "Export"
-msgstr ""
+msgstr "Eksportēt"
 
 msgid "Facility"
-msgstr ""
+msgstr "Objekts"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Fakssimils"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Faksimila numurs (pēc izvēles)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Faktors, kas paaugstina produktu lietotāju meklēšanā salīdzinājumā ar citiem produktiem (>1,0 pozitīvs paaugstinājums, <1,0 negatīvs paaugstinājums)."
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Fail to write file to disk"
 
 msgid "File"
 msgstr "Fails"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Faila nav: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Failu augšupielāde apturēta pēc paplašinājuma"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Failu augšupielāde veikta veiksmīgi"
 
 msgid "Find category"
 msgstr "Meklēt kategoriju"
 
 msgid "Find site"
-msgstr ""
+msgstr "Atrast vietni"
 
 msgid "First"
-msgstr ""
+msgstr "Pirmais"
 
 msgid "First name"
 msgstr "Vārds"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Vārds (pēc izvēles)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Personas vārds, ja tas tiek lietots kultūrās, kurās tas tiek lietots."
 
 msgid "Floor"
 msgstr "Stāvs"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Stāvs / Dzīvoklis"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Stāvs un/vai dzīvoklis (pēc izvēles)"
 
 msgid "Generate"
-msgstr ""
+msgstr "Izveidot"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Izveidot attēlu"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Ģenerēt tekstu"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Dotā atlaides summa"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Pārejiet uz atribūtu paneli"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Pārejiet uz īpašuma tipa paneli"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Pārejiet uz atribūtu tipu sarakstu"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Piešķirta atlaide"
 
 msgid "Group"
 msgstr "Grupa"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Grupas nosaukums, kas apraksta, kuriem dalībniekiem grupa ir paredzēta."
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupas"
 
 msgid "Height"
 msgstr "Augstums"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Slēptie atribūti"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Slēptie produktu atribūti, kas tiek saglabāti kopā ar pasūtītajiem produktiem."
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Izceltie produkta piegādātāji"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Goda nosaukums (pēc izvēles)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Goda nosaukumi, piemēram, Dr., Ph.D. u.c."
 
 msgid "Hours"
-msgstr ""
+msgstr "Stundas"
 
 msgid "House number"
 msgstr "Mājas numurs"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Mājas numurs (pēc izvēles)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Kā klients tiek uzrunāts e-pasta vēstulēs"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Kā piegādātājs tiek uzrunāts e-pasta vēstulēs"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hiperreāls un dramatisks"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "saistītā rēķina ID, piemēram, mainīta vai atmaksāta rēķina ID."
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO valūtas kods (obligāts)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO valodas kods (obligāts)"
 
 msgid "Image"
 msgstr "Attēls"
 
 msgid "Image description"
-msgstr ""
+msgstr "Attēla apraksts"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Attēli tiks rādīti tikai attiecīgajā valodā, kas ir noderīgi, ja multivides nesējs satur tekstu vai ir specifisks valodai."
 
 msgid "Import"
 msgstr "Importēt"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Importa/eksporta darbvietas"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Ar nodokli"
 
 msgid "Info"
 msgstr "Informācija"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Ievietot jaunu ierakstu"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Ievietot jaunu ierakstu (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Iekšējais izstrādājuma nosaukums, kas tiks izmantots tīmekļa vietnē un meklēšanā tikai tad, ja nav citu izstrādājumu nosaukumu nevienā valodā."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Iekšējais raksta nosaukums, kas tiks izmantots tīmekļa vietnē, ja nav pieejams produkta nosaukums attiecīgajā valodā."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Iekšējais atribūta nosaukums, kas tiks izmantots tīmekļa vietnē, ja valodas nosaukums nav pieejams."
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Iekšējais kategorijas nosaukums, kas tiks izmantots tīmekļa vietnē, ja valodas nosaukums nav pieejams."
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Iekšējais nosaukums (obligāts)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Iekšējā tipa nosaukums, kas parādīts administrēšanas saskarnē"
 
 msgid "Interval"
 msgstr "intervāls"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Intervals (obligāts)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Nepareizas rakstzīmes klases nosaukumā \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Klienta nosaukumā \"%1$s\" ir nederīgas rakstzīmes."
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Nederīgs klases nosaukums \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Nederīgs domēns \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Nederīga rūpnīca \"%1$s\""
 
 msgid "Invoice"
 msgstr "Rēķins"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Rēķina Nr."
+
+msgid "Invoice no."
+msgstr "Rēķina Nr."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Rēķina numurs"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Pasūtījuma rēķina numurs"
 
 msgid "Label"
-msgstr ""
+msgstr "Etiķete"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Etiķete (obligāti)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Marķējums, kas apraksta intervālu, tiks izmantots, ja nav pieejams nosaukums."
 
 msgid "Language"
 msgstr "Valoda"
@@ -903,36 +892,36 @@ msgid "Language ID"
 msgstr "Valodas ID"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Ievadītā teksta valoda"
 
 msgid "Languages"
 msgstr "Valodas"
 
 msgid "Last"
-msgstr ""
+msgstr "Pēdējais"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Pēdējais pasūtījuma piegādes statuss"
 
 msgid "Last name"
 msgstr "Uzvārds"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Uzvārds (pēc izvēles)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Uzvārds (obligāts)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Personas uzvārds vai pilns vārds kultūrās, kurās netiek lietoti vārdi."
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Pasūtījuma pēdējais maksājuma statuss"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Jaunākie pasūtījumi"
 
 msgid "Length"
 msgstr "Garums"
@@ -940,207 +929,207 @@ msgstr "Garums"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Izstrādājumu saraksts, kas jāpārdod kā viens produkts, bieži vien par pazeminātu cenu."
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Bieži kopā pirkto produktu saraksts"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Ierosināto produktu saraksts"
 
 msgid "List type"
-msgstr ""
+msgstr "Saraksta tips"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Ierakstu ielādēšana ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "Vietne"
 
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Manuāla pārsūtīšana"
 
 msgid "Map"
-msgstr ""
+msgstr "Karte"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Mediju saraksti Veids"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Mediju sarakstu veidi"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Multivides īpašumu tips"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Multivides īpašību veidi"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Multivides veids"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Mediju veidi"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Mediju īpašības"
 
 msgid "Menu"
-msgstr ""
+msgstr "Izvēlne"
 
 msgid "Message"
-msgstr ""
+msgstr "Ziņa"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Minimālais daudzums"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Minimālais daudzums"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobilais"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobilā tālruņa numurs"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Mobilā tālruņa numurs (pēc izvēles)"
 
 msgid "Model"
-msgstr ""
+msgstr "Modelis"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Modificēts"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificēts"
 
 msgid "Months"
 msgstr "Mēneši"
 
 msgid "More"
-msgstr ""
+msgstr "Vairāk"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Pārvietot šo ierakstu uz augšu/uz leju"
 
 msgid "Name"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Nosaukums URL adresē (pēc izvēles)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Groza nosaukums"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Lejupielādētā faila nosaukums, kad klienti saglabā failu savā datorā."
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Recenzenta vārds un uzvārds"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Jūsu veikala nosaukums, kas tiek rādīts jūsu klientiem"
 
 msgid "Natural"
-msgstr ""
+msgstr "Dabas"
 
 msgid "New"
 msgstr "Jauns"
 
 msgid "New customers"
-msgstr ""
+msgstr "Jauni klienti"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Jauni klienti pēdējo septiņu dienu laikā"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Jauni klienti pēdējo septiņu dienu laikā salīdzinājumā ar iepriekšējo periodu"
 
 msgid "Next"
-msgstr ""
+msgstr "Nākamais"
 
 msgid "Next date"
-msgstr ""
+msgstr "Nākamais datums"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Nākamais datums (pēc izvēles)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Nākamais datums, kad abonements tiek atjaunots"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Valūtas nav pieejamas. Lūdzu, iespējojiet vismaz vienu valūtu"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Nav atrasts neviens ieraksts"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Nav augšupielādēts neviens fails"
 
 msgid "No product found"
-msgstr ""
+msgstr "Nav atrasts neviens produkts"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Nav pieejamas tēmas opcijas"
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Skats nav pieejams"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Nav kupona"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Nesadalītās multivides elementa īpašības"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Cenas vienuma nedalītās īpašības"
 
 msgid "None"
-msgstr ""
+msgstr "Nav"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Ne visus ierakstus var dzēst"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Nav atļauts piekļūt JQAdm \"%1$s\" klientam"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Nav īstenots"
 
 msgid "Notes"
-msgstr ""
+msgstr "Piezīmes"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Piezīmes (klientam netiek rādītas)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Pašlaik noliktavā esošo izstrādājumu skaits, atstājiet tukšu, ja daudzums ir neierobežots."
 
 msgid "OK"
-msgstr ""
+msgstr "LABI"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Oficiālais PVN maksātāja identifikācijas numurs, lai noteiktu, vai nodoklis ir jāiekļauj rēķinos."
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Viens pakalpojumu sniedzējs un nulle vai vairāki dekoratoru klases nosaukumi, kas atdalīti ar komatiem."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Ierakstus var dzēst tikai superlietotāji un administratori."
 
 msgid "Open"
-msgstr ""
+msgstr "Atvērt"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Atvērt Daudzums"
 
 msgid "Option"
 msgstr "Opcija"
@@ -1148,7 +1137,7 @@ msgstr "Opcija"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Papildu produkta sastāvdaļas, ko klients var izvēlēties kopā ar produktu."
 
 msgid "Order"
 msgstr "Pasūtījums"
@@ -1157,51 +1146,51 @@ msgid "Order ID"
 msgstr "Pasūtījuma ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Klienta ievadītais pasūtījuma numurs"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Valodu/valūtu kombināciju secība"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Pakalpojumu iespēju secība izrakstīšanās procesā"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Veidu secība frontendā"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Pasūtījumu kopsummas"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Pasūtīts"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Pasūtījumi pēc valsts"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Pasūtījumi pa dienām"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Pasūtījumi pa stundām"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Pasūtījumi pēc maksājuma statusa"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Pārrakstīt esošo failu, un klienti, kas to iegādājušies agrāk, var lejupielādēt arī jauno saturu."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP iestatījums \"%1$s\" ir atspējots"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP iestatījums \"%1$s\" ir ieslēgts"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "PHP iestatījums \"%1$s\" ir pārāk zems"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1211,173 +1200,173 @@ msgid "Password"
 msgstr "Parole"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Parole (obligāti)"
 
 msgid "Path"
-msgstr ""
+msgstr "Ceļš"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Maksājuma datums"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Atalgojuma statuss"
 
 msgid "Payment"
 msgstr "Apmaksa"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Maksājuma datums"
 
 msgid "Payment status"
 msgstr "Maksājuma statuss"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Maksājumu veidi"
 
 msgid "Periods"
-msgstr ""
+msgstr "Periodi"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Atļauja liegta"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Personas dati"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Lūdzu, ievietojiet šeit ģenerējamā teksta aprakstu."
 
 msgid "Please select"
-msgstr ""
+msgstr "Lūdzu, izvēlieties"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Spraudnis"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Spraudņa tips"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Spraudņu tipi"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Spraudņa etiķete konfigurētā spraudņa aprakstam"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Spraudņa pozīcija (obligāti)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Spraudņa nodrošinātāja vai spraudņa dekoratora konfigurācijas nosaukums"
 
 msgid "Position"
-msgstr ""
+msgstr "Pozīcija"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Amats (obligāti)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Pasts"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Pasta indekss piegādei, ja to izmanto teritorijā, kurā dzīvo klients."
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Pasta indekss piegādei, ja tas tiek izmantots piegādātāja dzīvesvietas apgabalā."
 
 msgid "Postition"
-msgstr ""
+msgstr "Amats"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Iespējamās problēmas"
 
 msgid "Previous"
-msgstr ""
+msgstr "Iepriekšējais"
 
 msgid "Price"
 msgstr "Cena"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Cenrāži Tips"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Cenrāžu veidi"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Cena Īpašuma veids"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Cena Īpašuma veidi"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Cenas veids"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Cenu veidi"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Cenu īpašības"
 
 msgid "Priority"
-msgstr ""
+msgstr "Prioritāte"
 
 msgid "Problem"
-msgstr ""
+msgstr "Problēma"
 
 msgid "Product"
 msgstr "Produkts"
 
 msgid "Product ID"
-msgstr ""
+msgstr "Produkta ID"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Produkta ID, SKU vai etiķete"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Produktu saraksti Tips"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Produktu sarakstu veidi"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Produkta īpašība Tips"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Produktu īpašību veidi"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Produkta veids"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Produktu veidi"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Grozā saglabāti produktu atribūti, kuros klienti var ievadīt savus tekstus vai vērtības."
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Produkta atribūti, kurus izmanto arī citi produkti"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Produkta īpašības, kas nav kopīgas ar citiem produktiem"
 
 msgid "Product code"
-msgstr ""
+msgstr "Produkta kods"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Produktu izmaksas"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Izstrādājuma augstums, piemēram, 20,0 (jardos, collas utt.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Izstrādājuma garums, piemēram, 30,0 (metros, collas utt.)"
 
 msgid "Product name"
 msgstr "Produkta nosaukums"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Produkta apmaksa"
 
 msgid "Product price"
 msgstr "Produkta cena"
@@ -1386,190 +1375,190 @@ msgid "Product quantity"
 msgstr "Produkta daudzums"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Produkta atlaide"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Produkta piegāde"
 
 msgid "Product status"
-msgstr ""
+msgstr "Produkta statuss"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Produkta piegādātājs"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Preces nodoklis"
 
 msgid "Product type"
-msgstr ""
+msgstr "Produkta veids"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Produkta svars, piemēram, 1,25 (mārciņa, unce utt.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Izstrādājuma platums, piemēram, 17,5 (metros, collas utt.)"
 
 msgid "Products"
 msgstr "Produkti"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Kopā iegādāti produkti"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Veicināšana"
 
 msgid "Properties"
-msgstr ""
+msgstr "Īpašības"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Īpašuma vērtība (obligāti)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Nodrošinātājs"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Nodrošinātāja/dekoratora klases nosaukumi (obligāti)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Pirkums"
 
 msgid "Quantity"
 msgstr "Daudzums"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Daudzuma skala"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Rabate"
 
 msgid "Rating"
-msgstr ""
+msgstr "Vērtējums"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Tirgotāja vērtējums un vērtējumu skaits"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Recenzenta vērtējums"
 
 msgid "Reason"
 msgstr "Iemesls"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Atlaide"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Samazinājums no sākotnējās cenas, ko izmanto, lai aprēķinātu atlaidi % un savstarpējo cenu."
 
 msgid "Reference"
-msgstr ""
+msgstr "Atsauce"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Atsauces ID"
 
 msgid "Refund"
-msgstr ""
+msgstr "Atmaksa"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Saistīts ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "Saistīts pasūtījums"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Saistītā pasūtījuma ID (pēc izvēles)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Saistīts klienta pasūtījums"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Fona noņemšana"
 
 msgid "Renew"
 msgstr "Atjaunot"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Aizstāt failu"
 
 msgid "Request"
-msgstr ""
+msgstr "Pieprasījums"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Trūkst obligātā parametra \"%1$s\"."
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Nepieciešamais rakstu daudzums, lai noteiktu grupveida cenu, piemēram, viens raksts par 5,00 $, desmit raksti par 45,00 $."
 
 msgid "Reset"
-msgstr ""
+msgstr "Atiestatīt"
 
 msgid "Response"
-msgstr ""
+msgstr "Atbildes"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Atbilde recenzentam"
 
 msgid "Review"
-msgstr ""
+msgstr "Pārskats"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Pārskatītais ieraksts"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Recenzenta nosaukums"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Maršruta nosaukums vai kategorijas lapas ID, ja šai kategorijai jābūt redzamai citā lapā."
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Maršruta nosaukums vai izstrādājuma detalizētās lapas ID, ja šis izstrādājums jānorāda citā lapā."
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Maršruta vai lapas ID (pēc izvēles)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Noteikums"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Noteikuma veids"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Noteikumu veidi"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Noteikuma etiķete konfigurētā noteikuma aprakstam"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Noteikuma pozīcija (obligāti)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Noteikumu nodrošinātāja vai noteikumu dekoratora konfigurācijas nosaukums"
 
 msgid "Rules"
-msgstr ""
+msgstr "Noteikumi"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Pārdošana pa nedēļas dienām"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Pēdējo 30 dienu pārdošanas apjomi"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Pārdošana mēnesī"
 
 msgid "Salutation"
-msgstr ""
+msgstr "Sveiciens"
 
 msgid "Save"
 msgstr "Saglabāt"
@@ -1581,514 +1570,517 @@ msgid "Save & Copy"
 msgstr "Saglabāt un kopēt"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Saglabāt un jauns"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Ieraksta saglabāšana (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Ieraksta saglabāšana (Ctrl+S)"
 
 msgid "Search"
 msgstr "Meklēt"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Otrā līmeņa ierakstu grupēšanas veids"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Atlasiet visus ierakstus"
 
 msgid "Select file"
-msgstr ""
+msgstr "Izvēlieties failu"
 
 msgid "Service"
-msgstr ""
+msgstr "Pakalpojums"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Pakalpojumu saraksti Tips"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Pakalpojumu sarakstu veidi"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Pakalpojuma veids"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Pakalpojumu veidi"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Pakalpojuma atribūta kods"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Pakalpojumu izmaksas"
 
 msgid "Service name"
-msgstr ""
+msgstr "Pakalpojuma nosaukums"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Dienesta pozīcija (obligāti)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Pakalpojuma cena"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Pakalpojumu sniedzēja vai pakalpojumu dekoratora konfigurācijas nosaukums"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Pakalpojumu atlaide"
 
 msgid "Settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Nosūtīšanas datums"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Kuģa statuss"
 
 msgid "Shipping"
 msgstr "Piegāde"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Piegāde / Maksājumu izmaksas"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Piegādes/apmaksas izmaksas"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Piegāde/prece"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Veikala domēns"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Veikala domēns (obligāts)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Veikala e-pasts"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Veikala e-pasta adrese (obligāti)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Veikala nosaukums"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Veikala nosaukums (obligāts)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Veikala tēma"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Īss štata kods (piemēram, NY), ja tas tiek izmantots valstī, kurā klients dzīvo."
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Īss štata kods (piemēram, NY), ja tas tiek izmantots valstī, kurā dzīvo piegādātājs."
 
 msgid "Show"
 msgstr "Parādīt"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Rādīt ierakstu"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Rādīt meklēšanas veidlapu"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Rādīt/noslēpt papildu datus"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Rādīt/noslēpt informāciju"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Rādīt/noslēpt navigācijas etiķetes"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Rādīt/noslēpt šo ierakstu"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Parādīts, ja izstrādājums sasniedzis nulles krājumu līmeni."
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Kopš brīža, kad produkts ir pieejams, tiek izmantots šķirošanai front-end lietojumprogrammā."
 
 msgid "Site"
-msgstr ""
+msgstr "Vietne"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Vietnei specifiskas konfigurācijas opcijas būs pieejamas kā atslēgu/vērtību pāri."
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Vietne, kurā tika veikts pasūtījums"
 
 msgid "Sites"
-msgstr ""
+msgstr "Vietnes"
 
 msgid "Size"
 msgstr "Izmērs"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Atribūtu šķirošana viena atribūtu tipa ietvaros"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Piegādātāju šķirošana"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Rēķina avots, piemēram, tīmeklī vai pa tālruni."
 
 msgid "Start date"
-msgstr ""
+msgstr "Sākuma datums"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Sāciet rakstīt ..."
 
 msgid "State"
-msgstr ""
+msgstr "Valsts"
 
 msgid "Status"
 msgstr "Statuss"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Krājumu veids"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Krājumu veidi"
 
 msgid "Stock level"
-msgstr ""
+msgstr "Krājumu līmenis"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Krājumu veids"
 
 msgid "Street"
 msgstr "Iela"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Ielas nosaukums (pēc izvēles)"
 
 msgid "Style"
-msgstr ""
+msgstr "Stils"
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Starpsumma"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Abonements"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Abonēšanas intervāls ar gadiem, mēnešiem, nedēļām un dienām, piemēram, \"P0Y1M2W3D\" - nulle gadu, viens mēnesis, divas nedēļas un trīs dienas."
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Ieteicamie produkti"
 
 msgid "Sum"
-msgstr ""
+msgstr "Summa"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Piegādātājs"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Piegādātāja nosaukums vai uzņēmums"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Piegādātāja pozīcija (obligāti)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Piegādātāji, kas ražo produktu"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Birkas veids"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Marķējuma veidi"
 
 msgid "Tax"
-msgstr ""
+msgstr "Nodokļi"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Nodokļu likme"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "Nodokļu likme %"
 
 msgid "Telephone"
 msgstr "Tālrunis"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Tālruņa numurs (pēc izvēles)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Trūkst pagaidu mapes"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Teksta saraksti Veids"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Teksta sarakstu veidi"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Teksta veids"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Teksta veidi"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Raksts tīmekļa vietnē tiek parādīts tikai pēc šī datuma un laika, noderīgi vai sezonāli raksti."
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Raksts tīmekļa vietnē tiek rādīts tikai līdz minētajam datumam un laikam, noderīgi vai sezonāli raksti."
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Ieraksts tīmekļa vietnē tiek parādīts tikai pēc šī datuma un laika."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Ieraksts tīmekļa vietnē tiek rādīts tikai līdz minētajam datumam un laikam."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Multivides nosaukums tiek izmantots tīmekļa vietnes multivides nosaukuma birkā."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Ja nav valodai specifiska URL segmenta, tiks izmantots URL norādītās kategorijas nosaukums."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Ja nav valodai specifiska URL segmenta, tiks izmantots URL parādītā produkta nosaukums."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Šī iespēja tīmekļa vietnē tiek parādīta tikai pēc minētā datuma un laika."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Iespēja tīmekļa vietnē tiek rādīta tikai līdz minētajam datumam un laikam."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Noteikums tiek izmantots tikai pēc šī datuma un laika."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Noteikums tiek izmantots tikai līdz minētajam datumam un laikam."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Kāpiena vērtība, kas atļauta daudzumiem grozā, piemēram, \"0,1\" daļskaitļa daudzumiem vai \"5\" piecu izstrādājumu reizinājumam."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Augšupielādētais fails pārsniedz maksimālo atļauto faila izmēru"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Augšupielādētais fails tika augšupielādēts tikai daļēji."
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Tēma, lai mainītu veikala izkārtojumu"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Trīs burtu ISO valūtas kods"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Termiņš (pēc izvēles)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Laika zīmogs"
 
 msgid "Title"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Pārslēgt nolaižamo logu"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Toogle atlase"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Top valstis"
 
 msgid "Total"
 msgstr "Kopā"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Kopējais pasūtījumu skaits"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Kopējais pasūtījumu skaits pēdējo septiņu dienu laikā salīdzinājumā ar iepriekšējo periodu"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Kopējais vērtējumu skaits"
 
 msgid "Translate text"
 msgstr "Tulkot tekstu"
 
 msgid "Translations"
-msgstr ""
+msgstr "Tulkojumi"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "Divu burtu ISO valsts kods"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Divu burtu ISO valodas kods"
 
 msgid "Type"
 msgstr "Tips"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Ierakstiet pozīciju (pēc izvēles)"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Papildu attēlu, piemēram, ikonu, veidi"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Papildu cenu veidi, piemēram, par vienu lb/kg vai mēnesī"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Papildu tekstu veidi, piemēram, par vienu lb/kg vai mēnesī"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "Klienta tīmekļa vietnes URL"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "Piegādātāja tīmekļa vietnes URL"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL segments"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL mērķis"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Nevar izsaukt metodi \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Nevar nolasīt saturu no \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Nepabeigtie pasūtījumi"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Nepabeigtie pasūtījumi pēdējo septiņu dienu laikā salīdzinājumā ar iepriekšējo periodu"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "unikāls izstrādājuma kods, kas saistīts ar krājumu līmeni, piemēram, no ERP sistēmas, EAN/GTIN numurs vai paša izdomāts kods."
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Unikālais atribūta kods (obligāts)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Unikāls atribūta kods, piemēram, \"green\" tipa \"color\" atribūtiem."
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Unikāls kategorijas kods (obligāts)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Unikāls kategorijas kods no ārējās sistēmas vai paša izstrādāts."
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Unikālais kods (obligāts)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Unikāls kods pakalpojuma identificēšanai, parasti pašu izgudrots."
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Unikāls klienta konta nosaukums"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Unikāla klienta e-pasta adrese"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Unikāls grupas kods (obligāts)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Unikāls pakalpojuma kods (obligāts)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Unikālais vietnes kods (obligāts)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Unikāls piegādātāja kods"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Unikāls tipa kods"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Unikālais tipa kods (obligāts)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Unikāls tipa kods, piemēram, \"color\" tādiem atribūtiem kā \"green\", \"blue\", \"red\"."
 
 msgid "Unit price"
-msgstr ""
+msgstr "Vienības cena"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Nezināma augšupielādes kļūda"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV augšupielāde"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Augšupielādēt veikala ikonu"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Augšupielādēt veikala logotipu"
 
 msgid "Uploaded"
 msgstr "Augšupielādēts"
 
 msgid "Use"
-msgstr ""
+msgstr "Izmantojiet"
 
 msgid "User groups"
-msgstr ""
+msgstr "Lietotāju grupas"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Parastais produkta piegādes termiņš"
 
 msgid "VAT ID"
 msgstr "PVN maksātāja numurs"
 
 msgid "Value"
-msgstr ""
+msgstr "Vērtība"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Pievienotās vērtības nodokļa identifikators (pēc izvēles)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Variantu atribūti"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Variantu produktu atribūti, kas tiek saglabāti kopā ar pasūtītajiem produktiem."
 
 msgid "Vendor"
-msgstr ""
+msgstr "Pārdevējs"
 
 msgid "Verified"
-msgstr ""
+msgstr "Pārbaudīts"
 
 msgid "View details"
-msgstr ""
+msgstr "Skatīt informāciju"
 
 msgid "Voucher"
-msgstr ""
+msgstr "Kupons"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Noliktava vai vietējais veikals, ja jūsu izstrādājumi ir pieejami vairākās vietās."
 
 msgid "Web site"
-msgstr ""
+msgstr "Tīmekļa vietne"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "Tīmekļa vietnes URL (pēc izvēles)"
 
 msgid "Weeks"
 msgstr "Nedēļas"
@@ -2097,39 +2089,39 @@ msgid "Weight"
 msgstr "Svars"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Kad konts un e-pasta adrese ir verificēta."
 
 msgid "Width"
 msgstr "Platums"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "GGGGG-MM-DD hh:mm:ss (pēc izvēles)"
 
 msgid "Years"
-msgstr ""
+msgstr "Gadi"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Jūs dzēsīsiet vienu vai vairākus ierakstus. Vai vēlaties turpināt?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Pēc dažām minūtēm jūsu eksports būs pieejams lejupielādei."
 
 msgid "Your response"
-msgstr ""
+msgstr "Jūsu atbilde"
 
 msgid "Zip code"
 msgstr "Pasta indekss"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Pasta indekss (pēc izvēles)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "konts"
 
 #, php-format
 msgid "address"
@@ -2143,7 +2135,7 @@ msgstr "Norēķinu adrese"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2151,11 +2143,11 @@ msgstr "Atribūti"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "grozs"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "komplekts"
 
 #, php-format
 msgid "catalog"
@@ -2171,30 +2163,30 @@ msgstr "Raksturlielumi"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "kods"
 
 msgid "company"
 msgstr "Uzņēmums"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "konfigurācija"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "valsts"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "Countday"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "stundu"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
@@ -2202,23 +2194,23 @@ msgstr "Kuponi"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "klients"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "instrumentu panelis"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "diena"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "piegādes veids"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "lejupielādēt"
 
 #, php-format
 msgid "goods"
@@ -2226,11 +2218,11 @@ msgstr "Katalogs"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "grupa"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "stundu"
 
 #, php-format
 msgid "image"
@@ -2238,7 +2230,7 @@ msgstr "Attēli"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "rēķins"
 
 #, php-format
 msgid "latest"
@@ -2246,7 +2238,7 @@ msgstr "Jaunākie"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "vietne"
 
 #, php-format
 msgid "locale/currency"
@@ -2258,43 +2250,43 @@ msgstr "Valodas"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "vietne/vietne"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "mārketings"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "plašsaziņas līdzekļi"
 
 msgid "miss"
-msgstr ""
+msgstr "."
 
 msgid "mr"
-msgstr ""
+msgstr "mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "mrs"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "jauns"
 
 msgid "no"
 msgstr "nē"
 
 msgid "none"
-msgstr ""
+msgstr "nav"
 
 msgid "not available any more"
-msgstr ""
+msgstr "vairs nav pieejams"
 
 #, php-format
 msgid "option"
@@ -2308,50 +2300,50 @@ msgid "order:phone"
 msgstr "tālrunis"
 
 msgid "order:web"
-msgstr ""
+msgstr "pasūtījums:web"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "alga: -1"
 
 msgid "pay:0"
 msgstr "dzēsts"
 
 msgid "pay:1"
-msgstr ""
+msgstr "maksāt: 1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "maksāt: 2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "maksāt: 3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "maksāt: 4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "maksāt: 5"
 
 msgid "pay:6"
 msgstr "saņemts"
 
 msgid "pay:7"
-msgstr ""
+msgstr "maksāt: 7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "paymentstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "maksājuma veids"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "fiziskā"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "spraudnis"
 
 #, php-format
 msgid "price"
@@ -2363,32 +2355,32 @@ msgstr "Produkti"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "īpašums"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "quick/countcompleted"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "quick/counttotal"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "quick/countunfinished"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "iemesls:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "iemesls:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "iemesls: 1"
 
 #, php-format
 msgid "related"
@@ -2400,22 +2392,22 @@ msgstr "Atsauksmes"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "noteikums"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "pārdošana"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "pārdošanas nedēļas diena"
 
 msgid "selected"
-msgstr ""
+msgstr "atlasīts"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "atlase"
 
 #, php-format
 msgid "service"
@@ -2423,98 +2415,98 @@ msgstr "Servisi"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "apkalpotipiegāde"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "pakalpojumu apmaksa"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "iestatījumi"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "iestatīšana"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "īpašs"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "Statistika:-1"
 
 msgid "stat:0"
 msgstr "dzēsts"
 
 msgid "stat:1"
-msgstr ""
+msgstr "statistika: 1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "stat: 2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "stat: 3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "stat: 4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "stat: 5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "statuss: 6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "statuss: 7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "statuss:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "statuss:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "statuss:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "statuss:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "statuss:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "krājums"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Abonēšana"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Piegādātāji"
 
 msgid "tag"
-msgstr ""
+msgstr "birka"
 
 msgid "tax:0"
-msgstr ""
+msgstr "nodoklis:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "nodoklis: 1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "teksts"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "tēma"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "darījums"
 
 #, php-format
 msgid "type"
@@ -2526,39 +2518,39 @@ msgstr "Atribūti"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribute/lists"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "tips/atribūts/īpašība"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "type/catalog/lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/customer/lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "tips/klients/īpašums"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "tips/mediji"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/properties"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "tips/plugin"
 
 #, php-format
 msgid "type/price"
@@ -2566,11 +2558,11 @@ msgstr "Cenas"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "tips/cena/cenas/sezonas"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "tips/cena/īpašība"
 
 #, php-format
 msgid "type/product"
@@ -2582,11 +2574,11 @@ msgstr "Produktu saraksts"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "tips/produkts/īpašība"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "tips/noteikums"
 
 #, php-format
 msgid "type/service"
@@ -2594,27 +2586,27 @@ msgstr "Servisi"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "tips/pakalpojums/saraksti"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "tips/krājumi"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "tips/marķējums"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "tips/teksts"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "type/text/lists"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "lietotāji"
 
 msgid "yes"
 msgstr "jā"

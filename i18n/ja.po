@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Aimeos, 2018
 # Aimeos, 2018
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -21,29 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr "ストックタイプ：デフォルト"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -97,16 +79,16 @@ msgid ""
 msgstr "(国際)電話番号は分離文字なし、\"+\"で始めることができます。"
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ 消費税"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<隠された"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "APIキー"
 
 msgid "Account"
 msgstr "アカウント"
@@ -115,7 +97,7 @@ msgid "Active"
 msgstr "能動"
 
 msgid "Actual price"
-msgstr ""
+msgstr "実勢価格"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "顧客がウェブサイト上で記事を購入することができる実際の価格"
@@ -158,11 +140,11 @@ msgstr "進歩した"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos のキャッシュは \"%1$s\" で無効になっています。"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos デバッグ・ロギングは \"%1$s\" で有効になっています。"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -186,7 +168,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "グループを一意に識別できる英数字の文字列"
 
 msgid "Apply"
-msgstr ""
+msgstr "応募する"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -221,7 +203,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr "他の属性と共有されない属性プロパティ"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "利用可能な属性のリストを制限する属性タイプ"
 
 msgid "Attributes"
 msgstr "属性"
@@ -238,7 +220,7 @@ msgstr "現在のサイトで利用可能な言語"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "この商品に対するお客様の平均評価と総評価数"
 
 msgid "Back in stock"
 msgstr "再入荷"
@@ -259,16 +241,16 @@ msgid "Birthday of the customer"
 msgstr "顧客の誕生日"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "ブースト係数"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "ブースト係数（オプション）"
 
 msgid "Bug or suggestion?"
 msgstr "バグや提案?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "一括編集"
 
 msgid "Cancel"
 msgstr "キャンセル"
@@ -300,19 +282,19 @@ msgid ""
 msgstr "カテゴリ固有の設定オプションは、テンプレートのキーと値のペアとして使用できます"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "コスト/項目の変更率"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "リベート変更率"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "変化率"
 
 msgid "Channel"
-msgstr ""
+msgstr "チャンネル"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "注文のチャンネル"
 
 msgid "Choose file"
 msgstr "ファイルを選ぶ"
@@ -351,7 +333,7 @@ msgid "Comment"
 msgstr "コメント"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "評者のコメント"
 
 msgid "Communication"
 msgstr "コミュニケーション"
@@ -366,11 +348,11 @@ msgid "Company name (optional)"
 msgstr "会社名（オプション）"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "完了した注文"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "直近7日間の注文完了数とその前の期間の比較"
 
 msgid "Config"
 msgstr "設定"
@@ -383,7 +365,7 @@ msgid ""
 msgstr "設定オプションは、リスト項目のキー/値のペアとして使用できます"
 
 msgid "Context"
-msgstr ""
+msgstr "コンテクスト"
 
 msgid "Copy"
 msgstr "コピー"
@@ -433,7 +415,7 @@ msgid "Custom"
 msgstr "関税"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "カスタムドメインまたはショップ独自のコード"
 
 msgid "Customer"
 msgstr "顧客"
@@ -454,7 +436,7 @@ msgid "Customer Property Types"
 msgstr "顧客プロパティタイプ"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "他の顧客と共有されていない顧客特性"
 
 msgid "Customer comment (optional)"
 msgstr "顧客コメント（オプション）"
@@ -469,22 +451,22 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "他の顧客と共有されていない顧客のプロパティ"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "お客様の声"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "カスタマー・レファレンス（オプション）"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
 msgid "Data"
-msgstr ""
+msgstr "データ"
 
 msgid "Data set"
-msgstr ""
+msgstr "データセット"
 
 msgid "Dataset"
-msgstr ""
+msgstr "データ集合"
 
 msgid "Date of the last delivery status change"
 msgstr "最後の配達日のステータス変化"
@@ -505,16 +487,16 @@ msgid "Delete"
 msgstr "削除"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "エントリーを削除しますか？"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "選択したエントリーを削除する"
 
 msgid "Delete this entry"
 msgstr "このエントリを削除する"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "レビューの削除は禁止されています"
 
 msgid "Delivery"
 msgstr "配達"
@@ -526,31 +508,31 @@ msgid "Delivery date"
 msgstr "配達日"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "配送先"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "お客様のバスケット内の商品の配送料または支払費用"
 
 msgid "Delivery status"
 msgstr "配達状況"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "納期（オプション）"
 
 msgid "Delivery types"
 msgstr "配達タイプ"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "納期"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "選択したデータセットによって、表示されるフィールドのリストは異なります。"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "あなたのイメージ"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "テキストコンテンツが外国語である場合の説明"
@@ -565,10 +547,10 @@ msgid "Descritive name of the site"
 msgstr "サイトの記述名"
 
 msgid "Discount"
-msgstr ""
+msgstr "割引"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "ヘルプテキストの表示"
 
 msgid "Domain"
 msgstr "ドメイン"
@@ -580,7 +562,10 @@ msgid "Download this file"
 msgstr "このファイルをダウンロードする"
 
 msgid "Duplicate entry"
-msgstr "複製のエントリ"
+msgstr "重複エントリー"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "複製のエントリ (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "メール"
@@ -589,10 +574,10 @@ msgid "E-Mail address (required)"
 msgstr "電子メールアドレス（必須）"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "メールアドレスまたはアカウント名（必須）"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "ショップ関連メール送信用メールアドレス"
 
 msgid "E-mail"
 msgstr "電子メイル"
@@ -610,7 +595,7 @@ msgid "Edit"
 msgstr "編集"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "選択したエントリーを編集する"
 
 msgid "Edit this entry"
 msgstr "このエントリを編集する"
@@ -628,18 +613,18 @@ msgid "End date (optional)"
 msgstr "終了日（オプション）"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "グループID、コード、またはラベルを入力"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "エントリー削除成功"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "エントリーは正常に保存された"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "エントリー固有のコンフィギュレーション・オプションは、テンプレート内でキーと値のペアとして利用できる。"
 
 msgid "Error"
 msgstr "エラー"
@@ -651,7 +636,7 @@ msgid "Execution order of the plugins"
 msgstr "プラグインの実行順序"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "ルールの実行順序"
 
 msgid "Export"
 msgstr "輸出"
@@ -668,29 +653,29 @@ msgstr "ファクシミリ番号（オプション）"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "ユーザー検索において、他の製品よりも製品を押し上げる要因（1.0以上のポジティブブースト、1.0未満のネガティブブースト）"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ディスクへのファイル書き込みに失敗"
 
 msgid "File"
 msgstr "ファイル"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "ファイルが存在しません：\"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "ファイルアップロードが拡張子で停止"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "ファイルのアップロードに成功"
 
 msgid "Find category"
 msgstr "カテゴリを検索"
 
 msgid "Find site"
-msgstr ""
+msgstr "サイト検索"
 
 msgid "First"
 msgstr "最初"
@@ -714,28 +699,28 @@ msgid "Floor and/or apartment (optional)"
 msgstr "階および/またはアパート（オプション）"
 
 msgid "Generate"
-msgstr ""
+msgstr "生成する"
 
 msgid "Generate image"
-msgstr ""
+msgstr "画像を生成する"
 
 msgid "Generate text"
-msgstr ""
+msgstr "テキストの生成"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "所定のリベート額"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "属性パネルへ"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "プロパティ・タイプ・パネルへ"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "属性タイプのリストへ"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "リベート付与"
 
 msgid "Group"
 msgstr "グループ"
@@ -744,7 +729,7 @@ msgid "Group name describing for which members the group is for"
 msgstr "グループが属するメンバーを記述するグループ名"
 
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 msgid "Height"
 msgstr "高さ"
@@ -756,7 +741,7 @@ msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されている非表示の商品属性"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "製品の注目サプライヤー"
 
 msgid "Honorary title (optional)"
 msgstr "名誉称号 (オプション)"
@@ -765,7 +750,7 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Dr.、Ph.Dなどの名誉称号"
 
 msgid "Hours"
-msgstr ""
+msgstr "時間"
 
 msgid "House number"
 msgstr "家屋番号"
@@ -780,7 +765,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "サプライヤが電子メールでどのように宛てられますか"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "超リアルでドラマチック"
 
 msgid "ID"
 msgstr "ID"
@@ -795,15 +780,15 @@ msgid "ISO language code (required)"
 msgstr "ISO言語コード（必須）"
 
 msgid "Image"
-msgstr ""
+msgstr "画像"
 
 msgid "Image description"
-msgstr ""
+msgstr "画像説明"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "画像はその言語のものだけが表示されます。メディアにテキストが含まれていたり、言語が特定されている場合に便利です。"
 
 msgid "Import"
 msgstr "輸入"
@@ -879,13 +864,16 @@ msgid "Invoice"
 msgstr "請求書"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "請求書番号"
+
+msgid "Invoice no."
+msgstr "請求書番号"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "インボイス番号"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "注文のインボイス番号"
 
 msgid "Label"
 msgstr "ラベル"
@@ -918,7 +906,7 @@ msgid "Last name"
 msgstr "名字"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "姓（任意）"
 
 msgid "Last name (required)"
 msgstr "名字（必須）"
@@ -952,7 +940,7 @@ msgid "List type"
 msgstr "リストタイプ"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "エントリーを読み込む ..."
 
 msgid "Locale"
 msgstr "ロケール"
@@ -961,10 +949,10 @@ msgid "Log"
 msgstr "ログ"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "マニュアル・トランスファー"
 
 msgid "Map"
-msgstr ""
+msgstr "地図"
 
 msgid "Media Lists Type"
 msgstr "メディアリストタイプ"
@@ -988,28 +976,28 @@ msgid "Media properties"
 msgstr "メディアプロパティ"
 
 msgid "Menu"
-msgstr ""
+msgstr "メニュー"
 
 msgid "Message"
 msgstr "メッセージ"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "最小数量"
 
 msgid "Minimum quantity"
 msgstr "最小数量"
 
 msgid "Mobile"
-msgstr ""
+msgstr "モバイル"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "携帯電話番号"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "携帯電話番号（任意）"
 
 msgid "Model"
-msgstr ""
+msgstr "モデル"
 
 msgid "Modifed"
 msgstr "変更された"
@@ -1030,35 +1018,35 @@ msgid "Name"
 msgstr "名前"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "URL内の名前（オプション）"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "バスケットの名前"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "顧客がファイルをコンピュータに保存したときにダウンロードしたファイルの名前"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "レビュアー名"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "顧客に表示される店名"
 
 msgid "Natural"
-msgstr ""
+msgstr "ナチュラル"
 
 msgid "New"
 msgstr "新しい"
 
 msgid "New customers"
-msgstr ""
+msgstr "新規顧客"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "直近7日以内の新規顧客"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "直近7日間の新規顧客数（前年同期比"
 
 msgid "Next"
 msgstr "次"
@@ -1073,19 +1061,19 @@ msgid "Next date the subscription is renewed"
 msgstr "次回のサブスクリプションは更新されます"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "利用可能な通貨がありません。少なくとも1つの通貨を有効にしてください。"
 
 msgid "No entries found"
-msgstr ""
+msgstr "エントリーが見つかりません"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "ファイルがアップロードされていない"
 
 msgid "No product found"
-msgstr ""
+msgstr "製品が見つかりません"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "テーマオプションはありません"
 
 #, php-format
 msgid "No view available"
@@ -1098,13 +1086,13 @@ msgid "Non-shared properties for the media item"
 msgstr "メディアアイテムの非共有プロパティ"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "価格項目の非共有プロパティ"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "すべてのエントリーが削除されるわけではない"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1114,10 +1102,10 @@ msgid "Not implemented"
 msgstr "実行されていない"
 
 msgid "Notes"
-msgstr ""
+msgstr "備考"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "備考（お客様にはお見せしません）"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1134,13 +1122,13 @@ msgid ""
 msgstr "1つのプロバイダと、コンマで区切られた0個以上のデコレータクラス名"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "スーパーユーザーと管理者のみがエントリーを削除できる"
 
 msgid "Open"
-msgstr ""
+msgstr "オープン"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "オープン数量"
 
 msgid "Option"
 msgstr "オプション"
@@ -1157,7 +1145,7 @@ msgid "Order ID"
 msgstr "注文ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "顧客が入力した注文番号"
 
 msgid "Order of the language/currency combinations"
 msgstr "言語/通貨の組み合わせの順序"
@@ -1172,10 +1160,10 @@ msgid "Order totals"
 msgstr "注文総額"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "で注文"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "国別受注状況"
 
 msgid "Orders by day"
 msgstr "1日の注文"
@@ -1193,15 +1181,15 @@ msgstr "既存のファイルを上書きし、過去に購入した顧客は新
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP 設定 \"%1$s\" が無効です。"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP 設定 \"%1$s\" が有効になっています。"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "PHP の \"%1$s\" の設定が低すぎます。"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1235,7 +1223,7 @@ msgid "Payment types"
 msgstr "支払いのタイプ"
 
 msgid "Periods"
-msgstr ""
+msgstr "期間"
 
 #, php-format
 msgid "Permission denied"
@@ -1246,7 +1234,7 @@ msgstr "個人データ"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "生成されるべきテキストの説明をここに挿入してください。"
 
 msgid "Please select"
 msgstr "選んでください"
@@ -1261,7 +1249,7 @@ msgid "Plugin Types"
 msgstr "プラグインのタイプ"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "設定されたプラグインを説明するためのプラグインラベル"
 
 msgid "Plugin position (required)"
 msgstr "プラグインの位置（必須）"
@@ -1285,10 +1273,10 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "サプライヤーが住んでいる地域の場合は配達の郵便番号使用されます"
 
 msgid "Postition"
-msgstr ""
+msgstr "ポスト"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "潜在的な問題"
 
 msgid "Previous"
 msgstr "前"
@@ -1303,10 +1291,10 @@ msgid "Price Lists Types"
 msgstr "価格リストタイプ"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "価格 物件タイプ"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "価格 物件タイプ"
 
 msgid "Price Type"
 msgstr "価格タイプ"
@@ -1315,13 +1303,13 @@ msgid "Price Types"
 msgstr "価格タイプ"
 
 msgid "Price properties"
-msgstr ""
+msgstr "価格"
 
 msgid "Priority"
 msgstr "優先"
 
 msgid "Problem"
-msgstr ""
+msgstr "問題"
 
 msgid "Product"
 msgstr "商品"
@@ -1330,7 +1318,7 @@ msgid "Product ID"
 msgstr "商品　ID"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "製品ID、SKUまたはラベル"
 
 msgid "Product Lists Type"
 msgstr "商品リストタイプ"
@@ -1377,7 +1365,7 @@ msgid "Product name"
 msgstr "商品名"
 
 msgid "Product payment"
-msgstr ""
+msgstr "商品代金"
 
 msgid "Product price"
 msgstr "商品価格"
@@ -1389,16 +1377,16 @@ msgid "Product rebate"
 msgstr "商品リベート"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "商品発送"
 
 msgid "Product status"
-msgstr ""
+msgstr "製品ステータス"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "製品サプライヤー"
 
 msgid "Product tax"
-msgstr ""
+msgstr "製品税"
 
 msgid "Product type"
 msgstr "商品タイプ"
@@ -1437,22 +1425,22 @@ msgid "Quantity"
 msgstr "数量"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "数量目盛"
 
 msgid "Rabate"
-msgstr ""
+msgstr "ラベート"
 
 msgid "Rating"
-msgstr ""
+msgstr "評価"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "加盟店の評価と評価数"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "レビュアーの評価"
 
 msgid "Reason"
-msgstr ""
+msgstr "理由"
 
 msgid "Rebate"
 msgstr "リベート"
@@ -1463,10 +1451,10 @@ msgid ""
 msgstr "リベートを％で計算するために使用された元の価格からの減額とクロス価格"
 
 msgid "Reference"
-msgstr ""
+msgstr "参考"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "参照ID"
 
 msgid "Refund"
 msgstr "払い戻し"
@@ -1478,13 +1466,13 @@ msgid "Related order"
 msgstr "関連注文"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "関連注文ID（オプション）"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "顧客の関連注文"
 
 msgid "Remove background"
-msgstr ""
+msgstr "背景を取り除く"
 
 msgid "Renew"
 msgstr "更新"
@@ -1508,19 +1496,19 @@ msgid "Reset"
 msgstr "リセット"
 
 msgid "Response"
-msgstr ""
+msgstr "応答"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "査読者への回答"
 
 msgid "Review"
 msgstr "レビュー"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "レビュー・エントリー"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "レビュアー名"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1536,25 +1524,25 @@ msgid "Route or page ID (optional)"
 msgstr "ルートまたはページID（オプション）"
 
 msgid "Rule"
-msgstr ""
+msgstr "ルール"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "ルールの種類"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "ルールの種類"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "設定されたルールを説明するためのルールラベル"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "ルールの位置（必須）"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "ルール・プロバイダまたはルール・デコレータの設定名"
 
 msgid "Rules"
-msgstr ""
+msgstr "ルール"
 
 msgid "SKU"
 msgstr "SKU"
@@ -1584,16 +1572,19 @@ msgid "Save & New"
 msgstr "保存＆新規"
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr "エントリーを保存 (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
 msgstr "エントリを保存する（Ctrl + S）"
 
 msgid "Search"
 msgstr "検索"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "エントリーをグループ化する第2レベルタイプ"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "すべてのエントリーを選択"
 
 msgid "Select file"
 msgstr "ファイルを選ぶ"
@@ -1617,7 +1608,7 @@ msgid "Service attribute code"
 msgstr "サービス属性コード"
 
 msgid "Service costs"
-msgstr ""
+msgstr "サービス費用"
 
 msgid "Service name"
 msgstr "サービス名"
@@ -1626,16 +1617,16 @@ msgid "Service position (required)"
 msgstr "サービスの位置（必須）"
 
 msgid "Service price"
-msgstr ""
+msgstr "サービス価格"
 
 msgid "Service provider or service decorator configuration name"
 msgstr "サービスプロバイダまたはサービスデコレータの設定名"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "サービス・リベート"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Ship date"
 msgstr "出荷日"
@@ -1647,34 +1638,34 @@ msgid "Shipping"
 msgstr "出荷"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "送料・支払方法"
 
 msgid "Shipping/Payment costs"
 msgstr "送料/支払い費用"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "発送/商品"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "ショップドメイン"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "ショップドメイン（必須）"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "ショップメール"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "ショップメールアドレス（必須）"
 
 msgid "Shop name"
-msgstr ""
+msgstr "ショップ名"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "ショップ名（必須）"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "ショップテーマ"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1691,16 +1682,16 @@ msgid "Show entry"
 msgstr "エントリーを表示する"
 
 msgid "Show search form"
-msgstr ""
+msgstr "検索フォームを表示"
 
 msgid "Show/hide advanced data"
 msgstr "高度なデータの表示/非表示"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "詳細の表示/非表示"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "ナビゲーションラベルの表示/非表示"
 
 msgid "Show/hide this entry"
 msgstr "このエントリの表示/非表示"
@@ -1709,7 +1700,7 @@ msgid "Shown if the article reached a stock level of zero"
 msgstr "商品がゼロの在庫レベルに達した場合に表示されます。"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "商品が入手可能になったときから、フロントエンドでのソートに使用されます。"
 
 msgid "Site"
 msgstr "サイト"
@@ -1731,7 +1722,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr "同じ属性タイプ内の属性のソート"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "サプライヤーの選別"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "請求書の送信元。 例　ウェブまたは電話で"
@@ -1740,7 +1731,7 @@ msgid "Start date"
 msgstr "開始日"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "入力を始める..."
 
 msgid "State"
 msgstr "州"
@@ -1758,7 +1749,7 @@ msgid "Stock level"
 msgstr "在庫量"
 
 msgid "Stock type"
-msgstr ""
+msgstr "ストックタイプ"
 
 msgid "Street"
 msgstr "道"
@@ -1767,7 +1758,7 @@ msgid "Street name (optional)"
 msgstr "道名（オプション）"
 
 msgid "Style"
-msgstr ""
+msgstr "スタイル"
 
 msgid "Sub-total"
 msgstr "小計"
@@ -1793,10 +1784,10 @@ msgid "Supplier name or company"
 msgstr "サプライヤーの名前または会社"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "サプライヤーポジション（必須）"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "製品を製造するサプライヤー"
 
 msgid "Tag Type"
 msgstr "タグタイプ"
@@ -1820,7 +1811,7 @@ msgid "Telephone number (optional)"
 msgstr "電話番号（オプション）"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "一時フォルダがありません"
 
 msgid "Text Lists Type"
 msgstr "テキストリストタイプ"
@@ -1845,23 +1836,23 @@ msgid ""
 msgstr "品物はその日時までのウェブサイトにのみ表示され、有用な記事や季節の品物"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "エントリーはその日時以降にのみウェブサイトに表示される"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "エントリーは、その日時までしかウェブサイトに表示されません。"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "メディアのタイトルは、ウェブサイトのメディアのタイトルタグに使用されます。"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "言語固有のURLセグメントが存在しない場合、URLに表示されるカテゴリー名が使用される。"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "言語固有のURLセグメントが存在しない場合、URLに表示される商品名が使用されます。"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "このオプションは、その日時以降にウェブサイトにのみ表示されます"
@@ -1870,30 +1861,30 @@ msgid "The option is only shown on the web site until that date and time"
 msgstr "このオプションは、その日時までウェブサイトにのみ表示されます"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "ルールはその日時以降にのみ使用される"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "ルールはその日時までしか使用されない"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "バスケット内の数量に許容されるステップ値。例えば、端数の数量には \"0.1\"、5の倍数の物品には \"5\"。"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "アップロードされたファイルが最大許容ファイルサイズを超えています。"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "アップロードされたファイルが部分的にしかアップロードされませんでした。"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "ショップのレイアウトを変更するテーマ"
 
 msgid "Three letter ISO currency code"
 msgstr "3文字のISO通貨コード"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "時間枠（オプション）"
 
 msgid "Timestamp"
 msgstr "タイムスタンプ"
@@ -1905,28 +1896,28 @@ msgid "Toggle dropdown"
 msgstr "ドロップダウンの切り替え"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Toogleセレクション"
 
 msgid "Top countries"
-msgstr ""
+msgstr "トップ"
 
 msgid "Total"
 msgstr "合計"
 
 msgid "Total orders"
-msgstr ""
+msgstr "受注総額"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "直近7日間の受注総額とその前の期間の比較"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "合計視聴率"
 
 msgid "Translate text"
-msgstr ""
+msgstr "テキストを翻訳する"
 
 msgid "Translations"
-msgstr ""
+msgstr "翻訳"
 
 msgid "Two letter ISO country code"
 msgstr "2文字のISO国コード"
@@ -1967,14 +1958,14 @@ msgstr "メソッド \"%1$s\"を呼び出すことができません"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "%1$s\" からコンテンツを読み取れません。"
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "未完成の注文"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "直近7日間の未完了受注件数（前年同期比"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -2000,7 +1991,7 @@ msgid "Unique code to identify the service, usually self-invented"
 msgstr "サービスを識別するための一意のコード。通常は自己発明"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "固有の顧客アカウント名"
 
 msgid "Unique customer e-mail address"
 msgstr "一意な顧客の電子メールアドレス"
@@ -2027,31 +2018,31 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "一意のタイプコード。 \"緑\"、 \"青\"、 \"赤\"などの属性の \"色\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "単価"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "不明なアップロードエラー"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSVアップロード"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "ショップアイコンのアップロード"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "ショップロゴのアップロード"
 
 msgid "Uploaded"
 msgstr "アップロードされた"
 
 msgid "Use"
-msgstr ""
+msgstr "用途"
 
 msgid "User groups"
 msgstr "ユーザーグループ"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "製品の通常納期"
 
 msgid "VAT ID"
 msgstr "VAT ID"
@@ -2069,10 +2060,10 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されているバリアント商品属性"
 
 msgid "Vendor"
-msgstr ""
+msgstr "ベンダー"
 
 msgid "Verified"
-msgstr ""
+msgstr "確認済み"
 
 msgid "View details"
 msgstr "詳細を見る"
@@ -2097,7 +2088,7 @@ msgid "Weight"
 msgstr "重量"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "アカウントとEメールアドレスが認証された場合"
 
 msgid "Width"
 msgstr "幅"
@@ -2110,13 +2101,13 @@ msgstr "年"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "1つまたは複数のエントリーを削除しようとしています。続行しますか？"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "エクスポートしたデータは、数分後にダウンロードできるようになります。"
 
 msgid "Your response"
-msgstr ""
+msgstr "ご回答"
 
 msgid "Zip code"
 msgstr "郵便番号"
@@ -2125,11 +2116,11 @@ msgid "Zip code (optional)"
 msgstr "郵便番号 (オプション)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__。"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "アカウント"
 
 #, php-format
 msgid "address"
@@ -2143,7 +2134,7 @@ msgstr "請求先住所"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "アプリ"
 
 #, php-format
 msgid "attribute"
@@ -2151,7 +2142,7 @@ msgstr "属性"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "バスケット"
 
 #, php-format
 msgid "bundle"
@@ -2178,11 +2169,11 @@ msgstr "会社"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "構成"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "国"
 
 #, php-format
 msgid "countday"
@@ -2218,7 +2209,7 @@ msgstr "配達タイプ"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "ダウンロード"
 
 #, php-format
 msgid "goods"
@@ -2226,7 +2217,7 @@ msgstr "カタログ"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "グループ"
 
 #, php-format
 msgid "hour"
@@ -2266,7 +2257,7 @@ msgstr "ログ"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "マーケティング"
 
 #, php-format
 msgid "media"
@@ -2282,7 +2273,7 @@ msgid "mrs"
 msgstr "ミセス"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
 msgstr "新しい"
@@ -2305,10 +2296,10 @@ msgid "order"
 msgstr "注文"
 
 msgid "order:phone"
-msgstr ""
+msgstr "注文：電話"
 
 msgid "order:web"
-msgstr ""
+msgstr "オーダー：ウェブ"
 
 msgid "pay:-1"
 msgstr "未完成"
@@ -2335,7 +2326,7 @@ msgid "pay:6"
 msgstr "受け取る"
 
 msgid "pay:7"
-msgstr ""
+msgstr "ペイ：7"
 
 #, php-format
 msgid "paymentstatus"
@@ -2367,25 +2358,25 @@ msgstr "プロパティ"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "クイック/カウント完了"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "クイック/カウントカスタマー"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "クイック/カウントトータル"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "クイック/カウント終了"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "理由：-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "理由：0"
 
 msgid "reason:1"
 msgstr "キャンセル"
@@ -2396,22 +2387,22 @@ msgstr "商品"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "レビュー"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "ルール"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "売上高"
 
 #, php-format
 msgid "salesweekday"
 msgstr "平日の売上"
 
 msgid "selected"
-msgstr ""
+msgstr "選ばれた"
 
 #, php-format
 msgid "selection"
@@ -2423,7 +2414,7 @@ msgstr "サービス"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "サービス・デリバリー"
 
 #, php-format
 msgid "servicepayment"
@@ -2431,11 +2422,11 @@ msgstr "支払いタイプ"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "設定"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "セットアップ"
 
 #, php-format
 msgid "special"
@@ -2469,19 +2460,19 @@ msgid "stat:7"
 msgstr "戻り"
 
 msgid "status:-1"
-msgstr ""
+msgstr "ステータス:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "ステータス：-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "ステータス:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "ステータス:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "ステータス:2"
 
 #, php-format
 msgid "stock"
@@ -2499,10 +2490,10 @@ msgid "tag"
 msgstr "タグ"
 
 msgid "tax:0"
-msgstr ""
+msgstr "税金：0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "税金：1"
 
 #, php-format
 msgid "text"
@@ -2510,11 +2501,11 @@ msgstr "テキスト"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "テーマ"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "トランザクション"
 
 #, php-format
 msgid "type"
@@ -2530,7 +2521,7 @@ msgstr "属性リスト"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "タイプ/属性/プロパティ"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -2542,7 +2533,7 @@ msgstr "顧客リスト"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "タイプ/顧客/物件"
 
 #, php-format
 msgid "type/media"
@@ -2554,7 +2545,7 @@ msgstr "メディアリスト"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "タイプ/メディア/プロパティ"
 
 #, php-format
 msgid "type/plugin"
@@ -2570,7 +2561,7 @@ msgstr "価格リスト"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "タイプ/価格/プロパティ"
 
 #, php-format
 msgid "type/product"
@@ -2586,7 +2577,7 @@ msgstr "商品プロパティ"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "タイプ/ルール"
 
 #, php-format
 msgid "type/service"

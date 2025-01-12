@@ -1,9 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Bruce Liu <zcon.bruce@gmail.com>, 2016
+# Hans He, 2022
 # Hans He, 2022
 # manuel.fries <manuel.fries@gdatasoftware.com>, 2014
 # morgan chan <mrmmc8@gmail.com>, 2021
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Hans He, 2022\n"
+"Last-Translator: stevechen <steve.stevechen@gmail.com>, 2018\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,24 +30,6 @@ msgstr "  产品支付"
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n%2$s%3$s%4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s"
 
 #, php-format
 msgid ""
@@ -103,13 +86,13 @@ msgid "+ Tax"
 msgstr "+稅"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<隐藏"
 
 msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API 密钥"
 
 msgid "Account"
 msgstr "帳戶"
@@ -262,16 +245,16 @@ msgid "Birthday of the customer"
 msgstr "客戶生日"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "提升系数"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "提升系数（可选）"
 
 msgid "Bug or suggestion?"
 msgstr "問題或建議？"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "批量编辑"
 
 msgid "Cancel"
 msgstr "取消"
@@ -303,19 +286,19 @@ msgid ""
 msgstr "类别特定的配置选项，将在模板中作为键/值对提供"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "费用/项目变化百分比"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "回扣变化率"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "变化值（百分比"
 
 msgid "Channel"
 msgstr "路線"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "下单通道"
 
 msgid "Choose file"
 msgstr "選擇檔案"
@@ -386,7 +369,7 @@ msgid ""
 msgstr "配置选项，将作为列表项中的键/值对提供"
 
 msgid "Context"
-msgstr ""
+msgstr "背景"
 
 msgid "Copy"
 msgstr "複製"
@@ -481,7 +464,7 @@ msgid "Dashboard"
 msgstr "儀表板"
 
 msgid "Data"
-msgstr ""
+msgstr "数据"
 
 msgid "Data set"
 msgstr "資料集"
@@ -508,7 +491,7 @@ msgid "Delete"
 msgstr "删除"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "删除条目？"
 
 msgid "Delete selected entries"
 msgstr "删除选中的实体"
@@ -553,7 +536,7 @@ msgid ""
 msgstr "取决于选择的数据集，展示的产品列表字段将会不同"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "描述您的形象"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "當文字內容為外文時的敘述"
@@ -583,6 +566,9 @@ msgid "Download this file"
 msgstr "下載此檔案"
 
 msgid "Duplicate entry"
+msgstr "重复条目"
+
+msgid "Duplicate entry (Ctrl+D)"
 msgstr "複製此紀錄（Ctrl+D）"
 
 msgid "E-Mail"
@@ -613,7 +599,7 @@ msgid "Edit"
 msgstr "編輯"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "编辑所选条目"
 
 msgid "Edit this entry"
 msgstr "修改此紀錄"
@@ -631,18 +617,18 @@ msgid "End date (optional)"
 msgstr "結束日期（可不填）"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "输入组 ID、代码或标签"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "条目已成功删除"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "条目已成功保存"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "条目特定的配置选项，将以键/值对的形式出现在模板中"
 
 msgid "Error"
 msgstr "錯誤"
@@ -671,7 +657,7 @@ msgstr "傳真號碼（可不填）"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "在用户搜索中产品相对于其他产品的提升系数（>1.0 正提升，<1.0 负提升）"
 
 msgid "Failed to write file to disk"
 msgstr "文件写入磁盘失败"
@@ -681,13 +667,13 @@ msgstr "檔案"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "文件不存在：\"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "文件上传被扩展停止"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "文件上传成功"
 
 msgid "Find category"
 msgstr "查找類別"
@@ -717,13 +703,13 @@ msgid "Floor and/or apartment (optional)"
 msgstr "樓層 和/或 公寓 (選項)"
 
 msgid "Generate"
-msgstr ""
+msgstr "生成"
 
 msgid "Generate image"
-msgstr ""
+msgstr "生成图像"
 
 msgid "Generate text"
-msgstr ""
+msgstr "生成文本"
 
 msgid "Given rebate amount"
 msgstr "給定回扣金額"
@@ -783,7 +769,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "在电子邮件中如何称呼供应商"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "超现实和戏剧性"
 
 msgid "ID"
 msgstr "ID"
@@ -801,7 +787,7 @@ msgid "Image"
 msgstr "圖片"
 
 msgid "Image description"
-msgstr ""
+msgstr "图片说明"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -882,13 +868,16 @@ msgid "Invoice"
 msgstr "發票"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "发票号码"
+
+msgid "Invoice no."
+msgstr "发票编号"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "发票号码"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "订单的发票号码"
 
 msgid "Label"
 msgstr "標籤"
@@ -955,7 +944,7 @@ msgid "List type"
 msgstr "列表類型"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "正在加载条目..."
 
 msgid "Locale"
 msgstr "區域"
@@ -964,7 +953,7 @@ msgid "Log"
 msgstr "日誌"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "手动传送"
 
 msgid "Map"
 msgstr "映射"
@@ -991,7 +980,7 @@ msgid "Media properties"
 msgstr "媒體資源"
 
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
 
 msgid "Message"
 msgstr "訊息"
@@ -1003,16 +992,16 @@ msgid "Minimum quantity"
 msgstr "最小數量"
 
 msgid "Mobile"
-msgstr ""
+msgstr "移动电话"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "手机号码"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "手机号码（可选）"
 
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgid "Modifed"
 msgstr "修改"
@@ -1036,7 +1025,7 @@ msgid "Name in URL (optional)"
 msgstr "名稱在網址 (選項)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "篮子名称"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1049,7 +1038,7 @@ msgid "Name of your shop shown to your customers"
 msgstr "向客户展示的商店名称"
 
 msgid "Natural"
-msgstr ""
+msgstr "自然"
 
 msgid "New"
 msgstr "新紀錄"
@@ -1079,7 +1068,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "没有可用的币种。请最少启用一个币种"
 
 msgid "No entries found"
-msgstr ""
+msgstr "未找到条目"
 
 msgid "No file was uploaded"
 msgstr "没有上传文件"
@@ -1088,7 +1077,7 @@ msgid "No product found"
 msgstr "找不到產品"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "无主题选项"
 
 #, php-format
 msgid "No view available"
@@ -1107,7 +1096,7 @@ msgid "None"
 msgstr "沒有"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "无法删除所有条目"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1137,7 +1126,7 @@ msgid ""
 msgstr "一个提供者和0个或多个装饰器类名，以逗号分隔"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "只有超级用户和管理员才能删除条目"
 
 msgid "Open"
 msgstr "开放中"
@@ -1249,7 +1238,7 @@ msgstr "個人資料"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "请在此处插入应生成文本的说明"
 
 msgid "Please select"
 msgstr "請選擇"
@@ -1449,7 +1438,7 @@ msgid "Rating"
 msgstr "評分"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "商家的评级和评级数量"
 
 msgid "Rating of the reviewer"
 msgstr "评论人等级"
@@ -1481,13 +1470,13 @@ msgid "Related order"
 msgstr "關聯的訂單"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "相关订单 ID（可选）"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "客户的相关订单"
 
 msgid "Remove background"
-msgstr ""
+msgstr "移除背景"
 
 msgid "Renew"
 msgstr "續訂"
@@ -1520,7 +1509,7 @@ msgid "Review"
 msgstr "狀態：已審核"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "审查条目"
 
 msgid "Reviewer name"
 msgstr "评论人名称"
@@ -1587,16 +1576,19 @@ msgid "Save & New"
 msgstr "保存并新建"
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr "保存条目（Ctrl+Enter）"
+
+msgid "Save entry (Ctrl+S)"
 msgstr "儲存紀錄（Ctrl+S)"
 
 msgid "Search"
 msgstr "搜尋"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "用于分组条目的二级类型"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "选择所有条目"
 
 msgid "Select file"
 msgstr "選擇檔案"
@@ -1700,7 +1692,7 @@ msgid "Show/hide advanced data"
 msgstr "顯示/隱藏進階數據"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "显示/隐藏详细信息"
 
 msgid "Show/hide navigation labels"
 msgstr "显示/隐藏导航标签"
@@ -1734,7 +1726,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr "同一属性类型的属性排序"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "供应商分类"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "发票来源，例如网站或手机"
@@ -1770,7 +1762,7 @@ msgid "Street name (optional)"
 msgstr "街名（可不填）"
 
 msgid "Style"
-msgstr ""
+msgstr "风格"
 
 msgid "Sub-total"
 msgstr "小計"
@@ -1796,7 +1788,7 @@ msgid "Supplier name or company"
 msgstr "供应商名称或公司"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "供应商职位（必填）"
 
 msgid "Suppliers who manufacture the product"
 msgstr "产品制造商"
@@ -1848,10 +1840,10 @@ msgid ""
 msgstr "该产品只在该日期和时间之前才会显示，适用于季节性产品"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "参赛作品仅在该日期和时间之后在网站上显示"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "参赛作品仅在该日期和时间之前在网站上显示"
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "媒体标题用于网站上的 title 标签"
@@ -1908,7 +1900,7 @@ msgid "Toggle dropdown"
 msgstr "切换下拉"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "选择 Toogle"
 
 msgid "Top countries"
 msgstr "热门国家"
@@ -1929,7 +1921,7 @@ msgid "Translate text"
 msgstr "翻译文本"
 
 msgid "Translations"
-msgstr ""
+msgstr "翻译"
 
 msgid "Two letter ISO country code"
 msgstr "兩碼 ISO 國家碼"
@@ -1970,7 +1962,7 @@ msgstr "無法呼叫method \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "无法从\"%1$s \"读取内容"
 
 msgid "Unfinished orders"
 msgstr "未完成订单"
@@ -2030,13 +2022,13 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "独特的类型代码，例如，\"绿色\"、\"蓝色\"、\"红色 \"等属性的 \"颜色\"。"
 
 msgid "Unit price"
-msgstr ""
+msgstr "单位价格"
 
 msgid "Unknown upload error"
 msgstr "未知的上传错误"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "上传 CSV"
 
 msgid "Upload shop icon"
 msgstr "上传商店图标"
@@ -2048,7 +2040,7 @@ msgid "Uploaded"
 msgstr "已上傳"
 
 msgid "Use"
-msgstr ""
+msgstr "使用"
 
 msgid "User groups"
 msgstr "用戶群組"
@@ -2072,10 +2064,10 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "与下单产品一起存储的变体产品属性"
 
 msgid "Vendor"
-msgstr ""
+msgstr "供应商"
 
 msgid "Verified"
-msgstr ""
+msgstr "已验证"
 
 msgid "View details"
 msgstr "查看详细"
@@ -2100,7 +2092,7 @@ msgid "Weight"
 msgstr "重量"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "账户和电子邮件地址通过验证后"
 
 msgid "Width"
 msgstr "寬度"
@@ -2113,7 +2105,7 @@ msgstr "年"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "您将删除一个或多个条目。您想继续吗？"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "您的导出将在几分钟内提供下载。"
@@ -2128,7 +2120,7 @@ msgid "Zip code (optional)"
 msgstr "郵遞區號（可不填）"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__隐藏__"
 
 #, php-format
 msgid "account"
@@ -2146,7 +2138,7 @@ msgstr "帳單地址"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "应用程序接口"
 
 #, php-format
 msgid "attribute"
@@ -2154,7 +2146,7 @@ msgstr "屬性"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "笼"
 
 #, php-format
 msgid "bundle"
@@ -2414,7 +2406,7 @@ msgid "salesweekday"
 msgstr "按工作日業績排序"
 
 msgid "selected"
-msgstr ""
+msgstr "选定的"
 
 #, php-format
 msgid "selection"
@@ -2502,10 +2494,10 @@ msgid "tag"
 msgstr "標籤"
 
 msgid "tax:0"
-msgstr ""
+msgstr "税：0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "税率：1"
 
 #, php-format
 msgid "text"
@@ -2513,11 +2505,11 @@ msgstr "文本"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "主题"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "交易"
 
 #, php-format
 msgid "type"

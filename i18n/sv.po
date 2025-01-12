@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish (http://app.transifex.com/aimeos/aimeos-core/language/sv/)\n"
@@ -22,24 +22,6 @@ msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -118,7 +100,7 @@ msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -183,7 +165,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Tillämpa"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -326,11 +308,11 @@ msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Klassen \"%1$s\" är inte tillgänglig"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Klassen \"%1$s\" hittades inte"
 
 msgid "Close"
 msgstr "Stäng"
@@ -539,7 +521,7 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Leverans inom"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -577,6 +559,9 @@ msgid "Download this file"
 msgstr ""
 
 msgid "Duplicate entry"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
@@ -690,7 +675,7 @@ msgid "Find site"
 msgstr ""
 
 msgid "First"
-msgstr ""
+msgstr "Första"
 
 msgid "First name"
 msgstr "Förnamn"
@@ -854,28 +839,31 @@ msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Ogiltiga tecken i klassnamnet \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Ogiltiga tecken i klientnamnet \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Ogiltigt klassnamn \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Ogiltig domän \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Ogiltig fabrik \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Faktura"
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice no."
 msgstr ""
 
 msgid "Invoice number"
@@ -906,7 +894,7 @@ msgid "Languages"
 msgstr ""
 
 msgid "Last"
-msgstr ""
+msgstr "Sista"
 
 msgid "Last delivery status of the order"
 msgstr ""
@@ -997,10 +985,10 @@ msgid "Minimum quantity"
 msgstr ""
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobilnummer"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1018,7 +1006,7 @@ msgid "Months"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Mer om"
 
 msgid "Move this entry up/down"
 msgstr ""
@@ -1046,7 +1034,7 @@ msgid "Natural"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 msgid "New customers"
 msgstr ""
@@ -1086,7 +1074,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Ingen vy tillgänglig"
 
 msgid "No voucher"
 msgstr ""
@@ -1151,7 +1139,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr ""
+msgstr "Order-ID"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1377,7 +1365,7 @@ msgid "Product payment"
 msgstr ""
 
 msgid "Product price"
-msgstr ""
+msgstr "Produktens pris"
 
 msgid "Product quantity"
 msgstr ""
@@ -1410,7 +1398,7 @@ msgid "Products"
 msgstr ""
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Produkter som köpts tillsammans"
 
 msgid "Promotion"
 msgstr ""
@@ -1494,7 +1482,7 @@ msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Den obligatoriska parametern \"%1$s\" saknas"
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
@@ -1581,6 +1569,9 @@ msgid "Save & New"
 msgstr ""
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
@@ -1740,7 +1731,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Stat"
 
 msgid "Status"
 msgstr "Status"
@@ -1896,7 +1887,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 msgid "Toggle dropdown"
 msgstr ""
@@ -1960,7 +1951,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Det går inte att anropa metoden \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
@@ -2075,7 +2066,7 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
-msgstr ""
+msgstr "Kupong"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"

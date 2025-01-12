@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2025
+# Metal <meteoramic@yahoo.com>, 2015-2024
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2025\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2024\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,24 +24,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -104,7 +86,7 @@ msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API anahtarı"
 
 msgid "Account"
 msgstr "Hesap"
@@ -381,7 +363,7 @@ msgid ""
 msgstr "Yapılandırma seçenekleri, liste öğesinde anahtar/değer çifti olarak bulunacaktır"
 
 msgid "Context"
-msgstr ""
+msgstr "İçerik"
 
 msgid "Copy"
 msgstr "Kopyala"
@@ -548,7 +530,7 @@ msgid ""
 msgstr "Seçilen veri kümesine bağlı olarak ürün için gösterilen alanların listesi farklı olacaktır"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Resminizi tanımlayın"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Eğer yabancı bir dilde ise metin içeriğinin açıklaması "
@@ -578,7 +560,10 @@ msgid "Download this file"
 msgstr "Bu dosyayı indir"
 
 msgid "Duplicate entry"
-msgstr "Girişi kopyala"
+msgstr "Mükerrer giriş"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Girişi kopyala (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-Posta"
@@ -712,10 +697,10 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
 msgid "Generate"
-msgstr ""
+msgstr "Oluştur"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Resim oluştur"
 
 msgid "Generate text"
 msgstr "Metin oluştur"
@@ -778,7 +763,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "E-maillerde tedarikçiye nasıl hitap edilir"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hiper-gerçek ve dramatik"
 
 msgid "ID"
 msgstr "Kimlik numarası"
@@ -796,7 +781,7 @@ msgid "Image"
 msgstr "Görüntü"
 
 msgid "Image description"
-msgstr ""
+msgstr "Resim açıklaması"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -878,6 +863,9 @@ msgstr "Fatura"
 
 msgid "Invoice No."
 msgstr "Fatura Numarası"
+
+msgid "Invoice no."
+msgstr "Fatura no."
 
 msgid "Invoice number"
 msgstr "Fatura numarası"
@@ -1007,7 +995,7 @@ msgid "Mobile number (optional)"
 msgstr "Cep telefonu numarası (isteğe bağlı)"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modifed"
 msgstr "Değiştirildi"
@@ -1044,7 +1032,7 @@ msgid "Name of your shop shown to your customers"
 msgstr "Mağazanızın müşterilerinize gösterilecek adı"
 
 msgid "Natural"
-msgstr ""
+msgstr "Doğal"
 
 msgid "New"
 msgstr "Yeni"
@@ -1482,7 +1470,7 @@ msgid "Related order of the customer"
 msgstr "Müşterinin ilgili siparişi"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Arkaplanı kaldır"
 
 msgid "Renew"
 msgstr "Yenile"
@@ -1583,6 +1571,9 @@ msgstr "Kaydet & Yeni"
 
 msgid "Save entry (Ctrl+Enter)"
 msgstr "Girişi kaydet (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Girişi kaydet (Ctrl+S)"
 
 msgid "Search"
 msgstr "Ara"
@@ -1765,7 +1756,7 @@ msgid "Street name (optional)"
 msgstr "Sokak adı (isteğe bağlı)"
 
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 msgid "Sub-total"
 msgstr "Ara Toplam"
@@ -2043,7 +2034,7 @@ msgid "Uploaded"
 msgstr "Yüklendi"
 
 msgid "Use"
-msgstr ""
+msgstr "Kullan"
 
 msgid "User groups"
 msgstr "Kullanıcı grupları"
@@ -2141,7 +2132,7 @@ msgstr "Fatura adresi"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2149,7 +2140,7 @@ msgstr "Nitelikler"
 
 #, php-format
 msgid "basket"
-msgstr "sepet"
+msgstr "Sepetler"
 
 #, php-format
 msgid "bundle"

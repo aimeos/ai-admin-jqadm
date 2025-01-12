@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Csaba Balazs <support@webstergeek.eu>, 2022
 # Csernus Zoltan <d3v3lop3r1@gmail.com>, 2022
+# Dávid Komjáti, 2022
 # Dávid Komjáti, 2022
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
 # nzed <nemesreviz@gmail.com>, 2020-2022
@@ -13,11 +14,12 @@
 # Péter Kozma <kopegrafika@gmail.com>, 2016
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
 # Zoltán Csordás, 2023
+# Zoltán Csordás, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -33,24 +35,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -587,7 +571,10 @@ msgid "Download this file"
 msgstr "Állomány letöltése"
 
 msgid "Duplicate entry"
-msgstr "Bejegyzés kettőzése"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Bejegyzés kettőzése (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -888,6 +875,9 @@ msgstr "Számla"
 msgid "Invoice No."
 msgstr "Számlaszám"
 
+msgid "Invoice no."
+msgstr ""
+
 msgid "Invoice number"
 msgstr ""
 
@@ -1007,10 +997,10 @@ msgid "Minimum quantity"
 msgstr "Minimális mennyiség"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobilszám"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1591,7 +1581,10 @@ msgid "Save & New"
 msgstr "Mentés és új"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "Bejegyzés mentése (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Bejegyzés mentése (Ctrl+S)"
 
 msgid "Search"
 msgstr "Keresés"

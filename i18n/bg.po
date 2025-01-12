@@ -1,18 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Bistra Kumanova <b.kumanova@creato.bg>, 2015
 # Chiarra, 2024
+# Chiarra, 2024
 # Plamen Petkov <mcplamen@gmail.com>, 2016,2019
+# Stefan Taskov, 2022
 # Stefan Taskov, 2022
 # Chiarra, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Chiarra, 2024\n"
 "Language-Team: Bulgarian (http://app.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -23,29 +25,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr "stocktype:default"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -99,16 +83,16 @@ msgid ""
 msgstr "Международните телефонни номера без знак за отделяне, могат да започнат с \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ данък"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<скрито>"
 
 msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "Ключ за API"
 
 msgid "Account"
 msgstr "Регистрация"
@@ -214,7 +198,7 @@ msgid "Attribute Type"
 msgstr "Тип на атрибут"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Видове атрибути"
 
 msgid "Attribute position (optional)"
 msgstr "Атрибут позиция (по избор)"
@@ -302,19 +286,19 @@ msgid ""
 msgstr "Специфичните настройки за категорията ще бъдат достъпни като ключ/стойност в шаблоните."
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Промяна на разходите/позиция в %"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Промяна на отстъпката в %"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Стойност на промяната в %"
 
 msgid "Channel"
-msgstr ""
+msgstr "Канал"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Поръчката е направена по канал"
 
 msgid "Choose file"
 msgstr "Изберете файл"
@@ -344,7 +328,7 @@ msgid "Code"
 msgstr "Код"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Код за уникална идентификация на сайта, преименуването е опасно!"
 
 msgid "Columns"
 msgstr "Колони"
@@ -353,10 +337,10 @@ msgid "Comment"
 msgstr "Коментар"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Коментар на рецензента"
 
 msgid "Communication"
-msgstr ""
+msgstr "Комуникация"
 
 msgid "Company"
 msgstr "Компания"
@@ -368,30 +352,30 @@ msgid "Company name (optional)"
 msgstr "Компания (опция)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Завършени поръчки"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Завършени поръчки през последните седем дни в сравнение с предходния период"
 
 msgid "Config"
-msgstr ""
+msgstr "Конфигурация"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Конфигурируем"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Опциите за конфигуриране ще бъдат налични като двойки ключ/стойност в елемента от списъка"
 
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 msgid "Copy"
 msgstr "Копиране"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Копирайте този запис"
 
 msgid "Costs"
 msgstr "Разходи"
@@ -403,24 +387,24 @@ msgid "Country"
 msgstr "Държава"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Идентификатор на страната"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Код на страната (задължително)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Данъчна ставка, специфична за страната, за да се изчисли и покаже включеният данък (B2C) или да се добави данък, ако е необходимо (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Код на държавата (по избор)"
 
 msgid "Coupon"
 msgstr "Купон"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Име на конфигурацията на доставчика на купони или декоратора на купони"
 
 msgid "Created"
 msgstr "Създадено"
@@ -432,61 +416,61 @@ msgid "Currency"
 msgstr "Валута"
 
 msgid "Custom"
-msgstr ""
+msgstr "Потребителски"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Потребителски домейн или уникален код на вашия магазин"
 
 msgid "Customer"
 msgstr "Клиент"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "Идентификатор на клиента"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Тип списъци на клиенти"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Видове списъци на клиенти"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Тип собственост на клиента"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Типове имоти на клиенти"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Характеристики на клиентите, които не се споделят с други клиенти"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Коментар на клиента (по избор)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Имейл адрес на клиента"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Парола на клиента"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Свойства на клиентите, които не се споделят с други клиенти"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Референция на клиента"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Референция на клиента (по избор)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Информационно табло"
 
 msgid "Data"
-msgstr ""
+msgstr "Данни"
 
 msgid "Data set"
-msgstr ""
+msgstr "Набор от данни"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Набор от данни"
 
 msgid "Date of the last delivery status change"
 msgstr "Датата на статуса на последната доставка е променена"
@@ -495,7 +479,7 @@ msgid "Date of the last payment status change"
 msgstr "Датата на статуса на последното плащане е променена"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Дата на приключване на абонамента"
 
 msgid "Days"
 msgstr "Дни"
@@ -507,16 +491,16 @@ msgid "Delete"
 msgstr "Изтрий"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Изтриване на записи?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Изтриване на избрани записи"
 
 msgid "Delete this entry"
 msgstr "Изтриване на записа"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Изтриването на прегледи не е разрешено"
 
 msgid "Delivery"
 msgstr "Доставка"
@@ -528,49 +512,49 @@ msgid "Delivery date"
 msgstr "Дата на доставка"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Доставка в"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Разходи за доставка или плащане на продуктите в кошницата на клиента"
 
 msgid "Delivery status"
 msgstr "Статус на доставка"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Срок за доставка (по избор)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Видове доставки"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Доставка в рамките на"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "В зависимост от избрания набор от данни списъкът с показаните полета за продукта ще бъде различен."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Опишете своя образ"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Описание на съдържанието на текста, ако той е на чужд език"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Дескриптивно наименование на валутата"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Дескриптивно наименование на езика"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Дескриптивно име на сайта"
 
 msgid "Discount"
-msgstr ""
+msgstr "Отстъпка"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Показване на текстове за помощ"
 
 msgid "Domain"
 msgstr "Домейн"
@@ -582,7 +566,10 @@ msgid "Download this file"
 msgstr "Изтеглете този файл"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Дублиращ се запис"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Дублиране на записа (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -591,10 +578,10 @@ msgid "E-Mail address (required)"
 msgstr "Е-Маил (Задължителен)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Имейл адрес или име на акаунт (задължително)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Адрес на електронна поща, използван за изпращане на имейли, свързани с магазина"
 
 msgid "E-mail"
 msgstr "Е-Маил"
@@ -612,7 +599,7 @@ msgid "Edit"
 msgstr "Промени"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Редактиране на избрани записи"
 
 msgid "Edit this entry"
 msgstr "Промени този запис"
@@ -630,30 +617,30 @@ msgid "End date (optional)"
 msgstr "Крайна дата (Опция)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Въведете идентификатор на групата, код или етикет"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Записът е изтрит успешно"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Записът е запазен успешно"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Специфичните опции за конфигурация на входа ще бъдат достъпни като двойки ключ/стойност в шаблоните"
 
 msgid "Error"
 msgstr "Грешка"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Без данък"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Ред на изпълнение на приставките"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Ред на изпълнение на правилата"
 
 msgid "Export"
 msgstr "Експорт"
@@ -662,10 +649,10 @@ msgid "Facility"
 msgstr "Умение"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Факсимиле"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Номер на факса (по избор)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
@@ -673,26 +660,26 @@ msgid ""
 msgstr "Фактор за повишаване на продукта в потребителското търсене пред други продукти (>1.0 положително повишаване, <1.0 отрицателно повишаване)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Неуспешно записване на файл на диска"
 
 msgid "File"
 msgstr "Файл"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Файлът не съществува: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Качването на файлове е спряно от разширение"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Файлът е качен успешно"
 
 msgid "Find category"
-msgstr ""
+msgstr "Намиране на категория"
 
 msgid "Find site"
-msgstr ""
+msgstr "Намиране на сайт"
 
 msgid "First"
 msgstr "Първи"
@@ -701,10 +688,10 @@ msgid "First name"
 msgstr "Име"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Първо име (по избор)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Първото име на лицето, ако се използва в културите, в които се използва"
 
 msgid "Floor"
 msgstr "Етаж"
@@ -716,58 +703,58 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Етаж и/или апартамент (опция)"
 
 msgid "Generate"
-msgstr ""
+msgstr "Генериране на"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Генериране на изображение"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Генериране на текст"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Даден размер на отстъпката"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Отидете в панела с атрибути"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Отидете на панела за типа на собствеността"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Отидете на списъка с типове атрибути"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Предоставена отстъпка"
 
 msgid "Group"
 msgstr "Група"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Име на групата, описващо за кои членове е предназначена групата"
 
 msgid "Groups"
-msgstr ""
+msgstr "Групи"
 
 msgid "Height"
 msgstr "Височина"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Скрити атрибути"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Скрити атрибути на продукта, които се съхраняват заедно с поръчаните продукти"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Подчертани доставчици на продукта"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Почетна титла (по избор)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Почетни звания като д-р, доктор и др."
 
 msgid "Hours"
-msgstr ""
+msgstr "Часове"
 
 msgid "House number"
 msgstr "Номер на жилище"
@@ -776,86 +763,86 @@ msgid "House number (optional)"
 msgstr "Номер на жилище (опция)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Как се обръщате към клиента в имейлите"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Как се обръщате към доставчика в имейлите"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Хиперреален и драматичен"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "Идентификатор на свързана фактура, напр. на променена или възстановена фактура"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO код на валутата (задължително)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO код на езика (задължително)"
 
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 msgid "Image description"
-msgstr ""
+msgstr "Описание на изображението"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Изображенията ще се показват само за този език, което е полезно, ако медията съдържа текст или е специфична за даден език."
 
 msgid "Import"
 msgstr "Импорт"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Работни места за внос/износ"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "С включен данък"
 
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Вмъкване на нов запис"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Вмъкване на нов запис (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Вътрешно име на артикул, което ще се използва на уебсайта и за търсене само ако не съществуват други имена на продукти на нито един език."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Вътрешно име на статията, което ще се използва на уебсайта, ако няма име на продукт за езика."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Вътрешно име на атрибута, което ще се използва в уебсайта, ако няма име на езика."
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Вътрешно име на категорията, което ще се използва на уебсайта, ако няма име на езика."
 
 msgid "Internal name (required)"
 msgstr "Вътрешно име (задължително)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Наименование на вътрешния тип, показвано в интерфейса за администриране"
 
 msgid "Interval"
-msgstr ""
+msgstr "Интервал"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Интервал (задължително)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -881,46 +868,49 @@ msgid "Invoice"
 msgstr "Фактура"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Номер на фактурата."
+
+msgid "Invoice no."
+msgstr "Фактура №."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Номер на фактурата"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Номер на фактурата за поръчката"
 
 msgid "Label"
 msgstr "Етикет"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Етикет (задължително)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Етикет, описващ интервала, ще се използва, ако няма име."
 
 msgid "Language"
 msgstr "Език"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Идентификатор на езика"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Език на въведения текст"
 
 msgid "Languages"
-msgstr ""
+msgstr "Езици"
 
 msgid "Last"
 msgstr "Последен"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Последен статус на доставка на поръчката"
 
 msgid "Last name"
 msgstr "Фамилия"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Фамилия (по избор)"
 
 msgid "Last name (required)"
 msgstr "Фамилия (задължително)"
@@ -928,13 +918,13 @@ msgstr "Фамилия (задължително)"
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Фамилно име на лицето или пълно име в култури, в които не се използват имена"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Последен статус на плащане на поръчката"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Последни поръчки"
 
 msgid "Length"
 msgstr "Дължина"
@@ -942,207 +932,207 @@ msgstr "Дължина"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Списък с артикули, които трябва да се продават като един продукт, често на по-ниска цена"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Списък на продукти, които често се купуват заедно"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Списък на предлаганите продукти"
 
 msgid "List type"
 msgstr "Тип на списък"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Зареждане на записи ..."
 
 msgid "Locale"
 msgstr "Локално"
 
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Ръчно прехвърляне"
 
 msgid "Map"
-msgstr ""
+msgstr "Карта"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Тип списъци с медии"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Видове медийни списъци"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Тип собственост на медията"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Типове медийни свойства"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Тип на медията"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Видове медии"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Свойства на медиите"
 
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 msgid "Message"
 msgstr "Съобщение"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Минимално количество"
 
 msgid "Minimum quantity"
 msgstr "Минимално количество"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Мобилен"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Мобилен номер"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Мобилен номер (по избор)"
 
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Модифициран"
 
 msgid "Modified"
-msgstr ""
+msgstr "Модифициран"
 
 msgid "Months"
-msgstr ""
+msgstr "Месеци"
 
 msgid "More"
-msgstr ""
+msgstr "Още"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Преместване на този запис нагоре/надолу"
 
 msgid "Name"
 msgstr "Име"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Име в URL адреса (по избор)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Име на кошницата"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Името на изтегления файл, когато клиентите го записват на своите компютри"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Име на рецензента"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Името на вашия магазин, показвано на клиентите ви"
 
 msgid "Natural"
-msgstr ""
+msgstr "Естествено"
 
 msgid "New"
-msgstr ""
+msgstr "Нов"
 
 msgid "New customers"
-msgstr ""
+msgstr "Нови клиенти"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Нови клиенти през последните седем дни"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Нови клиенти през последните седем дни в сравнение с предходния период"
 
 msgid "Next"
 msgstr "Следващ"
 
 msgid "Next date"
-msgstr ""
+msgstr "Следващата дата"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Следваща дата (по избор)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Следващата дата на подновяване на абонамента"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Няма налични валути. Моля, активирайте поне една валута"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Не са намерени записи"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Не е качен никакъв файл"
 
 msgid "No product found"
-msgstr ""
+msgstr "Не е намерен продукт"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Няма налични опции за темата"
 
 #, php-format
 msgid "No view available"
 msgstr "View не е налично"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Без ваучер"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Несподелени свойства за медийния елемент"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Несподелени свойства за ценовата позиция"
 
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Не всички записи могат да бъдат изтрити"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Не е разрешен достъпът до клиента JQAdm \"%1$s\""
 
 msgid "Not implemented"
 msgstr "Не е изпълнено"
 
 msgid "Notes"
-msgstr ""
+msgstr "Бележки"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Забележки (не се показват на клиента)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Брой артикули, които са в наличност, оставете празно за неограничено количество"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Официален идентификационен номер по ДДС, за да се определи дали данъкът трябва да се начислява във фактурите"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Един доставчик и нула или повече имена на класове декоратори, разделени със запетаи"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Само суперпотребители и администратори могат да изтриват записи."
 
 msgid "Open"
-msgstr ""
+msgstr "Отвори"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Отворено количество"
 
 msgid "Option"
 msgstr "Опция"
@@ -1150,7 +1140,7 @@ msgstr "Опция"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Незадължителни компоненти на продукта, които могат да бъдат избрани от клиента заедно с продукта"
 
 msgid "Order"
 msgstr "Поръчка"
@@ -1159,51 +1149,51 @@ msgid "Order ID"
 msgstr "Номер на поръчка"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Номер на поръчката, въведен от клиента"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Подредба на комбинациите език/валута"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Подреждане на опциите за услуги в процеса на поръчка"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Подредба на типовете във frontend"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Обща сума на поръчките"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Поръчано в"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Поръчки по държави"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Поръчки по дни"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Поръчки по часове"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Поръчки по статус на плащане"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Презаписване на съществуващия файл и клиентите, които са го закупили в миналото, могат да изтеглят и новото съдържание."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP настройката \"%1$s\" е деактивирана"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP настройката \"%1$s\" е активирана"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "Настройката на PHP за \"%1$s\" е твърде ниска"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1219,10 +1209,10 @@ msgid "Path"
 msgstr "Пътека"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Дата на плащане"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Статус на заплащане"
 
 msgid "Payment"
 msgstr "Заплащане"
@@ -1234,21 +1224,21 @@ msgid "Payment status"
 msgstr "Статус на плащане"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Видове плащания"
 
 msgid "Periods"
-msgstr ""
+msgstr "Периоди"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Разрешението е отказано"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Лични данни"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Моля, въведете описанието на текста, който трябва да се генерира тук"
 
 msgid "Please select"
 msgstr "Моля, изберете"
@@ -1257,40 +1247,40 @@ msgid "Plugin"
 msgstr "Допълнение"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Тип на плъгина"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Типове плъгини"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Етикет на плъгина за описание на конфигурирания плъгин"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Позиция на плъгина (задължително)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Име на конфигурацията на доставчика на плъгини или декоратора на плъгини"
 
 msgid "Position"
 msgstr "Позиция"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Позиция (задължително)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Пощенски"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Пощенски код за доставка, ако се използва в района, в който живее клиентът"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Пощенски код за доставка, ако се използва в района, в който живее доставчикът"
 
 msgid "Postition"
-msgstr ""
+msgstr "Позиция"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Потенциални проблеми"
 
 msgid "Previous"
 msgstr "Предишен"
@@ -1299,31 +1289,31 @@ msgid "Price"
 msgstr "Цена"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Ценови листи Тип"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Видове ценови листи"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Цена Тип имот"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Цена Типове имоти"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Тип цена"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Видове цени"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Ценови свойства"
 
 msgid "Priority"
 msgstr "Приоритет"
 
 msgid "Problem"
-msgstr ""
+msgstr "Проблем"
 
 msgid "Product"
 msgstr "Продукт"
@@ -1332,36 +1322,36 @@ msgid "Product ID"
 msgstr "Номер на продукта"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Идентификатор на продукта, SKU или етикет"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Списъци на продукти Тип"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Списъци с продукти Типове"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Тип собственост на продукта"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Типове свойства на продукта"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Тип на продукта"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Видове продукти"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Атрибути на продукта, съхранявани в кошницата, в които клиентите могат да въвеждат свои собствени текстове или стойности"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Атрибути на продукта, които се използват и от други продукти"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Характеристики на продукта, които не се споделят с други продукти"
 
 msgid "Product code"
 msgstr "Код на продукта"
@@ -1379,7 +1369,7 @@ msgid "Product name"
 msgstr "Име на продукта"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Плащане на продукта"
 
 msgid "Product price"
 msgstr "Цена на продукта"
@@ -1391,16 +1381,16 @@ msgid "Product rebate"
 msgstr "Отстъпка"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Доставка на продукта"
 
 msgid "Product status"
-msgstr ""
+msgstr "Състояние на продукта"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Доставчик на продукти"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Данък върху продукта"
 
 msgid "Product type"
 msgstr "Тип на продукта"
@@ -1430,31 +1420,31 @@ msgid "Provider"
 msgstr "Доставчик"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Имената на класовете на доставчика/декоратора (задължително)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Закупуване"
 
 msgid "Quantity"
 msgstr "Количество"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Количествена скала"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Рабат"
 
 msgid "Rating"
-msgstr ""
+msgstr "Рейтинг"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Рейтинг и брой рейтинги за търговеца"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Оценка на рецензента"
 
 msgid "Reason"
-msgstr ""
+msgstr "Причина"
 
 msgid "Rebate"
 msgstr "Отстъпка"
@@ -1462,34 +1452,34 @@ msgstr "Отстъпка"
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Намаление от първоначалната цена, използвано за изчисляване на отстъпката в % и кръстосаната цена"
 
 msgid "Reference"
-msgstr ""
+msgstr "Справка"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Референтен идентификатор"
 
 msgid "Refund"
 msgstr "плащане:възстановяване"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Свързан идентификатор"
 
 msgid "Related order"
-msgstr ""
+msgstr "Свързана поръчка"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Идентификатор на свързаната поръчка (по избор)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Свързана поръчка на клиента"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Премахване на фона"
 
 msgid "Renew"
-msgstr ""
+msgstr "Обновяване на"
 
 msgid "Replace file"
 msgstr "Премахни файла"
@@ -1499,76 +1489,76 @@ msgstr "Запитване"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Липсва задължителен параметър \"%1$s\""
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Изисквано количество статии за блоково ценообразуване, напр. една статия за 5,00 USD, десет статии за 45,00 USD"
 
 msgid "Reset"
-msgstr ""
+msgstr "Нулиране на"
 
 msgid "Response"
-msgstr ""
+msgstr "Отговор"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Отговор на рецензента"
 
 msgid "Review"
 msgstr "статус:преглед"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Прегледан запис"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Име на рецензента"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Име на маршрута или идентификатор на страницата на категорията, ако тази категория трябва да се показва на друга страница"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Име на маршрута или идентификатор на страницата с подробности за продукта, ако този продукт трябва да бъде показан на друга страница"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Идентификатор на маршрута или страницата (по избор)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Правило"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Тип правило"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Видове правила"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Етикет на правилото за описание на конфигурираното правило"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Позиция на правилото (задължително)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Име на конфигурацията на доставчика на правила или декоратора на правила"
 
 msgid "Rules"
-msgstr ""
+msgstr "Правила"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Продажби по дни от седмицата"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Продажби през последните 30 дни"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Продажби на месец"
 
 msgid "Salutation"
 msgstr "Поздрав"
@@ -1577,172 +1567,175 @@ msgid "Save"
 msgstr "Съхрани"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Запазване и затваряне"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Запазване и копиране"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Запазване и нови"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Запазване на записа (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Запазване на записа (Ctrl+S)"
 
 msgid "Search"
 msgstr "Търсене"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Тип от второ ниво за групиране на записи"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Избиране на всички записи"
 
 msgid "Select file"
-msgstr ""
+msgstr "Изберете файл"
 
 msgid "Service"
 msgstr "Услуга"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Тип списъци за услуги"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Видове списъци за услуги"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Вид услуга"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Видове услуги"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Код на атрибута на услугата"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Разходи за услуги"
 
 msgid "Service name"
-msgstr ""
+msgstr "Име на услугата"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Служебна позиция (задължително)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Цена на услугата"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Име на конфигурацията на доставчика на услуги или декоратора на услуги"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Рабат за услуги"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Дата на изпращане"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Състояние на кораба"
 
 msgid "Shipping"
 msgstr "Доставка"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Разходи за доставка / плащане"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Разходи за доставка/плащане"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Доставка/елемент"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Домейн на магазина"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Домейн на магазина (задължително)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Имейл в магазина"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Адрес на електронна поща на магазина (задължително)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Име на магазина"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Име на магазина (задължително)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Тема на магазина"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Кратък код на щата (напр. NY), ако се използва в страната, в която живее клиентът"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Кратък код на щата (напр. NY), ако се използва в страната, в която живее доставчикът"
 
 msgid "Show"
 msgstr "Покажи"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Покажи входа"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Показване на формата за търсене"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Показване/скриване на разширени данни"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Показване/скриване на подробности"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Показване/скриване на етикетите за навигация"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Показване/скриване на този запис"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Показва се, ако статията е достигнала нулево ниво на наличност"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "От момента, в който продуктът е наличен, се използва за сортиране във front-end"
 
 msgid "Site"
 msgstr "Сайт"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Специфични за сайта опции за конфигуриране, които ще бъдат налични като двойки ключ/стойност"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Поръчката е направена в сайта"
 
 msgid "Sites"
-msgstr ""
+msgstr "Сайтове"
 
 msgid "Size"
 msgstr "Размер"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Сортиране на атрибутите в рамките на един и същ тип атрибут"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Сортиране на доставчиците"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Източник на фактурата, напр. по интернет или по телефона"
 
 msgid "Start date"
 msgstr "Начална дата"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Започнете да въвеждате ..."
 
 msgid "State"
 msgstr "Област"
@@ -1751,36 +1744,36 @@ msgid "Status"
 msgstr "Статус"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Тип на запаса"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Видове запаси"
 
 msgid "Stock level"
 msgstr "Стокови нива"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Вид на запаса"
 
 msgid "Street"
 msgstr "Улица"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Име на улицата (по избор)"
 
 msgid "Style"
-msgstr ""
+msgstr "Стил"
 
 msgid "Sub-total"
 msgstr "Междинна сума"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Абонамент"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Интервал на абонамента с години, месеци, седмици и дни, например \"P0Y1M2W3D\" за нула години, един месец, две седмици и три дни"
 
 msgid "Suggested products"
 msgstr "Предложени продукти"
@@ -1792,22 +1785,22 @@ msgid "Supplier"
 msgstr "Доставчик"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Име на доставчика или компанията"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Позиция на доставчика (задължително)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Доставчици, които произвеждат продукта"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Тип на етикета"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Видове етикети"
 
 msgid "Tax"
-msgstr ""
+msgstr "Данък"
 
 msgid "Tax rate"
 msgstr "Данъчна ставка"
@@ -1819,149 +1812,149 @@ msgid "Telephone"
 msgstr "Телефон"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Телефонен номер (по избор)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Липсва временна папка"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Тип на текстовите списъци"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Типове текстови списъци"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Тип текст"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Видове текст"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Статията се показва на уебсайта само след тази дата и час, полезни или сезонни статии"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Статията се показва на уебсайта само до тази дата и час, полезни или сезонни статии"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Вписването се показва на уебсайта само след тази дата и час."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Записът се показва на уебсайта само до тази дата и час."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Заглавието на медията се използва за заглавния таг на медията на уебсайта"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Името на категорията, показана в URL адреса, ще бъде използвано, ако не съществува URL сегмент, специфичен за езика."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Името на продукта, показано в URL адреса, ще бъде използвано, ако не съществува URL сегмент, специфичен за езика."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Опцията се показва на уебсайта само след тази дата и час."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Опцията се показва на уебсайта само до тази дата и час."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Правилото се използва само след тази дата и час."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Правилото се използва само до тази дата и час."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Стойността на стъпката, позволена за количествата в кошницата, например \"0,1\" за дробни количества или \"5\" за кратни на пет артикула."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Каченият файл надвишава максималния разрешен размер на файла"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Каченият файл е бил качен само частично"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Тема за промяна на оформлението на вашия магазин"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Трибуквен код на валутата по ISO"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Времева рамка (по избор)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Времеви печат"
 
 msgid "Title"
 msgstr "Заглавие"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Превключване на падащото меню"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Избор на Toogle"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Топ държави"
 
 msgid "Total"
 msgstr "Общо"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Общо поръчки"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Общ брой поръчки през последните седем дни в сравнение с предходния период"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Общо оценки"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Превод на текст"
 
 msgid "Translations"
-msgstr ""
+msgstr "Преводи"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "Двубуквен код на страната по ISO"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Двубуквен код на езика по ISO"
 
 msgid "Type"
 msgstr "Тип"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Позиция на типа (по избор)"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Типове за допълнителни изображения, например икони"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Типове за допълнителни цени, като например за един фунт/кг или за месец"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Видове за допълнителни текстове, като например за един фунт/кг или за месец"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "URL на уебсайта на клиента"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "URL адрес на уебсайта на доставчика"
 
 msgid "URL segment"
 msgstr "URL сегмент"
 
 msgid "URL target"
-msgstr ""
+msgstr "Цел на URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1969,137 +1962,137 @@ msgstr "Невъзможно е да се извика метод \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Невъзможно е да се прочете съдържание от \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Незавършени поръчки"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Незавършени поръчки през последните седем дни в сравнение с предходния период"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "Уникален код на артикула, свързан с нивата на запасите, например от системата ERP, номер EAN/GTIN или измислен от самия него."
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Уникален код на атрибута (задължително)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Уникален код на атрибута, напр. \"green\" за атрибути от тип \"color\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Уникален код на категорията (задължително)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Уникален код на категорията - от външна система или самостоятелно създаден."
 
 msgid "Unique code (required)"
 msgstr "Уникален код (задължително)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Уникален код за идентифициране на услугата, обикновено самостоятелно измислен."
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Уникално име на клиентската сметка"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Уникален имейл адрес на клиента"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Уникален код на групата (задължително)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Уникален код на услугата (задължително)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Уникален код на сайта (задължително)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Уникален код на доставчика"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Уникален код на типа"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Уникален код на типа (задължително)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Уникален код на типа, напр. \"color\" за атрибути като \"green\", \"blue\", \"red\"."
 
 msgid "Unit price"
-msgstr ""
+msgstr "Единична цена"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Неизвестна грешка при качване"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Качване на CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Качване на икона на магазин"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Качване на логото на магазина"
 
 msgid "Uploaded"
 msgstr "Качени"
 
 msgid "Use"
-msgstr ""
+msgstr "Използвайте"
 
 msgid "User groups"
 msgstr "Групи потребители"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Обичаен срок за доставка на продукта"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "ИДЕНТИФИКАЦИОНЕН НОМЕР ПО ДДС"
 
 msgid "Value"
 msgstr "Стойност"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Идентификатор на данъка върху добавената стойност (по избор)"
 
 msgid "Variant attributes"
 msgstr "Видове атрибути"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Атрибути на варианти на продукти, които се съхраняват заедно с поръчаните продукти"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Доставчик"
 
 msgid "Verified"
-msgstr ""
+msgstr "Проверено"
 
 msgid "View details"
-msgstr ""
+msgstr "Вижте подробности"
 
 msgid "Voucher"
-msgstr ""
+msgstr "Ваучер"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Склад или местен магазин, ако вашите артикули се предлагат на няколко места"
 
 msgid "Web site"
 msgstr "Уеб сайт"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "URL адрес на уеб сайт (по избор)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "Седмици"
 
 msgid "Weight"
 msgstr "Тегло"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Когато акаунтът и имейл адресът са проверени"
 
 msgid "Width"
 msgstr "Ширина"
@@ -2108,30 +2101,30 @@ msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "YYYY-MM-DD hh:mm:ss  (по избор)"
 
 msgid "Years"
-msgstr ""
+msgstr "Години"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Ще изтриете един или повече записи. Искате ли да продължите?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Вашият експорт ще бъде на разположение за изтегляне след няколко минути."
 
 msgid "Your response"
-msgstr ""
+msgstr "Вашият отговор"
 
 msgid "Zip code"
 msgstr "Пощенски код"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Пощенски код (по избор)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__скрита__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "сметка"
 
 #, php-format
 msgid "address"
@@ -2145,7 +2138,7 @@ msgstr "Разплащателен адрес"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2153,7 +2146,7 @@ msgstr "Атрибути"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "кошница"
 
 #, php-format
 msgid "bundle"
@@ -2180,47 +2173,47 @@ msgstr "Компания"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "конфигурация"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "графство страна"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "ден за отброяване"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "час"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "купон"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "клиент"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "арматурно табло"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "ден"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "тип доставка"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "изтегляне"
 
 #, php-format
 msgid "goods"
@@ -2228,11 +2221,11 @@ msgstr "Каталог"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "група"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "час"
 
 #, php-format
 msgid "image"
@@ -2240,7 +2233,7 @@ msgstr "Снимки"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "фактура"
 
 #, php-format
 msgid "latest"
@@ -2248,7 +2241,7 @@ msgstr "Последни"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "локал"
 
 #, php-format
 msgid "locale/currency"
@@ -2256,11 +2249,11 @@ msgstr "Валути"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "locale/language"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "локал/сайт"
 
 #, php-format
 msgid "log"
@@ -2268,7 +2261,7 @@ msgstr "Logs"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "маркетинг"
 
 #, php-format
 msgid "media"
@@ -2284,19 +2277,19 @@ msgid "mrs"
 msgstr "Г-жа"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
 msgstr "нов"
 
 msgid "no"
-msgstr ""
+msgstr "не"
 
 msgid "none"
 msgstr "нищо"
 
 msgid "not available any more"
-msgstr ""
+msgstr "вече не е на разположение"
 
 #, php-format
 msgid "option"
@@ -2304,13 +2297,13 @@ msgstr "Опции"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "поръчка"
 
 msgid "order:phone"
-msgstr ""
+msgstr "поръчка:телефон"
 
 msgid "order:web"
-msgstr ""
+msgstr "поръчка:web"
 
 msgid "pay:-1"
 msgstr "незавършен"
@@ -2337,23 +2330,23 @@ msgid "pay:6"
 msgstr "получен"
 
 msgid "pay:7"
-msgstr ""
+msgstr "заплащане: 7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "статус на плащане"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "тип плащане"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "физически"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "плъгин"
 
 #, php-format
 msgid "price"
@@ -2369,25 +2362,25 @@ msgstr "Свойства"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "quick/countcompleted"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "quick/counttotal"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "quick/countunfinished"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "причина:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "причина: 0"
 
 msgid "reason:1"
 msgstr "отменен"
@@ -2398,22 +2391,22 @@ msgstr "Продукти"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Отзиви"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "правило"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "продажби"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "продажбиседмица"
 
 msgid "selected"
-msgstr ""
+msgstr "избран"
 
 #, php-format
 msgid "selection"
@@ -2425,23 +2418,23 @@ msgstr "Услуги"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "доставка на услуги"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "плащане на услуги"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "настройки"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "настройка"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "специален"
 
 msgid "stat:-1"
 msgstr "незавършен"
@@ -2471,23 +2464,23 @@ msgid "stat:7"
 msgstr "върнат"
 
 msgid "status:-1"
-msgstr ""
+msgstr "състояние:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "състояние:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "състояние:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "състояние:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "състояние:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "склад"
 
 #, php-format
 msgid "subscription"
@@ -2501,10 +2494,10 @@ msgid "tag"
 msgstr "Тагове"
 
 msgid "tax:0"
-msgstr ""
+msgstr "данък:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "данък: 1"
 
 #, php-format
 msgid "text"
@@ -2512,11 +2505,11 @@ msgstr "Текстове"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "тема"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "транзакция"
 
 #, php-format
 msgid "type"
@@ -2528,11 +2521,11 @@ msgstr "Атрибути"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribute/lists"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "тип/атрибут/свойство"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -2540,11 +2533,11 @@ msgstr "Каталожни списъци"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/customer/lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "type/customer/property"
 
 #, php-format
 msgid "type/media"
@@ -2552,15 +2545,15 @@ msgstr "Медия"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/property"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "type/plugin"
 
 #, php-format
 msgid "type/price"
@@ -2568,11 +2561,11 @@ msgstr "Цени"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "тип/цена/списъци"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "тип/цена/собственост"
 
 #, php-format
 msgid "type/product"
@@ -2580,15 +2573,15 @@ msgstr "Продукти"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "type/product/lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "тип/продукт/собственост"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "тип/правило"
 
 #, php-format
 msgid "type/service"
@@ -2596,11 +2589,11 @@ msgstr "Услуги"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "type/service/lists"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "тип/стока"
 
 #, php-format
 msgid "type/tag"
@@ -2612,11 +2605,11 @@ msgstr "Текстове"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "type/text/lists"
 
 #, php-format
 msgid "users"
 msgstr "Потребители"
 
 msgid "yes"
-msgstr ""
+msgstr "да"

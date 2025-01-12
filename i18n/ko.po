@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # SangSun Go <ssgo@strastar.com>, 2022
 # Wonjin Choi <dwon97@gmail.com>, 2019
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Wonjin Choi <dwon97@gmail.com>, 2019\n"
 "Language-Team: Korean (http://app.transifex.com/aimeos/aimeos-core/language/ko/)\n"
@@ -20,29 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr "재고 유형:기본값"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -54,7 +36,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -71,41 +53,41 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "구분 문자가 없는 (국제) 팩시밀리 번호는 \"+\"로 시작할 수 있습니다."
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "구분 문자가 없는 (국제) 전화번호는 \"+\"로 시작할 수 있습니다."
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ 세금"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API 키"
 
 msgid "Account"
 msgstr "계정"
@@ -125,13 +107,13 @@ msgstr "추가"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "각 품목에 대한 추가 배송비(예: 무거운 품목 1개에 20달러, 총 5개 품목에 100달러)가 부과됩니다."
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "고객의 아파트를 찾을 수 있는 추가 정보"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "공급업체의 아파트를 찾을 수 있는 추가 정보"
 
 msgid "Address 1"
 msgstr "주소 1"
@@ -150,22 +132,22 @@ msgstr "공급사가 배송할 주소 구분"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "관리자 JQAdm 유형이 비어 있습니다."
 
 msgid "Advanced"
 msgstr "고급"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "아이메오스 캐싱이 \"%1$s\"에 의해 비활성화되었습니다."
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "아이메오스 디버그 로깅이 \"%1$s\"에 의해 활성화되었습니다."
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "아이메오스 개체를 사용할 수 없습니다."
 
 msgid "All"
 msgstr "모두"
@@ -173,16 +155,16 @@ msgstr "모두"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "상품을 고유하게 정의하는 모든 속성(예: 청바지의 너비, 길이, 색상)"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "사용자 지정 가격 허용"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "고객이 직접 지불할 금액을 선택할 수 있도록 합니다."
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "그룹을 고유하게 식별할 수 있는 영숫자 문자열입니다."
 
 msgid "Apply"
 msgstr "적용"
@@ -190,57 +172,57 @@ msgstr "적용"
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "문서별 구성 옵션은 템플릿에서 키/값 쌍으로 사용할 수 있습니다."
 
 msgid "Attribute"
 msgstr "속성"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "속성 목록 유형"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "속성 목록 유형"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "속성 속성 유형"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "속성 속성 유형"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "속성 유형"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "속성 유형"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "속성 위치(선택 사항)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "다른 속성과 공유되지 않는 속성 속성"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "사용 가능한 속성 목록을 제한하는 속성 유형"
 
 msgid "Attributes"
 msgstr "속성"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "현재 사이트에서 사용 가능한 통화"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "프런트엔드에서 사용 가능한 간격"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "현재 사이트에 사용 가능한 언어"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "이 제품에 대한 고객의 평균 제품 평점 및 총 평점 수"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "재고 있음"
 
 msgid "Basic"
 msgstr "기본"
@@ -255,63 +237,63 @@ msgid "Birthday"
 msgstr "생일"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "고객 생일"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "부스트 팩터"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "부스트 팩터(선택 사항)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "버그나 제안 사항이 있으신가요?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "대량 편집"
 
 msgid "Cancel"
 msgstr "취소"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "취소하고 목록으로 돌아가기"
 
 msgid "Catalog"
 msgstr "목록"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "카탈로그 목록 유형"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "카탈로그 목록 유형"
 
 msgid "Categories"
 msgstr "범주"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "웹 사이트에서 사용자가 제품을 찾을 수 있는 카테고리"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "프로모션 섹션에 제품이 표시될 카테고리"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "카테고리별 구성 옵션은 템플릿에서 키/값 쌍으로 사용할 수 있습니다."
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "변경 비용/항목(%)"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "변경 리베이트(%)"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "변경 값(%)"
 
 msgid "Channel"
-msgstr ""
+msgstr "채널"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "주문이 접수된 채널"
 
 msgid "Choose file"
 msgstr "파일을 선택하세요"
@@ -320,19 +302,19 @@ msgid "City"
 msgstr "도시"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "도시 또는 마을 이름(필수)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "\"%1$s\" 클래스가 \"%2$s\"를 구현하지 않습니다."
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "\"%1$s\" 클래스를 사용할 수 없습니다."
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "\"%1$s\" 클래스를 찾을 수 없습니다."
 
 msgid "Close"
 msgstr "닫기"
@@ -341,19 +323,19 @@ msgid "Code"
 msgstr "코드"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "사이트를 고유하게 식별하는 코드, 이름 변경은 위험합니다!"
 
 msgid "Columns"
-msgstr ""
+msgstr "열"
 
 msgid "Comment"
-msgstr ""
+msgstr "댓글"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "리뷰어의 코멘트"
 
 msgid "Communication"
-msgstr ""
+msgstr "커뮤니케이션"
 
 msgid "Company"
 msgstr "회사"
@@ -369,26 +351,26 @@ msgstr "완료된 주문"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "이전 기간과 비교하여 지난 7일 이내에 완료된 주문 수"
 
 msgid "Config"
 msgstr "설정"
 
 msgid "Configurable"
-msgstr ""
+msgstr "구성 가능"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "구성 옵션은 목록 항목에서 키/값 쌍으로 사용할 수 있습니다."
 
 msgid "Context"
-msgstr ""
+msgstr "컨텍스트"
 
 msgid "Copy"
 msgstr "복사"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "이 항목 복사"
 
 msgid "Costs"
 msgstr "비용"
@@ -408,16 +390,16 @@ msgstr "국가 코드 (필수)"
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "국가별 세율을 계산하여 포함된 세금을 표시하거나(B2C), 필요한 경우 세금을 추가합니다(B2B)."
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "국가 주 코드(선택 사항)"
 
 msgid "Coupon"
 msgstr "쿠폰"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "쿠폰 공급자 또는 쿠폰 데코레이터 구성 이름"
 
 msgid "Created"
 msgstr "생성됨"
@@ -429,10 +411,10 @@ msgid "Currency"
 msgstr "통화"
 
 msgid "Custom"
-msgstr ""
+msgstr "사용자 지정"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "사용자 지정 도메인 또는 상점의 고유 코드"
 
 msgid "Customer"
 msgstr "고객"
@@ -441,22 +423,22 @@ msgid "Customer ID"
 msgstr "고객 아이디"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "고객 목록 유형"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "고객 목록 유형"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "고객 자산 유형"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "고객 자산 유형"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "다른 고객과 공유되지 않는 고객 특성"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "고객 의견(선택 사항)"
 
 msgid "Customer e-mail address"
 msgstr "고객 이메일 주소"
@@ -465,55 +447,55 @@ msgid "Customer password"
 msgstr "고객 비밀번호"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "다른 고객과 공유되지 않는 고객 속성"
 
 msgid "Customer reference"
 msgstr "추천 고객"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "고객 참조(선택 사항)"
 
 msgid "Dashboard"
 msgstr "데시보드"
 
 msgid "Data"
-msgstr ""
+msgstr "데이터"
 
 msgid "Data set"
-msgstr ""
+msgstr "데이터 집합"
 
 msgid "Dataset"
-msgstr ""
+msgstr "데이터 세트"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "마지막 배송 상태 변경 날짜"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "마지막 결제 상태 변경 날짜"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "구독 종료 날짜"
 
 msgid "Days"
-msgstr ""
+msgstr "일수"
 
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 msgid "Delete"
 msgstr "삭제"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "항목을 삭제하시겠습니까?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "선택한 항목 삭제"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "이 항목 삭제"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "리뷰 삭제는 허용되지 않습니다."
 
 msgid "Delivery"
 msgstr "배송"
@@ -522,55 +504,55 @@ msgid "Delivery address"
 msgstr "배송 주소"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "배송 날짜"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "배송 지역"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "고객의 장바구니에 있는 제품에 대한 배송 또는 결제 비용"
 
 msgid "Delivery status"
 msgstr "배송 상태"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "배송 기간(선택 사항)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "배송 유형"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "이내 배송"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "선택한 데이터 세트에 따라 제품에 표시되는 필드 목록이 달라집니다."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "이미지 설명하기"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "텍스트 콘텐츠가 외국어인 경우 텍스트 콘텐츠 설명"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "통화의 상세 이름"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "언어의 고유명사"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "사이트의 상세 이름"
 
 msgid "Discount"
 msgstr "할인"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "도움말 텍스트 표시"
 
 msgid "Domain"
-msgstr ""
+msgstr "도메인"
 
 msgid "Download"
 msgstr "저장"
@@ -579,117 +561,120 @@ msgid "Download this file"
 msgstr "화일 저장"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "중복 항목"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "중복 항목(Ctrl+D)"
 
 msgid "E-Mail"
-msgstr ""
+msgstr "이메일"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "이메일 주소(필수)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "이메일 주소 또는 계정 이름(필수)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "상점 관련 이메일 전송에 사용되는 이메일 주소"
 
 msgid "E-mail"
-msgstr ""
+msgstr "이메일"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "이메일 주소(선택 사항)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "주소에 속한 이메일 주소"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU 또는 상품 번호(필수)"
 
 msgid "Edit"
 msgstr "편집"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "선택한 항목 편집"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "이 항목 수정하기"
 
 msgid "Editor"
 msgstr "편집기"
 
 msgid "Email"
-msgstr ""
+msgstr "이메일"
 
 msgid "End date"
-msgstr ""
+msgstr "종료 날짜"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "종료 날짜(선택 사항)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "그룹 ID, 코드 또는 레이블 입력"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "항목이 성공적으로 삭제되었습니다."
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "항목이 성공적으로 저장되었습니다."
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "항목별 구성 옵션은 템플릿에서 키/값 쌍으로 사용할 수 있습니다."
 
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "세금 별도"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "플러그인 실행 순서"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "규칙의 실행 순서"
 
 msgid "Export"
-msgstr ""
+msgstr "내보내기"
 
 msgid "Facility"
-msgstr ""
+msgstr "시설"
 
 msgid "Facsimile"
 msgstr "팩스"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "팩스 번호(선택 사항)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "다른 제품보다 사용자 검색에서 제품을 높이는 요인(1.0 이상 플러스 부스트, 1.0 미만 마이너스 부스트)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "디스크에 파일 쓰기에 실패했습니다."
 
 msgid "File"
 msgstr "파일"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "파일이 존재하지 않습니다: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "확장자로 파일 업로드 중지"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "파일이 성공적으로 업로드되었습니다."
 
 msgid "Find category"
-msgstr ""
+msgstr "카테고리 찾기"
 
 msgid "Find site"
-msgstr ""
+msgstr "사이트 찾기"
 
 msgid "First"
 msgstr "처음"
@@ -698,240 +683,243 @@ msgid "First name"
 msgstr "이름"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "이름(선택 사항)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "사용하는 문화권에서 사용하는 경우 사람의 이름"
 
 msgid "Floor"
 msgstr "층"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "층 / 아파트"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "층 및/또는 아파트(선택 사항)"
 
 msgid "Generate"
-msgstr ""
+msgstr "생성"
 
 msgid "Generate image"
-msgstr ""
+msgstr "이미지 생성"
 
 msgid "Generate text"
-msgstr ""
+msgstr "텍스트 생성"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "주어진 리베이트 금액"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "속성 패널로 이동"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "속성 유형 패널로 이동"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "속성 유형 목록으로 이동"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "리베이트 부여"
 
 msgid "Group"
 msgstr "그룹"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "그룹이 어떤 구성원을 위한 그룹인지 설명하는 그룹 이름"
 
 msgid "Groups"
-msgstr ""
+msgstr "그룹"
 
 msgid "Height"
 msgstr "높이"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "숨겨진 속성"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "주문한 제품과 함께 저장되는 숨겨진 제품 속성"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "주요 제품 공급업체"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "명예 칭호(선택 사항)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "박사, 박사 학위 등의 명예 직함"
 
 msgid "Hours"
 msgstr "시간"
 
 msgid "House number"
-msgstr ""
+msgstr "집 번호"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "집 번호(선택 사항)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "이메일에서 고객 주소를 지정하는 방법"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "이메일에서 공급업체 주소를 지정하는 방법"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "매우 사실적이고 드라마틱한"
 
 msgid "ID"
 msgstr "아이디"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "관련 인보이스의 ID(예: 변경 또는 환불된 인보이스)"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO 통화 코드(필수)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO 언어 코드(필수)"
 
 msgid "Image"
 msgstr "이미지"
 
 msgid "Image description"
-msgstr ""
+msgstr "이미지 설명"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "이미지는 해당 언어에 대해서만 표시되며, 미디어에 텍스트가 포함되어 있거나 특정 언어인 경우에 유용합니다."
 
 msgid "Import"
-msgstr ""
+msgstr "가져오기"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "작업 가져오기/내보내기"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "세금 포함"
 
 msgid "Info"
 msgstr "정보"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "새 항목 삽입"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "새 항목 삽입(Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "내부 문서 이름은 웹 사이트 및 다른 언어로 된 제품 이름이 없는 경우에만 검색에 사용됩니다."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "내부 문서 이름, 해당 언어의 제품 이름이 없는 경우 웹 사이트에서 사용됩니다."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "내부 속성 이름 - 언어에 대한 이름이 없는 경우 웹 사이트에서 사용됩니다."
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "내부 카테고리 이름, 언어에 대한 이름이 없는 경우 웹 사이트에서 사용됩니다."
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "내부 이름(필수)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "관리 인터페이스에 표시되는 내부 유형 이름"
 
 msgid "Interval"
 msgstr "간격"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "간격(필수)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "클래스 이름 \"%1$s\"에 잘못된 문자가 있습니다."
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "클라이언트 이름 \"%1$s\"에 잘못된 문자가 있습니다."
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "잘못된 클래스 이름 \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "잘못된 도메인 \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "잘못된 공장 \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "인보이스"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "송장 번호"
+
+msgid "Invoice no."
+msgstr "송장 번호."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "송장 번호"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "주문의 송장 번호"
 
 msgid "Label"
-msgstr ""
+msgstr "라벨"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "라벨(필수)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "간격을 설명하는 레이블, 사용할 수 있는 이름이 없는 경우 사용됩니다."
 
 msgid "Language"
 msgstr "언어"
 
 msgid "Language ID"
-msgstr ""
+msgstr "언어 ID"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "입력한 텍스트의 언어"
 
 msgid "Languages"
-msgstr ""
+msgstr "언어"
 
 msgid "Last"
-msgstr ""
+msgstr "마지막"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "주문의 마지막 배송 상태"
 
 msgid "Last name"
 msgstr "성"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "성(선택 사항)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "성(필수)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "사람의 성 또는 이름을 사용하지 않는 문화권에서는 전체 이름"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "주문의 최종 결제 상태"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "최근 주문"
 
 msgid "Length"
 msgstr "길이"
@@ -939,113 +927,113 @@ msgstr "길이"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "하나의 상품으로 묶어 할인된 가격으로 판매해야 하는 상품 목록"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "자주 함께 구매하는 제품 목록"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "추천 제품 목록"
 
 msgid "List type"
-msgstr ""
+msgstr "목록 유형"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "항목 로드 중 ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "로캘"
 
 msgid "Log"
-msgstr ""
+msgstr "로그"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "수동 전송"
 
 msgid "Map"
 msgstr "지도"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "미디어 목록 유형"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "미디어 목록 유형"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "미디어 속성 유형"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "미디어 속성 유형"
 
 msgid "Media Type"
-msgstr ""
+msgstr "미디어 유형"
 
 msgid "Media Types"
-msgstr ""
+msgstr "미디어 유형"
 
 msgid "Media properties"
-msgstr ""
+msgstr "미디어 속성"
 
 msgid "Menu"
-msgstr ""
+msgstr "메뉴"
 
 msgid "Message"
 msgstr "메시지"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "최소 수량"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "최소 수량"
 
 msgid "Mobile"
-msgstr ""
+msgstr "모바일"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "휴대폰 번호"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "휴대폰 번호(선택 사항)"
 
 msgid "Model"
-msgstr ""
+msgstr "모델"
 
 msgid "Modifed"
-msgstr ""
+msgstr "수정됨"
 
 msgid "Modified"
 msgstr "수정됨"
 
 msgid "Months"
-msgstr ""
+msgstr "개월"
 
 msgid "More"
-msgstr ""
+msgstr "자세히 보기"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "이 항목 위/아래로 이동"
 
 msgid "Name"
 msgstr "이름"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "URL의 이름(선택 사항)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "장바구니 이름"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "고객이 컴퓨터에 파일을 저장할 때 다운로드한 파일의 이름"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "검토자 이름"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "고객에게 표시되는 스토어 이름"
 
 msgid "Natural"
-msgstr ""
+msgstr "자연스러운"
 
 msgid "New"
 msgstr "신규"
@@ -1054,692 +1042,695 @@ msgid "New customers"
 msgstr "신규 고객"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "최근 7일 이내 신규 고객"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "이전 기간과 비교한 지난 7일 이내의 신규 고객 수"
 
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 msgid "Next date"
-msgstr ""
+msgstr "다음 날짜"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "다음 날짜(선택 사항)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "구독이 갱신되는 다음 날짜"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "사용 가능한 통화가 없습니다. 하나 이상의 통화를 활성화하세요."
 
 msgid "No entries found"
-msgstr ""
+msgstr "항목을 찾을 수 없습니다."
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "업로드된 파일이 없습니다."
 
 msgid "No product found"
-msgstr ""
+msgstr "제품을 찾을 수 없습니다."
 
 msgid "No theme options available"
-msgstr ""
+msgstr "사용 가능한 테마 옵션이 없습니다."
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "사용 가능한 보기 없음"
 
 msgid "No voucher"
-msgstr ""
+msgstr "바우처 없음"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "미디어 항목의 비공유 속성"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "가격 항목의 비공유 속성"
 
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "모든 항목을 삭제할 수 있는 것은 아닙니다."
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "JQAdm \"%1$s\" 클라이언트에 액세스할 수 없습니다."
 
 msgid "Not implemented"
-msgstr ""
+msgstr "구현되지 않음"
 
 msgid "Notes"
-msgstr ""
+msgstr "참고"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "참고 사항(고객에게 표시되지 않음)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "현재 재고가 있는 상품 수, 비워두면 수량 제한 없음"
 
 msgid "OK"
-msgstr ""
+msgstr "확인"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "인보이스에 세금을 청구해야 하는지 확인하기 위한 공식 부가가치세 ID"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "쉼표로 구분된 하나의 공급자 및 0개 이상의 데코레이터 클래스 이름"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "슈퍼 사용자와 관리자만 항목을 삭제할 수 있습니다."
 
 msgid "Open"
-msgstr ""
+msgstr "열기"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "오픈 수량"
 
 msgid "Option"
-msgstr ""
+msgstr "옵션"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "고객이 제품과 함께 선택할 수 있는 옵션 제품 구성 요소"
 
 msgid "Order"
-msgstr ""
+msgstr "주문"
 
 msgid "Order ID"
-msgstr ""
+msgstr "주문 ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "고객이 입력한 주문 번호"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "언어/통화 조합의 순서"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "결제 프로세스의 서비스 옵션 순서"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "프론트엔드에서 유형 순서"
 
 msgid "Order totals"
-msgstr ""
+msgstr "주문 합계"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "다음에서 주문"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "국가별 주문"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "요일별 주문"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "시간별 주문"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "결제 상태별 주문"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "기존 파일을 덮어쓰면 과거에 구매한 고객도 새 콘텐츠를 다운로드할 수 있습니다."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP 설정 \"%1$s\"가 비활성화되었습니다."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP 설정 \"%1$s\"가 활성화되었습니다."
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "\"%1$s\"에 대한 PHP 설정이 너무 낮습니다."
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "%2$d의 %1$d 페이지"
 
 msgid "Password"
-msgstr ""
+msgstr "비밀번호"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "비밀번호(필수)"
 
 msgid "Path"
-msgstr ""
+msgstr "경로"
 
 msgid "Pay date"
-msgstr ""
+msgstr "결제 날짜"
 
 msgid "Pay status"
-msgstr ""
+msgstr "결제 상태"
 
 msgid "Payment"
-msgstr ""
+msgstr "결제"
 
 msgid "Payment date"
-msgstr ""
+msgstr "결제 날짜"
 
 msgid "Payment status"
-msgstr ""
+msgstr "결제 상태"
 
 msgid "Payment types"
-msgstr ""
+msgstr "결제 유형"
 
 msgid "Periods"
-msgstr ""
+msgstr "기간"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "권한 거부됨"
 
 msgid "Personal data"
-msgstr ""
+msgstr "개인 데이터"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "여기에 생성할 텍스트에 대한 설명을 입력하세요."
 
 msgid "Please select"
-msgstr ""
+msgstr "선택하세요"
 
 msgid "Plugin"
-msgstr ""
+msgstr "플러그인"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "플러그인 유형"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "플러그인 유형"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "구성된 플러그인을 설명하는 플러그인 레이블"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "플러그인 위치(필수)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "플러그인 공급자 또는 플러그인 데코레이터 구성 이름"
 
 msgid "Position"
-msgstr ""
+msgstr "위치"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "위치(필수)"
 
 msgid "Postal"
-msgstr ""
+msgstr "우편"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "고객이 거주하는 지역에서 사용하는 경우 배송을 위한 우편 번호"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "공급업체가 거주하는 지역에서 사용하는 경우 배송을 위한 우편 번호"
 
 msgid "Postition"
-msgstr ""
+msgstr "포지션"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "잠재적 문제"
 
 msgid "Previous"
-msgstr ""
+msgstr "이전 게시물"
 
 msgid "Price"
-msgstr ""
+msgstr "가격"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "가격 목록 유형"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "가격 목록 유형"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "가격 속성 유형"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "가격 속성 유형"
 
 msgid "Price Type"
-msgstr ""
+msgstr "가격 유형"
 
 msgid "Price Types"
-msgstr ""
+msgstr "가격 유형"
 
 msgid "Price properties"
-msgstr ""
+msgstr "가격 속성"
 
 msgid "Priority"
-msgstr ""
+msgstr "우선순위"
 
 msgid "Problem"
-msgstr ""
+msgstr "문제"
 
 msgid "Product"
-msgstr ""
+msgstr "제품"
 
 msgid "Product ID"
-msgstr ""
+msgstr "제품 ID"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "제품 ID, SKU 또는 라벨"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "제품 목록 유형"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "제품 목록 유형"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "제품 속성 유형"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "제품 속성 유형"
 
 msgid "Product Type"
-msgstr ""
+msgstr "제품 유형"
 
 msgid "Product Types"
-msgstr ""
+msgstr "제품 유형"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "고객이 직접 텍스트나 값을 입력할 수 있는 장바구니에 저장된 제품 속성"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "다른 제품에서도 사용되는 제품 속성"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "다른 제품과 공유되지 않는 제품 특성"
 
 msgid "Product code"
-msgstr ""
+msgstr "제품 코드"
 
 msgid "Product costs"
-msgstr ""
+msgstr "제품 비용"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "제품 높이(예: 20.0(야드, 인치 등))"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "제품 길이(예: 30.0(야드, 인치 등))"
 
 msgid "Product name"
-msgstr ""
+msgstr "제품 이름"
 
 msgid "Product payment"
-msgstr ""
+msgstr "제품 결제"
 
 msgid "Product price"
-msgstr ""
+msgstr "제품 가격"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "제품 수량"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "제품 리베이트"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "제품 배송"
 
 msgid "Product status"
-msgstr ""
+msgstr "제품 상태"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "제품 공급업체"
 
 msgid "Product tax"
-msgstr ""
+msgstr "제품 세금"
 
 msgid "Product type"
-msgstr ""
+msgstr "제품 유형"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "제품 무게(예: 1.25(파운드, 온스 등))"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "제품 너비(예: 17.5(야드, 인치 등))"
 
 msgid "Products"
-msgstr ""
+msgstr "제품"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "함께 구매한 제품"
 
 msgid "Promotion"
-msgstr ""
+msgstr "프로모션"
 
 msgid "Properties"
-msgstr ""
+msgstr "속성"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "속성 값(필수)"
 
 msgid "Provider"
-msgstr ""
+msgstr "공급자"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "공급자/데코레이터 클래스 이름(필수)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "구매"
 
 msgid "Quantity"
-msgstr ""
+msgstr "수량"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "수량 규모"
 
 msgid "Rabate"
-msgstr ""
+msgstr "라바테"
 
 msgid "Rating"
-msgstr ""
+msgstr "평가"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "판매자의 평점 및 평점 수"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "리뷰어의 평가"
 
 msgid "Reason"
-msgstr ""
+msgstr "이유"
 
 msgid "Rebate"
-msgstr ""
+msgstr "리베이트"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "리베이트 계산에 사용되는 원래 가격에서 차감된 금액(%) 및 교차 가격"
 
 msgid "Reference"
-msgstr ""
+msgstr "참조"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "참조 ID"
 
 msgid "Refund"
-msgstr ""
+msgstr "환불"
 
 msgid "Related ID"
-msgstr ""
+msgstr "관련 ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "관련 주문"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "관련 주문 ID(선택 사항)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "고객의 관련 주문"
 
 msgid "Remove background"
-msgstr ""
+msgstr "배경 제거"
 
 msgid "Renew"
-msgstr ""
+msgstr "갱신"
 
 msgid "Replace file"
-msgstr ""
+msgstr "파일 바꾸기"
 
 msgid "Request"
-msgstr ""
+msgstr "요청"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "필수 매개 변수 \"%1$s\"가 없습니다."
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "블록 가격 책정을 위한 필수 기사 수량(예: 기사 1개는 $5.00, 기사 10개는 $45.00)"
 
 msgid "Reset"
-msgstr ""
+msgstr "초기화"
 
 msgid "Response"
-msgstr ""
+msgstr "응답"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "리뷰어에 대한 답변"
 
 msgid "Review"
-msgstr ""
+msgstr "검토"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "검토된 항목"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "검토자 이름"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "이 카테고리가 다른 페이지에 표시되어야 하는 경우 카테고리 페이지의 경로 이름 또는 페이지 ID"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "이 제품이 다른 페이지에 표시되어야 하는 경우 제품 세부 정보 페이지의 경로 이름 또는 페이지 ID"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "경로 또는 페이지 ID(선택 사항)"
 
 msgid "Rule"
-msgstr ""
+msgstr "규칙"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "규칙 유형"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "규칙 유형"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "구성된 규칙을 설명하기 위한 규칙 레이블"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "규칙 위치(필수)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "규칙 공급자 또는 규칙 데코레이터 구성 이름"
 
 msgid "Rules"
-msgstr ""
+msgstr "규칙"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "평일별 판매량"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "지난 30일간의 판매량"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "월별 매출"
 
 msgid "Salutation"
-msgstr ""
+msgstr "인사말"
 
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "저장 및 닫기"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "저장 및 복사"
 
 msgid "Save & New"
-msgstr ""
+msgstr "저장 및 신규"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "항목 저장(Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "항목 저장(Ctrl+S)"
 
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "항목 그룹화를 위한 두 번째 레벨 유형"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "모든 항목 선택"
 
 msgid "Select file"
-msgstr ""
+msgstr "파일 선택"
 
 msgid "Service"
-msgstr ""
+msgstr "서비스"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "서비스 목록 유형"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "서비스 목록 유형"
 
 msgid "Service Type"
-msgstr ""
+msgstr "서비스 유형"
 
 msgid "Service Types"
-msgstr ""
+msgstr "서비스 유형"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "서비스 속성 코드"
 
 msgid "Service costs"
-msgstr ""
+msgstr "서비스 비용"
 
 msgid "Service name"
-msgstr ""
+msgstr "서비스 이름"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "서비스 위치(필수)"
 
 msgid "Service price"
-msgstr ""
+msgstr "서비스 가격"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "서비스 공급자 또는 서비스 데코레이터 구성 이름"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "서비스 리베이트"
 
 msgid "Settings"
 msgstr "설정"
 
 msgid "Ship date"
-msgstr ""
+msgstr "배송 날짜"
 
 msgid "Ship status"
-msgstr ""
+msgstr "배송 상태"
 
 msgid "Shipping"
 msgstr "운송"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "배송/결제 비용"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "배송/결제 비용"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "배송/품목"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "상점 도메인"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "상점 도메인(필수)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "쇼핑 이메일"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "상점 이메일 주소(필수)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "상점 이름"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "스토어 이름(필수)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "상점 테마"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "고객이 거주하는 국가에서 사용하는 경우 짧은 주 코드(예: NY)"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "공급업체가 거주하는 국가에서 사용하는 경우 짧은 주 코드(예: NY)"
 
 msgid "Show"
 msgstr "보기"
 
 msgid "Show entry"
-msgstr ""
+msgstr "항목 표시"
 
 msgid "Show search form"
-msgstr ""
+msgstr "검색 양식 표시"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "고급 데이터 표시/숨기기"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "세부 정보 표시/숨기기"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "탐색 레이블 표시/숨기기"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "이 항목 표시/숨기기"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "게시물의 재고 수준이 0에 도달한 경우 표시됩니다."
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "제품을 사용할 수 있는 시점부터 프런트엔드에서 정렬하는 데 사용됩니다."
 
 msgid "Site"
 msgstr "사이트"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "사이트별 구성 옵션은 키/값 쌍으로 사용할 수 있습니다."
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "주문이 이루어진 사이트"
 
 msgid "Sites"
-msgstr ""
+msgstr "사이트"
 
 msgid "Size"
 msgstr "크기"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "동일한 속성 유형 내에서 속성 정렬하기"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "공급업체 분류"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "인보이스 출처(예: 웹 또는 전화)"
 
 msgid "Start date"
-msgstr ""
+msgstr "시작 날짜"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "입력 시작 ..."
 
 msgid "State"
 msgstr "상태"
@@ -1748,39 +1739,39 @@ msgid "Status"
 msgstr "상태"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "재고 유형"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "주식 유형"
 
 msgid "Stock level"
-msgstr ""
+msgstr "재고 수준"
 
 msgid "Stock type"
-msgstr ""
+msgstr "재고 유형"
 
 msgid "Street"
-msgstr ""
+msgstr "거리"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "도로명(선택 사항)"
 
 msgid "Style"
-msgstr ""
+msgstr "스타일"
 
 msgid "Sub-total"
 msgstr "중간 합계"
 
 msgid "Subscription"
-msgstr ""
+msgstr "구독"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "연, 월, 주, 일 단위의 구독 간격(예: 0년, 1개월, 2주, 3일의 'P0Y1M2W3D')"
 
 msgid "Suggested products"
-msgstr ""
+msgstr "추천 제품"
 
 msgid "Sum"
 msgstr "합"
@@ -1789,125 +1780,125 @@ msgid "Supplier"
 msgstr "공급사"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "공급업체 이름 또는 회사"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "공급업체 위치(필수)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "제품을 제조하는 공급업체"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "태그 유형"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "태그 유형"
 
 msgid "Tax"
 msgstr "세금"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "세율"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "세율(%)"
 
 msgid "Telephone"
 msgstr "전화"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "전화번호(선택 사항)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "임시 폴더가 없습니다."
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "텍스트 목록 유형"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "텍스트 목록 유형"
 
 msgid "Text Type"
-msgstr ""
+msgstr "텍스트 유형"
 
 msgid "Text Types"
-msgstr ""
+msgstr "텍스트 유형"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "해당 날짜 및 시간 이후, 유용하거나 계절에 맞는 기사만 웹 사이트에 표시됩니다."
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "기사는 해당 날짜 및 시간까지만 웹 사이트에 표시되며, 유용하거나 계절에 맞는 기사만 표시됩니다."
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "해당 날짜 및 시간 이후에만 웹 사이트에 항목이 표시됩니다."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "해당 항목은 해당 날짜 및 시간까지만 웹 사이트에 표시됩니다."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "미디어 제목은 웹사이트에 있는 미디어의 제목 태그에 사용됩니다."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "언어별 URL 세그먼트가 없는 경우 URL에 표시된 카테고리 이름이 사용됩니다."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "언어별 URL 세그먼트가 없는 경우 URL에 표시된 제품 이름이 사용됩니다."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "이 옵션은 해당 날짜 및 시간 이후에만 웹 사이트에 표시됩니다."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "이 옵션은 해당 날짜 및 시간까지만 웹 사이트에 표시됩니다."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "이 규칙은 해당 날짜 및 시간 이후에만 사용됩니다."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "이 규칙은 해당 날짜 및 시간까지만 사용됩니다."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "바구니의 수량에 허용되는 단계 값(예: 분수 수량의 경우 '0.1', 5개 물품의 배수인 경우 '5')"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "업로드한 파일이 허용된 최대 파일 크기를 초과합니다."
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "업로드된 파일이 일부만 업로드되었습니다."
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "상점 레이아웃을 변경하는 테마"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "세 글자 ISO 통화 코드"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "시간 프레임(선택 사항)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "타임스탬프"
 
 msgid "Title"
 msgstr "제목"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "드롭다운 토글"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "구글 선택"
 
 msgid "Top countries"
-msgstr ""
+msgstr "상위 국가"
 
 msgid "Total"
 msgstr "총"
@@ -1916,223 +1907,223 @@ msgid "Total orders"
 msgstr "총 주문"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "이전 기간과 비교한 지난 7일간의 총 주문 수"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "총 평점"
 
 msgid "Translate text"
-msgstr ""
+msgstr "텍스트 번역"
 
 msgid "Translations"
-msgstr ""
+msgstr "번역"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "두 글자 ISO 국가 코드"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "두 글자 ISO 언어 코드"
 
 msgid "Type"
-msgstr ""
+msgstr "유형"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "입력 위치(선택 사항)"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "아이콘과 같은 추가 이미지 유형"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "1파운드/kg당 또는 월 단위와 같은 추가 가격 유형"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "1파운드/kg당 또는 월별과 같은 추가 텍스트의 유형"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "고객 웹사이트의 URL"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "공급업체 웹사이트의 URL"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL 세그먼트"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL 대상"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" 메서드를 호출할 수 없습니다."
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\"의 콘텐츠를 읽을 수 없습니다."
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "미완료 주문"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "이전 기간과 비교하여 지난 7일 이내에 완료되지 않은 주문 수"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "재고 수준과 관련된 고유한 상품 코드(예: ERP 시스템, EAN/GTIN 번호 또는 자체 생성)"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "고유 속성 코드(필수)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "고유 속성 코드(예: \"색상\" 유형의 속성의 경우 \"녹색\")"
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "고유 카테고리 코드(필수)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "외부 시스템 또는 자체 개발한 고유 카테고리 코드"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "고유 코드(필수)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "서비스를 식별하는 고유 코드(일반적으로 자체 개발)"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "고유 고객 계정 이름"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "고유 고객 이메일 주소"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "고유 그룹 코드(필수)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "고유 서비스 코드(필수)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "고유 사이트 코드(필수)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "고유 공급업체 코드"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "고유 유형 코드"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "고유 유형 코드(필수)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "고유 유형 코드(예: \"녹색\", \"파란색\", \"빨간색\"과 같은 속성의 경우 \"색상\")"
 
 msgid "Unit price"
-msgstr ""
+msgstr "단가"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "알 수 없는 업로드 오류"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV 업로드"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "스토어 아이콘 업로드"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "상점 로고 업로드"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "업로드"
 
 msgid "Use"
-msgstr ""
+msgstr "사용"
 
 msgid "User groups"
-msgstr ""
+msgstr "사용자 그룹"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "제품 배송에 걸리는 일반적인 기간"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "VAT ID"
 
 msgid "Value"
-msgstr ""
+msgstr "가치"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "부가가치세 식별자(선택 사항)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "이형 상품 속성"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "주문한 제품과 함께 저장되는 이형 상품 속성"
 
 msgid "Vendor"
-msgstr ""
+msgstr "공급업체"
 
 msgid "Verified"
-msgstr ""
+msgstr "확인됨"
 
 msgid "View details"
-msgstr ""
+msgstr "세부 정보 보기"
 
 msgid "Voucher"
-msgstr ""
+msgstr "바우처"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "여러 위치에서 상품을 사용할 수 있는 경우 창고 또는 지역 스토어"
 
 msgid "Web site"
-msgstr ""
+msgstr "웹 사이트"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "웹 사이트 URL(선택 사항)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "주"
 
 msgid "Weight"
-msgstr ""
+msgstr "무게"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "계정 및 이메일 주소가 확인된 경우"
 
 msgid "Width"
-msgstr ""
+msgstr "너비"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD hh:mm:ss(선택 사항)"
 
 msgid "Years"
-msgstr ""
+msgstr "년"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "하나 이상의 항목을 삭제하려고 합니다. 계속 진행하시겠습니까?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "몇 분 후에 내보내기를 다운로드할 수 있습니다."
 
 msgid "Your response"
-msgstr ""
+msgstr "귀하의 응답"
 
 msgid "Zip code"
-msgstr ""
+msgstr "우편 번호"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "우편 번호(선택 사항)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "계정"
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "주소"
 
 msgid "address:delivery"
 msgstr "배송 주소"
@@ -2142,7 +2133,7 @@ msgstr "청구지"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2150,11 +2141,11 @@ msgstr "속성"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "바구니"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "번들"
 
 #, php-format
 msgid "catalog"
@@ -2166,42 +2157,42 @@ msgstr "범주"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "특성"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "코드"
 
 msgid "company"
 msgstr "회사"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "구성"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "카운트국가"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "카운트데이"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "카운슬러"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "카운트 페이 상태"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "쿠폰"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "고객"
 
 #, php-format
 msgid "dashboard"
@@ -2209,15 +2200,15 @@ msgstr "데시보드"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "일"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "배달 유형"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "다운로드"
 
 #, php-format
 msgid "goods"
@@ -2225,27 +2216,27 @@ msgstr "카달로그"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "그룹"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "시간"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "이미지"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "인보이스"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "최신"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "로캘"
 
 #, php-format
 msgid "locale/currency"
@@ -2253,180 +2244,180 @@ msgstr "통화"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "로캘/언어"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "로캘/사이트"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "로그"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "마케팅"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "미디어"
 
 msgid "miss"
-msgstr ""
+msgstr "miss"
 
 msgid "mr"
-msgstr ""
+msgstr "mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "mrs"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "new"
 
 msgid "no"
-msgstr ""
+msgstr "아니요"
 
 msgid "none"
-msgstr ""
+msgstr "없음"
 
 msgid "not available any more"
-msgstr ""
+msgstr "더 이상 사용할 수 없습니다."
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "옵션"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "주문"
 
 msgid "order:phone"
-msgstr ""
+msgstr "주문:전화"
 
 msgid "order:web"
-msgstr ""
+msgstr "주문:웹"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "pay:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "pay:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "지불:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "지불:2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "지불:3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "지불:4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "지불:5"
 
 msgid "pay:6"
-msgstr ""
+msgstr "지불:6"
 
 msgid "pay:7"
-msgstr ""
+msgstr "지불:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "결제 상태"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "결제 유형"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "물리적"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "플러그인"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "가격"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "제품"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "속성"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "빠른/완료"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "빠른/카운트고객"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "빠른/총계"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "빠른/완료"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "reason:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "reason:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "이유:1"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "관련"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "리뷰"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "규칙"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "판매"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "판매 평일"
 
 msgid "selected"
-msgstr ""
+msgstr "선택"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "선택"
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "서비스"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "서비스 제공"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "서비스 결제"
 
 #, php-format
 msgid "settings"
@@ -2434,90 +2425,90 @@ msgstr "설정"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "설정"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "특별"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "stat:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "stat:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "통계:1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "통계:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "stat:3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "stat:4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "통계:5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "통계:6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "통계:7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "상태:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "상태:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "상태:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "상태:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "상태:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "재고"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "구독"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "공급업체"
 
 msgid "tag"
-msgstr ""
+msgstr "태그"
 
 msgid "tax:0"
-msgstr ""
+msgstr "세금:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "세금:1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "텍스트"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "테마"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "트랜잭션"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "유형"
 
 #, php-format
 msgid "type/attribute"
@@ -2525,95 +2516,95 @@ msgstr "속성"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "유형/속성/목록"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "유형/속성/속성"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "유형/카탈로그/목록"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "유형/고객/목록"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "유형/고객/속성"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "유형/미디어"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "유형/미디어/목록"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "유형/미디어/속성"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "유형/플러그인"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "유형/가격"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "유형/가격/목록"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "유형/가격/속성"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "유형/제품"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "유형/제품/목록"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "유형/제품/속성"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "유형/규칙"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "유형/서비스"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "유형/서비스/목록"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "유형/재고"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "유형/태그"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "유형/텍스트"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "유형/텍스트/목록"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "사용자"
 
 msgid "yes"
-msgstr ""
+msgstr "yes"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boyd Lamers <boyd.lamers@webits.nl>, 2015
 # Bram Verhaegh <bram@beech.it>, 2015
@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -35,24 +35,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
 
 #, php-format
 msgid ""
@@ -589,7 +571,10 @@ msgid "Download this file"
 msgstr "Download dit bestand"
 
 msgid "Duplicate entry"
-msgstr "Invoer dupliceren"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Invoer dupliceren (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -890,6 +875,9 @@ msgstr "Factuur"
 msgid "Invoice No."
 msgstr ""
 
+msgid "Invoice no."
+msgstr ""
+
 msgid "Invoice number"
 msgstr ""
 
@@ -1009,10 +997,10 @@ msgid "Minimum quantity"
 msgstr "Minimum aantal"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobiel"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobiel nummer"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1452,7 +1440,7 @@ msgid "Rabate"
 msgstr "Korting"
 
 msgid "Rating"
-msgstr ""
+msgstr "Beoordeling"
 
 msgid "Rating and number of ratings for the merchant"
 msgstr ""
@@ -1593,7 +1581,10 @@ msgid "Save & New"
 msgstr "Bewaren & Nieuw"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "Invoer bewaren (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Invoer bewaren (Ctrl+S)"
 
 msgid "Search"
 msgstr "Zoeken"
@@ -2405,7 +2396,7 @@ msgstr "Producten"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Beoordelingen"
 
 #, php-format
 msgid "rule"

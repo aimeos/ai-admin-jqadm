@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-10 17:47+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -21,24 +21,6 @@ msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -558,6 +540,9 @@ msgstr ""
 msgid "Duplicate entry"
 msgstr ""
 
+msgid "Duplicate entry (Ctrl+D)"
+msgstr ""
+
 msgid "E-Mail"
 msgstr ""
 
@@ -843,6 +828,10 @@ msgstr ""
 
 msgid "Invoice No."
 msgstr ""
+
+#, fuzzy
+msgid "Invoice no."
+msgstr "Invoices"
 
 msgid "Invoice number"
 msgstr ""
@@ -1525,6 +1514,9 @@ msgid "Save & New"
 msgstr ""
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"

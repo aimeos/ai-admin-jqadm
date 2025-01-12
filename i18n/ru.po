@@ -1,10 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Aleksei Pirogov, 2022
+# Aleksei Pirogov, 2022
 # Emiliya Adigozalova <emiliyaadigozalova@gmail.com>, 2021
+# Not Yourbuisness, 2023
 # Not Yourbuisness, 2023
 # Roman Krutovoy <serveri.minecraft@gmail.com>, 2018
 # Вячеслав Васильев <uverst@gmail.com>, 2019
@@ -15,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Not Yourbuisness, 2023\n"
+"Last-Translator: Вячеслав Васильев <uverst@gmail.com>, 2019\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,28 +28,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid " "
-msgstr ""
+msgstr "тип склада:по умолчанию"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -585,7 +569,10 @@ msgid "Download this file"
 msgstr "Скачать этот файл"
 
 msgid "Duplicate entry"
-msgstr "Дублировать запись"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Дублировать запись (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -886,6 +873,9 @@ msgstr "Счёт"
 msgid "Invoice No."
 msgstr ""
 
+msgid "Invoice no."
+msgstr ""
+
 msgid "Invoice number"
 msgstr ""
 
@@ -1005,10 +995,10 @@ msgid "Minimum quantity"
 msgstr "Минимальное количество"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Мобильный"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Номер мобильного телефона"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1589,7 +1579,10 @@ msgid "Save & New"
 msgstr "Сохранить и Создать"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "Сохранить запись (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Сохранить запись (Ctrl+S)"
 
 msgid "Search"
 msgstr "Поиск"
@@ -2401,7 +2394,7 @@ msgstr "Товары"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Отзывы"
 
 #, php-format
 msgid "rule"

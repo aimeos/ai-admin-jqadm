@@ -1,18 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Akilis Kalemasi <akili.kalemasi@gmail.com>, 2020
+# Koutelier Geros, 2022
 # Koutelier Geros, 2022
 # P T <pitafreelance@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Koutelier Geros, 2022\n"
+"Last-Translator: P T <pitafreelance@gmail.com>, 2019\n"
 "Language-Team: Greek (http://app.transifex.com/aimeos/aimeos-core/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,24 +26,6 @@ msgstr ""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -72,11 +55,11 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
@@ -186,7 +169,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -247,13 +230,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Καλάθι"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Διεύθυνση χρέωσης"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Γενέθλια"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -271,7 +254,7 @@ msgid "Bulk edit"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 msgid "Cancel and return to list"
 msgstr ""
@@ -286,7 +269,7 @@ msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Κατηγορίες"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -318,7 +301,7 @@ msgid "Choose file"
 msgstr ""
 
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 msgid "City or town name (required)"
 msgstr ""
@@ -329,14 +312,14 @@ msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Η κλάση \"%1$s\" δεν είναι διαθέσιμη"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Η κλάση \"%1$s\" δεν βρέθηκε"
 
 msgid "Close"
-msgstr ""
+msgstr "Κλείστε το"
 
 msgid "Code"
 msgstr ""
@@ -357,7 +340,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Εταιρεία"
 
 msgid "Company details"
 msgstr ""
@@ -398,7 +381,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Χώρα"
 
 msgid "Country ID"
 msgstr ""
@@ -421,7 +404,7 @@ msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Δημιουργήθηκε"
 
 msgid "Currencies"
 msgstr ""
@@ -502,7 +485,7 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 msgid "Delete entries?"
 msgstr ""
@@ -517,10 +500,10 @@ msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "Παράδοση"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Διεύθυνση παράδοσης"
 
 msgid "Delivery date"
 msgstr ""
@@ -542,7 +525,7 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Παράδοση εντός"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -582,8 +565,11 @@ msgstr ""
 msgid "Duplicate entry"
 msgstr ""
 
-msgid "E-Mail"
+msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
+
+msgid "E-Mail"
+msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -622,7 +608,7 @@ msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr ""
+msgstr "Ημερομηνία λήξης"
 
 msgid "End date (optional)"
 msgstr ""
@@ -693,10 +679,10 @@ msgid "Find site"
 msgstr ""
 
 msgid "First"
-msgstr ""
+msgstr "Πρώτη"
 
 msgid "First name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "First name (optional)"
 msgstr ""
@@ -850,35 +836,38 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "Διάστημα"
 
 msgid "Interval (required)"
 msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Μη έγκυροι χαρακτήρες στο όνομα της κλάσης \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Μη έγκυροι χαρακτήρες στο όνομα πελάτη \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Μη έγκυρο όνομα κλάσης \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Μη έγκυρος τομέας \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Μη έγκυρο εργοστάσιο \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Τιμολόγιο"
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice no."
 msgstr ""
 
 msgid "Invoice number"
@@ -897,7 +886,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Γλώσσα"
 
 msgid "Language ID"
 msgstr ""
@@ -909,13 +898,13 @@ msgid "Languages"
 msgstr ""
 
 msgid "Last"
-msgstr ""
+msgstr "Τελευταία"
 
 msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Επώνυμο"
 
 msgid "Last name (optional)"
 msgstr ""
@@ -1000,10 +989,10 @@ msgid "Minimum quantity"
 msgstr ""
 
 msgid "Mobile"
-msgstr ""
+msgstr "Κινητό"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Αριθμός κινητού τηλεφώνου"
 
 msgid "Mobile number (optional)"
 msgstr ""
@@ -1021,13 +1010,13 @@ msgid "Months"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Περισσότερα"
 
 msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -1049,7 +1038,7 @@ msgid "Natural"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Νέο"
 
 msgid "New customers"
 msgstr ""
@@ -1061,7 +1050,7 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Επόμενο"
 
 msgid "Next date"
 msgstr ""
@@ -1089,7 +1078,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Δεν υπάρχει διαθέσιμη προβολή"
 
 msgid "No voucher"
 msgstr ""
@@ -1154,7 +1143,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr ""
+msgstr "Αναγνωριστικό παραγγελίας"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1205,10 +1194,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Σελίδα %1$d της %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 msgid "Password (required)"
 msgstr ""
@@ -1223,13 +1212,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Πληρωμή"
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr ""
+msgstr "Κατάσταση πληρωμής"
 
 msgid "Payment types"
 msgstr ""
@@ -1249,7 +1238,7 @@ msgid ""
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε"
 
 msgid "Plugin"
 msgstr ""
@@ -1291,10 +1280,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Προηγούμενο"
 
 msgid "Price"
-msgstr ""
+msgstr "Τιμή"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1324,7 +1313,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Προϊόν"
 
 msgid "Product ID"
 msgstr ""
@@ -1380,7 +1369,7 @@ msgid "Product payment"
 msgstr ""
 
 msgid "Product price"
-msgstr ""
+msgstr "Τιμή προϊόντος"
 
 msgid "Product quantity"
 msgstr ""
@@ -1413,7 +1402,7 @@ msgid "Products"
 msgstr ""
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Προϊόντα που αγοράζονται μαζί"
 
 msgid "Promotion"
 msgstr ""
@@ -1434,7 +1423,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Ποσότητα"
 
 msgid "Quantity scale"
 msgstr ""
@@ -1443,7 +1432,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Αξιολόγηση"
 
 msgid "Rating and number of ratings for the merchant"
 msgstr ""
@@ -1463,7 +1452,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "Αναφορά"
 
 msgid "Reference ID"
 msgstr ""
@@ -1497,7 +1486,7 @@ msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Η απαιτούμενη παράμετρος \"%1$s\" λείπει"
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
@@ -1505,7 +1494,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Επαναφορά"
 
 msgid "Response"
 msgstr ""
@@ -1569,10 +1558,10 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Χαιρετισμός"
 
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 msgid "Save & Close"
 msgstr ""
@@ -1586,8 +1575,11 @@ msgstr ""
 msgid "Save entry (Ctrl+Enter)"
 msgstr ""
 
-msgid "Search"
+msgid "Save entry (Ctrl+S)"
 msgstr ""
+
+msgid "Search"
+msgstr "Αναζήτηση"
 
 msgid "Second level type for grouping entries"
 msgstr ""
@@ -1644,7 +1636,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Αποστολή"
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1685,7 +1677,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Εμφάνιση"
 
 msgid "Show entry"
 msgstr ""
@@ -1743,10 +1735,10 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Κράτος"
 
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgid "Stock Type"
 msgstr ""
@@ -1761,7 +1753,7 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Οδός"
 
 msgid "Street name (optional)"
 msgstr ""
@@ -1770,7 +1762,7 @@ msgid "Style"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Υποσύνολο"
 
 msgid "Subscription"
 msgstr ""
@@ -1781,10 +1773,10 @@ msgid ""
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Προτεινόμενα προϊόντα"
 
 msgid "Sum"
-msgstr ""
+msgstr "Άθροισμα"
 
 msgid "Supplier"
 msgstr ""
@@ -1814,7 +1806,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Τηλέφωνο"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1899,7 +1891,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Τίτλος"
 
 msgid "Toggle dropdown"
 msgstr ""
@@ -1911,7 +1903,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Σύνολο"
 
 msgid "Total orders"
 msgstr ""
@@ -1963,7 +1955,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Αδυναμία κλήσης της μεθόδου \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
@@ -2078,14 +2070,14 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
-msgstr ""
+msgstr "Κουπόνι"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "Ιστοσελίδα"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -2136,10 +2128,10 @@ msgid "address"
 msgstr ""
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Διεύθυνση παράδοσης"
 
 msgid "address:payment"
-msgstr ""
+msgstr "Διεύθυνση χρέωσης"
 
 #, php-format
 msgid "api"
@@ -2159,22 +2151,22 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Κατηγορίες"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Κατηγορίες"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Χαρακτηριστικά"
 
 #, php-format
 msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr ""
+msgstr "Εταιρεία"
 
 #, php-format
 msgid "configuration"
@@ -2242,7 +2234,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Τελευταία"
 
 #, php-format
 msgid "locale"
@@ -2291,7 +2283,7 @@ msgid "no"
 msgstr ""
 
 msgid "none"
-msgstr ""
+msgstr "κανένας"
 
 msgid "not available any more"
 msgstr ""
@@ -2396,7 +2388,7 @@ msgstr ""
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Κριτικές"
 
 #, php-format
 msgid "rule"
@@ -2489,11 +2481,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Συνδρομές"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Προμηθευτές"
 
 msgid "tag"
 msgstr ""

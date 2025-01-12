@@ -1,14 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Roger Soldevila, 2023
 # Roger Soldevila, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Roger Soldevila, 2023\n"
 "Language-Team: Catalan (http://app.transifex.com/aimeos/aimeos-core/language/ca/)\n"
@@ -23,24 +24,6 @@ msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -578,7 +561,10 @@ msgid "Download this file"
 msgstr "Descarregar aquest arxiu"
 
 msgid "Duplicate entry"
-msgstr "Duplicar entrada"
+msgstr ""
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Duplicar entrada (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "Correu electrònic"
@@ -878,6 +864,9 @@ msgstr "Factura"
 
 msgid "Invoice No."
 msgstr "Factura nº"
+
+msgid "Invoice no."
+msgstr ""
 
 msgid "Invoice number"
 msgstr ""
@@ -1582,6 +1571,9 @@ msgid "Save & New"
 msgstr ""
 
 msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
+msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"

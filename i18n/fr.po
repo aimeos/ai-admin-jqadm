@@ -1,12 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Amiskatonic, 2023
+# Amiskatonic, 2023
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Helmi Trabelsi <trabelsihelmi@gmail.com>, 2018
+# Jean-Marc Kutyla, 2023
 # Jean-Marc Kutyla, 2023
 # Laurent Georget <laurent@lgeorget.eu>, 2020-2021
 # Medzo Zeng <medzozeng@hotmail.fr>, 2019
@@ -19,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Jean-Marc Kutyla, 2023\n"
+"Last-Translator: Six byNine <wwinx@hotmail.com>, 2018\n"
 "Language-Team: French (http://app.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,24 +37,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -115,7 +99,7 @@ msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "Clé API"
 
 msgid "Account"
 msgstr "Compte"
@@ -392,7 +376,7 @@ msgid ""
 msgstr "Options de configuration, sera disponible en tant que paires de clé/valeur dans la liste d'items"
 
 msgid "Context"
-msgstr ""
+msgstr "Contexte"
 
 msgid "Copy"
 msgstr "Copier"
@@ -514,7 +498,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Supprimer des entrées ?"
 
 msgid "Delete selected entries"
 msgstr "Supprimer les entrées sélectionnées"
@@ -559,7 +543,7 @@ msgid ""
 msgstr "Selon le jeu de données sélectionné, la liste des champs affichés pour le produit diffère"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Décrivez votre image"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Description du contenu du texte s'il est dans une langue étrangère"
@@ -589,7 +573,10 @@ msgid "Download this file"
 msgstr "Télécharger ce fichier"
 
 msgid "Duplicate entry"
-msgstr "Dupliquer l'entrée"
+msgstr "Double entrée"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Dupliquer l'entrée (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-mail"
@@ -619,7 +606,7 @@ msgid "Edit"
 msgstr "Modifier"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Modifier les entrées sélectionnées"
 
 msgid "Edit this entry"
 msgstr "Modifier cette entrée"
@@ -637,18 +624,18 @@ msgid "End date (optional)"
 msgstr "Date de fin (optionnel)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Saisir l'ID, le code ou l'étiquette du groupe"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Entrée supprimée avec succès"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Entrée sauvegardée avec succès"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Les options de configuration spécifiques à l'entrée seront disponibles sous forme de paires clé/valeur dans les modèles."
 
 msgid "Error"
 msgstr "Erreur"
@@ -687,13 +674,13 @@ msgstr "Fichier"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Le fichier n'existe pas : \"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "Téléchargement de fichier arrêté par extension"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Fichier téléchargé avec succès"
 
 msgid "Find category"
 msgstr "Trouver une catégorie"
@@ -723,10 +710,10 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Étage et/ou appartement (optionnel)"
 
 msgid "Generate"
-msgstr ""
+msgstr "Générer"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Générer une image"
 
 msgid "Generate text"
 msgstr "Générer du texte"
@@ -789,7 +776,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "Comment le fournisseur est adressé dans les courriels"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hyperréaliste et dramatique"
 
 msgid "ID"
 msgstr "Identifiant"
@@ -807,7 +794,7 @@ msgid "Image"
 msgstr "Image"
 
 msgid "Image description"
-msgstr ""
+msgstr "Description de l'image"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -890,8 +877,11 @@ msgstr "Facture"
 msgid "Invoice No."
 msgstr "Facture N°."
 
+msgid "Invoice no."
+msgstr "Numéro de facture"
+
 msgid "Invoice number"
-msgstr ""
+msgstr "Numéro de facture"
 
 msgid "Invoice number for the order"
 msgstr "Numéro de facture pour la commande"
@@ -961,7 +951,7 @@ msgid "List type"
 msgstr "Type de liste"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Chargement des entrées ..."
 
 msgid "Locale"
 msgstr "Emplacement"
@@ -1018,7 +1008,7 @@ msgid "Mobile number (optional)"
 msgstr "Numéro mobile (facultatif)"
 
 msgid "Model"
-msgstr ""
+msgstr "Modèle"
 
 msgid "Modifed"
 msgstr "Modifié"
@@ -1055,7 +1045,7 @@ msgid "Name of your shop shown to your customers"
 msgstr "Nom de la boutique tel que montré aux clients"
 
 msgid "Natural"
-msgstr ""
+msgstr "Naturel"
 
 msgid "New"
 msgstr "Nouveau"
@@ -1085,7 +1075,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "Aucune devise n'est disponible. Veuillez en activer au moins une"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Aucune entrée trouvée"
 
 msgid "No file was uploaded"
 msgstr "Aucun fichier n'a été transmis"
@@ -1113,7 +1103,7 @@ msgid "None"
 msgstr "Aucun"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Toutes les entrées n'ont pas pu être supprimées"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1143,7 +1133,7 @@ msgid ""
 msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Seuls les super utilisateurs et les administrateurs peuvent supprimer des entrées"
 
 msgid "Open"
 msgstr "Ouvrir"
@@ -1458,7 +1448,7 @@ msgid "Rating and number of ratings for the merchant"
 msgstr "Note et nombre de notes pour le commerçant"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Note de l'évaluateur"
 
 msgid "Reason"
 msgstr "Raison"
@@ -1493,7 +1483,7 @@ msgid "Related order of the customer"
 msgstr "Commande client associée"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Supprimer l'arrière-plan"
 
 msgid "Renew"
 msgstr "Renouveler"
@@ -1526,10 +1516,10 @@ msgid "Review"
 msgstr "à l'étude"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Entrée revue"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Nom de l'évaluateur"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1545,25 +1535,25 @@ msgid "Route or page ID (optional)"
 msgstr "Route ou page ID (optionnel)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Règle"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Type de règle"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Types de règles"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Étiquette de la règle pour décrire la règle configurée"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Position de la règle (obligatoire)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Nom de la configuration du fournisseur de règles ou du décorateur de règles"
 
 msgid "Rules"
-msgstr ""
+msgstr "Règles"
 
 msgid "SKU"
 msgstr "UGS"
@@ -1593,16 +1583,19 @@ msgid "Save & New"
 msgstr "Sauvegarder & Nouveau"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "Sauvegarder l'entrée (Ctrl+Enter)"
+msgstr "Sauvegarder la saisie (Ctrl+Entrée)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Sauvegarder l'entrée (Ctrl+S)"
 
 msgid "Search"
 msgstr "Recherche"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Type de deuxième niveau pour le regroupement des entrées"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Sélectionner toutes les entrées"
 
 msgid "Select file"
 msgstr "Choisissez un fichier"
@@ -1776,7 +1769,7 @@ msgid "Street name (optional)"
 msgstr "Nom de la rue (optionnel)"
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Sub-total"
 msgstr "Sous-total"
@@ -1802,7 +1795,7 @@ msgid "Supplier name or company"
 msgstr "Nom du fournisseur ou de la société"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Position du fournisseur (obligatoire)"
 
 msgid "Suppliers who manufacture the product"
 msgstr "Fournisseurs fabriquant le produit"
@@ -1854,10 +1847,10 @@ msgid ""
 msgstr "Cet article apparait uniquement jusqu'à cette date / heure, pratique pour les articles saisonniers"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "L'inscription n'est affichée sur le site web qu'à partir de cette date et de cette heure."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "L'inscription n'est affichée sur le site web que jusqu'à la date et l'heure indiquées."
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Le titre du média est utilisé pour les mot-clé de titre du média sur le site Web."
@@ -1896,7 +1889,7 @@ msgid "The uploaded file was only partially uploaded"
 msgstr "Le fichier téléchargé n'a été que partiellement téléchargé"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Thème pour modifier la présentation de votre boutique"
 
 msgid "Three letter ISO currency code"
 msgstr "Code ISO à 3 lettres de la devise, par ex. \"EUR\""
@@ -1914,7 +1907,7 @@ msgid "Toggle dropdown"
 msgstr "Afficher le menu déroulant"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Sélection Toogle"
 
 msgid "Top countries"
 msgstr "Principaux pays"
@@ -1929,13 +1922,13 @@ msgid "Total orders within the last seven days compared to the period before"
 msgstr "Total des commandes au cours des sept derniers jours par rapport à la période précédente"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Notations totales"
 
 msgid "Translate text"
 msgstr "Traduire le texte"
 
 msgid "Translations"
-msgstr ""
+msgstr "Traductions"
 
 msgid "Two letter ISO country code"
 msgstr "Code ISO du pays à deux lettres"
@@ -1976,7 +1969,7 @@ msgstr "Impossible d'appeler la méthode \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Impossible de lire le contenu de \"%1$s\""
 
 msgid "Unfinished orders"
 msgstr "Commandes non finalisées"
@@ -2042,7 +2035,7 @@ msgid "Unknown upload error"
 msgstr "Erreur inconnue de téléchargement"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Télécharger le CSV"
 
 msgid "Upload shop icon"
 msgstr "Télécharger l'icône de la boutique"
@@ -2054,7 +2047,7 @@ msgid "Uploaded"
 msgstr "Uploadé"
 
 msgid "Use"
-msgstr ""
+msgstr "Utilisation"
 
 msgid "User groups"
 msgstr "Groupes d'utilisateurs"
@@ -2078,7 +2071,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Caractéristiques de produits variantes stockés avec les produits commandés"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Vendeur"
 
 msgid "Verified"
 msgstr "Vérifié"
@@ -2119,7 +2112,7 @@ msgstr "Années"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Vous allez supprimer une ou plusieurs entrées. Voulez-vous continuer ?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Votre export sera disponible dans quelques minutes en téléchargement"
@@ -2134,7 +2127,7 @@ msgid "Zip code (optional)"
 msgstr "Code postal (optionnel) "
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__caché__"
 
 #, php-format
 msgid "account"
@@ -2152,7 +2145,7 @@ msgstr "Adresse de facturation"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2187,11 +2180,11 @@ msgstr "Nom de la compagnie"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "configuration"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "pays de comptage"
 
 #, php-format
 msgid "countday"
@@ -2344,7 +2337,7 @@ msgid "pay:6"
 msgstr "reçu"
 
 msgid "pay:7"
-msgstr ""
+msgstr "payer:7"
 
 #, php-format
 msgid "paymentstatus"
@@ -2376,19 +2369,19 @@ msgstr "Propriétés"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "rapide/compté achevé"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "rapide/compte client"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "rapide/compte total"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "rapide/compte inachevé"
 
 msgid "reason:-1"
 msgstr "échoué"
@@ -2409,7 +2402,7 @@ msgstr "Avis"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "règle"
 
 #, php-format
 msgid "sales"
@@ -2444,7 +2437,7 @@ msgstr "Paramètres"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "configuration"
 
 #, php-format
 msgid "special"
@@ -2478,19 +2471,19 @@ msgid "stat:7"
 msgstr "renvoyée"
 
 msgid "status:-1"
-msgstr ""
+msgstr "statut:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "statut:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "statut:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "statut:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "statut:2"
 
 #, php-format
 msgid "stock"
@@ -2508,10 +2501,10 @@ msgid "tag"
 msgstr "Mots-clés"
 
 msgid "tax:0"
-msgstr ""
+msgstr "taxe:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "taxe:1"
 
 #, php-format
 msgid "text"
@@ -2523,7 +2516,7 @@ msgstr "Thème"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "transaction"
 
 #, php-format
 msgid "type"
@@ -2595,7 +2588,7 @@ msgstr "Propriétés du produit"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "type/règle"
 
 #, php-format
 msgid "type/service"

@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Bazuka Reklamebureau, 2024
 # Bazuka Reklamebureau, 2024
 # Tobias Madsen <tubbe.m@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-11 13:59+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Bazuka Reklamebureau, 2024\n"
+"Last-Translator: Tobias Madsen <tubbe.m@gmail.com>, 2020\n"
 "Language-Team: Danish (http://app.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,29 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr "stocktype:standard"
 
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
 
 #, php-format
 msgid ""
@@ -88,24 +71,24 @@ msgstr "%s/%s/%s.%s"
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) facsimilenummer uden adskillelsestegn, kan starte med et \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Internationalt) telefonnummer uden adskillelsestegn, kan starte med et \"+\""
 
 msgid "+ Tax"
 msgstr "+ Moms"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<skjult>."
 
 msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API-nøgle"
 
 msgid "Account"
 msgstr "Konto"
@@ -117,7 +100,7 @@ msgid "Actual price"
 msgstr "Faktisk pris"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Den faktiske pris, som kunderne kan købe artiklen for på webstedet"
 
 msgid "Add"
 msgstr "Tilføj"
@@ -125,119 +108,119 @@ msgstr "Tilføj"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Ekstra leveringsomkostninger for hver vare, f.eks. vil $20 for en tung vare være $100 for fem varer i alt."
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Yderligere oplysninger om, hvor kundens lejlighed kan findes"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Yderligere oplysninger om, hvor leverandørens lejlighed kan findes"
 
 msgid "Address 1"
-msgstr ""
+msgstr "Adresse 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "Adresse 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "Adresse 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Adresseidentifikator for kundens hus til levering"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Adresseidentifikator for leverandørens hus til levering"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Admin JQAdm-typen er tom"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avanceret"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos-caching er deaktiveret af \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos debug-logning er aktiveret af \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos objekt ikke tilgængelig"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Alle attributter, der entydigt definerer en artikel, f.eks. bredde, længde og farve for jeans"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Tillad brugerdefineret pris"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Giv kunderne mulighed for selv at vælge, hvor meget de vil betale"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Alfanumerisk streng, der kan identificere gruppen entydigt"
 
 msgid "Apply"
-msgstr ""
+msgstr "Ansøg"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Artikelspecifikke konfigurationsindstillinger vil være tilgængelige som nøgle/værdi-par i skabelonerne"
 
 msgid "Attribute"
 msgstr "Egenskab"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Attributlister Type"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Typer af attributlister"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Attribut Egenskabstype"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Egenskabstyper for attributter"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Attributtype"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Attribut-typer"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Attributposition (valgfri)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Attributegenskaber, der ikke deles med andre attributter"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Attributtype, der begrænser listen over tilgængelige attributter"
 
 msgid "Attributes"
 msgstr "Egenskaber"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Tilgængelig valuta for det aktuelle site"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Tilgængelige intervaller i front-end"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Tilgængeligt sprog for den aktuelle side"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Gennemsnitlig produktvurdering og samlet antal vurderinger af kunder for dette produkt"
 
 msgid "Back in stock"
 msgstr "Tilbage på lager"
@@ -255,184 +238,184 @@ msgid "Birthday"
 msgstr "Fødselsdag"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Kundens fødselsdag"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Boost-faktor"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Boost-faktor (valgfrit)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Fejl eller forslag?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Masse-redigering"
 
 msgid "Cancel"
 msgstr "Annullér"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Annuller og gå tilbage til listen"
 
 msgid "Catalog"
 msgstr "Katalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Kataloglister Type"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Kataloglister Typer"
 
 msgid "Categories"
 msgstr "Kategorier"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Kategorier, som brugeren kan finde produktet i på webstedet"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Kategorier, som produktet vil blive vist for i kampagnesektionen"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Kategorispecifikke konfigurationsmuligheder vil være tilgængelige som nøgle/værdi-par i skabelonerne"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Ændring af omkostninger/vare i %."
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Ændring af rabat i %."
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Ændring af værdi i %."
 
 msgid "Channel"
 msgstr "Kanal"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Kanal, hvor ordren er afgivet"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Vælg fil"
 
 msgid "City"
 msgstr "By"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "By eller bynavn (påkrævet)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "Klassen \"%1$s\" implementerer ikke \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Klassen \"%1$s\" er ikke tilgængelig"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Klassen \"%1$s\" blev ikke fundet"
 
 msgid "Close"
 msgstr "Luk"
 
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Kode til entydig identifikation af webstedet, omdøbning er farlig!"
 
 msgid "Columns"
-msgstr ""
+msgstr "Søjler"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Anmelderens kommentar"
 
 msgid "Communication"
-msgstr ""
+msgstr "Kommunikation"
 
 msgid "Company"
 msgstr "Firma"
 
 msgid "Company details"
-msgstr ""
+msgstr "Detaljer om virksomheden"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Virksomhedens navn (valgfrit)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Afsluttede ordrer"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Afsluttede ordrer inden for de sidste syv dage sammenlignet med perioden før"
 
 msgid "Config"
-msgstr ""
+msgstr "Konfig"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Kan konfigureres"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Konfigurationsmuligheder, vil være tilgængelige som nøgle/værdi-par i listeelementet"
 
 msgid "Context"
-msgstr ""
+msgstr "Sammenhæng"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopi"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Kopier dette indlæg"
 
 msgid "Costs"
-msgstr ""
+msgstr "Omkostninger"
 
 msgid "Count"
-msgstr ""
+msgstr "Tælle"
 
 msgid "Country"
 msgstr "Land"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Landets ID"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Landekode (påkrævet)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Landespecifik skattesats for at beregne og vise den inkluderede skat (B2C) eller tilføje skatten, hvis det er nødvendigt (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Landekode (valgfrit)"
 
 msgid "Coupon"
 msgstr "Kupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Konfigurationsnavn for kuponudbyder eller kupondekoratør"
 
 msgid "Created"
 msgstr "Oprettet"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Valutaer"
 
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 msgid "Custom"
-msgstr ""
+msgstr "Brugerdefineret"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Brugerdefineret domæne eller unik kode til din butik"
 
 msgid "Customer"
 msgstr "Kunde"
@@ -441,79 +424,79 @@ msgid "Customer ID"
 msgstr "Kunde ID"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Type af kundelister"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Typer af kundelister"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Kundens ejendomstype"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Typer af kundeejendomme"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Kundekarakteristika, som ikke deles med andre kunder"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Kundekommentar (valgfri)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Kundens e-mailadresse"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Kundens adgangskode"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Kundeegenskaber, der ikke deles med andre kunder"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Kundehenvisning"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Kundereference (valgfrit)"
 
 msgid "Dashboard"
 msgstr "Oversigt"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Data set"
-msgstr ""
+msgstr "Datasæt"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Datasæt"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Dato for sidste ændring af leveringsstatus"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Dato for sidste ændring af betalingsstatus"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Dato for afslutning af abonnementet"
 
 msgid "Days"
 msgstr "Dage"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Delete"
 msgstr "Slet"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Slette poster?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Slet valgte poster"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Slet denne post"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Det er ikke tilladt at slette anmeldelser"
 
 msgid "Delivery"
 msgstr "Levering"
@@ -522,23 +505,23 @@ msgid "Delivery address"
 msgstr "Leveringsadresse"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Leveringsdato"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Levering i"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Leverings- eller betalingsomkostninger for produkterne i kundens kurv"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Leveringsstatus"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Tidsramme for levering (valgfrit)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Leveringstyper"
 
 msgid "Delivery within"
 msgstr "Levering inden"
@@ -546,307 +529,310 @@ msgstr "Levering inden"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Afhængigt af det valgte datasæt vil listen over viste felter for produktet være forskellig"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Beskriv dit image"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Beskrivelse af tekstindholdet, hvis det er på et fremmedsprog"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Beskrivende navn på valutaen"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Beskrivende navn på sproget"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Beskrivende navn på webstedet"
 
 msgid "Discount"
-msgstr ""
+msgstr "Rabat"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Vis hjælpetekster"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domæne"
 
 msgid "Download"
 msgstr "Download"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Download denne fil"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Duplikeret post"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Dupliker post (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "Email"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "E-mail-adresse (påkrævet)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "E-mail-adresse eller kontonavn (påkrævet)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "E-mail-adresse, der bruges til at sende butiksrelaterede e-mails"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "E-mail-adresse (valgfri)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "E-mail-adresse, der hører til adressen"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN-, SKU- eller artikelnummer (påkrævet)"
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Rediger valgte poster"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Rediger denne post"
 
 msgid "Editor"
-msgstr ""
+msgstr "Redaktør"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "End date"
 msgstr "Slut dato"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Slutdato (valgfri)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Indtast gruppe-ID, kode eller etiket"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Post slettet med succes"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Indtastning gemt med succes"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Indgangsspecifikke konfigurationsindstillinger vil være tilgængelige som nøgle/værdi-par i skabelonerne"
 
 msgid "Error"
-msgstr ""
+msgstr "Fejl"
 
 msgid "Excl. tax"
 msgstr "Excl. moms"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Plugins' udførelsesrækkefølge"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Reglernes udførelsesrækkefølge"
 
 msgid "Export"
-msgstr ""
+msgstr "Eksport"
 
 msgid "Facility"
-msgstr ""
+msgstr "Facilitet"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Faksimile"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Faksimilenummer (valgfrit)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Faktor til at booste produktet i brugersøgning i forhold til andre produkter (>1,0 positivt boost, <1,0 negativt boost)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Kunne ikke skrive fil til disk"
 
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Filen findes ikke: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Filupload stoppet af udvidelse"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Filen blev uploadet med succes"
 
 msgid "Find category"
-msgstr ""
+msgstr "Find kategori"
 
 msgid "Find site"
-msgstr ""
+msgstr "Find stedet"
 
 msgid "First"
-msgstr ""
+msgstr "Første gang"
 
 msgid "First name"
 msgstr "Fornavn"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Fornavn (valgfrit)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Personens fornavn, hvis det bruges i kulturer, hvor det bruges"
 
 msgid "Floor"
-msgstr ""
+msgstr "Gulv"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Etage/lejlighed"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Etage og/eller lejlighed (valgfrit)"
 
 msgid "Generate"
-msgstr ""
+msgstr "Generer"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Generer billede"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Generer tekst"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Givet rabatbeløb"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Gå til attributpanelet"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Gå til panelet for ejendomstype"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Gå til listen over attributtyper"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Tildelt rabat"
 
 msgid "Group"
 msgstr "Gruppe"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Gruppenavn, der beskriver, hvilke medlemmer gruppen er til for"
 
 msgid "Groups"
 msgstr "Grupper"
 
 msgid "Height"
-msgstr ""
+msgstr "Højde"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Skjulte egenskaber"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Skjulte produktattributter, der gemmes sammen med de bestilte produkter"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Fremhævede leverandører af produktet"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Ærestitel (valgfri)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Ærestitler som Dr., Ph.d. osv."
 
 msgid "Hours"
 msgstr "Timer"
 
 msgid "House number"
-msgstr ""
+msgstr "Husnummer"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Husnummer (valgfrit)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Hvordan kunden tiltales i e-mails"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Hvordan leverandøren tiltales i e-mails"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hyperrealistisk og dramatisk"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "ID for en relateret faktura, f.eks. en ændret eller refunderet faktura"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO-valutakode (påkrævet)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO-sprogkode (påkrævet)"
 
 msgid "Image"
 msgstr "Billede"
 
 msgid "Image description"
-msgstr ""
+msgstr "Billedbeskrivelse"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Billeder vises kun på det pågældende sprog, hvilket er nyttigt, hvis mediet indeholder tekst eller er sprogspecifikt."
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Import/eksport-jobs"
 
 msgid "Incl. tax"
 msgstr "Inkl. moms"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Indsæt ny post"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Indsæt ny post (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Internt artikelnavn, vil kun blive brugt på webstedet og til søgning, hvis der ikke findes andre produktnavne på noget sprog"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Internt artikelnavn, vil blive brugt på webstedet, hvis der ikke findes et produktnavn for sproget"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Internt attributnavn, vil blive brugt på webstedet, hvis der ikke findes et navn for sproget"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Internt kategorinavn, vil blive brugt på webstedet, hvis der ikke findes et navn for sproget"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Internt navn (påkrævet)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Internt typenavn vist i administrationsgrænsefladen"
 
 msgid "Interval"
 msgstr "Interval"
@@ -856,82 +842,85 @@ msgstr "Interval (påkrævet)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Ugyldige tegn i klassenavnet \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Ugyldige tegn i klientnavn \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Ugyldigt klassenavn \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Ugyldigt domæne \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Ugyldig fabrik \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Faktura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Faktura nr."
+
+msgid "Invoice no."
+msgstr "Faktura nr."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Fakturanummer"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Fakturanummer for ordren"
 
 msgid "Label"
-msgstr ""
+msgstr "Etiket"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Etiket (påkrævet)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Etiket, der beskriver intervallet, bruges, hvis der ikke er noget navn tilgængeligt"
 
 msgid "Language"
 msgstr "Sprog"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Sprog-ID"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Sprog for den indtastede tekst"
 
 msgid "Languages"
-msgstr ""
+msgstr "Sprog"
 
 msgid "Last"
-msgstr ""
+msgstr "Sidste gang"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Sidste leveringsstatus for ordren"
 
 msgid "Last name"
 msgstr "Efternavn"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Efternavn (valgfrit)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Efternavn (påkrævet)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Personens efternavn eller fulde navn i kulturer, hvor der ikke bruges fornavne"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Sidste betalingsstatus for ordren"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Seneste ordrer"
 
 msgid "Length"
 msgstr "Længde"
@@ -939,19 +928,19 @@ msgstr "Længde"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Liste over artikler, der skal sælges som ét produkt, ofte til en reduceret pris"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Liste over produkter, der ofte købes sammen"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Liste over foreslåede produkter"
 
 msgid "List type"
-msgstr ""
+msgstr "Type liste"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Indlæser poster ..."
 
 msgid "Locale"
 msgstr "Lokalitet"
@@ -960,104 +949,104 @@ msgid "Log"
 msgstr "Log"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Manuel overførsel"
 
 msgid "Map"
-msgstr ""
+msgstr "Kort"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Medielister Type"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Typer af medielister"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Type medieejendom"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Egenskabstyper for medier"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Medietype"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Medietyper"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Mediernes egenskaber"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgid "Message"
-msgstr ""
+msgstr "Besked"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Min. mængde"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Minimumsmængde"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobilnummer"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Mobilnummer (valgfrit)"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Ændret"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificeret"
 
 msgid "Months"
 msgstr "Måneder"
 
 msgid "More"
-msgstr ""
+msgstr "Mere om det"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Flyt denne post op/ned"
 
 msgid "Name"
 msgstr "Navn"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Navn i URL (valgfrit)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Navn på kurven"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Navnet på den downloadede fil, når kunderne gemmer filen på deres computere"
 
 msgid "Name of the reviewer"
 msgstr "Navn på anmelder"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Navnet på din butik vises til dine kunder"
 
 msgid "Natural"
-msgstr ""
+msgstr "Naturlig"
 
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 msgid "New customers"
-msgstr ""
+msgstr "Nye kunder"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Nye kunder inden for de sidste syv dage"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Nye kunder inden for de seneste syv dage sammenlignet med perioden før"
 
 msgid "Next"
 msgstr "Næste"
@@ -1069,77 +1058,77 @@ msgid "Next date (optional)"
 msgstr "Næste dato (Valgfri)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Næste dato for fornyelse af abonnementet"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Ingen valutaer tilgængelige. Aktivér venligst mindst én valuta"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Ingen poster fundet"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Ingen fil blev uploadet"
 
 msgid "No product found"
-msgstr ""
+msgstr "Intet produkt fundet"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Ingen tilgængelige temaindstillinger"
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Ingen visning tilgængelig"
 
 msgid "No voucher"
 msgstr "Ingen rabatkupon"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Ikke-delte egenskaber for medieelementet"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Ikke-delte egenskaber for priselementet"
 
 msgid "None"
 msgstr "Ingen"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Ikke alle poster kunne slettes"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Ikke tilladt at få adgang til JQAdm \"%1$s\"-klient"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Ikke implementeret"
 
 msgid "Notes"
-msgstr ""
+msgstr "Noter"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Noter (ikke vist til kunden)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Antal artikler på lager, lad det være tomt for en ubegrænset mængde"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Officielt moms-id for at afgøre, om skatten skal faktureres på fakturaer"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "En udbyder og nul eller flere navne på dekoratorklasser adskilt af kommaer"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Kun superbrugere og administratorer kan slette poster"
 
 msgid "Open"
-msgstr ""
+msgstr "Åben"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Åbent antal"
 
 msgid "Option"
 msgstr "Mulighed"
@@ -1147,7 +1136,7 @@ msgstr "Mulighed"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Valgfrie produktkomponenter, der kan vælges af kunden sammen med produktet"
 
 msgid "Order"
 msgstr "Ordre"
@@ -1156,51 +1145,51 @@ msgid "Order ID"
 msgstr "Ordre ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Ordrenummer indtastet af kunden"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Rækkefølge af sprog/valuta-kombinationer"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Rækkefølgen af servicemulighederne i checkout-processen"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Rækkefølgen af typerne i frontend"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Samlet antal ordrer"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Bestilt på"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Ordrer efter land"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Ordrer pr. dag"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Ordrer pr. time"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Ordrer efter betalingsstatus"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Overskriv den eksisterende fil, og kunder, der har købt den tidligere, kan så også downloade det nye indhold"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP-indstillingen \"%1$s\" er deaktiveret"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP-indstillingen \"%1$s\" er aktiveret"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "PHP-indstillingen for \"%1$s\" er for lav"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1210,22 +1199,22 @@ msgid "Password"
 msgstr "kodeord"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Adgangskode (påkrævet)"
 
 msgid "Path"
-msgstr ""
+msgstr "Sti"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Betalingsdato"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Lønstatus"
 
 msgid "Payment"
 msgstr "Betaling"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Betalingsdato"
 
 msgid "Payment status"
 msgstr "Betalingsstatus"
@@ -1234,18 +1223,18 @@ msgid "Payment types"
 msgstr "Betalingstyper"
 
 msgid "Periods"
-msgstr ""
+msgstr "Perioder"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Tilladelse nægtet"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Personlige data"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Indsæt venligst beskrivelsen af den tekst, der skal genereres, her"
 
 msgid "Please select"
 msgstr "Vælg"
@@ -1260,31 +1249,31 @@ msgid "Plugin Types"
 msgstr "Plugintyper"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Plugin-label til beskrivelse af det konfigurerede plugin"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Plugin-position (påkrævet)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Konfigurationsnavn for plugin-udbyder eller plugin-dekorator"
 
 msgid "Position"
-msgstr ""
+msgstr "Position"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Position (påkrævet)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Postvæsen"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Postnummer til levering, hvis det bruges i det område, hvor kunden bor"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Postnummer til levering, hvis det bruges i det område, hvor leverandøren bor"
 
 msgid "Postition"
-msgstr ""
+msgstr "Position"
 
 msgid "Potential problems"
 msgstr "Potentielle problemer"
@@ -1296,28 +1285,28 @@ msgid "Price"
 msgstr "Pris"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Prislister Type"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Typer af prislister"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Pris Ejendomstype"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Pris Ejendomstyper"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Pristype"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Pristyper"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Pris på ejendomme"
 
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 msgid "Problem"
 msgstr "Problem"
@@ -1329,19 +1318,19 @@ msgid "Product ID"
 msgstr "Produkt ID"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Produkt-ID, SKU eller etiket"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Produktlister Type"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Typer af produktlister"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Produktets egenskabstype"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Typer af produktegenskaber"
 
 msgid "Product Type"
 msgstr "Produkttype"
@@ -1352,13 +1341,13 @@ msgstr "Produkttyper"
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Produktattributter gemt i kurven, hvor kunderne kan indtaste deres egne tekster eller værdier"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Produktattributter, der også bruges af andre produkter"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Produktegenskaber, der ikke deles med andre produkter"
 
 msgid "Product code"
 msgstr "Produktkode"
@@ -1367,16 +1356,16 @@ msgid "Product costs"
 msgstr "Produktomkostninger"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Produktets højde, f.eks. 20,0 (i yard, tommer osv.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Produktets længde, f.eks. 30,0 (i yard, inch osv.)"
 
 msgid "Product name"
 msgstr "Produktnavn"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Betaling af produkter"
 
 msgid "Product price"
 msgstr "Produkt pris"
@@ -1385,10 +1374,10 @@ msgid "Product quantity"
 msgstr "Produktmængde"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Produktrabat"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Forsendelse af produkter"
 
 msgid "Product status"
 msgstr "Produktstatus"
@@ -1403,10 +1392,10 @@ msgid "Product type"
 msgstr "Produkttype"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Produktets vægt, f.eks. 1,25 (i pund, ounce osv.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Produktbredde, f.eks. 17,5 (i yard, inch osv.)"
 
 msgid "Products"
 msgstr "Produkter"
@@ -1415,51 +1404,51 @@ msgid "Products bought together"
 msgstr "Produkter købt sammen"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Forfremmelse"
 
 msgid "Properties"
 msgstr "Egenskaber"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Ejendomsværdi (påkrævet)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Udbyder"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Navn på udbyder-/dekoratørklasse (påkrævet)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Køb"
 
 msgid "Quantity"
 msgstr "Antal"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Mængdeskala"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Rabate"
 
 msgid "Rating"
 msgstr "Score"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Vurdering og antal vurderinger af forhandleren"
 
 msgid "Rating of the reviewer"
 msgstr "Anmelderens score"
 
 msgid "Reason"
-msgstr ""
+msgstr "Årsag"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Rabat"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Reduktion fra den oprindelige pris, bruges til at beregne rabatten i % og krydsprisen"
 
 msgid "Reference"
 msgstr "Reference"
@@ -1468,40 +1457,40 @@ msgid "Reference ID"
 msgstr "Reference ID"
 
 msgid "Refund"
-msgstr ""
+msgstr "Tilbagebetaling"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Relateret ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "Relateret ordre"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Relateret ordre-ID (valgfrit)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Relateret ordre fra kunden"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Fjern baggrund"
 
 msgid "Renew"
-msgstr ""
+msgstr "Fornyelse"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Udskift filen"
 
 msgid "Request"
-msgstr ""
+msgstr "Anmodning"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Den påkrævede parameter \"%1$s\" mangler"
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Nødvendigt antal artikler for blokpriser, f.eks. en artikel for 5,00 $, ti artikler for 45,00 $."
 
 msgid "Reset"
 msgstr "Nulstil"
@@ -1510,13 +1499,13 @@ msgid "Response"
 msgstr "Svar"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Svar til anmelderen"
 
 msgid "Review"
 msgstr "Afventer gennemgang"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Anmeldt post"
 
 msgid "Reviewer name"
 msgstr "Anmeldernavn"
@@ -1524,48 +1513,48 @@ msgstr "Anmeldernavn"
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Rutenavn eller side-ID for kategorisiden, hvis denne kategori skal vises på en anden side"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Rutenavn eller side-ID for produktdetaljesiden, hvis dette produkt skal vises på en anden side"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Rute- eller side-ID (valgfrit)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Regel"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Regeltype"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Regeltyper"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Regellabel til beskrivelse af den konfigurerede regel"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Regelposition (påkrævet)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Konfigurationsnavn for regeludbyder eller regeldekorator"
 
 msgid "Rules"
-msgstr ""
+msgstr "Regler"
 
 msgid "SKU"
-msgstr ""
+msgstr "VARENUMMER"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Salg pr. ugedag"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Salg i de sidste 30 dage"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Salg pr. måned"
 
 msgid "Salutation"
 msgstr "Tiltaleform"
@@ -1574,37 +1563,40 @@ msgid "Save"
 msgstr "Gem"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Gem og luk"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Gem og kopier"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Gem & nyt"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Gem indtastning (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Gem indtastning (Ctrl+S)"
 
 msgid "Search"
 msgstr "Søg"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Type på andet niveau til gruppering af poster"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Vælg alle poster"
 
 msgid "Select file"
-msgstr ""
+msgstr "Vælg fil"
 
 msgid "Service"
 msgstr "Service"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Servicelister Type"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Typer af servicelister"
 
 msgid "Service Type"
 msgstr "Servicetype"
@@ -1613,133 +1605,133 @@ msgid "Service Types"
 msgstr "Servicetyper"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Kode for serviceattribut"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Serviceomkostninger"
 
 msgid "Service name"
-msgstr ""
+msgstr "Navn på tjeneste"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Serviceposition (påkrævet)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Pris på service"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Konfigurationsnavn for serviceudbyder eller servicedekorator"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Service-rabat"
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Dato for afsendelse"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Skibets status"
 
 msgid "Shipping"
 msgstr "Levering"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Forsendelses- og betalingsomkostninger"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Forsendelses-/betalingsomkostninger"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Forsendelse/vare"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Shop-domæne"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Butiksdomæne (påkrævet)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Shop e-mail"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Butikkens e-mailadresse (påkrævet)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Butikkens navn"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Butikkens navn (påkrævet)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Shop-tema"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Kort statskode (f.eks. NY), hvis den bruges i det land, kunden bor i"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Kort statskode (f.eks. NY), hvis den bruges i det land, hvor leverandøren bor"
 
 msgid "Show"
 msgstr "Vis"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Vis indgang"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Vis søgeformular"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Vis/skjul avancerede data"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Vis/skjul detaljer"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Vis/skjul navigationsetiketter"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Vis/skjul denne post"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Vises, hvis artiklen har nået et lagerniveau på nul"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Siden når produktet er tilgængeligt, bruges til sortering i front-end"
 
 msgid "Site"
-msgstr ""
+msgstr "Sted"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Webstedsspecifikke konfigurationsmuligheder vil være tilgængelige som nøgle/værdi-par"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Stedet, hvor ordren blev afgivet"
 
 msgid "Sites"
-msgstr ""
+msgstr "Steder"
 
 msgid "Size"
 msgstr "Størrelse"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Sortering af attributterne inden for samme attributtype"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Sortering af leverandører"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Kilde til fakturaen, f.eks. via web eller telefon"
 
 msgid "Start date"
-msgstr ""
+msgstr "Startdato"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Begynd at skrive ..."
 
 msgid "State"
 msgstr "Status"
@@ -1763,10 +1755,10 @@ msgid "Street"
 msgstr "Vejnavn og nr."
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Gadenavn (valgfrit)"
 
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 msgid "Sub-total"
 msgstr "Sub-total"
@@ -1777,7 +1769,7 @@ msgstr "Abonnement"
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Abonnementsinterval med år, måneder, uger og dage, f.eks. \"P0Y1M2W3D\" for nul år, en måned, to uger og tre dage."
 
 msgid "Suggested products"
 msgstr "Forslåede produkter"
@@ -1789,25 +1781,25 @@ msgid "Supplier"
 msgstr "Leverandør"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Leverandørens navn eller virksomhed"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Leverandørens position (påkrævet)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Leverandører, der fremstiller produktet"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Tag-type"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Tag-typer"
 
 msgid "Tax"
 msgstr "Moms"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Skattesats"
 
 msgid "Tax rate in %"
 msgstr "Moms i %"
@@ -1816,319 +1808,319 @@ msgid "Telephone"
 msgstr "Telefon"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Telefonnummer (valgfrit)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Midlertidig mappe mangler"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Tekstlister Type"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Typer af tekstlister"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Teksttype"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Teksttyper"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Artiklen vises kun på webstedet efter den dato og det tidspunkt, nyttige eller sæsonbestemte artikler"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Artiklen vises kun på webstedet indtil den dato og det tidspunkt, nyttige eller sæsonbestemte artikler"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Bidraget vises kun på webstedet efter denne dato og dette tidspunkt."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Bidraget vises kun på webstedet indtil den pågældende dato og det pågældende tidspunkt."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Medietitlen bruges til titeltagget på medierne på webstedet."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Navnet på den kategori, der vises i URL'en, vil blive brugt, hvis der ikke findes et sprogspecifikt URL-segment."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Navnet på det produkt, der vises i URL'en, vil blive brugt, hvis der ikke findes et sprogspecifikt URL-segment."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Indstillingen vises kun på webstedet efter denne dato og dette klokkeslæt."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Indstillingen vises kun på webstedet indtil den pågældende dato og det pågældende tidspunkt."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Reglen bruges kun efter den dato og det tidspunkt."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Reglen bruges kun indtil den dato og det tidspunkt"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Den tilladte trinværdi for mængder i kurven, f.eks. \"0,1\" for brøkdele af mængder eller \"5\" for flere end fem artikler."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Den uploadede fil overskrider den maksimalt tilladte filstørrelse"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Den uploadede fil blev kun delvist uploadet"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Tema til at ændre layoutet på din butik"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "ISO-valutakode på tre bogstaver"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Tidsramme (valgfrit)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Tidsstempel"
 
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Skift dropdown"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Toogle-valg"
 
 msgid "Top countries"
-msgstr ""
+msgstr "De bedste lande"
 
 msgid "Total"
 msgstr "Total"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Samlede ordrer"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Samlede ordrer inden for de sidste syv dage sammenlignet med perioden før"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Samlet bedømmelse"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Oversæt tekst"
 
 msgid "Translations"
-msgstr ""
+msgstr "Oversættelser"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "ISO-landekode på to bogstaver"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "ISO-sprogkode på to bogstaver"
 
 msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Skriv position (valgfrit)"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Typer til ekstra billeder som ikoner"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Typer for ekstra priser som pr. kg eller pr. måned"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Typer til yderligere tekster som pr. lb/kg eller pr. måned"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "URL til kundens websted"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "URL til leverandørens websted"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL-segment"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL-mål"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Kunne ikke kalde metoden \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Kunne ikke læse indhold fra \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Uafsluttede ordrer"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Uafsluttede ordrer inden for de sidste syv dage sammenlignet med perioden før"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "Unik artikelkode relateret til lagerniveauer, f.eks. fra ERP-systemet, et EAN/GTIN-nummer eller selvopfundet"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Unik attributkode (påkrævet)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Unik attributkode, f.eks. \"grøn\" for attributter af typen \"farve\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Unik kategorikode (påkrævet)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Unik kategorikode, enten fra eksternt system eller selvopfundet"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Unik kode (påkrævet)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Unik kode til at identificere tjenesten, som regel selvopfundet"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Unikt navn på kundekonto"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Unik e-mailadresse til kunden"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Unik gruppekode (påkrævet)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Unik servicekode (påkrævet)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Unik webstedskode (påkrævet)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Unik leverandørkode"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Unik typekode"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Unik typekode (påkrævet)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Unik typekode, f.eks. \"farve\" for attributter som \"grøn\", \"blå\", \"rød\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "Enhedspris"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Ukendt uploadfejl"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Upload CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Upload butiksikon"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Upload butikslogo"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Uploadet"
 
 msgid "Use"
-msgstr ""
+msgstr "Brug"
 
 msgid "User groups"
 msgstr "Brugergrupper"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Sædvanlig tidsramme for levering af produktet"
 
 msgid "VAT ID"
 msgstr "CVR-nummer"
 
 msgid "Value"
-msgstr ""
+msgstr "Værdi"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Merværdiafgifts-identifikator (valgfri)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Variant-attributter"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Variantproduktattributter, der gemmes sammen med de bestilte produkter"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Leverandør"
 
 msgid "Verified"
-msgstr ""
+msgstr "Bekræftet"
 
 msgid "View details"
-msgstr ""
+msgstr "Se detaljer"
 
 msgid "Voucher"
 msgstr "Rabatkupon"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Lager eller lokal butik, hvis dine varer er tilgængelige flere steder"
 
 msgid "Web site"
 msgstr "Webside"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "Webstedets URL (valgfrit)"
 
 msgid "Weeks"
 msgstr "Uger"
 
 msgid "Weight"
-msgstr ""
+msgstr "Vægt"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Når kontoen og e-mailadressen er blevet verificeret"
 
 msgid "Width"
 msgstr "Bredde"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "ÅÅÅÅ-MM-DD hh:mm:ss (valgfrit)"
 
 msgid "Years"
 msgstr "År"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Du er ved at slette en eller flere poster. Vil du gerne fortsætte?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Din eksport vil være tilgængelig om få minutter til download."
 
 msgid "Your response"
 msgstr "Dit svar"
 
 msgid "Zip code"
-msgstr ""
+msgstr "Postnummer"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Postnummer (valgfrit)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "skjult"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "konto"
 
 #, php-format
 msgid "address"
@@ -2142,7 +2134,7 @@ msgstr "Faktureringsadresse"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2150,11 +2142,11 @@ msgstr "Egenskaber"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "kurv"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "bundt"
 
 #, php-format
 msgid "catalog"
@@ -2170,30 +2162,30 @@ msgstr "Karakteristika"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kode"
 
 msgid "company"
 msgstr "Firma"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "land"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "tælledag"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "time"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
@@ -2209,15 +2201,15 @@ msgstr "Oversigt"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "dag"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "Leveringstype"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Download"
 
 #, php-format
 msgid "goods"
@@ -2229,15 +2221,15 @@ msgstr "Grupper"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "time"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "billede"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "faktura"
 
 #, php-format
 msgid "latest"
@@ -2249,15 +2241,15 @@ msgstr "Sprog"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "lokal/valuta"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "lokal/sprog"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "lokalitet/sted"
 
 #, php-format
 msgid "log"
@@ -2265,7 +2257,7 @@ msgstr "Logs"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "Markedsføring"
 
 #, php-format
 msgid "media"
@@ -2281,19 +2273,19 @@ msgid "mrs"
 msgstr "Mrs"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "ny"
 
 msgid "no"
-msgstr ""
+msgstr "nej"
 
 msgid "none"
 msgstr "ingen"
 
 msgid "not available any more"
-msgstr ""
+msgstr "ikke tilgængelig længere"
 
 #, php-format
 msgid "option"
@@ -2304,10 +2296,10 @@ msgid "order"
 msgstr "Ordre"
 
 msgid "order:phone"
-msgstr ""
+msgstr "ordre:telefon"
 
 msgid "order:web"
-msgstr ""
+msgstr "ordre:web"
 
 msgid "pay:-1"
 msgstr "ikke færdig"
@@ -2334,15 +2326,15 @@ msgid "pay:6"
 msgstr "modtaget"
 
 msgid "pay:7"
-msgstr ""
+msgstr "løn:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "betalingsstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "betalingstype"
 
 #, php-format
 msgid "physical"
@@ -2366,25 +2358,25 @@ msgstr "Egenskaber"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "hurtig/tæl færdig"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "hurtig/total"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "hurtig/tæl uafsluttet"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "årsag:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "grund:0"
 
 msgid "reason:1"
 msgstr "annulleret"
@@ -2399,22 +2391,22 @@ msgstr "Anmeldelser"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "Regel"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "salg"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "salgsdag"
 
 msgid "selected"
-msgstr ""
+msgstr "udvalgt"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "Udvælgelse"
 
 #, php-format
 msgid "service"
@@ -2422,23 +2414,23 @@ msgstr "Services"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "servicelevering"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "servicebetaling"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Indstillinger"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "Opsætning"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "særlig"
 
 msgid "stat:-1"
 msgstr "ikke færdig"
@@ -2468,19 +2460,19 @@ msgid "stat:7"
 msgstr "returneret"
 
 msgid "status:-1"
-msgstr ""
+msgstr "status:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "status:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "status:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "status:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "status:2"
 
 #, php-format
 msgid "stock"
@@ -2495,13 +2487,13 @@ msgid "supplier"
 msgstr "Leverandører"
 
 msgid "tag"
-msgstr ""
+msgstr "mærke"
 
 msgid "tax:0"
-msgstr ""
+msgstr "skat:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "skat:1"
 
 #, php-format
 msgid "text"
@@ -2509,11 +2501,11 @@ msgstr "Tekster"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "tema"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "transaktion"
 
 #, php-format
 msgid "type"
@@ -2525,23 +2517,23 @@ msgstr "Egenskaber"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribut/lister"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "type/attribut/egenskab"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "type/kataloger/lister"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/kunde/lister"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "type/kunde/ejendom"
 
 #, php-format
 msgid "type/media"
@@ -2549,11 +2541,11 @@ msgstr "Medier"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/property"
 
 #, php-format
 msgid "type/plugin"
@@ -2565,11 +2557,11 @@ msgstr "Priser"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "type/pris/lister"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "type/pris/egenskab"
 
 #, php-format
 msgid "type/product"
@@ -2577,7 +2569,7 @@ msgstr "Produkter"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "type/produkt/lister"
 
 #, php-format
 msgid "type/product/property"
@@ -2585,7 +2577,7 @@ msgstr "Produktegenskaber"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "type/regel"
 
 #, php-format
 msgid "type/service"
@@ -2593,7 +2585,7 @@ msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "type/service/lister"
 
 #, php-format
 msgid "type/stock"
@@ -2601,7 +2593,7 @@ msgstr "Lagre"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "type/tag"
 
 #, php-format
 msgid "type/text"
@@ -2609,11 +2601,11 @@ msgstr "Tekster"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "type/tekst/lister"
 
 #, php-format
 msgid "users"
 msgstr "Brugere"
 
 msgid "yes"
-msgstr ""
+msgstr "ja"
