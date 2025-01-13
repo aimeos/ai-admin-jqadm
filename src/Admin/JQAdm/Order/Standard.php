@@ -403,6 +403,45 @@ class Standard
 
 
 	/**
+	 * Returns the allowed keys for updating the item of the given type
+	 *
+	 * @param string $type Type of the item, e.g. "order/product"
+	 * @param array $entry Associative list of key/value pairs
+	 * @return array Reduced list of key/value pairs
+	 */
+	protected function allowed( string $type, array $entry ) : array
+	{
+		if( $type === 'order/product' )
+		{
+			$allowed = array_flip( [
+				'order.product.statusdelivery',
+				'order.product.statuspayment',
+				'order.product.qtyopen',
+				'order.product.timeframe',
+				'order.product.notes',
+			] );
+
+			return array_intersect_key( $entry, $allowed );
+		}
+
+		return [];
+	}
+
+
+	/**
+	 * Modifies the used attributes from the passed list of order service attributes
+	 *
+	 * @param string $type Type of the attribute items, e.g. "order/service/attribute"
+	 * @param \Aimeos\Map $attrItems List of attribute items
+	 * @return \Aimeos\Map Modified list of attribute items
+	 */
+	protected function attributes( string $type, \Aimeos\Map $attrItems ) : \Aimeos\Map
+	{
+		return $attrItems;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -466,17 +505,10 @@ class Standard
 		}
 
 		$basket->fromArray( $data, true );
-		$allowed = array_flip( [
-			'order.product.statusdelivery',
-			'order.product.statuspayment',
-			'order.product.qtyopen',
-			'order.product.timeframe',
-			'order.product.notes',
-		] );
 
 		foreach( $basket->getProducts() as $pos => $product )
 		{
-			$list = array_intersect_key( $data['product'][$pos], $allowed );
+			$list = $this->allowed( 'order/product', $data['product'][$pos] );
 			$product->fromArray( $list );
 		}
 
@@ -498,7 +530,7 @@ class Standard
 			foreach( $services as $service )
 			{
 				$serviceId = $service->getId();
-				$attrItems = $service->getAttributeItems();
+				$attrItems = $this->attributes( 'order/service/attribute', $service->getAttributeItems() );
 
 				foreach( $data['service'][$type][$serviceId] ?? [] as $idx => $entry )
 				{
@@ -593,7 +625,7 @@ class Standard
 				$data['service'][$type][$serviceId] = $serviceItem->toArray( true );
 				$data['service'][$type][$serviceId]['attributes'] = [];
 
-				foreach( $serviceItem->getAttributeItems() as $attrItem )
+				foreach( $this->attributes( 'order/service/attribute', $serviceItem->getAttributeItems() ) as $attrItem )
 				{
 					$entry = $attrItem->toArray( true );
 
