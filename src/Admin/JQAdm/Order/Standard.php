@@ -541,7 +541,7 @@ class Standard
 					$value = $entry['order.service.attribute.value'] ?? '';
 					$entry['order.service.attribute.value'] = json_decode( $value, true ) ?? $value;
 
-					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() ) );
+					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() )->setType( $type ) );
 					unset( $attrItems[$id] );
 				}
 
