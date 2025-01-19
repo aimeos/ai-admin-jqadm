@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: محمد مسعودزاده, 2021\n"
 "Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -634,6 +634,15 @@ msgstr ""
 msgid "Error"
 msgstr "خطا"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "قیمت بدون احتساب مالیات"
 
@@ -1125,6 +1134,12 @@ msgstr "شناسه رسمی مالیات بر ارزش افزوده برای ت�
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "یک ارائه دهنده و صفر یا چند نام کلاس دکوراتوربا کاما از هم جدا شده اند"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr ""

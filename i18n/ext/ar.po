@@ -39,9 +39,6 @@ msgstr "بعد"
 msgid ">="
 msgstr "بعد (ضمن)"
 
-msgid "Search"
-msgstr "البحث"
-
 msgid "~="
 msgstr "يحتوي على"
 

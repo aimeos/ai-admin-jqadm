@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: stevechen <steve.stevechen@gmail.com>, 2018\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -633,6 +633,15 @@ msgstr "条目特定的配置选项，将以键/值对的形式出现在模板�
 msgid "Error"
 msgstr "錯誤"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "未稅"
 
@@ -1124,6 +1133,12 @@ msgstr "官方增值税号，用于确定是否需要在发票中开具税款"
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "一个提供者和0个或多个装饰器类名，以逗号分隔"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "只有超级用户和管理员才能删除条目"

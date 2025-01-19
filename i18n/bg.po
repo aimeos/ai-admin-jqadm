@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Chiarra, 2024\n"
+"Last-Translator: Stefan Taskov, 2022\n"
 "Language-Team: Bulgarian (http://app.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -633,6 +633,15 @@ msgstr "Специфичните опции за конфигурация на �
 msgid "Error"
 msgstr "Грешка"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Без данък"
 
@@ -1124,6 +1133,12 @@ msgstr "Официален идентификационен номер по ДД
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Един доставчик и нула или повече имена на класове декоратори, разделени със запетаи"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Само суперпотребители и администратори могат да изтриват записи."

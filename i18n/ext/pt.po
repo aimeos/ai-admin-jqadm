@@ -40,9 +40,6 @@ msgstr "depois"
 msgid ">="
 msgstr "depois (incl.)"
 
-msgid "Search"
-msgstr "Pesquisar"
-
 msgid "~="
 msgstr "contém"
 

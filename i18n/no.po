@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian (http://app.transifex.com/aimeos/aimeos-core/language/no/)\n"
@@ -499,7 +499,7 @@ msgid "Delivery"
 msgstr ""
 
 msgid "Delivery address"
-msgstr ""
+msgstr "leveringsadresse"
 
 msgid "Delivery date"
 msgstr ""
@@ -624,6 +624,15 @@ msgid ""
 msgstr ""
 
 msgid "Error"
+msgstr ""
+
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
 msgstr ""
 
 msgid "Excl. tax"
@@ -1116,6 +1125,12 @@ msgstr ""
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
 msgstr ""
 
 msgid "Only super users and administrators can delete entries"
@@ -2124,7 +2139,7 @@ msgid "address"
 msgstr ""
 
 msgid "address:delivery"
-msgstr ""
+msgstr "leveringsadresse"
 
 msgid "address:payment"
 msgstr ""

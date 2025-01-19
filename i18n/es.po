@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: S 0l, 2021\n"
 "Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -640,6 +640,15 @@ msgstr "Las opciones de configuración específicas de la entrada estarán dispo
 msgid "Error"
 msgstr "Error"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Sin impuestos"
 
@@ -1131,6 +1140,12 @@ msgstr "Número de identificación fiscal oficial para determinar si el impuesto
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Un proveedor y cero o más nombres de clases de decoradores separados por comas"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Sólo los superusuarios y los administradores pueden eliminar entradas"

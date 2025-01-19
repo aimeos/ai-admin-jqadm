@@ -39,9 +39,6 @@ msgstr "groter dan"
 msgid ">="
 msgstr "Groter dan of gelijk aan"
 
-msgid "Search"
-msgstr "Zoeken"
-
 msgid "~="
 msgstr "bevat"
 

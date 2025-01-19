@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yolo San, 2021\n"
 "Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
@@ -629,6 +629,15 @@ msgstr "Opțiunile de configurare specifice intrării vor fi disponibile ca pere
 msgid "Error"
 msgstr "Eroare"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Inclusiv taxe"
 
@@ -1120,6 +1129,12 @@ msgstr "ID-ul oficial de TVA pentru a determina dacă taxa trebuie facturată î
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Un furnizor și zero sau mai multe nume de clase de decoratori separate prin virgulă"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Numai superutilizatorii și administratorii pot șterge intrări"

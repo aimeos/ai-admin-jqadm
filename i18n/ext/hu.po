@@ -39,9 +39,6 @@ msgstr "után"
 msgid ">="
 msgstr "után (tartalmaz)"
 
-msgid "Search"
-msgstr "Keresés"
-
 msgid "~="
 msgstr "tartalmaz"
 

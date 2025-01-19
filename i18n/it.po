@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: R M <roberto@proprionoi.it>, 2019\n"
 "Language-Team: Italian (http://app.transifex.com/aimeos/aimeos-core/language/it/)\n"
@@ -634,6 +634,15 @@ msgstr "Le opzioni di configurazione specifiche della voce saranno disponibili c
 msgid "Error"
 msgstr "Errore"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Escluso tasse"
 
@@ -1125,6 +1134,12 @@ msgstr "ID IVA ufficiale per determinare se l'imposta deve essere addebitata nel
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Un fornitore e zero o più nomi di classi di decoratori, separati da virgole."
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Solo i superutenti e gli amministratori possono eliminare le voci"

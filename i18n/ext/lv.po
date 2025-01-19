@@ -39,9 +39,6 @@ msgstr "pēc"
 msgid ">="
 msgstr "pēc (iekļaujot)"
 
-msgid "Search"
-msgstr "Meklēt"
-
 msgid "~="
 msgstr "ietver"
 

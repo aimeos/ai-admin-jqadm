@@ -39,9 +39,6 @@ msgstr "efter"
 msgid ">="
 msgstr "efter (inkl.)"
 
-msgid "Search"
-msgstr "Søg"
-
 msgid "~="
 msgstr "indeholder"
 

@@ -39,9 +39,6 @@ msgstr "後"
 msgid ">="
 msgstr "後（含む）"
 
-msgid "Search"
-msgstr "検索"
-
 msgid "~="
 msgstr "含まれる"
 

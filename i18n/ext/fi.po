@@ -38,9 +38,6 @@ msgstr ""
 msgid ">="
 msgstr ""
 
-msgid "Search"
-msgstr "Hae"
-
 msgid "~="
 msgstr ""
 

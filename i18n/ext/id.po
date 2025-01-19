@@ -39,9 +39,6 @@ msgstr "sesudah"
 msgid ">="
 msgstr "sesudah (termasuk)"
 
-msgid "Search"
-msgstr "Cari"
-
 msgid "~="
 msgstr "mengandung"
 

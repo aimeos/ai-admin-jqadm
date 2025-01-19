@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian (http://app.transifex.com/aimeos/aimeos-core/language/lt/)\n"
@@ -626,6 +626,15 @@ msgstr "Įrašui būdingos konfigūracijos parinktys, kurios šablonuose bus pat
 msgid "Error"
 msgstr "Klaida"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Be mokesčių"
 
@@ -1117,6 +1126,12 @@ msgstr "Oficialus PVM mokėtojo kodas, kad būtų galima nustatyti, ar sąskaito
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Vienas paslaugų teikėjas ir nulis ar daugiau dekoratorių klasių pavadinimų, atskirtų kableliais"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Įrašus gali ištrinti tik vyriausieji naudotojai ir administratoriai."

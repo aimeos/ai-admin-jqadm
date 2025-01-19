@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 17:47+0100\n"
+"POT-Creation-Date: 2025-01-19 18:12+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -344,10 +344,6 @@ msgstr ""
 msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
-#, fuzzy
-msgid "Context"
-msgstr "Texts"
-
 msgid "Copy"
 msgstr ""
 
@@ -603,6 +599,15 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr ""
 
@@ -754,10 +759,6 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#, fuzzy
-msgid "Image description"
-msgstr "Subscription"
-
 msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
 msgstr ""
 
@@ -828,10 +829,6 @@ msgstr ""
 
 msgid "Invoice No."
 msgstr ""
-
-#, fuzzy
-msgid "Invoice no."
-msgstr "Invoices"
 
 msgid "Invoice number"
 msgstr ""
@@ -1076,6 +1073,12 @@ msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
 
 msgid "One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
 msgstr ""
 
 msgid "Only super users and administrators can delete entries"
@@ -1821,10 +1824,6 @@ msgstr ""
 
 msgid "Toggle dropdown"
 msgstr ""
-
-#, fuzzy
-msgid "Toogle selection"
-msgstr "Variants"
 
 msgid "Top countries"
 msgstr ""

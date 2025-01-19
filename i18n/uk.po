@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-11 13:59+0100\n"
+"POT-Creation-Date: 2025-01-18 19:23+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>, 2021\n"
+"Last-Translator: Ruslan Melnychenko, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -630,6 +630,15 @@ msgstr "Введіть певні параметри конфігурації, �
 msgid "Error"
 msgstr "Помилка"
 
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
+
 msgid "Excl. tax"
 msgstr "Без ПДВ"
 
@@ -1121,6 +1130,12 @@ msgstr "Офіційний ID ПДВ, визначає, чи повинен по
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Один провайдер та нуль або більше назв класів декораторів, розділених комами"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Тільки суперкористувачі та адміністратори можуть видаляти записи"

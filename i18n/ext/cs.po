@@ -39,9 +39,6 @@ msgstr "po"
 msgid ">="
 msgstr ""
 
-msgid "Search"
-msgstr "Vyhledávání"
-
 msgid "~="
 msgstr ""
 
