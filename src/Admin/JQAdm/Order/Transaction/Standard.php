@@ -222,6 +222,7 @@ class Standard
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
+		$serviceManager = \Aimeos\MShop::create( $context, 'service' );
 		$services = map( $order->getService( 'payment' ) )->col( null, 'order.service.id' );
 
 		foreach( $data as $serviceId => $entry )
@@ -238,12 +239,11 @@ class Standard
 			$txItem = \Aimeos\MShop::create( $context, 'order/service' )->createTransaction()
 				->setType( 'payment' )->setPrice( $price )->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
 
-			$serviceItem = \Aimeos\MShop::create( $context, 'service' )->get( $service->getServiceId() );
-
-			$provider = \Aimeos\MShop::create( $context, 'service' )->getProvider( $serviceItem, 'payment' );
+			$serviceItem = $serviceManager->get( $service->getServiceId() );
+			$provider = $serviceManager->getProvider( $serviceItem, 'payment' );
 
 			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) ) {
-					$manager->save( $provider->refund( $order, $price ) );
+				$manager->save( $provider->refund( $order, $price ) );
 			} else {
 				$txItem->setConfigValue( 'info', $context->translate( 'admin', 'Manual transfer' ) );
 			}
