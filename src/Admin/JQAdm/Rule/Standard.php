@@ -25,7 +25,7 @@ class Standard
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/** admin/jqadm/rule/name
-	 * Class name of the used account favorite client implementation
+	 * Class name of the used rule panel implementation
 	 *
 	 * Each default admin client can be replace by an alternative imlementation.
 	 * To use this implementation, you have to set the last part of the class
