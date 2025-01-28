@@ -2,29 +2,29 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2025
+ * @copyright Aimeos (aimeos.org), 2025
  * @package Admin
  * @subpackage JQAdm
  */
 
 
-namespace Aimeos\Admin\JQAdm\Type\Media;
+namespace Aimeos\Admin\JQAdm\Type;
 
-sprintf( 'type/media' ); // for translation
+sprintf( 'type' ); // for translation
 
 
 /**
- * Default implementation of type media JQAdm client.
+ * Default implementation of type JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
  */
 class Standard
-	extends \Aimeos\Admin\JQAdm\Type\Base
+	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/type/media/name
-	 * Class name of the used account favorite client implementation
+	/** admin/jqadm/type/name
+	 * Class name of the used type panel implementation
 	 *
 	 * Each default admin client can be replace by an alternative imlementation.
 	 * To use this implementation, you have to set the last part of the class
@@ -33,15 +33,15 @@ class Standard
 	 *
 	 * For example, if the name of the default class is
 	 *
-	 *  \Aimeos\Admin\JQAdm\Type\Media\Standard
+	 *  \Aimeos\Admin\JQAdm\Type\Standard
 	 *
 	 * and you want to replace it with your own version named
 	 *
-	 *  \Aimeos\Admin\JQAdm\Type\Media\Myfavorite
+	 *  \Aimeos\Admin\JQAdm\Type\Myfavorite
 	 *
 	 * then you have to set the this configuration option:
 	 *
-	 *  admin/jqadm/type/media/name = Myfavorite
+	 *  admin/jqadm/type/name = Myfavorite
 	 *
 	 * The value is the last part of your own class name and it's case sensitive,
 	 * so take care that the configuration value is exactly named like the last
@@ -53,8 +53,23 @@ class Standard
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
 	 * @param string Last part of the class name
-	 * @since 2017.10
+	 * @since 2025.04
 	 */
+
+
+	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$view->itemForDomains = $view->config( 'admin/jqadm/type/domains-for', [] );
+		$view->itemDomains = $view->config( 'admin/jqadm/type/domains', [] );
+		$view->itemSubparts = $this->getSubClientNames();
+		return $view;
+	}
 
 
 	/**
@@ -64,7 +79,7 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'media' );
+		return $this->batchBase( 'type' );
 	}
 
 
@@ -75,7 +90,28 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		return $this->copyBase( 'media' );
+		$view = $this->object()->data( $this->view() );
+
+		try
+		{
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
+			}
+
+			$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+			$view->item = $manager->get( $id );
+
+			$view->itemData = $this->toArray( $view->item, true );
+			$view->itemBody = parent::copy();
+		}
+		catch( \Exception $e )
+		{
+			$this->report( $e, 'copy' );
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -86,7 +122,27 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		return $this->createBase( 'media' );
+		$view = $this->object()->data( $this->view() );
+
+		try
+		{
+			$data = $view->param( 'item', [] );
+
+			if( !isset( $view->item ) ) {
+				$view->item = \Aimeos\MShop::create( $this->context(), 'type' )->create();
+			}
+
+			$data['type.siteid'] = $view->item->getSiteId();
+
+			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
+			$view->itemBody = parent::create();
+		}
+		catch( \Exception $e )
+		{
+			$this->report( $e, 'create' );
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -97,7 +153,41 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
-		return $this->deleteBase( 'media' );
+		$view = $this->view();
+
+		$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+		$manager->begin();
+
+		try
+		{
+			if( ( $ids = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
+			}
+
+			$search = $manager->filter()->add( 'type.id', '==', $ids )->slice( 0, count( (array) $ids ) );
+			$items = $manager->search( $search );
+
+			foreach( $items as $item )
+			{
+				$view->item = $item;
+				parent::delete();
+			}
+
+			$manager->delete( $items );
+			$manager->commit();
+
+			return $this->redirect( 'type', 'search', null, 'delete' );
+		}
+		catch( \Exception $e )
+		{
+			$manager->rollback();
+			$this->report( $e, 'delete' );
+		}
+
+
+		return $this->search();
 	}
 
 
@@ -108,7 +198,28 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		return $this->getBase( 'media' );
+		$view = $this->object()->data( $this->view() );
+
+		try
+		{
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
+			}
+
+			$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+
+			$view->item = $manager->get( $id );
+			$view->itemData = $this->toArray( $view->item );
+			$view->itemBody = parent::get();
+		}
+		catch( \Exception $e )
+		{
+			$this->report( $e, 'get' );
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -119,7 +230,29 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		return $this->saveBase( 'media' );
+		$view = $this->view();
+
+		$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+		$manager->begin();
+
+		try
+		{
+			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$view->item = $item->getId() ? $item : $manager->save( $item );
+			$view->itemBody = parent::save();
+
+			$manager->save( clone $view->item );
+			$manager->commit();
+
+			return $this->redirect( 'type', $view->param( 'next' ), $view->item->getId(), 'save' );
+		}
+		catch( \Exception $e )
+		{
+			$manager->rollback();
+			$this->report( $e, 'save' );
+		}
+
+		return $this->create();
 	}
 
 
@@ -130,9 +263,27 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->searchBase( 'media' );
+		$view = $this->view();
 
-		/** admin/jqadm/type/media/template-list
+		try
+		{
+			$total = 0;
+			$params = $this->storeFilter( $view->param(), 'type' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+			$search = $this->initCriteria( $manager->filter(), $params );
+
+			$view->items = $manager->search( $search, $total );
+			$view->filterAttributes = $manager->getSearchAttributes( true );
+			$view->filterOperators = $search->getOperators();
+			$view->itemBody = parent::search();
+			$view->total = $total;
+		}
+		catch( \Exception $e )
+		{
+			$this->report( $e, 'search' );
+		}
+
+		/** admin/jqadm/type/template-list
 		 * Relative path to the HTML body template for the type list.
 		 *
 		 * The template file contains the HTML code and processing instructions
@@ -148,10 +299,10 @@ class Standard
 		 * should be replaced by the name of the new class.
 		 *
 		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
+		 * @since 2025.04
 		 */
-		$tplconf = 'admin/jqadm/type/media/template-list';
-		$default = 'type/media/list';
+		$tplconf = 'admin/jqadm/type/template-list';
+		$default = 'type/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -166,7 +317,7 @@ class Standard
 	 */
 	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		/** admin/jqadm/type/media/decorators/excludes
+		/** admin/jqadm/type/decorators/excludes
 		 * Excludes decorators added by the "common" option from the type JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -178,20 +329,20 @@ class Standard
 		 * "client/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/type/media/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/type/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.10
+		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/type/media/decorators/global
-		 * @see admin/jqadm/type/media/decorators/local
+		 * @see admin/jqadm/type/decorators/global
+		 * @see admin/jqadm/type/decorators/local
 		 */
 
-		/** admin/jqadm/type/media/decorators/global
+		/** admin/jqadm/type/decorators/global
 		 * Adds a list of globally available decorators only to the type JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -202,19 +353,19 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/type/media/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/type/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.10
+		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/type/media/decorators/excludes
-		 * @see admin/jqadm/type/media/decorators/local
+		 * @see admin/jqadm/type/decorators/excludes
+		 * @see admin/jqadm/type/decorators/local
 		 */
 
-		/** admin/jqadm/type/media/decorators/local
+		/** admin/jqadm/type/decorators/local
 		 * Adds a list of local decorators only to the type JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -223,20 +374,20 @@ class Standard
 		 * modify what is returned to the caller.
 		 *
 		 * This option allows you to wrap local decorators
-		 * ("\Aimeos\Admin\JQAdm\Type\Media\Decorator\*") around the JQAdm client.
+		 * ("\Aimeos\Admin\JQAdm\Type\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/type/media/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/type/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
-		 * "\Aimeos\Admin\JQAdm\Type\Media\Decorator\Decorator2" only to the JQAdm client.
+		 * "\Aimeos\Admin\JQAdm\Type\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.10
+		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/type/media/decorators/excludes
-		 * @see admin/jqadm/type/media/decorators/global
+		 * @see admin/jqadm/type/decorators/excludes
+		 * @see admin/jqadm/type/decorators/global
 		 */
-		return $this->createSubClient( 'type/media' . $type, $name );
+		return $this->createSubClient( 'type/' . $type, $name );
 	}
 
 
@@ -247,7 +398,7 @@ class Standard
 	 */
 	protected function getSubClientNames() : array
 	{
-		/** admin/jqadm/type/media/subparts
+		/** admin/jqadm/type/subparts
 		 * List of JQAdm sub-clients rendered within the type section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
@@ -277,9 +428,53 @@ class Standard
 		 * design.
 		 *
 		 * @param array List of sub-client names
-		 * @since 2017.10
+		 * @since 2025.04
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/type/media/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/type/subparts', [] );
+	}
+
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Type\Item\Iface New type item object
+	 */
+	protected function fromArray( array $data ) : \Aimeos\MShop\Type\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'type' );
+
+		if( isset( $data['type.id'] ) && $data['type.id'] != '' ) {
+			$item = $manager->get( $data['type.id'] );
+		} else {
+			$item = $manager->create();
+		}
+
+		$data['type.i18n'] = json_decode( $data['type.i18n'] ?? '{}', true );
+
+		return $item->fromArray( $data, true );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Type\Item\Iface $item Type item object
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Type\Item\Iface $item, bool $copy = false ) : array
+	{
+		$data = $item->toArray( true );
+
+		if( $copy === true )
+		{
+			$data['type.siteid'] = $this->context()->locale()->getSiteId();
+			$data['type.code'] = $data['type.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$data['type.id'] = '';
+		}
+
+		return $data;
 	}
 
 
@@ -291,7 +486,7 @@ class Standard
 	 */
 	protected function render( \Aimeos\Base\View\Iface $view ) : string
 	{
-		/** admin/jqadm/type/media/template-item
+		/** admin/jqadm/type/template-item
 		 * Relative path to the HTML body template for the type item.
 		 *
 		 * The template file contains the HTML code and processing instructions
@@ -307,10 +502,10 @@ class Standard
 		 * should be replaced by the name of the new class.
 		 *
 		 * @param string Relative path to the template creating the HTML code
-		 * @since 2017.10
+		 * @since 2025.04
 		 */
-		$tplconf = 'admin/jqadm/type/media/template-item';
-		$default = 'type/media/item';
+		$tplconf = 'admin/jqadm/type/template-item';
+		$default = 'type/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

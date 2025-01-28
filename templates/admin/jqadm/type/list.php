@@ -2,28 +2,28 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2025
+ * @copyright Aimeos (aimeos.org), 2025
  */
 
 $enc = $this->encoder();
 
 
-/** admin/jqadm/type/catalog/lists/fields
- * List of catalog list type columns that should be displayed in the list view
+/** admin/jqadm/type/fields
+ * List of type columns that should be displayed in the list view
  *
- * Changes the list of catalog list type columns shown by default in the catalog
- * list type list view. The columns can be changed by the editor as required within the
+ * Changes the list of type columns shown by default in the type
+ * list view. The columns can be changed by the editor as required within the
  * administraiton interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "catalog.lists.type.id" for the catalog type ID.
+ * e.g. "type.id" for the type ID.
  *
  * @param array List of field names, i.e. search keys
- * @since 2017.10
+ * @since 2025.04
  */
-$default = ['catalog.lists.type.domain', 'catalog.lists.type.status', 'catalog.lists.type.code', 'catalog.lists.type.label'];
-$default = $this->config( 'admin/jqadm/type/catalog/lists/fields', $default );
-$fields = $this->session( 'aimeos/admin/jqadm/type/catalog/lists/fields', $default );
+$default = ['type.domain', 'type.status', 'type.code', 'type.label'];
+$default = $this->config( 'admin/jqadm/type/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/type/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
@@ -39,15 +39,16 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 } )->all();
 
 $columnList = [
-	'catalog.lists.type.id' => $this->translate( 'admin', 'ID' ),
-	'catalog.lists.type.domain' => $this->translate( 'admin', 'Domain' ),
-	'catalog.lists.type.status' => $this->translate( 'admin', 'Status' ),
-	'catalog.lists.type.code' => $this->translate( 'admin', 'Code' ),
-	'catalog.lists.type.label' => $this->translate( 'admin', 'Label' ),
-	'catalog.lists.type.position' => $this->translate( 'admin', 'Position' ),
-	'catalog.lists.type.ctime' => $this->translate( 'admin', 'Created' ),
-	'catalog.lists.type.mtime' => $this->translate( 'admin', 'Modified' ),
-	'catalog.lists.type.editor' => $this->translate( 'admin', 'Editor' ),
+	'type.id' => $this->translate( 'admin', 'ID' ),
+	'type.for' => $this->translate( 'admin', 'For' ),
+	'type.domain' => $this->translate( 'admin', 'Domain' ),
+	'type.status' => $this->translate( 'admin', 'Status' ),
+	'type.code' => $this->translate( 'admin', 'Code' ),
+	'type.label' => $this->translate( 'admin', 'Label' ),
+	'type.position' => $this->translate( 'admin', 'Position' ),
+	'type.ctime' => $this->translate( 'admin', 'Created' ),
+	'type.mtime' => $this->translate( 'admin', 'Modified' ),
+	'type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
 $domains = [
@@ -71,15 +72,15 @@ $domains = [
 
 
 <div class="list-view"
-	data-domain="catalog/lists/type"
+	data-domain="type"
 	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
-	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/type/catalog/lists/filter', new \stdClass ) ) ?>"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/type/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray', [true] )->all() ) ?>">
 
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Catalog Lists Types' ) ) ?>
+			<?= $enc->html( $this->translate( 'admin', 'Types' ) ) ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
@@ -91,7 +92,7 @@ $domains = [
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
 		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
-		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/type/catalog/lists/filter', new \stdClass ) ) ?>"
+		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/type/filter', new \stdClass ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
 		v-bind:name="`<?= $enc->js( $this->formparam( ['filter', '_key_', '0'] ) ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
@@ -100,11 +101,11 @@ $domains = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
-			'page' => $this->session( 'aimeos/admin/jqadm/type/catalog/lists/page', [] )]
+			'page' => $this->session( 'aimeos/admin/jqadm/type/page', [] )]
 		);
 	?>
 
-	<form ref="form" class="list list-catalog-lists-type" method="POST"
+	<form ref="form" class="list list-type" method="POST"
 		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
@@ -142,7 +143,7 @@ $domains = [
 
 						<?= $this->partial(
 								$this->config( 'admin/jqadm/partial/listhead', 'listhead' ),
-								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/type/catalog/lists/sort' )]
+								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/type/sort' )]
 							);
 						?>
 
@@ -164,22 +165,22 @@ $domains = [
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
-							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/catalog/lists/filter', [] ),
+							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/filter', [] ),
 							'data' => [
-								'catalog.lists.type.id' => ['op' => '=='],
-								'catalog.lists.type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
-								'catalog.lists.type.status' => ['op' => '==', 'type' => 'select', 'val' => [
+								'type.id' => ['op' => '=='],
+								'type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
+								'type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
 									'0' => $this->translate( 'mshop/code', 'status:0' ),
 									'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 									'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 								]],
-								'catalog.lists.type.code' => [],
-								'catalog.lists.type.label' => [],
-								'catalog.lists.type.position' => ['op' => '>=', 'type' => 'number'],
-								'catalog.lists.type.ctime' => ['op' => '-', 'type' => 'datetime-local'],
-								'catalog.lists.type.mtime' => ['op' => '-', 'type' => 'datetime-local'],
-								'catalog.lists.type.editor' => [],
+								'type.code' => [],
+								'type.label' => [],
+								'type.position' => ['op' => '>=', 'type' => 'number'],
+								'type.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+								'type.mtime' => ['op' => '-', 'type' => 'datetime-local'],
+								'type.editor' => [],
 							]
 						] );
 					?>
@@ -198,7 +199,7 @@ $domains = [
 							<div class="card">
 								<div class="card-header">
 									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
-									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/catalog/lists'] ) ) ?>">
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type'] ) ) ?>">
 										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 									</button>
 								</div>
@@ -207,14 +208,14 @@ $domains = [
 										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-catalog-lists-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/catalog.lists.type.status')">
+													<input id="batch-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/type.status')">
 												</div>
-												<label class="col-4 form-control-label" for="batch-catalog-lists-type-status">
+												<label class="col-4 form-control-label" for="batch-type-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select" v-bind:disabled="state('item/catalog.lists.type.status')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.lists.type.status' ) ) ) ?>">
+													<select class="form-select" v-bind:disabled="state('item/type.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'type.status' ) ) ) ?>">
 														<option value=""></option>
 														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
 														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
@@ -225,14 +226,14 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-catalog-lists-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/catalog.lists.type.domain')">
+													<input id="batch-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/type.domain')">
 												</div>
-												<label class="col-4 form-control-label" for="batch-catalog-lists-type-domain">
+												<label class="col-4 form-control-label" for="batch-type-domain">
 													<?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select" v-bind:disabled="state('item/catalog.lists.type.domain')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.lists.type.domain' ) ) ) ?>">
+													<select class="form-select" v-bind:disabled="state('item/type.domain')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'type.domain' ) ) ) ?>">
 														<option value=""></option>
 														<?php foreach( $domains as $domain => $label ) : ?>
 															<option value="<?= $enc->attr( $domain ) ?>">
@@ -244,14 +245,14 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-catalog-lists-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/catalog.lists.type.position')">
+													<input id="batch-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/type.position')">
 												</div>
-												<label class="col-4 form-control-label" for="batch-catalog-lists-type-position">
+												<label class="col-4 form-control-label" for="batch-type-position">
 													<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input class="form-control" type="number" v-bind:disabled="state('item/catalog.lists.type.position')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.lists.type.position' ) ) ) ?>">
+													<input class="form-control" type="number" v-bind:disabled="state('item/type.position')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'type.position' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -264,7 +265,7 @@ $domains = [
 								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
 									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 								</a>
-								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/catalog/lists'] ) ) ?>">
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type'] ) ) ?>">
 									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 								</button>
 							</div>
@@ -282,32 +283,35 @@ $domains = [
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
 									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
-							<?php if( in_array( 'catalog.lists.type.id', $fields ) ) : ?>
-								<td class="catalog-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php if( in_array( 'type.id', $fields ) ) : ?>
+								<td class="type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.domain', $fields ) ) : ?>
-								<td class="catalog-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+							<?php if( in_array( 'type.for', $fields ) ) : ?>
+								<td class="type-for"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getFor() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.status', $fields ) ) : ?>
-								<td class="catalog-type-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php if( in_array( 'type.domain', $fields ) ) : ?>
+								<td class="type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.code', $fields ) ) : ?>
-								<td class="catalog-type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
+							<?php if( in_array( 'type.status', $fields ) ) : ?>
+								<td class="type-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.label', $fields ) ) : ?>
-								<td class="catalog-type-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
+							<?php if( in_array( 'type.code', $fields ) ) : ?>
+								<td class="type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.position', $fields ) ) : ?>
-								<td class="catalog-type-position"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPosition() ) ?></a></td>
+							<?php if( in_array( 'type.label', $fields ) ) : ?>
+								<td class="type-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.ctime', $fields ) ) : ?>
-								<td class="catalog-type-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php if( in_array( 'type.position', $fields ) ) : ?>
+								<td class="type-position"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPosition() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.mtime', $fields ) ) : ?>
-								<td class="catalog-type-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php if( in_array( 'type.ctime', $fields ) ) : ?>
+								<td class="type-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'catalog.lists.type.editor', $fields ) ) : ?>
-								<td class="catalog-type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
+							<?php if( in_array( 'type.mtime', $fields ) ) : ?>
+								<td class="type-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'type.editor', $fields ) ) : ?>
+								<td class="type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<td class="actions">
@@ -339,7 +343,7 @@ $domains = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
-			'page' => $this->session( 'aimeos/admin/jqadm/type/catalog/lists/page', [] )]
+			'page' => $this->session( 'aimeos/admin/jqadm/type/page', [] )]
 		);
 	?>
 

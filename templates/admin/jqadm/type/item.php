@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2025
+ * @copyright Aimeos (aimeos.org), 2025
  */
 
 $selected = function( $key, $code ) {
@@ -11,22 +11,24 @@ $selected = function( $key, $code ) {
 
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
+$domains = $this->get( 'itemDomains', [] );
+$forDomains = $this->get( 'itemForDomains', [] );
 
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-customer-property-type form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.property.type.id' ) ) ?>">
+<form class="item item-type form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'type.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/type.id' ) ) ?>">
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
-			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Customer Property Type' ) ) ?></span>
-			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/customer.property.type.id' ) ) ?></span>
-			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/customer.property.type.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
-			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/customer.property.type.siteid' ) ) ) ?></span>
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Plugin Type' ) ) ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/type.id' ) ) ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/type.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/type.siteid' ) ) ) ?></span>
 		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
@@ -58,15 +60,15 @@ $params = $this->get( 'pageParams', [] );
 				<div class="item-meta text-muted">
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.property.type.mtime' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/type.mtime' ) ) ?></span>
 					</small>
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.property.type.ctime' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/type.ctime' ) ) ?></span>
 					</small>
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.property.type.editor' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/type.editor' ) ) ?></span>
 					</small>
 				</div>
 
@@ -81,20 +83,45 @@ $params = $this->get( 'pageParams', [] );
 				<div class="vue box" v-bind:class="{mismatch: !can('match')}"
 					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
-					data-domain="customer/property/type">
+					data-domain="type">
 
 					<div class="row">
 
 						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'For' ) ) ?></label>
+								<div class="col-sm-8">
+									<select class="form-select item-for" required="required" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'type.for' ) ) ) ?>"
+										:readonly="!can('change')" >
+										<option value="">
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+										</option>
+
+										<?php foreach( $forDomains as $for ) : ?>
+											<option value="<?= $enc->attr( $for ) ?>" <?= $selected( $this->get( 'itemData/type.for', $for ), $for ) ?> >
+												<?= $enc->html( $this->translate( 'admin', $for ) ) ?>
+											</option>
+										<?php endforeach ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-xl-6 block">
+							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-domain" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.domain' ) ) ) ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'type.domain' ) ) ) ?>"
 										:readonly="!can('change')" >
-										<option value="customer" selected >
-											<?= $enc->html( $this->translate( 'admin', 'customer' ) ) ?>
+										<option value="">
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
+
+										<?php foreach( $domains as $domain ) : ?>
+											<option value="<?= $enc->attr( $domain ) ?>" <?= $selected( $this->get( 'itemData/type.domain', $domain ), $domain ) ?> >
+												<?= $enc->html( $this->translate( 'admin', $domain ) ) ?>
+											</option>
+										<?php endforeach ?>
 									</select>
 								</div>
 							</div>
@@ -102,21 +129,21 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.status' ) ) ) ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'type.status' ) ) ) ?>"
 										:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
-										<option value="1" <?= $selected( $this->get( 'itemData/customer.property.type.status', 1 ), 1 ) ?> >
+										<option value="1" <?= $selected( $this->get( 'itemData/type.status', 1 ), 1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
-										<option value="0" <?= $selected( $this->get( 'itemData/customer.property.type.status', 1 ), 0 ) ?> >
+										<option value="0" <?= $selected( $this->get( 'itemData/type.status', 1 ), 0 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
-										<option value="-1" <?= $selected( $this->get( 'itemData/customer.property.type.status', 1 ), -1 ) ?> >
+										<option value="-1" <?= $selected( $this->get( 'itemData/type.status', 1 ), -1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?>
 										</option>
-										<option value="-2" <?= $selected( $this->get( 'itemData/customer.property.type.status', 1 ), -2 ) ?> >
+										<option value="-2" <?= $selected( $this->get( 'itemData/type.status', 1 ), -2 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?>
 										</option>
 									</select>
@@ -126,9 +153,9 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-code" type="text" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.code' ) ) ) ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'type.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/customer.property.type.code' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/type.code' ) ) ?>"
 										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -139,9 +166,9 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" required="required" tabindex="1"
-										name="<?= $this->formparam( array( 'item', 'customer.property.type.label' ) ) ?>"
+										name="<?= $this->formparam( array( 'item', 'type.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/customer.property.type.label' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/type.label' ) ) ?>"
 										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -152,8 +179,8 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-position" type="number" step="1" tabindex="1"
-										name="<?= $this->formparam( array( 'item', 'customer.property.type.position' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/customer.property.type.position' ) ) ?>"
+										name="<?= $this->formparam( array( 'item', 'type.position' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/type.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ) ?>"
 										:readonly="!can('change')">
 								</div>
@@ -165,8 +192,8 @@ $params = $this->get( 'pageParams', [] );
 
 						<div class="col-xl-6 block">
 							<translations tabindex="1"
-								v-model="dataset['customer.property.type.i18n']"
-								:name="`<?= $enc->js( $this->formparam( array( 'item', 'customer.property.type.i18n' ) ) ) ?>`"
+								v-model="dataset['type.i18n']"
+								:name="`<?= $enc->js( $this->formparam( array( 'item', 'type.i18n' ) ) ) ?>`"
 								:readonly="!can('change')"
 								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
 								:i18n="{
