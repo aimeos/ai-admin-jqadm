@@ -11,8 +11,9 @@ $selected = function( $key, $code ) {
 
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
-$domains = $this->get( 'itemDomains', [] );
-$forDomains = $this->get( 'itemForDomains', [] );
+
+$domains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemDomains', [] ) );
+$forDomains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemForDomains', [] ) );
 
 
 ?>
@@ -106,7 +107,6 @@ $forDomains = $this->get( 'itemForDomains', [] );
 									</select>
 								</div>
 							</div>
-							<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">

@@ -263,7 +263,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->view();
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{

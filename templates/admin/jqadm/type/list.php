@@ -51,17 +51,8 @@ $columnList = [
 	'type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
-$domains = [
-	'attribute' => $this->translate( 'admin', 'attribute' ),
-	'catalog' => $this->translate( 'admin', 'catalog' ),
-	'customer' => $this->translate( 'admin', 'customer' ),
-	'media' => $this->translate( 'admin', 'media' ),
-	'price' => $this->translate( 'admin', 'price' ),
-	'product' => $this->translate( 'admin', 'product' ),
-	'service' => $this->translate( 'admin', 'service' ),
-	'supplier' => $this->translate( 'admin', 'supplier' ),
-	'text' => $this->translate( 'admin', 'text' ),
-];
+$domains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemDomains', [] ) );
+$forDomains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemForDomains', [] ) );
 
 
 ?>
@@ -168,6 +159,7 @@ $domains = [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/filter', [] ),
 							'data' => [
 								'type.id' => ['op' => '=='],
+								'type.for' => ['op' => '==', 'type' => 'select', 'val' => $forDomains],
 								'type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
 								'type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
