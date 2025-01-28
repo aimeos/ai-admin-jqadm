@@ -272,7 +272,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->context(), 'type' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
-			$view->items = $manager->search( $search, $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();

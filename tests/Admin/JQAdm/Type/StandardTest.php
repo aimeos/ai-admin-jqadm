@@ -2,11 +2,11 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2021-2025
+ * @copyright Aimeos (aimeos.org), 2025
  */
 
 
-namespace Aimeos\Admin\JQAdm\Type\Rule;
+namespace Aimeos\Admin\JQAdm\Type;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelper::view();
 		$this->context = \TestHelper::context();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Type\Rule\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Type\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelper::getAimeos() );
 		$this->object->setView( $this->view );
@@ -39,9 +39,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
-				'rule.type.domain' => 'product',
-				'rule.type.position' => 1,
-				'rule.type.status' => -1,
+				'type.domain' => 'product',
+				'type.position' => 1,
+				'type.status' => -1,
 			),
 			'id' => [-1, -2]
 		);
@@ -60,14 +60,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->create();
 
-		$this->assertStringContainsString( 'rule', $result );
+		$this->assertStringContainsString( 'type', $result );
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
 	public function testCreateException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -83,21 +83,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'catalog', [], 'rule' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'color', [], 'product' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->copy();
 
-		$this->assertStringContainsString( 'catalog', $result );
+		$this->assertStringContainsString( 'color', $result );
 	}
 
 
 	public function testCopyException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -131,21 +131,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'catalog', [], 'rule' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'color', [], 'product' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->get();
 
-		$this->assertStringContainsString( 'catalog', $result );
+		$this->assertStringContainsString( 'color', $result );
 	}
 
 
 	public function testGetException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -161,16 +161,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
 		$param = array(
 			'type' => 'unittest',
 			'item' => array(
-				'rule.type.id' => '',
-				'rule.type.status' => '1',
-				'rule.type.domain' => 'rule',
-				'rule.type.code' => 'jqadm@test',
-				'rule.type.label' => 'jqadm test',
+				'type.id' => '',
+				'type.status' => '1',
+				'type.for' => 'attribute',
+				'type.domain' => 'product',
+				'type.code' => 'jqadm@test',
+				'type.label' => 'jqadm test',
 			),
 		);
 
@@ -179,7 +180,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->delete( $manager->find( 'jqadm@test', [], 'rule' )->getId() );
+		$manager->delete( $manager->find( 'jqadm@test', [], 'product' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -188,7 +189,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
@@ -207,24 +208,24 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'type' => 'unittest', 'locale' => 'de',
 			'filter' => array(
-				'key' => array( 0 => 'rule.type.code' ),
+				'key' => array( 0 => 'type.code' ),
 				'op' => array( 0 => '==' ),
-				'val' => array( 0 => 'catalog' ),
+				'val' => array( 0 => 'color' ),
 			),
-			'sort' => array( '-rule.type.id' ),
+			'sort' => array( '-type.id' ),
 		);
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( '>catalog<', $result );
+		$this->assertStringContainsString( '>color<', $result );
 	}
 
 
 	public function testSearchException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( array( 'initCriteria' ) )
 			->getMock();
@@ -254,7 +255,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function getClientMock( $methods, $real = true )
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Rule\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
 			->onlyMethods( (array) $methods )
 			->getMock();
@@ -273,9 +274,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->onlyMethods( array( 'render' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'catalog', [], 'rule' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'color', [], 'product' )->getId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

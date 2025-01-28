@@ -41,8 +41,8 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateSubClient()
 	{
-		$this->context->config()->set( 'admin/jqadm/resources', ['type/attribute'] );
-		$client = \Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'type/attribute' );
+		$this->context->config()->set( 'admin/jqadm/resources', ['type'] );
+		$client = \Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'type' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
