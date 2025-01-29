@@ -377,22 +377,22 @@ Aimeos.ProductList = {
 					]},
 					'fields': {},
 					'page': {'offset': 0, 'limit': 25},
-					'sort': self.domain + '.label'
+					'sort': 'product.label'
 				};
-				args['filter']['||'][0]['=='][self.domain + '.id'] = input;
-				args['filter']['||'][1]['=~'][self.domain + '.code'] = input;
-				args['filter']['||'][2]['=~'][self.domain + '.label'] = input;
-				args['fields'][self.domain] = [self.domain + '.id', self.domain + '.code', self.domain + '.label'];
+				args['filter']['||'][0]['==']['product.id'] = input;
+				args['filter']['||'][1]['=~']['product.code'] = input;
+				args['filter']['||'][2]['=~']['product.label'] = input;
+				args['fields']['product'] = ['product.id', 'product.code', 'product.label'];
 
 				try {
 					loadfcn ? loadfcn(true) : null;
 
-					this.get(self.domain, args, function(data) {
+					this.get('product', args, function(data) {
 						self.options = [];
 						(data.items || []).forEach(function(entry) {
 							self.options.push({
-								'id': entry[self.domain + '.id'],
-								'label': entry[self.domain + '.id'] + ' - ' + entry[self.domain + '.label'] + ' (' + entry[self.domain + '.code'] + ')'
+								'id': entry['product.id'],
+								'label': entry['product.id'] + ' - ' + entry['product.label'] + ' (' + entry['product.code'] + ')'
 							});
 						});
 					});
