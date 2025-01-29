@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yolo San, 2021\n"
 "Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
@@ -706,6 +706,9 @@ msgstr "Etaj / Apartament"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Etaj si/sau apartament (optional)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Generați"
@@ -1945,6 +1948,9 @@ msgstr "Tip"
 
 msgid "Type position (optional)"
 msgstr "Poziția tipului (opțional)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "Tipuri pentru imagini suplimentare, cum ar fi pictograme"

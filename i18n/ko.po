@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Wonjin Choi <dwon97@gmail.com>, 2019\n"
 "Language-Team: Korean (http://app.transifex.com/aimeos/aimeos-core/language/ko/)\n"
@@ -705,6 +705,9 @@ msgstr "층 / 아파트"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "층 및/또는 아파트(선택 사항)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "생성"
@@ -1944,6 +1947,9 @@ msgstr "유형"
 
 msgid "Type position (optional)"
 msgstr "입력 위치(선택 사항)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "아이콘과 같은 추가 이미지 유형"

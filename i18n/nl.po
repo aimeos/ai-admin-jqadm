@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -715,6 +715,9 @@ msgstr "Verdieping / Apartement"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Verdieping en/of appartement (optioneel)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr ""
@@ -1954,6 +1957,9 @@ msgstr "Type"
 
 msgid "Type position (optional)"
 msgstr "Type positie (optioneel)"
+
+msgid "Types"
+msgstr "Types"
 
 msgid "Types for additional images like icons"
 msgstr "Types voor aanvullende afbeeldingen zoals icons"

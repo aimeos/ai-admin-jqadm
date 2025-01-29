@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Tobias Madsen <tubbe.m@gmail.com>, 2020\n"
 "Language-Team: Danish (http://app.transifex.com/aimeos/aimeos-core/language/da/)\n"
@@ -706,6 +706,9 @@ msgstr "Etage/lejlighed"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Etage og/eller lejlighed (valgfrit)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Generer"
@@ -1945,6 +1948,9 @@ msgstr "Type"
 
 msgid "Type position (optional)"
 msgstr "Skriv position (valgfrit)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "Typer til ekstra billeder som ikoner"

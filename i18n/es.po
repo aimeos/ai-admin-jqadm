@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: S 0l, 2021\n"
 "Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -717,6 +717,9 @@ msgstr "Piso / Departamento"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Piso y/o departamento (opcional)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Genere"
@@ -1956,6 +1959,9 @@ msgstr "Tipo"
 
 msgid "Type position (optional)"
 msgstr "Tipo de posición (opcional)"
+
+msgid "Types"
+msgstr "Tipos"
 
 msgid "Types for additional images like icons"
 msgstr "Tipos de imágenes adicionales, como iconos"

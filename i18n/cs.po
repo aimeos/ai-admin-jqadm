@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
 "Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -707,6 +707,9 @@ msgstr "Podlaží / apartmán"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Podlaží a/nebo byt (nepovinné)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Generovat"
@@ -1946,6 +1949,9 @@ msgstr "Typ"
 
 msgid "Type position (optional)"
 msgstr "Typ pozice (volitelné)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "Typy pro další obrázky, například ikony"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-19 18:12+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -673,6 +673,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "For"
 msgstr ""
 
 msgid "Generate"
@@ -1856,6 +1859,9 @@ msgid "Type"
 msgstr ""
 
 msgid "Type position (optional)"
+msgstr ""
+
+msgid "Types"
 msgstr ""
 
 msgid "Types for additional images like icons"

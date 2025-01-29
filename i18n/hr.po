@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>, 2018\n"
 "Language-Team: Croatian (http://app.transifex.com/aimeos/aimeos-core/language/hr/)\n"
@@ -703,6 +703,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "For"
 msgstr ""
 
 msgid "Generate"
@@ -1943,6 +1946,9 @@ msgstr "Vrsta"
 
 msgid "Type position (optional)"
 msgstr ""
+
+msgid "Types"
+msgstr "Vrste"
 
 msgid "Types for additional images like icons"
 msgstr ""

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2024
+# Metal <meteoramic@yahoo.com>, 2015-2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2024\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2025\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -628,13 +628,13 @@ msgid "Error"
 msgstr "Hata"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Veriler silinirken hata oluştu"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Veriler alınırken hata oluştu"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Veriler kaydedilirken hata oluştu"
 
 msgid "Excl. tax"
 msgstr "KDV hariç"
@@ -704,6 +704,9 @@ msgstr "Kat/Daire"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Oluştur"
@@ -1129,10 +1132,10 @@ msgid ""
 msgstr "Virgüllerle ayrılmış bir sağlayıcı ve sıfır veya daha fazla dekatör sınıfı isimleri"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Simgeler için sadece .webp, .jpg, .png ve .gif formatındaki resimlere izin verilir"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Logolar için sadece .webp, .jpg, .png, .gif ve .svg formatındaki resimlere izin verilir"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Kayıtları sadece süper kullanıcılar ve yöneticiler silebilir"
@@ -1943,6 +1946,9 @@ msgstr "Tür"
 
 msgid "Type position (optional)"
 msgstr "Tür pozisyonu (isteğe bağlı)"
+
+msgid "Types"
+msgstr "Türler"
 
 msgid "Types for additional images like icons"
 msgstr "Simgeler gibi ek görüntüler için türler"

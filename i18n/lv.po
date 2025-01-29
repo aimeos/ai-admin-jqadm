@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Martins Nav <mveisis1@gmail.com>, 2021\n"
 "Language-Team: Latvian (http://app.transifex.com/aimeos/aimeos-core/language/lv/)\n"
@@ -707,6 +707,9 @@ msgstr "Stāvs / Dzīvoklis"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Stāvs un/vai dzīvoklis (pēc izvēles)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Izveidot"
@@ -1946,6 +1949,9 @@ msgstr "Tips"
 
 msgid "Type position (optional)"
 msgstr "Ierakstiet pozīciju (pēc izvēles)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "Papildu attēlu, piemēram, ikonu, veidi"

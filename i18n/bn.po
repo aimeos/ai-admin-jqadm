@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Mohammad Nurul Islam, 2024\n"
 "Language-Team: Bengali (http://app.transifex.com/aimeos/aimeos-core/language/bn/)\n"
@@ -704,6 +704,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "For"
 msgstr ""
 
 msgid "Generate"
@@ -1943,6 +1946,9 @@ msgid "Type"
 msgstr ""
 
 msgid "Type position (optional)"
+msgstr ""
+
+msgid "Types"
 msgstr ""
 
 msgid "Types for additional images like icons"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Вячеслав Васильев <uverst@gmail.com>, 2019\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -713,6 +713,9 @@ msgstr "Этаж / Квартира"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr ""
@@ -1952,6 +1955,9 @@ msgstr "Тип"
 
 msgid "Type position (optional)"
 msgstr "Тип положения (необязательно)"
+
+msgid "Types"
+msgstr "Типы"
 
 msgid "Types for additional images like icons"
 msgstr "Типы дополнительных изображений, таких как иконки"

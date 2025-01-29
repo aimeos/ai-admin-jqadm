@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-18 19:23+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: ranx2k <ranko@murumets.eu>, 2021\n"
 "Language-Team: Estonian (http://app.transifex.com/aimeos/aimeos-core/language/et/)\n"
@@ -706,6 +706,9 @@ msgstr "Korrus / korter"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Korrus ja/või korter (valikuline)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr "Genereeri"
@@ -1945,6 +1948,9 @@ msgstr "Tüüp"
 
 msgid "Type position (optional)"
 msgstr "Tüübipositsioon (valikuline)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "Tüübid lisapiltide, näiteks ikoonide jaoks"
