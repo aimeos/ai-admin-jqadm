@@ -253,7 +253,6 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
 
 		$filter = $manager->filter( true )
-			->add( 'product.lists.type.domain', '==', 'product' )
 			->order( 'product.lists.type.code' )
 			->slice( 0, 10000 );
 

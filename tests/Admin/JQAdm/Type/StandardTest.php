@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'color', [], 'product' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'color' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -133,7 +133,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->find( 'color', [], 'product' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'color' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -168,8 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'item' => array(
 				'type.id' => '',
 				'type.status' => '1',
-				'type.for' => 'attribute',
-				'type.domain' => 'product',
+				'type.domain' => 'attribute',
 				'type.code' => 'jqadm@test',
 				'type.label' => 'jqadm test',
 			),
@@ -180,7 +179,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->delete( $manager->find( 'jqadm@test', [], 'product' )->getId() );
+		$manager->delete( $manager->find( 'jqadm@test' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -276,7 +275,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'color', [], 'product' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'color' )->getId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

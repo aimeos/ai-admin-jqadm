@@ -47,11 +47,8 @@ class Standard
 		$textTypeManager = \Aimeos\MShop::create( $context, 'text/type' );
 		$listTypeManager = \Aimeos\MShop::create( $context, 'supplier/lists/type' );
 
-		$search = $textTypeManager->filter( true )->slice( 0, 10000 );
-		$search->add( 'text.type.domain', '==', 'supplier' )->order( 'text.type.code' );
-
-		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->add( 'supplier.lists.type.domain', '==', 'text' )->order( 'supplier.lists.type.code' );
+		$search = $textTypeManager->filter( true )->order( 'text.type.code' )->slice( 0, 10000 );
+		$listSearch = $listTypeManager->filter( true )->order( 'supplier.lists.type.code' )->slice( 0, 10000 );
 
 		$view->textListTypes = $listTypeManager->search( $listSearch );
 		$view->textTypes = $textTypeManager->search( $search );

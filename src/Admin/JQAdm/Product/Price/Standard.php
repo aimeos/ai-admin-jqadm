@@ -48,11 +48,8 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
-		$search = $priceTypeManager->filter( true )->slice( 0, 10000 );
-		$search->add( 'price.type.domain', '==', 'product' )->order( 'price.type.code' );
-
-		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->add( 'product.lists.type.domain', '==', 'price' )->order( 'product.lists.type.code' );
+		$search = $priceTypeManager->filter( true )->order( 'price.type.code' )->slice( 0, 10000 );
+		$listSearch = $listTypeManager->filter( true )->order( 'product.lists.type.code' )->slice( 0, 10000 );
 
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );

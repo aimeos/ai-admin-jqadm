@@ -45,7 +45,6 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'price/property/type' );
 
 		$search = $manager->filter( true )
-			->add( 'price.property.type.domain', '==', 'price' )
 			->order( 'price.property.type.code' )
 			->slice( 0, 10000 );
 

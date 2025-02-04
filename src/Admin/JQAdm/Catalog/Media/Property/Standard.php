@@ -199,7 +199,6 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'media/property/type' );
 
 		$search = $manager->filter( true )
-			->add( 'media.property.type.domain', '==', 'media' )
 			->order( 'media.property.type.code' )
 			->slice( 0, 10000 );
 
