@@ -528,18 +528,21 @@ class Standard
 			foreach( $services as $service )
 			{
 				$list = [];
+				$serviceId = $service->getId();
 				$attrItems = $this->attributes( 'order/service/attribute', $service->getAttributeItems() );
 
-				foreach( $data['service'][$type][$serviceId] ?? [] as $idx => $entry )
+				foreach( $data['service'][$type][$serviceId] ?? [] as $entry )
 				{
+					if( !($value = $entry['order.service.attribute.value'] ?? '') ) {
+						continue;
+					}
+
 					$entry = array_filter( $entry );
-					$id = $entry['order.service.attribute.id'] ?? '';
-					$attrItem = $attrItems[$id] ?? $manager->createServiceAttribute();
-
-					$value = $entry['order.service.attribute.value'] ?? '';
 					$entry['order.service.attribute.value'] = json_decode( $value, true ) ?? $value;
+					$id = $entry['order.service.attribute.id'] ?? '';
 
-					$list[] = $attrItem->fromArray( $entry, true )->setType( $type );
+					$attrItem = $attrItems[$id] ?? $manager->createServiceAttribute();
+					$list[] = $attrItem->setType( $type )->fromArray( $entry, true );
 				}
 
 				$service->setAttributeItems( $list );
