@@ -493,63 +493,63 @@ class Standard
 	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Iface
 	{
 		$context = $this->context();
-
 		$manager = \Aimeos\MShop::create( $context, 'order' );
-		$attrManager = \Aimeos\MShop::create( $context, 'order/service/attribute' );
 
 		if( isset( $data['order.id'] ) ) {
 			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
-			$basket = $manager->get( $data['order.id'], $refs )->off();
+			$item = $manager->get( $data['order.id'], $refs )->off();
 		} else {
-			$basket = $manager->create()->off();
+			$item = $manager->create()->off();
 		}
 
-		$basket->fromArray( $data, true );
+		$item->fromArray( $data, true );
 
-		foreach( $basket->getProducts() as $pos => $product )
+		foreach( $item->getProducts() as $pos => $product )
 		{
 			$list = $this->allowed( 'order/product', $data['product'][$pos] );
 			$product->fromArray( $list );
 		}
 
-		foreach( $basket->getAddresses() as $type => $addresses )
+		foreach( $item->getAddresses() as $type => $addresses )
 		{
 			foreach( $addresses as $pos => $address )
 			{
 				if( isset( $data['address'][$type][$pos] ) ) {
 					$list = (array) $data['address'][$type][$pos];
-					$basket->addAddress( $address->fromArray( $list, true ), $type, $pos );
+					$item->addAddress( $address->fromArray( $list, true ), $type, $pos );
 				} else {
-					$basket->deleteAddress( $type, $pos );
+					$item->deleteAddress( $type, $pos );
 				}
 			}
 		}
 
-		foreach( $basket->getServices() as $type => $services )
+		foreach( $item->getServices() as $type => $services )
 		{
 			foreach( $services as $service )
 			{
+				$list = [];
 				$serviceId = $service->getId();
 				$attrItems = $this->attributes( 'order/service/attribute', $service->getAttributeItems() );
 
-				foreach( $data['service'][$type][$serviceId] ?? [] as $idx => $entry )
+				foreach( $data['service'][$type][$serviceId] ?? [] as $entry )
 				{
+					if( !($value = $entry['order.service.attribute.value'] ?? '') ) {
+						continue;
+					}
+
 					$entry = array_filter( $entry );
-					$id = $entry['order.service.attribute.id'] ?? '';
-					$attrItem = $attrItems[$id] ?? $attrManager->create();
-
-					$value = $entry['order.service.attribute.value'] ?? '';
 					$entry['order.service.attribute.value'] = json_decode( $value, true ) ?? $value;
+					$id = $entry['order.service.attribute.id'] ?? '';
 
-					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() )->setType( $type ) );
-					unset( $attrItems[$id] );
+					$attrItem = $attrItems[$id] ?? $manager->createServiceAttribute();
+					$list[] = $attrItem->setType( $type )->fromArray( $entry, true );
 				}
 
-				$attrManager->delete( $attrItems );
+				$service->setAttributeItems( $list );
 			}
 		}
 
-		return $basket;
+		return $item;
 	}
 
 
@@ -564,7 +564,7 @@ class Standard
 		$siteId = $this->context()->locale()->getSiteId();
 		$data = $item->toArray( true );
 
-		if( $item->getCustomerId() != '' )
+		if( $item->getCustomerId() )
 		{
 			try {
 				$data += \Aimeos\MShop::create( $this->context(), 'customer' )->get( $item->getCustomerId() )->toArray();
