@@ -317,7 +317,7 @@ class Standard
 		$context = $this->context();
 
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
-		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->view()->request()->getUploadedFiles();
@@ -330,7 +330,7 @@ class Standard
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'catalog.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'catalog' );

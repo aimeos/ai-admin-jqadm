@@ -237,16 +237,16 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/address' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 
 		$addrItems = $item->getAddressItems();
 
 		foreach( $data as $entry )
 		{
-			if( ( $addrItem = $addrItems->get( $entry['customer.address.id'] ) ) !== null ) {
+			if( $addrItem = $addrItems->get( $entry['customer.address.id'] ) ) {
 				$addrItems->remove( $entry['customer.address.id'] );
 			} else {
-				$addrItem = $manager->create();
+				$addrItem = $manager->createAddressItem();
 			}
 
 			$addrItem->fromArray( $entry, true );

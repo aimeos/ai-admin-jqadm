@@ -260,7 +260,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$propManager = \Aimeos\MShop::create( $this->context(), 'price/property' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'price' );
 		$index = 0;
 
 		foreach( $item->getRefItems( 'price', null, null, false ) as $refItem )
@@ -276,7 +276,7 @@ class Standard
 				}
 				else
 				{
-					$propItem = $propManager->create();
+					$propItem = $manager->createPropertyItem();
 				}
 
 				$propItem->fromArray( $entry, true );

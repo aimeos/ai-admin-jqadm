@@ -240,13 +240,13 @@ class Standard
 	 */
 	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $mediaItem, iterable $attrListItems ) : \Aimeos\MShop\Media\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'media/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'media' );
 		$listItems = $mediaItem->getListItems( 'attribute', 'variant', null, false );
 
 		foreach( $attrListItems as $listItem )
 		{
 			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId(), false ) ) === null ) {
-				$mediaItem->addListItem( 'attribute', $listManager->create()->setType( 'variant' )->setRefId( $listItem->getRefId() ) );
+				$mediaItem->addListItem( 'attribute', $manager->createListItem()->setType( 'variant' )->setRefId( $listItem->getRefId() ) );
 			} else {
 				unset( $listItems[$litem->getId()] );
 			}

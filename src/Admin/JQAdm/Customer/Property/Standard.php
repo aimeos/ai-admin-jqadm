@@ -254,8 +254,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'customer/property' );
-
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 		$propItems = $item->getPropertyItems( null, false );
 
 		foreach( $data as $entry )
@@ -267,7 +266,7 @@ class Standard
 			}
 			else
 			{
-				$propItem = $manager->create();
+				$propItem = $manager->createPropertyItem();
 			}
 
 			$propItem->fromArray( $entry, true );

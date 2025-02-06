@@ -237,8 +237,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product/property' );
-		$typeManager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 		foreach( $data as $type => $value )
 		{
@@ -247,7 +246,7 @@ class Standard
 			if( ( $value = trim( $value ) ) != '' )
 			{
 				if( ( $propItem = $propItems->first() ) === null ) {
-					$propItem = $manager->create()->setType( $type );
+					$propItem = $manager->createPropertyItem()->setType( $type );
 				}
 
 				$propItem->setLanguageId( null );

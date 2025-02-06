@@ -222,7 +222,9 @@ class Standard
 	{
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
+		$priceManager = \Aimeos\MShop::create( $context, 'price' );
 		$serviceManager = \Aimeos\MShop::create( $context, 'service' );
+
 		$services = map( $order->getService( 'payment' ) )->col( null, 'order.service.id' );
 
 		foreach( $data as $serviceId => $entry )
@@ -231,13 +233,14 @@ class Standard
 				continue;
 			}
 
-			$price = \Aimeos\MShop::create( $context, 'price' )->create()
+			$price = $priceManager->create()
 				->setValue( -$entry['order.service.transaction.value'] ?? 0 )
 				->setCosts( -$entry['order.service.transaction.costs'] ?? 0 )
 				->setCurrencyId( $service->getPrice()->getCurrencyId() );
 
-			$txItem = \Aimeos\MShop::create( $context, 'order/service' )->createTransaction()
-				->setType( 'payment' )->setPrice( $price )->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
+			$txItem = $manager->createServiceTransaction()
+				->setType( 'payment' )->setPrice( $price )
+				->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
 
 			$serviceItem = $serviceManager->get( $service->getServiceId() );
 			$provider = $serviceManager->getProvider( $serviceItem, 'payment' );

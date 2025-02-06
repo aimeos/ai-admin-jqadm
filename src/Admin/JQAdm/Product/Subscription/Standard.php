@@ -257,7 +257,7 @@ class Standard
 		$context = $this->context();
 
 		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
-		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'product' );
 
 		$listItems = $item->getListItems( 'attribute', 'config', 'interval', false );
 
@@ -268,7 +268,7 @@ class Standard
 			}
 
 			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'], false ) ) === null ) {
-				$listItem = $listManager->create()->setType( 'config' );
+				$listItem = $manager->createListItem()->setType( 'config' );
 			}
 
 			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )

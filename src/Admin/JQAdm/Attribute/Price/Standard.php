@@ -294,17 +294,16 @@ class Standard
 		$context = $this->context();
 
 		$priceManager = \Aimeos\MShop::create( $context, 'price' );
-		$listManager = \Aimeos\MShop::create( $context, 'attribute/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'attribute' );
 
 		$listItems = $item->getListItems( 'price', null, null, false );
-
 
 		foreach( $data as $idx => $entry )
 		{
 			$id = $this->val( $entry, 'price.id', '' );
 			$type = $this->val( $entry, 'attribute.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $listManager->create();
+			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $priceManager->create();
 
 			$refItem->fromArray( $entry, true );
