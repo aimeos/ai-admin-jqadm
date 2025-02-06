@@ -533,7 +533,7 @@ class Standard
 
 				foreach( $data['service'][$type][$serviceId] ?? [] as $entry )
 				{
-					if( !($value = $entry['order.service.attribute.value'] ?? '') ) {
+					if( !( $value = $entry['order.service.attribute.value'] ?? '' ) ) {
 						continue;
 					}
 

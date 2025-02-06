@@ -65,7 +65,6 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$view->itemForDomains = $view->config( 'admin/jqadm/type/domains-for', [] );
 		$view->itemDomains = $view->config( 'admin/jqadm/type/domains', [] );
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;

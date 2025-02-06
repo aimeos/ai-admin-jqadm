@@ -220,17 +220,6 @@ return [
 	'type' => [
 		'domains' => [
 			'attribute' => 'attribute',
-			'catalog' => 'catalog',
-			'customer' => 'customer',
-			'media' => 'media',
-			'price' => 'price',
-			'product' => 'product',
-			'service' => 'service',
-			'supplier' => 'supplier',
-			'text' => 'text',
-		],
-		'domains-for' => [
-			'attribute' => 'attribute',
 			'attribute/lists' => 'attribute/lists',
 			'attribute/property' => 'attribute/property',
 			'catalog/lists' => 'catalog/lists',

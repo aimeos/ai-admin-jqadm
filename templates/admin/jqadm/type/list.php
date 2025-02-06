@@ -40,7 +40,6 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 
 $columnList = [
 	'type.id' => $this->translate( 'admin', 'ID' ),
-	'type.for' => $this->translate( 'admin', 'For' ),
 	'type.domain' => $this->translate( 'admin', 'Domain' ),
 	'type.status' => $this->translate( 'admin', 'Status' ),
 	'type.code' => $this->translate( 'admin', 'Code' ),
@@ -52,7 +51,6 @@ $columnList = [
 ];
 
 $domains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemDomains', [] ) );
-$forDomains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemForDomains', [] ) );
 
 
 ?>
@@ -159,7 +157,6 @@ $forDomains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/filter', [] ),
 							'data' => [
 								'type.id' => ['op' => '=='],
-								'type.for' => ['op' => '==', 'type' => 'select', 'val' => $forDomains],
 								'type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
 								'type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -277,9 +274,6 @@ $forDomains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain
 							</td>
 							<?php if( in_array( 'type.id', $fields ) ) : ?>
 								<td class="type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'type.for', $fields ) ) : ?>
-								<td class="type-for"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getFor() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'type.domain', $fields ) ) : ?>
 								<td class="type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
