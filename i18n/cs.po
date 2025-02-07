@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
 "Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -631,13 +631,13 @@ msgid "Error"
 msgstr "Chyba"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Chyba při mazání dat"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Chyba při načítání dat"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Chyba při ukládání dat"
 
 msgid "Excl. tax"
 msgstr "Bez daně"
@@ -709,7 +709,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Podlaží a/nebo byt (nepovinné)"
 
 msgid "For"
-msgstr ""
+msgstr "Pro"
 
 msgid "Generate"
 msgstr "Generovat"
@@ -1135,10 +1135,10 @@ msgid ""
 msgstr "Jeden poskytovatel a nula nebo více názvů tříd dekorátorů oddělených čárkami."
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Pro ikony jsou povoleny pouze soubory .webp, .jpg, .png a .gif."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Pro loga jsou povoleny pouze soubory .webp, .jpg, .png, .gif a .svg."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Položky mohou mazat pouze superuživatelé a správci."
@@ -1951,7 +1951,7 @@ msgid "Type position (optional)"
 msgstr "Typ pozice (volitelné)"
 
 msgid "Types"
-msgstr ""
+msgstr "Typy"
 
 msgid "Types for additional images like icons"
 msgstr "Typy pro další obrázky, například ikony"

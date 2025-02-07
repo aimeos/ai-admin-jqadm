@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian (http://app.transifex.com/aimeos/aimeos-core/language/lt/)\n"
@@ -627,13 +627,13 @@ msgid "Error"
 msgstr "Klaida"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Klaida trinant duomenis"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Klaidingas duomenų gavimas"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Klaida išsaugant duomenis"
 
 msgid "Excl. tax"
 msgstr "Be mokesčių"
@@ -705,7 +705,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Grindys ir (arba) butas (neprivaloma)"
 
 msgid "For"
-msgstr ""
+msgstr "Tinklalapiui"
 
 msgid "Generate"
 msgstr "Sukurti"
@@ -1131,10 +1131,10 @@ msgid ""
 msgstr "Vienas paslaugų teikėjas ir nulis ar daugiau dekoratorių klasių pavadinimų, atskirtų kableliais"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Ikonos gali būti tik .webp, .jpg, .png ir .gif."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Logotipams leidžiama naudoti tik .webp, .jpg, .png, .gif ir .svg."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Įrašus gali ištrinti tik vyriausieji naudotojai ir administratoriai."
@@ -1947,7 +1947,7 @@ msgid "Type position (optional)"
 msgstr "Tipo padėtis (neprivaloma)"
 
 msgid "Types"
-msgstr ""
+msgstr "Tipai"
 
 msgid "Types for additional images like icons"
 msgstr "Papildomų vaizdų, pvz., piktogramų, tipai"

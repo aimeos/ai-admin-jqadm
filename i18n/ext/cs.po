@@ -37,10 +37,10 @@ msgid ">"
 msgstr "po"
 
 msgid ">="
-msgstr ""
+msgstr ">="
 
 msgid "~="
-msgstr ""
+msgstr "~="
 
 msgid "address:delivery"
 msgstr "Doručovací adresa"

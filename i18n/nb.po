@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/aimeos/aimeos-core/language/nb/)\n"
@@ -627,13 +627,13 @@ msgid "Error"
 msgstr "Feil"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Feil ved sletting av data"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Feil ved henting av data"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Feil ved lagring av data"
 
 msgid "Excl. tax"
 msgstr "Ekskl. skatt"
@@ -705,7 +705,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Etasje og/eller leilighet (valgfritt)"
 
 msgid "For"
-msgstr ""
+msgstr "For"
 
 msgid "Generate"
 msgstr "Generer"
@@ -1131,10 +1131,10 @@ msgid ""
 msgstr "Én leverandør og null eller flere navn på dekoratorklasser atskilt med komma"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Bare .webp, .jpg, .png og .gif er tillatt for ikoner"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Bare .webp, .jpg, .png, .gif og .svg er tillatt for logoer"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Bare superbrukere og administratorer kan slette oppføringer"
@@ -1947,7 +1947,7 @@ msgid "Type position (optional)"
 msgstr "Type posisjon (valgfritt)"
 
 msgid "Types"
-msgstr ""
+msgstr "Typer"
 
 msgid "Types for additional images like icons"
 msgstr "Typer for tilleggsbilder som ikoner"

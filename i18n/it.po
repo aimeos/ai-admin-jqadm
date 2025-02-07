@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: R M <roberto@proprionoi.it>, 2019\n"
 "Language-Team: Italian (http://app.transifex.com/aimeos/aimeos-core/language/it/)\n"
@@ -635,13 +635,13 @@ msgid "Error"
 msgstr "Errore"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Errore nell'eliminazione dei dati"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Errore nel recupero dei dati"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Errore nel salvataggio dei dati"
 
 msgid "Excl. tax"
 msgstr "Escluso tasse"
@@ -713,7 +713,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Piano e/o appartamento (opzionale)"
 
 msgid "For"
-msgstr ""
+msgstr "Per"
 
 msgid "Generate"
 msgstr "Generare"
@@ -1139,10 +1139,10 @@ msgid ""
 msgstr "Un fornitore e zero o più nomi di classi di decoratori, separati da virgole."
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Per le icone sono consentiti solo i formati .webp, .jpg, .png e .gif."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Per i loghi sono ammessi solo i formati .webp, .jpg, .png, .gif e .svg."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Solo i superutenti e gli amministratori possono eliminare le voci"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: stevechen <steve.stevechen@gmail.com>, 2018\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -634,13 +634,13 @@ msgid "Error"
 msgstr "錯誤"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "删除数据出错"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "数据检索错误"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "保存数据出错"
 
 msgid "Excl. tax"
 msgstr "未稅"
@@ -712,7 +712,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "樓層 和/或 公寓 (選項)"
 
 msgid "For"
-msgstr ""
+msgstr "对于"
 
 msgid "Generate"
 msgstr "生成"
@@ -1138,10 +1138,10 @@ msgid ""
 msgstr "一个提供者和0个或多个装饰器类名，以逗号分隔"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "只允许使用 .webp、.jpg、.png 和 .gif 图标"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "徽标只能使用 .webp、.jpg、.png、.gif 和 .svg 格式"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "只有超级用户和管理员才能删除条目"

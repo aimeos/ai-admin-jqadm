@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "!="
-msgstr ""
+msgstr "!="
 
 msgid "<"
-msgstr ""
+msgstr "<"
 
 msgid "<="
-msgstr ""
+msgstr "<="
 
 msgid "=="
-msgstr ""
+msgstr "=="
 
 msgid "=~"
-msgstr ""
+msgstr "=~"
 
 msgid ">"
-msgstr ""
+msgstr ">"
 
 msgid ">="
-msgstr ""
+msgstr ">="
 
 msgid "~="
-msgstr ""
+msgstr "~="
 
 msgid "address:delivery"
 msgstr "배송 주소"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yolo San, 2021\n"
 "Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
@@ -630,13 +630,13 @@ msgid "Error"
 msgstr "Eroare"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Eroare la ștergerea datelor"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Eroare la preluarea datelor"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Eroare la salvarea datelor"
 
 msgid "Excl. tax"
 msgstr "Inclusiv taxe"
@@ -708,7 +708,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Etaj si/sau apartament (optional)"
 
 msgid "For"
-msgstr ""
+msgstr "Pentru"
 
 msgid "Generate"
 msgstr "Generați"
@@ -1134,10 +1134,10 @@ msgid ""
 msgstr "Un furnizor și zero sau mai multe nume de clase de decoratori separate prin virgulă"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Doar .webp, .jpg, .png și .gif sunt permise pentru pictograme"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Numai .webp, .jpg, .png, .gif și .svg sunt permise pentru logo-uri"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Numai superutilizatorii și administratorii pot șterge intrări"
@@ -1950,7 +1950,7 @@ msgid "Type position (optional)"
 msgstr "Poziția tipului (opțional)"
 
 msgid "Types"
-msgstr ""
+msgstr "Tipuri"
 
 msgid "Types for additional images like icons"
 msgstr "Tipuri pentru imagini suplimentare, cum ar fi pictograme"

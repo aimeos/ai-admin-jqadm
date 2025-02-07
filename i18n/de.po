@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2024
+# Aimeos, 2015-2025
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Stephan Kellermayr <stephan.kellermayr@gmail.com>, 2021\n"
 "Language-Team: German (http://app.transifex.com/aimeos/aimeos-core/language/de/)\n"
@@ -632,13 +632,13 @@ msgid "Error"
 msgstr "Fehler"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Fehler beim Löschen von Daten"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Fehler beim Abrufen von Daten"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Fehler beim Speichern von Daten"
 
 msgid "Excl. tax"
 msgstr "Exkl. Steuer"
@@ -710,7 +710,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Etage und/oder Wohnung (optional)"
 
 msgid "For"
-msgstr ""
+msgstr "Für"
 
 msgid "Generate"
 msgstr "Generieren"
@@ -1136,10 +1136,10 @@ msgid ""
 msgstr "Klassennamen von einem Provider und beliebig vielen Dekoratoren, getrennt durch Kommas"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Für Icons sind nur die Formate .webp, .jpg, .png und .gif zulässig."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Für Logos sind nur die Formate .webp, .jpg, .png, .gif und .svg zulässig."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Nur Super-User und Administratoren können Einträge löschen"

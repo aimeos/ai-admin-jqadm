@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aimeos, 2025
 # Akilis Kalemasi <akili.kalemasi@gmail.com>, 2020
 # Koutelier Geros, 2022
 # Koutelier Geros, 2022
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: P T <pitafreelance@gmail.com>, 2019\n"
+"Last-Translator: Aimeos, 2025\n"
 "Language-Team: Greek (http://app.transifex.com/aimeos/aimeos-core/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -38,7 +39,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -63,16 +64,16 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Διεθνής) αριθμός facsimilie χωρίς χαρακτήρες διαχωρισμού, μπορεί να αρχίζει με \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
@@ -83,13 +84,13 @@ msgid "+ Tax"
 msgstr "+ΦΠΑ"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<κρυφό>"
 
 msgid "?"
 msgstr ";"
 
 msgid "API key"
-msgstr ""
+msgstr "Κλειδί API"
 
 msgid "Account"
 msgstr "Λογαριασμός"
@@ -127,46 +128,46 @@ msgid "Address 3"
 msgstr "Διεύθυνση 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Αναγνωριστικό διεύθυνσης του σπιτιού του πελάτη για παράδοση"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Αναγνωριστικό διεύθυνσης της κατοικίας του προμηθευτή για την παράδοση"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Ο τύπος Admin JQAdm είναι άδειος"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Προχωρημένο"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Η προσωρινή αποθήκευση δεδομένων Aimeos είναι απενεργοποιημένη από το \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Η καταγραφή εντοπισμού σφαλμάτων Aimeos είναι ενεργοποιημένη από το \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos αντικείμενο δεν διατίθεται"
 
 msgid "All"
-msgstr ""
+msgstr "Όλα"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Όλα τα χαρακτηριστικά που καθορίζουν μοναδικά ένα είδος, π.χ. πλάτος, μήκος και χρώμα για τα τζιν."
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Επιτρέψτε προσαρμοσμένη τιμή"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Επιτρέψτε στους πελάτες να επιλέξουν οι ίδιοι πόσο θέλουν να πληρώσουν"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Αλφαριθμητική συμβολοσειρά που μπορεί να προσδιορίσει μοναδικά την ομάδα"
 
 msgid "Apply"
 msgstr "Εφαρμογή"
@@ -174,60 +175,60 @@ msgstr "Εφαρμογή"
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Οι συγκεκριμένες επιλογές διαμόρφωσης του άρθρου, θα είναι διαθέσιμες ως ζεύγη κλειδιών/τιμών στα πρότυπα"
 
 msgid "Attribute"
-msgstr ""
+msgstr "Χαρακτηριστικό"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Λίστες χαρακτηριστικών Τύπος"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Τύποι καταλόγων χαρακτηριστικών"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Χαρακτηριστικό Ιδιότητα Τύπος"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Τύποι ιδιοτήτων χαρακτηριστικών"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Χαρακτηριστικό Τύπος"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Τύποι χαρακτηριστικών"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Θέση του χαρακτηριστικού (προαιρετικό)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Ιδιότητες χαρακτηριστικών που δεν μοιράζονται με άλλα χαρακτηριστικά"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Τύπος χαρακτηριστικού που περιορίζει τον κατάλογο των διαθέσιμων χαρακτηριστικών"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Χαρακτηριστικά"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Διαθέσιμο νόμισμα για την τρέχουσα τοποθεσία"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Διαθέσιμα διαστήματα στο front-end"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Διαθέσιμη γλώσσα για τον τρέχοντα ιστότοπο"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Μέση βαθμολογία προϊόντος και συνολικός αριθμός βαθμολογιών από πελάτες για αυτό το προϊόν"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "Πίσω στο απόθεμα"
 
 msgid "Basic"
-msgstr ""
+msgstr "Βασικό"
 
 msgid "Basket"
 msgstr "Καλάθι"
@@ -239,76 +240,76 @@ msgid "Birthday"
 msgstr "Γενέθλια"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Γενέθλια του πελάτη"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Παράγοντας ενίσχυσης"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Συντελεστής ενίσχυσης (προαιρετικά)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Σφάλμα ή πρόταση;"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Μαζική επεξεργασία"
 
 msgid "Cancel"
 msgstr "Ακύρωση"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Ακύρωση και επιστροφή στη λίστα"
 
 msgid "Catalog"
-msgstr ""
+msgstr "Κατάλογος"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Κατάλογος Λίστες Τύπος"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Τύποι καταλόγων"
 
 msgid "Categories"
 msgstr "Κατηγορίες"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Κατηγορίες στις οποίες ο χρήστης μπορεί να βρει το προϊόν στον ιστότοπο"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Κατηγορίες για τις οποίες το προϊόν θα εμφανίζεται στο τμήμα προώθησης"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Οι συγκεκριμένες επιλογές διαμόρφωσης της κατηγορίας, θα είναι διαθέσιμες ως ζεύγη κλειδιών/τιμών στα πρότυπα"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Αλλαγή κόστους/στοιχείο σε %"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Αλλαγή της έκπτωσης σε %"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Αλλαγή τιμής σε %"
 
 msgid "Channel"
-msgstr ""
+msgstr "Κανάλι"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Κανάλι η παραγγελία έχει τοποθετηθεί"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Επιλέξτε αρχείο"
 
 msgid "City"
 msgstr "Πόλη"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Όνομα πόλης ή κωμόπολης (απαιτείται)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "Η κλάση \"%1$s\" δεν υλοποιεί την \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -322,182 +323,182 @@ msgid "Close"
 msgstr "Κλείστε το"
 
 msgid "Code"
-msgstr ""
+msgstr "Κωδικός"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Κώδικας για τη μοναδική ταυτοποίηση του ιστότοπου, η μετονομασία είναι επικίνδυνη!"
 
 msgid "Columns"
-msgstr ""
+msgstr "Στήλες"
 
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Σχόλιο του κριτικού"
 
 msgid "Communication"
-msgstr ""
+msgstr "Επικοινωνία"
 
 msgid "Company"
 msgstr "Εταιρεία"
 
 msgid "Company details"
-msgstr ""
+msgstr "Λεπτομέρειες της εταιρείας"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Όνομα εταιρείας (προαιρετικό)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Ολοκληρωμένες παραγγελίες"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Ολοκληρωμένες παραγγελίες εντός των τελευταίων επτά ημερών σε σύγκριση με την προηγούμενη περίοδο"
 
 msgid "Config"
-msgstr ""
+msgstr "Διαμόρφωση"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Διαμορφώσιμο"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Οι επιλογές διαμόρφωσης, θα είναι διαθέσιμες ως ζεύγη κλειδιών/τιμών στο στοιχείο λίστας"
 
 msgid "Context"
-msgstr ""
+msgstr "Πλαίσιο"
 
 msgid "Copy"
-msgstr ""
+msgstr "Αντιγραφή"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Αντιγράψτε αυτή την καταχώρηση"
 
 msgid "Costs"
-msgstr ""
+msgstr "Κόστος"
 
 msgid "Count"
-msgstr ""
+msgstr "Κόμη"
 
 msgid "Country"
 msgstr "Χώρα"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Αναγνωριστικό χώρας"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Κωδικός χώρας (απαιτείται)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Ειδικός φορολογικός συντελεστής χώρας για τον υπολογισμό και την εμφάνιση του φόρου που περιλαμβάνεται (B2C) ή την προσθήκη του φόρου εάν απαιτείται (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Κωδικός κράτους χώρας (προαιρετικό)"
 
 msgid "Coupon"
-msgstr ""
+msgstr "Κουπόνι"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Όνομα διαμόρφωσης παρόχου κουπονιών ή διακοσμητή κουπονιών"
 
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Νομίσματα"
 
 msgid "Currency"
-msgstr ""
+msgstr "Νόμισμα"
 
 msgid "Custom"
-msgstr ""
+msgstr "Προσαρμοσμένο"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Προσαρμοσμένο domain ή μοναδικός κωδικός του καταστήματός σας"
 
 msgid "Customer"
-msgstr ""
+msgstr "Πελάτης"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "Αναγνωριστικό πελάτη"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Τύπος λίστας πελατών"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Τύποι λιστών πελατών"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Τύπος ακινήτου πελάτη"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Τύποι ακινήτων πελατών"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Χαρακτηριστικά πελατών που δεν μοιράζονται με άλλους πελάτες"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Σχόλιο πελάτη (προαιρετικό)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου του πελάτη"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης πελάτη"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Ιδιότητες πελατών που δεν μοιράζονται με άλλους πελάτες"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Αναφορά πελάτη"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Αναφορά πελάτη (προαιρετικά)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Ταμπλό"
 
 msgid "Data"
-msgstr ""
+msgstr "Δεδομένα"
 
 msgid "Data set"
-msgstr ""
+msgstr "Σύνολο δεδομένων"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Σύνολο δεδομένων"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Ημερομηνία της τελευταίας αλλαγής κατάστασης παράδοσης"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Ημερομηνία της τελευταίας αλλαγής κατάστασης πληρωμής"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Ημερομηνία λήξης της συνδρομής"
 
 msgid "Days"
-msgstr ""
+msgstr "Ημέρες"
 
 msgid "Default"
-msgstr ""
+msgstr "Προεπιλογή"
 
 msgid "Delete"
 msgstr "Διαγραφή"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Διαγραφή καταχωρήσεων;"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Διαγραφή επιλεγμένων καταχωρήσεων"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Διαγραφή αυτής της καταχώρησης"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Δεν επιτρέπεται η διαγραφή κριτικών"
 
 msgid "Delivery"
 msgstr "Παράδοση"
@@ -506,23 +507,23 @@ msgid "Delivery address"
 msgstr "Διεύθυνση παράδοσης"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Ημερομηνία παράδοσης"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Παράδοση σε"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Έξοδα παράδοσης ή πληρωμής για τα προϊόντα στο καλάθι του πελάτη"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Κατάσταση παράδοσης"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Χρονοδιάγραμμα παράδοσης (προαιρετικό)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Τύποι παράδοσης"
 
 msgid "Delivery within"
 msgstr "Παράδοση εντός"
@@ -530,162 +531,162 @@ msgstr "Παράδοση εντός"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Ανάλογα με το επιλεγμένο σύνολο δεδομένων, ο κατάλογος των εμφανιζόμενων πεδίων για το προϊόν θα είναι διαφορετικός."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Περιγράψτε την εικόνα σας"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Περιγραφή του περιεχομένου του κειμένου εάν είναι σε ξένη γλώσσα"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Περιγραφική ονομασία του νομίσματος"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Περιγραφικό όνομα της γλώσσας"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Περιγραφικό όνομα του ιστότοπου"
 
 msgid "Discount"
-msgstr ""
+msgstr "Έκπτωση"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Εμφάνιση κειμένων βοήθειας"
 
 msgid "Domain"
-msgstr ""
+msgstr "Τομέας"
 
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Κατεβάστε αυτό το αρχείο"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Διπλή καταχώρηση"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Διπλότυπο καταχώρησης (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου (απαιτείται)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου ή όνομα λογαριασμού (απαιτείται)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου που χρησιμοποιείται για την αποστολή μηνυμάτων ηλεκτρονικού ταχυδρομείου σχετικά με το κατάστημα"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου (προαιρετική)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου που ανήκει στη διεύθυνση"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU ή αριθμός άρθρου (απαιτείται)"
 
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Επεξεργασία επιλεγμένων καταχωρήσεων"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Επεξεργασία αυτής της καταχώρησης"
 
 msgid "Editor"
-msgstr ""
+msgstr "Εκδότης"
 
 msgid "Email"
-msgstr ""
+msgstr "Ηλεκτρονικό ταχυδρομείο"
 
 msgid "End date"
 msgstr "Ημερομηνία λήξης"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Ημερομηνία λήξης (προαιρετική)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Εισάγετε αναγνωριστικό ομάδας, κωδικό ή ετικέτα"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Η καταχώρηση διαγράφηκε επιτυχώς"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Η καταχώρηση αποθηκεύτηκε με επιτυχία"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Οι συγκεκριμένες επιλογές διαμόρφωσης της καταχώρησης, θα είναι διαθέσιμες ως ζεύγη κλειδιών/τιμών στα πρότυπα"
 
 msgid "Error"
-msgstr ""
+msgstr "Σφάλμα"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Σφάλμα διαγραφής δεδομένων"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Σφάλμα ανάκτησης δεδομένων"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Σφάλμα αποθήκευσης δεδομένων"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Χωρίς φόρο"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Σειρά εκτέλεσης των plugins"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Σειρά εκτέλεσης των κανόνων"
 
 msgid "Export"
-msgstr ""
+msgstr "Εξαγωγή"
 
 msgid "Facility"
-msgstr ""
+msgstr "Διευκόλυνση"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Φαξ"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Αριθμός τηλεομοιοτυπίας (προαιρετικά)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Παράγοντας που ενισχύει το προϊόν στην αναζήτηση του χρήστη έναντι άλλων προϊόντων (>1.0 θετική ενίσχυση, <1.0 αρνητική ενίσχυση)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Αποτυχία εγγραφής αρχείου στο δίσκο"
 
 msgid "File"
-msgstr ""
+msgstr "Αρχείο"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Το αρχείο δεν υπάρχει: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Το ανέβασμα αρχείων σταμάτησε από την επέκταση"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Το αρχείο μεταφορτώθηκε επιτυχώς"
 
 msgid "Find category"
-msgstr ""
+msgstr "Εύρεση κατηγορίας"
 
 msgid "Find site"
-msgstr ""
+msgstr "Εύρεση τοποθεσίας"
 
 msgid "First"
 msgstr "Πρώτη"
@@ -694,164 +695,164 @@ msgid "First name"
 msgstr "Όνομα"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Όνομα (προαιρετικό)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Το μικρό όνομα του ατόμου, εάν χρησιμοποιείται σε πολιτισμούς όπου χρησιμοποιείται"
 
 msgid "Floor"
-msgstr ""
+msgstr "Όροφος"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Όροφος / Διαμέρισμα"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Όροφος ή/και διαμέρισμα (προαιρετικά)"
 
 msgid "For"
-msgstr ""
+msgstr "Για το"
 
 msgid "Generate"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Δημιουργία εικόνας"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Δημιουργία κειμένου"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Δεδομένο ποσό έκπτωσης"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Πηγαίνετε στον πίνακα χαρακτηριστικών"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Πηγαίνετε στον πίνακα τύπων ιδιοτήτων"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Μετάβαση στη λίστα των τύπων χαρακτηριστικών"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Χορηγηθείσα έκπτωση"
 
 msgid "Group"
-msgstr ""
+msgstr "Ομάδα"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Όνομα ομάδας που περιγράφει για ποια μέλη προορίζεται η ομάδα"
 
 msgid "Groups"
-msgstr ""
+msgstr "Ομάδες"
 
 msgid "Height"
-msgstr ""
+msgstr "Ύψος"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Κρυφά χαρακτηριστικά"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Κρυφά χαρακτηριστικά προϊόντων που αποθηκεύονται μαζί με τα παραγγελθέντα προϊόντα"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Επισημαίνονται οι προμηθευτές του προϊόντος"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Τιμητικός τίτλος (προαιρετικά)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Τιμητικοί τίτλοι όπως Dr., Ph.D, κ.λπ."
 
 msgid "Hours"
-msgstr ""
+msgstr "Ώρες"
 
 msgid "House number"
-msgstr ""
+msgstr "Αριθμός σπιτιού"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Αριθμός σπιτιού (προαιρετικά)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Πώς απευθύνεται ο πελάτης στα μηνύματα ηλεκτρονικού ταχυδρομείου"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Πώς απευθύνεται στον προμηθευτή στα ηλεκτρονικά μηνύματα"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Υπερρεαλιστικό και δραματικό"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "ID ενός σχετικού τιμολογίου, π.χ. ενός τροποποιημένου ή επιστρεφόμενου τιμολογίου"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "Κωδικός νομίσματος ISO (απαιτείται)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "Κωδικός γλώσσας ISO (απαιτείται)"
 
 msgid "Image"
-msgstr ""
+msgstr "Εικόνα"
 
 msgid "Image description"
-msgstr ""
+msgstr "Περιγραφή εικόνας"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Οι εικόνες θα εμφανιστούν μόνο για τη συγκεκριμένη γλώσσα, χρήσιμο αν τα μέσα περιέχουν κείμενο ή είναι ειδικά για κάθε γλώσσα."
 
 msgid "Import"
-msgstr ""
+msgstr "Εισαγωγή"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Εργασίες εισαγωγής/εξαγωγής"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Συμπεριλαμβανομένου του φόρου"
 
 msgid "Info"
-msgstr ""
+msgstr "Πληροφορίες"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Εισαγωγή νέας καταχώρησης"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Εισαγωγή νέας καταχώρησης (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Εσωτερικό όνομα προϊόντος, θα χρησιμοποιείται στον ιστότοπο και για αναζήτηση μόνο εάν δεν υπάρχουν άλλα ονόματα προϊόντων σε οποιαδήποτε γλώσσα."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Εσωτερικό όνομα άρθρου, θα χρησιμοποιηθεί στον ιστότοπο εάν δεν υπάρχει όνομα προϊόντος για τη γλώσσα."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Εσωτερικό όνομα χαρακτηριστικού, θα χρησιμοποιηθεί στον ιστότοπο εάν δεν υπάρχει διαθέσιμο όνομα για τη γλώσσα"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Εσωτερικό όνομα κατηγορίας, θα χρησιμοποιηθεί στον ιστότοπο εάν δεν υπάρχει διαθέσιμο όνομα για τη γλώσσα"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Εσωτερικό όνομα (απαιτείται)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Όνομα εσωτερικού τύπου που εμφανίζεται στη διεπαφή διαχείρισης"
 
 msgid "Interval"
 msgstr "Διάστημα"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Διάστημα (απαιτείται)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -877,128 +878,128 @@ msgid "Invoice"
 msgstr "Τιμολόγιο"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Αριθμός τιμολογίου."
 
 msgid "Invoice no."
-msgstr ""
+msgstr "Αριθμός τιμολογίου."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Αριθμός τιμολογίου"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Αριθμός τιμολογίου για την παραγγελία"
 
 msgid "Label"
-msgstr ""
+msgstr "Ετικέτα"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Ετικέτα (απαιτείται)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Ετικέτα που περιγράφει το διάστημα, θα χρησιμοποιηθεί αν δεν υπάρχει όνομα"
 
 msgid "Language"
 msgstr "Γλώσσα"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Αναγνωριστικό γλώσσας"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Γλώσσα του εισαγόμενου κειμένου"
 
 msgid "Languages"
-msgstr ""
+msgstr "Γλώσσες"
 
 msgid "Last"
 msgstr "Τελευταία"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Τελευταία κατάσταση παράδοσης της παραγγελίας"
 
 msgid "Last name"
 msgstr "Επώνυμο"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Επώνυμο (προαιρετικό)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Επώνυμο (απαιτείται)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Επώνυμο του ατόμου ή πλήρες όνομα σε πολιτισμούς όπου δεν χρησιμοποιούνται μικρά ονόματα"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Τελευταία κατάσταση πληρωμής της παραγγελίας"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Τελευταίες παραγγελίες"
 
 msgid "Length"
-msgstr ""
+msgstr "Μήκος"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Κατάλογος ειδών που πρέπει να πωλούνται ως ένα προϊόν, συχνά σε μειωμένη τιμή"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Κατάλογος προϊόντων που αγοράζονται συχνά μαζί"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Κατάλογος προτεινόμενων προϊόντων"
 
 msgid "List type"
-msgstr ""
+msgstr "Τύπος λίστας"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Φόρτωση καταχωρήσεων ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "Τοπική τοποθεσία"
 
 msgid "Log"
-msgstr ""
+msgstr "Ημερολόγιο"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Χειροκίνητη μεταφορά"
 
 msgid "Map"
-msgstr ""
+msgstr "Χάρτης"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Τύπος καταλόγων μέσων ενημέρωσης"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Τύποι λιστών μέσων ενημέρωσης"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Τύπος ιδιοκτησίας μέσων ενημέρωσης"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Τύποι ιδιοτήτων μέσων ενημέρωσης"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Τύπος μέσων ενημέρωσης"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Τύποι μέσων ενημέρωσης"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Ιδιότητες μέσων ενημέρωσης"
 
 msgid "Menu"
-msgstr ""
+msgstr "Μενού"
 
 msgid "Message"
-msgstr ""
+msgstr "Μήνυμα"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Ελάχιστη ποσότητα"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Ελάχιστη ποσότητα"
 
 msgid "Mobile"
 msgstr "Κινητό"
@@ -1007,208 +1008,208 @@ msgid "Mobile number"
 msgstr "Αριθμός κινητού τηλεφώνου"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Αριθμός κινητού τηλεφώνου (προαιρετικά)"
 
 msgid "Model"
-msgstr ""
+msgstr "Μοντέλο"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Τροποποιημένο"
 
 msgid "Modified"
-msgstr ""
+msgstr "Τροποποιημένο"
 
 msgid "Months"
-msgstr ""
+msgstr "Μήνες"
 
 msgid "More"
 msgstr "Περισσότερα"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Μετακινήστε αυτή την καταχώρηση προς τα πάνω/κάτω"
 
 msgid "Name"
 msgstr "Όνομα"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Όνομα στη διεύθυνση URL (προαιρετικό)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Όνομα του καλαθιού"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Όνομα του κατεβασμένου αρχείου όταν οι πελάτες αποθηκεύουν το αρχείο στον υπολογιστή τους"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Όνομα του αξιολογητή"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Το όνομα του καταστήματός σας εμφανίζεται στους πελάτες σας"
 
 msgid "Natural"
-msgstr ""
+msgstr "Φυσικό"
 
 msgid "New"
 msgstr "Νέο"
 
 msgid "New customers"
-msgstr ""
+msgstr "Νέοι πελάτες"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Νέοι πελάτες τις τελευταίες επτά ημέρες"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Νέοι πελάτες κατά τις τελευταίες επτά ημέρες σε σύγκριση με την προηγούμενη περίοδο"
 
 msgid "Next"
 msgstr "Επόμενο"
 
 msgid "Next date"
-msgstr ""
+msgstr "Επόμενη ημερομηνία"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Επόμενη ημερομηνία (προαιρετικά)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Επόμενη ημερομηνία ανανέωσης της συνδρομής"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμα νομίσματα. Παρακαλούμε ενεργοποιήστε τουλάχιστον ένα νόμισμα"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Δεν βρέθηκαν καταχωρήσεις"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Δεν μεταφορτώθηκε κανένα αρχείο"
 
 msgid "No product found"
-msgstr ""
+msgstr "Δεν βρέθηκε προϊόν"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμες επιλογές θέματος"
 
 #, php-format
 msgid "No view available"
 msgstr "Δεν υπάρχει διαθέσιμη προβολή"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Χωρίς κουπόνι"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Μη κοινόχρηστες ιδιότητες για το στοιχείο πολυμέσων"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Μη κοινόχρηστες ιδιότητες για το στοιχείο τιμής"
 
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Δεν μπορούν να διαγραφούν όλες οι καταχωρίσεις"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Δεν επιτρέπεται η πρόσβαση στον πελάτη JQAdm \"%1$s\""
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Δεν εφαρμόζεται"
 
 msgid "Notes"
-msgstr ""
+msgstr "Σημειώσεις"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Σημειώσεις (δεν εμφανίζονται στον πελάτη)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Αριθμός ειδών που βρίσκονται σε απόθεμα, αφήστε το κενό για απεριόριστη ποσότητα"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Επίσημο αναγνωριστικό ΦΠΑ για να καθοριστεί εάν ο φόρος πρέπει να χρεωθεί στα τιμολόγια"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Ένας πάροχος και μηδέν ή περισσότερα ονόματα κλάσεων διακοσμητών χωρισμένα με κόμμα"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Μόνο .webp, .jpg, .png και .gif επιτρέπονται για εικονίδια"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Μόνο .webp, .jpg, .png, .gif και .svg επιτρέπονται για λογότυπα."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Μόνο οι υπερ-χρήστες και οι διαχειριστές μπορούν να διαγράψουν καταχωρήσεις"
 
 msgid "Open"
-msgstr ""
+msgstr "Ανοίξτε το"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Ανοιχτό Ποσότητα"
 
 msgid "Option"
-msgstr ""
+msgstr "Επιλογή"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Προαιρετικά στοιχεία του προϊόντος που μπορεί να επιλέξει ο πελάτης μαζί με το προϊόν"
 
 msgid "Order"
-msgstr ""
+msgstr "Παραγγελία"
 
 msgid "Order ID"
 msgstr "Αναγνωριστικό παραγγελίας"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Αριθμός παραγγελίας που εισήγαγε ο πελάτης"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Σειρά των συνδυασμών γλώσσας/νομίσματος"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Σειρά των επιλογών υπηρεσιών κατά τη διαδικασία πληρωμής"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Σειρά των τύπων στο frontend"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Σύνολα παραγγελιών"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Παραγγελία στο"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Παραγγελίες ανά χώρα"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Παραγγελίες ανά ημέρα"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Παραγγελίες ανά ώρα"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Παραγγελίες ανά κατάσταση πληρωμής"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Αντικαταγράψτε το υπάρχον αρχείο και οι πελάτες που το αγόρασαν στο παρελθόν μπορούν να κατεβάσουν το νέο περιεχόμενο."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "Η ρύθμιση PHP \"%1$s\" είναι απενεργοποιημένη"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "Η ρύθμιση PHP \"%1$s\" είναι ενεργοποιημένη"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "Η ρύθμιση PHP για το \"%1$s\" είναι πολύ χαμηλή"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1218,84 +1219,84 @@ msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Κωδικός πρόσβασης (απαιτείται)"
 
 msgid "Path"
-msgstr ""
+msgstr "Διαδρομή"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Ημερομηνία πληρωμής"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Καθεστώς αμοιβής"
 
 msgid "Payment"
 msgstr "Πληρωμή"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Ημερομηνία πληρωμής"
 
 msgid "Payment status"
 msgstr "Κατάσταση πληρωμής"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Τύποι πληρωμών"
 
 msgid "Periods"
-msgstr ""
+msgstr "Περίοδοι"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Άδεια αρνηθεί"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Προσωπικά δεδομένα"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Εισάγετε εδώ την περιγραφή του κειμένου που πρέπει να δημιουργηθεί"
 
 msgid "Please select"
 msgstr "Παρακαλώ επιλέξτε"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Τύπος plugin"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Τύποι plugin"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Ετικέτα πρόσθετου για την περιγραφή του ρυθμισμένου πρόσθετου"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Θέση του πρόσθετου (απαιτείται)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Όνομα διαμόρφωσης παρόχου πρόσθετου ή διακοσμητή πρόσθετου"
 
 msgid "Position"
-msgstr ""
+msgstr "Θέση"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Θέση (απαιτείται)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Ταχυδρομική διεύθυνση"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Ταχυδρομικός κώδικας για την παράδοση, εάν χρησιμοποιείται στην περιοχή που ζει ο πελάτης"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Ταχυδρομικός κώδικας για την παράδοση, εάν χρησιμοποιείται στην περιοχή όπου ζει ο προμηθευτής"
 
 msgid "Postition"
-msgstr ""
+msgstr "Θέση"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Πιθανά προβλήματα"
 
 msgid "Previous"
 msgstr "Προηγούμενο"
@@ -1304,203 +1305,203 @@ msgid "Price"
 msgstr "Τιμή"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Τύπος τιμοκαταλόγων"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Τύποι τιμοκαταλόγων"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Τιμή Τύπος ακινήτου"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Τιμή Τύποι ακινήτων"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Τύπος τιμής"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Τύποι τιμών"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Ακίνητα τιμών"
 
 msgid "Priority"
-msgstr ""
+msgstr "Προτεραιότητα"
 
 msgid "Problem"
-msgstr ""
+msgstr "Πρόβλημα"
 
 msgid "Product"
 msgstr "Προϊόν"
 
 msgid "Product ID"
-msgstr ""
+msgstr "Αναγνωριστικό προϊόντος"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Αναγνωριστικό προϊόντος, SKU ή ετικέτα"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Λίστες προϊόντων Τύπος"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Τύποι καταλόγων προϊόντων"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Τύπος ιδιότητας προϊόντος"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Τύποι ιδιοτήτων προϊόντος"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Τύπος προϊόντος"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Τύποι προϊόντων"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Χαρακτηριστικά προϊόντων αποθηκευμένα στο καλάθι, όπου οι πελάτες μπορούν να εισάγουν τα δικά τους κείμενα ή τιμές"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Χαρακτηριστικά προϊόντος που χρησιμοποιούνται και από άλλα προϊόντα"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Χαρακτηριστικά του προϊόντος που δεν είναι κοινά με άλλα προϊόντα"
 
 msgid "Product code"
-msgstr ""
+msgstr "Κωδικός προϊόντος"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Κόστος προϊόντος"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Ύψος προϊόντος, π.χ. 20.0 (σε γιάρδες, ίντσες κ.λπ.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Μήκος προϊόντος, π.χ. 30.0 (σε γιάρδες, ίντσες κ.λπ.)"
 
 msgid "Product name"
-msgstr ""
+msgstr "Όνομα προϊόντος"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Πληρωμή προϊόντος"
 
 msgid "Product price"
 msgstr "Τιμή προϊόντος"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "Ποσότητα προϊόντος"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Έκπτωση προϊόντος"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Αποστολή προϊόντος"
 
 msgid "Product status"
-msgstr ""
+msgstr "Κατάσταση προϊόντος"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Προμηθευτής προϊόντος"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Φόρος επί του προϊόντος"
 
 msgid "Product type"
-msgstr ""
+msgstr "Τύπος προϊόντος"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Βάρος προϊόντος, π.χ. 1,25 (σε λίβρες, ουγγιές κ.λπ.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Πλάτος προϊόντος, π.χ. 17,5 (σε γιάρδες, ίντσες κ.λπ.)"
 
 msgid "Products"
-msgstr ""
+msgstr "Προϊόντα"
 
 msgid "Products bought together"
 msgstr "Προϊόντα που αγοράζονται μαζί"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Προώθηση"
 
 msgid "Properties"
-msgstr ""
+msgstr "Ιδιότητες"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Αξία ακινήτου (απαιτείται)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Πάροχος"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Ονόματα κλάσεων παρόχων/διακοσμητών (απαιτείται)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Αγορά"
 
 msgid "Quantity"
 msgstr "Ποσότητα"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Κλίμακα ποσότητας"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Rabate"
 
 msgid "Rating"
 msgstr "Αξιολόγηση"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Αξιολόγηση και αριθμός αξιολογήσεων για τον έμπορο"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Αξιολόγηση του κριτικού"
 
 msgid "Reason"
-msgstr ""
+msgstr "Λόγος"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Έκπτωση"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Μείωση από την αρχική τιμή, που χρησιμοποιείται για τον υπολογισμό της έκπτωσης σε % και της διασταυρούμενης τιμής"
 
 msgid "Reference"
 msgstr "Αναφορά"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Αναφορά ID"
 
 msgid "Refund"
-msgstr ""
+msgstr "Επιστροφή χρημάτων"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Σχετική ταυτότητα"
 
 msgid "Related order"
-msgstr ""
+msgstr "Σχετική παραγγελία"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Αναγνωριστικό σχετικής παραγγελίας (προαιρετικό)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Σχετική παραγγελία του πελάτη"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Αφαίρεση φόντου"
 
 msgid "Renew"
-msgstr ""
+msgstr "Ανανέωση"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Αντικατάσταση αρχείου"
 
 msgid "Request"
-msgstr ""
+msgstr "Αίτημα"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
@@ -1509,71 +1510,71 @@ msgstr "Η απαιτούμενη παράμετρος \"%1$s\" λείπει"
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Απαιτούμενη ποσότητα άρθρων για τιμολόγηση με μπλοκ, π.χ. ένα άρθρο για 5,00 δολάρια, δέκα άρθρα για 45,00 δολάρια"
 
 msgid "Reset"
 msgstr "Επαναφορά"
 
 msgid "Response"
-msgstr ""
+msgstr "Απάντηση"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Απάντηση στον κριτή"
 
 msgid "Review"
-msgstr ""
+msgstr "Ανασκόπηση"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Επανεξεταζόμενη καταχώρηση"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Όνομα αναθεωρητή"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Όνομα διαδρομής ή αναγνωριστικό σελίδας της σελίδας της κατηγορίας, εάν αυτή η κατηγορία πρέπει να εμφανίζεται σε διαφορετική σελίδα"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Όνομα διαδρομής ή αναγνωριστικό σελίδας της σελίδας λεπτομερειών του προϊόντος, εάν αυτό το προϊόν πρέπει να εμφανίζεται σε διαφορετική σελίδα"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Αναγνωριστικό διαδρομής ή σελίδας (προαιρετικό)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Κανόνας"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Τύπος κανόνα"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Τύποι κανόνων"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Ετικέτα κανόνα για την περιγραφή του ρυθμισμένου κανόνα"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Θέση κανόνα (υποχρεωτικό)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Όνομα διαμόρφωσης παρόχου κανόνα ή διακοσμητή κανόνα"
 
 msgid "Rules"
-msgstr ""
+msgstr "Κανόνες"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Πωλήσεις ανά εργάσιμη ημέρα"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Πωλήσεις των τελευταίων 30 ημερών"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Πωλήσεις ανά μήνα"
 
 msgid "Salutation"
 msgstr "Χαιρετισμός"
@@ -1582,175 +1583,175 @@ msgid "Save"
 msgstr "Αποθήκευση"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Αποθήκευση & κλείσιμο"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Αποθήκευση & Αντιγραφή"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Αποθήκευση & Νέα"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Αποθήκευση καταχώρησης (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Αποθήκευση καταχώρησης (Ctrl+S)"
 
 msgid "Search"
 msgstr "Αναζήτηση"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Τύπος δεύτερου επιπέδου για την ομαδοποίηση καταχωρήσεων"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Επιλέξτε όλες τις καταχωρήσεις"
 
 msgid "Select file"
-msgstr ""
+msgstr "Επιλέξτε αρχείο"
 
 msgid "Service"
-msgstr ""
+msgstr "Υπηρεσία"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Λίστες υπηρεσιών Τύπος"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Τύποι καταλόγων υπηρεσιών"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Τύπος υπηρεσίας"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Τύποι υπηρεσιών"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Κωδικός χαρακτηριστικού υπηρεσίας"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Κόστος υπηρεσιών"
 
 msgid "Service name"
-msgstr ""
+msgstr "Όνομα υπηρεσίας"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Θέση υπηρεσίας (απαιτείται)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Τιμή υπηρεσίας"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Όνομα διαμόρφωσης παρόχου υπηρεσιών ή διακοσμητή υπηρεσιών"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Έκπτωση υπηρεσιών"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Ημερομηνία αποστολής"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Κατάσταση πλοίου"
 
 msgid "Shipping"
 msgstr "Αποστολή"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Κόστος αποστολής / πληρωμής"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Έξοδα αποστολής/πληρωμής"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Αποστολή/τεμάχιο"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Τομέας καταστημάτων"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Τομέας καταστήματος (απαιτείται)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Κατάστημα e-mail"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου καταστήματος (υποχρεωτικό)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Όνομα καταστήματος"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Όνομα καταστήματος (απαιτείται)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Θέμα καταστήματος"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Σύντομος κωδικός πολιτείας (π.χ. NY) εάν χρησιμοποιείται στη χώρα που ζει ο πελάτης"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Σύντομος κωδικός πολιτείας (π.χ. NY) εάν χρησιμοποιείται στη χώρα όπου ζει ο προμηθευτής"
 
 msgid "Show"
 msgstr "Εμφάνιση"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Εμφάνιση εισόδου"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Εμφάνιση φόρμας αναζήτησης"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Εμφάνιση/απόκρυψη προηγμένων δεδομένων"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Εμφάνιση/απόκρυψη λεπτομερειών"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Εμφάνιση/απόκρυψη ετικετών πλοήγησης"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Εμφάνιση/απόκρυψη αυτής της καταχώρησης"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Εμφανίζεται εάν το άρθρο έφτασε σε μηδενικό επίπεδο αποθεμάτων"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Από τη στιγμή που το προϊόν είναι διαθέσιμο, χρησιμοποιείται για την ταξινόμηση στο front-end"
 
 msgid "Site"
-msgstr ""
+msgstr "Ιστοσελίδα"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Επιλογές διαμόρφωσης για συγκεκριμένο ιστότοπο, θα είναι διαθέσιμες ως ζεύγη κλειδιών/τιμών"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Τοποθεσία στην οποία έγινε η παραγγελία"
 
 msgid "Sites"
-msgstr ""
+msgstr "Τοποθεσίες"
 
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Ταξινόμηση των χαρακτηριστικών εντός του ίδιου τύπου χαρακτηριστικών"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Ταξινόμηση των προμηθευτών"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Πηγή του τιμολογίου, π.χ. μέσω διαδικτύου ή τηλεφώνου"
 
 msgid "Start date"
-msgstr ""
+msgstr "Ημερομηνία έναρξης"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Ξεκινήστε να πληκτρολογείτε ..."
 
 msgid "State"
 msgstr "Κράτος"
@@ -1759,36 +1760,36 @@ msgid "Status"
 msgstr "Κατάσταση"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Τύπος αποθέματος"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Τύποι αποθεμάτων"
 
 msgid "Stock level"
-msgstr ""
+msgstr "Επίπεδο αποθεμάτων"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Τύπος αποθέματος"
 
 msgid "Street"
 msgstr "Οδός"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Όνομα οδού (προαιρετικό)"
 
 msgid "Style"
-msgstr ""
+msgstr "Στυλ"
 
 msgid "Sub-total"
 msgstr "Υποσύνολο"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Συνδρομή"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Διάστημα συνδρομής με έτη, μήνες, εβδομάδες και ημέρες, π.χ. \"P0Y1M2W3D\" για μηδέν έτη, έναν μήνα, δύο εβδομάδες και τρεις ημέρες."
 
 msgid "Suggested products"
 msgstr "Προτεινόμενα προϊόντα"
@@ -1797,182 +1798,182 @@ msgid "Sum"
 msgstr "Άθροισμα"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Προμηθευτής"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Όνομα ή εταιρεία του προμηθευτή"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Θέση προμηθευτή (υποχρεωτική)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Προμηθευτές που κατασκευάζουν το προϊόν"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Τύπος ετικέτας"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Τύποι ετικετών"
 
 msgid "Tax"
-msgstr ""
+msgstr "Φόρος"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Φορολογικός συντελεστής"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "Φορολογικός συντελεστής σε %"
 
 msgid "Telephone"
 msgstr "Τηλέφωνο"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Αριθμός τηλεφώνου (προαιρετικά)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Ο προσωρινός φάκελος λείπει"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Λίστες κειμένου Τύπος"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Τύποι λιστών κειμένου"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Τύπος κειμένου"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Τύποι κειμένου"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Το άρθρο εμφανίζεται στον ιστότοπο μόνο μετά από αυτή την ημερομηνία και ώρα, χρήσιμα ή εποχιακά άρθρα"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Το άρθρο εμφανίζεται στον ιστότοπο μόνο μέχρι τη συγκεκριμένη ημερομηνία και ώρα, χρήσιμα ή εποχιακά άρθρα"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Η καταχώρηση εμφανίζεται στον ιστότοπο μόνο μετά την εν λόγω ημερομηνία και ώρα."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Η καταχώρηση εμφανίζεται στον ιστότοπο μόνο μέχρι την εν λόγω ημερομηνία και ώρα."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Ο τίτλος πολυμέσων χρησιμοποιείται για την ετικέτα τίτλου των πολυμέσων στον ιστότοπο."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Το όνομα της κατηγορίας που εμφανίζεται στη διεύθυνση URL, θα χρησιμοποιηθεί εάν δεν υπάρχει τμήμα URL για συγκεκριμένη γλώσσα."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Το όνομα του προϊόντος που εμφανίζεται στη διεύθυνση URL, θα χρησιμοποιηθεί εάν δεν υπάρχει τμήμα URL για συγκεκριμένη γλώσσα."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Η επιλογή εμφανίζεται στον ιστότοπο μόνο μετά την εν λόγω ημερομηνία και ώρα."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Η επιλογή εμφανίζεται στον ιστότοπο μόνο μέχρι την εν λόγω ημερομηνία και ώρα."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Ο κανόνας χρησιμοποιείται μόνο μετά την εν λόγω ημερομηνία και ώρα"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Ο κανόνας χρησιμοποιείται μόνο μέχρι τη συγκεκριμένη ημερομηνία και ώρα."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Η επιτρεπόμενη τιμή βήματος για τις ποσότητες στο καλάθι, π.χ. \"0,1\" για κλασματικές ποσότητες ή \"5\" για πολλαπλάσια των πέντε άρθρων."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Το αρχείο που μεταφορτώθηκε υπερβαίνει το μέγιστο επιτρεπόμενο μέγεθος αρχείου"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Το αρχείο που μεταφορτώθηκε μεταφορτώθηκε μόνο εν μέρει"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Θέμα για να αλλάξετε τη διάταξη του καταστήματός σας"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Τριψήφιος κωδικός νομίσματος ISO"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Χρονικό πλαίσιο (προαιρετικό)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Χρονοσφραγίδα"
 
 msgid "Title"
 msgstr "Τίτλος"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Εναλλαγή πτυσσόμενου μενού"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Επιλογή Toogle"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Κορυφαίες χώρες"
 
 msgid "Total"
 msgstr "Σύνολο"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Σύνολο παραγγελιών"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Σύνολο παραγγελιών κατά τις τελευταίες επτά ημέρες σε σύγκριση με την προηγούμενη περίοδο"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Συνολικές βαθμολογίες"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Μετάφραση κειμένου"
 
 msgid "Translations"
-msgstr ""
+msgstr "Μεταφράσεις"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "Κωδικός χώρας ISO δύο γραμμάτων"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Κωδικός γλώσσας ISO δύο γραμμάτων"
 
 msgid "Type"
-msgstr ""
+msgstr "Τύπος"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Θέση τύπου (προαιρετική)"
 
 msgid "Types"
-msgstr ""
+msgstr "Τύποι"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Τύποι για πρόσθετες εικόνες όπως εικονίδια"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Τύποι για πρόσθετες τιμές, όπως ανά λίβρα/kg ή ανά μήνα"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Τύποι για πρόσθετα κείμενα, όπως ανά λίβρα/kg ή ανά μήνα"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "URL του δικτυακού τόπου του πελάτη"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "URL του δικτυακού τόπου του προμηθευτή"
 
 msgid "URL segment"
-msgstr ""
+msgstr "Τμήμα URL"
 
 msgid "URL target"
-msgstr ""
+msgstr "Στόχος URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1980,173 +1981,173 @@ msgstr "Αδυναμία κλήσης της μεθόδου \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Αδυναμία ανάγνωσης περιεχομένου από το \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Ημιτελείς παραγγελίες"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Ημιτελείς παραγγελίες εντός των τελευταίων επτά ημερών σε σύγκριση με την προηγούμενη περίοδο"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "Μοναδικός κωδικός είδους που σχετίζεται με τα επίπεδα αποθέματος, π.χ. από το σύστημα ERP, έναν αριθμό EAN/GTIN ή αυτοσχέδιο."
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός χαρακτηριστικών (απαιτείται)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Μοναδικός κωδικός χαρακτηριστικού, π.χ. \"green\" για χαρακτηριστικά τύπου \"color\"."
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός κατηγορίας (απαιτείται)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Μοναδικός κωδικός κατηγορίας, είτε από εξωτερικό σύστημα είτε από δική του επινόηση"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός (απαιτείται)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Μοναδικός κωδικός για την ταυτοποίηση της υπηρεσίας, που συνήθως επινοείται μόνος του"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Μοναδικό όνομα λογαριασμού πελάτη"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Μοναδική διεύθυνση ηλεκτρονικού ταχυδρομείου του πελάτη"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός ομάδας (απαιτείται)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός υπηρεσίας (απαιτείται)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός ιστότοπου (απαιτείται)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Μοναδικός κωδικός προμηθευτή"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Μοναδικός κωδικός τύπου"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Μοναδικός κωδικός τύπου (απαιτείται)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Μοναδικός κωδικός τύπου, π.χ. \"color\" για χαρακτηριστικά όπως \"green\", \"blue\", \"red\"."
 
 msgid "Unit price"
-msgstr ""
+msgstr "Τιμή μονάδας"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Άγνωστο σφάλμα μεταφόρτωσης"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Ανέβασμα CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Ανέβασμα εικονιδίου καταστήματος"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Ανεβάστε το λογότυπο του καταστήματος"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Ανεβασμένο"
 
 msgid "Use"
-msgstr ""
+msgstr "Χρήση"
 
 msgid "User groups"
-msgstr ""
+msgstr "Ομάδες χρηστών"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Συνήθης χρόνος παράδοσης του προϊόντος"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "ΑΦΜ ΦΠΑ"
 
 msgid "Value"
-msgstr ""
+msgstr "Αξία"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Αναγνωριστικό φόρου προστιθέμενης αξίας (προαιρετικό)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Χαρακτηριστικά παραλλαγής"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Χαρακτηριστικά παραλλαγής προϊόντος που αποθηκεύονται μαζί με τα παραγγελθέντα προϊόντα"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Προμηθευτής"
 
 msgid "Verified"
-msgstr ""
+msgstr "Επαληθευμένο"
 
 msgid "View details"
-msgstr ""
+msgstr "Προβολή λεπτομερειών"
 
 msgid "Voucher"
 msgstr "Κουπόνι"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Αποθήκη ή τοπικό κατάστημα εάν τα είδη σας είναι διαθέσιμα σε διάφορες τοποθεσίες"
 
 msgid "Web site"
 msgstr "Ιστοσελίδα"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "URL ιστοτόπου (προαιρετικά)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "Εβδομάδες"
 
 msgid "Weight"
-msgstr ""
+msgstr "Βάρος"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Όταν επαληθευτεί ο λογαριασμός και η διεύθυνση ηλεκτρονικού ταχυδρομείου"
 
 msgid "Width"
-msgstr ""
+msgstr "Πλάτος"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD hh:mm:ss (προαιρετικό)"
 
 msgid "Years"
-msgstr ""
+msgstr "Έτη"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Θα διαγράψετε μία ή περισσότερες καταχωρήσεις. Θέλετε να προχωρήσετε;"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Η εξαγωγή σας θα είναι διαθέσιμη σε λίγα λεπτά για λήψη"
 
 msgid "Your response"
-msgstr ""
+msgstr "Η απάντησή σας"
 
 msgid "Zip code"
-msgstr ""
+msgstr "Ταχυδρομικός κώδικας"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Ταχυδρομικός κώδικας (προαιρετικά)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__κρυμμένο__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "λογαριασμός"
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "διεύθυνση"
 
 msgid "address:delivery"
 msgstr "Διεύθυνση παράδοσης"
@@ -2156,19 +2157,19 @@ msgstr "Διεύθυνση χρέωσης"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "χαρακτηριστικό"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "καλάθι"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "δέσμη"
 
 #, php-format
 msgid "catalog"
@@ -2184,74 +2185,74 @@ msgstr "Χαρακτηριστικά"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "κωδικός"
 
 msgid "company"
 msgstr "Εταιρεία"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "διαμόρφωση"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "countcountry"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "ημέρα καταμέτρησης"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "συμβουλευτική ώρα"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "κουπόνι"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "πελάτης"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "ταμπλό"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "ημέρα"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "τύπος παράδοσης"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "λήψη"
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "αγαθά"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "ομάδα"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "ώρα"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "εικόνα"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "τιμολόγιο"
 
 #, php-format
 msgid "latest"
@@ -2259,153 +2260,153 @@ msgstr "Τελευταία"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "locale"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "τοπική/νόμισμα"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "τοπική/γλώσσα"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "locale/site"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "μάρκετινγκ"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "μέσα ενημέρωσης"
 
 msgid "miss"
-msgstr ""
+msgstr "miss"
 
 msgid "mr"
-msgstr ""
+msgstr "κ."
 
 msgid "mrs"
-msgstr ""
+msgstr "κυρία"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "νέο"
 
 msgid "no"
-msgstr ""
+msgstr "όχι"
 
 msgid "none"
 msgstr "κανένας"
 
 msgid "not available any more"
-msgstr ""
+msgstr "δεν είναι πλέον διαθέσιμο"
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "επιλογή"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "παραγγελία"
 
 msgid "order:phone"
-msgstr ""
+msgstr "παραγγελία:τηλέφωνο"
 
 msgid "order:web"
-msgstr ""
+msgstr "παραγγελία:web"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "pay:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "pay:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "pay:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "pay:2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "pay:3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "pay:4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "pay:5"
 
 msgid "pay:6"
-msgstr ""
+msgstr "pay:6"
 
 msgid "pay:7"
-msgstr ""
+msgstr "pay:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "κατάσταση πληρωμής"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "τύπος πληρωμής"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "φυσική"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "plugin"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "τιμή"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "προϊόν"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "ιδιοκτησία"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "quick/countcompleted"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "quick/counttotal"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "quick/countunfinished"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "λόγος:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "λόγος:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "λόγος:1"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "σχετικό"
 
 #, php-format
 msgid "review"
@@ -2413,92 +2414,92 @@ msgstr "Κριτικές"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "κανόνας"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "πωλήσεις"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "καθημερινές πωλήσεις"
 
 msgid "selected"
-msgstr ""
+msgstr "επιλεγμένο"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "επιλογή"
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "υπηρεσία"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "servicedelivery"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "πληρωμή υπηρεσιών"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "ρυθμίσεις"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "ρύθμιση"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "ειδικό"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "stat:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "stat:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "stat:1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "stat:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "stat:3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "stat:4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "stat:5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "stat:6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "stat:7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "κατάσταση:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "κατάσταση:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "status:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "κατάσταση:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "κατάσταση:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "απόθεμα"
 
 #, php-format
 msgid "subscription"
@@ -2509,121 +2510,121 @@ msgid "supplier"
 msgstr "Προμηθευτές"
 
 msgid "tag"
-msgstr ""
+msgstr "ετικέτα"
 
 msgid "tax:0"
-msgstr ""
+msgstr "tax:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "φόρος:1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "κείμενο"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "θέμα"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "συναλλαγή"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "τύπος"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "τύπος/χαρακτηριστικό"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribute/lists"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "τύπος/χαρακτηριστικό/ιδιότητα"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "type/catalog/lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/customer/lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "type/customer/property"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "τύπος/μέσα"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/property"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "type/plugin"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "τύπος/τιμή"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "τύπος/τιμή/κατάλογοι"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "τύπος/τιμή/ιδιότητα"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "τύπος/προϊόν"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "type/product/lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "τύπος/προϊόν/ιδιοκτησία"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "τύπος/κανόνας"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "τύπος/υπηρεσία"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "type/service/lists"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "τύπος/αποθέματα"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "τύπος/ετικέτα"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "type/text"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "type/text/lists"
 
 #, php-format
 msgid "users"

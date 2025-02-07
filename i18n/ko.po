@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Wonjin Choi <dwon97@gmail.com>, 2019\n"
 "Language-Team: Korean (http://app.transifex.com/aimeos/aimeos-core/language/ko/)\n"
@@ -629,13 +629,13 @@ msgid "Error"
 msgstr "오류"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "데이터 삭제 오류"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "데이터 검색 오류"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "데이터 저장 오류"
 
 msgid "Excl. tax"
 msgstr "세금 별도"
@@ -707,7 +707,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "층 및/또는 아파트(선택 사항)"
 
 msgid "For"
-msgstr ""
+msgstr "For"
 
 msgid "Generate"
 msgstr "생성"
@@ -1133,10 +1133,10 @@ msgid ""
 msgstr "쉼표로 구분된 하나의 공급자 및 0개 이상의 데코레이터 클래스 이름"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "아이콘에는 .webp, .jpg, .png 및 .gif만 허용됩니다."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "로고에는 .webp, .jpg, .png, .gif 및 .svg만 허용됩니다."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "슈퍼 사용자와 관리자만 항목을 삭제할 수 있습니다."
@@ -1949,7 +1949,7 @@ msgid "Type position (optional)"
 msgstr "입력 위치(선택 사항)"
 
 msgid "Types"
-msgstr ""
+msgstr "유형"
 
 msgid "Types for additional images like icons"
 msgstr "아이콘과 같은 추가 이미지 유형"

@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Вячеслав Васильев <uverst@gmail.com>, 2019\n"
+"Last-Translator: Yakov Vladimirov <yakov_255@mail.ru>, 2019\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "тип склада:по умолчанию"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -86,16 +86,16 @@ msgid ""
 msgstr "(международный) номер телефона без символов разделения, может начинаться с \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ налог"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "Ключ API"
 
 msgid "Account"
 msgstr "Учётная запись"
@@ -248,10 +248,10 @@ msgid "Birthday of the customer"
 msgstr "День рождения покупателя"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Коэффициент усиления"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Коэффициент усиления (необязательно)"
 
 msgid "Bug or suggestion?"
 msgstr "Ошибка или предложение?"
@@ -289,7 +289,7 @@ msgid ""
 msgstr "Определенные опции конфигурации товара, будут доступны в шаблонах парно в виде ключ/значение"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Изменение затрат на товар в %"
 
 msgid "Change rebate in %"
 msgstr "Изменить скидку в %"
@@ -298,10 +298,10 @@ msgid "Change value in %"
 msgstr "Изменить значение в %"
 
 msgid "Channel"
-msgstr ""
+msgstr "Канал"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Канал заказ был размещен"
 
 msgid "Choose file"
 msgstr "Выбрать файл"
@@ -372,7 +372,7 @@ msgid ""
 msgstr "Параметры конфигурации, будут доступны в виде пар ключ/значение в списке товара"
 
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 msgid "Copy"
 msgstr "Копировать"
@@ -467,7 +467,7 @@ msgid "Dashboard"
 msgstr "Панель"
 
 msgid "Data"
-msgstr ""
+msgstr "Данные"
 
 msgid "Data set"
 msgstr "Набор данных"
@@ -494,7 +494,7 @@ msgid "Delete"
 msgstr "Удалить"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Удалить записи?"
 
 msgid "Delete selected entries"
 msgstr "Удалить выбранные записи"
@@ -539,7 +539,7 @@ msgid ""
 msgstr "В зависимости от выбранного набора данных список отображаемых полей для товара будет разным"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Опишите свой образ"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Описание текстового контента, если он на иностранном языке"
@@ -569,7 +569,7 @@ msgid "Download this file"
 msgstr "Скачать этот файл"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Дублирующая запись"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "Дублировать запись (Ctrl+D)"
@@ -602,7 +602,7 @@ msgid "Edit"
 msgstr "Правка"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Редактирование выбранных записей"
 
 msgid "Edit this entry"
 msgstr "Редактировать эту запись"
@@ -620,30 +620,30 @@ msgid "End date (optional)"
 msgstr "Дата окончания (необязательно)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Введите идентификатор группы, код или метку"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Запись успешно удалена"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Запись успешно сохранена"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Параметры конфигурации, специфичные для входа, будут доступны в виде пар ключ/значение в шаблонах"
 
 msgid "Error"
 msgstr "Ошибка"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Ошибка при удалении данных"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Ошибка при получении данных"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Ошибка сохранения данных"
 
 msgid "Excl. tax"
 msgstr "Искл. налог"
@@ -669,7 +669,7 @@ msgstr "Номер факса (необязательно)"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Коэффициент, повышающий значимость продукта в поиске пользователя по сравнению с другими продуктами (>1,0 положительный коэффициент, <1,0 отрицательный коэффициент)"
 
 msgid "Failed to write file to disk"
 msgstr "Не удалось записать файл на диск"
@@ -679,13 +679,13 @@ msgstr "Файл"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Файл не существует: \"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "Загрузка файла остановлена расширением"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Файл успешно загружен"
 
 msgid "Find category"
 msgstr "Найти категорию"
@@ -715,16 +715,16 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
 
 msgid "For"
-msgstr ""
+msgstr "Для"
 
 msgid "Generate"
-msgstr ""
+msgstr "Создать"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Создать изображение"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Создайте текст"
 
 msgid "Given rebate amount"
 msgstr "Указанная сумма скидки"
@@ -784,7 +784,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "Как поставщик обращается в эл. почте"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Гиперреальность и драматизм"
 
 msgid "ID"
 msgstr "ID"
@@ -802,7 +802,7 @@ msgid "Image"
 msgstr "Изображение"
 
 msgid "Image description"
-msgstr ""
+msgstr "Описание изображения"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -883,16 +883,16 @@ msgid "Invoice"
 msgstr "Счёт"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Счет-фактура №."
 
 msgid "Invoice no."
-msgstr ""
+msgstr "Счет-фактура №."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Номер счета-фактуры"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Номер счета-фактуры для заказа"
 
 msgid "Label"
 msgstr "Надпись"
@@ -959,7 +959,7 @@ msgid "List type"
 msgstr "Тип списка"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Загрузка записей ..."
 
 msgid "Locale"
 msgstr "Локаль"
@@ -968,7 +968,7 @@ msgid "Log"
 msgstr "Лог журнал"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Ручной перевод"
 
 msgid "Map"
 msgstr "Карта"
@@ -1013,10 +1013,10 @@ msgid "Mobile number"
 msgstr "Номер мобильного телефона"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Номер мобильного телефона (необязательно)"
 
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 msgid "Modifed"
 msgstr "Изменено"
@@ -1037,23 +1037,23 @@ msgid "Name"
 msgstr "названию"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Имя в URL (необязательно)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Название корзины"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Имя загружаемого файла, при сохранении пользователем файла на компьютер"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Имя рецензента"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Название вашего магазина показывается покупателям"
 
 msgid "Natural"
-msgstr ""
+msgstr "Натуральный"
 
 msgid "New"
 msgstr "Новый"
@@ -1083,7 +1083,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "Нет доступных валют. Пожалуйста, включите хотя бы одну валюту."
 
 msgid "No entries found"
-msgstr ""
+msgstr "Записи не найдены"
 
 msgid "No file was uploaded"
 msgstr "Файл не был загружен"
@@ -1105,13 +1105,13 @@ msgid "Non-shared properties for the media item"
 msgstr "Не разделяемые свойства для элемента мультимедиа"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Не разделяемые свойства для элемента цены"
 
 msgid "None"
 msgstr "Нет"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Не все записи могут быть удалены"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1121,10 +1121,10 @@ msgid "Not implemented"
 msgstr "Не реализовано"
 
 msgid "Notes"
-msgstr ""
+msgstr "Примечания"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Примечания (не показываются заказчику)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1141,19 +1141,19 @@ msgid ""
 msgstr "Один провайдер, ноль или более названий классов декораторов, разделенных запятыми"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Для иконок разрешены только .webp, .jpg, .png и .gif."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Для логотипов допускаются только .webp, .jpg, .png, .gif и .svg"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Удалять записи могут только суперпользователи и администраторы"
 
 msgid "Open"
-msgstr ""
+msgstr "Открыть"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Открытое количество"
 
 msgid "Option"
 msgstr "Параметр"
@@ -1170,7 +1170,7 @@ msgid "Order ID"
 msgstr "ID Заказа"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Номер заказа, введенный клиентом"
 
 msgid "Order of the language/currency combinations"
 msgstr "Порядок языковых/валютных комбинаций"
@@ -1188,7 +1188,7 @@ msgid "Ordered at"
 msgstr "Заказ сделан в "
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Заказы по странам"
 
 msgid "Orders by day"
 msgstr "Заказы по дням"
@@ -1210,7 +1210,7 @@ msgstr "Настройка PHP \"%1$s\" отключена"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "Параметр PHP \"%1$s\" включен"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
@@ -1248,7 +1248,7 @@ msgid "Payment types"
 msgstr "Виды оплаты"
 
 msgid "Periods"
-msgstr ""
+msgstr "Периоды"
 
 #, php-format
 msgid "Permission denied"
@@ -1259,7 +1259,7 @@ msgstr "Личные данные"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Пожалуйста, вставьте сюда описание текста, который должен быть сгенерирован"
 
 msgid "Please select"
 msgstr "Пожалуйста выберите"
@@ -1274,7 +1274,7 @@ msgid "Plugin Types"
 msgstr "Типы Плагинов"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Метка плагина для описания сконфигурированного плагина"
 
 msgid "Plugin position (required)"
 msgstr "Установки плагина (обязательно)"
@@ -1298,10 +1298,10 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Почтовый индекс для доставки, если используется в регионе нахождения поставщика"
 
 msgid "Postition"
-msgstr ""
+msgstr "Позиция"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Потенциальные проблемы"
 
 msgid "Previous"
 msgstr "Назад"
@@ -1316,10 +1316,10 @@ msgid "Price Lists Types"
 msgstr "Типы Прайс-Листов"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Цена Тип недвижимости"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Цена Типы недвижимости"
 
 msgid "Price Type"
 msgstr "Тип Цены"
@@ -1328,7 +1328,7 @@ msgid "Price Types"
 msgstr "Типы Цен"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Ценовые характеристики"
 
 msgid "Priority"
 msgstr "Приоритет"
@@ -1343,7 +1343,7 @@ msgid "Product ID"
 msgstr "ID товара"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Идентификатор продукта, SKU или этикетка"
 
 msgid "Product Lists Type"
 msgstr "Тип Списков Товара"
@@ -1390,7 +1390,7 @@ msgid "Product name"
 msgstr "Название товара"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Оплата товара"
 
 msgid "Product price"
 msgstr "Цена товара"
@@ -1402,16 +1402,16 @@ msgid "Product rebate"
 msgstr "Скидка на товар"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Доставка продуктов"
 
 msgid "Product status"
-msgstr ""
+msgstr "Состояние продукта"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Поставщик продукции"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Налог на продукцию"
 
 msgid "Product type"
 msgstr "Тип товара"
@@ -1450,19 +1450,19 @@ msgid "Quantity"
 msgstr "Количество"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Шкала количества"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Рабате"
 
 msgid "Rating"
 msgstr "Оценка"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Рейтинг и количество оценок продавца"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Оценка рецензента"
 
 msgid "Reason"
 msgstr "Основание"
@@ -1479,7 +1479,7 @@ msgid "Reference"
 msgstr "Рекомендация"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Идентификатор ссылки"
 
 msgid "Refund"
 msgstr "оплата:возврат"
@@ -1491,13 +1491,13 @@ msgid "Related order"
 msgstr "Связанный заказ"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Идентификатор связанного заказа (необязательно)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Соответствующий заказ клиента"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Удалить фон"
 
 msgid "Renew"
 msgstr "Возобновить"
@@ -1521,19 +1521,19 @@ msgid "Reset"
 msgstr "Сброс"
 
 msgid "Response"
-msgstr ""
+msgstr "Ответ"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Ответ рецензенту"
 
 msgid "Review"
 msgstr "Рассмотрение"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Просмотрено вступление"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Имя рецензента"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1549,22 +1549,22 @@ msgid "Route or page ID (optional)"
 msgstr "Путь или ID страницы (необязательно)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Правило"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Тип правила"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Типы правил"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Метка правила для описания настроенного правила"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Положение правил (обязательно)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Имя конфигурации поставщика правил или декоратора правил"
 
 msgid "Rules"
 msgstr "Правила"
@@ -1597,7 +1597,7 @@ msgid "Save & New"
 msgstr "Сохранить и Создать"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Сохранить запись (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
 msgstr "Сохранить запись (Ctrl+S)"
@@ -1606,10 +1606,10 @@ msgid "Search"
 msgstr "Поиск"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Тип второго уровня для группировки записей"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Выберите все записи"
 
 msgid "Select file"
 msgstr "Выбрать файл"
@@ -1663,34 +1663,34 @@ msgid "Shipping"
 msgstr "Перевозка"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Стоимость доставки / оплаты"
 
 msgid "Shipping/Payment costs"
 msgstr "Затраты доставки/оплаты"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Доставка/вещь"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Домен магазина"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Домен магазина (обязательно)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Электронная почта магазина"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Адрес электронной почты магазина (обязательно)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Название магазина"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Название магазина (обязательно)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Тема магазина"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1707,16 +1707,16 @@ msgid "Show entry"
 msgstr "Показать запись"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Показать форму поиска"
 
 msgid "Show/hide advanced data"
 msgstr "Показать/скрыть расширенные данные"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Показать/скрыть детали"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Показать/скрыть ярлыки навигации"
 
 msgid "Show/hide this entry"
 msgstr "Показать/скрыть эту запись"
@@ -1747,7 +1747,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr "Сортировка атрибутов в пределах одного типа атрибута"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Сортировка поставщиков"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Источник счетов, например, через интернет или по телефону"
@@ -1756,7 +1756,7 @@ msgid "Start date"
 msgstr "Начальная дата"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Начните печатать ..."
 
 msgid "State"
 msgstr "Область"
@@ -1774,7 +1774,7 @@ msgid "Stock level"
 msgstr "Уровень запасов"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Тип запасов"
 
 msgid "Street"
 msgstr "Улица"
@@ -1783,7 +1783,7 @@ msgid "Street name (optional)"
 msgstr "Название улицы (необязательно)"
 
 msgid "Style"
-msgstr ""
+msgstr "Стиль"
 
 msgid "Sub-total"
 msgstr "Промежуточная сумма"
@@ -1809,10 +1809,10 @@ msgid "Supplier name or company"
 msgstr "Название поставщика или компании"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Должность поставщика (обязательно)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Поставщики, которые производят продукт"
 
 msgid "Tag Type"
 msgstr "Тип Тега"
@@ -1836,7 +1836,7 @@ msgid "Telephone number (optional)"
 msgstr "Номер телефона (необязательно)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Временная папка отсутствует"
 
 msgid "Text Lists Type"
 msgstr "Тип Текстовых Списков"
@@ -1861,10 +1861,10 @@ msgid ""
 msgstr "Товар отображается только на веб-сайте до этой даты и времени, полезные или сезонные товары"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Запись будет показана на сайте только после этой даты и времени"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Заявка отображается на сайте только до этой даты и времени"
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Название мультимедиа используется для тега заголовка мультимедиа на веб-сайте"
@@ -1872,12 +1872,12 @@ msgstr "Название мультимедиа используется для 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Название категории, отображаемое в URL, будет использоваться, если не существует сегмента URL для конкретного языка"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Название продукта, отображаемое в URL-адресе, будет использоваться, если не существует сегмента URL-адреса для конкретного языка"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Опция отображается только на веб-сайте после этой даты и времени."
@@ -1886,30 +1886,30 @@ msgid "The option is only shown on the web site until that date and time"
 msgstr "Опция отображается только на веб-сайте до этой даты и времени"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Правило используется только после этой даты и времени"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Правило используется только до этой даты и времени"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Значение шага, допустимое для количества в корзине, например, \"0.1\" для дробного количества или \"5\" для количества, кратного пяти."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Загруженный файл превышает максимально допустимый размер"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Загруженный файл был загружен только частично"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Тема для изменения оформления вашего магазина"
 
 msgid "Three letter ISO currency code"
 msgstr "Трехбуквенный код валюты ISO"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Временные рамки (необязательно)"
 
 msgid "Timestamp"
 msgstr "Отметка"
@@ -1921,28 +1921,28 @@ msgid "Toggle dropdown"
 msgstr "Флажок выпадающего списка"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Выбор Toogle"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Лучшие страны"
 
 msgid "Total"
 msgstr "Всего"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Всего заказов"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Общее количество заказов за последние семь дней по сравнению с предыдущим периодом"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Общие рейтинги"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Перевести текст"
 
 msgid "Translations"
-msgstr ""
+msgstr "Переводы"
 
 msgid "Two letter ISO country code"
 msgstr "Двухбуквенный код страны ISO"
@@ -1975,7 +1975,7 @@ msgid "URL of the supplier web site"
 msgstr "URL-адрес веб-сайта поставщика"
 
 msgid "URL segment"
-msgstr ""
+msgstr "Сегмент URL"
 
 msgid "URL target"
 msgstr "Целевой URL-адрес"
@@ -1986,14 +1986,14 @@ msgstr "Невозможно вызвать метод \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Невозможно прочитать содержимое файла \"%1$s\"."
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Незаконченные заказы"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Незавершенные заказы за последние семь дней по сравнению с предыдущим периодом"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -2019,7 +2019,7 @@ msgid "Unique code to identify the service, usually self-invented"
 msgstr "Уникальный код для идентификации службы, как правило, самостоятельно придуманный"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Уникальное имя учетной записи клиента"
 
 msgid "Unique customer e-mail address"
 msgstr "Уникальный адрес эл. почты клиента"
@@ -2046,31 +2046,31 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "Уникальный тип кода, например «цвет» для таких атрибутов, как «зеленый», «синий», «красный»"
 
 msgid "Unit price"
-msgstr ""
+msgstr "Цена за единицу"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Неизвестная ошибка загрузки"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Загрузка CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Загрузите значок магазина"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Загрузите логотип магазина"
 
 msgid "Uploaded"
 msgstr "Загружено"
 
 msgid "Use"
-msgstr ""
+msgstr "Используйте"
 
 msgid "User groups"
 msgstr "Группы пользователей"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Обычные сроки доставки товара"
 
 msgid "VAT ID"
 msgstr "ID НДС"
@@ -2088,10 +2088,10 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Варианты атрибутов товара, которые хранятся вместе с заказными товарами"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Поставщик"
 
 msgid "Verified"
-msgstr ""
+msgstr "Проверено"
 
 msgid "View details"
 msgstr "Посмотреть детали"
@@ -2116,7 +2116,7 @@ msgid "Weight"
 msgstr "Вес"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Когда учетная запись и адрес электронной почты будут проверены"
 
 msgid "Width"
 msgstr "Ширина"
@@ -2129,13 +2129,13 @@ msgstr "Лет"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Вы собираетесь удалить одну или несколько записей. Вы хотите продолжить?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Ваш экспорт будет доступен для загрузки через несколько минут"
 
 msgid "Your response"
-msgstr ""
+msgstr "Ваш ответ"
 
 msgid "Zip code"
 msgstr "Индекс"
@@ -2144,11 +2144,11 @@ msgid "Zip code (optional)"
 msgstr "Почтовый код (необязательно)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "счет"
 
 #, php-format
 msgid "address"
@@ -2162,7 +2162,7 @@ msgstr "Платёжный адрес"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2170,7 +2170,7 @@ msgstr "Атрибуты"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "корзина"
 
 #, php-format
 msgid "bundle"
@@ -2197,11 +2197,11 @@ msgstr "Компания"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "конфигурация"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "страна"
 
 #, php-format
 msgid "countday"
@@ -2237,7 +2237,7 @@ msgstr "По типу доставки"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "скачать"
 
 #, php-format
 msgid "goods"
@@ -2285,7 +2285,7 @@ msgstr "Журнал"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "маркетинг"
 
 #, php-format
 msgid "media"
@@ -2301,7 +2301,7 @@ msgid "mrs"
 msgstr "Миссис"
 
 msgid "ms"
-msgstr ""
+msgstr "мс"
 
 msgid "new"
 msgstr "новое"
@@ -2354,7 +2354,7 @@ msgid "pay:6"
 msgstr "получен"
 
 msgid "pay:7"
-msgstr ""
+msgstr "платить:7"
 
 #, php-format
 msgid "paymentstatus"
@@ -2386,19 +2386,19 @@ msgstr "Свойства"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "быстро/закончено"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "быстрый/расчетный клиент"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "быстро/всего"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "быстрый/законченный"
 
 msgid "reason:-1"
 msgstr "неудачен"
@@ -2419,18 +2419,18 @@ msgstr "Отзывы"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "правило"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "продажи"
 
 #, php-format
 msgid "salesweekday"
 msgstr "Продажи по дням недели"
 
 msgid "selected"
-msgstr ""
+msgstr "выбранные"
 
 #, php-format
 msgid "selection"
@@ -2454,7 +2454,7 @@ msgstr "Настройки"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "установка"
 
 #, php-format
 msgid "special"
@@ -2488,19 +2488,19 @@ msgid "stat:7"
 msgstr "возращен"
 
 msgid "status:-1"
-msgstr ""
+msgstr "статус:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "статус:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "статус:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "статус:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "статус:2"
 
 #, php-format
 msgid "stock"
@@ -2518,10 +2518,10 @@ msgid "tag"
 msgstr "Метки"
 
 msgid "tax:0"
-msgstr ""
+msgstr "налог:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "налог:1"
 
 #, php-format
 msgid "text"
@@ -2529,11 +2529,11 @@ msgstr "Тексты"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "тема"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "транзакция"
 
 #, php-format
 msgid "type"
@@ -2589,7 +2589,7 @@ msgstr "Списки Цен"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "тип/цена/свойство"
 
 #, php-format
 msgid "type/product"
@@ -2605,7 +2605,7 @@ msgstr "Свойства Товара"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "тип/правило"
 
 #, php-format
 msgid "type/service"
@@ -2633,7 +2633,7 @@ msgstr "Списки Текстов"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "пользователи"
 
 msgid "yes"
 msgstr "да"

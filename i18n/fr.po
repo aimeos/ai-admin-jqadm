@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Six byNine <wwinx@hotmail.com>, 2018\n"
 "Language-Team: French (http://app.transifex.com/aimeos/aimeos-core/language/fr/)\n"
@@ -641,13 +641,13 @@ msgid "Error"
 msgstr "Erreur"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Erreur de suppression des données"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Erreur dans l'extraction des données"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Erreur d'enregistrement des données"
 
 msgid "Excl. tax"
 msgstr "Exclure taxe"
@@ -719,7 +719,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Étage et/ou appartement (optionnel)"
 
 msgid "For"
-msgstr ""
+msgstr "Pour"
 
 msgid "Generate"
 msgstr "Générer"
@@ -1145,10 +1145,10 @@ msgid ""
 msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Seuls les fichiers .webp, .jpg, .png et .gif sont autorisés pour les icônes."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Seuls les fichiers .webp, .jpg, .png, .gif et .svg sont autorisés pour les logos."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Seuls les super utilisateurs et les administrateurs peuvent supprimer des entrées"

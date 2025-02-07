@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -630,13 +630,13 @@ msgid "Error"
 msgstr "エラー"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "データ削除エラー"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "データ取得エラー"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "データ保存エラー"
 
 msgid "Excl. tax"
 msgstr "税金を除く"
@@ -708,7 +708,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "階および/またはアパート（オプション）"
 
 msgid "For"
-msgstr ""
+msgstr "について"
 
 msgid "Generate"
 msgstr "生成する"
@@ -1134,10 +1134,10 @@ msgid ""
 msgstr "1つのプロバイダと、コンマで区切られた0個以上のデコレータクラス名"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "アイコンは.webp、.jpg、.png、.gifのみ使用可能です。"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "ロゴは.webp、.jpg、.png、.gif、.svgのみ使用可能です。"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "スーパーユーザーと管理者のみがエントリーを削除できる"

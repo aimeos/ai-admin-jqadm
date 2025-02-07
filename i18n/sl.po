@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Uroš Strajnar, 2024\n"
 "Language-Team: Slovenian (http://app.transifex.com/aimeos/aimeos-core/language/sl/)\n"
@@ -631,13 +631,13 @@ msgid "Error"
 msgstr "Error"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Napaka pri brisanju podatkov"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Napaka pri pridobivanju podatkov"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Napaka pri shranjevanju podatkov"
 
 msgid "Excl. tax"
 msgstr "Excl. tax"
@@ -709,7 +709,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Floor and/or apartment (optional)"
 
 msgid "For"
-msgstr ""
+msgstr "Za"
 
 msgid "Generate"
 msgstr "Ustvarjanje"
@@ -1135,10 +1135,10 @@ msgid ""
 msgstr "One provider and zero or more decorator class names separated by commas"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Za ikone so dovoljeni samo .webp, .jpg, .png in .gif"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Za logotipe so dovoljeni samo .webp, .jpg, .png, .gif in .svg"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Samo super uporabniki in administratorji lahko izbrišejo vnos"
@@ -1951,7 +1951,7 @@ msgid "Type position (optional)"
 msgstr "Type position (optional)"
 
 msgid "Types"
-msgstr ""
+msgstr "Vrste"
 
 msgid "Types for additional images like icons"
 msgstr "Types for additional images like icons"

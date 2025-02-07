@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: ranx2k <ranko@murumets.eu>, 2021\n"
 "Language-Team: Estonian (http://app.transifex.com/aimeos/aimeos-core/language/et/)\n"
@@ -630,13 +630,13 @@ msgid "Error"
 msgstr "Viga"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Viga andmete kustutamisel"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Viga andmete pärimisel"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Viga andmete salvestamisel"
 
 msgid "Excl. tax"
 msgstr "Välja arvatud maksud"
@@ -708,7 +708,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Korrus ja/või korter (valikuline)"
 
 msgid "For"
-msgstr ""
+msgstr "Sest"
 
 msgid "Generate"
 msgstr "Genereeri"
@@ -1134,10 +1134,10 @@ msgid ""
 msgstr "Üks teenusepakkuja ja null või enam dekoraatoriklassi nime, mis on eraldatud komadega."
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Ikoonide puhul on lubatud ainult .webp, .jpg, .png ja .gif."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Logode puhul on lubatud ainult .webp, .jpg, .png, .gif ja .svg."
 
 msgid "Only super users and administrators can delete entries"
 msgstr "Ainult superkasutajad ja administraatorid saavad kandeid kustutada"
@@ -1950,7 +1950,7 @@ msgid "Type position (optional)"
 msgstr "Tüübipositsioon (valikuline)"
 
 msgid "Types"
-msgstr ""
+msgstr "Tüübid"
 
 msgid "Types for additional images like icons"
 msgstr "Tüübid lisapiltide, näiteks ikoonide jaoks"

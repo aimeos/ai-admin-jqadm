@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2025\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -706,7 +706,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
 msgid "For"
-msgstr ""
+msgstr "İçin"
 
 msgid "Generate"
 msgstr "Oluştur"
@@ -2153,7 +2153,7 @@ msgstr "Fatura adresi"
 
 #, php-format
 msgid "api"
-msgstr "api"
+msgstr "API'ler"
 
 #, php-format
 msgid "attribute"

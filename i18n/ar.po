@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Omar Najdi, 2023\n"
 "Language-Team: Arabic (http://app.transifex.com/aimeos/aimeos-core/language/ar/)\n"
@@ -640,13 +640,13 @@ msgid "Error"
 msgstr "خطأ"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "خطأ في حذف البيانات"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "خطأ في استرداد البيانات"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "خطأ في حفظ البيانات"
 
 msgid "Excl. tax"
 msgstr "غير شامل الضريبة"
@@ -718,7 +718,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "الطابق و/أو الشقة (اختياري)"
 
 msgid "For"
-msgstr ""
+msgstr "بالنسبة لـ"
 
 msgid "Generate"
 msgstr "توليد"
@@ -1144,10 +1144,10 @@ msgid ""
 msgstr "مزود واحد وصفر أو أكثر من أسماء فئات المزيّن مفصولة بفواصل"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "يُسمح فقط بالأيقونات .webp و .jpg و .png و .gif للأيقونات"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "يُسمح فقط للشعارات .webp و .jpg و .png و .gif و .svg"
 
 msgid "Only super users and administrators can delete entries"
 msgstr "يمكن للمستخدمين الفائقين والمسؤولين فقط حذف الإدخالات"
@@ -1960,7 +1960,7 @@ msgid "Type position (optional)"
 msgstr "اكتب الموضع (اختياري)"
 
 msgid "Types"
-msgstr ""
+msgstr "الأنواع"
 
 msgid "Types for additional images like icons"
 msgstr "أنواع للصور الإضافية مثل الأيقونات"
