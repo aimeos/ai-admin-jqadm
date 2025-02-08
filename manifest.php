@@ -13,7 +13,7 @@ return [
 	],
 	'i18n' => [
 		'admin' => 'i18n',
-		'admin/ext' => 'i18n/ext',
+		'admin/code' => 'i18n/code',
 	],
 	'custom' => [
 		'admin/jqadm' => [

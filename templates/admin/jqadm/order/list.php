@@ -14,7 +14,7 @@ $enc = $this->encoder();
  * List of actions, the editor can select from in the list header of the order
  * panel. You can dynamically extend the available actions like exporting the
  * selected orders in CSV format and translate the action names using the
- * "admin/ext" translation domain.
+ * "admin/code" translation domain.
  *
  * The action names will be passed as "queue" parameter to the export method
  * of the JQADM order class, which will create an entry for the message queue
@@ -126,11 +126,11 @@ $searchParams['page']['start'] = 0;
 $searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
 	return $item->isPublic();
 } )->call( 'toArray' )->each( function( &$val ) {
-	$val = $this->translate( 'admin/ext', $val['label'] ?? ' ' );
+	$val = $this->translate( 'admin/code', $val['label'] ?? ' ' );
 } )->all();
 
 $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
-	return $this->translate( 'admin/ext', $key );
+	return $this->translate( 'admin/code', $key );
 } )->all();
 
 
@@ -304,9 +304,9 @@ $statusList = [
 											<li class="dropdown-item">
 												<a class="btn icon act-download" tabindex="1"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
-													aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>"
-													title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>">
-													<?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?>
+													aria-label="<?= $enc->attr( $this->translate( 'admin/code', $code ) ) ?>"
+													title="<?= $enc->attr( $this->translate( 'admin/code', $code ) ) ?>">
+													<?= $enc->html( $this->translate( 'admin/code', $code ) ) ?>
 												</a>
 											</li>
 										<?php endforeach ?>

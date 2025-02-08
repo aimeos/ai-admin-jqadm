@@ -31,11 +31,11 @@ $searchParams['page']['start'] = 0;
 $searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
 	return $item->isPublic();
 } )->call( 'toArray' )->each( function( &$val ) {
-	$val = $this->translate( 'admin/ext', $val['label'] ?? ' ' );
+	$val = $this->translate( 'admin/code', $val['label'] ?? ' ' );
 } )->all();
 
 $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
-	return $this->translate( 'admin/ext', $key );
+	return $this->translate( 'admin/code', $key );
 } )->all();
 
 $columnList = [
@@ -50,7 +50,7 @@ $columnList = [
 	'type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
-$domains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemDomains', [] ) );
+$domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain ), $this->get( 'itemDomains', [] ) );
 
 
 ?>

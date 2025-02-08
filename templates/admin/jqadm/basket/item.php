@@ -226,7 +226,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 
 							<div class="col-xl-6 item-address">
 								<div class="box">
-									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/code', $code ) ) ?></h2>
 
 									<div v-for="(addr, idx) in (item?.address?.<?= $enc->attr( $type ) ?> || [])" :key="idx">
 										<div class="address-short" @click="addr['_edit'] = !addr['_edit']">
@@ -526,7 +526,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 
 								<div class="col-xl-6 item-service">
 									<div class="box">
-										<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
+										<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/code', $code ) ) ?></h2>
 										<div class="row">
 											<div class="col-6">
 												<span class="service-name"><?= $enc->html( $serviceItem->getName() ) ?></span>

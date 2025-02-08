@@ -305,7 +305,7 @@ $params = $this->get( 'pageParams', [] );
 
 							<div class="col-xl-6 item-address">
 								<div class="box">
-									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/code', $code ) ) ?></h2>
 
 									<?php foreach( $list as $addr ) : ?>
 										<div class="address-short">

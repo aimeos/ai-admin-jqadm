@@ -38,7 +38,7 @@
 		<exec executable="find" checkreturn="true" logoutput="true" passthru="true">
 			<arg line="src/ templates/ -type f | xgettext -j -s --no-location --no-wrap --add-comments=/// --language=PHP --from-code=UTF-8 --keyword=printf:1 --keyword=sprintf:1 --keyword=dt:2,2t --keyword=dn:2,3,4t --keyword=translate:2,2t --keyword=translate:2,3,4t -o i18n/core-admin.pot -f -" />
 		</exec>
-		<foreach list="./i18n,./i18n/ext" param="i18n-dir" inheritall="true" target="i18n-files" />
+		<foreach list="./i18n,./i18n/code" param="i18n-dir" inheritall="true" target="i18n-files" />
 		<exec executable="tx" checkreturn="true" logoutput="true" passthru="true">
 			<arg line="push -s -t" />
 		</exec>

@@ -43,11 +43,11 @@ $searchParams['page']['start'] = 0;
 $searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
 	return $item->isPublic();
 } )->call( 'toArray' )->each( function( &$val ) {
-	$val = $this->translate( 'admin/ext', $val['label'] ?? ' ' );
+	$val = $this->translate( 'admin/code', $val['label'] ?? ' ' );
 } )->all();
 
 $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
-	return $this->translate( 'admin/ext', $key );
+	return $this->translate( 'admin/code', $key );
 } )->all();
 
 $columnList = [

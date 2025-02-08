@@ -12,7 +12,7 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
 
-$domains = array_map( fn( $domain ) => $this->translate( 'admin/ext', $domain ), $this->get( 'itemDomains', [] ) );
+$domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain ), $this->get( 'itemDomains', [] ) );
 
 
 ?>
