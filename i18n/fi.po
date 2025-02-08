@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Aimeos, 2025\n"
 "Language-Team: Finnish (http://app.transifex.com/aimeos/aimeos-core/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,29 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr "stocktype:default"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -52,7 +35,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -77,171 +60,171 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Kansainvälinen) facsimilie-numero ilman erotusmerkkejä, voi alkaa \"+\"-merkillä."
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(kansainvälinen) puhelinnumero ilman erotusmerkkejä, voi alkaa \"+\" -merkillä."
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ vero"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<piilotettu>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API-avain"
 
 msgid "Account"
 msgstr "Käyttäjätili"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktiivinen"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Todellinen hinta"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Todellinen hinta, jolla asiakkaat voivat ostaa artikkelin verkkosivuilta."
 
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Lisätoimituskulut jokaisesta tuotteesta, esim. 20 dollaria yhdestä painavasta tuotteesta on 100 dollaria viidestä tuotteesta yhteensä."
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Lisätiedot siitä, mistä asiakkaan asunto löytyy."
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Lisätiedot siitä, mistä toimittajan asunto löytyy."
 
 msgid "Address 1"
-msgstr ""
+msgstr "Osoite 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "Osoite 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "Osoite 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Asiakkaan talon osoitetunniste toimitusta varten."
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Toimittajan talon osoitetunniste toimitusta varten."
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Admin JQAdm-tyyppi on tyhjä"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Edistynyt"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeoksen välimuistitallennus on poistettu käytöstä \"%1$s\":llä."
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeosin vianmäärityksen kirjaus on käytössä \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos-objekti ei ole käytettävissä"
 
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Kaikki ominaisuudet, jotka määrittelevät artikkelin yksiselitteisesti, esim. farkkujen leveys, pituus ja väri."
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Salli mukautettu hinta"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Anna asiakkaiden valita itse, kuinka paljon he haluavat maksaa."
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Aakkosnumeerinen merkkijono, jonka avulla ryhmä voidaan tunnistaa yksiselitteisesti."
 
 msgid "Apply"
-msgstr ""
+msgstr "Hae"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Artikkelikohtaiset konfigurointivaihtoehdot ovat käytettävissä avain/arvopareina malleissa."
 
 msgid "Attribute"
-msgstr ""
+msgstr "Attribuutti"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Attribuuttiluettelot Tyyppi"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Attribuuttiluetteloiden tyypit"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Attribuutti Ominaisuus Tyyppi"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Attribuutin ominaisuustyypit"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Attribuutti Tyyppi"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Attribuuttityypit"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Attribuutin sijainti (valinnainen)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Attribuutin ominaisuudet, joita ei jaeta muiden attribuuttien kanssa."
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Attribuuttityyppi, joka rajoittaa käytettävissä olevien attribuuttien luetteloa."
 
 msgid "Attributes"
 msgstr "Ominaisuudet"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Nykyisen sivuston käytettävissä oleva valuutta"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Etupäässä käytettävissä olevat aikavälijaksot"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Nykyisen sivuston käytettävissä oleva kieli"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Keskimääräinen tuotearvio ja asiakkaiden tämän tuotteen osalta antamien arvioiden kokonaismäärä"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "Takaisin varastossa"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 msgid "Basket"
 msgstr "Ostoskori"
@@ -253,72 +236,72 @@ msgid "Birthday"
 msgstr "Syntymäpäivä"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Asiakkaan syntymäpäivä"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Boost-tekijä"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Boost-kerroin (valinnainen)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Vika vai ehdotus?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Bulk edit"
 
 msgid "Cancel"
 msgstr "Peruuta"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Peruuta ja palaa luetteloon"
 
 msgid "Catalog"
-msgstr ""
+msgstr "Luettelo"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Luetteloluettelot Tyyppi"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Luettelo Luettelotyypit"
 
 msgid "Categories"
 msgstr "Kategoriat"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Luokat, joista käyttäjä voi löytää tuotteen verkkosivustolla."
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Luokat, joissa tuote näytetään myynninedistämisosiossa."
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Luokkakohtaiset konfigurointivaihtoehdot ovat käytettävissä avain/arvopareina malleissa."
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Muutos kustannukset/erä, %"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Muutosalennus prosentteina"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Muutosarvo prosentteina"
 
 msgid "Channel"
 msgstr "Kanava"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Kanava tilaus on tehty"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Valitse tiedosto"
 
 msgid "City"
 msgstr "Kaupunki"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Kaupungin nimi (pakollinen)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -336,182 +319,182 @@ msgid "Close"
 msgstr "Sulje"
 
 msgid "Code"
-msgstr ""
+msgstr "Koodi"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Koodi sivuston yksilöimiseksi, uudelleennimeäminen on vaarallista!"
 
 msgid "Columns"
-msgstr ""
+msgstr "Sarakkeet"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentti"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Arvostelijan huomautus"
 
 msgid "Communication"
-msgstr ""
+msgstr "Viestintä"
 
 msgid "Company"
 msgstr "Yritys"
 
 msgid "Company details"
-msgstr ""
+msgstr "Yrityksen tiedot"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Yrityksen nimi (vapaaehtoinen)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Toteutuneet tilaukset"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Viimeisten seitsemän päivän aikana tehdyt tilaukset verrattuna edeltävään ajanjaksoon."
 
 msgid "Config"
-msgstr ""
+msgstr "Config"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Konfiguroitavissa"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Määritysasetukset ovat käytettävissä avain/arvopareina luettelokohdassa."
 
 msgid "Context"
-msgstr ""
+msgstr "Konteksti"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopioi"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Kopioi tämä merkintä"
 
 msgid "Costs"
-msgstr ""
+msgstr "Kustannukset"
 
 msgid "Count"
-msgstr ""
+msgstr "Count"
 
 msgid "Country"
 msgstr "Maa"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Maan tunnus"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Maakoodi (pakollinen)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Maakohtainen verokanta veron laskemiseksi ja näyttämiseksi (B2C) tai veron lisäämiseksi tarvittaessa (B2B)."
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Maan valtion koodi (valinnainen)"
 
 msgid "Coupon"
-msgstr ""
+msgstr "Kuponki"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Kupongin tarjoajan tai kuponkikoristelijan konfiguraation nimi"
 
 msgid "Created"
 msgstr "Luotu"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Valuutat"
 
 msgid "Currency"
-msgstr ""
+msgstr "Valuutta"
 
 msgid "Custom"
-msgstr ""
+msgstr "Custom"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Mukautettu verkkotunnus tai myymälän yksilöllinen koodi"
 
 msgid "Customer"
-msgstr ""
+msgstr "Asiakas"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "Asiakastunnus"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Asiakasluettelot Tyyppi"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Asiakasluetteloiden tyypit"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Asiakkaan kiinteistön tyyppi"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Asiakkaan ominaisuustyypit"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Asiakkaan ominaisuudet, joita ei jaeta muiden asiakkaiden kanssa"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Asiakkaan kommentti (valinnainen)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Asiakkaan sähköpostiosoite"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Asiakkaan salasana"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Asiakkaan ominaisuudet, joita ei jaeta muiden asiakkaiden kanssa"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Asiakkaan viite"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Asiakasviite (valinnainen)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Kojelauta"
 
 msgid "Data"
-msgstr ""
+msgstr "Tiedot"
 
 msgid "Data set"
-msgstr ""
+msgstr "Tietoaineisto"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Tietoaineisto"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Viimeisimmän toimitustilan muutoksen päivämäärä"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Viimeisimmän maksutilanteen muutoksen päivämäärä"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Päivämäärä, jolloin tilaus päättyy"
 
 msgid "Days"
-msgstr ""
+msgstr "Päivät"
 
 msgid "Default"
-msgstr ""
+msgstr "Oletusarvo"
 
 msgid "Delete"
 msgstr "Poista"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Poista merkinnät?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Poista valitut merkinnät"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Poista tämä merkintä"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Arvostelujen poistaminen ei ole sallittua"
 
 msgid "Delivery"
 msgstr "Toimitus"
@@ -520,23 +503,23 @@ msgid "Delivery address"
 msgstr "Toimitusosoite"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Toimituspäivä"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Toimitus vuonna"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Asiakkaan ostoskorissa olevien tuotteiden toimitus- tai maksukulut."
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Toimituksen tila"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Toimitusaika (vapaaehtoinen)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Toimitustyypit"
 
 msgid "Delivery within"
 msgstr "Toimitus ajassa"
@@ -544,313 +527,328 @@ msgstr "Toimitus ajassa"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Valitusta tietokokonaisuudesta riippuen tuotteen näytettävien kenttien luettelo on erilainen."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Kuvaile mielikuvasi"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Tekstin sisällön kuvaus, jos se on vieraskielinen."
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Valuutan kuvaava nimi"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Kielen kuvaava nimi"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Sivuston kuvaava nimi"
 
 msgid "Discount"
-msgstr ""
+msgstr "Alennus"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Näytä ohjetekstit"
 
 msgid "Domain"
-msgstr ""
+msgstr "Verkkotunnus"
 
 msgid "Download"
-msgstr ""
+msgstr "Lataa"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Lataa tämä tiedosto"
+
+msgid "Duplicate entry"
+msgstr "Kaksinkertainen merkintä"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Kopioi merkintä (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "Sähköposti"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Sähköpostiosoite (vaaditaan)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Sähköpostiosoite tai tilin nimi (vaaditaan)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Sähköpostiosoite, jota käytetään kauppaan liittyvien sähköpostien lähettämiseen"
 
 msgid "E-mail"
-msgstr ""
+msgstr "Sähköposti"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Sähköpostiosoite (vapaaehtoinen)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Osoitteeseen kuuluva sähköpostiosoite"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN-, SKU- tai artikkelinumero (vaaditaan)"
 
 msgid "Edit"
-msgstr ""
+msgstr "Muokkaa"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Muokkaa valittuja merkintöjä"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Muokkaa tätä merkintää"
 
 msgid "Editor"
-msgstr ""
+msgstr "Toimittaja"
 
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 msgid "End date"
 msgstr "Loppupäivämäärä"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Loppupäivä (vapaaehtoinen)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Syötä ryhmän tunnus, koodi tai etiketti"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Merkintä poistettu onnistuneesti"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Merkintä tallennettu onnistuneesti"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Kirjauskohtaiset konfigurointivaihtoehdot ovat käytettävissä avain/arvopareina malleissa."
 
 msgid "Error"
-msgstr ""
+msgstr "Virhe"
+
+msgid "Error deleting data"
+msgstr "Virhe tietojen poistamisessa"
+
+msgid "Error retrieving data"
+msgstr "Virhe tietojen hakemisessa"
+
+msgid "Error saving data"
+msgstr "Virhe tietojen tallentamisessa"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Ilman veroja"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Liitännäisten suoritusjärjestys"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Sääntöjen täytäntöönpanojärjestys"
 
 msgid "Export"
-msgstr ""
+msgstr "Vie"
 
 msgid "Facility"
-msgstr ""
+msgstr "Laitos"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Faksi"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Faksinumero (valinnainen)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Tekijä, joka lisää tuotteen arvoa käyttäjän haussa muihin tuotteisiin verrattuna (>1.0 positiivinen lisäys, <1.0 negatiivinen lisäys)."
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Tiedoston kirjoittaminen levylle epäonnistui"
 
 msgid "File"
-msgstr ""
+msgstr "Tiedosto"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Tiedostoa ei ole olemassa: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Tiedoston lataus pysähtyi laajennuksen mukaan"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Tiedosto ladattu onnistuneesti"
 
 msgid "Find category"
-msgstr ""
+msgstr "Etsi luokka"
 
 msgid "Find site"
-msgstr ""
+msgstr "Etsi sivusto"
 
 msgid "First"
-msgstr ""
+msgstr "Ensimmäinen"
 
 msgid "First name"
 msgstr "Etunimi"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Etunimi (vapaaehtoinen)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Henkilön etunimi, jos sitä käytetään sellaisissa kulttuureissa, joissa sitä käytetään."
 
 msgid "Floor"
-msgstr ""
+msgstr "Lattia"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Kerros / huoneisto"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Kerros ja/tai huoneisto (valinnainen)"
+
+msgid "For"
+msgstr "Osoitteessa"
 
 msgid "Generate"
-msgstr ""
+msgstr "Luo"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Luo kuva"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Luo tekstiä"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Myönnetty hyvityksen määrä"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Siirry attribuuttipaneeliin"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Siirry ominaisuustyyppipaneeliin"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Siirry attribuuttityyppien luetteloon"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Myönnetty alennus"
 
 msgid "Group"
-msgstr ""
+msgstr "Ryhmä"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Ryhmän nimi, joka kuvaa, mille jäsenille ryhmä on tarkoitettu."
 
 msgid "Groups"
-msgstr ""
+msgstr "Ryhmät"
 
 msgid "Height"
-msgstr ""
+msgstr "Korkeus"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Piilotetut ominaisuudet"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Piilotetut tuoteattribuutit, jotka on tallennettu tilattujen tuotteiden mukana."
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Tuotteen korostetut toimittajat"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Kunniatitteli (vapaaehtoinen)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Kunniatittelit, kuten tohtori, tohtori jne."
 
 msgid "Hours"
-msgstr ""
+msgstr "Tunnit"
 
 msgid "House number"
-msgstr ""
+msgstr "Talon numero"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Talon numero (vapaaehtoinen)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Miten asiakasta puhutellaan sähköpostiviesteissä"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Toimittajan puhuttelu sähköpostiviesteissä"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hyperrealistinen ja dramaattinen"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "asiaan liittyvän laskun, esim. muutetun tai hyvitetyn laskun tunnus"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO-valuuttakoodi (vaaditaan)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO-kielikoodi (vaaditaan)"
 
 msgid "Image"
-msgstr ""
+msgstr "Kuva"
 
 msgid "Image description"
-msgstr ""
+msgstr "Kuvan kuvaus"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Kuvat näytetään vain kyseisellä kielellä, mikä on hyödyllistä, jos media sisältää tekstiä tai on kielikohtainen."
 
 msgid "Import"
-msgstr ""
+msgstr "Tuo"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Tuonti/vienti työpaikat"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Sisältää veron"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Lisää uusi merkintä"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Lisää uusi merkintä (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Sisäinen tuotenimi, jota käytetään verkkosivustolla ja hakusanoissa vain, jos muita tuotenimiä ei ole olemassa millään kielellä."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Sisäinen artikkelin nimi, jota käytetään verkkosivustolla, jos kielelle ei ole saatavilla tuotenimeä."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Sisäinen attribuutin nimi, jota käytetään sivustolla, jos kielelle ei ole saatavilla nimeä."
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Sisäinen kategorian nimi, jota käytetään verkkosivustolla, jos kielelle ei ole saatavilla nimeä."
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Sisäinen nimi (pakollinen)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Hallintaliittymässä näkyvä sisäisen tyypin nimi"
 
 msgid "Interval"
 msgstr "Väli"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Intervalli (pakollinen)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -873,279 +871,288 @@ msgid "Invalid factory \"%1$s\""
 msgstr "Virheellinen tehdas \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Lasku"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Laskun nro."
+
+msgid "Invoice no."
+msgstr "Laskun nro."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Laskun numero"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Tilauksen laskun numero"
 
 msgid "Label"
-msgstr ""
+msgstr "Tarra"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Tarra (pakollinen)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Intervallia kuvaava merkintä, jota käytetään, jos nimeä ei ole saatavilla."
 
 msgid "Language"
 msgstr "Kieli"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Kielen tunnus"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Syötetyn tekstin kieli"
 
 msgid "Languages"
-msgstr ""
+msgstr "Kielet"
 
 msgid "Last"
-msgstr ""
+msgstr "Viimeinen"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Tilauksen viimeinen toimitustila"
 
 msgid "Last name"
 msgstr "Sukunimi"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Sukunimi (vapaaehtoinen)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Sukunimi (vaaditaan)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Henkilön sukunimi tai koko nimi kulttuureissa, joissa etunimiä ei käytetä."
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Tilauksen viimeisin maksutilanne"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Viimeisimmät tilaukset"
 
 msgid "Length"
-msgstr ""
+msgstr "pituus"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Luettelo artikkeleista, jotka olisi myytävä yhtenä tuotteena, usein alennettuun hintaan."
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Luettelo usein yhdessä ostetuista tuotteista"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Luettelo ehdotetuista tuotteista"
 
 msgid "List type"
-msgstr ""
+msgstr "Luettelon tyyppi"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Merkintöjen lataaminen ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "Paikkakunta"
 
 msgid "Log"
-msgstr ""
+msgstr "Tukki"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Manuaalinen siirto"
 
 msgid "Map"
-msgstr ""
+msgstr "Kartta"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Medialuettelot Tyyppi"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Medialuetteloiden tyypit"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Mediaominaisuuden tyyppi"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Media-ominaisuustyypit"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Mediatyyppi"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Mediatyypit"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Mediaominaisuudet"
 
 msgid "Menu"
-msgstr ""
+msgstr "Valikko"
 
 msgid "Message"
-msgstr ""
+msgstr "Viesti"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Min. määrä"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Vähimmäismäärä"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobiili"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Matkapuhelinnumero"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Matkapuhelinnumero (vapaaehtoinen)"
 
 msgid "Model"
-msgstr ""
+msgstr "Malli"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Muutettu"
 
 msgid "Modified"
-msgstr ""
+msgstr "Muutettu"
 
 msgid "Months"
-msgstr ""
+msgstr "Kuukaudet"
 
 msgid "More"
-msgstr ""
+msgstr "Lisää"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Siirrä tätä merkintää ylös/alas"
 
 msgid "Name"
 msgstr "Nimi"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Nimi URL-osoitteessa (valinnainen)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Korin nimi"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Ladatun tiedoston nimi, kun asiakkaat tallentavat tiedoston omalle tietokoneelleen."
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Arvostelijan nimi"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Myymäläsi nimi näkyy asiakkaillesi"
 
 msgid "Natural"
-msgstr ""
+msgstr "Luonnollinen"
 
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 msgid "New customers"
-msgstr ""
+msgstr "Uudet asiakkaat"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Uudet asiakkaat viimeisten seitsemän päivän aikana"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Uusia asiakkaita viimeisten seitsemän päivän aikana verrattuna edelliseen ajanjaksoon."
 
 msgid "Next"
 msgstr "Seuraava"
 
 msgid "Next date"
-msgstr ""
+msgstr "Seuraava päivämäärä"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Seuraava päivämäärä (vapaaehtoinen)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Seuraava päivämäärä, jolloin tilaus uusitaan"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Valuuttoja ei ole saatavilla. Ota käyttöön vähintään yksi valuutta"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Merkintöjä ei löytynyt"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Tiedostoa ei ladattu"
 
 msgid "No product found"
-msgstr ""
+msgstr "Tuotetta ei löytynyt"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Teemavaihtoehtoja ei ole saatavilla"
 
 #, php-format
 msgid "No view available"
 msgstr "Katsastelu ei mahdollista"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Ei kuponkia"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Mediaelementin ei-jaketut ominaisuudet"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Hintakohteen muut kuin yhteiset ominaisuudet"
 
 msgid "None"
-msgstr ""
+msgstr "Ei ole"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Kaikkia merkintöjä ei voitu poistaa"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "JQAdm \"%1$s\" -asiakkaan käyttö ei ole sallittua."
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Ei toteutettu"
 
 msgid "Notes"
-msgstr ""
+msgstr "Huomautukset"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Huomautukset (ei näytetä asiakkaalle)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Tällä hetkellä varastossa olevien artikkelien määrä, jätä tyhjäksi, jos määrä on rajoittamaton."
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Virallinen alv-tunniste sen määrittämiseksi, onko vero laskutettava laskuissa."
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Yksi palveluntarjoaja ja nolla tai useampi sisustusluokan nimi pilkulla erotettuna."
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "Vain .webp-, .jpg-, .png- ja .gif-kuvakkeet ovat sallittuja."
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "Vain .webp, .jpg, .png, .gif ja .svg ovat sallittuja logoja."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Vain pääkäyttäjät ja ylläpitäjät voivat poistaa merkintöjä"
 
 msgid "Open"
-msgstr ""
+msgstr "Avaa"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Avoin Määrä"
 
 msgid "Option"
-msgstr ""
+msgstr "vaihtoehto"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Valinnaiset tuotekomponentit, jotka asiakas voi valita yhdessä tuotteen kanssa."
 
 msgid "Order"
 msgstr "Tilaus"
@@ -1154,51 +1161,51 @@ msgid "Order ID"
 msgstr "Tilaus ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Asiakkaan antama tilausnumero"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Kieli/valuutta-yhdistelmien järjestys"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Palveluvaihtoehtojen järjestys kassaprosessissa"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Tyyppien järjestys etusivulla"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Tilausten loppusummat"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Tilattu osoitteessa"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Tilaukset maittain"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Tilaukset päiväkohtaisesti"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Tilaukset tunneittain"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Tilaukset maksutilanteen mukaan"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Korvaa olemassa oleva tiedosto ja asiakkaat, jotka ovat ostaneet sen aiemmin, voivat ladata myös uuden sisällön."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP-asetus \"%1$s\" on poistettu käytöstä"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP-asetus \"%1$s\" on käytössä"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "PHP-asetus \"%1$s\" on liian alhainen"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1208,84 +1215,84 @@ msgid "Password"
 msgstr "Salasana"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Salasana (vaaditaan)"
 
 msgid "Path"
-msgstr ""
+msgstr "Polku"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Maksupäivä"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Palkkatilanne"
 
 msgid "Payment"
 msgstr "Maksu"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Maksupäivä"
 
 msgid "Payment status"
 msgstr "Maksun tila"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Maksutyypit"
 
 msgid "Periods"
-msgstr ""
+msgstr "Jaksot"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Lupa evätty"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Henkilötiedot"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Lisää tähän luodun tekstin kuvaus."
 
 msgid "Please select"
 msgstr "Valitse"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Liitännäisen tyyppi"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Plugin-tyypit"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Liitännäisen etiketti, joka kuvaa määritettyä liitännäistä."
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Pluginin sijainti (pakollinen)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Liitännäisen tarjoajan tai liitännäisen koristeen konfiguraation nimi"
 
 msgid "Position"
-msgstr ""
+msgstr "Asema"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Asema (pakollinen)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Posti"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Postinumero toimitusta varten, jos sitä käytetään asiakkaan asuinalueella."
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Postinumero toimitusta varten, jos sitä käytetään toimittajan asuinalueella."
 
 msgid "Postition"
-msgstr ""
+msgstr "Asema"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Mahdolliset ongelmat"
 
 msgid "Previous"
 msgstr "Edellinen"
@@ -1294,276 +1301,276 @@ msgid "Price"
 msgstr "Hinta"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Hinnastot Tyyppi"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Hinnastojen tyypit"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Hinta Kiinteistön tyyppi"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Hinta Kiinteistötyypit"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Hintatyyppi"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Hintatyypit"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Hintaominaisuudet"
 
 msgid "Priority"
-msgstr ""
+msgstr "Prioriteetti"
 
 msgid "Problem"
-msgstr ""
+msgstr "Ongelma"
 
 msgid "Product"
 msgstr "Tuote"
 
 msgid "Product ID"
-msgstr ""
+msgstr "Tuotetunnus"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Tuotetunnus, SKU tai etiketti"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Tuoteluettelot Tyyppi"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Tuoteluettelot Tyypit"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Tuotteen ominaisuustyyppi"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Tuotteen ominaisuustyypit"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Tuotteen tyyppi"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Tuotetyypit"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Koriin tallennetut tuoteattribuutit, joihin asiakkaat voivat syöttää omia tekstejään tai arvojaan."
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Tuoteominaisuudet, joita käytetään myös muissa tuotteissa."
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Tuotteen ominaisuudet, joita ei ole jaettu muiden tuotteiden kanssa"
 
 msgid "Product code"
-msgstr ""
+msgstr "Tuotekoodi"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Tuotekustannukset"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Tuotteen korkeus, esim. 20.0 (jaardina, tuumina jne.)."
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Tuotteen pituus, esim. 30.0 (jaardina, tuumina jne.)."
 
 msgid "Product name"
-msgstr ""
+msgstr "Tuotteen nimi"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Tuotteen maksu"
 
 msgid "Product price"
-msgstr ""
+msgstr "Tuotteen hinta"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "Tuotteen määrä"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Tuotteen hyvitys"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Tuotteen toimitus"
 
 msgid "Product status"
-msgstr ""
+msgstr "Tuotteen tila"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Tuotteen toimittaja"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Tuotevero"
 
 msgid "Product type"
-msgstr ""
+msgstr "Tuotetyyppi"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Tuotteen paino, esim. 1,25 (puntana, unssina jne.)."
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Tuotteen leveys, esim. 17,5 (jaardina, tuumina jne.)."
 
 msgid "Products"
-msgstr ""
+msgstr "Tuotteet"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Yhdessä ostetut tuotteet"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Myynninedistäminen"
 
 msgid "Properties"
 msgstr "Ominaisuudet"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Kiinteistön arvo (pakollinen)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Palveluntarjoaja"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Palveluntarjoajien/koristeluokkien nimet (pakollinen)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Osto"
 
 msgid "Quantity"
 msgstr "Määrä"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Määräasteikko"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Rabate"
 
 msgid "Rating"
 msgstr "Arvostelu"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Kauppiasluokitus ja luokitusten määrä"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Arvostelijan arviointi"
 
 msgid "Reason"
-msgstr ""
+msgstr "Syy"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Alennus"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Alennus alkuperäisestä hinnasta, jota käytetään alennusprosentin ja ristihinnan laskemiseen."
 
 msgid "Reference"
 msgstr "Viittaus"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Viitetunnus"
 
 msgid "Refund"
-msgstr ""
+msgstr "Palautus"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Liittyvät tunnukset"
 
 msgid "Related order"
-msgstr ""
+msgstr "Liittyvä tilaus"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Liittyvän tilauksen tunnus (valinnainen)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Asiakkaan tilaus"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Poista tausta"
 
 msgid "Renew"
-msgstr ""
+msgstr "Renew"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Korvaa tiedosto"
 
 msgid "Request"
-msgstr ""
+msgstr "Pyyntö"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Vaadittu parametri \"%1$s\" puuttuu."
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Tarvittava määrä artikkeleita lohkohinnoittelua varten, esim. yksi artikkeli 5,00 dollaria, kymmenen artikkelia 45,00 dollaria."
 
 msgid "Reset"
 msgstr "Nollaa"
 
 msgid "Response"
-msgstr ""
+msgstr "Vastaus"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Vastaus arvioijalle"
 
 msgid "Review"
-msgstr ""
+msgstr "Arvostelu"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Tarkistettu merkintä"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Arvostelijan nimi"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Kategoriasivun reitin nimi tai sivun ID, jos kategorian pitäisi näkyä eri sivulla."
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Tuotteen yksityiskohtaisen sivun reitin nimi tai sivun ID, jos tuotteen pitäisi näkyä eri sivulla."
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Reitin tai sivun tunnus (valinnainen)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Sääntö"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Sääntö Tyyppi"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Sääntötyypit"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Säännön nimike määritetyn säännön kuvaamiseksi"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Säännön sijainti (pakollinen)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Säännön tarjoajan tai sääntökoristeen konfiguraation nimi"
 
 msgid "Rules"
-msgstr ""
+msgstr "Säännöt"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Myynti arkipäivittäin"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Myynti viimeisten 30 päivän aikana"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Myynti kuukaudessa"
 
 msgid "Salutation"
 msgstr "Tervehdys"
@@ -1572,172 +1579,175 @@ msgid "Save"
 msgstr "Tallenna"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Tallenna ja sulje"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Tallenna ja kopioi"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Tallenna & Uusi"
+
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Tallenna merkintä (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Tallenna merkintä (Ctrl+S)"
 
 msgid "Search"
 msgstr "Hae"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Toisen tason tyyppi merkintöjen ryhmittelyä varten"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Valitse kaikki merkinnät"
 
 msgid "Select file"
-msgstr ""
+msgstr "Valitse tiedosto"
 
 msgid "Service"
-msgstr ""
+msgstr "Palvelu"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Palveluluettelot Tyyppi"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Palveluluetteloiden tyypit"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Palvelun tyyppi"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Palvelutyypit"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Palvelun ominaisuustunnus"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Palvelukustannukset"
 
 msgid "Service name"
-msgstr ""
+msgstr "Palvelun nimi"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Palvelupaikka (vaaditaan)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Palvelun hinta"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Palveluntarjoajan tai palvelukoristeen konfiguraation nimi"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Palvelualennus"
 
 msgid "Settings"
-msgstr ""
+msgstr "Asetukset"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Lähetyspäivä"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Aluksen tila"
 
 msgid "Shipping"
 msgstr "Toimitus"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Toimituskulut / Maksukulut"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Toimitus-/maksukustannukset"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Toimitus/erä"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Kaupan verkkotunnus"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Kaupan verkkotunnus (vaaditaan)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Osta sähköpostia"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Myymälän sähköpostiosoite (vaaditaan)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Kaupan nimi"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Kaupan nimi (vaaditaan)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Kaupan teema"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Osavaltion lyhyt koodi (esim. NY), jos sitä käytetään asiakkaan asuinmaassa."
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Lyhyt osavaltion koodi (esim. NY), jos sitä käytetään toimittajan asuinmaassa."
 
 msgid "Show"
 msgstr "Näytä"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Näytä merkintä"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Näytä hakulomake"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Näytä/piilota lisätiedot"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Näytä/piilota tiedot"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Näytä/piilota navigointitarrat"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Näytä/piilota tämä merkintä"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Näytetään, jos artikkelin varastotaso on nolla."
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Siitä lähtien, kun tuote on saatavilla, käytetään lajitteluun front-endissä."
 
 msgid "Site"
-msgstr ""
+msgstr "Sivusto"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Sivustokohtaiset konfigurointivaihtoehdot ovat käytettävissä avain/arvopareina."
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Tilaus tehtiin osoitteessa"
 
 msgid "Sites"
-msgstr ""
+msgstr "Sivustot"
 
 msgid "Size"
-msgstr ""
+msgstr "koko"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Saman attribuuttityypin sisällä olevien attribuuttien lajittelu"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Toimittajien lajittelu"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Laskun lähde, esim. verkosta tai puhelimitse."
 
 msgid "Start date"
-msgstr ""
+msgstr "Aloituspäivä"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Aloita kirjoittaminen ..."
 
 msgid "State"
 msgstr "Alue/osavaltio"
@@ -1746,36 +1756,36 @@ msgid "Status"
 msgstr "Tila"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Varastotyyppi"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Varastotyypit"
 
 msgid "Stock level"
-msgstr ""
+msgstr "Varastotaso"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Varastotyyppi"
 
 msgid "Street"
 msgstr "Katu"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Kadun nimi (vapaaehtoinen)"
 
 msgid "Style"
-msgstr ""
+msgstr "Tyyli"
 
 msgid "Sub-total"
 msgstr "Välisumma"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Tilaus"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Tilausväli, joka sisältää vuodet, kuukaudet, viikot ja päivät, esim. \"P0Y1M2W3D\" tarkoittaa nollaa vuotta, yhtä kuukautta, kahta viikkoa ja kolmea päivää."
 
 msgid "Suggested products"
 msgstr "Ehdotetut tuotteet"
@@ -1784,179 +1794,182 @@ msgid "Sum"
 msgstr "Summa"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Toimittaja"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Toimittajan nimi tai yritys"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Toimittajan asema (pakollinen)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Tuotteen valmistavat toimittajat"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Tunnisteen tyyppi"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Tag-tyypit"
 
 msgid "Tax"
-msgstr ""
+msgstr "Vero"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Verokanta"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "Verokanta (%)"
 
 msgid "Telephone"
 msgstr "Puhelin"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Puhelinnumero (vapaaehtoinen)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Väliaikainen kansio puuttuu"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Tekstiluettelot Tyyppi"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Tekstiluetteloiden tyypit"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Tekstityyppi"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Tekstityypit"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Artikkeli näkyy sivustolla vasta kyseisen päivämäärän ja kellonajan jälkeen, hyödylliset tai kausiluonteiset artikkelit."
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Artikkeli näkyy sivustolla vain kyseiseen päivämäärään ja kellonaikaan asti, hyödylliset tai kausiluonteiset artikkelit."
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Merkintä näkyy verkkosivustolla vasta kyseisen päivämäärän ja kellonajan jälkeen."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Merkintä näkyy verkkosivustolla vain kyseiseen päivämäärään ja kellonaikaan asti."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Median otsikkoa käytetään verkkosivuston median otsikkotunnisteena."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "URL-osoitteessa näkyvän luokan nimi, jota käytetään, jos kielikohtaista URL-segmenttiä ei ole olemassa."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "URL-osoitteessa näkyvän tuotteen nimeä käytetään, jos kielikohtaista URL-segmenttiä ei ole olemassa."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Vaihtoehto näkyy verkkosivustolla vasta kyseisen päivämäärän ja kellonajan jälkeen."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Vaihtoehto näkyy verkkosivustolla vain kyseiseen päivämäärään ja kellonaikaan asti."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Sääntöä käytetään vasta kyseisen päivämäärän ja kellonajan jälkeen."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Sääntöä käytetään vain kyseiseen päivämäärään ja kellonaikaan asti."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Korissa olevien määrien sallittu askelarvo, esim. \"0.1\" murto-osamäärille tai \"5\" viiden artikkelin moninkertaisille määrille."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Ladattu tiedosto ylittää suurimman sallitun tiedostokoon."
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Ladattu tiedosto ladattiin vain osittain"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Teema muuttaa myymälän ulkoasua"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Kolmikirjaiminen ISO-valuuttakoodi"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Aikataulu (vapaaehtoinen)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Aikaleima"
 
 msgid "Title"
-msgstr ""
+msgstr "Otsikko"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Vaihda pudotusvalikko"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Toogle valinta"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Parhaat maat"
 
 msgid "Total"
 msgstr "Kokonaisuudessaan"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Tilaukset yhteensä"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Tilausten kokonaismäärä viimeisten seitsemän päivän aikana verrattuna edeltävään ajanjaksoon."
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Arvosanat yhteensä"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Käännä teksti"
 
 msgid "Translations"
-msgstr ""
+msgstr "Käännökset"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "Kaksikirjaiminen ISO-maakoodi"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Kaksikirjaiminen ISO-kielikoodi"
 
 msgid "Type"
-msgstr ""
+msgstr "Tyyppi"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Tyypin sijainti (valinnainen)"
+
+msgid "Types"
+msgstr "Tyypit"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Tyypit lisäkuville, kuten kuvakkeille"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Tyypit lisähintoja varten, kuten per lb/kg tai per kuukausi."
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Lisätekstien tyypit, kuten per lb/kg tai per kuukausi."
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "Asiakkaan verkkosivuston URL-osoite"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "Toimittajan verkkosivuston URL-osoite"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL-segmentti"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL-kohde"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1964,169 +1977,169 @@ msgstr "Toimintoa \"%1$s” ei voitu suorittaa"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Sisältöä ei pystytä lukemaan paikasta \"%1$s\"."
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Keskeneräiset tilaukset"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Keskeneräiset tilaukset viimeisten seitsemän päivän aikana verrattuna edeltävään ajanjaksoon."
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "Yksilöllinen varastotasoihin liittyvä tuotekoodi, esim. ERP-järjestelmästä, EAN/GTIN-numero tai itse keksitty koodi."
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Yksilöllinen attribuuttikoodi (pakollinen)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Yksilöllinen attribuuttikoodi, esim. \"vihreä\" attribuuteille, joiden tyyppi on \"color\"."
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Yksilöllinen luokkakoodi (pakollinen)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Yksilöllinen luokkakoodi, joko ulkoisesta järjestelmästä saatu tai itse keksitty."
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Yksilöllinen koodi (vaaditaan)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Yksilöllinen koodi palvelun tunnistamiseksi, yleensä itse keksitty."
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Yksilöllinen asiakastilin nimi"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Asiakkaan yksilöllinen sähköpostiosoite"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Yksilöllinen ryhmäkoodi (vaaditaan)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Yksilöllinen palvelukoodi (vaaditaan)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Yksilöllinen sivustokoodi (vaaditaan)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Toimittajan yksilöllinen koodi"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Yksilöllinen tyyppikoodi"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Yksilöllinen tyyppikoodi (vaaditaan)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Yksilöllinen tyyppikoodi, esim. \"color\" sellaisille attribuuteille kuin \"vihreä\", \"sininen\", \"punainen\"."
 
 msgid "Unit price"
-msgstr ""
+msgstr "Yksikköhinta"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Tuntematon latausvirhe"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Lataa CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Lataa kaupan kuvake"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Lataa myymälän logo"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Ladattu"
 
 msgid "Use"
-msgstr ""
+msgstr "Käytä"
 
 msgid "User groups"
-msgstr ""
+msgstr "Käyttäjäryhmät"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Tuotteen tavanomainen toimitusaika"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "ALV-TUNNUS"
 
 msgid "Value"
-msgstr ""
+msgstr "Arvo"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Arvonlisäverotunniste (vapaaehtoinen)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Vaihtoehtoiset ominaisuudet"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Vaihtelevia tuoteattribuutteja, jotka tallennetaan tilattujen tuotteiden kanssa."
 
 msgid "Vendor"
-msgstr ""
+msgstr "Myyjä"
 
 msgid "Verified"
-msgstr ""
+msgstr "Vahvistettu"
 
 msgid "View details"
-msgstr ""
+msgstr "Näytä tiedot"
 
 msgid "Voucher"
-msgstr ""
+msgstr "Voucher"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Varasto tai lähikauppa, jos tuotteitasi on saatavilla useissa paikoissa."
 
 msgid "Web site"
 msgstr "Verkkosivu"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "Verkkosivuston URL-osoite (valinnainen)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "Viikot"
 
 msgid "Weight"
-msgstr ""
+msgstr "Paino"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Kun tili ja sähköpostiosoite on vahvistettu."
 
 msgid "Width"
-msgstr ""
+msgstr "leveys"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "VVVV-KK-PVK hh:mm:ss (valinnainen)"
 
 msgid "Years"
-msgstr ""
+msgstr "Vuodet"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Aiot poistaa yhden tai useamman merkinnän. Haluatko jatkaa?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Vientisi on ladattavissa muutaman minuutin kuluttua."
 
 msgid "Your response"
-msgstr ""
+msgstr "Vastauksesi"
 
 msgid "Zip code"
-msgstr ""
+msgstr "Postinumero"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Postinumero (vapaaehtoinen)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "tili"
 
 #, php-format
 msgid "address"
@@ -2140,7 +2153,7 @@ msgstr "Laskutusosoite"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2148,11 +2161,11 @@ msgstr "Ominaisuudet"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "kori"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "niputtaa"
 
 #, php-format
 msgid "catalog"
@@ -2168,74 +2181,74 @@ msgstr "Ominaisuudet"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "koodi"
 
 msgid "company"
 msgstr "Yritys"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "kokoonpano"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "countcountry"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "Countday"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "Counthour"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "kuponki"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "asiakas"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "kojelauta"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "päivä"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "deliverytype"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "lataa"
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "tavarat"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "ryhmä"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "tunti"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "kuva"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "lasku"
 
 #, php-format
 msgid "latest"
@@ -2243,55 +2256,55 @@ msgstr "Viimeisin"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "locale"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "paikallinen/valuutta"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "locale/language"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "locale/site"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "loki"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "markkinointi"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "media"
 
 msgid "miss"
-msgstr ""
+msgstr "Miss"
 
 msgid "mr"
-msgstr ""
+msgstr "Mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "mrs"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "uusi"
 
 msgid "no"
-msgstr ""
+msgstr "ei"
 
 msgid "none"
 msgstr "ei mitään"
 
 msgid "not available any more"
-msgstr ""
+msgstr "ei enää saatavilla"
 
 #, php-format
 msgid "option"
@@ -2299,64 +2312,64 @@ msgstr "Vaihtoehdot"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "tilaus"
 
 msgid "order:phone"
-msgstr ""
+msgstr "tilaus:puhelin"
 
 msgid "order:web"
-msgstr ""
+msgstr "tilaus:web"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "pay:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "pay:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "palkka:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "palkka:2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "palkka:3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "palkka:4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "maksaa:5"
 
 msgid "pay:6"
-msgstr ""
+msgstr "palkka:6"
 
 msgid "pay:7"
-msgstr ""
+msgstr "palkka:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "paymentstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "maksutapa"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "fyysinen"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "lisäosa"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "hinta"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "tuote"
 
 #, php-format
 msgid "property"
@@ -2364,32 +2377,32 @@ msgstr "Ominaisuudet"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "quick/countcompleted"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "quick/counttotal"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "quick/countunfinished"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "syy:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "syy:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "syy:1"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "vastaava"
 
 #, php-format
 msgid "review"
@@ -2397,22 +2410,22 @@ msgstr "Arvioinnit"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "sääntö"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "myynti"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "myyntiviikonpäivä"
 
 msgid "selected"
-msgstr ""
+msgstr "valitut"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "valinta"
 
 #, php-format
 msgid "service"
@@ -2420,69 +2433,69 @@ msgstr "Palvelut"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "servicedelivery"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "palvelumaksut"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "asetukset"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "setup"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "erityinen"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "stat:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "stat:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "stat:1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "stat:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "stat:3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "stat:4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "stat:5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "stat:6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "stat:7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "status:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "status:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "status:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "status:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "status:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "varasto"
 
 #, php-format
 msgid "subscription"
@@ -2493,29 +2506,29 @@ msgid "supplier"
 msgstr "Toimittajat"
 
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 msgid "tax:0"
-msgstr ""
+msgstr "vero:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "vero:1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "teksti"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "teema"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "transaktio"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "tyyppi"
 
 #, php-format
 msgid "type/attribute"
@@ -2523,67 +2536,67 @@ msgstr "Ominaisuudet"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "tyyppi/ominaisuus/luettelot"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "tyyppi/ominaisuus/ominaisuus"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "tyyppi/luettelo/luettelot"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/customer/lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "tyyppi/asiakas/kiinteistö"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "tyyppi/media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/listat"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/property"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "tyyppi/plugin"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "tyyppi/hinta"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "tyyppi/hinta/luettelot"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "tyyppi/hinta/ominaisuus"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "tyyppi/tuote"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "tyyppi/tuote/luettelot"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "tyyppi/tuote/ominaisuus"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "tyyppi/sääntö"
 
 #, php-format
 msgid "type/service"
@@ -2591,27 +2604,27 @@ msgstr "Palvelut"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "tyyppi/palvelu/luettelot"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "tyyppi/kanta"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "tyyppi/tag"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "tyyppi/teksti"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "tyyppi/teksti/luettelot"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "käyttäjät"
 
 msgid "yes"
-msgstr ""
+msgstr "kyllä"

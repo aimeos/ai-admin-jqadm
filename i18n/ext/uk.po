@@ -39,9 +39,6 @@ msgstr "після"
 msgid ">="
 msgstr "після (вкл.)"
 
-msgid "Search"
-msgstr "Пошук"
-
 msgid "~="
 msgstr "містить"
 

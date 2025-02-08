@@ -6,6 +6,7 @@
 # Csaba Balazs <support@webstergeek.eu>, 2022
 # Csernus Zoltan <d3v3lop3r1@gmail.com>, 2022
 # Dávid Komjáti, 2022
+# Dávid Komjáti, 2022
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
 # nzed <nemesreviz@gmail.com>, 2020-2022
 # Nóra Antal <nora1984antal@gmail.com>, 2016
@@ -13,11 +14,12 @@
 # Péter Kozma <kopegrafika@gmail.com>, 2016
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
 # Zoltán Csordás, 2023
+# Zoltán Csordás, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -33,24 +35,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -113,7 +97,7 @@ msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API-kulcs"
 
 msgid "Account"
 msgstr "Felhasználói fiók"
@@ -266,10 +250,10 @@ msgid "Birthday of the customer"
 msgstr "Vásárló születésnapja"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Boost faktor"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Boost faktor (opcionális)"
 
 msgid "Bug or suggestion?"
 msgstr "Hiba vagy javaslat?"
@@ -390,7 +374,7 @@ msgid ""
 msgstr "Beállítási lehetőségek, a felsorolás elemeiben kulcs-érték párokként lesznek elérhetők"
 
 msgid "Context"
-msgstr ""
+msgstr "Kontextus"
 
 msgid "Copy"
 msgstr "Másolás"
@@ -512,7 +496,7 @@ msgid "Delete"
 msgstr "Törlés"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Bejegyzések törlése?"
 
 msgid "Delete selected entries"
 msgstr "Kijelölt elemek törlése"
@@ -557,7 +541,7 @@ msgid ""
 msgstr "A kiválasztott adatállománytól függően a terméknél megjelenített mezők listája eltérő lesz"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Írja le az arculatát"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Szöveges tartalom leírása, ha az idegen nyelven van"
@@ -585,6 +569,9 @@ msgstr "Letöltés"
 
 msgid "Download this file"
 msgstr "Állomány letöltése"
+
+msgid "Duplicate entry"
+msgstr "Duplikált bejegyzés"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "Bejegyzés kettőzése (Ctrl+D)"
@@ -617,7 +604,7 @@ msgid "Edit"
 msgstr "Szerkesztés"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Kijelölt bejegyzések szerkesztése"
 
 msgid "Edit this entry"
 msgstr "Bejegyzés szerkesztése"
@@ -635,21 +622,30 @@ msgid "End date (optional)"
 msgstr "Záró dátum (nem kötelező)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Adja meg a csoport azonosítóját, kódját vagy címkéjét"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "A bejegyzés sikeresen törölve"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "A bejegyzés sikeresen mentve"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "A bejegyzésspecifikus konfigurációs beállítások kulcs/érték párokként lesznek elérhetőek a sablonokban."
 
 msgid "Error"
 msgstr "Hiba"
+
+msgid "Error deleting data"
+msgstr "Hiba az adatok törlésében"
+
+msgid "Error retrieving data"
+msgstr "Hiba az adatok lekérdezésében"
+
+msgid "Error saving data"
+msgstr "Hiba az adatok mentése"
 
 msgid "Excl. tax"
 msgstr "Adó nélkül"
@@ -675,7 +671,7 @@ msgstr "Fax száma (nem kötelező)"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "A terméknek a felhasználói keresésben a többi termékkel szemben történő növelésére szolgáló tényező (>1.0 pozitív növelés, <1.0 negatív növelés)"
 
 msgid "Failed to write file to disk"
 msgstr "Fájlok lemezre írása sikertelen"
@@ -685,13 +681,13 @@ msgstr "Fájl"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "A fájl nem létezik: \"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "Kiterjesztés miatt a feltöltés leállítva"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Fájl sikeresen feltöltve"
 
 msgid "Find category"
 msgstr "Termékkör keresése"
@@ -720,14 +716,17 @@ msgstr "Emelet / Lakás"
 msgid "Floor and/or apartment (optional)"
 msgstr "Emelet és/vagy lakás (nem kötelező) "
 
+msgid "For"
+msgstr "A  oldalon."
+
 msgid "Generate"
-msgstr ""
+msgstr "Generálja"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Kép generálása"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Szöveg generálása"
 
 msgid "Given rebate amount"
 msgstr "Adott összegű kedvezmény"
@@ -787,7 +786,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "A beszállító megszólítása emailekben"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hiperreális és drámai"
 
 msgid "ID"
 msgstr "Azonosító"
@@ -805,7 +804,7 @@ msgid "Image"
 msgstr "Kép"
 
 msgid "Image description"
-msgstr ""
+msgstr "Kép leírása"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -888,8 +887,11 @@ msgstr "Számla"
 msgid "Invoice No."
 msgstr "Számlaszám"
 
+msgid "Invoice no."
+msgstr "Számla száma."
+
 msgid "Invoice number"
-msgstr ""
+msgstr "Számla száma"
 
 msgid "Invoice number for the order"
 msgstr "A rendelés számlaszáma"
@@ -959,7 +961,7 @@ msgid "List type"
 msgstr "Lista típusa"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Bejegyzések betöltése ..."
 
 msgid "Locale"
 msgstr "Helyi beállítás"
@@ -1007,16 +1009,16 @@ msgid "Minimum quantity"
 msgstr "Minimális mennyiség"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobilszám"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Mobilszám (nem kötelező)"
 
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 msgid "Modifed"
 msgstr "Módosítva"
@@ -1040,7 +1042,7 @@ msgid "Name in URL (optional)"
 msgstr "Url cím (opcionális)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "A kosár neve"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1053,7 +1055,7 @@ msgid "Name of your shop shown to your customers"
 msgstr "Vásárlóknak megjelenő üzletnév"
 
 msgid "Natural"
-msgstr ""
+msgstr "Természetes"
 
 msgid "New"
 msgstr "Új"
@@ -1083,7 +1085,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "Nincs elérhető pénznem. Kérjük, engedélyezzen legalább egy pénznemet"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Nem találtunk bejegyzést"
 
 msgid "No file was uploaded"
 msgstr "Nem történt fájl feltöltés"
@@ -1111,7 +1113,7 @@ msgid "None"
 msgstr "Egyik sem"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Nem minden bejegyzés törölhető"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1140,8 +1142,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Egy szolgáltató és nulla vagy több dekorációs osztály neve vesszővel elválasztva"
 
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "Csak .webp, .jpg, .png és .gif ikonok engedélyezettek."
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "Logóként csak .webp, .jpg, .png, .gif és .svg engedélyezettek."
+
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Csak a szuper felhasználók és a rendszergazdák törölhetnek bejegyzéseket"
 
 msgid "Open"
 msgstr "Megnyit"
@@ -1253,7 +1261,7 @@ msgstr "Személyes adatok"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Kérjük, illessze be ide a generálandó szöveg leírását."
 
 msgid "Please select"
 msgstr "Válasszon"
@@ -1488,10 +1496,10 @@ msgid "Related order ID (optional)"
 msgstr "Kapcsolódó rendelés azonosító (opcionális)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Az ügyfél kapcsolódó megrendelése"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Háttér eltávolítása"
 
 msgid "Renew"
 msgstr "Megújít"
@@ -1524,7 +1532,7 @@ msgid "Review"
 msgstr "állapot:felülvizsgálat alatt"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Felülvizsgált bejegyzés"
 
 msgid "Reviewer name"
 msgstr "Véleményező neve"
@@ -1590,6 +1598,9 @@ msgstr "Mentés és másolás"
 msgid "Save & New"
 msgstr "Mentés és új"
 
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Bejegyzés mentése (Ctrl+Enter)"
+
 msgid "Save entry (Ctrl+S)"
 msgstr "Bejegyzés mentése (Ctrl+S)"
 
@@ -1597,10 +1608,10 @@ msgid "Search"
 msgstr "Keresés"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Második szintű típus a bejegyzések csoportosításához"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Válassza ki az összes bejegyzést"
 
 msgid "Select file"
 msgstr "Kiválasztott állomány"
@@ -1704,7 +1715,7 @@ msgid "Show/hide advanced data"
 msgstr "Speciális adatok megjelenítése/elrejtése"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Részletek megjelenítése/elrejtése"
 
 msgid "Show/hide navigation labels"
 msgstr "Navigációs címkék megjelenítése/elrejtése"
@@ -1774,7 +1785,7 @@ msgid "Street name (optional)"
 msgstr "Utca neve (opcionális)"
 
 msgid "Style"
-msgstr ""
+msgstr "Stílus"
 
 msgid "Sub-total"
 msgstr "Részösszeg"
@@ -1800,7 +1811,7 @@ msgid "Supplier name or company"
 msgstr "Támogató cég neve"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Szállítói pozíció (kötelező)"
 
 msgid "Suppliers who manufacture the product"
 msgstr "Szállítók, akik a terméket gyártják"
@@ -1852,10 +1863,10 @@ msgid ""
 msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "A bejegyzés csak a megadott dátum és időpont után jelenik meg a weboldalon."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "A bejegyzés csak addig a dátumig és időpontig jelenik meg a weboldalon."
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "A média címe a webhelyen található média címcímkéje"
@@ -1912,7 +1923,7 @@ msgid "Toggle dropdown"
 msgstr "Váltás a legördülő menüre"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Toogle kiválasztás"
 
 msgid "Top countries"
 msgstr "Top országok"
@@ -1933,7 +1944,7 @@ msgid "Translate text"
 msgstr "Fordítási szöveg"
 
 msgid "Translations"
-msgstr ""
+msgstr "Fordítások"
 
 msgid "Two letter ISO country code"
 msgstr "Kétbetűs ISO országkód"
@@ -1946,6 +1957,9 @@ msgstr "Típus"
 
 msgid "Type position (optional)"
 msgstr "Típus pozíciója (opcionális)"
+
+msgid "Types"
+msgstr "Típusok"
 
 msgid "Types for additional images like icons"
 msgstr "További képek típusai, például ikonok"
@@ -1974,7 +1988,7 @@ msgstr "Nem lehet, meghívni a \"%1$s\" eljárást"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Nem sikerült beolvasni a tartalmat a \"%1$s\"-ból."
 
 msgid "Unfinished orders"
 msgstr "Befejezetlen rendelések"
@@ -2034,13 +2048,13 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "Egyedi típusú kód, pl. \"szín\" olyan attribútumokhoz, mint a \"zöld\", \"kék\", \"piros\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "Egységár"
 
 msgid "Unknown upload error"
 msgstr "Ismeretlen feltöltési hiba"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV feltöltése"
 
 msgid "Upload shop icon"
 msgstr "Üzleti ikon feltöltése"
@@ -2052,7 +2066,7 @@ msgid "Uploaded"
 msgstr "Feltöltött"
 
 msgid "Use"
-msgstr ""
+msgstr "Használja a  címet."
 
 msgid "User groups"
 msgstr "Felhasználói csoportok"
@@ -2076,7 +2090,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Változatos termékattribútumok, amelyeket a megrendelt termékekkel együtt tárolnak"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Forgalmazó"
 
 msgid "Verified"
 msgstr "Hitelesített"
@@ -2117,7 +2131,7 @@ msgstr "Évek"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Egy vagy több bejegyzést törölni fog. Szeretné folytatni?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Néhány percen belül letölthető lesz a kért állomány"
@@ -2132,7 +2146,7 @@ msgid "Zip code (optional)"
 msgstr "Irányítószám (opcionális)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__hidden__"
 
 #, php-format
 msgid "account"
@@ -2150,7 +2164,7 @@ msgstr "Számlázási cím"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2158,7 +2172,7 @@ msgstr "Jellemzők"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "kosár"
 
 #, php-format
 msgid "bundle"

@@ -39,9 +39,6 @@ msgstr "dupa"
 msgid ">="
 msgstr "dupa (inclusiv)"
 
-msgid "Search"
-msgstr "Cauta"
-
 msgid "~="
 msgstr "contine"
 

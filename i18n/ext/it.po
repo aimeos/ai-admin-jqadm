@@ -39,9 +39,6 @@ msgstr "dopo"
 msgid ">="
 msgstr "dopo (incl.)"
 
-msgid "Search"
-msgstr "Cerca"
-
 msgid "~="
 msgstr "contiene"
 

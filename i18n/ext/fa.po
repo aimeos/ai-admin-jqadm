@@ -40,9 +40,6 @@ msgstr "بعد از"
 msgid ">="
 msgstr "پس از (شامل)"
 
-msgid "Search"
-msgstr "جستجو"
-
 msgid "~="
 msgstr "شامل"
 

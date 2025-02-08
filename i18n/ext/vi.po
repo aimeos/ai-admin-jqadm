@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Hoang Bac Nam, 2022
+# Hoang Bac Nam, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -38,9 +39,6 @@ msgstr "sau"
 
 msgid ">="
 msgstr ""
-
-msgid "Search"
-msgstr "Tìm kiếm"
 
 msgid "~="
 msgstr "chứa"

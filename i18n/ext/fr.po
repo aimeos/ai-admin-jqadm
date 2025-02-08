@@ -38,9 +38,6 @@ msgstr "après"
 msgid ">="
 msgstr "après (inclus)"
 
-msgid "Search"
-msgstr "Recherche"
-
 msgid "~="
 msgstr "contient"
 

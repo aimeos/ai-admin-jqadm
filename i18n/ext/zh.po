@@ -39,9 +39,6 @@ msgstr "大於"
 msgid ">="
 msgstr "大於(等於)"
 
-msgid "Search"
-msgstr "搜尋"
-
 msgid "~="
 msgstr "包含"
 

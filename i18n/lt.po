@@ -1,0 +1,2629 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: aimeos-core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lithuanian (http://app.transifex.com/aimeos/aimeos-core/language/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+msgid " "
+msgstr " "
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#, php-format
+msgid "%1$s (Ctrl+Alt+%2$s)"
+msgstr "%1$s (Ctrl+Alt+%2$s)"
+
+#, php-format
+msgid "%s/%s/%s.%s"
+msgstr "%s/%s/%s.%s"
+
+msgid ""
+"(International) facsimilie number without separation characters, can start "
+"with a \"+\""
+msgstr "(tarptautinis) faksimilinis numeris be skiriamųjų ženklų, gali prasidėti ženklu \"+\"."
+
+msgid ""
+"(International) telephone number without separation characters, can start "
+"with a \"+\""
+msgstr "(tarptautinis) telefono numeris be skiriamųjų ženklų, gali prasidėti ženklu \"+\""
+
+msgid "+ Tax"
+msgstr "+ mokesčiai"
+
+msgid "<hidden>"
+msgstr "<paslėpta>"
+
+msgid "?"
+msgstr "?"
+
+msgid "API key"
+msgstr "API raktas"
+
+msgid "Account"
+msgstr "Sąskaita"
+
+msgid "Active"
+msgstr "Aktyvus"
+
+msgid "Actual price"
+msgstr "Faktinė kaina"
+
+msgid "Actual price customers can buy the article for on the web site"
+msgstr "Faktinė kaina, už kurią klientai gali įsigyti straipsnį svetainėje"
+
+msgid "Add"
+msgstr "Pridėti"
+
+msgid ""
+"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
+" $100 for five items it total"
+msgstr "Papildomos pristatymo išlaidos už kiekvieną prekę, pvz., 20 USD už vieną sunkų daiktą bus 100 USD už penkias prekes."
+
+msgid "Additional information where the customer's apartment can be found"
+msgstr "Papildoma informacija, kur galima rasti kliento butą"
+
+msgid "Additional information where the supplier's apartment can be found"
+msgstr "Papildoma informacija, kur galima rasti tiekėjo butą"
+
+msgid "Address 1"
+msgstr "Adresas 1"
+
+msgid "Address 2"
+msgstr "Adresas 2"
+
+msgid "Address 3"
+msgstr "Adresas 3"
+
+msgid "Address identifier of the customer's house for delivery"
+msgstr "Kliento namo adreso identifikatorius, kuriuo pristatomas krovinys"
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr "Tiekėjo pristatymo namų adreso identifikatorius"
+
+#, php-format
+msgid "Admin JQAdm type is empty"
+msgstr "Administratorius JQAdm tipas yra tuščias"
+
+msgid "Advanced"
+msgstr "Išplėstinė"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr "\"Aimeos\" spartinančioji atmintinė išjungta \"%1$s\""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr "\"Aimeos\" derinimo žurnalas įjungtas pagal \"%1$s\""
+
+#, php-format
+msgid "Aimeos object not available"
+msgstr "Aimeos objekto nėra"
+
+msgid "All"
+msgstr "Visi"
+
+msgid ""
+"All attributes that uniquely define an article, e.g. width, length and color"
+" for jeans"
+msgstr "Visi atributai, kurie unikaliai apibūdina gaminį, pvz., džinsų plotis, ilgis ir spalva."
+
+msgid "Allow custom price"
+msgstr "Leisti nustatyti pasirinktinę kainą"
+
+msgid "Allow customers to choose themselves how much they want to pay"
+msgstr "Leiskite klientams patiems pasirinkti, kiek jie nori mokėti."
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr "raidinė-skaitmeninė eilutė, pagal kurią galima vienareikšmiškai identifikuoti grupę"
+
+msgid "Apply"
+msgstr "Taikyti"
+
+msgid ""
+"Article specific configuration options, will be available as key/value pairs"
+" in the templates"
+msgstr "straipsniui būdingos konfigūracijos parinktys, kurios šablonuose bus pateikiamos kaip rakto ir vertės poros."
+
+msgid "Attribute"
+msgstr "Atributas"
+
+msgid "Attribute Lists Type"
+msgstr "Atributų sąrašai Tipas"
+
+msgid "Attribute Lists Types"
+msgstr "Atributų sąrašų tipai"
+
+msgid "Attribute Property Type"
+msgstr "Atributas Nuosavybė Tipas"
+
+msgid "Attribute Property Types"
+msgstr "Atributų savybių tipai"
+
+msgid "Attribute Type"
+msgstr "Atributo tipas"
+
+msgid "Attribute Types"
+msgstr "Atributų tipai"
+
+msgid "Attribute position (optional)"
+msgstr "Atributo padėtis (neprivaloma)"
+
+msgid "Attribute properties that are not shared with other attributes"
+msgstr "Atributo savybės, kuriomis nesidalijama su kitais atributais"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr "Atributo tipas, kuris apriboja galimų atributų sąrašą"
+
+msgid "Attributes"
+msgstr "Atributai"
+
+msgid "Available currency for the current site"
+msgstr "Turima dabartinės svetainės valiuta"
+
+msgid "Available intervals in the front-end"
+msgstr "Galimi intervalai priekinėje dalyje"
+
+msgid "Available language for the current site"
+msgstr "Dabartinės svetainės turima kalba"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr "Vidutinis produkto įvertinimas ir bendras šio produkto klientų įvertinimų skaičius"
+
+msgid "Back in stock"
+msgstr "Grįžo į sandėlį"
+
+msgid "Basic"
+msgstr "Pagrindinis"
+
+msgid "Basket"
+msgstr "Krepšelis"
+
+msgid "Billing address"
+msgstr "Atsiskaitymo adresas"
+
+msgid "Birthday"
+msgstr "Gimtadienis"
+
+msgid "Birthday of the customer"
+msgstr "Kliento gimtadienis"
+
+msgid "Boost factor"
+msgstr "Didinimo veiksnys"
+
+msgid "Boost factor (optional)"
+msgstr "Didinimo koeficientas (neprivaloma)"
+
+msgid "Bug or suggestion?"
+msgstr "Klaida ar pasiūlymas?"
+
+msgid "Bulk edit"
+msgstr "Masinis redagavimas"
+
+msgid "Cancel"
+msgstr "Atšaukti"
+
+msgid "Cancel and return to list"
+msgstr "Atšaukti ir grįžti į sąrašą"
+
+msgid "Catalog"
+msgstr "Katalogas"
+
+msgid "Catalog Lists Type"
+msgstr "Katalogo sąrašai Tipas"
+
+msgid "Catalog Lists Types"
+msgstr "Katalogo sąrašų tipai"
+
+msgid "Categories"
+msgstr "Kategorijos"
+
+msgid "Categories the product can be found in by the user on the web site"
+msgstr "Kategorijos, kuriose naudotojas gali rasti gaminį interneto svetainėje"
+
+msgid "Categories the product will be shown for in the promotional section"
+msgstr "Kategorijos, kuriose produktas bus rodomas reklaminiame skyriuje"
+
+msgid ""
+"Category specific configuration options, will be available as key/value "
+"pairs in the templates"
+msgstr "kategorijai būdingos konfigūracijos parinktys, kurios šablonuose bus pateikiamos kaip rakto ir vertės poros"
+
+msgid "Change costs/item in %"
+msgstr "Išlaidų pokytis, proc."
+
+msgid "Change rebate in %"
+msgstr "Pakeisti nuolaidą %"
+
+msgid "Change value in %"
+msgstr "Pokyčio vertė %"
+
+msgid "Channel"
+msgstr "Kanalas"
+
+msgid "Channel the order has been placed"
+msgstr "Kanalas užsakymas buvo pateiktas"
+
+msgid "Choose file"
+msgstr "Pasirinkite failą"
+
+msgid "City"
+msgstr "Miestas"
+
+msgid "City or town name (required)"
+msgstr "Miesto arba miestelio pavadinimas (būtina)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Klasė \"%1$s\" nerealizuoja \"%2$s\""
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr "Klasė \"%1$s\" nepasiekiama"
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr "Klasė \"%1$s\" nerasta"
+
+msgid "Close"
+msgstr "Uždaryti"
+
+msgid "Code"
+msgstr "Kodas"
+
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr "Kodas, skirtas unikaliai identifikuoti svetainę, pervadinimas yra pavojingas!"
+
+msgid "Columns"
+msgstr "Stulpeliai"
+
+msgid "Comment"
+msgstr "Komentaras"
+
+msgid "Comment of the reviewer"
+msgstr "Recenzento komentaras"
+
+msgid "Communication"
+msgstr "Bendravimas"
+
+msgid "Company"
+msgstr "Įmonė"
+
+msgid "Company details"
+msgstr "Įmonės duomenys"
+
+msgid "Company name (optional)"
+msgstr "Įmonės pavadinimas (neprivaloma)"
+
+msgid "Completed orders"
+msgstr "Įvykdyti užsakymai"
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr "Per pastarąsias septynias dienas įvykdyti užsakymai, palyginti su ankstesniu laikotarpiu"
+
+msgid "Config"
+msgstr "Konfigūracija"
+
+msgid "Configurable"
+msgstr "Konfigūruojamas"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
+msgstr "Konfigūracijos parinktys bus prieinamos kaip rakto ir vertės poros sąrašo elemente"
+
+msgid "Context"
+msgstr "Kontekstas"
+
+msgid "Copy"
+msgstr "Kopijuoti"
+
+msgid "Copy this entry"
+msgstr "Kopijuoti šį įrašą"
+
+msgid "Costs"
+msgstr "Išlaidos"
+
+msgid "Count"
+msgstr "Skaičiuokite"
+
+msgid "Country"
+msgstr "Šalis"
+
+msgid "Country ID"
+msgstr "Šalies ID"
+
+msgid "Country code (required)"
+msgstr "Šalies kodas (privalomas)"
+
+msgid ""
+"Country specific tax rate to calculate and display the included tax (B2C) or"
+" add the tax if required (B2B)"
+msgstr "konkrečios šalies mokesčių tarifas, kad būtų galima apskaičiuoti ir rodyti įtrauktą mokestį (B2C) arba pridėti mokestį, jei reikia (B2B)"
+
+msgid "Country state code (optional)"
+msgstr "Šalies valstybės kodas (neprivaloma)"
+
+msgid "Coupon"
+msgstr "Kuponas"
+
+msgid "Coupon provider or coupon decorator configuration name"
+msgstr "Kupono teikėjo arba kupono dekoratoriaus konfigūracijos pavadinimas"
+
+msgid "Created"
+msgstr "Sukurta"
+
+msgid "Currencies"
+msgstr "Valiutos"
+
+msgid "Currency"
+msgstr "Valiuta"
+
+msgid "Custom"
+msgstr "Pasirinktinis"
+
+msgid "Custom domain or unique code of your shop"
+msgstr "Pasirinktinis domenas arba unikalus jūsų parduotuvės kodas"
+
+msgid "Customer"
+msgstr "Klientas"
+
+msgid "Customer ID"
+msgstr "Kliento ID"
+
+msgid "Customer Lists Type"
+msgstr "Klientų sąrašų tipas"
+
+msgid "Customer Lists Types"
+msgstr "Klientų sąrašų tipai"
+
+msgid "Customer Property Type"
+msgstr "Kliento nuosavybės tipas"
+
+msgid "Customer Property Types"
+msgstr "Klientų turto tipai"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr "Klientų savybės, kurios nėra bendros su kitais klientais"
+
+msgid "Customer comment (optional)"
+msgstr "Kliento komentaras (neprivalomas)"
+
+msgid "Customer e-mail address"
+msgstr "Kliento el. pašto adresas"
+
+msgid "Customer password"
+msgstr "Kliento slaptažodis"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr "Klientų savybės, kuriomis nesidalijama su kitais klientais"
+
+msgid "Customer reference"
+msgstr "Kliento nuoroda"
+
+msgid "Customer reference (optional)"
+msgstr "Kliento nuoroda (neprivaloma)"
+
+msgid "Dashboard"
+msgstr "Prietaisų skydelis"
+
+msgid "Data"
+msgstr "Duomenys"
+
+msgid "Data set"
+msgstr "Duomenų rinkinys"
+
+msgid "Dataset"
+msgstr "Duomenų rinkinys"
+
+msgid "Date of the last delivery status change"
+msgstr "Paskutinio pristatymo būsenos pakeitimo data"
+
+msgid "Date of the last payment status change"
+msgstr "Paskutinio mokėjimo būsenos pakeitimo data"
+
+msgid "Date the subscription ends"
+msgstr "Prenumeratos pabaigos data"
+
+msgid "Days"
+msgstr "Dienos"
+
+msgid "Default"
+msgstr "Numatytoji"
+
+msgid "Delete"
+msgstr "Ištrinti"
+
+msgid "Delete entries?"
+msgstr "Ištrinti įrašus?"
+
+msgid "Delete selected entries"
+msgstr "Ištrinti pasirinktus įrašus"
+
+msgid "Delete this entry"
+msgstr "Ištrinti šį įrašą"
+
+msgid "Deleting reviews is not allowed"
+msgstr "Neleidžiama trinti atsiliepimų"
+
+msgid "Delivery"
+msgstr "Pristatymas"
+
+msgid "Delivery address"
+msgstr "Pristatymo adresas"
+
+msgid "Delivery date"
+msgstr "Pristatymo data"
+
+msgid "Delivery in"
+msgstr "Pristatymas"
+
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr "Kliento krepšelyje esančių produktų pristatymo arba mokėjimo išlaidos."
+
+msgid "Delivery status"
+msgstr "Pristatymo būsena"
+
+msgid "Delivery timeframe (optional)"
+msgstr "Pristatymo terminas (neprivaloma)"
+
+msgid "Delivery types"
+msgstr "Pristatymo tipai"
+
+msgid "Delivery within"
+msgstr "Pristatymas per"
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
+msgstr "Priklausomai nuo pasirinkto duomenų rinkinio, rodomų produkto laukų sąrašas bus kitoks."
+
+msgid "Describe your image"
+msgstr "Apibūdinkite savo įvaizdį"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr "Teksto turinio aprašymas, jei tekstas yra užsienio kalba."
+
+msgid "Descritive name of the currency"
+msgstr "Valiutos aprašomasis pavadinimas"
+
+msgid "Descritive name of the language"
+msgstr "Apibūdinamasis kalbos pavadinimas"
+
+msgid "Descritive name of the site"
+msgstr "Apibūdinamasis svetainės pavadinimas"
+
+msgid "Discount"
+msgstr "Nuolaida"
+
+msgid "Display help texts"
+msgstr "Rodyti pagalbos tekstus"
+
+msgid "Domain"
+msgstr "Domenas"
+
+msgid "Download"
+msgstr "Atsisiųsti"
+
+msgid "Download this file"
+msgstr "Atsisiųsti šį failą"
+
+msgid "Duplicate entry"
+msgstr "Dubliuojantis įrašas"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "Dubliuoti įrašą (Ctrl+D)"
+
+msgid "E-Mail"
+msgstr "El. paštas"
+
+msgid "E-Mail address (required)"
+msgstr "El. pašto adresas (būtina)"
+
+msgid "E-Mail address or account name (required)"
+msgstr "El. pašto adresas arba paskyros pavadinimas (būtina)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr "El. pašto adresas, naudojamas su parduotuve susijusiems el. laiškams siųsti"
+
+msgid "E-mail"
+msgstr "El. paštas"
+
+msgid "E-mail address (optional)"
+msgstr "El. pašto adresas (neprivaloma)"
+
+msgid "E-mail address that belongs to the address"
+msgstr "Elektroninio pašto adresas, priklausantis adresui"
+
+msgid "EAN, SKU or article number (required)"
+msgstr "EAN, SKU arba gaminio numeris (būtina)"
+
+msgid "Edit"
+msgstr "Redaguoti"
+
+msgid "Edit selected entries"
+msgstr "Redaguoti pasirinktus įrašus"
+
+msgid "Edit this entry"
+msgstr "Redaguoti šį įrašą"
+
+msgid "Editor"
+msgstr "Redaktorius"
+
+msgid "Email"
+msgstr "El. paštas"
+
+msgid "End date"
+msgstr "Galutinė data"
+
+msgid "End date (optional)"
+msgstr "Galutinė data (neprivaloma)"
+
+msgid "Enter group ID, code or label"
+msgstr "Įveskite grupės ID, kodą arba etiketę"
+
+msgid "Entry deleted successfully"
+msgstr "Įrašas sėkmingai ištrintas"
+
+msgid "Entry saved successfully"
+msgstr "Įrašas sėkmingai išsaugotas"
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr "Įrašui būdingos konfigūracijos parinktys, kurios šablonuose bus pateikiamos kaip rakto ir vertės poros."
+
+msgid "Error"
+msgstr "Klaida"
+
+msgid "Error deleting data"
+msgstr "Klaida trinant duomenis"
+
+msgid "Error retrieving data"
+msgstr "Klaidingas duomenų gavimas"
+
+msgid "Error saving data"
+msgstr "Klaida išsaugant duomenis"
+
+msgid "Excl. tax"
+msgstr "Be mokesčių"
+
+msgid "Execution order of the plugins"
+msgstr "Įskiepių vykdymo tvarka"
+
+msgid "Execution order of the rules"
+msgstr "Taisyklių vykdymo tvarka"
+
+msgid "Export"
+msgstr "Eksportuoti"
+
+msgid "Facility"
+msgstr "Priemonė"
+
+msgid "Facsimile"
+msgstr "Faksimilinis ryšys"
+
+msgid "Facsimile number (optional)"
+msgstr "Faksimilinio ryšio numeris (neprivaloma)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr "Veiksnys, kuriuo produktas naudotojo paieškoje iškeliamas aukščiau už kitus produktus (>1,0 teigiamas iškeliamas, <1,0 neigiamas iškeliamas)"
+
+msgid "Failed to write file to disk"
+msgstr "Nepavyko įrašyti failo į diską"
+
+msgid "File"
+msgstr "Failas"
+
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr "Failas neegzistuoja: \"%1$s\""
+
+msgid "File upload stopped by extension"
+msgstr "Failų įkėlimas sustabdytas pagal plėtinį"
+
+msgid "File uploaded successfully"
+msgstr "Failas įkeltas sėkmingai"
+
+msgid "Find category"
+msgstr "Rasti kategoriją"
+
+msgid "Find site"
+msgstr "Rasti svetainę"
+
+msgid "First"
+msgstr "Pirmasis"
+
+msgid "First name"
+msgstr "Vardas ir pavardė"
+
+msgid "First name (optional)"
+msgstr "Vardas ir pavardė (neprivaloma)"
+
+msgid "First name of the person if used in cultures where they are used"
+msgstr "Asmens vardas, jei jis vartojamas kultūrose, kuriose jis vartojamas"
+
+msgid "Floor"
+msgstr "Grindys"
+
+msgid "Floor / Appartment"
+msgstr "Grindys / butas"
+
+msgid "Floor and/or apartment (optional)"
+msgstr "Grindys ir (arba) butas (neprivaloma)"
+
+msgid "For"
+msgstr "Tinklalapiui"
+
+msgid "Generate"
+msgstr "Sukurti"
+
+msgid "Generate image"
+msgstr "Generuoti vaizdą"
+
+msgid "Generate text"
+msgstr "Generuoti tekstą"
+
+msgid "Given rebate amount"
+msgstr "Nurodyta nuolaidos suma"
+
+msgid "Go to attribute panel"
+msgstr "Eikite į atributų skydelį"
+
+msgid "Go to property type panel"
+msgstr "Eikite į nuosavybės tipo skydelį"
+
+msgid "Go to the list of attribute types"
+msgstr "Eikite į atributų tipų sąrašą"
+
+msgid "Granted rebate"
+msgstr "Suteikta nuolaida"
+
+msgid "Group"
+msgstr "Grupė"
+
+msgid "Group name describing for which members the group is for"
+msgstr "Grupės pavadinimas, apibūdinantis, kuriems nariams skirta grupė"
+
+msgid "Groups"
+msgstr "Grupės"
+
+msgid "Height"
+msgstr "Aukštis"
+
+msgid "Hidden attributes"
+msgstr "Paslėpti atributai"
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr "Paslėpti produktų atributai, saugomi kartu su užsakytais produktais."
+
+msgid "Highlighted suppliers of the product"
+msgstr "Išskirti produkto tiekėjai"
+
+msgid "Honorary title (optional)"
+msgstr "Garbės vardas (neprivaloma)"
+
+msgid "Honorary titles like Dr., Ph.D, etc."
+msgstr "Garbės titulai, tokie kaip Dr., Ph.D. ir kt."
+
+msgid "Hours"
+msgstr "Valandos"
+
+msgid "House number"
+msgstr "Namo numeris"
+
+msgid "House number (optional)"
+msgstr "Namo numeris (neprivaloma)"
+
+msgid "How the customer is addressed in e-mails"
+msgstr "Kaip el. laiškuose kreipiamasi į klientą"
+
+msgid "How the supplier is addressed in e-mails"
+msgstr "Kaip el. laiškuose kreipiamasi į tiekėją"
+
+msgid "Hyper-real and dramatic"
+msgstr "Itin realus ir dramatiškas"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
+msgstr "susijusios sąskaitos faktūros ID, pvz., pakeistos arba grąžintos sąskaitos faktūros."
+
+msgid "ISO currency code (required)"
+msgstr "ISO valiutos kodas (privalomas)"
+
+msgid "ISO language code (required)"
+msgstr "ISO kalbos kodas (privalomas)"
+
+msgid "Image"
+msgstr "Vaizdas"
+
+msgid "Image description"
+msgstr "Vaizdo aprašymas"
+
+msgid ""
+"Images will only be shown for that language, useful if the media contains "
+"text or is language sepecific"
+msgstr "Vaizdai bus rodomi tik ta kalba - tai naudinga, jei medijoje yra teksto arba jei kalba yra atskira."
+
+msgid "Import"
+msgstr "Importas"
+
+msgid "Import/Export jobs"
+msgstr "Importo / eksporto darbo vietos"
+
+msgid "Incl. tax"
+msgstr "Su mokesčiais"
+
+msgid "Info"
+msgstr "Informacija"
+
+msgid "Insert new entry"
+msgstr "Įterpti naują įrašą"
+
+msgid "Insert new entry (Ctrl+I)"
+msgstr "Įterpti naują įrašą (Ctrl+I)"
+
+msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr "Vidinis gaminio pavadinimas, kuris bus naudojamas svetainėje ir paieškoje tik tuo atveju, jei nėra kitų gaminių pavadinimų jokia kalba."
+
+msgid ""
+"Internal article name, will be used on the web site if no product name for "
+"the language is available"
+msgstr "Vidinis straipsnio pavadinimas, kuris bus naudojamas interneto svetainėje, jei nėra produkto pavadinimo ta kalba."
+
+msgid ""
+"Internal attribute name, will be used on the web site if no name for the "
+"language is available"
+msgstr "Vidinis atributo pavadinimas, kuris bus naudojamas svetainėje, jei nėra kalbos pavadinimo."
+
+msgid ""
+"Internal category name, will be used on the web site if no name for the "
+"language is available"
+msgstr "Vidinis kategorijos pavadinimas, kuris bus naudojamas svetainėje, jei nėra kalbos pavadinimo."
+
+msgid "Internal name (required)"
+msgstr "Vidinis pavadinimas (būtina)"
+
+msgid "Internal type name shown in the administration interface"
+msgstr "Administravimo sąsajoje rodomas vidinio tipo pavadinimas"
+
+msgid "Interval"
+msgstr "Intervalas"
+
+msgid "Interval (required)"
+msgstr "Intervalas (būtina)"
+
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr "Netinkami simboliai klasės pavadinime \"%1$s\""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr "Netinkami simboliai kliento pavadinime \"%1$s\""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr "Netinkamas klasės pavadinimas \"%1$s\""
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr "Netinkamas domenas \"%1$s\""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
+msgstr "Netinkama gamykla \"%1$s\""
+
+msgid "Invoice"
+msgstr "Sąskaita faktūra"
+
+msgid "Invoice No."
+msgstr "Sąskaitos faktūros Nr."
+
+msgid "Invoice no."
+msgstr "Sąskaitos faktūros Nr."
+
+msgid "Invoice number"
+msgstr "Sąskaitos faktūros numeris"
+
+msgid "Invoice number for the order"
+msgstr "Užsakymo sąskaitos faktūros numeris"
+
+msgid "Label"
+msgstr "Etiketė"
+
+msgid "Label (required)"
+msgstr "Etiketė (būtina)"
+
+msgid "Label describing the interval, will be used if no name is available"
+msgstr "Intervalą apibūdinanti etiketė, naudojama, jei nėra pavadinimo."
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "Language ID"
+msgstr "Kalbos ID"
+
+msgid "Language of the entered text"
+msgstr "Įvesto teksto kalba"
+
+msgid "Languages"
+msgstr "Kalbos"
+
+msgid "Last"
+msgstr "Paskutinis"
+
+msgid "Last delivery status of the order"
+msgstr "Paskutinė užsakymo pristatymo būsena"
+
+msgid "Last name"
+msgstr "Pavardė"
+
+msgid "Last name (optional)"
+msgstr "Pavardė (neprivaloma)"
+
+msgid "Last name (required)"
+msgstr "Pavardė (būtina)"
+
+msgid ""
+"Last name of the person or full name in cultures where no first names are "
+"used"
+msgstr "Asmens pavardė arba pilnas vardas tose kultūrose, kuriose nenaudojami vardai."
+
+msgid "Last payment status of the order"
+msgstr "Paskutinė užsakymo mokėjimo būsena"
+
+msgid "Latest orders"
+msgstr "Naujausi užsakymai"
+
+msgid "Length"
+msgstr "Ilgis"
+
+msgid ""
+"List of articles that should be sold as one product, often at a reduced "
+"price"
+msgstr "Prekių, kurios turėtų būti parduodamos kaip vienas produktas, dažnai už mažesnę kainą, sąrašas"
+
+msgid "List of products often bought together"
+msgstr "Dažnai kartu perkamų produktų sąrašas"
+
+msgid "List of suggested products"
+msgstr "Siūlomų produktų sąrašas"
+
+msgid "List type"
+msgstr "Sąrašo tipas"
+
+msgid "Loading entries ..."
+msgstr "Įrašų įkėlimas ..."
+
+msgid "Locale"
+msgstr "Vietovė"
+
+msgid "Log"
+msgstr "Žurnalas"
+
+msgid "Manual transfer"
+msgstr "Rankinis perdavimas"
+
+msgid "Map"
+msgstr "Žemėlapis"
+
+msgid "Media Lists Type"
+msgstr "Žiniasklaidos sąrašų tipas"
+
+msgid "Media Lists Types"
+msgstr "Žiniasklaidos sąrašų tipai"
+
+msgid "Media Property Type"
+msgstr "Žiniasklaidos turto tipas"
+
+msgid "Media Property Types"
+msgstr "Medijos savybių tipai"
+
+msgid "Media Type"
+msgstr "Žiniasklaidos tipas"
+
+msgid "Media Types"
+msgstr "Žiniasklaidos tipai"
+
+msgid "Media properties"
+msgstr "Žiniasklaidos savybės"
+
+msgid "Menu"
+msgstr "Meniu"
+
+msgid "Message"
+msgstr "Žinutė"
+
+msgid "Min. quantity"
+msgstr "Minimalus kiekis"
+
+msgid "Minimum quantity"
+msgstr "Minimalus kiekis"
+
+msgid "Mobile"
+msgstr "Mobilusis"
+
+msgid "Mobile number"
+msgstr "Mobiliojo telefono numeris"
+
+msgid "Mobile number (optional)"
+msgstr "Mobiliojo telefono numeris (neprivaloma)"
+
+msgid "Model"
+msgstr "Modelis"
+
+msgid "Modifed"
+msgstr "Pakeista"
+
+msgid "Modified"
+msgstr "Modifikuota"
+
+msgid "Months"
+msgstr "Mėnesiai"
+
+msgid "More"
+msgstr "Daugiau"
+
+msgid "Move this entry up/down"
+msgstr "Perkelti šį įrašą aukštyn/žemyn"
+
+msgid "Name"
+msgstr "Pavadinimas"
+
+msgid "Name in URL (optional)"
+msgstr "Pavadinimas URL (neprivaloma)"
+
+msgid "Name of the basket"
+msgstr "Krepšelio pavadinimas"
+
+msgid ""
+"Name of the downloaded file when customers saves the file on their computers"
+msgstr "Atsisiųsto failo pavadinimas, kai klientai išsaugo failą savo kompiuteriuose"
+
+msgid "Name of the reviewer"
+msgstr "Recenzento vardas ir pavardė"
+
+msgid "Name of your shop shown to your customers"
+msgstr "Parduotuvės pavadinimas, rodomas klientams"
+
+msgid "Natural"
+msgstr "Natūralu"
+
+msgid "New"
+msgstr "Naujas"
+
+msgid "New customers"
+msgstr "Nauji klientai"
+
+msgid "New customers within the last seven days"
+msgstr "Nauji klientai per pastarąsias septynias dienas"
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr "Nauji klientai per pastarąsias septynias dienas, palyginti su ankstesniu laikotarpiu"
+
+msgid "Next"
+msgstr "Kitas"
+
+msgid "Next date"
+msgstr "Kita data"
+
+msgid "Next date (optional)"
+msgstr "Kita data (neprivaloma)"
+
+msgid "Next date the subscription is renewed"
+msgstr "Kita prenumeratos atnaujinimo data"
+
+msgid "No currencies available. Please enable at least one currency"
+msgstr "Valiutų nėra. Įjunkite bent vieną valiutą"
+
+msgid "No entries found"
+msgstr "Įrašų nerasta"
+
+msgid "No file was uploaded"
+msgstr "Nebuvo įkeltas joks failas"
+
+msgid "No product found"
+msgstr "Produktų nerasta"
+
+msgid "No theme options available"
+msgstr "Nėra temos parinkčių"
+
+#, php-format
+msgid "No view available"
+msgstr "Nėra peržiūros"
+
+msgid "No voucher"
+msgstr "Nėra kupono"
+
+msgid "Non-shared properties for the media item"
+msgstr "Nesidalijamos medijos elemento savybės"
+
+msgid "Non-shared properties for the price item"
+msgstr "Kainos elemento nesidalijamos savybės"
+
+msgid "None"
+msgstr "Nėra"
+
+msgid "Not all entries could be deleted"
+msgstr "Galima ištrinti ne visus įrašus"
+
+#, php-format
+msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr "Neleidžiama prisijungti prie JQAdm \"%1$s\" kliento"
+
+msgid "Not implemented"
+msgstr "Neįgyvendinta"
+
+msgid "Notes"
+msgstr "Pastabos"
+
+msgid "Notes (not shown to customer)"
+msgstr "Pastabos (klientui nerodomos)"
+
+msgid ""
+"Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "Šiuo metu sandėlyje esančių prekių skaičius, palikite tuščią, jei norite neriboto kiekio"
+
+msgid "OK"
+msgstr "GERAI"
+
+msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
+msgstr "Oficialus PVM mokėtojo kodas, kad būtų galima nustatyti, ar sąskaitose faktūrose reikia nurodyti mokestį."
+
+msgid ""
+"One provider and zero or more decorator class names separated by commas"
+msgstr "Vienas paslaugų teikėjas ir nulis ar daugiau dekoratorių klasių pavadinimų, atskirtų kableliais"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "Ikonos gali būti tik .webp, .jpg, .png ir .gif."
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "Logotipams leidžiama naudoti tik .webp, .jpg, .png, .gif ir .svg."
+
+msgid "Only super users and administrators can delete entries"
+msgstr "Įrašus gali ištrinti tik vyriausieji naudotojai ir administratoriai."
+
+msgid "Open"
+msgstr "Atviras"
+
+msgid "Open Qty"
+msgstr "Atviras kiekis"
+
+msgid "Option"
+msgstr "Galimybė"
+
+msgid ""
+"Optional product components that can be chosen by the customer together with"
+" the product"
+msgstr "Neprivalomi gaminio komponentai, kuriuos klientas gali pasirinkti kartu su gaminiu"
+
+msgid "Order"
+msgstr "Užsisakykite"
+
+msgid "Order ID"
+msgstr "Užsakymo ID"
+
+msgid "Order number entered by the customer"
+msgstr "Kliento įvestas užsakymo numeris"
+
+msgid "Order of the language/currency combinations"
+msgstr "Kalbos ir valiutos derinių eiliškumas"
+
+msgid "Order of the service options in the checkout process"
+msgstr "Paslaugų parinkčių eiliškumas užsakymo procese"
+
+msgid "Order of the types in the frontend"
+msgstr "Tipų eiliškumas priekinėje dalyje"
+
+msgid "Order totals"
+msgstr "Užsakymų sumos"
+
+msgid "Ordered at"
+msgstr "Užsakyta adresu"
+
+msgid "Orders by country"
+msgstr "Užsakymai pagal šalį"
+
+msgid "Orders by day"
+msgstr "Užsakymai pagal dieną"
+
+msgid "Orders by hour"
+msgstr "Užsakymai pagal valandas"
+
+msgid "Orders by payment status"
+msgstr "Užsakymai pagal mokėjimo būklę"
+
+msgid ""
+"Overwrite the existing file and customers bought it in the past can then "
+"download the new content too"
+msgstr "Perrašykite esamą failą ir anksčiau jį įsigiję klientai galės atsisiųsti ir naują turinį."
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr "PHP nustatymas \"%1$s\" yra išjungtas"
+
+#, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr "Įjungtas PHP nustatymas \"%1$s\""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
+msgstr "PHP nustatymas \"%1$s\" yra per mažas"
+
+#, php-format
+msgid "Page %1$d of %2$d"
+msgstr "Puslapis %1$d iš %2$d"
+
+msgid "Password"
+msgstr "Slaptažodis"
+
+msgid "Password (required)"
+msgstr "Slaptažodis (būtina)"
+
+msgid "Path"
+msgstr "Kelias"
+
+msgid "Pay date"
+msgstr "Mokėjimo data"
+
+msgid "Pay status"
+msgstr "Darbo užmokesčio statusas"
+
+msgid "Payment"
+msgstr "Mokėjimas"
+
+msgid "Payment date"
+msgstr "Mokėjimo data"
+
+msgid "Payment status"
+msgstr "Mokėjimo būsena"
+
+msgid "Payment types"
+msgstr "Mokėjimų tipai"
+
+msgid "Periods"
+msgstr "Laikotarpiai"
+
+#, php-format
+msgid "Permission denied"
+msgstr "Atsisakyta išduoti leidimą"
+
+msgid "Personal data"
+msgstr "Asmens duomenys"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr "Čia įrašykite teksto, kuris turėtų būti sugeneruotas, aprašymą"
+
+msgid "Please select"
+msgstr "Pasirinkite"
+
+msgid "Plugin"
+msgstr "Įskiepis"
+
+msgid "Plugin Type"
+msgstr "Įskiepio tipas"
+
+msgid "Plugin Types"
+msgstr "Įskiepių tipai"
+
+msgid "Plugin label for describing the configured plugin"
+msgstr "Įskiepio etiketė, skirta sukonfigūruotam įskiepiui aprašyti"
+
+msgid "Plugin position (required)"
+msgstr "Įskiepio padėtis (būtina)"
+
+msgid "Plugin provider or plugin decorator configuration name"
+msgstr "Įskiepio teikėjo arba įskiepio dekoratoriaus konfigūracijos pavadinimas"
+
+msgid "Position"
+msgstr "Pozicija"
+
+msgid "Position (required)"
+msgstr "Pareigos (privaloma)"
+
+msgid "Postal"
+msgstr "Paštas"
+
+msgid "Postal code for delivery if used in the area the customer is living"
+msgstr "Pašto kodas pristatymui, jei naudojamas toje vietovėje, kurioje gyvena klientas"
+
+msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr "Pašto kodas pristatymui, jei jis naudojamas tiekėjo gyvenamojoje vietovėje"
+
+msgid "Postition"
+msgstr "Pozicija"
+
+msgid "Potential problems"
+msgstr "Galimos problemos"
+
+msgid "Previous"
+msgstr "Ankstesnis"
+
+msgid "Price"
+msgstr "Kaina"
+
+msgid "Price Lists Type"
+msgstr "Kainoraščių tipas"
+
+msgid "Price Lists Types"
+msgstr "Kainoraščių tipai"
+
+msgid "Price Property Type"
+msgstr "Kaina Nekilnojamojo turto tipas"
+
+msgid "Price Property Types"
+msgstr "Kaina Nekilnojamojo turto tipai"
+
+msgid "Price Type"
+msgstr "Kainos tipas"
+
+msgid "Price Types"
+msgstr "Kainų tipai"
+
+msgid "Price properties"
+msgstr "Kainų savybės"
+
+msgid "Priority"
+msgstr "Prioritetas"
+
+msgid "Problem"
+msgstr "Problema"
+
+msgid "Product"
+msgstr "Produktas"
+
+msgid "Product ID"
+msgstr "Produkto ID"
+
+msgid "Product ID, SKU or label"
+msgstr "Produkto ID, SKU arba etiketė"
+
+msgid "Product Lists Type"
+msgstr "Produktų sąrašai Tipas"
+
+msgid "Product Lists Types"
+msgstr "Produktų sąrašų tipai"
+
+msgid "Product Property Type"
+msgstr "Produkto savybės tipas"
+
+msgid "Product Property Types"
+msgstr "Produkto savybių tipai"
+
+msgid "Product Type"
+msgstr "Produkto tipas"
+
+msgid "Product Types"
+msgstr "Produktų tipai"
+
+msgid ""
+"Product attributes stored in the basket where customers can enter their own "
+"texts or values"
+msgstr "Krepšelyje saugomi produkto atributai, į kuriuos klientai gali įvesti savo tekstus ar reikšmes."
+
+msgid "Product attributes that are used by other products too"
+msgstr "Produkto atributai, kuriuos naudoja ir kiti produktai"
+
+msgid "Product characteristics that are not shared with other products"
+msgstr "Produkto savybės, kurios nėra bendros su kitais produktais"
+
+msgid "Product code"
+msgstr "Produkto kodas"
+
+msgid "Product costs"
+msgstr "Produkto sąnaudos"
+
+msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
+msgstr "Produkto aukštis, pvz., 20,0 (jardais, coliais ir t. t.)"
+
+msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr "Produkto ilgis, pvz., 30,0 (jardais, coliais ir t. t.)"
+
+msgid "Product name"
+msgstr "Produkto pavadinimas"
+
+msgid "Product payment"
+msgstr "Produkto apmokėjimas"
+
+msgid "Product price"
+msgstr "Produkto kaina"
+
+msgid "Product quantity"
+msgstr "Produkto kiekis"
+
+msgid "Product rebate"
+msgstr "Produkto nuolaida"
+
+msgid "Product shipping"
+msgstr "Produkto pristatymas"
+
+msgid "Product status"
+msgstr "Produkto būklė"
+
+msgid "Product supplier"
+msgstr "Produkto tiekėjas"
+
+msgid "Product tax"
+msgstr "Produkto mokestis"
+
+msgid "Product type"
+msgstr "Produkto tipas"
+
+msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
+msgstr "Produkto svoris, pvz., 1,25 (svarais, uncijomis ir t. t.)"
+
+msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
+msgstr "gaminio plotis, pvz., 17,5 (jardais, coliais ir pan.)"
+
+msgid "Products"
+msgstr "Produktai"
+
+msgid "Products bought together"
+msgstr "Kartu perkami produktai"
+
+msgid "Promotion"
+msgstr "Skatinimas"
+
+msgid "Properties"
+msgstr "Savybės"
+
+msgid "Property value (required)"
+msgstr "Nuosavybės vertė (būtina)"
+
+msgid "Provider"
+msgstr "Teikėjas"
+
+msgid "Provider/decorator class names (required)"
+msgstr "Teikėjo ir (arba) dekoratoriaus klasės pavadinimai (būtina)"
+
+msgid "Purchase"
+msgstr "Pirkimas"
+
+msgid "Quantity"
+msgstr "Kiekis"
+
+msgid "Quantity scale"
+msgstr "Kiekio skalė"
+
+msgid "Rabate"
+msgstr "Rabate"
+
+msgid "Rating"
+msgstr "Įvertinimas"
+
+msgid "Rating and number of ratings for the merchant"
+msgstr "Prekybininko įvertinimas ir įvertinimų skaičius"
+
+msgid "Rating of the reviewer"
+msgstr "Recenzento įvertinimas"
+
+msgid "Reason"
+msgstr "Priežastis"
+
+msgid "Rebate"
+msgstr "Nuolaida"
+
+msgid ""
+"Reduction from the original price, used to calculate the rebate in % and the"
+" cross price"
+msgstr "Sumažinimas nuo pradinės kainos, naudojamas apskaičiuojant nuolaidą % ir kryžminę kainą"
+
+msgid "Reference"
+msgstr "Nuoroda"
+
+msgid "Reference ID"
+msgstr "Nuorodos ID"
+
+msgid "Refund"
+msgstr "Grąžinimas"
+
+msgid "Related ID"
+msgstr "Susijęs ID"
+
+msgid "Related order"
+msgstr "Susijęs užsakymas"
+
+msgid "Related order ID (optional)"
+msgstr "Susijusio užsakymo ID (neprivaloma)"
+
+msgid "Related order of the customer"
+msgstr "Susijęs kliento užsakymas"
+
+msgid "Remove background"
+msgstr "Pašalinti foną"
+
+msgid "Renew"
+msgstr "Atnaujinti"
+
+msgid "Replace file"
+msgstr "Pakeisti failą"
+
+msgid "Request"
+msgstr "Užklausa"
+
+#, php-format
+msgid "Required parameter \"%1$s\" is missing"
+msgstr "Trūksta privalomo parametro \"%1$s\""
+
+msgid ""
+"Required quantity of articles for block pricing, e.g. one article for $5.00,"
+" ten articles for $45.00"
+msgstr "Reikiamas straipsnių kiekis, kad būtų galima taikyti grupines kainas, pvz., vienas straipsnis už 5,00 USD, dešimt straipsnių už 45,00 USD."
+
+msgid "Reset"
+msgstr "Iš naujo nustatyti"
+
+msgid "Response"
+msgstr "Atsakymas"
+
+msgid "Response to the reviewer"
+msgstr "Atsakymas recenzentui"
+
+msgid "Review"
+msgstr "Peržiūrėkite"
+
+msgid "Reviewed entry"
+msgstr "Peržiūrėtas įrašas"
+
+msgid "Reviewer name"
+msgstr "Recenzento vardas ir pavardė"
+
+msgid ""
+"Route name or page ID of the category page if this category should shown on "
+"a different page"
+msgstr "Maršruto pavadinimas arba kategorijos puslapio ID, jei ši kategorija turėtų būti rodoma kitame puslapyje."
+
+msgid ""
+"Route name or page ID of the product detail page if this product should "
+"shown on a different page"
+msgstr "Maršruto pavadinimas arba gaminio detalaus puslapio ID, jei šis gaminys turėtų būti rodomas kitame puslapyje."
+
+msgid "Route or page ID (optional)"
+msgstr "Maršruto arba puslapio ID (neprivaloma)"
+
+msgid "Rule"
+msgstr "Taisyklė"
+
+msgid "Rule Type"
+msgstr "Taisyklės tipas"
+
+msgid "Rule Types"
+msgstr "Taisyklių tipai"
+
+msgid "Rule label for describing the configured rule"
+msgstr "Taisyklės etiketė, skirta sukonfigūruotai taisyklei aprašyti"
+
+msgid "Rule position (required)"
+msgstr "Taisyklės pozicija (būtina)"
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr "Taisyklės teikėjo arba taisyklės dekoratoriaus konfigūracijos pavadinimas"
+
+msgid "Rules"
+msgstr "Taisyklės"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Sales by weekday"
+msgstr "Pardavimai pagal savaitės dienas"
+
+msgid "Sales of the last 30 days"
+msgstr "Pastarųjų 30 dienų pardavimai"
+
+msgid "Sales per month"
+msgstr "Pardavimai per mėnesį"
+
+msgid "Salutation"
+msgstr "Pasveikinimas"
+
+msgid "Save"
+msgstr "Išsaugoti"
+
+msgid "Save & Close"
+msgstr "Išsaugoti ir uždaryti"
+
+msgid "Save & Copy"
+msgstr "Išsaugoti ir kopijuoti"
+
+msgid "Save & New"
+msgstr "Išsaugoti ir nauja"
+
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Išsaugoti įrašą (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "Išsaugoti įrašą (Ctrl+S)"
+
+msgid "Search"
+msgstr "Paieška"
+
+msgid "Second level type for grouping entries"
+msgstr "Antrojo lygio įrašų grupavimo tipas"
+
+msgid "Select all entries"
+msgstr "Pasirinkite visus įrašus"
+
+msgid "Select file"
+msgstr "Pasirinkite failą"
+
+msgid "Service"
+msgstr "Paslauga"
+
+msgid "Service Lists Type"
+msgstr "Paslaugų sąrašų tipas"
+
+msgid "Service Lists Types"
+msgstr "Paslaugų sąrašų tipai"
+
+msgid "Service Type"
+msgstr "Paslaugos tipas"
+
+msgid "Service Types"
+msgstr "Paslaugų tipai"
+
+msgid "Service attribute code"
+msgstr "Paslaugos požymio kodas"
+
+msgid "Service costs"
+msgstr "Paslaugų išlaidos"
+
+msgid "Service name"
+msgstr "Paslaugos pavadinimas"
+
+msgid "Service position (required)"
+msgstr "Tarnybinė pozicija (būtina)"
+
+msgid "Service price"
+msgstr "Paslaugos kaina"
+
+msgid "Service provider or service decorator configuration name"
+msgstr "Paslaugų teikėjo arba paslaugų dekoratoriaus konfigūracijos pavadinimas"
+
+msgid "Service rebate"
+msgstr "Paslaugų nuolaida"
+
+msgid "Settings"
+msgstr "Nustatymai"
+
+msgid "Ship date"
+msgstr "Išsiuntimo data"
+
+msgid "Ship status"
+msgstr "Laivo statusas"
+
+msgid "Shipping"
+msgstr "Pristatymas"
+
+msgid "Shipping / Payment costs"
+msgstr "Pristatymo / mokėjimo išlaidos"
+
+msgid "Shipping/Payment costs"
+msgstr "Pristatymo/mokėjimo išlaidos"
+
+msgid "Shipping/item"
+msgstr "Pristatymas / prekė"
+
+msgid "Shop domain"
+msgstr "Parduotuvės domenas"
+
+msgid "Shop domain (required)"
+msgstr "Parduotuvės domenas (būtina)"
+
+msgid "Shop e-mail"
+msgstr "Parduotuvės el. paštas"
+
+msgid "Shop e-mail address (required)"
+msgstr "Parduotuvės el. pašto adresas (būtina)"
+
+msgid "Shop name"
+msgstr "Parduotuvės pavadinimas"
+
+msgid "Shop name (required)"
+msgstr "Parduotuvės pavadinimas (būtina)"
+
+msgid "Shop theme"
+msgstr "Parduotuvės tema"
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "Trumpas valstijos kodas (pvz., NY), jei jis naudojamas šalyje, kurioje gyvena klientas."
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "Trumpas valstijos kodas (pvz., NY), jei naudojamas šalyje, kurioje gyvena tiekėjas."
+
+msgid "Show"
+msgstr "Rodyti"
+
+msgid "Show entry"
+msgstr "Rodyti įrašą"
+
+msgid "Show search form"
+msgstr "Rodyti paieškos formą"
+
+msgid "Show/hide advanced data"
+msgstr "Rodyti / slėpti išplėstinius duomenis"
+
+msgid "Show/hide details"
+msgstr "Rodyti / slėpti informaciją"
+
+msgid "Show/hide navigation labels"
+msgstr "Rodyti / slėpti navigacijos etiketes"
+
+msgid "Show/hide this entry"
+msgstr "Rodyti / slėpti šį įrašą"
+
+msgid "Shown if the article reached a stock level of zero"
+msgstr "Rodoma, jei straipsnio atsargų lygis lygus nuliui"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr "Nuo tada, kai produktas yra prieinamas, naudojamas rūšiavimui priekinėje dalyje"
+
+msgid "Site"
+msgstr "Svetainė"
+
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
+msgstr "Konkrečiai svetainei būdingos konfigūracijos parinktys bus prieinamos kaip rakto ir vertės poros"
+
+msgid "Site the order was placed at"
+msgstr "Svetainė, kurioje buvo pateiktas užsakymas"
+
+msgid "Sites"
+msgstr "Svetainės"
+
+msgid "Size"
+msgstr "Dydis"
+
+msgid "Sorting of the attributes within the same attribute type"
+msgstr "To paties tipo atributų rūšiavimas"
+
+msgid "Sorting of the suppliers"
+msgstr "Tiekėjų rūšiavimas"
+
+msgid "Source of the invoice, e.g. by web or phone"
+msgstr "Sąskaitos faktūros šaltinis, pvz., internetu arba telefonu"
+
+msgid "Start date"
+msgstr "Pradžios data"
+
+msgid "Start typing ..."
+msgstr "Pradėkite rašyti ..."
+
+msgid "State"
+msgstr "Valstybė"
+
+msgid "Status"
+msgstr "Statusas"
+
+msgid "Stock Type"
+msgstr "Atsargų tipas"
+
+msgid "Stock Types"
+msgstr "Atsargų tipai"
+
+msgid "Stock level"
+msgstr "Atsargų lygis"
+
+msgid "Stock type"
+msgstr "Atsargų tipas"
+
+msgid "Street"
+msgstr "Gatvė"
+
+msgid "Street name (optional)"
+msgstr "Gatvės pavadinimas (neprivaloma)"
+
+msgid "Style"
+msgstr "Stilius"
+
+msgid "Sub-total"
+msgstr "Tarpinė suma"
+
+msgid "Subscription"
+msgstr "Prenumerata"
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
+msgstr "\"P0Y1M2W3D\" - nulis metų, vienas mėnuo, dvi savaitės ir trys dienos."
+
+msgid "Suggested products"
+msgstr "Siūlomi produktai"
+
+msgid "Sum"
+msgstr "Suma"
+
+msgid "Supplier"
+msgstr "Tiekėjas"
+
+msgid "Supplier name or company"
+msgstr "Tiekėjo pavadinimas arba įmonė"
+
+msgid "Supplier position (required)"
+msgstr "Tiekėjo pozicija (būtina)"
+
+msgid "Suppliers who manufacture the product"
+msgstr "Produktą gaminantys tiekėjai"
+
+msgid "Tag Type"
+msgstr "Žymos tipas"
+
+msgid "Tag Types"
+msgstr "Žymų tipai"
+
+msgid "Tax"
+msgstr "Mokesčiai"
+
+msgid "Tax rate"
+msgstr "Mokesčių tarifas"
+
+msgid "Tax rate in %"
+msgstr "Mokesčių tarifas, %"
+
+msgid "Telephone"
+msgstr "Telefonas"
+
+msgid "Telephone number (optional)"
+msgstr "Telefono numeris (neprivaloma)"
+
+msgid "Temporary folder is missing"
+msgstr "Trūksta laikinojo aplanko"
+
+msgid "Text Lists Type"
+msgstr "Teksto sąrašų tipas"
+
+msgid "Text Lists Types"
+msgstr "Teksto sąrašų tipai"
+
+msgid "Text Type"
+msgstr "Teksto tipas"
+
+msgid "Text Types"
+msgstr "Teksto tipai"
+
+msgid ""
+"The article is only shown on the web site after that date and time, useful "
+"or seasonal articles"
+msgstr "Straipsnis svetainėje rodomas tik po tos datos ir laiko, naudingi arba sezoniniai straipsniai"
+
+msgid ""
+"The article is only shown on the web site until that date and time, useful "
+"or seasonal articles"
+msgstr "Straipsnis svetainėje rodomas tik iki tos datos ir laiko, naudingi arba sezoniniai straipsniai"
+
+msgid "The entry is only shown on the web site after that date and time"
+msgstr "Įrašas svetainėje rodomas tik po tos datos ir laiko."
+
+msgid "The entry is only shown on the web site until that date and time"
+msgstr "Įrašas interneto svetainėje rodomas tik iki tos datos ir laiko."
+
+msgid "The media title is used for the title tag of the media on the web site"
+msgstr "Žiniasklaidos antraštė naudojama žiniatinklio svetainėje esančios žiniasklaidos antraštės žyma"
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "URL rodomos kategorijos pavadinimas, kuris bus naudojamas, jei nėra kalbai būdingo URL segmento."
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "URL rodomas gaminio pavadinimas, kuris bus naudojamas, jei nėra kalbai būdingo URL segmento."
+
+msgid "The option is only shown on the web site after that date and time"
+msgstr "Ši parinktis interneto svetainėje rodoma tik po šios datos ir laiko."
+
+msgid "The option is only shown on the web site until that date and time"
+msgstr "Ši parinktis svetainėje rodoma tik iki tos datos ir laiko."
+
+msgid "The rule is only used after that date and time"
+msgstr "Taisyklė naudojama tik po šios datos ir laiko."
+
+msgid "The rule is only used until that date and time"
+msgstr "Taisyklė naudojama tik iki tos datos ir laiko."
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr "\"0,1\", jei tai daliniai kiekiai, arba \"5\", jei tai penkių straipsnių kartotinis."
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr "Įkeltas failas viršija didžiausią leistiną failų dydį"
+
+msgid "The uploaded file was only partially uploaded"
+msgstr "Įkeltas failas buvo įkeltas tik iš dalies"
+
+msgid "Theme to change the layout of your shop"
+msgstr "Tema, skirta parduotuvės išdėstymui pakeisti"
+
+msgid "Three letter ISO currency code"
+msgstr "Trijų raidžių ISO valiutos kodas"
+
+msgid "Time frame (optional)"
+msgstr "Laikotarpis (neprivaloma)"
+
+msgid "Timestamp"
+msgstr "Laiko žyma"
+
+msgid "Title"
+msgstr "Pavadinimas"
+
+msgid "Toggle dropdown"
+msgstr "Išskleidžiamojo sąrašo perjungimas"
+
+msgid "Toogle selection"
+msgstr "\"Toogle\" pasirinkimas"
+
+msgid "Top countries"
+msgstr "Geriausios šalys"
+
+msgid "Total"
+msgstr "Iš viso"
+
+msgid "Total orders"
+msgstr "Iš viso užsakymų"
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr "Bendra užsakymų suma per pastarąsias septynias dienas, palyginti su ankstesniu laikotarpiu"
+
+msgid "Total ratings"
+msgstr "Iš viso reitingų"
+
+msgid "Translate text"
+msgstr "Išversti tekstą"
+
+msgid "Translations"
+msgstr "Vertimai"
+
+msgid "Two letter ISO country code"
+msgstr "Dviejų raidžių ISO šalies kodas"
+
+msgid "Two letter ISO language code"
+msgstr "Dviejų raidžių ISO kalbos kodas"
+
+msgid "Type"
+msgstr "Tipas"
+
+msgid "Type position (optional)"
+msgstr "Tipo padėtis (neprivaloma)"
+
+msgid "Types"
+msgstr "Tipai"
+
+msgid "Types for additional images like icons"
+msgstr "Papildomų vaizdų, pvz., piktogramų, tipai"
+
+msgid "Types for additional prices like per one lb/kg or per month"
+msgstr "Papildomų kainų tipai, pvz., už vieną svarą/kg arba už mėnesį"
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr "Papildomų tekstų tipai, pavyzdžiui, už vieną svarą/kg arba už mėnesį"
+
+msgid "URL of the customer web site"
+msgstr "Kliento interneto svetainės URL"
+
+msgid "URL of the supplier web site"
+msgstr "Tiekėjo interneto svetainės URL"
+
+msgid "URL segment"
+msgstr "URL segmentas"
+
+msgid "URL target"
+msgstr "URL tikslas"
+
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr "Nepavyksta iškviesti metodo \"%1$s\""
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr "Nepavyksta perskaityti turinio iš \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr "Nebaigti užsakymai"
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr "Per pastarąsias septynias dienas nebaigti užsakymai, palyginti su ankstesniu laikotarpiu"
+
+msgid ""
+"Unique article code related to stock levels, e.g. from the ERP system, an "
+"EAN/GTIN number or self invented"
+msgstr "unikalus prekės kodas, susijęs su atsargų kiekiu, pvz., iš ERP sistemos, EAN/GTIN numeris arba paties sugalvotas."
+
+msgid "Unique attribute code (required)"
+msgstr "Unikalus atributo kodas (privalomas)"
+
+msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
+msgstr "Unikalus atributo kodas, pvz., \"green\", kai atributas yra tipo \"color\"."
+
+msgid "Unique category code (required)"
+msgstr "Unikalus kategorijos kodas (būtina)"
+
+msgid "Unique category code, either from external system or self-invented"
+msgstr "Unikalus kategorijos kodas, gautas iš išorinės sistemos arba sugalvotas paties."
+
+msgid "Unique code (required)"
+msgstr "Unikalus kodas (privalomas)"
+
+msgid "Unique code to identify the service, usually self-invented"
+msgstr "Unikalus kodas, skirtas paslaugai identifikuoti, paprastai sugalvotas savarankiškai."
+
+msgid "Unique customer account name"
+msgstr "Unikalus kliento paskyros pavadinimas"
+
+msgid "Unique customer e-mail address"
+msgstr "Unikalus kliento el. pašto adresas"
+
+msgid "Unique group code (required)"
+msgstr "Unikalus grupės kodas (būtina)"
+
+msgid "Unique service code (required)"
+msgstr "Unikalus paslaugos kodas (būtina)"
+
+msgid "Unique site code (required)"
+msgstr "Unikalus svetainės kodas (būtina)"
+
+msgid "Unique supplier code"
+msgstr "Unikalus tiekėjo kodas"
+
+msgid "Unique type code"
+msgstr "Unikalus tipo kodas"
+
+msgid "Unique type code (required)"
+msgstr "Unikalus tipo kodas (privalomas)"
+
+msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr "Unikalus tipo kodas, pvz., \"color\" tokiems atributams kaip \"žalia\", \"mėlyna\", \"raudona\"."
+
+msgid "Unit price"
+msgstr "Vieneto kaina"
+
+msgid "Unknown upload error"
+msgstr "Nežinoma įkėlimo klaida"
+
+msgid "Upload CSV"
+msgstr "Įkelti CSV"
+
+msgid "Upload shop icon"
+msgstr "Įkelti parduotuvės piktogramą"
+
+msgid "Upload shop logo"
+msgstr "Įkelti parduotuvės logotipą"
+
+msgid "Uploaded"
+msgstr "Įkelta"
+
+msgid "Use"
+msgstr "Naudokite"
+
+msgid "User groups"
+msgstr "Naudotojų grupės"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr "Įprastas gaminio pristatymo terminas"
+
+msgid "VAT ID"
+msgstr "PVM MOKĖTOJO KODAS"
+
+msgid "Value"
+msgstr "Vertė"
+
+msgid "Value added tax identifier (optional)"
+msgstr "Pridėtinės vertės mokesčio identifikatorius (neprivaloma)"
+
+msgid "Variant attributes"
+msgstr "Varianto požymiai"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr "Variantų produktų atributai, saugomi kartu su užsakytais produktais."
+
+msgid "Vendor"
+msgstr "Pardavėjas"
+
+msgid "Verified"
+msgstr "Patikrinta"
+
+msgid "View details"
+msgstr "Peržiūrėti informaciją"
+
+msgid "Voucher"
+msgstr "Kuponas"
+
+msgid ""
+"Warehouse or local store if your articles are available at several locations"
+msgstr "Sandėlis arba vietinė parduotuvė, jei jūsų gaminių galima įsigyti keliose vietose."
+
+msgid "Web site"
+msgstr "Interneto svetainė"
+
+msgid "Web site URL (optional)"
+msgstr "Tinklalapio URL (neprivaloma)"
+
+msgid "Weeks"
+msgstr "Savaitės"
+
+msgid "Weight"
+msgstr "Svoris"
+
+msgid "When the account and e-mail address has been verified"
+msgstr "Patikrinus paskyrą ir el. pašto adresą"
+
+msgid "Width"
+msgstr "Plotis"
+
+msgid "YYYY-MM-DD hh:mm:ss (optional)"
+msgstr "YYYYY-MM-DD hh:mm:ss (neprivaloma)"
+
+msgid "Years"
+msgstr "Metai"
+
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr "Ketinate ištrinti vieną ar daugiau įrašų. Ar norite tęsti?"
+
+msgid "Your export will be available in a few minutes for download"
+msgstr "Jūsų eksportą bus galima atsisiųsti po kelių minučių."
+
+msgid "Your response"
+msgstr "Jūsų atsakymas"
+
+msgid "Zip code"
+msgstr "Pašto indeksas"
+
+msgid "Zip code (optional)"
+msgstr "Pašto indeksas (neprivaloma)"
+
+msgid "__hidden__"
+msgstr "__hidden__"
+
+#, php-format
+msgid "account"
+msgstr "paskyra"
+
+#, php-format
+msgid "address"
+msgstr "adresas"
+
+msgid "address:delivery"
+msgstr "Pristatymo adresas"
+
+msgid "address:payment"
+msgstr "Atsiskaitymo adresas"
+
+#, php-format
+msgid "api"
+msgstr "api"
+
+#, php-format
+msgid "attribute"
+msgstr "atributas"
+
+#, php-format
+msgid "basket"
+msgstr "krepšelis"
+
+#, php-format
+msgid "bundle"
+msgstr "paketas"
+
+#, php-format
+msgid "catalog"
+msgstr "Kategorijos"
+
+#, php-format
+msgid "category"
+msgstr "Kategorijos"
+
+#, php-format
+msgid "characteristic"
+msgstr "Charakteristikos"
+
+#, php-format
+msgid "code"
+msgstr "kodas"
+
+msgid "company"
+msgstr "Įmonė"
+
+#, php-format
+msgid "configuration"
+msgstr "konfigūracija"
+
+#, php-format
+msgid "countcountry"
+msgstr "grafystės šalis"
+
+#, php-format
+msgid "countday"
+msgstr "Countday"
+
+#, php-format
+msgid "counthour"
+msgstr "valanda"
+
+#, php-format
+msgid "countpaystatus"
+msgstr "countpaystatus"
+
+#, php-format
+msgid "coupon"
+msgstr "kuponas"
+
+#, php-format
+msgid "customer"
+msgstr "klientas"
+
+#, php-format
+msgid "dashboard"
+msgstr "prietaisų skydelis"
+
+#, php-format
+msgid "day"
+msgstr "diena"
+
+#, php-format
+msgid "deliverytype"
+msgstr "pristatymo tipas"
+
+#, php-format
+msgid "download"
+msgstr "atsisiųsti"
+
+#, php-format
+msgid "goods"
+msgstr "prekės"
+
+#, php-format
+msgid "group"
+msgstr "grupė"
+
+#, php-format
+msgid "hour"
+msgstr "valanda"
+
+#, php-format
+msgid "image"
+msgstr "vaizdas"
+
+#, php-format
+msgid "invoice"
+msgstr "sąskaita faktūra"
+
+#, php-format
+msgid "latest"
+msgstr "Naujausias"
+
+#, php-format
+msgid "locale"
+msgstr "vietovardis"
+
+#, php-format
+msgid "locale/currency"
+msgstr "vietinė valiuta / valiuta"
+
+#, php-format
+msgid "locale/language"
+msgstr "vietinė kalba/kalba"
+
+#, php-format
+msgid "locale/site"
+msgstr "vietovė / svetainė"
+
+#, php-format
+msgid "log"
+msgstr "Prisijungti"
+
+#, php-format
+msgid "marketing"
+msgstr "rinkodara"
+
+#, php-format
+msgid "media"
+msgstr "žiniasklaida"
+
+msgid "miss"
+msgstr "ponia"
+
+msgid "mr"
+msgstr "ponas"
+
+msgid "mrs"
+msgstr "ponia"
+
+msgid "ms"
+msgstr "ms"
+
+msgid "new"
+msgstr "naujas"
+
+msgid "no"
+msgstr "ne"
+
+msgid "none"
+msgstr "nėra"
+
+msgid "not available any more"
+msgstr "nebėra"
+
+#, php-format
+msgid "option"
+msgstr "parinktis"
+
+#, php-format
+msgid "order"
+msgstr "užsakymas"
+
+msgid "order:phone"
+msgstr "užsakymas:telefonas"
+
+msgid "order:web"
+msgstr "užsakymas:web"
+
+msgid "pay:-1"
+msgstr "darbo užmokestis:-1"
+
+msgid "pay:0"
+msgstr "mokėti:0"
+
+msgid "pay:1"
+msgstr "mokėti: 1"
+
+msgid "pay:2"
+msgstr "mokėti: 2"
+
+msgid "pay:3"
+msgstr "mokėti: 3"
+
+msgid "pay:4"
+msgstr "mokėti: 4"
+
+msgid "pay:5"
+msgstr "darbo užmokestis: 5"
+
+msgid "pay:6"
+msgstr "mokėti: 6"
+
+msgid "pay:7"
+msgstr "mokėti: 7"
+
+#, php-format
+msgid "paymentstatus"
+msgstr "mokėjimo statusas"
+
+#, php-format
+msgid "paymenttype"
+msgstr "mokėjimo tipas"
+
+#, php-format
+msgid "physical"
+msgstr "fizinis"
+
+#, php-format
+msgid "plugin"
+msgstr "įskiepiai"
+
+#, php-format
+msgid "price"
+msgstr "kaina"
+
+#, php-format
+msgid "product"
+msgstr "produktas"
+
+#, php-format
+msgid "property"
+msgstr "nuosavybė"
+
+#, php-format
+msgid "quick/countcompleted"
+msgstr "quick/countcompleted"
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr "quick/countcustomer"
+
+#, php-format
+msgid "quick/counttotal"
+msgstr "quick/counttotal"
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr "quick/countunfinished"
+
+msgid "reason:-1"
+msgstr "priežastis:-1"
+
+msgid "reason:0"
+msgstr "priežastis: 0"
+
+msgid "reason:1"
+msgstr "priežastis: 1"
+
+#, php-format
+msgid "related"
+msgstr "susiję"
+
+#, php-format
+msgid "review"
+msgstr "Apžvalgos"
+
+#, php-format
+msgid "rule"
+msgstr "taisyklė"
+
+#, php-format
+msgid "sales"
+msgstr "pardavimai"
+
+#, php-format
+msgid "salesweekday"
+msgstr "pardavimų savaitė"
+
+msgid "selected"
+msgstr "pasirinktas"
+
+#, php-format
+msgid "selection"
+msgstr "atranka"
+
+#, php-format
+msgid "service"
+msgstr "paslauga"
+
+#, php-format
+msgid "servicedelivery"
+msgstr "aptarnaujamas pristatymas"
+
+#, php-format
+msgid "servicepayment"
+msgstr "paslaugų apmokėjimas"
+
+#, php-format
+msgid "settings"
+msgstr "nustatymai"
+
+#, php-format
+msgid "setup"
+msgstr "sąranka"
+
+#, php-format
+msgid "special"
+msgstr "specialus"
+
+msgid "stat:-1"
+msgstr "statistika:-1"
+
+msgid "stat:0"
+msgstr "statistika: 0"
+
+msgid "stat:1"
+msgstr "statistika: 1"
+
+msgid "stat:2"
+msgstr "statistika: 2"
+
+msgid "stat:3"
+msgstr "statistika: 3"
+
+msgid "stat:4"
+msgstr "statistika: 4"
+
+msgid "stat:5"
+msgstr "statistika: 5"
+
+msgid "stat:6"
+msgstr "statistika: 6"
+
+msgid "stat:7"
+msgstr "statistika: 7"
+
+msgid "status:-1"
+msgstr "būsena:-1"
+
+msgid "status:-2"
+msgstr "būsena:-2"
+
+msgid "status:0"
+msgstr "būsena:0"
+
+msgid "status:1"
+msgstr "statusas:1"
+
+msgid "status:2"
+msgstr "statusas:2"
+
+#, php-format
+msgid "stock"
+msgstr "atsargos"
+
+#, php-format
+msgid "subscription"
+msgstr "Prenumeratos"
+
+#, php-format
+msgid "supplier"
+msgstr "Tiekėjai"
+
+msgid "tag"
+msgstr "žyma"
+
+msgid "tax:0"
+msgstr "mokestis:0"
+
+msgid "tax:1"
+msgstr "mokestis: 1"
+
+#, php-format
+msgid "text"
+msgstr "tekstas"
+
+#, php-format
+msgid "theme"
+msgstr "tema"
+
+#, php-format
+msgid "transaction"
+msgstr "sandoris"
+
+#, php-format
+msgid "type"
+msgstr "tipas"
+
+#, php-format
+msgid "type/attribute"
+msgstr "tipas/atributas"
+
+#, php-format
+msgid "type/attribute/lists"
+msgstr "type/attribute/lists"
+
+#, php-format
+msgid "type/attribute/property"
+msgstr "tipas / požymis / savybė"
+
+#, php-format
+msgid "type/catalog/lists"
+msgstr "type/catalog/lists"
+
+#, php-format
+msgid "type/customer/lists"
+msgstr "type/customer/lists"
+
+#, php-format
+msgid "type/customer/property"
+msgstr "type/customer/property"
+
+#, php-format
+msgid "type/media"
+msgstr "tipas/medija"
+
+#, php-format
+msgid "type/media/lists"
+msgstr "type/media/lists"
+
+#, php-format
+msgid "type/media/property"
+msgstr "type/media/property"
+
+#, php-format
+msgid "type/plugin"
+msgstr "type/plugin"
+
+#, php-format
+msgid "type/price"
+msgstr "tipas / kaina"
+
+#, php-format
+msgid "type/price/lists"
+msgstr "tipas / kaina / sąrašai"
+
+#, php-format
+msgid "type/price/property"
+msgstr "tipas / kaina / savybė"
+
+#, php-format
+msgid "type/product"
+msgstr "tipas/produktas"
+
+#, php-format
+msgid "type/product/lists"
+msgstr "type/product/lists"
+
+#, php-format
+msgid "type/product/property"
+msgstr "tipas/produktas/patalpa"
+
+#, php-format
+msgid "type/rule"
+msgstr "tipas / taisyklė"
+
+#, php-format
+msgid "type/service"
+msgstr "tipas/paslauga"
+
+#, php-format
+msgid "type/service/lists"
+msgstr "type/service/lists"
+
+#, php-format
+msgid "type/stock"
+msgstr "tipas / atsargos"
+
+#, php-format
+msgid "type/tag"
+msgstr "tipas/žyma"
+
+#, php-format
+msgid "type/text"
+msgstr "tipas/tekstas"
+
+#, php-format
+msgid "type/text/lists"
+msgstr "type/text/lists"
+
+#, php-format
+msgid "users"
+msgstr "vartotojai"
+
+msgid "yes"
+msgstr "taip"

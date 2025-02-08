@@ -10,13 +10,15 @@
 # Italo Thales <italo.thales@urca.br>, 2021
 # Jefferson Cardoso <jefferson.mcardoso@gmail.com>, 2019
 # Keite Clembet, 2022
+# Keite Clembet, 2022
 # Rafael Gomes <madrafael.gsilva@gmail.com>, 2020
+# Webert Max, 2023
 # Webert Max, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Webert Max, 2023\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
@@ -32,24 +34,6 @@ msgstr " "
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -112,7 +96,7 @@ msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "Chave da API"
 
 msgid "Account"
 msgstr "Conta"
@@ -389,7 +373,7 @@ msgid ""
 msgstr "As opções de configuração estarão disponíveis como pares de chave/valor no item da lista"
 
 msgid "Context"
-msgstr ""
+msgstr "Contexto"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -511,7 +495,7 @@ msgid "Delete"
 msgstr "Remover"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Excluir entradas?"
 
 msgid "Delete selected entries"
 msgstr "Excluir itens selecionados"
@@ -556,7 +540,7 @@ msgid ""
 msgstr "Dependendo do conjunto de dados selecionado, a lista de campos exibidos para o produto será diferente"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Descreva sua imagem"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Descrição do conteúdo do texto se estiver em um idioma estrangeiro"
@@ -584,6 +568,9 @@ msgstr "Baixar"
 
 msgid "Download this file"
 msgstr "Baixe este arquivo"
+
+msgid "Duplicate entry"
+msgstr "Entrada duplicada"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "Duplicar registro (Ctrl+D)"
@@ -616,7 +603,7 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Editar entradas selecionadas"
 
 msgid "Edit this entry"
 msgstr "Editar este registro"
@@ -634,21 +621,30 @@ msgid "End date (optional)"
 msgstr "Data final (opcional)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Digite a ID, o código ou o rótulo do grupo"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Entrada excluída com sucesso"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Entrada salva com sucesso"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "As opções de configuração específicas da entrada estarão disponíveis como pares de chave/valor nos modelos"
 
 msgid "Error"
 msgstr "Erro"
+
+msgid "Error deleting data"
+msgstr "Erro ao excluir dados"
+
+msgid "Error retrieving data"
+msgstr "Erro ao recuperar dados"
+
+msgid "Error saving data"
+msgstr "Erro ao salvar dados"
 
 msgid "Excl. tax"
 msgstr "Exclui imposto"
@@ -684,13 +680,13 @@ msgstr "Arquivo"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "O arquivo não existe: \"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "Upload de arquivo interrompido por extensão"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Arquivo carregado com sucesso"
 
 msgid "Find category"
 msgstr "Encontrar categoria "
@@ -719,11 +715,14 @@ msgstr "Andar / Apartamento"
 msgid "Floor and/or apartment (optional)"
 msgstr "Andar e/ou apartamento (opcional)"
 
+msgid "For"
+msgstr "Para"
+
 msgid "Generate"
-msgstr ""
+msgstr "Gerar"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Gerar imagem"
 
 msgid "Generate text"
 msgstr "Gerar texto"
@@ -786,7 +785,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "Como o fornecedor é abordado nos e-mails"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hiper-real e dramático"
 
 msgid "ID"
 msgstr "ID"
@@ -804,7 +803,7 @@ msgid "Image"
 msgstr "Imagem"
 
 msgid "Image description"
-msgstr ""
+msgstr "Descrição da imagem"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -887,8 +886,11 @@ msgstr "Fatura"
 msgid "Invoice No."
 msgstr "Número da fatura"
 
+msgid "Invoice no."
+msgstr "Fatura nº."
+
 msgid "Invoice number"
-msgstr ""
+msgstr "Número da fatura"
 
 msgid "Invoice number for the order"
 msgstr "Número da fatura do pedido"
@@ -958,7 +960,7 @@ msgid "List type"
 msgstr "Tipo da lista"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Carregando entradas ..."
 
 msgid "Locale"
 msgstr "Localidade"
@@ -1015,7 +1017,7 @@ msgid "Mobile number (optional)"
 msgstr "Número de telemóvel (opcional)"
 
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 msgid "Modifed"
 msgstr "Modificado"
@@ -1052,7 +1054,7 @@ msgid "Name of your shop shown to your customers"
 msgstr "Nome da sua loja exibido para seus clientes"
 
 msgid "Natural"
-msgstr ""
+msgstr "Natural"
 
 msgid "New"
 msgstr "Novo"
@@ -1082,7 +1084,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "Nenhuma moeda disponível. Ative pelo menos uma moeda"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Nenhuma entrada encontrada"
 
 msgid "No file was uploaded"
 msgstr "Nenhum arquivo foi carregado"
@@ -1110,7 +1112,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Nem todos os registros podem ser excluídos"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1139,8 +1141,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Um provedor e zero ou mais decorator de nomes de classe separados por vírgulas"
 
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "Somente .webp, .jpg, .png e .gif são permitidos para ícones"
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "Somente .webp, .jpg, .png, .gif e .svg são permitidos para logotipos"
+
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Somente superusuários e administradores podem excluir entradas"
 
 msgid "Open"
 msgstr "Abrir"
@@ -1490,7 +1498,7 @@ msgid "Related order of the customer"
 msgstr "Pedido relacionado do cliente"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Remover plano de fundo"
 
 msgid "Renew"
 msgstr "Renovar"
@@ -1523,7 +1531,7 @@ msgid "Review"
 msgstr "status:revisão"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Entrada revisada"
 
 msgid "Reviewer name"
 msgstr "Nome do revisor"
@@ -1589,6 +1597,9 @@ msgstr "Salvar & Copiar"
 msgid "Save & New"
 msgstr "Salvar & Novo"
 
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Salvar entrada (Ctrl+Enter)"
+
 msgid "Save entry (Ctrl+S)"
 msgstr "Salvar registro (Ctrl+S)"
 
@@ -1596,10 +1607,10 @@ msgid "Search"
 msgstr "Pesquisar"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Tipo de segundo nível para agrupamento de entradas"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Selecionar todas as entradas"
 
 msgid "Select file"
 msgstr "Selecione o arquivo"
@@ -1773,7 +1784,7 @@ msgid "Street name (optional)"
 msgstr "Nome da rua (opcional)"
 
 msgid "Style"
-msgstr ""
+msgstr "Estilo"
 
 msgid "Sub-total"
 msgstr "Sub-total"
@@ -1851,10 +1862,10 @@ msgid ""
 msgstr "O produto só é exibido no site até essa data e hora, útil ou produto sazonal"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "A entrada só será exibida no site após essa data e hora"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "A entrada só é exibida no site até essa data e hora"
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "O título da mídia é usado para a rótulo de título da mídia no site"
@@ -1911,7 +1922,7 @@ msgid "Toggle dropdown"
 msgstr "Alternar menu suspenso"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Seleção do Google"
 
 msgid "Top countries"
 msgstr "Principais países"
@@ -1932,7 +1943,7 @@ msgid "Translate text"
 msgstr "Traduzir texto"
 
 msgid "Translations"
-msgstr ""
+msgstr "Traduções"
 
 msgid "Two letter ISO country code"
 msgstr "Código ISO de país com duas letras"
@@ -1945,6 +1956,9 @@ msgstr "Tipo"
 
 msgid "Type position (optional)"
 msgstr "Posição do tipo (opcional)"
+
+msgid "Types"
+msgstr "Tipos"
 
 msgid "Types for additional images like icons"
 msgstr "Tipos para imagens adicionais, como ícones"
@@ -1973,7 +1987,7 @@ msgstr "Incapaz de chamar o método \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Não foi possível ler o conteúdo de \"%1$s\""
 
 msgid "Unfinished orders"
 msgstr "Pedidos não concluídos"
@@ -2039,7 +2053,7 @@ msgid "Unknown upload error"
 msgstr "Erro de upload desconhecido"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Carregar CSV"
 
 msgid "Upload shop icon"
 msgstr "Carregar ícone da loja"
@@ -2051,7 +2065,7 @@ msgid "Uploaded"
 msgstr "Enviado"
 
 msgid "Use"
-msgstr ""
+msgstr "Uso"
 
 msgid "User groups"
 msgstr "Grupos de usuários"
@@ -2075,7 +2089,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Atributos de produtos variantes que são armazenados com os produtos comprados"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Fornecedor"
 
 msgid "Verified"
 msgstr "Verificado"
@@ -2116,7 +2130,7 @@ msgstr "Anos"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Você vai excluir uma ou mais entradas. Deseja prosseguir?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "Sua exportação estará disponível em alguns minutos para download"
@@ -2149,7 +2163,7 @@ msgstr "Endereço de cobrança"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "API"
 
 #, php-format
 msgid "attribute"

@@ -39,9 +39,6 @@ msgstr "poslije"
 msgid ">="
 msgstr "poslije (uključeno)"
 
-msgid "Search"
-msgstr "Traži"
-
 msgid "~="
 msgstr "sadrži"
 

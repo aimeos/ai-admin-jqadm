@@ -40,9 +40,6 @@ msgstr "po"
 msgid ">="
 msgstr "po (łącz.)"
 
-msgid "Search"
-msgstr "Szukaj"
-
 msgid "~="
 msgstr "zawiera"
 

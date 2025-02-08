@@ -39,9 +39,6 @@ msgstr "sonra"
 msgid ">="
 msgstr "sonra (dahil)"
 
-msgid "Search"
-msgstr "Ara"
-
 msgid "~="
 msgstr "içeren"
 

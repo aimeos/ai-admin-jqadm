@@ -40,9 +40,6 @@ msgstr "potem"
 msgid ">="
 msgstr "poten (vključno)"
 
-msgid "Search"
-msgstr "Išči"
-
 msgid "~="
 msgstr "vsebuje"
 
