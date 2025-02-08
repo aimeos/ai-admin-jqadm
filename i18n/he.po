@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Aimeos, 2024
+# Aimeos, 2024
 # shmuel adler, 2024
 # shmuel adler, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aimeos, 2024\n"
+"Last-Translator: shmuel adler, 2024\n"
 "Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,24 +27,6 @@ msgstr "</text_to_translate>"
 #, php-format
 msgid "%1$d/%2$d"
 msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -579,6 +562,9 @@ msgstr "הורד"
 msgid "Download this file"
 msgstr "הורד את הקובץ הזה"
 
+msgid "Duplicate entry"
+msgstr ""
+
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "כפל ערך (Ctrl D)"
 
@@ -643,6 +629,15 @@ msgstr ""
 
 msgid "Error"
 msgstr "שגיאה"
+
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
 
 msgid "Excl. tax"
 msgstr "לא כולל "
@@ -712,6 +707,9 @@ msgstr "קומה / דירה"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "קומה ו/או דירה (אופציונלי)"
+
+msgid "For"
+msgstr ""
 
 msgid "Generate"
 msgstr ""
@@ -880,6 +878,9 @@ msgstr "חשבונית"
 
 msgid "Invoice No."
 msgstr "חשבונית מס'"
+
+msgid "Invoice no."
+msgstr ""
 
 msgid "Invoice number"
 msgstr ""
@@ -1132,6 +1133,12 @@ msgstr "מזהה מע\"מ רשמי כדי לקבוע אם יש לחייב את �
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "ספק אחד ואפס או יותר שמות מחלקות מעצבים מופרדים בפסיקים"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
 msgstr ""
@@ -1583,6 +1590,9 @@ msgstr "שמור והעתק"
 msgid "Save & New"
 msgstr "שמור וצור חדש"
 
+msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
 msgid "Save entry (Ctrl+S)"
 msgstr "שמור ערך (Ctrl+S)"
 
@@ -1939,6 +1949,9 @@ msgstr "סוג"
 
 msgid "Type position (optional)"
 msgstr "מיקום הקלד (אופציונלי)"
+
+msgid "Types"
+msgstr ""
 
 msgid "Types for additional images like icons"
 msgstr "הקלדת תמונות נוספות כמו אייקונים"

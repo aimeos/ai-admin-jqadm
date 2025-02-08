@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-01-28 15:40+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>, 2018\n"
 "Language-Team: Croatian (http://app.transifex.com/aimeos/aimeos-core/language/hr/)\n"
@@ -23,24 +23,6 @@ msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
 msgstr ""
 
 #, php-format
@@ -577,6 +559,9 @@ msgstr ""
 msgid "Download this file"
 msgstr ""
 
+msgid "Duplicate entry"
+msgstr ""
+
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
@@ -641,6 +626,15 @@ msgstr ""
 
 msgid "Error"
 msgstr "Greška"
+
+msgid "Error deleting data"
+msgstr ""
+
+msgid "Error retrieving data"
+msgstr ""
+
+msgid "Error saving data"
+msgstr ""
 
 msgid "Excl. tax"
 msgstr ""
@@ -709,6 +703,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "For"
 msgstr ""
 
 msgid "Generate"
@@ -877,6 +874,9 @@ msgid "Invoice"
 msgstr "Račun"
 
 msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice no."
 msgstr ""
 
 msgid "Invoice number"
@@ -1129,6 +1129,12 @@ msgstr ""
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr ""
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
 msgstr ""
 
 msgid "Only super users and administrators can delete entries"
@@ -1581,6 +1587,9 @@ msgstr "Spremi i kopiraj"
 msgid "Save & New"
 msgstr "Spremi i novo"
 
+msgid "Save entry (Ctrl+Enter)"
+msgstr ""
+
 msgid "Save entry (Ctrl+S)"
 msgstr ""
 
@@ -1937,6 +1946,9 @@ msgstr "Vrsta"
 
 msgid "Type position (optional)"
 msgstr ""
+
+msgid "Types"
+msgstr "Vrste"
 
 msgid "Types for additional images like icons"
 msgstr ""

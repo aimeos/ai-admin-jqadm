@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 11:41+0100\n"
+"POT-Creation-Date: 2025-02-06 13:03+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
 "Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -22,29 +22,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid " "
-msgstr ""
+msgstr "stocktype:default"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
-
-#, php-format
-msgid ""
-"%1$s\n"
-"\t%2$s %3$s %4$s %5$s\n"
-"\t%6$s %7$s\n"
-"\t%8$s\n"
-"\t%9$s %10$s\n"
-"\t%11$s\n"
-"\t%12$s\n"
-"\t%13$s\n"
-"\t%14$s\n"
-"\t%15$s\n"
-"\t%16$s\n"
-"\t%17$s\n"
-"\t%18$s\n"
-"\t"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -56,7 +38,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -81,33 +63,33 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(mezinárodní) číslo faksimile bez oddělovacích znaků, může začínat znakem \"+\"."
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(mezinárodní) telefonní číslo bez oddělovacích znaků, může začínat znakem \"+\"."
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ daň"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<skryté>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "Klíč API"
 
 msgid "Account"
 msgstr "Účet"
@@ -148,22 +130,22 @@ msgid "Address identifier of the customer's house for delivery"
 msgstr "Identifikátor adresy zákazníkova domu pro doručení"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identifikátor adresy domu dodavatele pro doručování"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Typ Admin JQAdm je prázdný"
 
 msgid "Advanced"
 msgstr "Pokročilé"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Ukládání do mezipaměti Aimeos je zakázáno pomocí \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Protokolování ladění systému Aimeos je povoleno pomocí \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -175,16 +157,16 @@ msgstr "Vše"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Všechny atributy, které jednoznačně definují výrobek, např. šířka, délka a barva džínů."
 
 msgid "Allow custom price"
 msgstr "Povolit vlastní cenu"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Umožnit zákazníkům, aby si sami zvolili, kolik chtějí zaplatit."
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Alfanumerický řetězec, který může skupinu jednoznačně identifikovat."
 
 msgid "Apply"
 msgstr "Použít"
@@ -192,54 +174,54 @@ msgstr "Použít"
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Možnosti konfigurace specifické pro daný článek budou v šablonách k dispozici jako dvojice klíč/hodnota."
 
 msgid "Attribute"
 msgstr "Atribut"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Seznamy atributů Typ"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Typy seznamů atributů"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Atribut Vlastnost Typ"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Typy vlastností atributů"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Typ atributu"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Typy atributů"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Pozice atributu (nepovinné)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Vlastnosti atributu, které nejsou sdílené s jinými atributy"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Typ atributu, který omezuje seznam dostupných atributů"
 
 msgid "Attributes"
 msgstr "Atributy"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Dostupná měna pro aktuální stránku"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Dostupné intervaly ve front-endu"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Dostupný jazyk pro aktuální web"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Průměrné hodnocení produktu a celkový počet hodnocení zákazníků pro tento produkt"
 
 msgid "Back in stock"
 msgstr "zpět do obchodu"
@@ -257,72 +239,72 @@ msgid "Birthday"
 msgstr "Datum narození"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Narozeniny zákazníka"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Faktor zvýšení"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Boost faktor (volitelný)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Chyba nebo návrh?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Hromadná úprava"
 
 msgid "Cancel"
 msgstr "Zrušit"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Zrušit a vrátit se na seznam"
 
 msgid "Catalog"
 msgstr "Katalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Katalogové seznamy Typ"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Typy katalogových seznamů"
 
 msgid "Categories"
 msgstr "Kategorie"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Kategorie, ve kterých může uživatel produkt na webových stránkách najít."
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Kategorie, pro které se produkt zobrazí v sekci propagace"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Možnosti konfigurace specifické pro kategorii budou v šablonách k dispozici jako dvojice klíč/hodnota."
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Změna nákladů/položka v %"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Změna slevy v %"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Hodnota změny v %"
 
 msgid "Channel"
-msgstr ""
+msgstr "Kanál"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Kanál objednávka byla zadána"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Vyberte soubor"
 
 msgid "City"
 msgstr "Město"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Název města nebo obce (povinné)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -343,7 +325,7 @@ msgid "Code"
 msgstr "Kód"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Kód pro jednoznačnou identifikaci webu, přejmenování je nebezpečné!"
 
 msgid "Columns"
 msgstr "Sloupce"
@@ -352,45 +334,45 @@ msgid "Comment"
 msgstr "Komentář"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Komentář recenzenta"
 
 msgid "Communication"
-msgstr ""
+msgstr "Komunikace"
 
 msgid "Company"
 msgstr "Společnost"
 
 msgid "Company details"
-msgstr ""
+msgstr "Podrobnosti o společnosti"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Název společnosti (nepovinné)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Dokončené objednávky"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Ukončené zakázky za posledních sedm dní ve srovnání s předchozím obdobím"
 
 msgid "Config"
-msgstr ""
+msgstr "Konfigurace"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Konfigurovatelné"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Možnosti konfigurace budou k dispozici jako dvojice klíč/hodnota v položce seznamu."
 
 msgid "Context"
-msgstr ""
+msgstr "Kontext"
 
 msgid "Copy"
 msgstr "Kopírovat"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Kopírovat tento záznam"
 
 msgid "Costs"
 msgstr "Náklady"
@@ -413,13 +395,13 @@ msgid ""
 msgstr "Specifická daňová sazba ke kalkulaci a k zobrazení daně (pro B2C) nebo přidání daně když je nutné (pro B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Kód státu země (nepovinné)"
 
 msgid "Coupon"
 msgstr "Kupón"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Název konfigurace poskytovatele kupónů nebo dekorátoru kupónů"
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -434,7 +416,7 @@ msgid "Custom"
 msgstr "Vlastní"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Vlastní doména nebo jedinečný kód vašeho obchodu"
 
 msgid "Customer"
 msgstr "Zákazník"
@@ -449,13 +431,13 @@ msgid "Customer Lists Types"
 msgstr "Typy seznamů zákazníků"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Typ majetku zákazníka"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Typy majetku zákazníka"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Charakteristiky zákazníků, které nejsou sdíleny s ostatními zákazníky"
 
 msgid "Customer comment (optional)"
 msgstr "Komentář zákazníka (volitelný)"
@@ -467,34 +449,34 @@ msgid "Customer password"
 msgstr "Heslo zákazníka"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Vlastnosti zákazníka, které nejsou sdíleny s ostatními zákazníky"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Reference zákazníka"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Reference zákazníka (nepovinné)"
 
 msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Data set"
-msgstr ""
+msgstr "Soubor dat"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Datová sada"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Datum poslední změny stavu dodávky"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Datum poslední změny stavu platby"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Datum ukončení předplatného"
 
 msgid "Days"
 msgstr "Dny"
@@ -506,16 +488,16 @@ msgid "Delete"
 msgstr "Smazat"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Smazat položky?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Odstranění vybraných položek"
 
 msgid "Delete this entry"
 msgstr "Smazat tento záznam"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Mazání recenzí není povoleno"
 
 msgid "Delivery"
 msgstr "Doručení"
@@ -524,337 +506,352 @@ msgid "Delivery address"
 msgstr "Doručovací adresa"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Datum dodání"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Dodávka v"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "náklady na dodání nebo platbu za produkty v košíku zákazníka."
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Stav dodávky"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Časový rámec dodání (nepovinné)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Typy dodávek"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Dodání v rámci"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "V závislosti na vybrané datové sadě se bude seznam zobrazených polí pro produkt lišit."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Popište svou image"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Popis obsahu textu, pokud je v cizím jazyce."
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Deskritický název měny"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Deskritický název jazyka"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Popisný název stránky"
 
 msgid "Discount"
-msgstr ""
+msgstr "Sleva"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Zobrazení textů nápovědy"
 
 msgid "Domain"
-msgstr ""
+msgstr "Doména"
 
 msgid "Download"
-msgstr ""
+msgstr "Stáhnout"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Stáhněte si tento soubor"
+
+msgid "Duplicate entry"
+msgstr "Duplicitní záznam"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Duplikovat položku (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "E-mailová adresa (povinné)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "E-mailová adresa nebo název účtu (povinné)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "E-mailová adresa používaná pro zasílání e-mailů týkajících se obchodu"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "E-mailová adresa (nepovinné)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "E-mailová adresa, která patří k adrese"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU nebo číslo výrobku (povinné)"
 
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Upravit vybrané položky"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Upravit tento záznam"
 
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "End date"
-msgstr ""
+msgstr "Datum ukončení"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Datum ukončení (nepovinné)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Zadejte ID skupiny, kód nebo štítek"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Položka úspěšně odstraněna"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Záznam byl úspěšně uložen"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "Možnosti konfigurace specifické pro položku budou k dispozici jako dvojice klíč/hodnota v šablonách."
 
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
+
+msgid "Error deleting data"
+msgstr "Chyba při mazání dat"
+
+msgid "Error retrieving data"
+msgstr "Chyba při načítání dat"
+
+msgid "Error saving data"
+msgstr "Chyba při ukládání dat"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Bez daně"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Pořadí provádění zásuvných modulů"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Pořadí provádění pravidel"
 
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 msgid "Facility"
-msgstr ""
+msgstr "Zařízení"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Faksimile"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Číslo faxu (nepovinné)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Faktor, který zvýší hodnotu produktu ve vyhledávání uživatele oproti ostatním produktům (>1,0 pozitivní zvýšení, <1,0 negativní zvýšení)."
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Nepodařilo se zapsat soubor na disk"
 
 msgid "File"
-msgstr ""
+msgstr "Soubor"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Soubor neexistuje: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Nahrávání souborů se zastavilo podle přípony"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Soubor byl úspěšně nahrán"
 
 msgid "Find category"
-msgstr ""
+msgstr "Najít kategorii"
 
 msgid "Find site"
-msgstr ""
+msgstr "Najít stránky"
 
 msgid "First"
-msgstr ""
+msgstr "První"
 
 msgid "First name"
 msgstr "Křestní jméno"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Křestní jméno (nepovinné)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Křestní jméno osoby, pokud se používá v kulturách, kde se používá."
 
 msgid "Floor"
-msgstr ""
+msgstr "Podlaha"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Podlaží / apartmán"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Podlaží a/nebo byt (nepovinné)"
+
+msgid "For"
+msgstr "Pro"
 
 msgid "Generate"
-msgstr ""
+msgstr "Generovat"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Generování obrázku"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Generování textu"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Daná výše slevy"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Přejít na panel atributů"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Přejděte na panel typu vlastnosti"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Přejít na seznam typů atributů"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Poskytnutá sleva"
 
 msgid "Group"
-msgstr ""
+msgstr "Skupina"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Název skupiny popisující, pro které členy je skupina určena"
 
 msgid "Groups"
-msgstr ""
+msgstr "Skupiny"
 
 msgid "Height"
-msgstr ""
+msgstr "Výška"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Skryté atributy"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Skryté atributy produktu, které jsou uloženy u objednaných produktů."
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Zvýraznění dodavatelé výrobku"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Čestný titul (nepovinné)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Čestné tituly jako Dr., Ph.D. atd."
 
 msgid "Hours"
-msgstr ""
+msgstr "Hodiny"
 
 msgid "House number"
-msgstr ""
+msgstr "Číslo domu"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Číslo domu (nepovinné)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Jak je zákazník oslovován v e-mailech"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Jak je dodavatel oslovován v e-mailech"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Hyperrealistické a dramatické"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "ID související faktury, např. změněné nebo vrácené faktury."
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "Kód měny ISO (povinné)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "Kód jazyka ISO (povinné)"
 
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 msgid "Image description"
-msgstr ""
+msgstr "Popis obrázku"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Obrázky se zobrazí pouze pro daný jazyk, což je užitečné, pokud médium obsahuje text nebo je specifické pro daný jazyk."
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Import/export pracovních míst"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Včetně daně"
 
 msgid "Info"
-msgstr ""
+msgstr "Informace"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Vložení nové položky"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Vložení nové položky (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Interní název článku, který bude použit na webových stránkách a pro vyhledávání pouze v případě, že neexistují žádné jiné názvy produktů v žádném jazyce."
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Interní název článku, který se použije na webových stránkách, pokud není k dispozici název produktu pro daný jazyk."
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Interní název atributu, který se použije na webu, pokud není k dispozici žádný název jazyka."
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Interní název kategorie, který se použije na webových stránkách, pokud není k dispozici žádný název jazyka."
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Interní název (povinné)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Interní název typu zobrazený v rozhraní pro správu"
 
 msgid "Interval"
-msgstr ""
+msgstr "Interval"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Interval (povinné)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -877,63 +874,66 @@ msgid "Invalid factory \"%1$s\""
 msgstr "Neplatná továrna \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Faktura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Faktura č."
+
+msgid "Invoice no."
+msgstr "Faktura č."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Číslo faktury"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Číslo faktury pro objednávku"
 
 msgid "Label"
-msgstr ""
+msgstr "Štítek"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Štítek (povinné)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Označení popisující interval, použije se, pokud není k dispozici žádný název."
 
 msgid "Language"
 msgstr "Jazyk"
 
 msgid "Language ID"
-msgstr ""
+msgstr "ID jazyka"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Jazyk zadaného textu"
 
 msgid "Languages"
-msgstr ""
+msgstr "Jazyky"
 
 msgid "Last"
-msgstr ""
+msgstr "Poslední"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Poslední stav doručení objednávky"
 
 msgid "Last name"
 msgstr "Příjmení"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Příjmení (nepovinné)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Příjmení (povinné)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Příjmení osoby nebo celé jméno v kulturách, kde se křestní jména nepoužívají."
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Poslední stav platby objednávky"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Poslední objednávky"
 
 msgid "Length"
 msgstr "Délka"
@@ -941,207 +941,213 @@ msgstr "Délka"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Seznam zboží, které by se mělo prodávat jako jeden produkt, často za sníženou cenu."
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Seznam produktů, které se často kupují společně"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Seznam navrhovaných produktů"
 
 msgid "List type"
-msgstr ""
+msgstr "Typ seznamu"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Načítání záznamů ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "Lokalita"
 
 msgid "Log"
-msgstr ""
+msgstr "Přihlásit se"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Ruční přenos"
 
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Seznamy médií Typ"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Typy seznamů médií"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Typ vlastnosti média"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Typy vlastností médií"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Typ média"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Typy médií"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Vlastnosti médií"
 
 msgid "Menu"
-msgstr ""
+msgstr "Nabídka"
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Minimální množství"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Minimální množství"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobilní"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Číslo mobilního telefonu"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Číslo mobilního telefonu (nepovinné)"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Upravené stránky"
 
 msgid "Modified"
-msgstr ""
+msgstr "Upraveno"
 
 msgid "Months"
-msgstr ""
+msgstr "Měsíce"
 
 msgid "More"
-msgstr ""
+msgstr "Více na"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Přesunutí této položky nahoru/dolů"
 
 msgid "Name"
 msgstr "Jméno"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Název v adrese URL (nepovinné)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Název koše"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Název staženého souboru, když zákazník uloží soubor do svého počítače."
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Jméno recenzenta"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Název vašeho obchodu zobrazený zákazníkům"
 
 msgid "Natural"
-msgstr ""
+msgstr "Přírodní"
 
 msgid "New"
-msgstr ""
+msgstr "Nový"
 
 msgid "New customers"
-msgstr ""
+msgstr "Noví zákazníci"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Noví zákazníci za posledních sedm dní"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Noví zákazníci za posledních sedm dní ve srovnání s předchozím obdobím"
 
 msgid "Next"
 msgstr "Další"
 
 msgid "Next date"
-msgstr ""
+msgstr "Další termín"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Další datum (nepovinné)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Další datum obnovení předplatného"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Žádné měny nejsou k dispozici. Povolte prosím alespoň jednu měnu"
 
 msgid "No entries found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné záznamy"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Nebyl nahrán žádný soubor"
 
 msgid "No product found"
-msgstr ""
+msgstr "Nebyl nalezen žádný produkt"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Nejsou k dispozici žádné možnosti tématu"
 
 #, php-format
 msgid "No view available"
 msgstr "Žádný náhled k dispozici"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Žádná poukázka"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Nesdílené vlastnosti položky média"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Nesdílené vlastnosti položky ceny"
 
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Ne všechny záznamy mohly být odstraněny"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Není povolen přístup ke klientovi JQAdm \"%1$s\""
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Nebylo provedeno"
 
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Poznámky (zákazník se s nimi neseznámí)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Počet položek, které jsou aktuálně skladem, pro neomezené množství nechte prázdné."
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Oficiální identifikační číslo pro DPH, aby bylo možné určit, zda je třeba daň účtovat na fakturách."
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Jeden poskytovatel a nula nebo více názvů tříd dekorátorů oddělených čárkami."
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "Pro ikony jsou povoleny pouze soubory .webp, .jpg, .png a .gif."
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "Pro loga jsou povoleny pouze soubory .webp, .jpg, .png, .gif a .svg."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Položky mohou mazat pouze superuživatelé a správci."
 
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Otevřené množství"
 
 msgid "Option"
 msgstr "Možnost"
@@ -1149,60 +1155,60 @@ msgstr "Možnost"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Volitelné součásti produktu, které si zákazník může vybrat spolu s produktem."
 
 msgid "Order"
-msgstr ""
+msgstr "Objednávka"
 
 msgid "Order ID"
 msgstr "ID objednávky"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Číslo objednávky zadané zákazníkem"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Pořadí kombinací jazyk/měna"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Pořadí možností služeb v procesu objednávky"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Pořadí typů ve frontendu"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Celkové součty objednávek"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Objednáno na"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Objednávky podle země"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Objednávky podle dnů"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Objednávky po hodinách"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Objednávky podle stavu platby"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Přepsat stávající soubor a zákazníci, kteří si jej zakoupili v minulosti, si pak mohou stáhnout i nový obsah."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "Nastavení PHP \"%1$s\" je zakázáno"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "Nastavení PHP \"%1$s\" je povoleno"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "Nastavení PHP pro \"%1$s\" je příliš nízké"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1212,84 +1218,84 @@ msgid "Password"
 msgstr "Heslo"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Heslo (povinné)"
 
 msgid "Path"
-msgstr ""
+msgstr "Cesta"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Datum výplaty"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Stav platu"
 
 msgid "Payment"
 msgstr "Platba"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Datum platby"
 
 msgid "Payment status"
 msgstr "Stav platby"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Typy plateb"
 
 msgid "Periods"
-msgstr ""
+msgstr "Období"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Povolení zamítnuto"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Osobní údaje"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Zde prosím vložte popis textu, který by měl být vygenerován."
 
 msgid "Please select"
 msgstr "Vyberte prosím"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Zásuvný modul"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Typ zásuvného modulu"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Typy zásuvných modulů"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Štítek zásuvného modulu pro popis nakonfigurovaného zásuvného modulu"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Pozice zásuvného modulu (povinné)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Název konfigurace zprostředkovatele zásuvného modulu nebo dekorátoru zásuvného modulu"
 
 msgid "Position"
-msgstr ""
+msgstr "Pozice"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Pozice (povinné)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Pošta"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Poštovní směrovací číslo pro doručení, pokud se používá v oblasti, kde zákazník žije."
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Poštovní směrovací číslo pro doručování, pokud se používá v oblasti, kde dodavatel žije."
 
 msgid "Postition"
-msgstr ""
+msgstr "Postavení"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Potenciální problémy"
 
 msgid "Previous"
 msgstr "Předchozí"
@@ -1298,488 +1304,491 @@ msgid "Price"
 msgstr "Cena"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Ceníky Typ"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Typy ceníků"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Cena Typ nemovitosti"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Cena Typy nemovitostí"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Typ ceny"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Typy cen"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Cenové vlastnosti"
 
 msgid "Priority"
-msgstr ""
+msgstr "Priorita"
 
 msgid "Problem"
-msgstr ""
+msgstr "Problém"
 
 msgid "Product"
 msgstr "Produkt"
 
 msgid "Product ID"
-msgstr ""
+msgstr "ID produktu"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "ID produktu, SKU nebo štítek"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Seznamy produktů Typ"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Typy seznamů produktů"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Typ vlastnosti produktu"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Typy vlastností produktu"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Typ výrobku"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Typy produktů"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Atributy produktu uložené v košíku, kam mohou zákazníci zadávat vlastní texty nebo hodnoty."
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Atributy produktu, které používají i jiné produkty"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Vlastnosti produktu, které nejsou společné s jinými produkty"
 
 msgid "Product code"
-msgstr ""
+msgstr "Kód produktu"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Náklady na výrobek"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Výška výrobku, např. 20,0 (v metrech, palcích atd.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Délka výrobku, např. 30,0 (v metrech, palcích atd.)"
 
 msgid "Product name"
-msgstr ""
+msgstr "Název produktu"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Platba za produkt"
 
 msgid "Product price"
-msgstr ""
+msgstr "Cena produktu"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "Množství produktu"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Sleva na výrobek"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Přeprava výrobku"
 
 msgid "Product status"
-msgstr ""
+msgstr "Stav produktu"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Dodavatel produktu"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Daň z výrobku"
 
 msgid "Product type"
-msgstr ""
+msgstr "Typ výrobku"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Hmotnost výrobku, např. 1,25 (v librách, uncích atd.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Šířka výrobku, např. 17,5 (v metrech, palcích atd.)"
 
 msgid "Products"
-msgstr ""
+msgstr "Produkty"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Produkty zakoupené společně"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Propagace"
 
 msgid "Properties"
 msgstr "Vlastnosti"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Hodnota nemovitosti (povinné)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Poskytovatel"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Názvy tříd poskytovatele/dekorátora (povinné)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Nákup"
 
 msgid "Quantity"
 msgstr "Množství"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Množstevní stupnice"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Rabate"
 
 msgid "Rating"
-msgstr ""
+msgstr "Hodnocení"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Hodnocení a počet hodnocení obchodníka"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Hodnocení recenzenta"
 
 msgid "Reason"
-msgstr ""
+msgstr "Důvod"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Sleva"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Snížení původní ceny, které se použije pro výpočet slevy v % a křížové ceny."
 
 msgid "Reference"
-msgstr ""
+msgstr "Odkaz"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Referenční ID"
 
 msgid "Refund"
 msgstr "pay:refund"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Související ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "Související objednávka"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "ID související objednávky (nepovinné)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Související objednávka zákazníka"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Odstranění pozadí"
 
 msgid "Renew"
-msgstr ""
+msgstr "Obnovit"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Nahradit soubor"
 
 msgid "Request"
-msgstr ""
+msgstr "Žádost"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Chybí povinný parametr \"%1$s\"."
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Požadované množství článků pro blokové ceny, např. jeden článek za 5,00 USD, deset článků za 45,00 USD."
 
 msgid "Reset"
-msgstr ""
+msgstr "Obnovení"
 
 msgid "Response"
-msgstr ""
+msgstr "Reakce"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Odpověď recenzentovi"
 
 msgid "Review"
 msgstr "status:review"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Recenzovaný záznam"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Jméno recenzenta"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Název trasy nebo ID stránky kategorie, pokud se má tato kategorie zobrazovat na jiné stránce."
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Název trasy nebo ID stránky detailu produktu, pokud se má tento produkt zobrazit na jiné stránce."
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "ID trasy nebo stránky (nepovinné)"
 
 msgid "Rule"
-msgstr ""
+msgstr "Pravidlo"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Typ pravidla"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Typy pravidel"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Štítek pravidla pro popis nakonfigurovaného pravidla"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Pozice pravidla (povinné)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Název konfigurace zprostředkovatele pravidel nebo dekorátoru pravidel"
 
 msgid "Rules"
-msgstr ""
+msgstr "Pravidla"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Prodej podle dnů v týdnu"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Prodej za posledních 30 dní"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Tržby za měsíc"
 
 msgid "Salutation"
 msgstr "Oslovení"
 
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Uložit a zavřít"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Uložit a kopírovat"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Uložit a nové"
+
+msgid "Save entry (Ctrl+Enter)"
+msgstr "Uložení záznamu (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Uložit záznam (Ctrl+S)"
 
 msgid "Search"
 msgstr "Vyhledávání"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Typ druhé úrovně pro seskupování záznamů"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Vyberte všechny položky"
 
 msgid "Select file"
-msgstr ""
+msgstr "Vyberte soubor"
 
 msgid "Service"
-msgstr ""
+msgstr "Služba"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Seznamy služeb Typ"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Typy seznamů služeb"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Typ služby"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Typy služeb"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Kód atributu služby"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Náklady na služby"
 
 msgid "Service name"
-msgstr ""
+msgstr "Název služby"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Servisní pozice (povinné)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Cena služby"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Název konfigurace poskytovatele služeb nebo dekorátoru služeb"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Sleva na služby"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Datum odeslání"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Stav lodi"
 
 msgid "Shipping"
 msgstr "Doprava"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Náklady na dopravu / platbu"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Náklady na dopravu/platbu"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Přeprava/položka"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Doména obchodu"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Doména obchodu (povinné)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Obchodní e-mail"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "E-mailová adresa obchodu (povinné)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Název obchodu"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Název obchodu (povinné)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Téma obchodu"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Krátký kód státu (např. NY), pokud se používá v zemi, kde zákazník žije."
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Krátký kód státu (např. NY), pokud je používán v zemi, kde dodavatel žije."
 
 msgid "Show"
 msgstr "Zobrazit"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Zobrazit vstup"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Zobrazit vyhledávací formulář"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Zobrazení/skrytí pokročilých dat"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Zobrazit/skrýt podrobnosti"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Zobrazení/skrytí navigačních štítků"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Zobrazit/skrýt tento záznam"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Zobrazuje se, pokud článek dosáhl nulové skladové zásoby."
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Od okamžiku, kdy je produkt k dispozici, se používá pro třídění ve front-endu."
 
 msgid "Site"
-msgstr ""
+msgstr "Stránka"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Možnosti konfigurace specifické pro danou lokalitu budou k dispozici jako dvojice klíč/hodnota."
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Místo, na kterém byla objednávka zadána"
 
 msgid "Sites"
-msgstr ""
+msgstr "Stránky"
 
 msgid "Size"
 msgstr "Velikost"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Třídění atributů v rámci stejného typu atributu"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Třídění dodavatelů"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Zdroj faktury, např. přes web nebo telefonicky."
 
 msgid "Start date"
-msgstr ""
+msgstr "Datum zahájení"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Začněte psát..."
 
 msgid "State"
 msgstr "Země"
 
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Typ zásoby"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Typy zásob"
 
 msgid "Stock level"
-msgstr ""
+msgstr "Úroveň zásob"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Typ zásob"
 
 msgid "Street"
 msgstr "Ulice"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Název ulice (nepovinné)"
 
 msgid "Style"
-msgstr ""
+msgstr "Styl"
 
 msgid "Sub-total"
 msgstr "Mezisoučet"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Předplatné"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Interval předplatného s roky, měsíci, týdny a dny, např. \"P0Y1M2W3D\" pro nula let, jeden měsíc, dva týdny a tři dny."
 
 msgid "Suggested products"
 msgstr "Doporučené produkty"
@@ -1788,179 +1797,182 @@ msgid "Sum"
 msgstr "Součet"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Dodavatel"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Název dodavatele nebo společnosti"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Pozice dodavatele (povinné)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Dodavatelé, kteří výrobek vyrábějí"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Typ štítku"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Typy štítků"
 
 msgid "Tax"
-msgstr ""
+msgstr "Daň"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Sazba daně"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "Sazba daně v %"
 
 msgid "Telephone"
 msgstr "Telefon"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Telefonní číslo (nepovinné)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Chybí dočasná složka"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Textové seznamy Typ"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Typy textových seznamů"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Typ textu"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Typy textu"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Článek se na webu zobrazí až po tomto datu a čase, užitečné nebo sezónní články."
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Článek se na webu zobrazuje pouze do daného data a času, užitečné nebo sezónní články se zobrazují pouze do daného data a času."
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Záznam se na webu zobrazí až po tomto datu a čase."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Přihláška se na webu zobrazí pouze do tohoto data a času."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Název média se používá pro označení názvu média na webu."
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Název kategorie uvedený v adrese URL se použije, pokud neexistuje žádný jazykově specifický segment adresy URL."
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Název produktu uvedený v adrese URL se použije, pokud neexistuje žádný jazykově specifický segment adresy URL."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Tato možnost se na webu zobrazí až po tomto datu a čase."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Tato možnost se na webu zobrazuje pouze do daného data a času."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Pravidlo se použije až po tomto datu a čase."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Pravidlo se používá pouze do tohoto data a času."
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Povolená hodnota kroku pro množství v košíku, např. \"0,1\" pro zlomková množství nebo \"5\" pro násobek pěti předmětů."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Nahraný soubor překračuje maximální povolenou velikost."
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Nahraný soubor byl nahrán pouze částečně."
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Motiv pro změnu rozvržení vašeho obchodu"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Třípísmenný kód měny ISO"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Časový rámec (nepovinné)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Časové razítko"
 
 msgid "Title"
-msgstr ""
+msgstr "Název"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Přepínání rozbalovacího seznamu"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Výběr Toogle"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Nejlepší země"
 
 msgid "Total"
 msgstr "Celkem"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Celkový počet objednávek"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Celkový počet objednávek za posledních sedm dní ve srovnání s předchozím obdobím"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Celkové hodnocení"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Přeložit text"
 
 msgid "Translations"
-msgstr ""
+msgstr "Překlady"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "Dvoupísmenný kód země ISO"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Dvoupísmenný kód jazyka ISO"
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Typ pozice (volitelné)"
+
+msgid "Types"
+msgstr "Typy"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Typy pro další obrázky, například ikony"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Typy pro další ceny, například za 1 libru/kg nebo za měsíc"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Typy pro dodatečné texty, například za 1 lb/kg nebo za měsíc"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "Adresa URL webové stránky zákazníka"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "Adresa URL webové stránky dodavatele"
 
 msgid "URL segment"
-msgstr ""
+msgstr "Segment URL"
 
 msgid "URL target"
-msgstr ""
+msgstr "Cílová adresa URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1968,137 +1980,137 @@ msgstr "Nelze nazvat metodu \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "Nelze přečíst obsah z \"%1$s\"."
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Nedokončené zakázky"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Nedokončené zakázky za posledních sedm dní v porovnání s předchozím obdobím"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "Jedinečný kód zboží související se stavem zásob, např. ze systému ERP, číslo EAN/GTIN nebo vymyšlený kód."
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Jedinečný kód atributu (povinné)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Jedinečný kód atributu, např. \"green\" pro atributy typu \"color\"."
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Jedinečný kód kategorie (povinné)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Jedinečný kód kategorie, buď z externího systému, nebo vynalezený vlastními silami."
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Jedinečný kód (povinné)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Jedinečný kód pro identifikaci služby, který si obvykle vymyslíte sami."
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Jedinečný název zákaznického účtu"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Jedinečná e-mailová adresa zákazníka"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Jedinečný kód skupiny (povinné)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Jedinečný kód služby (povinné)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Jedinečný kód webu (povinné)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Jedinečný kód dodavatele"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Jedinečný kód typu"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Jedinečný kód typu (povinné)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Jedinečný kód typu, např. \"color\" pro atributy jako \"green\", \"blue\", \"red\"."
 
 msgid "Unit price"
-msgstr ""
+msgstr "Jednotková cena"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Neznámá chyba nahrávání"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "Nahrát CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Nahrát ikonu obchodu"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Nahrát logo obchodu"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Nahráno"
 
 msgid "Use"
-msgstr ""
+msgstr "Použijte"
 
 msgid "User groups"
-msgstr ""
+msgstr "Skupiny uživatelů"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Obvyklá lhůta pro dodání výrobku"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "DIČ PRO DPH"
 
 msgid "Value"
-msgstr ""
+msgstr "Hodnota"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Identifikátor daně z přidané hodnoty (nepovinné)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Atributy variant"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Atributy varianty produktu, které jsou uloženy u objednaných produktů."
 
 msgid "Vendor"
-msgstr ""
+msgstr "Prodejce"
 
 msgid "Verified"
-msgstr ""
+msgstr "Ověřeno"
 
 msgid "View details"
-msgstr ""
+msgstr "Zobrazit podrobnosti"
 
 msgid "Voucher"
-msgstr ""
+msgstr "Voucher"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Sklad nebo místní obchod, pokud jsou vaše výrobky dostupné na více místech."
 
 msgid "Web site"
 msgstr "Webová stránka"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "Adresa URL webové stránky (nepovinné)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "Týdny"
 
 msgid "Weight"
 msgstr "Váha"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Po ověření účtu a e-mailové adresy"
 
 msgid "Width"
 msgstr "Šířka"
@@ -2107,30 +2119,30 @@ msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "RRRR-MM-DD hh:mm:ss (volitelné)"
 
 msgid "Years"
-msgstr ""
+msgstr "Roky"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "Odstraníte jednu nebo více položek. Chcete pokračovat?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Váš export bude k dispozici ke stažení během několika minut."
 
 msgid "Your response"
-msgstr ""
+msgstr "Vaše odpověď"
 
 msgid "Zip code"
 msgstr "PSČ"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "PSČ (nepovinné)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__skryté__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "účet"
 
 #, php-format
 msgid "address"
@@ -2144,7 +2156,7 @@ msgstr "Fakturační adresa"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2152,11 +2164,11 @@ msgstr "Atributy"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "koš"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "svazek"
 
 #, php-format
 msgid "catalog"
@@ -2179,31 +2191,31 @@ msgstr "Společnost"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "konfigurace"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "hraběcí země"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "countday"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "hodina"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "countpaystatus"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "kupón"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "zákazník"
 
 #, php-format
 msgid "dashboard"
@@ -2211,15 +2223,15 @@ msgstr "Dashboard"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "den"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "typ dodávky"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "ke stažení"
 
 #, php-format
 msgid "goods"
@@ -2227,27 +2239,27 @@ msgstr "Katalog"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "skupina"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "hodina"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "obrázek"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "faktura"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Nejnovější"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "locale"
 
 #, php-format
 msgid "locale/currency"
@@ -2255,23 +2267,23 @@ msgstr "Měny"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "locale/jazyk"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "lokalita/místo"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "Přihlásit se"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "marketing"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "média"
 
 msgid "miss"
 msgstr "Slečna"
@@ -2283,19 +2295,19 @@ msgid "mrs"
 msgstr "Paní"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
 msgstr "nový"
 
 msgid "no"
-msgstr ""
+msgstr "ne"
 
 msgid "none"
 msgstr "žádný"
 
 msgid "not available any more"
-msgstr ""
+msgstr "již není k dispozici"
 
 #, php-format
 msgid "option"
@@ -2303,13 +2315,13 @@ msgstr "Možnosti"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "objednávka"
 
 msgid "order:phone"
-msgstr ""
+msgstr "objednávka:telefon"
 
 msgid "order:web"
-msgstr ""
+msgstr "objednávka:web"
 
 msgid "pay:-1"
 msgstr "nedokončeno"
@@ -2336,31 +2348,31 @@ msgid "pay:6"
 msgstr "obdrženo"
 
 msgid "pay:7"
-msgstr ""
+msgstr "platit 7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "paymentstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "typ platby"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "fyzický"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "zásuvný modul"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "cena"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "produkt"
 
 #, php-format
 msgid "property"
@@ -2368,51 +2380,51 @@ msgstr "Vlastnosti"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "quick/countcompleted"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "quick/countcustomer"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "quick/counttotal"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "quick/countunfinished"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "důvod:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "důvod:0"
 
 msgid "reason:1"
 msgstr "zrušeno"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "související"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Recenze"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "pravidlo"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "prodej"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "prodejní týden"
 
 msgid "selected"
-msgstr ""
+msgstr "vybrané"
 
 #, php-format
 msgid "selection"
@@ -2424,23 +2436,23 @@ msgstr "Služby"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "servisní služby"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "platba za služby"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "nastavení"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "nastavení"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "speciální"
 
 msgid "stat:-1"
 msgstr "nedokončeno"
@@ -2470,56 +2482,56 @@ msgid "stat:7"
 msgstr "vráceno"
 
 msgid "status:-1"
-msgstr ""
+msgstr "stav:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "stav:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "stav:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "stav:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "stav:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "zásoby"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Předplatné"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Dodavatelé"
 
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 msgid "tax:0"
-msgstr ""
+msgstr "daň: 0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "daň: 1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "text"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "téma"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "transakce"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "typ"
 
 #, php-format
 msgid "type/attribute"
@@ -2527,67 +2539,67 @@ msgstr "Atributy"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribute/lists"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "typ/atribut/vlastnost"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "type/catalog/lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "type/customer/lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "typ/zákazník/vlastnost"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "typ/médium"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "type/media/lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "type/media/property"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "type/plugin"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "typ/cena"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "typ/cena/seznamy"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "typ/cena/vlastnost"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "typ/výrobek"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "type/product/lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "typ/produkt/vlastnost"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "typ/pravidlo"
 
 #, php-format
 msgid "type/service"
@@ -2595,27 +2607,27 @@ msgstr "Služby"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "typ/služba/seznamy"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "typ/sklad"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "typ/značka"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "typ/text"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "type/text/lists"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "uživatelé"
 
 msgid "yes"
-msgstr ""
+msgstr "ano"
