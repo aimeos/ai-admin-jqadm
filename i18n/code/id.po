@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aimeos, 2025
 # Ranu Yulianto <vanarif@gmail.com>, 2018
 msgid ""
 msgstr ""
