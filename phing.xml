@@ -36,7 +36,7 @@
 
 	<target name="i18n" description="Creates translation message files">
 		<exec executable="find" checkreturn="true" logoutput="true" passthru="true">
-			<arg line="src/ templates/ -type f | xgettext -j -s --no-location --no-wrap --add-comments=/// --language=PHP --from-code=UTF-8 --keyword=printf:1 --keyword=sprintf:1 --keyword=dt:2,2t --keyword=dn:2,3,4t --keyword=translate:2,2t --keyword=translate:2,3,4t -o i18n/core-admin.pot -f -" />
+			<arg line="src/ templates/ -type f | xgettext -j -s --no-location --add-comments=/// --language=PHP --from-code=UTF-8 --keyword=printf:1 --keyword=sprintf:1 --keyword=dt:2,2t --keyword=dn:2,3,4t --keyword=translate:2,2t --keyword=translate:2,3,4t -o i18n/source.pot -f -" />
 		</exec>
 		<foreach list="./i18n,./i18n/code" param="i18n-dir" inheritall="true" target="i18n-files" />
 		<exec executable="tx" checkreturn="true" logoutput="true" passthru="true">
@@ -56,10 +56,10 @@
 		<fail unless="po-filepath" message="Missing file name" />
 		<echo msg="File: ${po-filepath}" />
 		<exec executable="msgmerge" checkreturn="true" logoutput="true" passthru="true">
-			<arg line="--no-wrap -s -U --backup=none ${po-filepath} ${i18n-dir}/*.pot" />
+			<arg line="-s -N -U --backup=none ${po-filepath} ${i18n-dir}/source.pot" />
 		</exec>
 		<exec executable="msgattrib" checkreturn="true" logoutput="true" passthru="true">
-			<arg line="-s --no-wrap --no-fuzzy -o ${po-filepath} ${po-filepath}" />
+			<arg line="-s --no-fuzzy -o ${po-filepath} ${po-filepath}" />
 		</exec>
 		<exec executable="${bindir}potrans" logoutput="true" passthru="true">
 			<arg line="deepl --only --dir=${coredir} ${extdir}/${phing.project.name}/${po-filepath}" />
