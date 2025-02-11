@@ -151,7 +151,12 @@ Aimeos.ProductRef = {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
-						const config = {'params': {}};
+						const config = {
+							'paramsSerializer': (params) => {
+								return jQuery.param(params); // workaround, Axios and QS fail on [==]
+							},
+							'params': {}
+						};
 
 						if(response.meta.prefix && response.meta.prefix) {
 							config['params'][response.meta.prefix] = {'id': id};
