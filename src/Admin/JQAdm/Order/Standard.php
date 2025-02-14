@@ -248,6 +248,7 @@ class Standard
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
+			$manager->update( $view->item ); // update stock, coupons, etc.
 			$manager->commit();
 
 			return $this->redirect( 'order', $view->param( 'next' ), $view->item->getId(), 'save' );
