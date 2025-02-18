@@ -123,7 +123,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'index' );
 			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -152,7 +152,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->context(), 'product' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'index' )->create();
 			}
 
 			$data['product.siteid'] = $view->item->getSiteId();
@@ -180,7 +180,7 @@ class Standard
 		$view = $this->view();
 		$context = $this->context();
 
-		$manager = \Aimeos\MShop::create( $context, 'product' );
+		$manager = \Aimeos\MShop::create( $context, 'index' );
 		$manager->begin();
 
 		try
@@ -204,7 +204,6 @@ class Standard
 			$manager->delete( $items );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->delete( $items );
 			$context->cache()->deleteByTags( $tags );
 
 			return $this->redirect( 'product', 'search', null, 'delete' );
@@ -236,7 +235,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'index' );
 
 			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
@@ -328,7 +327,7 @@ class Standard
 			$total = 0;
 			$domains = map( $this->getDomains() )->remove( 'product' );
 			$params = $this->storeFilter( $view->param(), 'product' );
-			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'index' );
 
 			$search = $manager->filter()->order( 'product.id' );
 			$search = $this->initCriteria( $search, $params );
@@ -539,7 +538,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'index' );
 
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->get( $data['product.id'], $this->getDomains() );
