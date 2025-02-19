@@ -84,7 +84,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 				<div class="row">
 
 					<div class="col-xl-12 item-navbar">
-						<div class="navbar-content">
+						<div class="navbar-content" v-bind:class="{show: show}">
 							<ul class="nav nav-tabs flex-row flex-wrap d-flex box" role="tablist">
 								<li class="nav-item basic">
 									<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic" tabindex="1">

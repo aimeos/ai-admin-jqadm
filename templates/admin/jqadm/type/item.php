@@ -38,7 +38,7 @@ $domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain )
 	<div class="row item-container">
 
 		<div class="col-xl-3 item-navbar">
-			<div class="navbar-content">
+			<div class="navbar-content" v-bind:class="{show: show}">
 				<ul class="nav nav-tabs flex-xl-column flex-wrap d-flex box" role="tablist">
 
 					<li class="nav-item basic">
