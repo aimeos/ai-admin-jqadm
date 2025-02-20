@@ -40,13 +40,13 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
+		$types = $this->context()->config()->get( 'admin/jqadm/product/characteristic/attribute/types', [] );
+
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter()->add( 'product.lists.type.code', '==', $types )->slice( 0, 10000 );
+		$map = $manager->search( $filter )->col( null, 'product.lists.type.code' );
 
-		$filter = $manager->filter()
-			->order( 'product.lists.type.code' )
-			->slice( 0, 10000 );
-
-		$view->attributeTypes = $manager->search( $filter )->getCode();
+		$view->attributeTypes = $map->order( $types );
 		return $view;
 	}
 

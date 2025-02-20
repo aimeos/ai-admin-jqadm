@@ -31,7 +31,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 ?>
 <div class="col-xl-12 item-characteristic-attribute">
 
-	<?php foreach( $this->get( 'attributeTypes', [] ) as $type ) : ?>
+	<?php foreach( $this->get( 'attributeTypes', [] ) as $type => $typeItem ) : ?>
 
 		<div id="characteristic-<?= $type ?>" class="attribute-list box"
 			data-data="<?= $enc->attr( array_values( $map[$type] ?? [] ) ) ?>"
@@ -51,7 +51,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							</div>
 						</th>
 						<th>
-							<span class="help"><?= $enc->html( $this->translate( 'admin', 'Attributes' ) . ' (' . $type . ')' ) ?></span>
+							<span class="help"><?= $enc->html( $this->translate( 'admin', 'Attributes' ) . ' (' . $typeItem->getName() . ')' ) ?></span>
 							<div class="form-text text-muted help-text">
 								<?= $enc->html( $this->translate( 'admin', 'Product attributes that are used by other products too' ) ) ?>
 							</div>

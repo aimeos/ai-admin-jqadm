@@ -19,7 +19,7 @@ $keys = [
 <div id="supplier" class="item-supplier tab-pane fade" role="tabpanel" aria-labelledby="supplier">
 	<div class="row">
 
-		<?php foreach( $this->get( 'supplierTypes', [] ) as $type => $typeLabel ) : ?>
+		<?php foreach( $this->get( 'supplierTypes', [] ) as $type => $typeItem ) : ?>
 
 			<div id="supplier-<?= $enc->attr( $type ) ?>" class="col-xl-6 supplier"
 				data-data="<?= $enc->attr( array_values( $data->get( $type, [] ) ) ) ?>"
@@ -33,7 +33,7 @@ $keys = [
 						<thead>
 							<tr>
 								<th>
-									<?= $enc->html( $typeLabel ) ?>
+									<?= $enc->html( $typeItem->getName() ) ?>
 								</th>
 								<th class="actions">
 									<div class="btn act-add icon" tabindex="<?= $this->get( 'tabindex' ) ?>"

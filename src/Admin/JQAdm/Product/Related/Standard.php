@@ -42,7 +42,14 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		return $view->set( 'relatedTypes', $this->getTypes() );
+		$types = $this->context()->config()->get( 'admin/jqadm/product/related/types', [] );
+
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter( true )->add( 'product.lists.type.code', '==', $types )->slice( 0, 10000 );
+		$map = $manager->search( $filter )->col( null, 'product.lists.type.code' );
+
+		$view->relatedTypes = $map->order( $types );
+		return $view;
 	}
 
 
@@ -244,23 +251,6 @@ class Standard
 
 
 	/**
-	 * Returns the product list types to update
-	 *
-	 * @return \Aimeos\Map Associative map with type codes as keys and type labels as values
-	 */
-	protected function getTypes() : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-
-		$filter = $manager->filter( true )
-			->order( 'product.lists.type.code' )
-			->slice( 0, 10000 );
-
-		return $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' )->except( 'default' );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -269,8 +259,11 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
-		$listItems = $item->getListItems( 'product', $this->getTypes()->keys()->all() );
+		$context = $this->context();
+		$manager = \Aimeos\MShop::create( $context, 'product' );
+
+		$types = $context->config()->get( 'admin/jqadm/product/related/types', [] );
+		$listItems = $item->getListItems( 'product', $types );
 		$idx = 0;
 
 		foreach( $data as $type => $list )
@@ -302,9 +295,11 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->context()->locale()->getSiteId();
+		$context = $this->context();
+		$siteId = $context->locale()->getSiteId();
+		$types = $context->config()->get( 'admin/jqadm/product/related/types', [] );
 
-		foreach( $item->getListItems( 'product', $this->getTypes()->keys()->all() ) as $listItem )
+		foreach( $item->getListItems( 'product', $types ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;

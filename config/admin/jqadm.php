@@ -137,7 +137,13 @@ return [
 			'download' => 'download',
 			'order' => 'order',
 		],
+		'category' => [
+			'types' => ['default', 'promotion'],
+		],
 		'characteristic' => [
+			'attribute' => [
+				'types' => ['default', 'variant', 'config', 'custom', 'hidden']
+			],
 			'subparts' => [
 				'property' => 'property',
 				'attribute' => 'attribute',
@@ -160,7 +166,13 @@ return [
 				'package-width' => 'package-width',
 				'package-weight' => 'package-weight',
 			]
-		]
+		],
+		'related' => [
+			'types' => ['bought-together', 'suggestion'],
+		],
+		'supplier' => [
+			'types' => ['default', 'promotion'],
+		],
 	],
 	'service' => [
 		'domains' => [

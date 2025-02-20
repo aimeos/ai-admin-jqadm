@@ -42,12 +42,13 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-		$filter = $manager->filter( true )
-			->order( 'product.lists.type.code' )
-			->slice( 0, 10000 );
+		$types = $this->context()->config()->get( 'admin/jqadm/product/category/types', [] );
 
-		$view->categoryTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter( true )->add( 'product.lists.type.code', '==', $types )->slice( 0, 10000 );
+		$map = $manager->search( $filter )->col( null, 'product.lists.type.code' );
+
+		$view->categoryTypes = $map->order( $types );
 		return $view;
 	}
 
