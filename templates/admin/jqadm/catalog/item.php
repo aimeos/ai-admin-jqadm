@@ -87,14 +87,16 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 						<div class="navbar-content" v-bind:class="{show: show}">
 							<ul class="nav nav-tabs flex-row flex-wrap d-flex box" role="tablist">
 								<li class="nav-item basic">
-									<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic" tabindex="1">
+									<a class="nav-link active" href="#basic" v-on:click="url(`basic`)"
+										data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 										<?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?>
 									</a>
 								</li>
 
 								<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 									<li class="nav-item <?= $enc->attr( $subpart ) ?>">
-										<a class="nav-link" href="#<?= $enc->attr( $subpart ) ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1 ?>">
+										<a class="nav-link" href="#<?= $enc->attr( $subpart ) ?>" v-on:click="url(`<?= $enc->js( $subpart ) ?>`)"
+											data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1 ?>">
 											<?= $enc->html( $this->translate( 'admin', $subpart ) ) ?>
 										</a>
 									</li>

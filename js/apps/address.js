@@ -36,7 +36,7 @@ Aimeos.Address = {
 					}
 
 					const self = this;
-					Aimeos.lazy(node, function() {
+					Aimeos.lazy('#item-address-group', function() {
 						self.show = true;
 					});
 				},

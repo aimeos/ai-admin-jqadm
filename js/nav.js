@@ -20,16 +20,27 @@ Aimeos.Nav = {
 			Aimeos.apps['navbar'] = Aimeos.app({
 				data() {
 					return {
-						show: false
+						all: false
 					}
 				},
 				beforeMount() {
 					this.Aimeos = Aimeos;
-					this.show = Aimeos.session('aimeos/jqadm/item/navbar') == 1
+					this.all = Aimeos.session('aimeos/jqadm/item/navbar') == 1
 				},
 				methods: {
+					url(hash) {
+						document.querySelectorAll("form.item").forEach(function(form) {
+							form.setAttribute('action', form.getAttribute('action')?.split('#')[0] + '#' + hash)
+						})
+
+						if(history.pushState) {
+							history.pushState(null, null, '#' + hash)
+						}
+					},
+
+
 					toggle() {
-						this.show = Aimeos.session('aimeos/jqadm/item/navbar', +!this.show)
+						this.all = Aimeos.session('aimeos/jqadm/item/navbar', +!this.all)
 					}
 				}
 			}, {...node.dataset || {}}).mount(node);
@@ -140,18 +151,6 @@ Aimeos.Nav = {
 			const item = document.querySelector('.nav-tabs a.nav-link[href="' + document.location.hash + '"]')
 			new bootstrap.Tab(item).show()
 		}
-
-		document.querySelectorAll('.nav-tabs .nav-link').forEach(function(item) {
-			item.addEventListener('click', function(ev) {
-				document.querySelectorAll("form").forEach(function(form) {
-					form.setAttribute('action', form.getAttribute('action')?.split('#')[0] + ev.target.hash)
-				})
-
-				if(history.pushState) {
-					history.pushState(null, null, ev.target.hash)
-				}
-			})
-		})
 	}
 }
 
