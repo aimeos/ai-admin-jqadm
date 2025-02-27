@@ -20,12 +20,12 @@ Aimeos.Nav = {
 			Aimeos.apps['navbar'] = Aimeos.app({
 				data() {
 					return {
-						all: false
+						show: false
 					}
 				},
 				beforeMount() {
 					this.Aimeos = Aimeos;
-					this.all = Aimeos.session('aimeos/jqadm/item/navbar') == 1
+					this.show = Aimeos.session('aimeos/jqadm/item/navbar') == 1
 				},
 				methods: {
 					url(hash) {
@@ -40,7 +40,7 @@ Aimeos.Nav = {
 
 
 					toggle() {
-						this.all = Aimeos.session('aimeos/jqadm/item/navbar', +!this.all)
+						this.show = Aimeos.session('aimeos/jqadm/item/navbar', +!this.show)
 					}
 				}
 			}, {...node.dataset || {}}).mount(node);
