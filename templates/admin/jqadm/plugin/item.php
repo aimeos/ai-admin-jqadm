@@ -158,7 +158,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group form-control">
-										<Multiselect class="multiselect item-provider"
+										<Multiselect class="item-provider"
 											name="<?= $this->formparam( array( 'item', 'plugin.provider' ) ) ?>"
 											v-model="item['plugin.provider']"
 											:title="item['plugin.provider']"
