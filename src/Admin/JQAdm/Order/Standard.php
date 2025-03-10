@@ -443,6 +443,19 @@ class Standard
 
 
 	/**
+	 * Returns the excluded attributes from the passed list of order service attributes
+	 *
+	 * @param string $type Type of the attribute items, e.g. "order/service/attribute"
+	 * @param \Aimeos\Map $attrItems List of attribute items
+	 * @return \Aimeos\Map List of excluded attribute items
+	 */
+	protected function excluded( string $type, \Aimeos\Map $attrItems ) : \Aimeos\Map
+	{
+		return map();
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -531,6 +544,7 @@ class Standard
 				$list = [];
 				$serviceId = $service->getId();
 				$attrItems = $this->attributes( 'order/service/attribute', $service->getAttributeItems() );
+				$excluded = $this->excluded( 'order/service/attribute', $service->getAttributeItems() );
 
 				foreach( $data['service'][$type][$serviceId] ?? [] as $entry )
 				{
@@ -546,7 +560,7 @@ class Standard
 					$list[] = $attrItem->setType( $type )->fromArray( $entry, true );
 				}
 
-				$service->setAttributeItems( $list );
+				$service->setAttributeItems( $excluded->merge( $list ) );
 			}
 		}
 
