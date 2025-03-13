@@ -301,7 +301,7 @@ $columnList = [
 								<td class="attribute-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'attribute.domain', $fields ) ) : ?>
-								<td class="attribute-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+								<td class="attribute-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html(  $this->translate( 'admin', $item->getDomain() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'attribute.status', $fields ) ) : ?>
 								<td class="attribute-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
