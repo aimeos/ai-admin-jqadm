@@ -7,9 +7,9 @@ Aimeos.components['site-tree-items'] = {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
 			<li v-for="(item, id) in items" v-bind:key="id" v-bind:class="{active: current == id}">
-				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)">
-					<i v-bind:class="'status-' + item['locale.site.status']"></i>
-					<span class="name">{{ item['locale.site.label'] }}</span>
+				<a v-bind:href="url.replace('_code_', item['code']).replace('_id_', id)">
+					<i v-bind:class="'status-' + item['status']"></i>
+					<span class="name">{{ item['label'] }}</span>
 				</a><!--
 				--><span v-if="isTogglable(item)"
 					v-on:click.stop="toggle(id)" class="icon"
@@ -87,56 +87,42 @@ Aimeos.components['site-tree-items'] = {
 		},
 
 		fetch() {
+			this.$emit('loading', true);
+
 			const self = this;
-			self.$emit('loading', true);
+			let filter = {'==': {'locale.site.parentid': self.parent}};
 
-			this.promise.then(function(response) {
-				if(!response.meta.resources['locale/site']) {
-					return;
-				}
+			if(this.filter) {
+				filter = {'&&': [
+					filter,
+					{'||': [
+						{'=~': {'locale.site.siteid': this.filter}},
+						{'=~': {'locale.site.code': this.filter}},
+						{'=~': {'locale.site.label': this.filter}}
+					]}
+				]};
+			}
 
-				const param = {filter: {'==': {'locale.site.parentid': self.parent}}};
-
-				if(self.filter) {
-					param['filter'] = {'&&': [
-						param['filter'],
-						{'||': [
-							{'=~': {'locale.site.siteid': self.filter}},
-							{'=~': {'locale.site.code': self.filter}},
-							{'=~': {'locale.site.label': self.filter}}
-						]}
-					]};
-				}
-
-				param['fields'] = {'locale/site': 'locale.site.siteid,locale.site.code,locale.site.label,locale.site.status,locale.site.hasChildren'};
-				param['page'] = {'offset': self.offset, 'limit': self.limit};
-				param['sort'] = 'locale.site.position';
-
-				let params = {};
-				let url = response.meta.resources['locale/site'] + (response.meta.resources['locale/site'].includes('?') ? '&' : '?');
-
-				if(response.meta.prefix && response.meta.prefix) {
-					params[response.meta.prefix] = param;
-				} else {
-					params = param;
-				}
-
-				fetch(url + serialize(params)).then(function(response) {
-					if(!response.ok) {
-						throw new Error(response.statusText);
+			Aimeos.query(`query {
+				searchLocaleSites(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:locale.site:position"]) {
+					items {
+						id
+						siteid
+						code
+						label
+						status
 					}
-					return response.json();
-				}).then(function(response) {
-					for(const entry of (response.data || [])) {
-						self.items[entry['id']] = entry['attributes'];
-					}
+					total
+				}
+			}`).then(result => {
+				for(const entry of (result?.searchLocaleSites?.items || [])) {
+					self.items[entry['id']] = entry;
+				}
 
-					self.total = response.meta && response.meta.total || 0;
-
-				}).then(function() {
-					self.$emit('loading', false);
-				});
-			});
+				self.total = result?.searchLocaleSites?.total || (result?.searchLocaleSites?.items || []).length;
+			}).then(function() {
+				self.$emit('loading', false);
+			})
 		},
 
 		isAvailable(item) {
