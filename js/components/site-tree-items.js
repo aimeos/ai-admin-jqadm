@@ -103,7 +103,7 @@ Aimeos.components['site-tree-items'] = {
 				]};
 			}
 
-			Aimeos.query(`query {
+			Aimeos.graphql(`query {
 				searchLocaleSites(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:locale.site:position"]) {
 					items {
 						id

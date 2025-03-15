@@ -109,7 +109,7 @@ Aimeos.ProductList = {
 				const filter = {'&&': [{'==': {}}]}
 				filter['&&'][0]['==']['index.' + this.domain + '.id'] = this.refid
 
-				return Aimeos.query(`query {
+				return Aimeos.graphql(`query {
 					searchIndex(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["` + this.domain + `"], sort: ["sort:index.` + this.domain + `:position()"], offset: ` + this.offset + `, limit: ` + this.limit + `) {
 						items {
 							id
@@ -213,7 +213,7 @@ Aimeos.ProductList = {
 				}
 				input += `]\n`
 
-				Aimeos.query(`mutation {
+				Aimeos.graphql(`mutation {
 					saveProducts(input: ` + input + `) {
 						id
 					}

@@ -145,7 +145,7 @@ Aimeos.Product.Basic = {
 				exists(ev) {
 					const filter = {'==': {'product.code': ev.target.value}}
 
-					Aimeos.query(`query {
+					Aimeos.graphql(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 							items {
 								id
@@ -238,7 +238,7 @@ Aimeos.Product.Attribute = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.label"]) {
 							items {
 								id
@@ -271,7 +271,7 @@ Aimeos.Product.Attribute = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchAttributeTypes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type.code"]) {
 							items {
 								code
@@ -385,7 +385,7 @@ Aimeos.Product.Catalog = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["catalog.label"]) {
 							items {
 								id
@@ -511,7 +511,7 @@ Aimeos.Product.Order = {
 					const filter = {'&&': Object.values(this.filter)};
 					this.loading = true;
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchOrders(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["order/address"], sort: ` + JSON.stringify([this.sort]) + `, offset: ` + this.offset + `, limit: ` + this.limit + `) {
 							items {
 								id
@@ -684,7 +684,7 @@ Aimeos.Product.Product = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
 							items {
 								id
@@ -845,7 +845,7 @@ Aimeos.Product.Selection = {
 						filter['&&'].push({'==': {'product.type': type}})
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["attribute"], sort: ["product.code"]) {
 							items {
 								id
@@ -957,7 +957,7 @@ Aimeos.Product.Selection = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type", "attribute.code"]) {
 							items {
 								id
@@ -1199,7 +1199,7 @@ Aimeos.Product.Supplier = {
 						});
 					}
 
-					return Aimeos.query(`query {
+					return Aimeos.graphql(`query {
 						searchSuppliers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["supplier.label"]) {
 							items {
 								id

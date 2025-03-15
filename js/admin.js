@@ -168,7 +168,7 @@ Aimeos = {
 	},
 
 
-	query(gql, vars = {}) {
+	graphql(gql, vars = {}) {
 		const client = new AwesomeGraphQLClient({
 			endpoint: document.querySelector('.aimeos')?.dataset.graphql,
 			fetchOptions: {

@@ -47,7 +47,7 @@ Aimeos.Service = {
 				if(!provider) return []
 				if(this.cache[provider]) return this.cache[provider]
 
-				return this.cache[provider] = Aimeos.query(`query {
+				return this.cache[provider] = Aimeos.graphql(`query {
 					getServiceConfig(provider: ` + JSON.stringify(provider) + `, type: ` + JSON.stringify(type) + `) {
 						code
 						label

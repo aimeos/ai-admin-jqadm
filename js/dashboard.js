@@ -44,7 +44,7 @@ Aimeos.Dashboard = {
 			str += ', type: ' + JSON.stringify(type);
 		}
 
-		return Aimeos.query(`query {
+		return Aimeos.graphql(`query {
 			` + method + `(` + str + `) {
 				aggregates
 			}

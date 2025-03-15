@@ -47,7 +47,7 @@ Aimeos.Coupon = {
 				if(!provider) return []
 				if(this.cache[provider]) return this.cache[provider]
 
-				return this.cache[provider] = Aimeos.query(`query {
+				return this.cache[provider] = Aimeos.graphql(`query {
 					getCouponConfig(provider: ` + JSON.stringify(provider) + `) {
 						code
 						label
@@ -196,7 +196,7 @@ Aimeos.Coupon.Code = {
 				const filter = {'&&': Object.values(this.filter)};
 				this.loading = true;
 
-				return Aimeos.query(`query {
+				return Aimeos.graphql(`query {
 					searchCouponCodes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ` + JSON.stringify([this.order]) + `, offset: ` + this.offset + `, limit: ` + this.limit + `) {
 						items {
 							id
@@ -238,7 +238,7 @@ Aimeos.Coupon.Code = {
 					}
 				}
 
-				return Aimeos.query(`mutation {
+				return Aimeos.graphql(`mutation {
 					deleteCouponCodes(id: ` + JSON.stringify(Object.keys(map)) + `)
 				  }
 				`).then((result) => {

@@ -225,7 +225,7 @@ Aimeos.ProductRef = {
 					});
 				}
 
-				return Aimeos.query(`query {
+				return Aimeos.graphql(`query {
 					searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
 						items {
 							id

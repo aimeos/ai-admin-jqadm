@@ -68,7 +68,7 @@ Aimeos.Customer = {
 					{'=~': {'group.code': query}},
 					{'=~': {'group.label': query}}
 				]}
-				return Aimeos.query(`query {
+				return Aimeos.graphql(`query {
 					searchGroups(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						items {
 							id
