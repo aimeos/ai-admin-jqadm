@@ -26,6 +26,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^43.1.1",
     "@ckeditor/ckeditor5-vue": "^5.1.0",
+    "@he-tree/vue": "^2.9.4",
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vueform/multiselect": "^2.6.6",
     "awesome-graphql-client": "^2.0.0",
