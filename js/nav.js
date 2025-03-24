@@ -149,7 +149,10 @@ Aimeos.Nav = {
 	tabs() {
 		if(document.location.hash) {
 			const item = document.querySelector('.nav-tabs a.nav-link[href="' + document.location.hash + '"]')
-			new bootstrap.Tab(item).show()
+
+			if(item) {
+				new bootstrap.Tab(item).show()
+			}
 		}
 	}
 }
