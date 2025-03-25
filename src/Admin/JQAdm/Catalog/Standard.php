@@ -92,7 +92,6 @@ class Standard
 			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemRootId = $this->getRootId();
 			$view->itemBody = parent::copy();
 		}
 		catch( \Exception $e )
@@ -122,10 +121,8 @@ class Standard
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
-			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'parentid', $view->param( 'item/catalog.parentid' ) );
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
-			$view->itemRootId = $this->getRootId();
 			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
@@ -208,7 +205,6 @@ class Standard
 
 			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
-			$view->itemRootId = $this->getRootId();
 			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
@@ -244,10 +240,7 @@ class Standard
 
 			$context->cache()->deleteByTags( ['catalog', 'catalog-' . $view->item->getId()] );
 
-			$action = $view->param( 'next' );
-			$id = ( $action === 'create' ? $view->item->getParentId() : $view->item->getId() );
-
-			return $this->redirect( 'catalog', $action, $id, 'save' );
+			return $this->redirect( 'catalog', 'get', $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -266,20 +259,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->view();
-
-		try
-		{
-			$view->item = \Aimeos\MShop::create( $this->context(), 'catalog' )->create();
-			$view->itemRootId = $this->getRootId();
-			$view->itemBody = parent::search();
-		}
-		catch( \Exception $e )
-		{
-			$this->report( $e, 'search' );
-		}
-
-		return $this->render( $view );
+		return $this->render( $this->view() );
 	}
 
 
@@ -388,23 +368,6 @@ class Standard
 
 
 	/**
-	 * Returns the IDs of the root category
-	 *
-	 * @return string|null ID of the root category
-	 */
-	protected function getRootId() : ?string
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
-
-		try {
-			return $manager->getTree( null, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE )->getId();
-		} catch( \Exception $e ) {
-			return null;
-		}
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -470,10 +433,6 @@ class Standard
 			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
 				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 			}
-		}
-
-		if( empty( $item->getId() ) ) {
-			return $manager->insert( $item, $data['catalog.parentid'] ?: null );
 		}
 
 		return $item;
