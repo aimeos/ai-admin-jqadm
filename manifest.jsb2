@@ -33,9 +33,6 @@
 			"text": "bs-overwrite.css",
 			"path": "themes/default/"
 		},{
-			"text": "jqtree.css",
-			"path": "themes/default/"
-		},{
 			"text": "menu.css",
 			"path": "themes/default/"
 		},{
@@ -65,9 +62,6 @@
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "bootstrap.js",
-			"path": "js/"
-		},{
-			"text": "tree.jquery.js",
 			"path": "js/"
 		},{
 			"text": "ckeditor.js",
