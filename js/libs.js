@@ -1,8 +1,3 @@
-import $ from 'jquery'
-import jQuery from 'jquery'
-
-import param from 'jquery-param'
-
 import { createApp } from 'vue'
 import draggable from 'vuedraggable'
 import CKEditor from '@ckeditor/ckeditor5-vue'
@@ -32,9 +27,6 @@ import { ChoroplethChart, ChoroplethController, ColorScale, GeoFeature, Projecti
 
 Chart.register(MatrixController, MatrixElement, ChoroplethChart, ChoroplethController, ColorScale, GeoFeature, ProjectionScale)
 
-globalThis.$ = $
-globalThis.jQuery = jQuery
-globalThis.serialize = param
 globalThis.sprintf = require('sprintf-js').sprintf
 globalThis.createApp = createApp
 globalThis.Draggable = draggable

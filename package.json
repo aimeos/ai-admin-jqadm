@@ -35,8 +35,6 @@
     "chartjs-chart-geo": "^4.3.1",
     "chartjs-chart-matrix": "^2.0.1",
     "flatpickr": "^4.6.13",
-    "jquery": "^3.7.1",
-    "jquery-param": "^1.2.3",
     "leaflet": "^1.9.4",
     "moment": "^2.30.1",
     "sortablejs": "^1.15.2",
