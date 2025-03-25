@@ -48,7 +48,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 			></catalog-tree>
 		</div>
 
-		<div class="col-lg-8 catalog-content" v-html="content">
+		<div class="col-lg-8 catalog-content">
 			<?php if( isset( $this->itemData ) ) : ?>
 				<form class="item item-catalog item-tree form-horizontal" method="POST" enctype="multipart/form-data"
 					action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">

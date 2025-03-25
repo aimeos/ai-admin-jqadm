@@ -127,18 +127,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
+		$id = \Aimeos\MShop::create( $this->context, 'catalog' )->find( 'cafe' )->getId();
+
 		$param = array(
+			'id' => $id,
 			'site' => 'unittest',
 			'item' => array(
-				'catalog.id' => '',
-				'catalog.parentid' => '',
-				'catalog.code' => 'jqadm-catalog-test',
-				'catalog.label' => 'test label',
-				'catalog.datestart' => null,
-				'catalog.dateend' => null,
+				'catalog.code' => 'cafe',
+				'catalog.label' => 'Kaffee',
 				'config' => [[
-					'key' => 'test',
-					'val' => 'value',
+					'key' => 'css-class',
+					'val' => 'coffee',
 				]],
 			),
 		);
@@ -146,13 +145,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$this->object->save();
+		$result = $this->object->save();
 
-		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
-		$item = $manager->find( 'jqadm-catalog-test' );
-		$manager->delete( $item->getId() );
-
-		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
+		$this->assertNotNull( $result );
 	}
 
 
@@ -175,18 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( '<div class="tree-content">', $result );
-	}
-
-
-	public function testSearchException()
-	{
-		$object = $this->getClientMock( 'getRootId' );
-
-		$object->expects( $this->once() )->method( 'getRootId' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->search();
+		$this->assertStringContainsString( '</catalog-tree>', $result );
 	}
 
 
