@@ -270,17 +270,3 @@ document.addEventListener("DOMContentLoaded", function() {
 		new bootstrap.Toast(el, {delay: 3000}).show();
 	});
 });
-
-
-/**
- * Load JSON admin resource definition immediately
- * @deprecated Use GraphQL API
- */
-Aimeos.options = fetch(document.querySelector('.aimeos').dataset.url, {
-	"method": "OPTIONS"
-}).then(function(response) {
-	if(!response.ok) {
-		throw new Error(response.statusText);
-	}
-	return response.json();
-});
