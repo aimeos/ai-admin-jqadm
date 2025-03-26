@@ -19,15 +19,17 @@ Aimeos.components['catalog-tree'] = {
 			v-model="tree"
 			:beforeDragOpen="toggle"
 			:defaultOpen="false"
+			:disableDrag="readonly"
 			:dragOpen="true"
 			:eachDraggable="can"
+			:rtl="rtl"
 			:treeLine="true"
 			:watermark="false"
 			virtualization
 			@change="move()"
 		>
 			<template #default="{ node, stat }">
-				<div v-if="can(stat)" class="dropdown">
+				<div v-if="can(stat) && !readonly" class="dropdown">
 					<button type="button" class="icon icon-treemenu dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only">{{ i18n.menu || 'Tree node menu' }}</span>
 					</button>
@@ -38,8 +40,9 @@ Aimeos.components['catalog-tree'] = {
 						<li class="dropdown-item"><a class="action" href="#" @click="ask(stat, $event)">{{ i18n.delete || 'Delete' }}</a></li>
 					</ul>
 				</div>
-				<a class="label" :class="'node-status-' + node.status" href="#" @click="$emit('load', node.id, $event)">
-					{{ node.label }}
+				<a class="label" :class="'node-status-' + node.status" href="#" @click="load(stat, $event)">
+					<span v-if="node._more" class="icon icon-treemore"></span>
+					{{ node.label || '' }}
 				</a>
 				<span class="icon"
 					:class="{
@@ -63,17 +66,17 @@ Aimeos.components['catalog-tree'] = {
 		i18n: {type: Object, default: () => ({})},
 		limit: {type: Number, default: 100},
 		placeholder: {type: String, default: 'Find category'},
+		readonly: {type: Boolean, default: false},
+		rtl: {type: Boolean, default: false},
 		siteid: {type: String, default: ''},
 	},
 
-	emits: ['delete', 'load'],
+	emits: ['load'],
 
     data() {
 		return {
 		  tree: [],
-		  total: 0,
 		  input: '',
-		  rtl: false,
 		  timer: null,
 		  dialog: false,
 		  selected: null,
@@ -85,7 +88,6 @@ Aimeos.components['catalog-tree'] = {
 	mounted() {
 		this.init()
 		this.search = this.debounce(this.search, 300)
-		this.rtl = document.documentElement.getAttribute('dir') === 'rtl'
 	},
 
 
@@ -148,7 +150,7 @@ Aimeos.components['catalog-tree'] = {
 			stat ? stat.loading = true : null
 
 			return Aimeos.graphql(`query {
-				searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:catalog:position"], offset: ${stat?.offset || 0}) {
+				searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:catalog:position"], offset: ${stat?.data?._offset || 0}) {
 					items {
 						id
 						siteid
@@ -160,7 +162,14 @@ Aimeos.components['catalog-tree'] = {
 					total
 				}
 			}`).then(result => {
-				return result?.searchCatalogs
+				const items = result?.searchCatalogs?.items || []
+				const length = stat?.data?._offset || (stat?.children ? stat.children.length : this.tree.length)
+
+				if(length + items.length < (result?.searchCatalogs?.total || 0)) {
+					items.push({id: stat?.data?.id || 0, _more: true, _offset: length + items.length})
+				}
+
+				return items
 			}).finally(function() {
 				stat ? stat.loading = false : null
 			})
@@ -168,9 +177,8 @@ Aimeos.components['catalog-tree'] = {
 
 
 		init() {
-			this.fetch().then(result => {
-				this.tree = result?.items
-				this.total = result?.total || 0
+			this.fetch().then(items => {
+				this.tree = items
 			})
 		},
 
@@ -213,6 +221,18 @@ Aimeos.components['catalog-tree'] = {
 					this.$refs.tree.openNodeAndParents(stat)
 				}
 			})
+		},
+
+
+		load(stat, ev) {
+			if(stat.data._more) {
+				this.$refs.tree.remove(stat)
+				this.fetch(stat).then(items => {
+					this.$refs.tree.addMulti(items, stat?.parent)
+				})
+			} else {
+				this.$emit('load', stat, ev)
+			}
 		},
 
 
@@ -316,11 +336,10 @@ Aimeos.components['catalog-tree'] = {
 			stat.open = !stat.open
 
 			if(stat.open && stat.data?.hasChildren && (stat.children?.length || 0) === 0) {
-				this.fetch(stat).then(result => {
-					this.$refs.tree.addMulti(result?.items || [], stat, 0)
-					stat.total = result?.total || 0
+				this.fetch(stat).then(items => {
+					this.$refs.tree.addMulti(items, stat, 0)
 
-					if(!result?.total) {
+					if(!items.length) {
 						stat.data.hasChildren = false
 					}
 				})

@@ -41,10 +41,10 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 					insert: `<?= $enc->js( $this->translate( 'admin', 'Insert into' ) ) ?>`,
 					menu: `<?= $enc->js( $this->translate( 'admin', 'Tree node menu' ) ) ?>`,
 				}"
+				:rtl="rtl"
 				placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ) ?>"
 				siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 				@load="load"
-				@delete="ask"
 			></catalog-tree>
 		</div>
 

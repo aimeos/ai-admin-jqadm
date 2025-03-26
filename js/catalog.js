@@ -85,11 +85,26 @@ Aimeos.Catalog.Tree = {
 			url: {type: String, required: true},
 		},
 
-		methods: {
-			load(id, ev) {
-				ev.preventDefault()
 
-				fetch(this.url.replace(/_id_/, id)).then(response => {
+		data() {
+			return {
+				current: null,
+				rtl: false,
+			}
+		},
+
+
+		beforeMount() {
+			this.rtl = document.documentElement.getAttribute('dir') === 'rtl'
+		},
+
+
+		methods: {
+			load(stat, ev) {
+				ev.preventDefault()
+				this.current = stat
+
+				fetch(this.url.replace(/_id_/, stat.data.id)).then(response => {
 					if(!response.ok) {
 						throw response
 					}
@@ -104,6 +119,10 @@ Aimeos.Catalog.Tree = {
 
 			init() {
 				Aimeos.Form.help()
+
+				for(const name of Object.getOwnPropertyNames(Aimeos.apps)) {
+					delete Aimeos.apps[name]
+				}
 
 				for(const name of Object.getOwnPropertyNames(Aimeos)) {
 					if(typeof Aimeos[name]?.init === 'function') {
@@ -126,12 +145,12 @@ Aimeos.Catalog.Tree = {
 
 				document.querySelector('.aimeos .catalog-content form')?.addEventListener('submit', ev => {
 					ev.preventDefault();
-					this.post(ev.target)
+					this.save(ev.target)
 				})
 			},
 
 
-			post(target) {
+			save(target) {
 				fetch(target.action, {
 					method: 'POST',
 					body: new FormData(target)
@@ -142,6 +161,12 @@ Aimeos.Catalog.Tree = {
 					return response.text()
 				}).then(data => {
 					this.update(data).init()
+
+					const item = Aimeos.Catalog.Basic.instance.$data.item;
+
+					this.current.data.code = item['catalog.code']
+					this.current.data.label = item['catalog.label']
+					this.current.data.status = item['catalog.status']
 				})
 			},
 
