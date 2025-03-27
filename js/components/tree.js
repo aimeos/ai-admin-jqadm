@@ -17,7 +17,7 @@ Aimeos.components['tree'] = {
 			v-model="tree"
 			:beforeDragOpen="toggle"
 			:defaultOpen="false"
-			:disableDrag="readonly"
+			:disableDrag="!movable || readonly"
 			:dragOpen="true"
 			:eachDraggable="can"
 			:rtl="rtl"
@@ -65,6 +65,7 @@ Aimeos.components['tree'] = {
 		siteid: {type: String, required: true},
 		i18n: {type: Object, default: () => ({})},
 		limit: {type: Number, default: 100},
+		movable: {type: Boolean, default: true},
 		placeholder: {type: String, default: 'Find node'},
 		readonly: {type: Boolean, default: false},
 		rtl: {type: Boolean, default: false},

@@ -140,7 +140,7 @@ Aimeos.Catalog.Tree = {
 				});
 
 				document.querySelector('.aimeos .catalog .tree-content .act-cancel')?.addEventListener('click', ev => {
-					this.load(id, ev)
+					this.load(this.current, ev)
 				})
 
 				document.querySelector('.aimeos .catalog .tree-content form')?.addEventListener('submit', ev => {
