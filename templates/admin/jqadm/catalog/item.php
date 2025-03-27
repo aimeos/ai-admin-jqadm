@@ -30,25 +30,27 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 <div class="container-fluid">
-	<div class="row item-container list-catalog">
+	<div class="row item-container catalog-tree">
 
-		<div class="col-lg-4 box" data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_id_'] + $params ) ) ?>">
-			<catalog-tree
+		<div class="col-lg-4 tree-nodes box" data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_id_'] + $params ) ) ?>">
+			<tree
+				domain="catalog"
+				placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ) ?>"
+				siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 				:i18n="{
 					after: `<?= $enc->js( $this->translate( 'admin', 'Add after' ) ) ?>`,
 					before: `<?= $enc->js( $this->translate( 'admin', 'Add before' ) ) ?>`,
 					delete: `<?= $enc->js( $this->translate( 'admin', 'Delete' ) ) ?>`,
 					insert: `<?= $enc->js( $this->translate( 'admin', 'Insert into' ) ) ?>`,
 					menu: `<?= $enc->js( $this->translate( 'admin', 'Tree node menu' ) ) ?>`,
+					new: `<?= $enc->js( $this->translate( 'admin', 'New category' ) ) ?>`,
 				}"
 				:rtl="rtl"
-				placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ) ?>"
-				siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 				@load="load"
-			></catalog-tree>
+			></tree>
 		</div>
 
-		<div class="col-lg-8 catalog-content">
+		<div class="col-lg-8 tree-content">
 			<?php if( isset( $this->itemData ) ) : ?>
 				<form class="item item-catalog item-tree form-horizontal" method="POST" enctype="multipart/form-data"
 					action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">

@@ -4,17 +4,15 @@
  */
 
 
-Aimeos.components['catalog-tree'] = {
-    components: { DragTree },
+Aimeos.components['tree'] = {
+	components: { DragTree },
 
 	template: `
-	<div class="catalog-tree">
-		<div class="tree-menu-filter">
-			<div class="filter tree-toolbar">
-				<input class="form-control" v-model="input" :placeholder="placeholder" />
-			</div>
+	<div class="tree">
+		<div class="tree-filter">
+			<input class="form-control" v-model="input" :placeholder="placeholder" />
 		</div>
-		<DragTree class="tree"
+		<DragTree
 			ref="tree"
 			v-model="tree"
 			:beforeDragOpen="toggle"
@@ -63,17 +61,18 @@ Aimeos.components['catalog-tree'] = {
 	`,
 
 	props: {
+		domain: {type: String, required: true},
+		siteid: {type: String, required: true},
 		i18n: {type: Object, default: () => ({})},
 		limit: {type: Number, default: 100},
-		placeholder: {type: String, default: 'Find category'},
+		placeholder: {type: String, default: 'Find node'},
 		readonly: {type: Boolean, default: false},
 		rtl: {type: Boolean, default: false},
-		siteid: {type: String, default: ''},
 	},
 
 	emits: ['load'],
 
-    data() {
+	data() {
 		return {
 		  tree: [],
 		  input: '',
@@ -88,6 +87,18 @@ Aimeos.components['catalog-tree'] = {
 	mounted() {
 		this.init()
 		this.search = this.debounce(this.search, 300)
+	},
+
+
+	computed: {
+		prefix() {
+			return this.domain.replace(/\//, '.')
+		},
+
+
+		name() {
+			return this.domain.split('/').map(([first = '', ...rest]) => [first.toUpperCase(), ...rest].join('')).join('')
+		}
 	},
 
 
@@ -134,7 +145,7 @@ Aimeos.components['catalog-tree'] = {
 
 		drop(stat) {
 			Aimeos.graphql(`mutation {
-				deleteCatalog(id: "${stat.data.id}")
+				delete` + this.name + `(id: "${stat.data.id}")
 			}`).then(() => {
 				this.$refs.tree.remove(stat)
 			}).then(() => {
@@ -146,11 +157,11 @@ Aimeos.components['catalog-tree'] = {
 
 
 		fetch(stat = null) {
-			let filter = {'==': {'catalog.parentid': stat?.data?.id || 0}};
+			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || 0}};
 			stat ? stat.loading = true : null
 
 			return Aimeos.graphql(`query {
-				searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:catalog:position"], offset: ${stat?.data?._offset || 0}) {
+				search` + this.name + `s(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["sort:` + this.prefix + `:position"], offset: ${stat?.data?._offset || 0}) {
 					items {
 						id
 						siteid
@@ -162,10 +173,11 @@ Aimeos.components['catalog-tree'] = {
 					total
 				}
 			}`).then(result => {
-				const items = result?.searchCatalogs?.items || []
+				const name = 'search' + this.name + 's'
+				const items = result[name]?.items || []
 				const length = stat?.data?._offset || (stat?.children ? stat.children.length : this.tree.length)
 
-				if(length + items.length < (result?.searchCatalogs?.total || 0)) {
+				if(length + items.length < (result[name]?.total || 0)) {
 					items.push({id: stat?.data?.id || 0, _more: true, _offset: length + items.length})
 				}
 
@@ -187,7 +199,7 @@ Aimeos.components['catalog-tree'] = {
 			ev.preventDefault()
 
 			let parent, ref
-			let idx = stat.parent?.children?.findIndex(item => item.data.id == stat.data.id) || 0
+			let idx = (stat.parent?.children || this.$refs.tree.stats).findIndex(item => item.data.id == stat.data.id) || 0
 
 			if(where) {
 				ref = stat.parent?.children?.at(Math.max(idx + where, 0)) || null
@@ -201,8 +213,8 @@ Aimeos.components['catalog-tree'] = {
 			const refid = ref?.data?.id ? '"' + ref?.data?.id + '"' : null
 
 			Aimeos.graphql(`mutation {
-				insertCatalog(input: {
-					label: "New category",
+				insert` + this.name + `(input: {
+					label: "` + (this.i18n.new || 'New node') + `",
 					code: "new-` + Math.floor(Math.random()*10000) + `",
 					status: -1
 				}, parentid: ${parentid}, refid: ${refid} ) {
@@ -214,7 +226,8 @@ Aimeos.components['catalog-tree'] = {
 					hasChildren
 				}
 			}`).then(result => {
-				this.$refs.tree.add(result?.insertCatalog, parent, where ? Math.max(idx + Math.max(where, 0), 0) : 0)
+				const name = 'insert' + this.name
+				this.$refs.tree.add(result[name], parent, where ? Math.max(idx + Math.max(where, 0), 0) : 0)
 			}).then(() => {
 				if(!where) {
 					stat.data.hasChildren = true
@@ -248,19 +261,19 @@ Aimeos.components['catalog-tree'] = {
 			const refid = ref ? '"' + ref.data.id + '"' : 'null'
 
 			Aimeos.graphql(`mutation {
-				moveCatalog(id: "${id}", parentid: ${parentid}, targetid: ${targetid}, refid: ${refid})
+				move` + this.name + `(id: "${id}", parentid: ${parentid}, targetid: ${targetid}, refid: ${refid})
 			}`)
 		},
 
 
 		search(input) {
 			const filter = {'||': [
-				{'=~': {'catalog.code': input}},
-				{'=~': {'catalog.label': input}}
+				{'=~': {[this.prefix + '.code']: input}},
+				{'=~': {[this.prefix + '.label']: input}}
 			]}
 
 			return Aimeos.graphql(`query {
-				searchCatalogTree(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+				search` + this.name + `Tree(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 					id
 					siteid
 					code
@@ -325,7 +338,8 @@ Aimeos.components['catalog-tree'] = {
 					}
 				}
 			}`).then(result => {
-				this.tree = result?.searchCatalogTree || []
+				const name = 'search' + this.name + 'Tree'
+				this.tree = result[name] || []
 			}).then(() => {
 				this.$refs.tree.openAll()
 			})

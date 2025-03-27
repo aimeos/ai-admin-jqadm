@@ -70,9 +70,6 @@
 			"text": "admin.js",
 			"path": "js/"
 		},{
-			"text": "catalog-tree.js",
-			"path": "js/components/"
-		},{
 			"text": "column-select.js",
 			"path": "js/components/"
 		},{
@@ -116,6 +113,9 @@
 			"path": "js/components/"
 		},{
 			"text": "translations.js",
+			"path": "js/components/"
+		},{
+			"text": "tree.js",
 			"path": "js/components/"
 		},{
 			"text": "address.js",

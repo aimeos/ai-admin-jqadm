@@ -146,31 +146,22 @@
 
 /** Tree view */
 
-.aimeos .list-catalog > .box {
+.aimeos .tree-nodes {
 	min-height: calc(100vh - 7.75rem);
 }
 
-.aimeos .catalog-tree {
+.aimeos .tree {
 	min-height: calc(100vh - 10rem);
 	height: 100%;
 }
 
-.aimeos .catalog-tree .tree {
+.aimeos .tree .he-tree {
 	height: calc(100% - 3.25rem);
 }
 
-.aimeos .tree-toolbar,
-.aimeos .tree-content {
+.aimeos .tree .tree-filter,
+.aimeos .tree .tree-content {
 	margin-bottom: 1rem;
-}
-
-.aimeos .tree-toolbar .btn {
-	font-size: initial;
-}
-
-.aimeos .tree-toolbar .search-input {
-	border-top: 1px solid var(--bs-line-light, #dee2e6);
-	border-bottom: 1px solid var(--bs-line-light, #dee2e6);
 }
 
 .aimeos .tree .tree-node-inner {
@@ -239,14 +230,14 @@
 }
 
 @media (min-width: 1200px) {
-	.catalog-content .col-xl-6 {
+	.aimeos .tree-content .col-xl-6 {
 		flex: unset;
 		width: 100%;
 	}
 }
 
 @media (min-width: 1400px) {
-	.catalog-content .col-xl-6 {
+	.aimeos .tree-content .col-xl-6 {
 		flex: 0 0 auto;
 		width: 50%;
 	}

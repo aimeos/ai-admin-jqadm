@@ -72,7 +72,7 @@ Aimeos.Catalog.Tree = {
 
 	init() {
 		delete this.instance
-		const node = document.querySelector(".aimeos .list-catalog .box")
+		const node = document.querySelector(".aimeos .catalog-tree .tree-nodes")
 
 		if(node) {
 			this.instance = Aimeos.app({mixins: [this.mixins]}, {...node.dataset || {}}).mount(node)
@@ -139,11 +139,11 @@ Aimeos.Catalog.Tree = {
 					new bootstrap.Toast(el, {delay: 3000}).show();
 				});
 
-				document.querySelector('.aimeos .catalog-content .act-cancel')?.addEventListener('click', ev => {
+				document.querySelector('.aimeos .catalog-tree .tree-content .act-cancel')?.addEventListener('click', ev => {
 					this.load(id, ev)
 				})
 
-				document.querySelector('.aimeos .catalog-content form')?.addEventListener('submit', ev => {
+				document.querySelector('.aimeos .catalog-tree .tree-content form')?.addEventListener('submit', ev => {
 					ev.preventDefault();
 					this.save(ev.target)
 				})
@@ -173,8 +173,8 @@ Aimeos.Catalog.Tree = {
 
 			update(data) {
 				const doc = new DOMParser().parseFromString(data, "text/html")
-				const search = document.querySelector('.aimeos .catalog-content')
-				const replace = doc.querySelector('.aimeos .catalog-content')
+				const search = document.querySelector('.aimeos .catalog-tree .tree-content')
+				const replace = doc.querySelector('.aimeos .catalog-tree .tree-content')
 
 				if(search && replace) {
 					search.replaceWith(replace)
