@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( '</catalog-tree>', $result );
+		$this->assertStringContainsString( '</tree>', $result );
 	}
 
 
