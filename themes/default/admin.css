@@ -607,13 +607,6 @@
 	width: 30%;
 }
 
-@media (max-width: 991px) {
-	.aimeos .item-catalog .tree-content {
-		max-height: 400px;
-		overflow: auto;
-	}
-}
-
 
 /* Download */
 

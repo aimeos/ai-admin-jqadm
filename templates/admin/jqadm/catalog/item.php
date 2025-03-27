@@ -30,7 +30,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 <div class="container-fluid">
-	<div class="row item-container catalog-tree">
+	<div class="row item-container catalog">
 
 		<div class="col-lg-4 tree-nodes box" data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_id_'] + $params ) ) ?>">
 			<tree
@@ -57,7 +57,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 					<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ) ?>"
 						value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ) ?>">
-					<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 					<?= $this->csrf()->formfield() ?>
 
 					<nav class="main-navbar">
