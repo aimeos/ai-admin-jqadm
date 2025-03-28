@@ -19,7 +19,7 @@ Aimeos.components['tree'] = {
 			:defaultOpen="false"
 			:disableDrag="!movable || readonly"
 			:dragOpen="true"
-			:eachDraggable="can"
+			:eachDraggable="canMove"
 			:rtl="rtl"
 			:treeLine="true"
 			:watermark="false"
@@ -27,18 +27,18 @@ Aimeos.components['tree'] = {
 			@change="move()"
 		>
 			<template #default="{ node, stat }">
-				<div v-if="can(stat) && !readonly" class="dropdown">
+				<div v-if="can('change', node.siteid)" class="dropdown">
 					<button type="button" class="icon icon-treemenu dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only">{{ i18n.menu || 'Tree node menu' }}</span>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-end">
-						<li class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, -1)">{{ i18n.before || 'Add before' }}</a></li>
-						<li class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, 0)">{{ i18n.insert || 'Insert into' }}</a></li>
-						<li class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, 1)">{{ i18n.after || 'Add after' }}</a></li>
-						<li class="dropdown-item"><a class="action" href="#" @click="ask(stat, $event)">{{ i18n.delete || 'Delete' }}</a></li>
+						<li v-if="can('insert', node.siteid)" class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, -1)">{{ i18n.before || 'Add before' }}</a></li>
+						<li v-if="can('insert', node.siteid)" class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, 0)">{{ i18n.insert || 'Insert into' }}</a></li>
+						<li v-if="can('insert', node.siteid)" class="dropdown-item"><a class="action" href="#" @click="insert(stat, $event, 1)">{{ i18n.after || 'Add after' }}</a></li>
+						<li v-if="can('delete', node.siteid)" class="dropdown-item"><a class="action" href="#" @click="ask(stat, $event)">{{ i18n.delete || 'Delete' }}</a></li>
 					</ul>
 				</div>
-				<a class="label" :class="'node-status-' + node.status" href="#" @click="load(stat, $event)">
+				<a class="label" :class="'node-status-' + node.status" href="#" :draggable="movable ? true : false" @click="load(stat, $event)">
 					<span v-if="node._more" class="icon icon-treemore"></span>
 					{{ node.label || '' }}
 				</a>
@@ -123,8 +123,13 @@ Aimeos.components['tree'] = {
 		},
 
 
-		can(stat) {
-			return Aimeos.can('change', stat.data['siteid'] || null, this.siteid)
+		can(action, siteid) {
+			return !this.readonly && Aimeos.can(action, siteid || null, this.siteid)
+		},
+
+
+		canMove(stat) {
+			return this.can('move', stat.data.siteid)
 		},
 
 
@@ -158,7 +163,7 @@ Aimeos.components['tree'] = {
 
 
 		fetch(stat = null) {
-			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || 0}};
+			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || null}};
 			stat ? stat.loading = true : null
 
 			return Aimeos.graphql(`query {

@@ -147,7 +147,7 @@
 /** Tree view */
 
 .aimeos .tree-nodes {
-	min-height: calc(100vh - 7.75rem);
+	min-height: calc(100vh - 7.5rem);
 }
 
 .aimeos .tree {
@@ -179,10 +179,20 @@
 	padding: 0.625rem;
 }
 
-.aimeos .tree .node-status--2,
-.aimeos .tree .node-status--1,
+.aimeos .tree .node-status-2 {
+	text-decoration: overline;
+}
+
 .aimeos .tree .node-status-0 {
 	text-decoration: line-through;
+}
+
+.aimeos .tree .node-status--1 {
+	text-decoration: underline;
+}
+
+.aimeos .tree .node-status--2 {
+	text-decoration: underline overline;
 }
 
 .aimeos .tree .label {
