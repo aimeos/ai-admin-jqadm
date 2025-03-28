@@ -163,7 +163,7 @@ Aimeos.components['tree'] = {
 
 
 		fetch(stat = null) {
-			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || null}};
+			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || 0}};
 			stat ? stat.loading = true : null
 
 			return Aimeos.graphql(`query {
