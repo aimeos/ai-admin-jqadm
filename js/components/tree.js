@@ -38,7 +38,11 @@ Aimeos.components['tree'] = {
 						<li v-if="can('delete', node.siteid)" class="dropdown-item"><a class="action" href="#" @click="ask(stat, $event)">{{ i18n.delete || 'Delete' }}</a></li>
 					</ul>
 				</div>
-				<a class="label" :class="'node-status-' + node.status" href="#" :draggable="movable ? true : false" @click="load(stat, $event)">
+				<a class="label" :class="'node-status-' + node.status"
+					:href="node.id ? url.replace(/_id_/, node.id).replace(/_code_/, node.code) : '#'"
+					:draggable="canMove(stat)"
+					@click="load(stat, $event)"
+				>
 					<span v-if="node._more" class="icon icon-treemore"></span>
 					{{ node.label || '' }}
 				</a>
@@ -62,13 +66,14 @@ Aimeos.components['tree'] = {
 
 	props: {
 		domain: {type: String, required: true},
-		siteid: {type: String, required: true},
+		url: {type: String, required: true},
 		i18n: {type: Object, default: () => ({})},
 		limit: {type: Number, default: 100},
 		movable: {type: Boolean, default: true},
 		placeholder: {type: String, default: 'Find node'},
 		readonly: {type: Boolean, default: false},
 		rtl: {type: Boolean, default: false},
+		siteid: {type: String, default: ''},
 	},
 
 	emits: ['load'],
@@ -129,7 +134,7 @@ Aimeos.components['tree'] = {
 
 
 		canMove(stat) {
-			return this.can('move', stat.data.siteid)
+			return this.movable && this.can('move', stat.data.siteid)
 		},
 
 

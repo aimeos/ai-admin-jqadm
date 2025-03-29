@@ -81,11 +81,6 @@ Aimeos.Catalog.Tree = {
 
 
 	mixins : {
-		props: {
-			url: {type: String, required: true},
-		},
-
-
 		data() {
 			return {
 				current: null,
@@ -104,7 +99,7 @@ Aimeos.Catalog.Tree = {
 				ev.preventDefault()
 				this.current = stat
 
-				fetch(this.url.replace(/_id_/, stat.data.id)).then(response => {
+				fetch(ev.target.href).then(response => {
 					if(!response.ok) {
 						throw response
 					}

@@ -32,11 +32,12 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 <div class="container-fluid">
 	<div class="row item-container catalog">
 
-		<div class="col-lg-4 tree-nodes box" data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_id_'] + $params ) ) ?>">
+		<div class="col-lg-4 tree-nodes box">
 			<tree
 				domain="catalog"
 				placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ) ?>"
 				siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+				url="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_id_'] + $params ) ) ?>"
 				:i18n="{
 					after: `<?= $enc->js( $this->translate( 'admin', 'Add after' ) ) ?>`,
 					before: `<?= $enc->js( $this->translate( 'admin', 'Add before' ) ) ?>`,
