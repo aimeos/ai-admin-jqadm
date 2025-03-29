@@ -151,14 +151,14 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 								<a href="#"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></a>
 								<span class="close"></span>
 							</div>
-							<div class="menu-body vue" data-key="sidebar-sites">
-								<site-tree
-									v-bind:promise="Aimeos.options"
-									current="<?= $enc->attr( $this->pageSiteItem->getId() ) ?>"
-									parent="<?= $enc->attr( $this->pageSitePath->getParentId()->first( '0' ) ) ?>"
+							<div class="menu-body vue">
+								<tree
+									domain="locale/site"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
-									url="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['site' => '_code_'] + $params ) ) ?>">
-								</site-tree>
+									url="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['site' => '_code_'] + $params ) ) ?>"
+									:readonly="true"
+									:rtl="rtl"
+								></tree>
 							</div>
 						</div>
 					</li>
