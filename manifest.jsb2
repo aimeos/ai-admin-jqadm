@@ -103,12 +103,6 @@
 			"text": "select-component.js",
 			"path": "js/components/"
 		},{
-			"text": "site-tree-items.js",
-			"path": "js/components/"
-		},{
-			"text": "site-tree.js",
-			"path": "js/components/"
-		},{
 			"text": "taxrates.js",
 			"path": "js/components/"
 		},{
