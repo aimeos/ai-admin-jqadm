@@ -220,7 +220,8 @@ Aimeos = {
 			},
 			data() {
 				return {
-					dataset: []
+					dataset: [],
+					rtl: false,
 				}
 			},
 			computed: {
@@ -231,6 +232,7 @@ Aimeos = {
 			beforeMount() {
 				this.Aimeos = Aimeos
 				this.dataset = JSON.parse(this.data)
+				this.rtl = document.documentElement.getAttribute('dir') === 'rtl'
 			},
 			methods: {
 				add: function(data) {
