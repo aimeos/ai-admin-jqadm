@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Wonjin Choi <dwon97@gmail.com>, 2019\n"
 "Language-Team: Korean (http://app.transifex.com/aimeos/aimeos-core/language/ko/)\n"
@@ -103,6 +103,12 @@ msgstr "고객이 실제 가격으로 웹사이트에서 물품을 구매할 수
 
 msgid "Add"
 msgstr "추가"
+
+msgid "Add after"
+msgstr "다음에 추가"
+
+msgid "Add before"
+msgstr "전에 추가"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -813,6 +819,9 @@ msgstr "세금 포함"
 msgid "Info"
 msgstr "정보"
 
+msgid "Insert into"
+msgstr "다음에 삽입"
+
 msgid "Insert new entry"
 msgstr "새 항목 삽입"
 
@@ -1049,6 +1058,9 @@ msgstr "자연스러운"
 
 msgid "New"
 msgstr "신규"
+
+msgid "New category"
+msgstr "새 카테고리"
 
 msgid "New customers"
 msgstr "신규 고객"
@@ -1935,6 +1947,9 @@ msgstr "텍스트 번역"
 
 msgid "Translations"
 msgstr "번역"
+
+msgid "Tree node menu"
+msgstr "트리 노드 메뉴"
 
 msgid "Two letter ISO country code"
 msgstr "두 글자 ISO 국가 코드"

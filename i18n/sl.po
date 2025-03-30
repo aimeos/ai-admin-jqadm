@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Uroš Strajnar, 2024\n"
 "Language-Team: Slovenian (http://app.transifex.com/aimeos/aimeos-core/language/sl/)\n"
@@ -105,6 +105,12 @@ msgstr "Actual price customers can buy the article for on the web site"
 
 msgid "Add"
 msgstr "Dodaj"
+
+msgid "Add after"
+msgstr "Dodajte po"
+
+msgid "Add before"
+msgstr "Dodajte pred"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -815,6 +821,9 @@ msgstr "Incl. tax"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Vstavite v"
+
 msgid "Insert new entry"
 msgstr "Insert new entry"
 
@@ -1051,6 +1060,9 @@ msgstr "Naravni"
 
 msgid "New"
 msgstr "New"
+
+msgid "New category"
+msgstr "Nova kategorija"
 
 msgid "New customers"
 msgstr "Nove stranke"
@@ -1937,6 +1949,9 @@ msgstr "Translate text"
 
 msgid "Translations"
 msgstr "Prevodi"
+
+msgid "Tree node menu"
+msgstr "Meni drevesnega vozlišča"
 
 msgid "Two letter ISO country code"
 msgstr "Two letter ISO country code"

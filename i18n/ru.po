@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yakov Vladimirov <yakov_255@mail.ru>, 2019\n"
 "Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -111,6 +111,12 @@ msgstr "Фактическая цена покупателей, по котор�
 
 msgid "Add"
 msgstr "Добавить"
+
+msgid "Add after"
+msgstr "Добавить после"
+
+msgid "Add before"
+msgstr "Добавить до"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -821,6 +827,9 @@ msgstr "Вкл. налог"
 msgid "Info"
 msgstr "Информация"
 
+msgid "Insert into"
+msgstr "Вставить в"
+
 msgid "Insert new entry"
 msgstr "Вставить новую запись"
 
@@ -1057,6 +1066,9 @@ msgstr "Натуральный"
 
 msgid "New"
 msgstr "Новый"
+
+msgid "New category"
+msgstr "Новая категория"
 
 msgid "New customers"
 msgstr "Новые клиенты"
@@ -1943,6 +1955,9 @@ msgstr "Перевести текст"
 
 msgid "Translations"
 msgstr "Переводы"
+
+msgid "Tree node menu"
+msgstr "Меню узлов дерева"
 
 msgid "Two letter ISO country code"
 msgstr "Двухбуквенный код страны ISO"

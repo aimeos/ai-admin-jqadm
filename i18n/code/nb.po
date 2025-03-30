@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -53,3 +54,66 @@ msgstr "Levering"
 
 msgid "service:payment"
 msgstr "Betaling"
+
+msgid "attribute"
+msgstr "attributt"
+
+msgid "basket"
+msgstr "kurv"
+
+msgid "catalog"
+msgstr "katalog"
+
+msgid "coupon"
+msgstr "kupong"
+
+msgid "customer"
+msgstr "kunde"
+
+msgid "group"
+msgstr "gruppe"
+
+msgid "locale"
+msgstr "lokalitet"
+
+msgid "media"
+msgstr "medier"
+
+msgid "order"
+msgstr "rekkefølge"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "pris"
+
+msgid "product"
+msgstr "produkt"
+
+msgid "review"
+msgstr "gjennomgang"
+
+msgid "rule"
+msgstr "styre"
+
+msgid "service"
+msgstr "service"
+
+msgid "stock"
+msgstr "lager"
+
+msgid "subscription"
+msgstr "abonnement"
+
+msgid "supplier"
+msgstr "leverandør"
+
+msgid "tag"
+msgstr "merke"
+
+msgid "text"
+msgstr "tekst"
+
+msgid "type"
+msgstr "type"

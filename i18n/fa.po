@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: محمد مسعودزاده, 2021\n"
 "Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -109,6 +109,12 @@ msgstr "مشتریان با قیمت واقعی می توانند مقاله ر�
 
 msgid "Add"
 msgstr "اضافه کردن"
+
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -819,6 +825,9 @@ msgstr "قیمت با احتساب مالیات"
 msgid "Info"
 msgstr "اطلاعات"
 
+msgid "Insert into"
+msgstr ""
+
 msgid "Insert new entry"
 msgstr "درج ورودی جدید"
 
@@ -1055,6 +1064,9 @@ msgstr ""
 
 msgid "New"
 msgstr "جدید"
+
+msgid "New category"
+msgstr ""
 
 msgid "New customers"
 msgstr "مشتریان جدید"
@@ -1940,6 +1952,9 @@ msgid "Translate text"
 msgstr "ترجمه متن"
 
 msgid "Translations"
+msgstr ""
+
+msgid "Tree node menu"
 msgstr ""
 
 msgid "Two letter ISO country code"

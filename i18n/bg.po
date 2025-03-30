@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Stefan Taskov, 2022\n"
 "Language-Team: Bulgarian (http://app.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -108,6 +108,12 @@ msgstr "Актуалната цена на продукта за купувач�
 
 msgid "Add"
 msgstr "Добави"
+
+msgid "Add after"
+msgstr "Добавете след"
+
+msgid "Add before"
+msgstr "Добавете преди"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -818,6 +824,9 @@ msgstr "С включен данък"
 msgid "Info"
 msgstr "Информация"
 
+msgid "Insert into"
+msgstr "Вмъкване в"
+
 msgid "Insert new entry"
 msgstr "Вмъкване на нов запис"
 
@@ -1054,6 +1063,9 @@ msgstr "Естествено"
 
 msgid "New"
 msgstr "Нов"
+
+msgid "New category"
+msgstr "Нова категория"
 
 msgid "New customers"
 msgstr "Нови клиенти"
@@ -1940,6 +1952,9 @@ msgstr "Превод на текст"
 
 msgid "Translations"
 msgstr "Преводи"
+
+msgid "Tree node menu"
+msgstr "Меню на възлите на дървото"
 
 msgid "Two letter ISO country code"
 msgstr "Двубуквен код на страната по ISO"

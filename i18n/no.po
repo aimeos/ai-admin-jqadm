@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian (http://app.transifex.com/aimeos/aimeos-core/language/no/)\n"
@@ -102,6 +102,12 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
+
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
@@ -173,7 +179,7 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr ""
+msgstr "Attribute"
 
 msgid "Attribute Lists Type"
 msgstr ""
@@ -226,7 +232,7 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Basket"
 
 msgid "Billing address"
 msgstr ""
@@ -256,7 +262,7 @@ msgid "Cancel and return to list"
 msgstr ""
 
 msgid "Catalog"
-msgstr ""
+msgstr "Catalog"
 
 msgid "Catalog Lists Type"
 msgstr ""
@@ -394,7 +400,7 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "Coupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
@@ -415,7 +421,7 @@ msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
-msgstr ""
+msgstr "Customer"
 
 msgid "Customer ID"
 msgstr ""
@@ -732,7 +738,7 @@ msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Group"
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
@@ -809,6 +815,9 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
+msgstr ""
+
+msgid "Insert into"
 msgstr ""
 
 msgid "Insert new entry"
@@ -952,7 +961,7 @@ msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
-msgstr ""
+msgstr "Locale"
 
 msgid "Log"
 msgstr ""
@@ -1046,6 +1055,9 @@ msgid "Natural"
 msgstr ""
 
 msgid "New"
+msgstr ""
+
+msgid "New category"
 msgstr ""
 
 msgid "New customers"
@@ -1154,7 +1166,7 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
 msgid "Order ID"
 msgstr ""
@@ -1255,7 +1267,7 @@ msgid "Please select"
 msgstr ""
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Plugin Type"
 msgstr ""
@@ -1297,7 +1309,7 @@ msgid "Previous"
 msgstr ""
 
 msgid "Price"
-msgstr ""
+msgstr "Price"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1327,7 +1339,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
 msgid "Product ID"
 msgstr ""
@@ -1539,7 +1551,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "Rule"
-msgstr ""
+msgstr "Rule"
 
 msgid "Rule Type"
 msgstr ""
@@ -1605,7 +1617,7 @@ msgid "Select file"
 msgstr ""
 
 msgid "Service"
-msgstr ""
+msgstr "Service"
 
 msgid "Service Lists Type"
 msgstr ""
@@ -1779,7 +1791,7 @@ msgid "Sub-total"
 msgstr ""
 
 msgid "Subscription"
-msgstr ""
+msgstr "Subscription"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1793,7 +1805,7 @@ msgid "Sum"
 msgstr ""
 
 msgid "Supplier"
-msgstr ""
+msgstr "Supplier"
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1934,6 +1946,9 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
+msgid "Tree node menu"
+msgstr ""
+
 msgid "Two letter ISO country code"
 msgstr ""
 
@@ -1941,7 +1956,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Type position (optional)"
 msgstr ""
@@ -2231,7 +2246,7 @@ msgstr ""
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "Catalog"
 
 #, php-format
 msgid "group"
@@ -2279,7 +2294,7 @@ msgstr ""
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "Media"
 
 msgid "miss"
 msgstr "Miss"
@@ -2527,7 +2542,7 @@ msgstr ""
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
@@ -2555,7 +2570,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"

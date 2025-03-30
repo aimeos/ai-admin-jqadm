@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 # Hidjrah Saputra, 2024
 # Hidjrah Saputra, 2024
 # Ranu Yulianto <vanarif@gmail.com>, 2018
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aimeos, 2025\n"
+"Last-Translator: Wira Sandy, 2021\n"
 "Language-Team: Indonesian (http://app.transifex.com/aimeos/aimeos-core/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,6 +108,12 @@ msgstr "Harga aktual yang didapatkan oleh konsumen untuk membeli produk pada web
 
 msgid "Add"
 msgstr "Tambah"
+
+msgid "Add after"
+msgstr "Tambahkan setelah"
+
+msgid "Add before"
+msgstr "Tambahkan sebelum"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -817,6 +824,9 @@ msgstr "Termasuk pajak"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Masukkan ke dalam"
+
 msgid "Insert new entry"
 msgstr "Menyisipkan entri baru"
 
@@ -1053,6 +1063,9 @@ msgstr "Alami"
 
 msgid "New"
 msgstr "Baru"
+
+msgid "New category"
+msgstr "Kategori baru"
 
 msgid "New customers"
 msgstr "Pelanggan baru"
@@ -1939,6 +1952,9 @@ msgstr "Menerjemahkan teks"
 
 msgid "Translations"
 msgstr "Terjemahan"
+
+msgid "Tree node menu"
+msgstr "Menu simpul pohon"
 
 msgid "Two letter ISO country code"
 msgstr "Kode negara ISO dua huruf"

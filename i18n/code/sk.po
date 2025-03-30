@@ -53,3 +53,66 @@ msgstr "Doručenie"
 
 msgid "service:payment"
 msgstr "Platba"
+
+msgid "attribute"
+msgstr "atribút"
+
+msgid "basket"
+msgstr "košík"
+
+msgid "catalog"
+msgstr "katalóg"
+
+msgid "coupon"
+msgstr "kupón"
+
+msgid "customer"
+msgstr "zákazník"
+
+msgid "group"
+msgstr "skupina"
+
+msgid "locale"
+msgstr "locale"
+
+msgid "media"
+msgstr "médiá"
+
+msgid "order"
+msgstr "objednávka"
+
+msgid "plugin"
+msgstr "zásuvný modul"
+
+msgid "price"
+msgstr "cena"
+
+msgid "product"
+msgstr "produkt"
+
+msgid "review"
+msgstr "recenzia"
+
+msgid "rule"
+msgstr "pravidlo"
+
+msgid "service"
+msgstr "služba"
+
+msgid "stock"
+msgstr "zásoby"
+
+msgid "subscription"
+msgstr "predplatné"
+
+msgid "supplier"
+msgstr "dodávateľ"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "text"
+msgstr "text"
+
+msgid "type"
+msgstr "typ"

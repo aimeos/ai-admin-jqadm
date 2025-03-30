@@ -53,3 +53,66 @@ msgstr "التوصيل"
 
 msgid "service:payment"
 msgstr "الدفع"
+
+msgid "attribute"
+msgstr "السمة"
+
+msgid "basket"
+msgstr "سلة"
+
+msgid "catalog"
+msgstr "الكتالوج"
+
+msgid "coupon"
+msgstr "قسيمة"
+
+msgid "customer"
+msgstr "العميل"
+
+msgid "group"
+msgstr "المجموعة"
+
+msgid "locale"
+msgstr "اللغة المحلية"
+
+msgid "media"
+msgstr "وسائل الإعلام"
+
+msgid "order"
+msgstr "الطلب"
+
+msgid "plugin"
+msgstr "المكوّن الإضافي"
+
+msgid "price"
+msgstr "السعر"
+
+msgid "product"
+msgstr "المنتج"
+
+msgid "review"
+msgstr "مراجعة"
+
+msgid "rule"
+msgstr "القاعدة"
+
+msgid "service"
+msgstr "الخدمة"
+
+msgid "stock"
+msgstr "المخزون"
+
+msgid "subscription"
+msgstr "الاشتراك"
+
+msgid "supplier"
+msgstr "المورد"
+
+msgid "tag"
+msgstr "العلامة"
+
+msgid "text"
+msgstr "النص"
+
+msgid "type"
+msgstr "النوع"

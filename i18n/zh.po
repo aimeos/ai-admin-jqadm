@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: stevechen <steve.stevechen@gmail.com>, 2018\n"
 "Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -108,6 +108,12 @@ msgstr "客戶網站上購買產品實際價格客"
 
 msgid "Add"
 msgstr "添加"
+
+msgid "Add after"
+msgstr "添加后"
+
+msgid "Add before"
+msgstr "添加前"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -818,6 +824,9 @@ msgstr "含稅"
 msgid "Info"
 msgstr "資訊"
 
+msgid "Insert into"
+msgstr "插入"
+
 msgid "Insert new entry"
 msgstr "插入新紀錄"
 
@@ -1054,6 +1063,9 @@ msgstr "自然"
 
 msgid "New"
 msgstr "新紀錄"
+
+msgid "New category"
+msgstr "新类别"
 
 msgid "New customers"
 msgstr "新客户"
@@ -1940,6 +1952,9 @@ msgstr "翻译文本"
 
 msgid "Translations"
 msgstr "翻译"
+
+msgid "Tree node menu"
+msgstr "树节点菜单"
 
 msgid "Two letter ISO country code"
 msgstr "兩碼 ISO 國家碼"

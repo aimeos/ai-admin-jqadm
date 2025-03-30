@@ -54,3 +54,66 @@ msgstr "Dostava"
 
 msgid "service:payment"
 msgstr "Plačilo"
+
+msgid "attribute"
+msgstr "atribut"
+
+msgid "basket"
+msgstr "košarica"
+
+msgid "catalog"
+msgstr "katalog"
+
+msgid "coupon"
+msgstr "kupon"
+
+msgid "customer"
+msgstr "stranka"
+
+msgid "group"
+msgstr "skupina"
+
+msgid "locale"
+msgstr "locale"
+
+msgid "media"
+msgstr "mediji"
+
+msgid "order"
+msgstr "Naročite na ."
+
+msgid "plugin"
+msgstr "vtičnik"
+
+msgid "price"
+msgstr "cena"
+
+msgid "product"
+msgstr "izdelek"
+
+msgid "review"
+msgstr "pregled"
+
+msgid "rule"
+msgstr "pravilo"
+
+msgid "service"
+msgstr "storitev"
+
+msgid "stock"
+msgstr "zaloga"
+
+msgid "subscription"
+msgstr "naročnina"
+
+msgid "supplier"
+msgstr "dobavitelj"
+
+msgid "tag"
+msgstr "oznaka"
+
+msgid "text"
+msgstr "besedilo"
+
+msgid "type"
+msgstr "vrsta"

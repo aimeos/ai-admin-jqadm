@@ -53,3 +53,66 @@ msgstr "Bezorging"
 
 msgid "service:payment"
 msgstr "Betaling"
+
+msgid "attribute"
+msgstr "attribuut"
+
+msgid "basket"
+msgstr "mand"
+
+msgid "catalog"
+msgstr "catalogus"
+
+msgid "coupon"
+msgstr "coupon"
+
+msgid "customer"
+msgstr "klant"
+
+msgid "group"
+msgstr "groep"
+
+msgid "locale"
+msgstr "plaatselijke"
+
+msgid "media"
+msgstr "media"
+
+msgid "order"
+msgstr "bestel"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "prijs"
+
+msgid "product"
+msgstr "product"
+
+msgid "review"
+msgstr "beoordeling"
+
+msgid "rule"
+msgstr "regel"
+
+msgid "service"
+msgstr "service"
+
+msgid "stock"
+msgstr "voorraad"
+
+msgid "subscription"
+msgstr "abonnement"
+
+msgid "supplier"
+msgstr "leverancier"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "text"
+msgstr "tekst"
+
+msgid "type"
+msgstr "type"

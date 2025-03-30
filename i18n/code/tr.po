@@ -53,3 +53,66 @@ msgstr "Teslimat"
 
 msgid "service:payment"
 msgstr "Ödeme"
+
+msgid "attribute"
+msgstr "öznitelik"
+
+msgid "basket"
+msgstr "sepet"
+
+msgid "catalog"
+msgstr "Katalog"
+
+msgid "coupon"
+msgstr "kupon"
+
+msgid "customer"
+msgstr "müşteri"
+
+msgid "group"
+msgstr "Grup"
+
+msgid "locale"
+msgstr "YEREL"
+
+msgid "media"
+msgstr "medya"
+
+msgid "order"
+msgstr "Sipariş"
+
+msgid "plugin"
+msgstr "eklenti"
+
+msgid "price"
+msgstr "fiyat"
+
+msgid "product"
+msgstr "ürün"
+
+msgid "review"
+msgstr "inceleme"
+
+msgid "rule"
+msgstr "kural"
+
+msgid "service"
+msgstr "hizmet"
+
+msgid "stock"
+msgstr "stok"
+
+msgid "subscription"
+msgstr "abonelik"
+
+msgid "supplier"
+msgstr "Tedarikçi"
+
+msgid "tag"
+msgstr "etiket"
+
+msgid "text"
+msgstr "Metin"
+
+msgid "type"
+msgstr "tip"

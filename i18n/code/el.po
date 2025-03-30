@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -53,3 +54,66 @@ msgstr "Παράδοση"
 
 msgid "service:payment"
 msgstr "Πληρωμή"
+
+msgid "attribute"
+msgstr "χαρακτηριστικό"
+
+msgid "basket"
+msgstr "καλάθι"
+
+msgid "catalog"
+msgstr "Κατάλογος"
+
+msgid "coupon"
+msgstr "κουπόνι"
+
+msgid "customer"
+msgstr "πελάτης"
+
+msgid "group"
+msgstr "ομάδα"
+
+msgid "locale"
+msgstr "locale"
+
+msgid "media"
+msgstr "μέσα ενημέρωσης"
+
+msgid "order"
+msgstr "παραγγελία"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "τιμή"
+
+msgid "product"
+msgstr "προϊόν"
+
+msgid "review"
+msgstr "αναθεώρηση"
+
+msgid "rule"
+msgstr "κανόνας"
+
+msgid "service"
+msgstr "υπηρεσία"
+
+msgid "stock"
+msgstr "απόθεμα"
+
+msgid "subscription"
+msgstr "συνδρομή"
+
+msgid "supplier"
+msgstr "προμηθευτής"
+
+msgid "tag"
+msgstr "ετικέτα"
+
+msgid "text"
+msgstr "κείμενο"
+
+msgid "type"
+msgstr "τύπος"

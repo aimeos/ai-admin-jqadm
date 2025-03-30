@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>, 2018\n"
 "Language-Team: Croatian (http://app.transifex.com/aimeos/aimeos-core/language/hr/)\n"
@@ -102,6 +102,12 @@ msgstr ""
 
 msgid "Add"
 msgstr "Dodaj"
+
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -395,7 +401,7 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "Coupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
@@ -812,6 +818,9 @@ msgstr ""
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr ""
+
 msgid "Insert new entry"
 msgstr ""
 
@@ -953,7 +962,7 @@ msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
-msgstr ""
+msgstr "Locale"
 
 msgid "Log"
 msgstr "Zapis"
@@ -1048,6 +1057,9 @@ msgstr ""
 
 msgid "New"
 msgstr "Novo"
+
+msgid "New category"
+msgstr ""
 
 msgid "New customers"
 msgstr ""
@@ -1540,7 +1552,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "Rule"
-msgstr ""
+msgstr "Rule"
 
 msgid "Rule Type"
 msgstr ""
@@ -1933,6 +1945,9 @@ msgid "Translate text"
 msgstr ""
 
 msgid "Translations"
+msgstr ""
+
+msgid "Tree node menu"
 msgstr ""
 
 msgid "Two letter ISO country code"

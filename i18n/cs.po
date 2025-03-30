@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
 "Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -105,6 +105,12 @@ msgstr "Skutečná cena, za kterou si zákazníci mohou zboží zakoupit na webo
 
 msgid "Add"
 msgstr "Přidat"
+
+msgid "Add after"
+msgstr "Přidat po"
+
+msgid "Add before"
+msgstr "Přidat před"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -815,6 +821,9 @@ msgstr "Včetně daně"
 msgid "Info"
 msgstr "Informace"
 
+msgid "Insert into"
+msgstr "Vložit do"
+
 msgid "Insert new entry"
 msgstr "Vložení nové položky"
 
@@ -1051,6 +1060,9 @@ msgstr "Přírodní"
 
 msgid "New"
 msgstr "Nový"
+
+msgid "New category"
+msgstr "Nová kategorie"
 
 msgid "New customers"
 msgstr "Noví zákazníci"
@@ -1937,6 +1949,9 @@ msgstr "Přeložit text"
 
 msgid "Translations"
 msgstr "Překlady"
+
+msgid "Tree node menu"
+msgstr "Nabídka uzlu stromu"
 
 msgid "Two letter ISO country code"
 msgstr "Dvoupísmenný kód země ISO"

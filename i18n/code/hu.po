@@ -53,3 +53,66 @@ msgstr "Szállítás"
 
 msgid "service:payment"
 msgstr "Fizetés"
+
+msgid "attribute"
+msgstr "attribútum"
+
+msgid "basket"
+msgstr "kosár"
+
+msgid "catalog"
+msgstr "katalógus"
+
+msgid "coupon"
+msgstr "kupon"
+
+msgid "customer"
+msgstr "ügyfél"
+
+msgid "group"
+msgstr "csoport"
+
+msgid "locale"
+msgstr "locale"
+
+msgid "media"
+msgstr "média"
+
+msgid "order"
+msgstr "megrendelés"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "ár"
+
+msgid "product"
+msgstr "termék"
+
+msgid "review"
+msgstr "felülvizsgálat"
+
+msgid "rule"
+msgstr "szabály"
+
+msgid "service"
+msgstr "szolgáltatás"
+
+msgid "stock"
+msgstr "készlet"
+
+msgid "subscription"
+msgstr "előfizetés"
+
+msgid "supplier"
+msgstr "beszállító"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "text"
+msgstr "szöveg"
+
+msgid "type"
+msgstr "típus"

@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -53,3 +54,66 @@ msgstr "Pristatymas"
 
 msgid "service:payment"
 msgstr "Mokėjimas"
+
+msgid "attribute"
+msgstr "atributas"
+
+msgid "basket"
+msgstr "krepšelis"
+
+msgid "catalog"
+msgstr "katalogas"
+
+msgid "coupon"
+msgstr "kuponas"
+
+msgid "customer"
+msgstr "klientas"
+
+msgid "group"
+msgstr "grupė"
+
+msgid "locale"
+msgstr "vietovardis"
+
+msgid "media"
+msgstr "žiniasklaida"
+
+msgid "order"
+msgstr "užsakymas"
+
+msgid "plugin"
+msgstr "įskiepiai"
+
+msgid "price"
+msgstr "kaina"
+
+msgid "product"
+msgstr "produktas"
+
+msgid "review"
+msgstr "peržiūrėti"
+
+msgid "rule"
+msgstr "taisyklė"
+
+msgid "service"
+msgstr "paslauga"
+
+msgid "stock"
+msgstr "atsargos"
+
+msgid "subscription"
+msgstr "prenumerata"
+
+msgid "supplier"
+msgstr "tiekėjas"
+
+msgid "tag"
+msgstr "žyma"
+
+msgid "text"
+msgstr "tekstas"
+
+msgid "type"
+msgstr "tipas"

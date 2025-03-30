@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2025\n"
 "Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -102,6 +102,12 @@ msgstr "Müşterilerin ürünü satın alabileceği gerçek ürün web site fiya
 
 msgid "Add"
 msgstr "Ekle"
+
+msgid "Add after"
+msgstr "Sonradan ekle"
+
+msgid "Add before"
+msgstr "Önce ekle"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -812,6 +818,9 @@ msgstr "KDV dahil"
 msgid "Info"
 msgstr "Bilgi"
 
+msgid "Insert into"
+msgstr "İçine yerleştirin"
+
 msgid "Insert new entry"
 msgstr "Yeni giriş ekle"
 
@@ -1048,6 +1057,9 @@ msgstr "Doğal"
 
 msgid "New"
 msgstr "Yeni"
+
+msgid "New category"
+msgstr "Yeni kategori"
 
 msgid "New customers"
 msgstr "Yeni müşteriler"
@@ -1934,6 +1946,9 @@ msgstr "Metin çevir"
 
 msgid "Translations"
 msgstr "Çeviriler"
+
+msgid "Tree node menu"
+msgstr "Ağaç düğümü menüsü"
 
 msgid "Two letter ISO country code"
 msgstr "İki harfli ülke ISO kodu"

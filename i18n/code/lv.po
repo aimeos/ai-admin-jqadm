@@ -53,3 +53,66 @@ msgstr "Piegāde"
 
 msgid "service:payment"
 msgstr "Apmaksa"
+
+msgid "attribute"
+msgstr "atribūts"
+
+msgid "basket"
+msgstr "grozs"
+
+msgid "catalog"
+msgstr "katalogs"
+
+msgid "coupon"
+msgstr "kupons"
+
+msgid "customer"
+msgstr "klients"
+
+msgid "group"
+msgstr "grupa"
+
+msgid "locale"
+msgstr "vietne"
+
+msgid "media"
+msgstr "plašsaziņas līdzekļi"
+
+msgid "order"
+msgstr "pasūtījums"
+
+msgid "plugin"
+msgstr "spraudnis"
+
+msgid "price"
+msgstr "cena"
+
+msgid "product"
+msgstr "produkts"
+
+msgid "review"
+msgstr "pārskatīt"
+
+msgid "rule"
+msgstr "noteikums"
+
+msgid "service"
+msgstr "pakalpojums"
+
+msgid "stock"
+msgstr "krājums"
+
+msgid "subscription"
+msgstr "abonements"
+
+msgid "supplier"
+msgstr "piegādātājs"
+
+msgid "tag"
+msgstr "birka"
+
+msgid "text"
+msgstr "teksts"
+
+msgid "type"
+msgstr "tips"

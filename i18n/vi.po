@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Van Nguyen <van.webmasters@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (http://app.transifex.com/aimeos/aimeos-core/language/vi/)\n"
@@ -105,6 +105,12 @@ msgstr "Giá bán mà khách hàng có thể mua sản phẩm trên website"
 
 msgid "Add"
 msgstr "Thêm"
+
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -736,7 +742,7 @@ msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Group"
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
@@ -813,6 +819,9 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
+msgstr ""
+
+msgid "Insert into"
 msgstr ""
 
 msgid "Insert new entry"
@@ -956,7 +965,7 @@ msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
-msgstr ""
+msgstr "Locale"
 
 msgid "Log"
 msgstr ""
@@ -1050,6 +1059,9 @@ msgid "Natural"
 msgstr ""
 
 msgid "New"
+msgstr ""
+
+msgid "New category"
 msgstr ""
 
 msgid "New customers"
@@ -1158,7 +1170,7 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
 msgid "Order ID"
 msgstr "Số hiệu hóa đơn"
@@ -1259,7 +1271,7 @@ msgid "Please select"
 msgstr ""
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Plugin Type"
 msgstr ""
@@ -1331,7 +1343,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
 msgid "Product ID"
 msgstr ""
@@ -1543,7 +1555,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "Rule"
-msgstr ""
+msgstr "Rule"
 
 msgid "Rule Type"
 msgstr ""
@@ -1609,7 +1621,7 @@ msgid "Select file"
 msgstr ""
 
 msgid "Service"
-msgstr ""
+msgstr "Service"
 
 msgid "Service Lists Type"
 msgstr ""
@@ -1783,7 +1795,7 @@ msgid "Sub-total"
 msgstr "Tiền tổng cộng"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Subscription"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1797,7 +1809,7 @@ msgid "Sum"
 msgstr "Tổng"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Supplier"
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1938,6 +1950,9 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
+msgid "Tree node menu"
+msgstr ""
+
 msgid "Two letter ISO country code"
 msgstr ""
 
@@ -1945,7 +1960,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Type position (optional)"
 msgstr ""
@@ -2283,7 +2298,7 @@ msgstr ""
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "Media"
 
 msgid "miss"
 msgstr ""
@@ -2531,7 +2546,7 @@ msgstr ""
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
@@ -2559,7 +2574,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"

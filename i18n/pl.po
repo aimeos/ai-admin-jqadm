@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Rafał Morawiec, 2022\n"
 "Language-Team: Polish (http://app.transifex.com/aimeos/aimeos-core/language/pl/)\n"
@@ -111,6 +111,12 @@ msgstr "Rzeczywista cena, za którą klienci mogą kupić artykuł na stronie in
 
 msgid "Add"
 msgstr "Dodaj"
+
+msgid "Add after"
+msgstr "Dodaj po"
+
+msgid "Add before"
+msgstr "Dodaj przed"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -821,6 +827,9 @@ msgstr "Łącznie z podatkiem"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Wstaw do"
+
 msgid "Insert new entry"
 msgstr "Wstaw nowy wpis"
 
@@ -1057,6 +1066,9 @@ msgstr "Naturalny"
 
 msgid "New"
 msgstr "Nowy"
+
+msgid "New category"
+msgstr "Nowa kategoria"
 
 msgid "New customers"
 msgstr "Nowi klienci"
@@ -1943,6 +1955,9 @@ msgstr "Tłumaczenie tekstu"
 
 msgid "Translations"
 msgstr "Tłumaczenia"
+
+msgid "Tree node menu"
+msgstr "Menu węzła drzewa"
 
 msgid "Two letter ISO country code"
 msgstr "Dwuliterowy kod kraju ISO"

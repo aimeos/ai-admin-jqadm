@@ -5,7 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/"
+"en/)\n"
 "Language: English\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +39,74 @@ msgstr "Delivery address"
 msgid "address:payment"
 msgstr "Billing address"
 
+msgid "attribute"
+msgstr ""
+
+msgid "basket"
+msgstr ""
+
+msgid "catalog"
+msgstr ""
+
+msgid "coupon"
+msgstr ""
+
+msgid "customer"
+msgstr ""
+
+msgid "group"
+msgstr ""
+
+msgid "locale"
+msgstr ""
+
+msgid "media"
+msgstr ""
+
+msgid "order"
+msgstr ""
+
+msgid "plugin"
+msgstr ""
+
+msgid "price"
+msgstr ""
+
+msgid "product"
+msgstr ""
+
+msgid "review"
+msgstr ""
+
+msgid "rule"
+msgstr ""
+
+msgid "service"
+msgstr ""
+
 msgid "service:delivery"
 msgstr "Delivery"
 
 msgid "service:payment"
 msgstr "Payment"
+
+msgid "stock"
+msgstr ""
+
+msgid "subscription"
+msgstr ""
+
+msgid "supplier"
+msgstr ""
+
+msgid "tag"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "type"
+msgstr ""
 
 msgid "~="
 msgstr "contains"

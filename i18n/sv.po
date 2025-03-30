@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish (http://app.transifex.com/aimeos/aimeos-core/language/sv/)\n"
@@ -101,6 +101,12 @@ msgstr "Faktiskt pris som kunder kan köpa artikeln för på webbplatsen"
 
 msgid "Add"
 msgstr "Lägg till"
+
+msgid "Add after"
+msgstr "Lägg till efter"
+
+msgid "Add before"
+msgstr "Lägg till före"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -811,6 +817,9 @@ msgstr "Inkl. skatt"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Sätt in i"
+
 msgid "Insert new entry"
 msgstr "Infoga ny post"
 
@@ -1047,6 +1056,9 @@ msgstr "Naturligt"
 
 msgid "New"
 msgstr "Ny"
+
+msgid "New category"
+msgstr "Ny kategori"
 
 msgid "New customers"
 msgstr "Nya kunder"
@@ -1933,6 +1945,9 @@ msgstr "Översätt text"
 
 msgid "Translations"
 msgstr "Översättningar"
+
+msgid "Tree node menu"
+msgstr "Meny för trädnod"
 
 msgid "Two letter ISO country code"
 msgstr "ISO-landskod med två bokstäver"

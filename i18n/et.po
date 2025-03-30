@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: ranx2k <ranko@murumets.eu>, 2021\n"
 "Language-Team: Estonian (http://app.transifex.com/aimeos/aimeos-core/language/et/)\n"
@@ -104,6 +104,12 @@ msgstr "Tegelik hind, mille eest kliendid saavad artiklit osta veebilehel"
 
 msgid "Add"
 msgstr "Lisa"
+
+msgid "Add after"
+msgstr "Lisa pärast"
+
+msgid "Add before"
+msgstr "Lisa enne"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -814,6 +820,9 @@ msgstr "Sealhulgas maksud"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Sisestage"
+
 msgid "Insert new entry"
 msgstr "Sisesta uus kanne"
 
@@ -1050,6 +1059,9 @@ msgstr "Looduslik"
 
 msgid "New"
 msgstr "Uus"
+
+msgid "New category"
+msgstr "Uus kategooria"
 
 msgid "New customers"
 msgstr "Uued kliendid"
@@ -1936,6 +1948,9 @@ msgstr "Teksti tõlkimine"
 
 msgid "Translations"
 msgstr "Tõlked"
+
+msgid "Tree node menu"
+msgstr "Puusõlme menüü"
 
 msgid "Two letter ISO country code"
 msgstr "Kahekohaline ISO riigikood"

@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -53,3 +54,66 @@ msgstr "배송"
 
 msgid "service:payment"
 msgstr "결제"
+
+msgid "attribute"
+msgstr "속성"
+
+msgid "basket"
+msgstr "바구니"
+
+msgid "catalog"
+msgstr "카탈로그"
+
+msgid "coupon"
+msgstr "쿠폰"
+
+msgid "customer"
+msgstr "고객"
+
+msgid "group"
+msgstr "그룹"
+
+msgid "locale"
+msgstr "로캘"
+
+msgid "media"
+msgstr "미디어"
+
+msgid "order"
+msgstr "주문"
+
+msgid "plugin"
+msgstr "플러그인"
+
+msgid "price"
+msgstr "가격"
+
+msgid "product"
+msgstr "제품"
+
+msgid "review"
+msgstr "리뷰"
+
+msgid "rule"
+msgstr "규칙"
+
+msgid "service"
+msgstr "서비스"
+
+msgid "stock"
+msgstr "재고"
+
+msgid "subscription"
+msgstr "구독"
+
+msgid "supplier"
+msgstr "공급업체"
+
+msgid "tag"
+msgstr "태그"
+
+msgid "text"
+msgstr "텍스트"
+
+msgid "type"
+msgstr "유형"

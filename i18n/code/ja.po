@@ -53,3 +53,66 @@ msgstr "配達"
 
 msgid "service:payment"
 msgstr "支払い"
+
+msgid "attribute"
+msgstr "属性"
+
+msgid "basket"
+msgstr "バスケット"
+
+msgid "catalog"
+msgstr "カタログ"
+
+msgid "coupon"
+msgstr "クーポン"
+
+msgid "customer"
+msgstr "顧客"
+
+msgid "group"
+msgstr "グループ"
+
+msgid "locale"
+msgstr "ロケール"
+
+msgid "media"
+msgstr "メディア"
+
+msgid "order"
+msgstr "オーダー"
+
+msgid "plugin"
+msgstr "プラグイン"
+
+msgid "price"
+msgstr "価格"
+
+msgid "product"
+msgstr "製品"
+
+msgid "review"
+msgstr "レビュー"
+
+msgid "rule"
+msgstr "ルール"
+
+msgid "service"
+msgstr "サービス"
+
+msgid "stock"
+msgstr "在庫"
+
+msgid "subscription"
+msgstr "サブスクリプション"
+
+msgid "supplier"
+msgstr "サプライヤー"
+
+msgid "tag"
+msgstr "タグ"
+
+msgid "text"
+msgstr "テキスト"
+
+msgid "type"
+msgstr "タイプ"

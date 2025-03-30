@@ -53,3 +53,66 @@ msgstr "運送"
 
 msgid "service:payment"
 msgstr "支付"
+
+msgid "attribute"
+msgstr "特质"
+
+msgid "basket"
+msgstr "笼"
+
+msgid "catalog"
+msgstr "编目"
+
+msgid "coupon"
+msgstr "优惠券"
+
+msgid "customer"
+msgstr "顾客"
+
+msgid "group"
+msgstr "组"
+
+msgid "locale"
+msgstr "地点"
+
+msgid "media"
+msgstr "媒体"
+
+msgid "order"
+msgstr "订单"
+
+msgid "plugin"
+msgstr "插头"
+
+msgid "price"
+msgstr "价格"
+
+msgid "product"
+msgstr "产品"
+
+msgid "review"
+msgstr "审查"
+
+msgid "rule"
+msgstr "规则"
+
+msgid "service"
+msgstr "服务"
+
+msgid "stock"
+msgstr "股票"
+
+msgid "subscription"
+msgstr "订阅费"
+
+msgid "supplier"
+msgstr "供货商"
+
+msgid "tag"
+msgstr "标签"
+
+msgid "text"
+msgstr "文本"
+
+msgid "type"
+msgstr "类型"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -104,6 +104,12 @@ msgstr "顧客がウェブサイト上で記事を購入することができる
 
 msgid "Add"
 msgstr "追加"
+
+msgid "Add after"
+msgstr "後に追加"
+
+msgid "Add before"
+msgstr "前に追加"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -814,6 +820,9 @@ msgstr "税金を含む"
 msgid "Info"
 msgstr "情報"
 
+msgid "Insert into"
+msgstr "に挿入する。"
+
 msgid "Insert new entry"
 msgstr "新しいエントリを挿入する"
 
@@ -1050,6 +1059,9 @@ msgstr "ナチュラル"
 
 msgid "New"
 msgstr "新しい"
+
+msgid "New category"
+msgstr "新カテゴリー"
 
 msgid "New customers"
 msgstr "新規顧客"
@@ -1936,6 +1948,9 @@ msgstr "テキストを翻訳する"
 
 msgid "Translations"
 msgstr "翻訳"
+
+msgid "Tree node menu"
+msgstr "ツリーノードメニュー"
 
 msgid "Two letter ISO country code"
 msgstr "2文字のISO国コード"

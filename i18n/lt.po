@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian (http://app.transifex.com/aimeos/aimeos-core/language/lt/)\n"
@@ -101,6 +101,12 @@ msgstr "Faktinė kaina, už kurią klientai gali įsigyti straipsnį svetainėje
 
 msgid "Add"
 msgstr "Pridėti"
+
+msgid "Add after"
+msgstr "Pridėti po"
+
+msgid "Add before"
+msgstr "Pridėti prieš"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -811,6 +817,9 @@ msgstr "Su mokesčiais"
 msgid "Info"
 msgstr "Informacija"
 
+msgid "Insert into"
+msgstr "Įterpti į"
+
 msgid "Insert new entry"
 msgstr "Įterpti naują įrašą"
 
@@ -1047,6 +1056,9 @@ msgstr "Natūralu"
 
 msgid "New"
 msgstr "Naujas"
+
+msgid "New category"
+msgstr "Nauja kategorija"
 
 msgid "New customers"
 msgstr "Nauji klientai"
@@ -1933,6 +1945,9 @@ msgstr "Išversti tekstą"
 
 msgid "Translations"
 msgstr "Vertimai"
+
+msgid "Tree node menu"
+msgstr "Medžio mazgo meniu"
 
 msgid "Two letter ISO country code"
 msgstr "Dviejų raidžių ISO šalies kodas"

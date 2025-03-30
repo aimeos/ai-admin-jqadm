@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Zoltán Csordás, 2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -113,6 +113,12 @@ msgstr "Jelenlegi ár, amennyiért a vásárlók megvehetik az árucikket a webo
 
 msgid "Add"
 msgstr "Hozzáadás"
+
+msgid "Add after"
+msgstr "Adja hozzá utána"
+
+msgid "Add before"
+msgstr "Hozzáadás előtt"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -823,6 +829,9 @@ msgstr "ÁFÁ-val"
 msgid "Info"
 msgstr "Tájékoztatás"
 
+msgid "Insert into"
+msgstr "Insert into"
+
 msgid "Insert new entry"
 msgstr "Új bejegyzés beszúrása"
 
@@ -1059,6 +1068,9 @@ msgstr "Természetes"
 
 msgid "New"
 msgstr "Új"
+
+msgid "New category"
+msgstr "Új kategória"
 
 msgid "New customers"
 msgstr "Új vevő"
@@ -1945,6 +1957,9 @@ msgstr "Fordítási szöveg"
 
 msgid "Translations"
 msgstr "Fordítások"
+
+msgid "Tree node menu"
+msgstr "Fa csomópont menü"
 
 msgid "Two letter ISO country code"
 msgstr "Kétbetűs ISO országkód"

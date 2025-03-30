@@ -53,3 +53,67 @@ msgstr "Delivery"
 
 msgid "service:payment"
 msgstr "Payment"
+
+
+msgid "attribute"
+msgstr ""
+
+msgid "basket"
+msgstr ""
+
+msgid "catalog"
+msgstr ""
+
+msgid "coupon"
+msgstr ""
+
+msgid "customer"
+msgstr ""
+
+msgid "group"
+msgstr ""
+
+msgid "locale"
+msgstr ""
+
+msgid "media"
+msgstr ""
+
+msgid "order"
+msgstr ""
+
+msgid "plugin"
+msgstr ""
+
+msgid "price"
+msgstr ""
+
+msgid "product"
+msgstr ""
+
+msgid "review"
+msgstr ""
+
+msgid "rule"
+msgstr ""
+
+msgid "service"
+msgstr ""
+
+msgid "stock"
+msgstr ""
+
+msgid "subscription"
+msgstr ""
+
+msgid "supplier"
+msgstr ""
+
+msgid "tag"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "type"
+msgstr ""

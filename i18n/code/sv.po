@@ -52,3 +52,66 @@ msgstr "Leverans"
 
 msgid "service:payment"
 msgstr "Betalning"
+
+msgid "attribute"
+msgstr "attribut"
+
+msgid "basket"
+msgstr "korg"
+
+msgid "catalog"
+msgstr "katalog"
+
+msgid "coupon"
+msgstr "kupong"
+
+msgid "customer"
+msgstr "kund"
+
+msgid "group"
+msgstr "grupp"
+
+msgid "locale"
+msgstr "lokal"
+
+msgid "media"
+msgstr "media"
+
+msgid "order"
+msgstr "ordning"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "pris"
+
+msgid "product"
+msgstr "Produkt"
+
+msgid "review"
+msgstr "granskning"
+
+msgid "rule"
+msgstr "Regel"
+
+msgid "service"
+msgstr "service"
+
+msgid "stock"
+msgstr "lager"
+
+msgid "subscription"
+msgstr "prenumeration"
+
+msgid "supplier"
+msgstr "leverantör"
+
+msgid "tag"
+msgstr "tagg"
+
+msgid "text"
+msgstr "text"
+
+msgid "type"
+msgstr "typ"

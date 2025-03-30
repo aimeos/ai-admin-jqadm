@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Roger Soldevila, 2023\n"
 "Language-Team: Catalan (http://app.transifex.com/aimeos/aimeos-core/language/ca/)\n"
@@ -103,6 +103,12 @@ msgstr ""
 
 msgid "Add"
 msgstr "Afegir"
+
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -813,6 +819,9 @@ msgstr "Taxes incl."
 msgid "Info"
 msgstr "Informació"
 
+msgid "Insert into"
+msgstr ""
+
 msgid "Insert new entry"
 msgstr ""
 
@@ -954,7 +963,7 @@ msgid "Loading entries ..."
 msgstr ""
 
 msgid "Locale"
-msgstr ""
+msgstr "Locale"
 
 msgid "Log"
 msgstr ""
@@ -1049,6 +1058,9 @@ msgstr ""
 
 msgid "New"
 msgstr "Nou"
+
+msgid "New category"
+msgstr ""
 
 msgid "New customers"
 msgstr "Nous clients"
@@ -1519,7 +1531,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr ""
+msgstr "Review"
 
 msgid "Reviewed entry"
 msgstr ""
@@ -1541,7 +1553,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "Rule"
-msgstr ""
+msgstr "Rule"
 
 msgid "Rule Type"
 msgstr ""
@@ -1607,7 +1619,7 @@ msgid "Select file"
 msgstr ""
 
 msgid "Service"
-msgstr ""
+msgstr "Service"
 
 msgid "Service Lists Type"
 msgstr ""
@@ -1781,7 +1793,7 @@ msgid "Sub-total"
 msgstr ""
 
 msgid "Subscription"
-msgstr ""
+msgstr "Subscription"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1795,7 +1807,7 @@ msgid "Sum"
 msgstr ""
 
 msgid "Supplier"
-msgstr ""
+msgstr "Supplier"
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1936,6 +1948,9 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
+msgid "Tree node menu"
+msgstr ""
+
 msgid "Two letter ISO country code"
 msgstr ""
 
@@ -1943,7 +1958,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Type position (optional)"
 msgstr ""
@@ -2281,7 +2296,7 @@ msgstr ""
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "Media"
 
 msgid "miss"
 msgstr ""
@@ -2529,7 +2544,7 @@ msgstr ""
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
@@ -2557,7 +2572,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"

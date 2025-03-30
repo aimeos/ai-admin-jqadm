@@ -53,3 +53,66 @@ msgstr "Levering"
 
 msgid "service:payment"
 msgstr "Betaling"
+
+msgid "attribute"
+msgstr "attribut"
+
+msgid "basket"
+msgstr "kurv"
+
+msgid "catalog"
+msgstr "Katalog"
+
+msgid "coupon"
+msgstr "Kupon"
+
+msgid "customer"
+msgstr "Kunde"
+
+msgid "group"
+msgstr "gruppe"
+
+msgid "locale"
+msgstr "lokalitet"
+
+msgid "media"
+msgstr "medier"
+
+msgid "order"
+msgstr "Bestil"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "Pris"
+
+msgid "product"
+msgstr "produkt"
+
+msgid "review"
+msgstr "anmeldelse"
+
+msgid "rule"
+msgstr "Regel"
+
+msgid "service"
+msgstr "service"
+
+msgid "stock"
+msgstr "lager"
+
+msgid "subscription"
+msgstr "Abonnement"
+
+msgid "supplier"
+msgstr "leverandør"
+
+msgid "tag"
+msgstr "mærke"
+
+msgid "text"
+msgstr "tekst"
+
+msgid "type"
+msgstr "type"

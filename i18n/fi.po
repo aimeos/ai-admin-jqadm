@@ -4,11 +4,12 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Aimeos, 2025\n"
 "Language-Team: Finnish (http://app.transifex.com/aimeos/aimeos-core/language/fi/)\n"
@@ -102,6 +103,12 @@ msgstr "Todellinen hinta, jolla asiakkaat voivat ostaa artikkelin verkkosivuilta
 
 msgid "Add"
 msgstr "Lisää"
+
+msgid "Add after"
+msgstr "Lisää jälkeen"
+
+msgid "Add before"
+msgstr "Lisää ennen"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -812,6 +819,9 @@ msgstr "Sisältää veron"
 msgid "Info"
 msgstr "Info"
 
+msgid "Insert into"
+msgstr "Aseta sisään"
+
 msgid "Insert new entry"
 msgstr "Lisää uusi merkintä"
 
@@ -1048,6 +1058,9 @@ msgstr "Luonnollinen"
 
 msgid "New"
 msgstr "Uusi"
+
+msgid "New category"
+msgstr "Uusi luokka"
 
 msgid "New customers"
 msgstr "Uudet asiakkaat"
@@ -1934,6 +1947,9 @@ msgstr "Käännä teksti"
 
 msgid "Translations"
 msgstr "Käännökset"
+
+msgid "Tree node menu"
+msgstr "Puusolmun valikko"
 
 msgid "Two letter ISO country code"
 msgstr "Kaksikirjaiminen ISO-maakoodi"

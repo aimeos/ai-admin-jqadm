@@ -54,3 +54,66 @@ msgstr "Dostawa"
 
 msgid "service:payment"
 msgstr "Płatność"
+
+msgid "attribute"
+msgstr "atrybut"
+
+msgid "basket"
+msgstr "kosz"
+
+msgid "catalog"
+msgstr "katalog"
+
+msgid "coupon"
+msgstr "kupon"
+
+msgid "customer"
+msgstr "klient"
+
+msgid "group"
+msgstr "grupa"
+
+msgid "locale"
+msgstr "locale"
+
+msgid "media"
+msgstr "media"
+
+msgid "order"
+msgstr "porządek"
+
+msgid "plugin"
+msgstr "wtyczka"
+
+msgid "price"
+msgstr "cena"
+
+msgid "product"
+msgstr "produkt"
+
+msgid "review"
+msgstr "przegląd"
+
+msgid "rule"
+msgstr "reguła"
+
+msgid "service"
+msgstr "usługa"
+
+msgid "stock"
+msgstr "zapas"
+
+msgid "subscription"
+msgstr "subskrypcja"
+
+msgid "supplier"
+msgstr "dostawca"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "text"
+msgstr "tekst"
+
+msgid "type"
+msgstr "typ"

@@ -53,3 +53,66 @@ msgstr "Доставка"
 
 msgid "service:payment"
 msgstr "Заплащане"
+
+msgid "attribute"
+msgstr "атрибут"
+
+msgid "basket"
+msgstr "кошница"
+
+msgid "catalog"
+msgstr "каталог"
+
+msgid "coupon"
+msgstr "купон"
+
+msgid "customer"
+msgstr "клиент"
+
+msgid "group"
+msgstr "група"
+
+msgid "locale"
+msgstr "локал"
+
+msgid "media"
+msgstr "медии"
+
+msgid "order"
+msgstr "поръчка"
+
+msgid "plugin"
+msgstr "плъгин"
+
+msgid "price"
+msgstr "цена"
+
+msgid "product"
+msgstr "продукт"
+
+msgid "review"
+msgstr "преглед"
+
+msgid "rule"
+msgstr "правило"
+
+msgid "service"
+msgstr "услуга"
+
+msgid "stock"
+msgstr "склад"
+
+msgid "subscription"
+msgstr "абонамент"
+
+msgid "supplier"
+msgstr "доставчик"
+
+msgid "tag"
+msgstr "етикет"
+
+msgid "text"
+msgstr "текст"
+
+msgid "type"
+msgstr "тип"

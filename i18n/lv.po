@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 13:03+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Martins Nav <mveisis1@gmail.com>, 2021\n"
 "Language-Team: Latvian (http://app.transifex.com/aimeos/aimeos-core/language/lv/)\n"
@@ -105,6 +105,12 @@ msgstr "Faktiskā cena, par kādu klienti var iegādāties rakstu vietnē."
 
 msgid "Add"
 msgstr "Pievienot"
+
+msgid "Add after"
+msgstr "Pievienot pēc"
+
+msgid "Add before"
+msgstr "Pievienot pirms"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -815,6 +821,9 @@ msgstr "Ar nodokli"
 msgid "Info"
 msgstr "Informācija"
 
+msgid "Insert into"
+msgstr "Ievietojiet"
+
 msgid "Insert new entry"
 msgstr "Ievietot jaunu ierakstu"
 
@@ -1051,6 +1060,9 @@ msgstr "Dabas"
 
 msgid "New"
 msgstr "Jauns"
+
+msgid "New category"
+msgstr "Jauna kategorija"
 
 msgid "New customers"
 msgstr "Jauni klienti"
@@ -1937,6 +1949,9 @@ msgstr "Tulkot tekstu"
 
 msgid "Translations"
 msgstr "Tulkojumi"
+
+msgid "Tree node menu"
+msgstr "Koku mezglu izvēlne"
 
 msgid "Two letter ISO country code"
 msgstr "Divu burtu ISO valsts kods"

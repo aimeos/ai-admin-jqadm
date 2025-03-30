@@ -54,3 +54,66 @@ msgstr "Versand"
 
 msgid "service:payment"
 msgstr "Zahlung"
+
+msgid "attribute"
+msgstr "Attribut"
+
+msgid "basket"
+msgstr "Korb"
+
+msgid "catalog"
+msgstr "Katalog"
+
+msgid "coupon"
+msgstr "Coupon"
+
+msgid "customer"
+msgstr "Kunde"
+
+msgid "group"
+msgstr "Gruppe"
+
+msgid "locale"
+msgstr "Standort"
+
+msgid "media"
+msgstr "Medien"
+
+msgid "order"
+msgstr "Bestellung"
+
+msgid "plugin"
+msgstr "Plugin"
+
+msgid "price"
+msgstr "Preis"
+
+msgid "product"
+msgstr "Produkt"
+
+msgid "review"
+msgstr "Überprüfung"
+
+msgid "rule"
+msgstr "Regel"
+
+msgid "service"
+msgstr "Dienstleistung"
+
+msgid "stock"
+msgstr "Aktie"
+
+msgid "subscription"
+msgstr "Abonnement"
+
+msgid "supplier"
+msgstr "Anbieter"
+
+msgid "tag"
+msgstr "Tag"
+
+msgid "text"
+msgstr "Text"
+
+msgid "type"
+msgstr "Typ"

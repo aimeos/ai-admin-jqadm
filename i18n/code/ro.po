@@ -53,3 +53,66 @@ msgstr "LIvrare"
 
 msgid "service:payment"
 msgstr "Plata"
+
+msgid "attribute"
+msgstr "atribut"
+
+msgid "basket"
+msgstr "coș"
+
+msgid "catalog"
+msgstr "catalog"
+
+msgid "coupon"
+msgstr "cupon"
+
+msgid "customer"
+msgstr "client"
+
+msgid "group"
+msgstr "grup"
+
+msgid "locale"
+msgstr "local"
+
+msgid "media"
+msgstr "media"
+
+msgid "order"
+msgstr "comandă"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "preț"
+
+msgid "product"
+msgstr "produs"
+
+msgid "review"
+msgstr "revizuire"
+
+msgid "rule"
+msgstr "regulă"
+
+msgid "service"
+msgstr "serviciu"
+
+msgid "stock"
+msgstr "stoc"
+
+msgid "subscription"
+msgstr "abonament"
+
+msgid "supplier"
+msgstr "furnizor"
+
+msgid "tag"
+msgstr "etichetă"
+
+msgid "text"
+msgstr "text"
+
+msgid "type"
+msgstr "tip"

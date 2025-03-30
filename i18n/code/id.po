@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
 # Ranu Yulianto <vanarif@gmail.com>, 2018
 msgid ""
 msgstr ""
@@ -54,3 +55,66 @@ msgstr "Pegiriman"
 
 msgid "service:payment"
 msgstr "Pembayaran"
+
+msgid "attribute"
+msgstr "atribut"
+
+msgid "basket"
+msgstr "keranjang"
+
+msgid "catalog"
+msgstr "katalog"
+
+msgid "coupon"
+msgstr "kupon"
+
+msgid "customer"
+msgstr "pelanggan"
+
+msgid "group"
+msgstr "kelompok"
+
+msgid "locale"
+msgstr "lokal"
+
+msgid "media"
+msgstr "media"
+
+msgid "order"
+msgstr "pesanan"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "harga"
+
+msgid "product"
+msgstr "produk"
+
+msgid "review"
+msgstr "ulasan"
+
+msgid "rule"
+msgstr "aturan"
+
+msgid "service"
+msgstr "layanan"
+
+msgid "stock"
+msgstr "stok"
+
+msgid "subscription"
+msgstr "berlangganan"
+
+msgid "supplier"
+msgstr "pemasok"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "text"
+msgstr "teks"
+
+msgid "type"
+msgstr "Jenis"

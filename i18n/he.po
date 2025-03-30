@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 15:40+0100\n"
+"POT-Creation-Date: 2025-03-30 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: shmuel adler, 2024\n"
 "Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
@@ -105,6 +105,12 @@ msgstr "המחיר בפועל שלקוחות יכולים לקנות עבורו 
 
 msgid "Add"
 msgstr "הוסף"
+
+msgid "Add after"
+msgstr ""
+
+msgid "Add before"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -815,6 +821,9 @@ msgstr "כולל "
 msgid "Info"
 msgstr "מידע"
 
+msgid "Insert into"
+msgstr ""
+
 msgid "Insert new entry"
 msgstr "הכנס ערך חדש"
 
@@ -1051,6 +1060,9 @@ msgstr ""
 
 msgid "New"
 msgstr "חדש"
+
+msgid "New category"
+msgstr ""
 
 msgid "New customers"
 msgstr "לקוחות חדשים"
@@ -1936,6 +1948,9 @@ msgid "Translate text"
 msgstr "תרגם טקסט"
 
 msgid "Translations"
+msgstr ""
+
+msgid "Tree node menu"
 msgstr ""
 
 msgid "Two letter ISO country code"
