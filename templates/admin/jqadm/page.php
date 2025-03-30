@@ -204,7 +204,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 						</li>
 
 					<?php else : ?>
-						<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ) ?>
+						<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key', '' ) ?>
 
 						<li class="menuitem-<?= $enc->attr( $navitem ) ?> <?= $navitem === $before ? 'before' : '' ?> <?= !strncmp( $resource, $navitem, strlen( $navitem ) ) ? 'active' : '' ?> <?= $navitem === $after ? 'after' : '' ?>">
 							<a class="item-group" href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => $navitem] + $params ) ) ?>"
