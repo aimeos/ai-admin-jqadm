@@ -50,8 +50,6 @@ $columnList = [
 	'type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
-$domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain ), $this->get( 'itemDomains', [] ) );
-
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
@@ -157,7 +155,7 @@ $domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain )
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/filter', [] ),
 							'data' => [
 								'type.id' => ['op' => '=='],
-								'type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
+								'type.domain' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'itemDomains', [] )],
 								'type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
 									'0' => $this->translate( 'mshop/code', 'status:0' ),
@@ -224,7 +222,7 @@ $domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain )
 													<select class="form-select" v-bind:disabled="state('item/type.domain')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'type.domain' ) ) ) ?>">
 														<option value=""></option>
-														<?php foreach( $domains as $domain => $label ) : ?>
+														<?php foreach( $this->get( 'itemDomains', [] ) as $domain => $label ) : ?>
 															<option value="<?= $enc->attr( $domain ) ?>">
 																<?= $enc->html( $label ) ?>
 															</option>
@@ -276,7 +274,7 @@ $domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain )
 								<td class="type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'type.domain', $fields ) ) : ?>
-								<td class="type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+								<td class="type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $this->translate( 'admin/code', $item->getDomain() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'type.status', $fields ) ) : ?>
 								<td class="type-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>

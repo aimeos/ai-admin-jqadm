@@ -158,10 +158,10 @@ $columnList = [
 							'data' => [
 								'attribute.id' => ['op' => '=='],
 								'attribute.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-									'product' => $this->translate( 'admin', 'product' ),
-									'catalog' => $this->translate( 'admin', 'catalog' ),
-									'media' => $this->translate( 'admin', 'media' ),
-									'text' => $this->translate( 'admin', 'text' ),
+									'product' => $this->translate( 'admin/code', 'product' ),
+									'catalog' => $this->translate( 'admin/code', 'catalog' ),
+									'media' => $this->translate( 'admin/code', 'media' ),
+									'text' => $this->translate( 'admin/code', 'text' ),
 								]],
 								'attribute.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -301,7 +301,7 @@ $columnList = [
 								<td class="attribute-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'attribute.domain', $fields ) ) : ?>
-								<td class="attribute-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+								<td class="attribute-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $this->translate( 'admin/code', $item->getDomain() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'attribute.status', $fields ) ) : ?>
 								<td class="attribute-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>

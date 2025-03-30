@@ -90,7 +90,7 @@ $params = $this->get( 'pageParams', [] );
 
 										<?php foreach( ['product', 'media', 'text', 'catalog'] as $domain ) : ?>
 											<option value="<?= $enc->attr( $domain ) ?>" <?= $selected( $this->get( 'itemData/attribute.domain', 'product' ), $domain ) ?> >
-												<?= $enc->html( $this->translate( 'admin', $domain ) ) ?>
+												<?= $enc->html( $this->translate( 'admin/code', $domain ) ) ?>
 											</option>
 										<?php endforeach ?>
 									</select>

@@ -12,8 +12,6 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
 
-$domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain ), $this->get( 'itemDomains', [] ) );
-
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
@@ -98,9 +96,9 @@ $domains = array_map( fn( $domain ) => $this->translate( 'admin/code', $domain )
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
 
-										<?php foreach( $domains as $domain ) : ?>
+										<?php foreach( $this->get( 'itemDomains', [] ) as $domain => $label ) : ?>
 											<option value="<?= $enc->attr( $domain ) ?>" <?= $selected( $this->get( 'itemData/type.domain', $domain ), $domain ) ?> >
-												<?= $enc->html( $domain ) ?>
+												<?= $enc->html( $label ) ?>
 											</option>
 										<?php endforeach ?>
 									</select>

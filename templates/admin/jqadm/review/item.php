@@ -159,7 +159,7 @@ $enc = $this->encoder();
 										<span class="form-control item-refid">
 											<a class="btn icon act-view" target="_blank"
 												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()] ) ) ?>">
-												<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
+												<?= $enc->html( $this->translate( 'admin/code', $this->item->getDomain() ) ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
 											</a>
 										</span>
 									</div>

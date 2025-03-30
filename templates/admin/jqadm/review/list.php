@@ -18,7 +18,7 @@ $enc = $this->encoder();
  * @since 2020.10
  */
 $domains = $this->config( 'admin/jqadm/review/domains', ['product'] );
-$domains = array_combine( $domains, $domains );
+$domains = array_combine( $domains, array_map( fn( $domain ) => $this->translate( 'admin/code', $domain ), $domains ) );
 
 /** admin/jqadm/review/fields
  * List of review columns that should be displayed in the list view
@@ -255,7 +255,7 @@ $columnList = [
 								<td class="review-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'review.domain', $fields ) ) : ?>
-								<td class="review-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+								<td class="review-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $this->translate( 'admin/code', $item->getDomain() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'review.refid', $fields ) ) : ?>
 								<td class="review-refid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRefId() ) ?></a></td>
