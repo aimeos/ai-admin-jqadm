@@ -65,8 +65,18 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$context = $this->context();
+		/** admin/jqadm/type/domains
+		 * List of domain names available for the items in the type JQAdm panel
+		 *
+		 * Type items are assigned to a domain which is used to group them and
+		 * to be able to filter the items in the JQAdm panel. The configured
+		 * domain names limits the domains in the panel to the available ones.
+		 *
+		 * @param array List of domain names
+		 * @since 2025.04
+		 */
 		$domains = $view->config( 'admin/jqadm/type/domains', [] );
+		$context = $this->context();
 
 		$view->itemDomains = array_map( fn( $domain ) => $context->translate( 'admin/code', $domain ), $domains );
 		$view->itemSubparts = $this->getSubClientNames();

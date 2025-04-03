@@ -42,6 +42,16 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
+		/** admin/jqadm/product/category/types
+		 * List of category types shown in the JQAdm product category panel
+		 *
+		 * Limits the category types shown in the JQAdm product category panel
+		 * to the ones listed here. The order of the types in the list defines
+		 * the order of the category types in the JQAdm product category panel.
+		 *
+		 * @param array List of category types
+		 * @since 2025.04
+		 */
 		$types = $this->context()->config()->get( 'admin/jqadm/product/category/types', [] );
 
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );

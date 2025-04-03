@@ -360,7 +360,6 @@ return [
 			 * @since 2017.10
 			 */
 			'key' => '',
-
 		],
 		'language' => [
 			/** admin/jqadm/resource/locale/language/groups
@@ -405,6 +404,14 @@ return [
 		 * @since 2017.10
 		 */
 		'groups' => ['admin', 'super'],
+
+		/** admin/jqadm/resource/type/key
+		 * Shortcut key to switch to the type panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2025.04
+		 */
+		'key' => '',
 	],
 	'log' => [
 		/** admin/jqadm/resource/log/groups

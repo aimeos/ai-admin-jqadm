@@ -40,6 +40,16 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
+		/** admin/jqadm/product/characteristic/attribute/types
+		 * List of attribute types shown in the JQAdm product characteristic panel
+		 *
+		 * Limits the attribute types shown in the JQAdm product characteristic panel
+		 * to the ones listed here. The order of the types in the list defines
+		 * the order of the attribute types in the JQAdm product characteristic panel.
+		 *
+		 * @param array List of attribute types
+		 * @since 2025.04
+		 */
 		$types = $this->context()->config()->get( 'admin/jqadm/product/characteristic/attribute/types', [] );
 
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
