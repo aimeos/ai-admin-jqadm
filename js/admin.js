@@ -3,24 +3,6 @@
  * @copyright Aimeos (aimeos.org), 2015-2025
  */
 
-/* Check for preferred theme mode (dark/light) */
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-const isLight = document.cookie.includes('aimeos_backend_theme=light');
-
-//Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
-if (prefersDark.matches && !isLight){
-	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-	Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
-}
-
-document.querySelectorAll(".btn-theme").forEach(item => {
-	item.addEventListener("click", function() {
-		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-		Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
-	});
-});
-
-
 
 Aimeos = {
 
@@ -256,6 +238,24 @@ Aimeos = {
 	}
 };
 
+
+
+/* Check for preferred theme mode (dark/light) */
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+const isLight = document.cookie.includes('aimeos_backend_theme=light');
+
+//Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
+if (prefersDark.matches && !isLight){
+	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+	Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
+}
+
+document.querySelectorAll(".btn-theme").forEach(item => {
+	item.addEventListener("click", function() {
+		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+		Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
+	});
+});
 
 
 document.addEventListener("DOMContentLoaded", function() {
