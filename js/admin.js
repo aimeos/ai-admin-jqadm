@@ -246,8 +246,9 @@ const isLight = document.cookie.includes('aimeos_backend_theme=light');
 
 //Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
 if (prefersDark.matches && !isLight){
-	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-	Aimeos.theme(document.body.classList.contains("dark") ? "dark" : "light")
+	document.body.classList.remove('light');
+	document.body.classList.add('dark')
+	Aimeos.theme("dark")
 }
 
 document.querySelectorAll(".btn-theme").forEach(item => {
