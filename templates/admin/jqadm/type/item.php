@@ -23,7 +23,7 @@ $params = $this->get( 'pageParams', [] );
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
-			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Plugin Type' ) ) ?></span>
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></span>
 			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/type.id' ) ) ?></span>
 			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/type.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
 			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/type.siteid' ) ) ) ?></span>
