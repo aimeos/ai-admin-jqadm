@@ -143,7 +143,7 @@ $params = $this->get( 'pageParams', [] );
 											<td class="actions">
 												<a class="btn act-add icon" tabindex="1" target="_blank"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Go to the list of attribute types' ) ) ?>"
-													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => 'type/attribute'] + $params ) ) ?>">
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', ['resource' => 'type'] + $params ) ) ?>">
 												</a>
 											</td>
 										</tr>
