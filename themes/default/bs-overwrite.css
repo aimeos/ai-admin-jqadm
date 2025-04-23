@@ -335,7 +335,7 @@ td.is-invalid .form-select {
 }
 
 .page-item.disabled .page-link {
-	color: var(--bs-secondary, #505860);
+	color: var(--bs-secondary-light);
 	background-color: var(--bs-bg-light, #ffffff);
 	border-color: var(--bs-line-light, #dee2e6)
 }
