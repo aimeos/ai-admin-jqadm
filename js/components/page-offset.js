@@ -8,11 +8,11 @@ Aimeos.components['page-offset'] = {
 	template: `
 		<ul class="page-offset pagination">
 			<li v-bind:class="{disabled: first === null}" class="page-item">
-				<a v-on:click.prevent="$emit('input', first)" class="page-link" v-bind:tabindex="tabindex" title="First" href="#">
+				<a v-on:click.prevent="$emit('update:modelValue', first)" class="page-link" v-bind:tabindex="tabindex" title="First" href="#">
 					<span class="icon icon-first" aria-hidden="true"></span>
 				</a>
 			</li><li v-bind:class="{disabled: prev === null}" class="page-item">
-				<a v-on:click.prevent="$emit('input', prev)" class="page-link" v-bind:tabindex="tabindex" title="Previous" href="#">
+				<a v-on:click.prevent="$emit('update:modelValue', prev)" class="page-link" v-bind:tabindex="tabindex" title="Previous" href="#">
 					<span class="icon icon-prev" aria-hidden="true"></span>
 				</a>
 			</li><li class="page-item disabled">
@@ -20,17 +20,16 @@ Aimeos.components['page-offset'] = {
 					<span>{{ string }}</span>
 				</a>
 			</li><li v-bind:class="{disabled: next === null}" class="page-item">
-				<a v-on:click.prevent="$emit('input', next)" class="page-link" v-bind:tabindex="tabindex" title="Next" href="#">
+				<a v-on:click.prevent="$emit('update:modelValue', next)" class="page-link" v-bind:tabindex="tabindex" title="Next" href="#">
 					<span class="icon icon-next" aria-hidden="true"></span>
 				</a>
 			</li><li v-bind:class="{disabled: last === null}" class="page-item">
-				<a v-on:click.prevent="$emit('input', last)" class="page-link" v-bind:tabindex="tabindex" title="Last" href="#">
+				<a v-on:click.prevent="$emit('update:modelValue', last)" class="page-link" v-bind:tabindex="tabindex" title="Last" href="#">
 					<span class="icon icon-last" aria-hidden="true"></span>
 				</a>
 			</li>
 		</ul>
 	`,
-	emits: ['input'],
 	props: {
 		'modelValue': {type: Number, required: true},
 		'limit': {type: Number, required: true},
@@ -38,6 +37,7 @@ Aimeos.components['page-offset'] = {
 		'tabindex': {type: String, default: '1'},
 		'text': {type: String, default: '%1$d / %2$d'},
 	},
+	emits: ['update:modelValue'],
 
 	computed: {
 		first() {
