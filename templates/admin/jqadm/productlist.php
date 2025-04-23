@@ -25,7 +25,7 @@ $columnList = [
 	'product.lists.dateend' => $this->translate( 'admin', 'End date' ),
 ];
 
-$url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_id_'] );
+$url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_id_'] + $this->get( 'params', [] ) );
 
 
 ?>
