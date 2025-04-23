@@ -91,13 +91,13 @@
 	padding: 0.375rem 1rem;
 }
 
-.aimeos .list-page .page-link {
+.aimeos .list-page .page-item:not(.disabled) .page-link {
 	background-color: var(--bs-bg-light, #ffffff);
 	color: var(--bs-secondary, #707880);
 	min-width: 3rem;
 }
 
-.aimeos .list-page .page-link:hover {
+.aimeos .list-page .page-item:not(.disabled) .page-link:hover {
 	background-color: var(--bs-secondary, #707880);
 	color: var(--bs-bg-light, #ffffff);
 }
