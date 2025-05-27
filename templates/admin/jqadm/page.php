@@ -170,7 +170,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 				<?php endif ?>
 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
-					<?php if( is_array( $navitem ) ) : $nav = $navitem['_'] ?? current( $nav ) ?>
+					<?php if( is_array( $navitem ) ) : $nav = $navitem['_'] ?? current( $navitem ) ?>
 
 						<li class="treeview menuitem-<?= $enc->attr( $nav ) ?> <?= $nav === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
 							<span class="item-group">
