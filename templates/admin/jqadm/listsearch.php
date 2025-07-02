@@ -59,14 +59,14 @@ $enc = $this->encoder();
 							<?php endforeach ?>
 						</select>
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
-						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>" autocomplete="off"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-value-update="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.datetimerange">
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
-						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<input is="vue:flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>" autocomplete="off"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-change="update(`<?= $enc->js( $idx ) ?>`, $event)"
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" @on-value-update="update(`<?= $enc->js( $idx ) ?>`, $event)"
 							v-bind:config="Aimeos.flatpickr.daterange">
 					<?php else : ?>
 						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"

@@ -144,8 +144,8 @@ $columnList = [
 								'basket.id' => ['op' => '=='],
 								'basket.customerid' => ['op' => '=='],
 								'basket.name' => [],
-								'basket.ctime' => ['op' => '-', 'type' => 'date'],
-								'basket.mtime' => ['op' => '-', 'type' => 'date'],
+								'basket.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+								'basket.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 								'basket.editor' => [],
 
 							]
