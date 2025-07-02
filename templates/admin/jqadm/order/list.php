@@ -329,9 +329,9 @@ $statusList = [
 								'order.id' => ['op' => '=='],
 								'order.channel' => [],
 								'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
-								'order.datepayment' => ['op' => '-', 'type' => 'date'],
+								'order.datepayment' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
-								'order.datedelivery' => ['op' => '-', 'type' => 'date'],
+								'order.datedelivery' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.relatedid' => ['op' => '=='],
 								'order.customerid' => ['op' => '=='],
 								'order.sitecode' => ['op' => '=='],
@@ -344,8 +344,8 @@ $statusList = [
 								'order.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 								'order.customerref' => [],
 								'order.comment' => [],
-								'order.ctime' => ['op' => '-', 'type' => 'date'],
-								'order.mtime' => ['op' => '-', 'type' => 'date'],
+								'order.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+								'order.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.editor' => [],
 								'order.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 									'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
