@@ -92,15 +92,6 @@ Aimeos = {
 			mode: "range",
 			position: 'below',
 			wrap: true,
-			dateFormat: "Y-m-d H:i:S",
-			onChange: function (selectedDates, datestr) {
-				if( typeof selectedDates[1] !== 'undefined' ) {
-					selectedDates[1].setHours( 23 );
-					selectedDates[1].setMinutes( 59 );
-					selectedDates[1].setSeconds( 59 );
-					this.setDate([ selectedDates[0], selectedDates[1] ]);
-				}
-			}
 		},
 		date: {
 			// altFormat: 'M j, Y',
