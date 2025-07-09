@@ -4,32 +4,27 @@
 # 
 # Translators:
 # Aimeos, 2025
-# Aimeos, 2025
-# Hidjrah Saputra, 2024
-# Hidjrah Saputra, 2024
-# Ranu Yulianto <vanarif@gmail.com>, 2018
-# Wira Sandy, 2021
-# Wira Sandy, 2021
+# Peem Phimcha, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-08 18:42+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Wira Sandy, 2021\n"
-"Language-Team: Indonesian (http://app.transifex.com/aimeos/aimeos-core/language/id/)\n"
+"Last-Translator: Aimeos, 2025\n"
+"Language-Team: Thai (http://app.transifex.com/aimeos/aimeos-core/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
+"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr "stocktype:default"
+msgstr ""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -41,7 +36,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -66,2586 +61,2586 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr "%1$s (Ctrl+Alt+%2$s)"
+msgstr ""
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr "%s / %s / %s.%s"
+msgstr ""
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr "(International) Nomor fax tanpa karakter pemisah. Dapat diawali dengan tanda \"+\""
+msgstr ""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr "(International) Nomor telepon tanpa karakter pemisah. Dapat diawali dengan tanda \"+\""
+msgstr ""
 
 msgid "+ Tax"
-msgstr "+ Pajak"
+msgstr ""
 
 msgid "<hidden>"
-msgstr "<sembunyi>"
+msgstr ""
 
 msgid "?"
-msgstr "?"
+msgstr ""
 
 msgid "API key"
-msgstr "Kunci API"
+msgstr ""
 
 msgid "Account"
-msgstr "Akun"
+msgstr "บัญชี"
 
 msgid "Active"
-msgstr "Aktif"
+msgstr ""
 
 msgid "Actual price"
-msgstr "Harga aktual"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Harga aktual yang didapatkan oleh konsumen untuk membeli produk pada website"
+msgstr ""
 
 msgid "Add"
-msgstr "Tambah"
+msgstr "เพิ่ม"
 
 msgid "Add after"
-msgstr "Tambahkan setelah"
+msgstr ""
 
 msgid "Add before"
-msgstr "Tambahkan sebelum"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr "Tambahan biaya pengiriman untuk tiap barang, misal: Rp20 untuk satu barang berat akan menjadi total Rp100 untuk 5 barang tersebut"
+msgstr ""
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr "Tambahan informasi untuk menjelaskan lokasi hunian konsumen secara rinci"
+msgstr ""
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr "Tambahan informasi untuk menjelaskan lokasi hunian pemasok secara rinci"
+msgstr ""
 
 msgid "Address 1"
-msgstr "Alamat 1"
+msgstr ""
 
 msgid "Address 2"
-msgstr "Alamat 2"
+msgstr ""
 
 msgid "Address 3"
-msgstr "Alamat 3"
+msgstr ""
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr "Detail alamat rumah pelanggan untuk pengiriman"
+msgstr ""
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr "Detail alamat rumah pemasok untuk pengiriman"
+msgstr ""
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr "Tipe Admin JQAdm kosong"
+msgstr ""
 
 msgid "Advanced"
-msgstr "Lanjutan"
+msgstr ""
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr "Aimeos caching dinonaktifkan oleh \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr "Aimeos debug logging diaktifkan oleh \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr "Aimeos object tidak tersedia"
+msgstr ""
 
 msgid "All"
-msgstr "Semua"
+msgstr ""
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr "Segala hal yang menjelaskan suatu produk secara unik, misal: lebar, panjang, dan warna dari celana jeans"
+msgstr ""
 
 msgid "Allow custom price"
-msgstr "Membolehkan kustomisasi harga"
+msgstr ""
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr "Membolehkan konsumen memilih berapa banyak yang ingin mereka bayarkan"
+msgstr ""
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr "Isian alfanumerik yang mengidentifikasikan grup secara unik"
+msgstr ""
 
 msgid "Apply"
-msgstr "Terapkan"
+msgstr "สมัคร"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr "Opsi konfigurasi spesifik, akan tersedia sebagai pasangan kata kunci-isi pada template"
+msgstr ""
 
 msgid "Attribute"
-msgstr "Atribut"
+msgstr ""
 
 msgid "Attribute Lists Type"
-msgstr "Jenis Daftar Atribut"
+msgstr ""
 
 msgid "Attribute Lists Types"
-msgstr "Jenis Daftar Atribut"
+msgstr ""
 
 msgid "Attribute Property Type"
-msgstr "Jenis Properti Atribut"
+msgstr ""
 
 msgid "Attribute Property Types"
-msgstr "Jenis Properti Atribut"
+msgstr ""
 
 msgid "Attribute Type"
-msgstr "Jenis Atribut"
+msgstr ""
 
 msgid "Attribute Types"
-msgstr "Jenis-jenis Atribut"
+msgstr ""
 
 msgid "Attribute position (optional)"
-msgstr "Posisi atribut (opsional)"
+msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr "Properti atribut yang tidak dibagikan dengan atribut lain"
+msgstr ""
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr "Jenis atribut yang membatasi daftar atribut yang tersedia"
+msgstr ""
 
 msgid "Attributes"
-msgstr "Atribut "
+msgstr ""
 
 msgid "Available currency for the current site"
-msgstr "Mata uang yang tersedia untuk situs saat ini"
+msgstr ""
 
 msgid "Available intervals in the front-end"
-msgstr "Interval yang tersedia di front-end"
+msgstr ""
 
 msgid "Available language for the current site"
-msgstr "Bahasa yang tersedia untuk situs saat ini"
+msgstr ""
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr "Rata-rata peringkat produk dan jumlah total peringkat oleh pelanggan untuk produk ini"
+msgstr ""
 
 msgid "Back in stock"
-msgstr "Tersedia kembali"
+msgstr ""
 
 msgid "Basic"
-msgstr "Sederhana"
+msgstr ""
 
 msgid "Basket"
-msgstr "Keranjang belanja"
+msgstr "ตะกร้า"
 
 msgid "Billing address"
-msgstr "Alamat penagihan"
+msgstr "ที่อยู่สำหรับออกใบแจ้งหนี้"
 
 msgid "Birthday"
-msgstr "Tanggal lahir"
+msgstr "วันเกิด"
 
 msgid "Birthday of the customer"
-msgstr "Tanggal lahir pelangga"
+msgstr ""
 
 msgid "Boost factor"
-msgstr "Faktor pendorong"
+msgstr ""
 
 msgid "Boost factor (optional)"
-msgstr "Faktor peningkatan (opsional)"
+msgstr ""
 
 msgid "Bug or suggestion?"
-msgstr "Bug atau saran?"
+msgstr ""
 
 msgid "Bulk edit"
-msgstr "Sunting massal"
+msgstr ""
 
 msgid "Cancel"
-msgstr "Batal"
+msgstr "ยกเลิก"
 
 msgid "Cancel and return to list"
-msgstr "Batal dan kembali ke list"
+msgstr ""
 
 msgid "Catalog"
-msgstr "Katalog"
+msgstr ""
 
 msgid "Catalog Lists Type"
-msgstr "Jenis Daftar Katalog"
+msgstr ""
 
 msgid "Catalog Lists Types"
-msgstr "Jenis Daftar Katalog"
+msgstr ""
 
 msgid "Categories"
-msgstr "Kategori"
+msgstr "หมวดหมู่"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr "Kategori produk dapat ditemukan oleh pengguna di situs web"
+msgstr ""
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr "Kategori produk akan ditampilkan di bagian promosi"
+msgstr ""
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr "Opsi konfigurasi khusus kategori, akan tersedia sebagai pasangan kunci/nilai dalam templat"
+msgstr ""
 
 msgid "Change costs/item in %"
-msgstr "Ubah biaya/item dalam %"
+msgstr ""
 
 msgid "Change rebate in %"
-msgstr "Ubah potongan harga dalam %"
+msgstr ""
 
 msgid "Change value in %"
-msgstr "Nilai perubahan dalam %"
+msgstr ""
 
 msgid "Channel"
-msgstr "Saluran"
+msgstr ""
 
 msgid "Channel the order has been placed"
-msgstr "Menyalurkan pesanan yang telah dilakukan"
+msgstr ""
 
 msgid "Choose file"
-msgstr "Pilih file"
+msgstr ""
 
 msgid "City"
-msgstr "Kota"
+msgstr "เมือง"
 
 msgid "City or town name (required)"
-msgstr "Nama kabupaten atau kota (required)"
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "Kelas \"%1$s\" tidak mengimplementasikan \"%2$s\""
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "Kelas \"%1$s\" tidak tersedia"
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr "Kelas \"%1$s\" tidak ditemukan"
+msgstr "ไม่พบคลาส \"%1$s\""
 
 msgid "Close"
-msgstr "Tutup"
+msgstr "ปิด"
 
 msgid "Code"
-msgstr "Kode"
+msgstr ""
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr "Kode untuk mengidentifikasi situs secara unik, mengganti nama itu berbahaya!"
+msgstr ""
 
 msgid "Columns"
-msgstr "Kolom"
+msgstr ""
 
 msgid "Comment"
-msgstr "Komentar"
+msgstr ""
 
 msgid "Comment of the reviewer"
-msgstr "Komentar pengulas"
+msgstr ""
 
 msgid "Communication"
-msgstr "Komunikasi"
+msgstr ""
 
 msgid "Company"
-msgstr "Perusahaan"
+msgstr "บริษัท"
 
 msgid "Company details"
-msgstr "Detail perusahaan"
+msgstr ""
 
 msgid "Company name (optional)"
-msgstr "Nama perusahaan (optional)"
+msgstr ""
 
 msgid "Completed orders"
-msgstr "Pesanan yang sudah selesai"
+msgstr ""
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr "Pesanan yang diselesaikan dalam tujuh hari terakhir dibandingkan dengan periode sebelumnya"
+msgstr ""
 
 msgid "Config"
-msgstr "Konfigurasi"
+msgstr ""
 
 msgid "Configurable"
-msgstr "Dapat diedit"
+msgstr ""
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr "Opsi konfigurasi, akan tersedia sebagai pasangan kunci/nilai dalam item daftar"
+msgstr ""
 
 msgid "Context"
-msgstr "Konteks"
+msgstr ""
 
 msgid "Copy"
-msgstr "Salin"
+msgstr ""
 
 msgid "Copy this entry"
-msgstr "Salin entri ini"
+msgstr ""
 
 msgid "Costs"
-msgstr "Biaya"
+msgstr ""
 
 msgid "Count"
-msgstr "Jumlah"
+msgstr ""
 
 msgid "Country"
-msgstr "Negara"
+msgstr "ประเทศ"
 
 msgid "Country ID"
-msgstr "ID Negara"
+msgstr ""
 
 msgid "Country code (required)"
-msgstr "Kode negara (wajib diisi)"
+msgstr ""
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr "Tarif pajak khusus negara untuk menghitung dan menampilkan pajak yang disertakan (B2C) atau menambahkan pajak jika diperlukan (B2B)"
+msgstr ""
 
 msgid "Country state code (optional)"
-msgstr "Kode status negara (opsional)"
+msgstr ""
 
 msgid "Coupon"
-msgstr "Kupon"
+msgstr ""
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr "Nama konfigurasi penyedia kupon atau dekorator kupon"
+msgstr ""
 
 msgid "Created"
-msgstr "Dibuat"
+msgstr "สร้างขึ้น"
 
 msgid "Currencies"
-msgstr "Mata uang"
+msgstr ""
 
 msgid "Currency"
-msgstr "Mata uang"
+msgstr ""
 
 msgid "Custom"
-msgstr "Kustom"
+msgstr ""
 
 msgid "Custom domain or unique code of your shop"
-msgstr "Domain khusus atau kode unik toko Anda"
+msgstr ""
 
 msgid "Customer"
-msgstr "Pelanggan"
+msgstr ""
 
 msgid "Customer ID"
-msgstr "ID pelanggan"
+msgstr ""
 
 msgid "Customer Lists Type"
-msgstr "Jenis Daftar Pelanggan"
+msgstr ""
 
 msgid "Customer Lists Types"
-msgstr "Jenis Daftar Pelanggan"
+msgstr ""
 
 msgid "Customer Property Type"
-msgstr "Jenis Properti Pelanggan"
+msgstr ""
 
 msgid "Customer Property Types"
-msgstr "Jenis Properti Pelanggan"
+msgstr ""
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr "Karakteristik pelanggan yang tidak dibagikan dengan pelanggan lain"
+msgstr ""
 
 msgid "Customer comment (optional)"
-msgstr "Komentar pelanggan (opsional)"
+msgstr ""
 
 msgid "Customer e-mail address"
-msgstr "Alamat email pelanggan"
+msgstr ""
 
 msgid "Customer password"
-msgstr "Kata sandi pelanggan"
+msgstr ""
 
 msgid "Customer properties that are not shared with other customers"
-msgstr "Properti pelanggan yang tidak dibagikan dengan pelanggan lain"
+msgstr ""
 
 msgid "Customer reference"
-msgstr "Referensi pelanggan"
+msgstr ""
 
 msgid "Customer reference (optional)"
-msgstr "Referensi pelanggan (opsional)"
+msgstr ""
 
 msgid "Dashboard"
-msgstr "Dashboard "
+msgstr ""
 
 msgid "Data"
-msgstr "Data"
+msgstr ""
 
 msgid "Data set"
-msgstr "Kumpulan data"
+msgstr ""
 
 msgid "Dataset"
-msgstr "Dataset"
+msgstr ""
 
 msgid "Date of the last delivery status change"
-msgstr "Tanggal perubahan status pengiriman terakhir"
+msgstr ""
 
 msgid "Date of the last payment status change"
-msgstr "Tanggal perubahan status pembayaran terakhir"
+msgstr ""
 
 msgid "Date the subscription ends"
-msgstr "Tanggal langganan berakhir"
+msgstr ""
 
 msgid "Days"
-msgstr "Hari"
+msgstr ""
 
 msgid "Default"
-msgstr "Default"
+msgstr ""
 
 msgid "Delete"
-msgstr "Hapus"
+msgstr "ลบ"
 
 msgid "Delete entries?"
-msgstr "Menghapus entri?"
+msgstr ""
 
 msgid "Delete selected entries"
-msgstr "Menghapus entri yang dipilih"
+msgstr ""
 
 msgid "Delete this entry"
-msgstr "Hapus entri ini"
+msgstr ""
 
 msgid "Deleting reviews is not allowed"
-msgstr "Menghapus ulasan tidak diperbolehkan"
+msgstr ""
 
 msgid "Delivery"
-msgstr "Pegiriman"
+msgstr "การจัดส่ง"
 
 msgid "Delivery address"
-msgstr "Alamat pengiriman"
+msgstr "ที่อยู่สำหรับการจัดส่ง"
 
 msgid "Delivery date"
-msgstr "Tanggal pengiriman"
+msgstr ""
 
 msgid "Delivery in"
-msgstr "Pengiriman dalam"
+msgstr ""
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr "Biaya pengiriman atau pembayaran untuk produk dalam keranjang pelanggan"
+msgstr ""
 
 msgid "Delivery status"
-msgstr "Status pengiriman"
+msgstr ""
 
 msgid "Delivery timeframe (optional)"
-msgstr "Jangka waktu pengiriman (opsional)"
+msgstr ""
 
 msgid "Delivery types"
-msgstr "Jenis pengiriman"
+msgstr ""
 
 msgid "Delivery within"
-msgstr "Pengiriman dalam"
+msgstr "การจัดส่งภายใน"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr "Bergantung pada kumpulan data yang dipilih, daftar bidang yang ditampilkan untuk produk akan berbeda"
+msgstr ""
 
 msgid "Describe your image"
-msgstr "Jelaskan gambar Anda"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr "Deskripsi konten teks jika dalam bahasa asing"
+msgstr ""
 
 msgid "Descritive name of the currency"
-msgstr "Nama deskriptif mata uang"
+msgstr ""
 
 msgid "Descritive name of the language"
-msgstr "Nama deskriptif dari bahasa tersebut"
+msgstr ""
 
 msgid "Descritive name of the site"
-msgstr "Nama deskriptif situs"
+msgstr ""
 
 msgid "Discount"
-msgstr "Diskon"
+msgstr ""
 
 msgid "Display help texts"
-msgstr "Menampilkan teks bantuan"
+msgstr ""
 
 msgid "Domain"
-msgstr "Domain"
+msgstr ""
 
 msgid "Download"
-msgstr "Unduh"
+msgstr ""
 
 msgid "Download this file"
-msgstr "Unduh file ini"
+msgstr ""
 
 msgid "Duplicate entry"
-msgstr "Entri duplikat"
+msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr "Menggandakan entri (Ctrl+D)"
+msgstr ""
 
 msgid "E-Mail"
-msgstr "Surat elektronik"
+msgstr "อีเมล"
 
 msgid "E-Mail address (required)"
-msgstr "Alamat email (wajib diisi)"
+msgstr ""
 
 msgid "E-Mail address or account name (required)"
-msgstr "Alamat email atau nama akun (wajib)"
+msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr "Alamat email yang digunakan untuk mengirim email terkait toko"
+msgstr ""
 
 msgid "E-mail"
-msgstr "E-mail"
+msgstr ""
 
 msgid "E-mail address (optional)"
-msgstr "Alamat email (opsional)"
+msgstr ""
 
 msgid "E-mail address that belongs to the address"
-msgstr "Alamat email yang termasuk dalam alamat"
+msgstr ""
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU, atau nomor artikel (wajib)"
+msgstr ""
 
 msgid "Edit"
-msgstr "Sunting"
+msgstr ""
 
 msgid "Edit selected entries"
-msgstr "Mengedit entri yang dipilih"
+msgstr ""
 
 msgid "Edit this entry"
-msgstr "Sunting entri ini"
+msgstr ""
 
 msgid "Editor"
-msgstr "Editor"
+msgstr ""
 
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 msgid "End date"
-msgstr "Tanggal akhir"
+msgstr "วันสิ้นสุด"
 
 msgid "End date (optional)"
-msgstr "Tanggal akhir (opsional)"
+msgstr ""
 
 msgid "Enter group ID, code or label"
-msgstr "Masukkan ID grup, kode atau label"
+msgstr ""
 
 msgid "Entry deleted successfully"
-msgstr "Entri berhasil dihapus"
+msgstr ""
 
 msgid "Entry saved successfully"
-msgstr "Entri berhasil disimpan"
+msgstr ""
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr "Opsi konfigurasi khusus entri, akan tersedia sebagai pasangan kunci/nilai dalam templat"
+msgstr ""
 
 msgid "Error"
-msgstr "Kesalahan"
+msgstr ""
 
 msgid "Error deleting data"
-msgstr "Kesalahan menghapus data"
+msgstr ""
 
 msgid "Error retrieving data"
-msgstr "Kesalahan mengambil data"
+msgstr ""
 
 msgid "Error saving data"
-msgstr "Kesalahan menyimpan data"
+msgstr ""
 
 msgid "Excl. tax"
-msgstr "Tidak termasuk pajak"
+msgstr ""
 
 msgid "Execution order of the plugins"
-msgstr "Urutan eksekusi plugin"
+msgstr ""
 
 msgid "Execution order of the rules"
-msgstr "Urutan pelaksanaan peraturan"
+msgstr ""
 
 msgid "Export"
-msgstr "Ekspor"
+msgstr ""
 
 msgid "Facility"
-msgstr "Fasilitas"
+msgstr ""
 
 msgid "Facsimile"
-msgstr "Faksimili"
+msgstr ""
 
 msgid "Facsimile number (optional)"
-msgstr "Nomor faksimili (opsional)"
+msgstr ""
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr "Faktor untuk meningkatkan produk dalam pencarian pengguna dibandingkan produk lain (>1,0 dorongan positif, <1,0 dorongan negatif)"
+msgstr ""
 
 msgid "Failed to write file to disk"
-msgstr "Gagal menulis file ke disk"
+msgstr ""
 
 msgid "File"
-msgstr "Mengajukan"
+msgstr ""
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr "File tidak ada: \"%1$s\""
+msgstr ""
 
 msgid "File upload stopped by extension"
-msgstr "Unggahan file dihentikan oleh ekstensi"
+msgstr ""
 
 msgid "File uploaded successfully"
-msgstr "File berhasil diunggah"
+msgstr ""
 
 msgid "Find category"
-msgstr "Temukan kategori"
+msgstr ""
 
 msgid "Find site"
-msgstr "Temukan situs"
+msgstr ""
 
 msgid "First"
-msgstr "Pertama"
+msgstr "แรก"
 
 msgid "First name"
-msgstr "Nama depan"
+msgstr "ชื่อ"
 
 msgid "First name (optional)"
-msgstr "Nama depan (opsional)"
+msgstr ""
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr "Nama depan orang jika digunakan dalam budaya di mana nama tersebut digunakan"
+msgstr ""
 
 msgid "Floor"
-msgstr "Lantai"
+msgstr ""
 
 msgid "Floor / Appartment"
-msgstr "Lantai / Apartemen"
+msgstr ""
 
 msgid "Floor and/or apartment (optional)"
-msgstr "Lantai dan/atau apartemen (opsional)"
+msgstr ""
 
 msgid "For"
-msgstr "Untuk"
+msgstr ""
 
 msgid "Generate"
-msgstr "Menghasilkan"
+msgstr ""
 
 msgid "Generate image"
-msgstr "Menghasilkan gambar"
+msgstr ""
 
 msgid "Generate text"
-msgstr "Menghasilkan teks"
+msgstr ""
 
 msgid "Given rebate amount"
-msgstr "Jumlah rabat yang diberikan"
+msgstr ""
 
 msgid "Go to attribute panel"
-msgstr "Buka panel atribut"
+msgstr ""
 
 msgid "Go to property type panel"
-msgstr "Buka panel jenis properti"
+msgstr ""
 
 msgid "Go to the list of attribute types"
-msgstr "Buka daftar jenis atribut"
+msgstr ""
 
 msgid "Granted rebate"
-msgstr "Potongan harga yang diberikan"
+msgstr ""
 
 msgid "Group"
-msgstr "Kelompok"
+msgstr ""
 
 msgid "Group name describing for which members the group is for"
-msgstr "Nama grup yang menjelaskan untuk anggota mana grup tersebut"
+msgstr ""
 
 msgid "Groups"
-msgstr "Grup"
+msgstr ""
 
 msgid "Height"
-msgstr "Tinggi badan"
+msgstr ""
 
 msgid "Hidden attributes"
-msgstr "Atribut tersembunyi"
+msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr "Atribut produk tersembunyi yang disimpan dengan produk yang dipesan"
+msgstr ""
 
 msgid "Highlighted suppliers of the product"
-msgstr "Pemasok produk yang disorot"
+msgstr ""
 
 msgid "Honorary title (optional)"
-msgstr "Gelar kehormatan (opsional)"
+msgstr ""
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr "Gelar kehormatan seperti Dr., Ph.D, dll."
+msgstr ""
 
 msgid "Hours"
-msgstr "Jam"
+msgstr ""
 
 msgid "House number"
-msgstr "Nomor rumah"
+msgstr ""
 
 msgid "House number (optional)"
-msgstr "Nomor rumah (opsional)"
+msgstr ""
 
 msgid "How the customer is addressed in e-mails"
-msgstr "Bagaimana pelanggan disapa dalam email"
+msgstr ""
 
 msgid "How the supplier is addressed in e-mails"
-msgstr "Bagaimana cara pemasok disebut dalam email"
+msgstr ""
 
 msgid "Hyper-real and dramatic"
-msgstr "Sangat nyata dan dramatis"
+msgstr ""
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr "ID faktur terkait, misalnya faktur yang diubah atau dikembalikan"
+msgstr ""
 
 msgid "ISO currency code (required)"
-msgstr "Kode mata uang ISO (wajib)"
+msgstr ""
 
 msgid "ISO language code (required)"
-msgstr "Kode bahasa ISO (wajib)"
+msgstr ""
 
 msgid "Image"
-msgstr "Gambar"
+msgstr ""
 
 msgid "Image description"
-msgstr "Deskripsi gambar"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr "Gambar hanya akan ditampilkan untuk bahasa tersebut, berguna jika media berisi teks atau bahasa tertentu"
+msgstr ""
 
 msgid "Import"
-msgstr "Impor"
+msgstr ""
 
 msgid "Import/Export jobs"
-msgstr "Pekerjaan Impor/Ekspor"
+msgstr ""
 
 msgid "Incl. tax"
-msgstr "Termasuk pajak"
+msgstr ""
 
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 msgid "Insert into"
-msgstr "Masukkan ke dalam"
+msgstr ""
 
 msgid "Insert new entry"
-msgstr "Menyisipkan entri baru"
+msgstr ""
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr "Menyisipkan entri baru (Ctrl+I)"
+msgstr ""
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr "Nama artikel internal, akan digunakan di situs web dan untuk pencarian hanya jika tidak ada nama produk lain dalam bahasa apa pun"
+msgstr ""
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr "Nama artikel internal, akan digunakan di situs web jika tidak ada nama produk untuk bahasa tersebut"
+msgstr ""
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr "Nama atribut internal, akan digunakan di situs web jika tidak ada nama untuk bahasa yang tersedia"
+msgstr ""
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr "Nama kategori internal, akan digunakan di situs web jika tidak ada nama untuk bahasa yang tersedia"
+msgstr ""
 
 msgid "Internal name (required)"
-msgstr "Nama internal (wajib diisi)"
+msgstr ""
 
 msgid "Internal type name shown in the administration interface"
-msgstr "Nama tipe internal yang ditampilkan di antarmuka administrasi"
+msgstr ""
 
 msgid "Interval"
-msgstr "Interval"
+msgstr "ช่วง"
 
 msgid "Interval (required)"
-msgstr "Interval (wajib)"
+msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr "Karakter tidak valid dalam nama kelas \"%1$s\""
+msgstr "ตัวอักษรไม่ถูกต้องในชื่อคลาส \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr "Karakter tidak valid pada nama klien \"%1$s\""
+msgstr "ตัวอักษรไม่ถูกต้องในชื่อลูกค้า \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr "Nama kelas tidak valid \"%1$s\""
+msgstr "ชื่อคลาสไม่ถูกต้อง \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr "Domain tidak valid \"%1$s\""
+msgstr "โดเมนไม่ถูกต้อง \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Pabrik tidak valid \"%1$s\""
+msgstr ""
 
 msgid "Invoice"
-msgstr "Faktur"
+msgstr "ใบแจ้งหนี้"
 
 msgid "Invoice No."
-msgstr "Nomor Faktur"
+msgstr ""
 
 msgid "Invoice no."
-msgstr "No. faktur."
+msgstr ""
 
 msgid "Invoice number"
-msgstr "Nomor faktur"
+msgstr ""
 
 msgid "Invoice number for the order"
-msgstr "Nomor faktur untuk pesanan"
+msgstr ""
 
 msgid "Label"
-msgstr "Label"
+msgstr ""
 
 msgid "Label (required)"
-msgstr "Label (wajib diisi)"
+msgstr ""
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr "Label yang menggambarkan interval, akan digunakan jika tidak ada nama yang tersedia"
+msgstr ""
 
 msgid "Language"
-msgstr "Bahasa"
+msgstr "ภาษา"
 
 msgid "Language ID"
-msgstr "ID Bahasa"
+msgstr ""
 
 msgid "Language of the entered text"
-msgstr "Bahasa teks yang dimasukkan"
+msgstr ""
 
 msgid "Languages"
-msgstr "Bahasa"
+msgstr ""
 
 msgid "Last"
-msgstr "Terakhir"
+msgstr "สุดท้าย"
 
 msgid "Last delivery status of the order"
-msgstr "Status pengiriman terakhir pesanan"
+msgstr ""
 
 msgid "Last name"
-msgstr "Nama akhir (keluarga)"
+msgstr "นามสกุล"
 
 msgid "Last name (optional)"
-msgstr "Nama belakang (opsional)"
+msgstr ""
 
 msgid "Last name (required)"
-msgstr "Nama belakang (wajib diisi)"
+msgstr ""
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr "Nama belakang orang atau nama lengkap dalam budaya yang tidak menggunakan nama depan"
+msgstr ""
 
 msgid "Last payment status of the order"
-msgstr "Status pembayaran terakhir dari pesanan"
+msgstr ""
 
 msgid "Latest orders"
-msgstr "Pesanan terbaru"
+msgstr ""
 
 msgid "Length"
-msgstr "Panjang"
+msgstr ""
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr "Daftar artikel yang harus dijual sebagai satu produk, sering kali dengan harga yang lebih murah"
+msgstr ""
 
 msgid "List of products often bought together"
-msgstr "Daftar produk yang sering dibeli bersama"
+msgstr ""
 
 msgid "List of suggested products"
-msgstr "Daftar produk yang disarankan"
+msgstr ""
 
 msgid "List type"
-msgstr "Jenis daftar"
+msgstr ""
 
 msgid "Loading entries ..."
-msgstr "Memuat entri ..."
+msgstr ""
 
 msgid "Locale"
-msgstr "Lokal"
+msgstr ""
 
 msgid "Log"
-msgstr "Log"
+msgstr ""
 
 msgid "Manual transfer"
-msgstr "Transfer manual"
+msgstr ""
 
 msgid "Map"
-msgstr "Peta"
+msgstr ""
 
 msgid "Media Lists Type"
-msgstr "Jenis Daftar Media"
+msgstr ""
 
 msgid "Media Lists Types"
-msgstr "Jenis Daftar Media"
+msgstr ""
 
 msgid "Media Property Type"
-msgstr "Jenis Properti Media"
+msgstr ""
 
 msgid "Media Property Types"
-msgstr "Jenis Properti Media"
+msgstr ""
 
 msgid "Media Type"
-msgstr "Jenis Media"
+msgstr ""
 
 msgid "Media Types"
-msgstr "Jenis Media"
+msgstr ""
 
 msgid "Media properties"
-msgstr "Properti media"
+msgstr ""
 
 msgid "Menu"
-msgstr "Menu"
+msgstr ""
 
 msgid "Message"
-msgstr "Pesan"
+msgstr ""
 
 msgid "Min. quantity"
-msgstr "Min.kuantitas"
+msgstr ""
 
 msgid "Minimum quantity"
-msgstr "Jumlah minimum"
+msgstr ""
 
 msgid "Mobile"
-msgstr "Seluler"
+msgstr "มือถือ"
 
 msgid "Mobile number"
-msgstr "Nomor ponsel"
+msgstr "หมายเลขโทรศัพท์มือถือ"
 
 msgid "Mobile number (optional)"
-msgstr "Nomor ponsel (opsional)"
+msgstr ""
 
 msgid "Model"
-msgstr "Model"
+msgstr ""
 
 msgid "Modifed"
-msgstr "Dimodifikasi"
+msgstr ""
 
 msgid "Modified"
-msgstr "Dimodifikasi"
+msgstr ""
 
 msgid "Months"
-msgstr "Bulan"
+msgstr ""
 
 msgid "More"
-msgstr "Lebih lanjut"
+msgstr "มากขึ้น"
 
 msgid "Move this entry up/down"
-msgstr "Pindahkan entri ini ke atas/bawah"
+msgstr ""
 
 msgid "Name"
-msgstr "Nama"
+msgstr "ชื่อ"
 
 msgid "Name in URL (optional)"
-msgstr "Nama dalam URL (opsional)"
+msgstr ""
 
 msgid "Name of the basket"
-msgstr "Nama keranjang"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr "Nama file yang diunduh ketika pelanggan menyimpan file di komputer mereka"
+msgstr ""
 
 msgid "Name of the reviewer"
-msgstr "Nama pengulas"
+msgstr ""
 
 msgid "Name of your shop shown to your customers"
-msgstr "Nama toko Anda ditampilkan kepada pelanggan Anda"
+msgstr ""
 
 msgid "Natural"
-msgstr "Alami"
+msgstr ""
 
 msgid "New"
-msgstr "Baru"
+msgstr "ใหม่"
 
 msgid "New category"
-msgstr "Kategori baru"
+msgstr ""
 
 msgid "New customers"
-msgstr "Pelanggan baru"
+msgstr ""
 
 msgid "New customers within the last seven days"
-msgstr "Pelanggan baru dalam tujuh hari terakhir"
+msgstr ""
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr "Pelanggan baru dalam tujuh hari terakhir dibandingkan dengan periode sebelumnya"
+msgstr ""
 
 msgid "Next"
-msgstr "Berikutnya"
+msgstr "ถัดไป"
 
 msgid "Next date"
-msgstr "Tanggal berikutnya"
+msgstr ""
 
 msgid "Next date (optional)"
-msgstr "Tanggal berikutnya (opsional)"
+msgstr ""
 
 msgid "Next date the subscription is renewed"
-msgstr "Tanggal perpanjangan langganan berikutnya"
+msgstr ""
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr "Tidak ada mata uang yang tersedia. Harap aktifkan setidaknya satu mata uang"
+msgstr ""
 
 msgid "No entries found"
-msgstr "Tidak ada entri yang ditemukan"
+msgstr ""
 
 msgid "No file was uploaded"
-msgstr "Tidak ada file yang diunggah"
+msgstr ""
 
 msgid "No product found"
-msgstr "Tidak ada produk yang ditemukan"
+msgstr ""
 
 msgid "No theme options available"
-msgstr "Tidak ada pilihan tema yang tersedia"
+msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr "Tidak ada tampilan yang tersedia"
+msgstr "ไม่มีวิวให้ชม"
 
 msgid "No voucher"
-msgstr "Tidak ada voucher"
+msgstr ""
 
 msgid "Non-shared properties for the media item"
-msgstr "Properti yang tidak dibagikan untuk item media"
+msgstr ""
 
 msgid "Non-shared properties for the price item"
-msgstr "Properti yang tidak dibagikan untuk item harga"
+msgstr ""
 
 msgid "None"
-msgstr "Tidak ada"
+msgstr ""
 
 msgid "Not all entries could be deleted"
-msgstr "Tidak semua entri dapat dihapus"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr "Tidak diizinkan untuk mengakses klien JQAdm \"%1$s\""
+msgstr ""
 
 msgid "Not implemented"
-msgstr "Tidak diterapkan"
+msgstr ""
 
 msgid "Notes"
-msgstr "Catatan"
+msgstr ""
 
 msgid "Notes (not shown to customer)"
-msgstr "Catatan (tidak diperlihatkan kepada pelanggan)"
+msgstr ""
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr "Jumlah artikel yang tersedia saat ini, biarkan kosong untuk jumlah yang tidak terbatas"
+msgstr ""
 
 msgid "OK"
-msgstr "BAIKLAH."
+msgstr ""
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr "ID PPN resmi untuk menentukan apakah pajak perlu ditagihkan dalam faktur"
+msgstr ""
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr "Satu penyedia dan nol atau lebih nama kelas dekorator yang dipisahkan dengan koma"
+msgstr ""
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr "Hanya .webp, .jpg, .png, dan .gif yang diperbolehkan untuk ikon"
+msgstr ""
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr "Hanya .webp, .jpg, .png, .gif, dan .svg yang diperbolehkan untuk logo"
+msgstr ""
 
 msgid "Only super users and administrators can delete entries"
-msgstr "Hanya pengguna super dan administrator yang dapat menghapus entri"
+msgstr ""
 
 msgid "Open"
-msgstr "Buka"
+msgstr ""
 
 msgid "Open Qty"
-msgstr "Buka Jumlah"
+msgstr ""
 
 msgid "Option"
-msgstr "Pilihan"
+msgstr ""
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr "Komponen produk opsional yang dapat dipilih oleh pelanggan bersama dengan produk"
+msgstr ""
 
 msgid "Order"
-msgstr "Pesan"
+msgstr ""
 
 msgid "Order ID"
-msgstr "ID Pesanan"
+msgstr "หมายเลขคำสั่งซื้อ"
 
 msgid "Order number entered by the customer"
-msgstr "Nomor pesanan yang dimasukkan oleh pelanggan"
+msgstr ""
 
 msgid "Order of the language/currency combinations"
-msgstr "Urutan kombinasi bahasa/mata uang"
+msgstr ""
 
 msgid "Order of the service options in the checkout process"
-msgstr "Urutan opsi layanan dalam proses pembayaran"
+msgstr ""
 
 msgid "Order of the types in the frontend"
-msgstr "Urutan jenis di bagian depan"
+msgstr ""
 
 msgid "Order totals"
-msgstr "Total pesanan"
+msgstr ""
 
 msgid "Ordered at"
-msgstr "Dipesan di"
+msgstr ""
 
 msgid "Orders by country"
-msgstr "Pesanan berdasarkan negara"
+msgstr ""
 
 msgid "Orders by day"
-msgstr "Pesanan pada siang hari"
+msgstr ""
 
 msgid "Orders by hour"
-msgstr "Pesanan per jam"
+msgstr ""
 
 msgid "Orders by payment status"
-msgstr "Pesanan berdasarkan status pembayaran"
+msgstr ""
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr "Menimpa file yang ada dan pelanggan yang membelinya di masa lalu dapat mengunduh konten baru juga"
+msgstr ""
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr "Pengaturan PHP \"%1$s\" dinonaktifkan"
+msgstr ""
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr "Pengaturan PHP \"%1$s\" diaktifkan"
+msgstr ""
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr "Pengaturan PHP untuk \"%1$s\" terlalu rendah"
+msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Halaman %1$d dari %2$d"
+msgstr "หน้า %1$d จาก %2$d"
 
 msgid "Password"
-msgstr "Kata sandi"
+msgstr "รหัสผ่าน"
 
 msgid "Password (required)"
-msgstr "Kata sandi (wajib)"
+msgstr ""
 
 msgid "Path"
-msgstr "Path"
+msgstr ""
 
 msgid "Pay date"
-msgstr "Tanggal pembayaran"
+msgstr ""
 
 msgid "Pay status"
-msgstr "Status pembayaran"
+msgstr ""
 
 msgid "Payment"
-msgstr "Pembayaran"
+msgstr "การชำระเงิน"
 
 msgid "Payment date"
-msgstr "Tanggal pembayaran"
+msgstr ""
 
 msgid "Payment status"
-msgstr "Status pembayaran"
+msgstr "สถานะการชำระเงิน"
 
 msgid "Payment types"
-msgstr "Jenis pembayaran"
+msgstr ""
 
 msgid "Periods"
-msgstr "Periode"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
-msgstr "Izin ditolak"
+msgstr ""
 
 msgid "Personal data"
-msgstr "Data pribadi"
+msgstr ""
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr "Masukkan deskripsi teks yang akan dihasilkan di sini"
+msgstr ""
 
 msgid "Please select"
-msgstr "Silahkan pilih"
+msgstr "กรุณาเลือก"
 
 msgid "Plugin"
-msgstr "Plugin"
+msgstr ""
 
 msgid "Plugin Type"
-msgstr "Jenis Plugin"
+msgstr ""
 
 msgid "Plugin Types"
-msgstr "Jenis Plugin"
+msgstr ""
 
 msgid "Plugin label for describing the configured plugin"
-msgstr "Label plugin untuk menjelaskan plugin yang dikonfigurasi"
+msgstr ""
 
 msgid "Plugin position (required)"
-msgstr "Posisi plugin (wajib)"
+msgstr ""
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr "Nama konfigurasi penyedia plugin atau dekorator plugin"
+msgstr ""
 
 msgid "Position"
-msgstr "Posisi"
+msgstr ""
 
 msgid "Position (required)"
-msgstr "Posisi (wajib diisi)"
+msgstr ""
 
 msgid "Postal"
-msgstr "Pos"
+msgstr ""
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr "Kode pos untuk pengiriman jika digunakan di wilayah tempat tinggal pelanggan"
+msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr "Kode pos untuk pengiriman jika digunakan di wilayah tempat tinggal pemasok"
+msgstr ""
 
 msgid "Postition"
-msgstr "Posisi"
+msgstr ""
 
 msgid "Potential problems"
-msgstr "Masalah potensial"
+msgstr ""
 
 msgid "Previous"
-msgstr "Sebelumnya"
+msgstr "ก่อนหน้า"
 
 msgid "Price"
-msgstr "Harga"
+msgstr "ราคา"
 
 msgid "Price Lists Type"
-msgstr "Jenis Daftar Harga"
+msgstr ""
 
 msgid "Price Lists Types"
-msgstr "Jenis Daftar Harga"
+msgstr ""
 
 msgid "Price Property Type"
-msgstr "Harga Jenis Properti"
+msgstr ""
 
 msgid "Price Property Types"
-msgstr "Harga Jenis Properti"
+msgstr ""
 
 msgid "Price Type"
-msgstr "Jenis Harga"
+msgstr ""
 
 msgid "Price Types"
-msgstr "Jenis Harga"
+msgstr ""
 
 msgid "Price properties"
-msgstr "Properti harga"
+msgstr ""
 
 msgid "Priority"
-msgstr "Prioritas"
+msgstr ""
 
 msgid "Problem"
-msgstr "Masalah"
+msgstr ""
 
 msgid "Product"
-msgstr "Produk"
+msgstr "ผลิตภัณฑ์"
 
 msgid "Product ID"
-msgstr "ID Produk"
+msgstr ""
 
 msgid "Product ID, SKU or label"
-msgstr "ID produk, SKU atau label"
+msgstr ""
 
 msgid "Product Lists Type"
-msgstr "Jenis Daftar Produk"
+msgstr ""
 
 msgid "Product Lists Types"
-msgstr "Jenis Daftar Produk"
+msgstr ""
 
 msgid "Product Property Type"
-msgstr "Jenis Properti Produk"
+msgstr ""
 
 msgid "Product Property Types"
-msgstr "Jenis Properti Produk"
+msgstr ""
 
 msgid "Product Type"
-msgstr "Jenis Produk"
+msgstr ""
 
 msgid "Product Types"
-msgstr "Jenis Produk"
+msgstr ""
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr "Atribut produk yang disimpan dalam keranjang di mana pelanggan dapat memasukkan teks atau nilai mereka sendiri"
+msgstr ""
 
 msgid "Product attributes that are used by other products too"
-msgstr "Atribut produk yang juga digunakan oleh produk lain"
+msgstr ""
 
 msgid "Product characteristics that are not shared with other products"
-msgstr "Karakteristik produk yang tidak dimiliki oleh produk lain"
+msgstr ""
 
 msgid "Product code"
-msgstr "Kode produk"
+msgstr ""
 
 msgid "Product costs"
-msgstr "Biaya produk"
+msgstr ""
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr "Tinggi produk, misalnya 20,0 (dalam yard, inci, dll.)"
+msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr "Panjang produk, misalnya 30,0 (dalam yard, inci, dll.)"
+msgstr ""
 
 msgid "Product name"
-msgstr "Nama produk"
+msgstr ""
 
 msgid "Product payment"
-msgstr "Pembayaran produk"
+msgstr ""
 
 msgid "Product price"
-msgstr "Harga produk"
+msgstr "ราคาสินค้า"
 
 msgid "Product quantity"
-msgstr "Kuantitas produk"
+msgstr ""
 
 msgid "Product rebate"
-msgstr "Potongan harga produk"
+msgstr ""
 
 msgid "Product shipping"
-msgstr "Pengiriman produk"
+msgstr ""
 
 msgid "Product status"
-msgstr "Status produk"
+msgstr ""
 
 msgid "Product supplier"
-msgstr "Pemasok produk"
+msgstr ""
 
 msgid "Product tax"
-msgstr "Pajak produk"
+msgstr ""
 
 msgid "Product type"
-msgstr "Jenis produk"
+msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr "Berat produk, misalnya 1,25 (dalam pound, ons, dll.)"
+msgstr ""
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "Lebar produk, misalnya 17,5 (dalam yard, inci, dll.)"
+msgstr ""
 
 msgid "Products"
-msgstr "Produk"
+msgstr ""
 
 msgid "Products bought together"
-msgstr "Produk yang dibeli bersama"
+msgstr "สินค้าที่ซื้อร่วมกัน"
 
 msgid "Promotion"
-msgstr "Promosi"
+msgstr ""
 
 msgid "Properties"
-msgstr "Properti"
+msgstr ""
 
 msgid "Property value (required)"
-msgstr "Nilai properti (wajib)"
+msgstr ""
 
 msgid "Provider"
-msgstr "Penyedia"
+msgstr ""
 
 msgid "Provider/decorator class names (required)"
-msgstr "Nama kelas penyedia/dekorator (wajib)"
+msgstr ""
 
 msgid "Purchase"
-msgstr "Pembelian"
+msgstr ""
 
 msgid "Quantity"
-msgstr "Jumlah"
+msgstr "ปริมาณ"
 
 msgid "Quantity scale"
-msgstr "Skala kuantitas"
+msgstr ""
 
 msgid "Rabate"
-msgstr "Rabate"
+msgstr ""
 
 msgid "Rating"
-msgstr "Peringkat"
+msgstr "การให้คะแนน"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr "Peringkat dan jumlah peringkat untuk pedagang"
+msgstr ""
 
 msgid "Rating of the reviewer"
-msgstr "Peringkat pengulas"
+msgstr ""
 
 msgid "Reason"
-msgstr "Alasan"
+msgstr ""
 
 msgid "Rebate"
-msgstr "Rabat"
+msgstr ""
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr "Pengurangan dari harga asli, digunakan untuk menghitung rabat dalam % dan harga silang"
+msgstr ""
 
 msgid "Reference"
-msgstr "Referensi"
+msgstr "เอกสารอ้างอิง"
 
 msgid "Reference ID"
-msgstr "ID Referensi"
+msgstr ""
 
 msgid "Refund"
-msgstr "Pengembalian dana"
+msgstr ""
 
 msgid "Related ID"
-msgstr "ID terkait"
+msgstr ""
 
 msgid "Related order"
-msgstr "Pesanan terkait"
+msgstr ""
 
 msgid "Related order ID (optional)"
-msgstr "ID pesanan terkait (opsional)"
+msgstr ""
 
 msgid "Related order of the customer"
-msgstr "Pesanan terkait dari pelanggan"
+msgstr ""
 
 msgid "Remove background"
-msgstr "Hapus latar belakang"
+msgstr ""
 
 msgid "Renew"
-msgstr "Memperbaharui"
+msgstr ""
 
 msgid "Replace file"
-msgstr "Mengganti file"
+msgstr ""
 
 msgid "Request"
-msgstr "Permintaan"
+msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr "Parameter yang diperlukan \"%1$s\" tidak ada"
+msgstr ""
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr "Jumlah artikel yang diperlukan untuk harga blok, misalnya satu artikel seharga $5.00, sepuluh artikel seharga $45.00"
+msgstr ""
 
 msgid "Reset"
-msgstr "Atur ulang"
+msgstr "รีเซ็ต"
 
 msgid "Response"
-msgstr "Tanggapan"
+msgstr ""
 
 msgid "Response to the reviewer"
-msgstr "Tanggapan terhadap pengulas"
+msgstr ""
 
 msgid "Review"
-msgstr "Ulasan"
+msgstr ""
 
 msgid "Reviewed entry"
-msgstr "Entri yang ditinjau"
+msgstr ""
 
 msgid "Reviewer name"
-msgstr "Nama peninjau"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr "Nama rute atau ID halaman dari halaman kategori jika kategori ini harus ditampilkan di halaman yang berbeda"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr "Nama rute atau ID halaman dari halaman detail produk jika produk ini harus ditampilkan di halaman yang berbeda"
+msgstr ""
 
 msgid "Route or page ID (optional)"
-msgstr "Rute atau ID halaman (opsional)"
+msgstr ""
 
 msgid "Rule"
-msgstr "Aturan"
+msgstr ""
 
 msgid "Rule Type"
-msgstr "Jenis Aturan"
+msgstr ""
 
 msgid "Rule Types"
-msgstr "Jenis Aturan"
+msgstr ""
 
 msgid "Rule label for describing the configured rule"
-msgstr "Label aturan untuk menjelaskan aturan yang dikonfigurasi"
+msgstr ""
 
 msgid "Rule position (required)"
-msgstr "Posisi aturan (wajib)"
+msgstr ""
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr "Nama konfigurasi penyedia aturan atau dekorator aturan"
+msgstr ""
 
 msgid "Rules"
-msgstr "Aturan"
+msgstr ""
 
 msgid "SKU"
-msgstr "SKU"
+msgstr ""
 
 msgid "Sales by weekday"
-msgstr "Penjualan pada hari kerja"
+msgstr ""
 
 msgid "Sales of the last 30 days"
-msgstr "Penjualan dalam 30 hari terakhir"
+msgstr ""
 
 msgid "Sales per month"
-msgstr "Penjualan per bulan"
+msgstr ""
 
 msgid "Salutation"
-msgstr "Salam"
+msgstr "คำทักทาย"
 
 msgid "Save"
-msgstr "Simpan"
+msgstr "บันทึก"
 
 msgid "Save & Close"
-msgstr "Simpan & Tutup"
+msgstr ""
 
 msgid "Save & Copy"
-msgstr "Simpan & Salin"
+msgstr ""
 
 msgid "Save & New"
-msgstr "Simpan & Baru"
+msgstr ""
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "Menyimpan entri (Ctrl+Enter)"
+msgstr ""
 
 msgid "Save entry (Ctrl+S)"
-msgstr "Menyimpan entri (Ctrl+S)"
+msgstr ""
 
 msgid "Search"
-msgstr "Cari"
+msgstr "ค้นหา"
 
 msgid "Second level type for grouping entries"
-msgstr "Jenis tingkat kedua untuk mengelompokkan entri"
+msgstr ""
 
 msgid "Select all entries"
-msgstr "Pilih semua entri"
+msgstr ""
 
 msgid "Select file"
-msgstr "Pilih file"
+msgstr ""
 
 msgid "Service"
-msgstr "Layanan"
+msgstr ""
 
 msgid "Service Lists Type"
-msgstr "Jenis Daftar Layanan"
+msgstr ""
 
 msgid "Service Lists Types"
-msgstr "Jenis Daftar Layanan"
+msgstr ""
 
 msgid "Service Type"
-msgstr "Jenis Layanan"
+msgstr ""
 
 msgid "Service Types"
-msgstr "Jenis Layanan"
+msgstr ""
 
 msgid "Service attribute code"
-msgstr "Kode atribut layanan"
+msgstr ""
 
 msgid "Service costs"
-msgstr "Biaya layanan"
+msgstr ""
 
 msgid "Service name"
-msgstr "Nama layanan"
+msgstr ""
 
 msgid "Service position (required)"
-msgstr "Posisi servis (wajib)"
+msgstr ""
 
 msgid "Service price"
-msgstr "Harga layanan"
+msgstr ""
 
 msgid "Service provider or service decorator configuration name"
-msgstr "Nama konfigurasi penyedia layanan atau dekorator layanan"
+msgstr ""
 
 msgid "Service rebate"
-msgstr "Potongan harga layanan"
+msgstr ""
 
 msgid "Settings"
-msgstr "Pengaturan"
+msgstr ""
 
 msgid "Ship date"
-msgstr "Tanggal pengiriman"
+msgstr ""
 
 msgid "Ship status"
-msgstr "Status kapal"
+msgstr ""
 
 msgid "Shipping"
-msgstr "Pengiriman"
+msgstr "การจัดส่ง"
 
 msgid "Shipping / Payment costs"
-msgstr "Biaya pengiriman / pembayaran"
+msgstr ""
 
 msgid "Shipping/Payment costs"
-msgstr "Biaya pengiriman/pembayaran"
+msgstr ""
 
 msgid "Shipping/item"
-msgstr "Pengiriman / barang"
+msgstr ""
 
 msgid "Shop domain"
-msgstr "Domain toko"
+msgstr ""
 
 msgid "Shop domain (required)"
-msgstr "Domain toko (wajib)"
+msgstr ""
 
 msgid "Shop e-mail"
-msgstr "Email toko"
+msgstr ""
 
 msgid "Shop e-mail address (required)"
-msgstr "Alamat email toko (wajib diisi)"
+msgstr ""
 
 msgid "Shop name"
-msgstr "Nama toko"
+msgstr ""
 
 msgid "Shop name (required)"
-msgstr "Nama toko (wajib diisi)"
+msgstr ""
 
 msgid "Shop theme"
-msgstr "Tema toko"
+msgstr ""
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr "Kode negara bagian yang singkat (mis. NY) jika digunakan di negara tempat pelanggan tinggal"
+msgstr ""
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr "Kode negara bagian yang singkat (misalnya NY) jika digunakan di negara tempat pemasok tinggal"
+msgstr ""
 
 msgid "Show"
-msgstr "Tampilkan"
+msgstr "แสดง"
 
 msgid "Show entry"
-msgstr "Tampilkan entri"
+msgstr ""
 
 msgid "Show search form"
-msgstr "Tampilkan formulir pencarian"
+msgstr ""
 
 msgid "Show/hide advanced data"
-msgstr "Menampilkan/menyembunyikan data lanjutan"
+msgstr ""
 
 msgid "Show/hide details"
-msgstr "Menampilkan/menyembunyikan detail"
+msgstr ""
 
 msgid "Show/hide navigation labels"
-msgstr "Menampilkan/menyembunyikan label navigasi"
+msgstr ""
 
 msgid "Show/hide this entry"
-msgstr "Tampilkan/sembunyikan entri ini"
+msgstr ""
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr "Ditampilkan jika artikel mencapai tingkat stok nol"
+msgstr ""
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr "Sejak saat produk tersedia, digunakan untuk menyortir di front-end"
+msgstr ""
 
 msgid "Site"
-msgstr "Situs"
+msgstr ""
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr "Opsi konfigurasi spesifik lokasi, akan tersedia sebagai pasangan kunci/nilai"
+msgstr ""
 
 msgid "Site the order was placed at"
-msgstr "Situs tempat pemesanan dilakukan di"
+msgstr ""
 
 msgid "Sites"
-msgstr "Situs"
+msgstr ""
 
 msgid "Size"
-msgstr "Ukuran"
+msgstr ""
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr "Mengurutkan atribut dalam jenis atribut yang sama"
+msgstr ""
 
 msgid "Sorting of the suppliers"
-msgstr "Menyortir pemasok"
+msgstr ""
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr "Sumber faktur, misalnya melalui web atau telepon"
+msgstr ""
 
 msgid "Start date"
-msgstr "Tanggal mulai"
+msgstr ""
 
 msgid "Start typing ..."
-msgstr "Mulai mengetik ..."
+msgstr ""
 
 msgid "State"
-msgstr "Negara"
+msgstr "รัฐ"
 
 msgid "Status"
-msgstr "Status"
+msgstr "สถานะ"
 
 msgid "Stock Type"
-msgstr "Jenis Saham"
+msgstr ""
 
 msgid "Stock Types"
-msgstr "Jenis Saham"
+msgstr ""
 
 msgid "Stock level"
-msgstr "Tingkat stok"
+msgstr ""
 
 msgid "Stock type"
-msgstr "Jenis saham"
+msgstr ""
 
 msgid "Street"
-msgstr "Jalan"
+msgstr "ถนน"
 
 msgid "Street name (optional)"
-msgstr "Nama jalan (opsional)"
+msgstr ""
 
 msgid "Style"
-msgstr "Gaya"
+msgstr ""
 
 msgid "Sub-total"
-msgstr "Sub-total"
+msgstr "ยอดรวมย่อย"
 
 msgid "Subscription"
-msgstr "Berlangganan"
+msgstr ""
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr "Interval langganan dengan tahun, bulan, minggu, dan hari, misalnya \"P0Y1M2W3D\" untuk nol tahun, satu bulan, dua minggu, dan tiga hari"
+msgstr ""
 
 msgid "Suggested products"
-msgstr "Produk yang disarankan"
+msgstr "สินค้าที่แนะนำ"
 
 msgid "Sum"
-msgstr "Jumlah"
+msgstr "ผลรวม"
 
 msgid "Supplier"
-msgstr "Pemasok"
+msgstr ""
 
 msgid "Supplier name or company"
-msgstr "Nama pemasok atau perusahaan"
+msgstr ""
 
 msgid "Supplier position (required)"
-msgstr "Posisi pemasok (wajib)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
-msgstr "Pemasok yang memproduksi produk"
+msgstr ""
 
 msgid "Tag Type"
-msgstr "Jenis Tag"
+msgstr ""
 
 msgid "Tag Types"
-msgstr "Jenis Tag"
+msgstr ""
 
 msgid "Tax"
-msgstr "Pajak"
+msgstr ""
 
 msgid "Tax rate"
-msgstr "Tarif pajak"
+msgstr ""
 
 msgid "Tax rate in %"
-msgstr "Tarif pajak dalam %"
+msgstr ""
 
 msgid "Telephone"
-msgstr "Telepon"
+msgstr "โทรศัพท์"
 
 msgid "Telephone number (optional)"
-msgstr "Nomor telepon (opsional)"
+msgstr ""
 
 msgid "Temporary folder is missing"
-msgstr "Folder sementara tidak ada"
+msgstr ""
 
 msgid "Text Lists Type"
-msgstr "Jenis Daftar Teks"
+msgstr ""
 
 msgid "Text Lists Types"
-msgstr "Jenis Daftar Teks"
+msgstr ""
 
 msgid "Text Type"
-msgstr "Jenis Teks"
+msgstr ""
 
 msgid "Text Types"
-msgstr "Jenis Teks"
+msgstr ""
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr "Artikel hanya ditampilkan di situs web setelah tanggal dan waktu tersebut, artikel yang berguna atau artikel musiman"
+msgstr ""
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr "Artikel hanya ditampilkan di situs web hingga tanggal dan waktu tersebut, artikel yang berguna atau artikel musiman"
+msgstr ""
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr "Entri hanya ditampilkan di situs web setelah tanggal dan waktu tersebut"
+msgstr ""
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr "Entri hanya ditampilkan di situs web hingga tanggal dan waktu tersebut"
+msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr "Judul media digunakan untuk tag judul media di situs web"
+msgstr ""
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr "Nama kategori yang ditampilkan di URL, akan digunakan jika tidak ada segmen URL khusus bahasa"
+msgstr ""
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr "Nama produk yang ditampilkan di URL, akan digunakan jika tidak ada segmen URL khusus bahasa"
+msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr "Opsi ini hanya ditampilkan di situs web setelah tanggal dan waktu tersebut"
+msgstr ""
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr "Opsi ini hanya ditampilkan di situs web hingga tanggal dan waktu tersebut"
+msgstr ""
 
 msgid "The rule is only used after that date and time"
-msgstr "Aturan ini hanya digunakan setelah tanggal dan waktu tersebut"
+msgstr ""
 
 msgid "The rule is only used until that date and time"
-msgstr "Aturan ini hanya digunakan hingga tanggal dan waktu tersebut"
+msgstr ""
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr "Nilai langkah yang diizinkan untuk jumlah dalam keranjang, misalnya \"0,1\" untuk jumlah pecahan atau \"5\" untuk kelipatan lima artikel"
+msgstr ""
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr "File yang diunggah melebihi ukuran file maksimum yang diizinkan"
+msgstr ""
 
 msgid "The uploaded file was only partially uploaded"
-msgstr "File yang diunggah hanya diunggah sebagian"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
-msgstr "Tema untuk mengubah tata letak toko Anda"
+msgstr ""
 
 msgid "Three letter ISO currency code"
-msgstr "Kode mata uang ISO tiga huruf"
+msgstr ""
 
 msgid "Time frame (optional)"
-msgstr "Kerangka waktu (opsional)"
+msgstr ""
 
 msgid "Timestamp"
-msgstr "Cap waktu"
+msgstr ""
 
 msgid "Title"
-msgstr "Judul"
+msgstr "ชื่อเรื่อง"
 
 msgid "Toggle dropdown"
-msgstr "Alihkan menu tarik-turun"
+msgstr ""
 
 msgid "Toogle selection"
-msgstr "Pilihan Google"
+msgstr ""
 
 msgid "Top countries"
-msgstr "Negara-negara teratas"
+msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr "รวม"
 
 msgid "Total orders"
-msgstr "Total pesanan"
+msgstr ""
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr "Total pesanan dalam tujuh hari terakhir dibandingkan dengan periode sebelumnya"
+msgstr ""
 
 msgid "Total ratings"
-msgstr "Total peringkat"
+msgstr ""
 
 msgid "Translate text"
-msgstr "Menerjemahkan teks"
+msgstr ""
 
 msgid "Translations"
-msgstr "Terjemahan"
+msgstr ""
 
 msgid "Tree node menu"
-msgstr "Menu simpul pohon"
+msgstr ""
 
 msgid "Two letter ISO country code"
-msgstr "Kode negara ISO dua huruf"
+msgstr ""
 
 msgid "Two letter ISO language code"
-msgstr "Kode bahasa ISO dua huruf"
+msgstr ""
 
 msgid "Type"
-msgstr "Jenis"
+msgstr ""
 
 msgid "Type position (optional)"
-msgstr "Posisi pengetikan (opsional)"
+msgstr ""
 
 msgid "Types"
-msgstr "Jenis"
+msgstr ""
 
 msgid "Types for additional images like icons"
-msgstr "Jenis untuk gambar tambahan seperti ikon"
+msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr "Ketik untuk harga tambahan seperti per satu lb/kg atau per bulan"
+msgstr ""
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr "Ketik untuk teks tambahan seperti per satu lb/kg atau per bulan"
+msgstr ""
 
 msgid "URL of the customer web site"
-msgstr "URL situs web pelanggan"
+msgstr ""
 
 msgid "URL of the supplier web site"
-msgstr "URL situs web pemasok"
+msgstr ""
 
 msgid "URL segment"
-msgstr "Segmen URL"
+msgstr ""
 
 msgid "URL target"
-msgstr "Target URL"
+msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr "Tidak bisa memanggil method \"%1$s\""
+msgstr "ไม่สามารถเรียกเมธอด \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr "Tidak dapat membaca konten dari \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
-msgstr "Pesanan yang belum selesai"
+msgstr ""
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr "Pesanan yang belum selesai dalam tujuh hari terakhir dibandingkan dengan periode sebelumnya"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr "Kode artikel unik yang terkait dengan tingkat stok, misalnya dari sistem ERP, nomor EAN/GTIN, atau dibuat sendiri"
+msgstr ""
 
 msgid "Unique attribute code (required)"
-msgstr "Kode atribut unik (wajib)"
+msgstr ""
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr "Kode atribut unik, misalnya \"hijau\" untuk atribut bertipe \"warna\""
+msgstr ""
 
 msgid "Unique category code (required)"
-msgstr "Kode kategori unik (wajib diisi)"
+msgstr ""
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr "Kode kategori unik, baik dari sistem eksternal maupun buatan sendiri"
+msgstr ""
 
 msgid "Unique code (required)"
-msgstr "Kode unik (wajib diisi)"
+msgstr ""
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr "Kode unik untuk mengidentifikasi layanan, biasanya dibuat sendiri"
+msgstr ""
 
 msgid "Unique customer account name"
-msgstr "Nama akun pelanggan yang unik"
+msgstr ""
 
 msgid "Unique customer e-mail address"
-msgstr "Alamat email pelanggan yang unik"
+msgstr ""
 
 msgid "Unique group code (required)"
-msgstr "Kode grup unik (wajib)"
+msgstr ""
 
 msgid "Unique service code (required)"
-msgstr "Kode layanan unik (wajib)"
+msgstr ""
 
 msgid "Unique site code (required)"
-msgstr "Kode situs unik (wajib diisi)"
+msgstr ""
 
 msgid "Unique supplier code"
-msgstr "Kode pemasok unik"
+msgstr ""
 
 msgid "Unique type code"
-msgstr "Kode tipe unik"
+msgstr ""
 
 msgid "Unique type code (required)"
-msgstr "Kode jenis unik (wajib)"
+msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr "Kode jenis unik, misalnya \"warna\" untuk atribut seperti \"hijau\", \"biru\", \"merah\""
+msgstr ""
 
 msgid "Unit price"
-msgstr "Harga satuan"
+msgstr ""
 
 msgid "Unknown upload error"
-msgstr "Kesalahan pengunggahan yang tidak diketahui"
+msgstr ""
 
 msgid "Upload CSV"
-msgstr "Unggah CSV"
+msgstr ""
 
 msgid "Upload shop icon"
-msgstr "Unggah ikon toko"
+msgstr ""
 
 msgid "Upload shop logo"
-msgstr "Unggah logo toko"
+msgstr ""
 
 msgid "Uploaded"
-msgstr "Diunggah"
+msgstr ""
 
 msgid "Use"
-msgstr "Gunakan"
+msgstr ""
 
 msgid "User groups"
-msgstr "Kelompok pengguna"
+msgstr ""
 
 msgid "Usual time frame for the delivery of the product"
-msgstr "Kerangka waktu yang biasa digunakan untuk pengiriman produk"
+msgstr ""
 
 msgid "VAT ID"
-msgstr "ID PPN"
+msgstr ""
 
 msgid "Value"
-msgstr "Nilai"
+msgstr ""
 
 msgid "Value added tax identifier (optional)"
-msgstr "Pengidentifikasi pajak pertambahan nilai (opsional)"
+msgstr ""
 
 msgid "Variant attributes"
-msgstr "Atribut varian"
+msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr "Atribut produk varian yang disimpan dengan produk yang dipesan"
+msgstr ""
 
 msgid "Vendor"
-msgstr "Vendor"
+msgstr ""
 
 msgid "Verified"
-msgstr "Terverifikasi"
+msgstr ""
 
 msgid "View details"
-msgstr "Lihat detail"
+msgstr ""
 
 msgid "Voucher"
-msgstr "Voucher"
+msgstr "บัตรกำนัล"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr "Gudang atau toko lokal jika artikel Anda tersedia di beberapa lokasi"
+msgstr ""
 
 msgid "Web site"
-msgstr "Situs web"
+msgstr "เว็บไซต์"
 
 msgid "Web site URL (optional)"
-msgstr "URL situs web (opsional)"
+msgstr ""
 
 msgid "Weeks"
-msgstr "Minggu"
+msgstr ""
 
 msgid "Weight"
-msgstr "Berat"
+msgstr ""
 
 msgid "When the account and e-mail address has been verified"
-msgstr "Ketika akun dan alamat email telah diverifikasi"
+msgstr ""
 
 msgid "Width"
-msgstr "Lebar"
+msgstr ""
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "YYYY-MM-DD jj: mm: dd (opsional)"
+msgstr ""
 
 msgid "Years"
-msgstr "Tahun"
+msgstr ""
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr "Anda akan menghapus satu atau beberapa entri. Apakah Anda ingin melanjutkan?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
-msgstr "Ekspor Anda akan tersedia dalam beberapa menit untuk diunduh"
+msgstr ""
 
 msgid "Your response"
-msgstr "Tanggapan Anda"
+msgstr ""
 
 msgid "Zip code"
-msgstr "Kode pos"
+msgstr ""
 
 msgid "Zip code (optional)"
-msgstr "Kode pos (opsional)"
+msgstr ""
 
 msgid "__hidden__"
-msgstr "__tersembunyi__"
+msgstr ""
 
 #, php-format
 msgid "account"
-msgstr "akun"
+msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Alamat"
+msgstr ""
 
 msgid "address:delivery"
-msgstr "Alamat pengiriman"
+msgstr "ที่อยู่สำหรับการจัดส่ง"
 
 msgid "address:payment"
-msgstr "Alamat penagihan"
+msgstr "ที่อยู่สำหรับออกใบแจ้งหนี้"
 
 #, php-format
 msgid "api"
-msgstr "api"
+msgstr ""
 
 #, php-format
 msgid "attribute"
-msgstr "Atribut "
+msgstr ""
 
 #, php-format
 msgid "basket"
-msgstr "keranjang"
+msgstr ""
 
 #, php-format
 msgid "bundle"
-msgstr "bundel"
+msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr "Kategori"
+msgstr "หมวดหมู่"
 
 #, php-format
 msgid "category"
-msgstr "Kategori"
+msgstr "หมวดหมู่"
 
 #, php-format
 msgid "characteristic"
-msgstr "Karakteristik"
+msgstr "ลักษณะ"
 
 #, php-format
 msgid "code"
-msgstr "Kode"
+msgstr ""
 
 msgid "company"
-msgstr "Perusahaan"
+msgstr "บริษัท"
 
 #, php-format
 msgid "configuration"
-msgstr "konfigurasi"
+msgstr ""
 
 #, php-format
 msgid "countcountry"
-msgstr "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
-msgstr "countday"
+msgstr ""
 
 #, php-format
 msgid "counthour"
-msgstr "counthour"
+msgstr ""
 
 #, php-format
 msgid "countpaystatus"
-msgstr "countpaystatus"
+msgstr ""
 
 #, php-format
 msgid "coupon"
-msgstr "kupon"
+msgstr ""
 
 #, php-format
 msgid "customer"
-msgstr "pelanggan"
+msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr "Dashboard "
+msgstr ""
 
 #, php-format
 msgid "day"
-msgstr "hari"
+msgstr ""
 
 #, php-format
 msgid "deliverytype"
-msgstr "jenis pengiriman"
+msgstr ""
 
 #, php-format
 msgid "download"
-msgstr "Unduh"
+msgstr ""
 
 #, php-format
 msgid "goods"
-msgstr "Katalog"
+msgstr ""
 
 #, php-format
 msgid "group"
-msgstr "kelompok"
+msgstr ""
 
 #, php-format
 msgid "hour"
-msgstr "jam"
+msgstr ""
 
 #, php-format
 msgid "image"
-msgstr "gambar"
+msgstr ""
 
 #, php-format
 msgid "invoice"
-msgstr "faktur"
+msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr "Terbaru"
+msgstr "ล่าสุด"
 
 #, php-format
 msgid "locale"
-msgstr "lokal"
+msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr "lokal/mata uang"
+msgstr ""
 
 #, php-format
 msgid "locale/language"
-msgstr "lokal/bahasa"
+msgstr ""
 
 #, php-format
 msgid "locale/site"
-msgstr "lokasi/situs"
+msgstr ""
 
 #, php-format
 msgid "log"
-msgstr "log"
+msgstr ""
 
 #, php-format
 msgid "marketing"
-msgstr "pemasaran"
+msgstr ""
 
 #, php-format
 msgid "media"
-msgstr "media"
+msgstr ""
 
 msgid "miss"
-msgstr "rindu"
+msgstr ""
 
 msgid "mr"
-msgstr "mr"
+msgstr ""
 
 msgid "mrs"
-msgstr "mrs"
+msgstr ""
 
 msgid "ms"
-msgstr "ms"
+msgstr ""
 
 msgid "new"
-msgstr "baru"
+msgstr ""
 
 msgid "no"
-msgstr "tidak"
+msgstr ""
 
 msgid "none"
-msgstr "tidak ada"
+msgstr "ไม่มี"
 
 msgid "not available any more"
-msgstr "tidak tersedia lagi"
+msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "opsi"
+msgstr ""
 
 #, php-format
 msgid "order"
-msgstr "pesanan"
+msgstr ""
 
 msgid "order:phone"
-msgstr "pesanan: telepon"
+msgstr ""
 
 msgid "order:web"
-msgstr "order:web"
+msgstr ""
 
 msgid "pay:-1"
-msgstr "membayar: -1"
+msgstr ""
 
 msgid "pay:0"
-msgstr "membayar: 0"
+msgstr ""
 
 msgid "pay:1"
-msgstr "membayar: 1"
+msgstr ""
 
 msgid "pay:2"
-msgstr "membayar: 2"
+msgstr ""
 
 msgid "pay:3"
-msgstr "membayar: 3"
+msgstr ""
 
 msgid "pay:4"
-msgstr "membayar: 4"
+msgstr ""
 
 msgid "pay:5"
-msgstr "membayar: 5"
+msgstr ""
 
 msgid "pay:6"
-msgstr "membayar: 6"
+msgstr ""
 
 msgid "pay:7"
-msgstr "membayar:7"
+msgstr ""
 
 #, php-format
 msgid "paymentstatus"
-msgstr "status pembayaran"
+msgstr ""
 
 #, php-format
 msgid "paymenttype"
-msgstr "jenis pembayaran"
+msgstr ""
 
 #, php-format
 msgid "physical"
-msgstr "fisik"
+msgstr ""
 
 #, php-format
 msgid "plugin"
-msgstr "plugin"
+msgstr ""
 
 #, php-format
 msgid "price"
-msgstr "harga"
+msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "produk"
+msgstr ""
 
 #, php-format
 msgid "property"
-msgstr "Properti"
+msgstr ""
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr "cepat / hitung selesai"
+msgstr ""
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr "cepat / hitung pelanggan"
+msgstr ""
 
 #, php-format
 msgid "quick/counttotal"
-msgstr "cepat/total"
+msgstr ""
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr "cepat / hitung selesai"
+msgstr ""
 
 msgid "reason:-1"
-msgstr "alasan: -1"
+msgstr ""
 
 msgid "reason:0"
-msgstr "alasan: 0"
+msgstr ""
 
 msgid "reason:1"
-msgstr "alasan:1"
+msgstr ""
 
 #, php-format
 msgid "related"
-msgstr "terkait"
+msgstr ""
 
 #, php-format
 msgid "review"
-msgstr "Ulasan"
+msgstr "รีวิว"
 
 #, php-format
 msgid "rule"
-msgstr "aturan"
+msgstr ""
 
 #, php-format
 msgid "sales"
-msgstr "penjualan"
+msgstr ""
 
 #, php-format
 msgid "salesweekday"
-msgstr "hari kerja penjualan"
+msgstr ""
 
 msgid "selected"
-msgstr "dipilih"
+msgstr ""
 
 #, php-format
 msgid "selection"
-msgstr "seleksi"
+msgstr ""
 
 #, php-format
 msgid "service"
-msgstr "layanan"
+msgstr ""
 
 #, php-format
 msgid "servicedelivery"
-msgstr "pengiriman servis"
+msgstr ""
 
 #, php-format
 msgid "servicepayment"
-msgstr "pembayaran layanan"
+msgstr ""
 
 #, php-format
 msgid "settings"
-msgstr "pengaturan"
+msgstr ""
 
 #, php-format
 msgid "setup"
-msgstr "pengaturan"
+msgstr ""
 
 #, php-format
 msgid "special"
-msgstr "istimewa"
+msgstr ""
 
 msgid "stat:-1"
-msgstr "stat: -1"
+msgstr ""
 
 msgid "stat:0"
-msgstr "stat:0"
+msgstr ""
 
 msgid "stat:1"
-msgstr "stat: 1"
+msgstr ""
 
 msgid "stat:2"
-msgstr "stat: 2"
+msgstr ""
 
 msgid "stat:3"
-msgstr "stat:3"
+msgstr ""
 
 msgid "stat:4"
-msgstr "stat:4"
+msgstr ""
 
 msgid "stat:5"
-msgstr "stat:5"
+msgstr ""
 
 msgid "stat:6"
-msgstr "stat:6"
+msgstr ""
 
 msgid "stat:7"
-msgstr "stat:7"
+msgstr ""
 
 msgid "status:-1"
-msgstr "status: -1"
+msgstr ""
 
 msgid "status:-2"
-msgstr "status: -2"
+msgstr ""
 
 msgid "status:0"
-msgstr "status: 0"
+msgstr ""
 
 msgid "status:1"
-msgstr "status: 1"
+msgstr ""
 
 msgid "status:2"
-msgstr "status: 2"
+msgstr ""
 
 #, php-format
 msgid "stock"
-msgstr "stok"
+msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr "Langganan"
+msgstr "การสมัครสมาชิก"
 
 #, php-format
 msgid "supplier"
-msgstr "Pemasok"
+msgstr "ผู้จัดหา"
 
 msgid "tag"
-msgstr "tag"
+msgstr ""
 
 msgid "tax:0"
-msgstr "pajak: 0"
+msgstr ""
 
 msgid "tax:1"
-msgstr "pajak: 1"
+msgstr ""
 
 #, php-format
 msgid "text"
-msgstr "teks"
+msgstr ""
 
 #, php-format
 msgid "theme"
-msgstr "tema"
+msgstr ""
 
 #, php-format
 msgid "transaction"
-msgstr "transaksi"
+msgstr ""
 
 #, php-format
 msgid "type"
-msgstr "Jenis"
+msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr "Atribut "
+msgstr ""
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "jenis/atribut/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/attribute/property"
-msgstr "jenis/atribut/properti"
+msgstr ""
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr "jenis / katalog / daftar"
+msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
-msgstr "jenis/pelanggan/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/customer/property"
-msgstr "jenis/pelanggan/properti"
+msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr "jenis/media"
+msgstr ""
 
 #, php-format
 msgid "type/media/lists"
-msgstr "jenis/media/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/media/property"
-msgstr "jenis/media/properti"
+msgstr ""
 
 #, php-format
 msgid "type/plugin"
-msgstr "jenis/plugin"
+msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr "jenis/harga"
+msgstr ""
 
 #, php-format
 msgid "type/price/lists"
-msgstr "jenis/harga/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/price/property"
-msgstr "jenis/harga/properti"
+msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr "jenis/produk"
+msgstr ""
 
 #, php-format
 msgid "type/product/lists"
-msgstr "jenis/produk/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/product/property"
-msgstr "jenis/produk/properti"
+msgstr ""
 
 #, php-format
 msgid "type/rule"
-msgstr "jenis / aturan"
+msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr "layanan"
+msgstr ""
 
 #, php-format
 msgid "type/service/lists"
-msgstr "jenis/layanan/daftar"
+msgstr ""
 
 #, php-format
 msgid "type/stock"
-msgstr "tipe/stok"
+msgstr ""
 
 #, php-format
 msgid "type/tag"
-msgstr "jenis/tag"
+msgstr ""
 
 #, php-format
 msgid "type/text"
-msgstr "ketik/teks"
+msgstr ""
 
 #, php-format
 msgid "type/text/lists"
-msgstr "ketik/teks/daftar"
+msgstr ""
 
 #, php-format
 msgid "users"
-msgstr "pengguna"
+msgstr ""
 
 msgid "yes"
-msgstr "Ya."
+msgstr ""

@@ -56,64 +56,64 @@ msgid "service:payment"
 msgstr "תשלום"
 
 msgid "attribute"
-msgstr ""
+msgstr "תכונה"
 
 msgid "basket"
 msgstr "סל"
 
 msgid "catalog"
-msgstr ""
+msgstr "קטלוג"
 
 msgid "coupon"
-msgstr ""
+msgstr "קופון"
 
 msgid "customer"
-msgstr ""
+msgstr "לקוח"
 
 msgid "group"
-msgstr ""
+msgstr "קבוצה"
 
 msgid "locale"
-msgstr ""
+msgstr "מקום"
 
 msgid "media"
-msgstr ""
+msgstr "מדיה"
 
 msgid "order"
-msgstr ""
+msgstr "הזמנה"
 
 msgid "plugin"
-msgstr ""
+msgstr "תוסף"
 
 msgid "price"
-msgstr ""
+msgstr "מחיר"
 
 msgid "product"
-msgstr ""
+msgstr "מוצר"
 
 msgid "review"
 msgstr "לִסְקוֹר"
 
 msgid "rule"
-msgstr ""
+msgstr "כלל"
 
 msgid "service"
-msgstr ""
+msgstr "שירות"
 
 msgid "stock"
-msgstr ""
+msgstr "מלאי"
 
 msgid "subscription"
-msgstr ""
+msgstr "מנוי"
 
 msgid "supplier"
-msgstr ""
+msgstr "ספק"
 
 msgid "tag"
-msgstr ""
+msgstr "תג"
 
 msgid "text"
-msgstr ""
+msgstr "טקסט"
 
 msgid "type"
-msgstr ""
+msgstr "סוג"

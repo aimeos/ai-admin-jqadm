@@ -55,64 +55,64 @@ msgid "service:payment"
 msgstr "Platba"
 
 msgid "attribute"
-msgstr ""
+msgstr "atribut"
 
 msgid "basket"
 msgstr "koš"
 
 msgid "catalog"
-msgstr ""
+msgstr "katalog"
 
 msgid "coupon"
-msgstr ""
+msgstr "kupón"
 
 msgid "customer"
-msgstr ""
+msgstr "zákazník"
 
 msgid "group"
-msgstr ""
+msgstr "skupina"
 
 msgid "locale"
-msgstr ""
+msgstr "locale"
 
 msgid "media"
-msgstr ""
+msgstr "média"
 
 msgid "order"
 msgstr "objednat"
 
 msgid "plugin"
-msgstr ""
+msgstr "zásuvný modul"
 
 msgid "price"
-msgstr ""
+msgstr "cena"
 
 msgid "product"
-msgstr ""
+msgstr "produkt"
 
 msgid "review"
 msgstr "stav:-2"
 
 msgid "rule"
-msgstr ""
+msgstr "pravidlo"
 
 msgid "service"
-msgstr ""
+msgstr "služba"
 
 msgid "stock"
-msgstr ""
+msgstr "zásoby"
 
 msgid "subscription"
-msgstr ""
+msgstr "předplatné"
 
 msgid "supplier"
-msgstr ""
+msgstr "dodavatel"
 
 msgid "tag"
-msgstr ""
+msgstr "tag"
 
 msgid "text"
-msgstr ""
+msgstr "text"
 
 msgid "type"
-msgstr ""
+msgstr "typ"

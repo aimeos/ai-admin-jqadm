@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 12:22+0200\n"
+"POT-Creation-Date: 2025-07-08 18:42+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: shmuel adler, 2024\n"
 "Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
@@ -26,7 +26,7 @@ msgstr "</text_to_translate>"
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -67,7 +67,7 @@ msgstr "%1$s (Ctrl Alt %2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
@@ -83,13 +83,13 @@ msgid "+ Tax"
 msgstr "+ מס"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "מפתח API"
 
 msgid "Account"
 msgstr "חשבון"
@@ -107,10 +107,10 @@ msgid "Add"
 msgstr "הוסף"
 
 msgid "Add after"
-msgstr ""
+msgstr "הוסף אחרי"
 
 msgid "Add before"
-msgstr ""
+msgstr "הוסף לפני"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -372,7 +372,7 @@ msgid ""
 msgstr "אפשרויות תצורה, יהיו זמינות כצמדי מפתח/ערך בפריט הרשימה"
 
 msgid "Context"
-msgstr ""
+msgstr "הקשר"
 
 msgid "Copy"
 msgstr "העתק"
@@ -494,7 +494,7 @@ msgid "Delete"
 msgstr "מחק"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "למחוק ערכים?"
 
 msgid "Delete selected entries"
 msgstr "מחק ערכים נבחרים"
@@ -539,7 +539,7 @@ msgid ""
 msgstr "בהתאם למערך הנתונים שנבחר, רשימת השדות המוצגים עבור המוצר תהיה שונה"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "תאר את התמונה שלך"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "תיאור של תוכן הטקסט אם הוא בשפה זרה"
@@ -569,7 +569,7 @@ msgid "Download this file"
 msgstr "הורד את הקובץ הזה"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "כניסה כפולה"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "כפל ערך (Ctrl D)"
@@ -602,7 +602,7 @@ msgid "Edit"
 msgstr "עריכה"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "ערוך ערכים נבחרים"
 
 msgid "Edit this entry"
 msgstr "ערוך ערך זה"
@@ -620,30 +620,30 @@ msgid "End date (optional)"
 msgstr "תאריך סיום (אופציונלי)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "הזן את מזהה הקבוצה, הקוד או התווית"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "הרשומה נמחקה בהצלחה"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "הרשומה נשמרה בהצלחה"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "אפשרויות תצורה ספציפיות לכניסה, יהיו זמינות כצמדי מפתח/ערך בתבניות."
 
 msgid "Error"
 msgstr "שגיאה"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "שגיאה במחיקת נתונים"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "שגיאה באחזור נתונים"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "שגיאה בשמירת נתונים"
 
 msgid "Excl. tax"
 msgstr "לא כולל "
@@ -679,13 +679,13 @@ msgstr "קובץ"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "הקובץ אינו קיים: \"%1$s\""
 
 msgid "File upload stopped by extension"
 msgstr "העלאת הקובץ הופסקה על ידי הרחבה"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "הקובץ הועלה בהצלחה"
 
 msgid "Find category"
 msgstr "מצא קטגוריה"
@@ -715,13 +715,13 @@ msgid "Floor and/or apartment (optional)"
 msgstr "קומה ו/או דירה (אופציונלי)"
 
 msgid "For"
-msgstr ""
+msgstr "עבור"
 
 msgid "Generate"
-msgstr ""
+msgstr "ליצור"
 
 msgid "Generate image"
-msgstr ""
+msgstr "צור תמונה"
 
 msgid "Generate text"
 msgstr "צור טקסט"
@@ -784,10 +784,10 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "איך הספק פונה במיילים"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "היפר-ריאלי ודרמטי"
 
 msgid "ID"
-msgstr ""
+msgstr "תעודת זהות"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr "מזהה של חשבונית קשורה, למשל. "
@@ -802,7 +802,7 @@ msgid "Image"
 msgstr "תמונה"
 
 msgid "Image description"
-msgstr ""
+msgstr "תיאור תמונה"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -822,7 +822,7 @@ msgid "Info"
 msgstr "מידע"
 
 msgid "Insert into"
-msgstr ""
+msgstr "הכנס ל"
 
 msgid "Insert new entry"
 msgstr "הכנס ערך חדש"
@@ -889,10 +889,10 @@ msgid "Invoice No."
 msgstr "חשבונית מס'"
 
 msgid "Invoice no."
-msgstr ""
+msgstr "מספר חשבונית"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "מספר חשבונית"
 
 msgid "Invoice number for the order"
 msgstr "מספר חשבונית עבור ההזמנה"
@@ -962,7 +962,7 @@ msgid "List type"
 msgstr "סוג רשימה"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "טוען רשומות..."
 
 msgid "Locale"
 msgstr "מקומי"
@@ -1019,7 +1019,7 @@ msgid "Mobile number (optional)"
 msgstr "מספר נייד (אופציונלי)"
 
 msgid "Model"
-msgstr ""
+msgstr "דגם"
 
 msgid "Modifed"
 msgstr "שונה"
@@ -1056,13 +1056,13 @@ msgid "Name of your shop shown to your customers"
 msgstr "שם החנות שלך מוצג ללקוחות שלך"
 
 msgid "Natural"
-msgstr ""
+msgstr "טבעי"
 
 msgid "New"
 msgstr "חדש"
 
 msgid "New category"
-msgstr ""
+msgstr "קטגוריה חדשה"
 
 msgid "New customers"
 msgstr "לקוחות חדשים"
@@ -1089,7 +1089,7 @@ msgid "No currencies available. Please enable at least one currency"
 msgstr "אין מטבעות זמינים. "
 
 msgid "No entries found"
-msgstr ""
+msgstr "לא נמצאו רשומות"
 
 msgid "No file was uploaded"
 msgstr "לא הועלה קובץ"
@@ -1117,7 +1117,7 @@ msgid "None"
 msgstr "אין"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "לא ניתן היה למחוק את כל הערכים"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1147,13 +1147,13 @@ msgid ""
 msgstr "ספק אחד ואפס או יותר שמות מחלקות מעצבים מופרדים בפסיקים"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "רק קבצי .webp, .jpg, .png ו-.gif מותרים עבור סמלים."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "רק קבצי .webp, .jpg, .png, .gif ו-.svg מותרים עבור לוגואים."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "רק משתמשים-על ומנהלים יכולים למחוק רשומות."
 
 msgid "Open"
 msgstr "פתוח"
@@ -1503,7 +1503,7 @@ msgid "Related order of the customer"
 msgstr "הזמנה קשורה של הלקוח"
 
 msgid "Remove background"
-msgstr ""
+msgstr "הסר רקע"
 
 msgid "Renew"
 msgstr "תחדש"
@@ -1536,7 +1536,7 @@ msgid "Review"
 msgstr "סקירה"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "ערך שנבדק"
 
 msgid "Reviewer name"
 msgstr "שם המבקר"
@@ -1576,7 +1576,7 @@ msgid "Rules"
 msgstr "כללים"
 
 msgid "SKU"
-msgstr ""
+msgstr "מספר קטלוגי"
 
 msgid "Sales by weekday"
 msgstr "מכירות לפי ימי חול"
@@ -1603,7 +1603,7 @@ msgid "Save & New"
 msgstr "שמור וצור חדש"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "שמור ערך (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
 msgstr "שמור ערך (Ctrl+S)"
@@ -1612,10 +1612,10 @@ msgid "Search"
 msgstr "חפש"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "סוג רמה שני לקבץ ערכים"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "בחר את כל הערכים"
 
 msgid "Select file"
 msgstr "בחר קובץ"
@@ -1789,7 +1789,7 @@ msgid "Street name (optional)"
 msgstr "שם רחוב (אופציונלי)"
 
 msgid "Style"
-msgstr ""
+msgstr "סגנון"
 
 msgid "Sub-total"
 msgstr "סה\"כ משנה"
@@ -1867,10 +1867,10 @@ msgid ""
 msgstr "המאמר מוצג רק באתר האינטרנט עד לאותו תאריך ושעה, מאמרים שימושיים או עונתיים"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "הכניסה תופיע באתר האינטרנט רק לאחר תאריך ושעה אלה."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "הכניסה תוצג באתר האינטרנט רק עד לתאריך ולשעה האמורים."
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "כותרת המדיה משמשת לתג הכותרת של המדיה באתר האינטרנט"
@@ -1927,7 +1927,7 @@ msgid "Toggle dropdown"
 msgstr "החלף את התפריט הנפתח"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "בחירת Toogle"
 
 msgid "Top countries"
 msgstr "מדינות מובילות"
@@ -1948,10 +1948,10 @@ msgid "Translate text"
 msgstr "תרגם טקסט"
 
 msgid "Translations"
-msgstr ""
+msgstr "תרגומים"
 
 msgid "Tree node menu"
-msgstr ""
+msgstr "תפריט צומת עץ"
 
 msgid "Two letter ISO country code"
 msgstr "קוד מדינה ISO של שתי אותיות"
@@ -1966,7 +1966,7 @@ msgid "Type position (optional)"
 msgstr "מיקום הקלד (אופציונלי)"
 
 msgid "Types"
-msgstr ""
+msgstr "סוגים"
 
 msgid "Types for additional images like icons"
 msgstr "הקלדת תמונות נוספות כמו אייקונים"
@@ -1984,7 +1984,7 @@ msgid "URL of the supplier web site"
 msgstr "URL של אתר האינטרנט של הספק"
 
 msgid "URL segment"
-msgstr ""
+msgstr "קטע URL"
 
 msgid "URL target"
 msgstr "יעד כתובת אתר"
@@ -1995,7 +1995,7 @@ msgstr "לא ניתן לקרוא לשיטה \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "לא ניתן לקרוא תוכן מ-\"%1$s\""
 
 msgid "Unfinished orders"
 msgstr "הזמנות לא גמורות"
@@ -2061,7 +2061,7 @@ msgid "Unknown upload error"
 msgstr "שגיאת העלאה לא ידועה"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "העלה CSV"
 
 msgid "Upload shop icon"
 msgstr "העלה סמל חנות"
@@ -2073,7 +2073,7 @@ msgid "Uploaded"
 msgstr "הועלה"
 
 msgid "Use"
-msgstr ""
+msgstr "שימוש"
 
 msgid "User groups"
 msgstr "קבוצות משתמשים"
@@ -2097,7 +2097,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "תכונות מוצר שונות המאוחסנות עם המוצרים שהוזמנו"
 
 msgid "Vendor"
-msgstr ""
+msgstr "ספק"
 
 msgid "Verified"
 msgstr "מאומת"
@@ -2138,7 +2138,7 @@ msgstr "שנים"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "אתה עומד למחוק ערך אחד או יותר. האם ברצונך להמשיך?"
 
 msgid "Your export will be available in a few minutes for download"
 msgstr "הייצוא שלך יהיה זמין להורדה בעוד מספר דקות"
@@ -2171,7 +2171,7 @@ msgstr "כתובת:תשלום"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2290,7 +2290,7 @@ msgstr "מקומי/אתר"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "יומן"
 
 #, php-format
 msgid "marketing"
@@ -2310,7 +2310,7 @@ msgid "mrs"
 msgstr "גברת"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
 msgstr "חדש"
@@ -2333,13 +2333,13 @@ msgid "order"
 msgstr "הזמנה"
 
 msgid "order:phone"
-msgstr ""
+msgstr "הזמנה:טלפון"
 
 msgid "order:web"
-msgstr ""
+msgstr "הזמנה:אינטרנט"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "תשלום: -1"
 
 msgid "pay:0"
 msgstr "נמחק"
@@ -2399,7 +2399,7 @@ msgstr "מהיר/ספירה הושלמה"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "מהיר/ספירת לקוחות"
 
 #, php-format
 msgid "quick/counttotal"
@@ -2413,7 +2413,7 @@ msgid "reason:-1"
 msgstr "סיבה:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "סיבה:0"
 
 msgid "reason:1"
 msgstr "בוטל"
@@ -2470,7 +2470,7 @@ msgid "special"
 msgstr "מיוחד"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "סטטוס: -1"
 
 msgid "stat:0"
 msgstr "נמחק"
@@ -2509,7 +2509,7 @@ msgid "status:1"
 msgstr "מופעל"
 
 msgid "status:2"
-msgstr ""
+msgstr "סטטוס: 2"
 
 #, php-format
 msgid "stock"
@@ -2527,10 +2527,10 @@ msgid "tag"
 msgstr "תג"
 
 msgid "tax:0"
-msgstr ""
+msgstr "מס: 0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "מס: 1"
 
 #, php-format
 msgid "text"
@@ -2562,7 +2562,7 @@ msgstr "סוג/תכונה/מאפיין"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "סוג/קטלוג/רשימות"
 
 #, php-format
 msgid "type/customer/lists"
@@ -2638,7 +2638,7 @@ msgstr "סוג/טקסט"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "סוג/טקסט/רשימות"
 
 #, php-format
 msgid "users"
