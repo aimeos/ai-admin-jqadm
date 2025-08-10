@@ -333,6 +333,7 @@ class Standard
 			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
+			unset( $entry['property'] ); // avoid media mtime update
 			$refItem->fromArray( $entry, true )->setDomain( 'service' );
 
 			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
