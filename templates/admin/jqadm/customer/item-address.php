@@ -94,7 +94,7 @@ $enc = $this->encoder();
 												v-bind:readonly="!can('change', index)"
 												v-model="element['customer.address.languageid']" >
 
-												<option value="" disable >
+												<option value="" disabled >
 													<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 												</option>
 
