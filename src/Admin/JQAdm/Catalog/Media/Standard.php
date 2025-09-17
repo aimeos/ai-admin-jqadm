@@ -343,15 +343,11 @@ class Standard
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			$refItem = $mediaManager->upload( $refItem, $file, $preview );
-			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
+			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
+			$config = array_map( fn( $val ) => json_decode( $val, true ) ?? $val, $config );
 
-			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
-			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
-				}
-			}
+			$refItem = $mediaManager->upload( $refItem, $file, $preview );
+			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
 
 			$item->addListItem( 'media', $listItem, $refItem );
 			unset( $listItems[$listItem->getId()] );

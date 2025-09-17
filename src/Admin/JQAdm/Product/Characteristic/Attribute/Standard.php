@@ -285,15 +285,11 @@ class Standard
 			$id = $this->val( $entry, 'product.lists.id' );
 			$refid = $this->val( $entry, 'attribute.id' );
 
-			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfig( [] );
+			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
+			$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
 
-			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
-			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
-				}
-			}
+			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
+			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
 
 			$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ) );
 		}

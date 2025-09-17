@@ -358,15 +358,11 @@ class Standard
 			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $priceManager->create();
 
-			$refItem->fromArray( $entry, true );
-			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
+			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
+			$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
 
-			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
-			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, json_decode( $val, true ) ?? $val );
-				}
-			}
+			$refItem->fromArray( $entry, true );
+			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
 
 			$item->addListItem( 'price', $listItem, $refItem );
 			unset( $listItems[$listItem->getId()] );

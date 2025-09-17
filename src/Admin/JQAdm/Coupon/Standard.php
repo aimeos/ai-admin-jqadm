@@ -462,19 +462,14 @@ class Standard
 			$item = $manager->create();
 		}
 
+		$config = array_column( (array) $this->val( $data, 'config', [] ), 'val', 'key' );
+		$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
+
 		$item = $item->fromArray( $data, true );
-		$conf = [];
 
-		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
-		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
-				$conf[$key] = json_decode( $val, true ) ?? $val;
-			}
-		}
+		$this->notify( $manager->getProvider( $item, '' )->checkConfigBE( $config ) );
 
-		$this->notify( $manager->getProvider( $item, '' )->checkConfigBE( $conf ) );
-
-		return $item->setConfig( $conf );
+		return $item->setConfig( $config );
 	}
 
 

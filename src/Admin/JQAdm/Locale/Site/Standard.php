@@ -496,14 +496,10 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item->fromArray( $data, true )->setConfig( [] );
+		$config = array_column( (array) $this->val( $data, 'config', [] ), 'val', 'key' );
+		$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
 
-		foreach( (array) $this->val( $data, 'config', [] ) as $cfg )
-		{
-			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
-				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
-			}
-		}
+		$item->fromArray( $data, true )->setConfigFlat( $config );
 
 		if( empty( $item->getId() ) ) {
 			return $manager->insert( $item );
