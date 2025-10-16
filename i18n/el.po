@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 18:42+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: P T <pitafreelance@gmail.com>, 2019\n"
 "Language-Team: Greek (http://app.transifex.com/aimeos/aimeos-core/language/el/)\n"
@@ -1120,6 +1120,9 @@ msgstr "Κανένα"
 
 msgid "Not all entries could be deleted"
 msgstr "Δεν μπορούν να διαγραφούν όλες οι καταχωρίσεις"
+
+msgid "Not allowed or editor site is different"
+msgstr "Δεν επιτρέπεται ή ο ιστότοπος του συντάκτη είναι διαφορετικός"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"

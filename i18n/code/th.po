@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "!="
-msgstr ""
+msgstr "ไม่เท่ากับ"
 
 msgid "<"
-msgstr ""
+msgstr "&lt;"
 
 msgid "<="
-msgstr ""
+msgstr "&lt;="
 
 msgid "=="
-msgstr ""
+msgstr "=="
 
 msgid "=~"
-msgstr ""
+msgstr "=~"
 
 msgid ">"
-msgstr ""
+msgstr "&gt;"
 
 msgid ">="
-msgstr ""
+msgstr "&gt;="
 
 msgid "~="
-msgstr ""
+msgstr "~="
 
 msgid "address:delivery"
 msgstr "ที่อยู่สำหรับการจัดส่ง"
@@ -54,64 +54,64 @@ msgid "service:payment"
 msgstr "การชำระเงิน"
 
 msgid "attribute"
-msgstr ""
+msgstr "คุณลักษณะ"
 
 msgid "basket"
-msgstr ""
+msgstr "ตะกร้า"
 
 msgid "catalog"
-msgstr ""
+msgstr "แคตตาล็อก"
 
 msgid "coupon"
-msgstr ""
+msgstr "คูปอง"
 
 msgid "customer"
-msgstr ""
+msgstr "ลูกค้า"
 
 msgid "group"
-msgstr ""
+msgstr "กลุ่ม"
 
 msgid "locale"
-msgstr ""
+msgstr "โลคัล"
 
 msgid "media"
-msgstr ""
+msgstr "สื่อ"
 
 msgid "order"
-msgstr ""
+msgstr "คำสั่ง"
 
 msgid "plugin"
-msgstr ""
+msgstr "ปลั๊กอิน"
 
 msgid "price"
-msgstr ""
+msgstr "ราคา"
 
 msgid "product"
-msgstr ""
+msgstr "ผลิตภัณฑ์"
 
 msgid "review"
-msgstr ""
+msgstr "ทบทวน"
 
 msgid "rule"
-msgstr ""
+msgstr "กฎ"
 
 msgid "service"
-msgstr ""
+msgstr "บริการ"
 
 msgid "stock"
-msgstr ""
+msgstr "สต็อก"
 
 msgid "subscription"
-msgstr ""
+msgstr "การสมัครสมาชิก"
 
 msgid "supplier"
-msgstr ""
+msgstr "ผู้จัดหา"
 
 msgid "tag"
-msgstr ""
+msgstr "แท็ก"
 
 msgid "text"
-msgstr ""
+msgstr "ข้อความ"
 
 msgid "type"
-msgstr ""
+msgstr "ประเภท"

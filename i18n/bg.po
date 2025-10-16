@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 18:42+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Stefan Taskov, 2022\n"
 "Language-Team: Bulgarian (http://app.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -1121,6 +1121,9 @@ msgstr "Няма"
 
 msgid "Not all entries could be deleted"
 msgstr "Не всички записи могат да бъдат изтрити"
+
+msgid "Not allowed or editor site is different"
+msgstr "Не е разрешено или сайтът на редактора е различен"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"

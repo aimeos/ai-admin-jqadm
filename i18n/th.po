@@ -4,14 +4,16 @@
 # 
 # Translators:
 # Aimeos, 2025
+# Aimeos, 2025
+# Peem Phimcha, 2023
 # Peem Phimcha, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 18:42+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aimeos, 2025\n"
+"Last-Translator: Peem Phimcha, 2023\n"
 "Language-Team: Thai (http://app.transifex.com/aimeos/aimeos-core/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +22,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr " การแปล: \"การแปล\""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -36,7 +38,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -61,116 +63,116 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "หมายเลขโทรสารระหว่างประเทศที่ไม่มีตัวคั่น สามารถขึ้นต้นด้วย \"+\" ได้"
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "หมายเลขโทรศัพท์ระหว่างประเทศที่ไม่มีตัวคั่น สามารถขึ้นต้นด้วย \"+\" ได้"
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ ภาษี"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>การแปล: \"การแปล\""
 
 msgid "?"
-msgstr ""
+msgstr "อะไร?"
 
 msgid "API key"
-msgstr ""
+msgstr "คีย์ API"
 
 msgid "Account"
 msgstr "บัญชี"
 
 msgid "Active"
-msgstr ""
+msgstr "แอคทีฟ"
 
 msgid "Actual price"
-msgstr ""
+msgstr "ราคาจริง"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "ราคาจริงที่ลูกค้าสามารถซื้อสินค้าได้บนเว็บไซต์"
 
 msgid "Add"
 msgstr "เพิ่ม"
 
 msgid "Add after"
-msgstr ""
+msgstr "เพิ่มหลังจาก"
 
 msgid "Add before"
-msgstr ""
+msgstr "เพิ่มก่อน"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "ค่าจัดส่งเพิ่มเติมสำหรับแต่ละรายการ เช่น $20 สำหรับสินค้าหนักหนึ่งชิ้น จะเท่ากับ $100 สำหรับสินค้าห้าชิ้น"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "ข้อมูลเพิ่มเติมเกี่ยวกับที่ตั้งของอพาร์ตเมนต์ของลูกค้า"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "ข้อมูลเพิ่มเติมเกี่ยวกับที่ตั้งของอพาร์ตเมนต์ของผู้จัดจำหน่าย"
 
 msgid "Address 1"
-msgstr ""
+msgstr "ที่อยู่ 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "ที่อยู่ 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "ที่อยู่ 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "รหัสระบุที่อยู่ของบ้านลูกค้าสำหรับการจัดส่ง"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "รหัสที่อยู่ที่บ้านของผู้จัดจำหน่ายสำหรับการจัดส่ง"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "ประเภทผู้ดูแลระบบ JQAdm เป็นค่าว่าง"
 
 msgid "Advanced"
-msgstr ""
+msgstr "ขั้นสูง"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "การแคชของ Aimeos ถูกปิดใช้งานโดย \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "การบันทึกการดีบักของ Aimeos เปิดใช้งานโดย \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "ไม่มีวัตถุ Aimeos ให้ใช้งาน"
 
 msgid "All"
-msgstr ""
+msgstr "ทั้งหมด"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "คุณลักษณะทั้งหมดที่กำหนดบทความเฉพาะ เช่น ความกว้าง ความยาว และสีของกางเกงยีนส์"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "อนุญาตให้กำหนดราคาเอง"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "ให้ลูกค้าเลือกเองว่าต้องการจ่ายเท่าไร"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "สตริงตัวอักษรและตัวเลขที่สามารถระบุกลุ่มได้อย่างเฉพาะเจาะจง"
 
 msgid "Apply"
 msgstr "สมัคร"
@@ -178,60 +180,60 @@ msgstr "สมัคร"
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "ตัวเลือกการกำหนดค่าเฉพาะบทความ จะมีให้ในรูปแบบคู่คีย์/ค่า ในเทมเพลต"
 
 msgid "Attribute"
-msgstr ""
+msgstr "คุณสมบัติ"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "รายการคุณลักษณะ ประเภท"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "รายการคุณลักษณะ ประเภท"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "ประเภทคุณสมบัติของแอตทริบิวต์"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "ประเภทคุณสมบัติของแอตทริบิวต์"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "ประเภทของแอตทริบิวต์"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "ประเภทของแอตทริบิวต์"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "ตำแหน่งแอตทริบิวต์ (ไม่บังคับ)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "คุณสมบัติของแอตทริบิวต์ที่ไม่ถูกแชร์กับแอตทริบิวต์อื่น"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "ประเภทของแอตทริบิวต์ที่จำกัดรายการแอตทริบิวต์ที่สามารถใช้ได้"
 
 msgid "Attributes"
-msgstr ""
+msgstr "คุณลักษณะ"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "สกุลเงินที่มีให้สำหรับเว็บไซต์ปัจจุบัน"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "ช่วงเวลาที่มีให้บริการในส่วนหน้า"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "ภาษาที่มีให้บริการสำหรับเว็บไซต์ปัจจุบัน"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "คะแนนเฉลี่ยของสินค้าและจำนวนคะแนนทั้งหมดจากลูกค้าสำหรับสินค้านี้"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "มีสินค้าในสต็อกแล้ว"
 
 msgid "Basic"
-msgstr ""
+msgstr "พื้นฐาน"
 
 msgid "Basket"
 msgstr "ตะกร้า"
@@ -243,80 +245,80 @@ msgid "Birthday"
 msgstr "วันเกิด"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "วันเกิดของลูกค้า"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "ตัวคูณประสิทธิภาพ"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "ตัวเพิ่มประสิทธิภาพ (ไม่บังคับ)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "ข้อบกพร่องหรือข้อเสนอแนะ?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "แก้ไขจำนวนมาก"
 
 msgid "Cancel"
 msgstr "ยกเลิก"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "ยกเลิกและกลับไปยังรายการ"
 
 msgid "Catalog"
-msgstr ""
+msgstr "แคตตาล็อก"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "รายการแคตตาล็อก ประเภท"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "รายการแคตตาล็อก ประเภท"
 
 msgid "Categories"
 msgstr "หมวดหมู่"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "หมวดหมู่ที่ผู้ใช้สามารถค้นหาสินค้าได้บนเว็บไซต์"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "หมวดหมู่ที่สินค้าจะแสดงในส่วนโปรโมชั่น"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "ตัวเลือกการกำหนดค่าเฉพาะหมวดหมู่ จะมีให้ในรูปแบบคู่คีย์/ค่า ในเทมเพลต"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "ต้นทุนการเปลี่ยนแปลง/รายการเป็นเปอร์เซ็นต์"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "เปลี่ยนส่วนลดเป็นเปอร์เซ็นต์"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "เปลี่ยนค่าเป็นเปอร์เซ็นต์"
 
 msgid "Channel"
-msgstr ""
+msgstr "ช่องทาง"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "คำสั่งซื้อได้รับการดำเนินการแล้ว"
 
 msgid "Choose file"
-msgstr ""
+msgstr "เลือกไฟล์"
 
 msgid "City"
 msgstr "เมือง"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "ชื่อเมืองหรือชื่อเมือง (จำเป็น)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "คลาส \"%1$s\" ไม่ได้ดำเนินการ \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "คลาส \"%1$s\" ไม่มีให้ใช้งาน"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
@@ -326,182 +328,182 @@ msgid "Close"
 msgstr "ปิด"
 
 msgid "Code"
-msgstr ""
+msgstr "โค้ด"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "รหัสเพื่อระบุเว็บไซต์อย่างเป็นเอกลักษณ์ การเปลี่ยนชื่ออาจเป็นอันตราย!"
 
 msgid "Columns"
-msgstr ""
+msgstr "คอลัมน์"
 
 msgid "Comment"
-msgstr ""
+msgstr "ความคิดเห็น"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "ความคิดเห็นของผู้ตรวจสอบ"
 
 msgid "Communication"
-msgstr ""
+msgstr "การสื่อสาร"
 
 msgid "Company"
 msgstr "บริษัท"
 
 msgid "Company details"
-msgstr ""
+msgstr "รายละเอียดบริษัท"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "ชื่อบริษัท (ไม่บังคับ)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "คำสั่งซื้อที่เสร็จสมบูรณ์"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "คำสั่งซื้อที่เสร็จสมบูรณ์ภายในเจ็ดวันที่ผ่านมาเมื่อเทียบกับช่วงเวลาที่ผ่านมา"
 
 msgid "Config"
-msgstr ""
+msgstr "การกำหนดค่า"
 
 msgid "Configurable"
-msgstr ""
+msgstr "กำหนดค่าได้"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "ตัวเลือกการกำหนดค่า จะมีให้ในรูปแบบคู่คีย์/ค่า ในรายการ"
 
 msgid "Context"
-msgstr ""
+msgstr "บริบท"
 
 msgid "Copy"
-msgstr ""
+msgstr "คัดลอก"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "คัดลอกรายการนี้"
 
 msgid "Costs"
-msgstr ""
+msgstr "ค่าใช้จ่าย"
 
 msgid "Count"
-msgstr ""
+msgstr "นับ"
 
 msgid "Country"
 msgstr "ประเทศ"
 
 msgid "Country ID"
-msgstr ""
+msgstr "รหัสประเทศ"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "รหัสประเทศ (จำเป็น)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "อัตราภาษีเฉพาะประเทศเพื่อคำนวณและแสดงภาษีที่รวมอยู่ (B2C) หรือเพิ่มภาษีหากจำเป็น (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "รหัสประเทศ (ไม่บังคับ)"
 
 msgid "Coupon"
-msgstr ""
+msgstr "คูปอง"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "ชื่อการกำหนดค่าผู้ให้บริการคูปองหรือผู้ตกแต่งคูปอง"
 
 msgid "Created"
 msgstr "สร้างขึ้น"
 
 msgid "Currencies"
-msgstr ""
+msgstr "สกุลเงิน"
 
 msgid "Currency"
-msgstr ""
+msgstr "สกุลเงิน"
 
 msgid "Custom"
-msgstr ""
+msgstr "กำหนดเอง"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "โดเมนที่กำหนดเองหรือรหัสเฉพาะของร้านค้าของคุณ"
 
 msgid "Customer"
-msgstr ""
+msgstr "ลูกค้า"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "รหัสลูกค้า"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "ประเภทรายการลูกค้า"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "ประเภทของรายชื่อลูกค้า"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "ประเภททรัพย์สินของลูกค้า"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "ประเภททรัพย์สินของลูกค้า"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "ลักษณะของลูกค้าที่ไม่เหมือนกับลูกค้าคนอื่น"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "ความคิดเห็นของลูกค้า (ไม่บังคับ)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "ที่อยู่อีเมลของลูกค้า"
 
 msgid "Customer password"
-msgstr ""
+msgstr "รหัสผ่านของลูกค้า"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "คุณสมบัติของลูกค้าที่ไม่ถูกแชร์กับลูกค้าอื่น"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "ข้อมูลอ้างอิงของลูกค้า"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "ข้อมูลอ้างอิงของลูกค้า (ไม่บังคับ)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "แดชบอร์ด"
 
 msgid "Data"
-msgstr ""
+msgstr "ข้อมูล"
 
 msgid "Data set"
-msgstr ""
+msgstr "ชุดข้อมูล"
 
 msgid "Dataset"
-msgstr ""
+msgstr "ชุดข้อมูล"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "วันที่ที่มีการเปลี่ยนแปลงสถานะการจัดส่งครั้งล่าสุด"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "วันที่สถานะการชำระเงินครั้งล่าสุดมีการเปลี่ยนแปลง"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "วันที่การสมัครสมาชิกสิ้นสุด"
 
 msgid "Days"
-msgstr ""
+msgstr "วัน"
 
 msgid "Default"
-msgstr ""
+msgstr "ค่าเริ่มต้น"
 
 msgid "Delete"
 msgstr "ลบ"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "ลบรายการ?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "ลบรายการที่เลือก"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "ลบรายการนี้"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "ไม่อนุญาตให้ลบรีวิว"
 
 msgid "Delivery"
 msgstr "การจัดส่ง"
@@ -510,23 +512,23 @@ msgid "Delivery address"
 msgstr "ที่อยู่สำหรับการจัดส่ง"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "วันที่จัดส่ง"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "การจัดส่งใน"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "ค่าจัดส่งหรือค่าชำระสำหรับสินค้าในตะกร้าของลูกค้า"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "สถานะการจัดส่ง"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "ระยะเวลาการจัดส่ง (ไม่บังคับ)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "ประเภทการจัดส่ง"
 
 msgid "Delivery within"
 msgstr "การจัดส่งภายใน"
@@ -534,162 +536,162 @@ msgstr "การจัดส่งภายใน"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "ขึ้นอยู่กับชุดข้อมูลที่เลือก รายการของฟิลด์ที่แสดงสำหรับผลิตภัณฑ์จะแตกต่างกัน"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "อธิบายภาพของคุณ"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "คำอธิบายเนื้อหาของข้อความหากเป็นภาษาต่างประเทศ"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "ชื่อที่อธิบายสกุลเงิน"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "ชื่ออธิบายของภาษา"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "ชื่ออธิบายของไซต์"
 
 msgid "Discount"
-msgstr ""
+msgstr "ส่วนลด"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "แสดงข้อความช่วยเหลือ"
 
 msgid "Domain"
-msgstr ""
+msgstr "โดเมน"
 
 msgid "Download"
-msgstr ""
+msgstr "ดาวน์โหลด"
 
 msgid "Download this file"
-msgstr ""
+msgstr "ดาวน์โหลดไฟล์นี้"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "รายการซ้ำ"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "รายการซ้ำ (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "อีเมล"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "ที่อยู่อีเมล (จำเป็น)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "ที่อยู่อีเมลหรือชื่อบัญชี (จำเป็น)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "ที่อยู่อีเมลที่ใช้สำหรับส่งอีเมลที่เกี่ยวข้องกับร้านค้า"
 
 msgid "E-mail"
-msgstr ""
+msgstr "อีเมล"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "ที่อยู่อีเมล (ไม่บังคับ)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "ที่อยู่อีเมลที่เป็นของที่อยู่อีเมล"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU หรือหมายเลขสินค้า (จำเป็น)"
 
 msgid "Edit"
-msgstr ""
+msgstr "แก้ไข"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "แก้ไขรายการที่เลือก"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "แก้ไขรายการนี้"
 
 msgid "Editor"
-msgstr ""
+msgstr "บรรณาธิการ"
 
 msgid "Email"
-msgstr ""
+msgstr "อีเมล"
 
 msgid "End date"
 msgstr "วันสิ้นสุด"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "วันสิ้นสุด (ไม่บังคับ)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "กรุณากรอกรหัสกลุ่ม, รหัส หรือป้ายกำกับ"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "การลบข้อมูลสำเร็จแล้ว"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "บันทึกข้อมูลเรียบร้อยแล้ว"
 
 msgid ""
 "Entry specific configuration options, will be available as key/value pairs "
 "in the templates"
-msgstr ""
+msgstr "ตัวเลือกการกำหนดค่าเฉพาะสำหรับแต่ละรายการ จะมีให้ในรูปแบบคู่คีย์/ค่าในเทมเพลต"
 
 msgid "Error"
-msgstr ""
+msgstr "ข้อผิดพลาด"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะลบข้อมูล"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการดึงข้อมูล"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการบันทึกข้อมูล"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "ไม่รวมภาษี"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "ลำดับการดำเนินการของปลั๊กอิน"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "ลำดับการดำเนินการของกฎ"
 
 msgid "Export"
-msgstr ""
+msgstr "ส่งออก"
 
 msgid "Facility"
-msgstr ""
+msgstr "สิ่งอำนวยความสะดวก"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "สำเนาเอกสาร"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "หมายเลขแฟกซ์ (ไม่บังคับ)"
 
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "ปัจจัยเพื่อเพิ่มประสิทธิภาพสินค้าให้ปรากฏในการค้นหาของผู้ใช้เหนือสินค้าอื่น ๆ (&gt;1.0 การเพิ่มประสิทธิภาพเชิงบวก, &lt;1.0 การเพิ่มประสิทธิภาพเชิงลบ)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ไม่สามารถเขียนไฟล์ลงในดิสก์ได้"
 
 msgid "File"
-msgstr ""
+msgstr "ไฟล์"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "ไฟล์ไม่พบ: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "การอัปโหลดไฟล์ถูกหยุดโดยส่วนขยาย"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "ไฟล์ถูกอัปโหลดสำเร็จ"
 
 msgid "Find category"
-msgstr ""
+msgstr "ค้นหาหมวดหมู่"
 
 msgid "Find site"
-msgstr ""
+msgstr "ค้นหาสถานที่"
 
 msgid "First"
 msgstr "แรก"
@@ -698,167 +700,167 @@ msgid "First name"
 msgstr "ชื่อ"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "ชื่อ (ไม่บังคับ)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "ชื่อของบุคคลหากใช้ในวัฒนธรรมที่ใช้ชื่อ"
 
 msgid "Floor"
-msgstr ""
+msgstr "พื้น"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "ชั้น / อพาร์ตเมนต์"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "ชั้นและ/หรืออพาร์ตเมนต์ (เลือกได้)"
 
 msgid "For"
-msgstr ""
+msgstr "สำหรับ"
 
 msgid "Generate"
-msgstr ""
+msgstr "สร้าง"
 
 msgid "Generate image"
-msgstr ""
+msgstr "สร้างภาพ"
 
 msgid "Generate text"
-msgstr ""
+msgstr "สร้างข้อความ"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "จำนวนเงินคืนที่ได้รับ"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "ไปที่แผงคุณสมบัติ"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "ไปที่แผงประเภทอสังหาริมทรัพย์"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "ไปที่รายการประเภทของแอตทริบิวต์"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "ส่วนลดที่ได้รับอนุมัติ"
 
 msgid "Group"
-msgstr ""
+msgstr "กลุ่ม"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "ชื่อกลุ่มที่อธิบายว่ากลุ่มนี้สำหรับสมาชิกกลุ่มใด"
 
 msgid "Groups"
-msgstr ""
+msgstr "กลุ่ม"
 
 msgid "Height"
-msgstr ""
+msgstr "ความสูง"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "คุณลักษณะที่ซ่อนอยู่"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "คุณสมบัติของสินค้าที่ซ่อนอยู่ซึ่งถูกเก็บไว้พร้อมกับสินค้าที่สั่งซื้อ"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "ผู้จัดจำหน่ายที่โดดเด่นของสินค้า"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "ตำแหน่งกิตติมศักดิ์ (ไม่บังคับ)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "ตำแหน่งกิตติมศักดิ์ เช่น ดร., ปริญญาเอก, เป็นต้น"
 
 msgid "Hours"
-msgstr ""
+msgstr "ชั่วโมง"
 
 msgid "House number"
-msgstr ""
+msgstr "หมายเลขบ้าน"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "หมายเลขบ้าน (ไม่จำเป็น)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "วิธีการทักทายลูกค้าในอีเมล"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "วิธีการเรียกชื่อผู้จัดหาในอีเมล"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "เกินจริงและดราม่า"
 
 msgid "ID"
-msgstr ""
+msgstr "ไอดี"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "รหัสของใบแจ้งหนี้ที่เกี่ยวข้อง เช่น ใบแจ้งหนี้ที่มีการเปลี่ยนแปลงหรือใบแจ้งหนี้ที่คืนเงินแล้ว"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "รหัสสกุลเงิน ISO (จำเป็น)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "รหัสภาษา ISO (จำเป็น)"
 
 msgid "Image"
-msgstr ""
+msgstr "ภาพ"
 
 msgid "Image description"
-msgstr ""
+msgstr "คำอธิบายภาพ"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "รูปภาพจะแสดงเฉพาะสำหรับภาษานั้นเท่านั้น ซึ่งมีประโยชน์หากสื่อมีข้อความหรือระบุภาษาไว้"
 
 msgid "Import"
-msgstr ""
+msgstr "นำเข้า"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "งานนำเข้า/ส่งออก"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "รวมภาษีแล้ว"
 
 msgid "Info"
-msgstr ""
+msgstr "ข้อมูล"
 
 msgid "Insert into"
-msgstr ""
+msgstr "แทรกใน"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "แทรกข้อมูลใหม่"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "แทรกข้อมูลใหม่ (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "ชื่อบทความภายใน, จะใช้บนเว็บไซต์และสำหรับการค้นหาเท่านั้นหากไม่มีชื่อผลิตภัณฑ์อื่นใดในภาษาใด ๆ"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "ชื่อบทความภายใน, จะใช้บนเว็บไซต์หากไม่มีชื่อสินค้าสำหรับภาษา"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "ชื่อแอตทริบิวต์ภายใน จะถูกใช้บนเว็บไซต์หากไม่มีชื่อสำหรับภาษา"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "ชื่อหมวดหมู่ภายใน จะถูกใช้บนเว็บไซต์หากไม่มีชื่อสำหรับภาษานั้น"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "ชื่อภายใน (จำเป็น)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "ชื่อประเภทภายในที่แสดงในอินเทอร์เฟซการจัดการ"
 
 msgid "Interval"
 msgstr "ช่วง"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "ช่วง (จำเป็น)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -878,134 +880,134 @@ msgstr "โดเมนไม่ถูกต้อง \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "โรงงานไม่ถูกต้อง \"%1$s\""
 
 msgid "Invoice"
 msgstr "ใบแจ้งหนี้"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "ใบแจ้งหนี้เลขที่"
 
 msgid "Invoice no."
-msgstr ""
+msgstr "ใบแจ้งหนี้เลขที่"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "หมายเลขใบแจ้งหนี้"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "หมายเลขใบแจ้งหนี้สำหรับคำสั่งซื้อ"
 
 msgid "Label"
-msgstr ""
+msgstr "ป้ายกำกับ"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "ป้ายกำกับ (จำเป็น)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "ป้ายกำกับที่อธิบายช่วงเวลานั้น จะถูกใช้หากไม่มีชื่อให้ใช้"
 
 msgid "Language"
 msgstr "ภาษา"
 
 msgid "Language ID"
-msgstr ""
+msgstr "รหัสภาษา"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "ภาษาของข้อความที่ป้อน"
 
 msgid "Languages"
-msgstr ""
+msgstr "ภาษา"
 
 msgid "Last"
 msgstr "สุดท้าย"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "สถานะการจัดส่งล่าสุดของคำสั่งซื้อ"
 
 msgid "Last name"
 msgstr "นามสกุล"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "นามสกุล (ไม่บังคับ)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "นามสกุล (จำเป็น)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "นามสกุลของบุคคล หรือชื่อเต็มในวัฒนธรรมที่ไม่ใช้ชื่อแรก"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "สถานะการชำระเงินครั้งสุดท้ายของคำสั่งซื้อ"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "คำสั่งซื้อล่าสุด"
 
 msgid "Length"
-msgstr ""
+msgstr "ความยาว"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "รายการสินค้าที่ควรขายเป็นชุดเดียวกัน มักจะลดราคา"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "รายการสินค้าที่มักซื้อร่วมกัน"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "รายการสินค้าที่แนะนำ"
 
 msgid "List type"
-msgstr ""
+msgstr "ประเภทรายการ"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "กำลังโหลดรายการ ..."
 
 msgid "Locale"
-msgstr ""
+msgstr "โลเคชั่น"
 
 msgid "Log"
-msgstr ""
+msgstr "บันทึก"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "การโอนด้วยตนเอง"
 
 msgid "Map"
-msgstr ""
+msgstr "แผนที่"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "ประเภทรายการสื่อ"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "ประเภทของรายชื่อสื่อ"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "ประเภทสื่อ"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "ประเภทของสื่อ"
 
 msgid "Media Type"
-msgstr ""
+msgstr "ประเภทสื่อ"
 
 msgid "Media Types"
-msgstr ""
+msgstr "ประเภทของสื่อ"
 
 msgid "Media properties"
-msgstr ""
+msgstr "ทรัพย์สินสื่อ"
 
 msgid "Menu"
-msgstr ""
+msgstr "เมนู"
 
 msgid "Message"
-msgstr ""
+msgstr "ข้อความ"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "ปริมาณขั้นต่ำ"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "ปริมาณขั้นต่ำ"
 
 msgid "Mobile"
 msgstr "มือถือ"
@@ -1014,211 +1016,214 @@ msgid "Mobile number"
 msgstr "หมายเลขโทรศัพท์มือถือ"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "หมายเลขโทรศัพท์มือถือ (ไม่บังคับ)"
 
 msgid "Model"
-msgstr ""
+msgstr "แบบจำลอง"
 
 msgid "Modifed"
-msgstr ""
+msgstr "แก้ไขแล้ว"
 
 msgid "Modified"
-msgstr ""
+msgstr "แก้ไขแล้ว"
 
 msgid "Months"
-msgstr ""
+msgstr "เดือน"
 
 msgid "More"
 msgstr "มากขึ้น"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "เลื่อนรายการนี้ขึ้น/ลง"
 
 msgid "Name"
 msgstr "ชื่อ"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "ชื่อใน URL (ไม่บังคับ)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "ชื่อของตะกร้า"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "ชื่อไฟล์ที่ดาวน์โหลดเมื่อลูกค้าบันทึกไฟล์ไว้ในคอมพิวเตอร์ของพวกเขา"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "ชื่อของผู้ตรวจสอบ"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "ชื่อร้านของคุณที่แสดงให้ลูกค้าเห็น"
 
 msgid "Natural"
-msgstr ""
+msgstr "ธรรมชาติ"
 
 msgid "New"
 msgstr "ใหม่"
 
 msgid "New category"
-msgstr ""
+msgstr "หมวดหมู่ใหม่"
 
 msgid "New customers"
-msgstr ""
+msgstr "ลูกค้าใหม่"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "ลูกค้าใหม่ภายในเจ็ดวันที่ผ่านมา"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "ลูกค้าใหม่ภายในเจ็ดวันที่ผ่านมาเมื่อเทียบกับช่วงเวลาก่อนหน้า"
 
 msgid "Next"
 msgstr "ถัดไป"
 
 msgid "Next date"
-msgstr ""
+msgstr "วันที่ถัดไป"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "วันที่ถัดไป (ไม่บังคับ)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "วันที่ถัดไปที่มีการต่ออายุการสมัครสมาชิก"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "ไม่มีสกุลเงินให้เลือก กรุณาเปิดใช้งานอย่างน้อยหนึ่งสกุลเงิน"
 
 msgid "No entries found"
-msgstr ""
+msgstr "ไม่พบรายการ"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "ไม่มีการอัปโหลดไฟล์"
 
 msgid "No product found"
-msgstr ""
+msgstr "ไม่พบสินค้า"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "ไม่มีตัวเลือกธีมให้ใช้งาน"
 
 #, php-format
 msgid "No view available"
 msgstr "ไม่มีวิวให้ชม"
 
 msgid "No voucher"
-msgstr ""
+msgstr "ไม่มีบัตรกำนัล"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "คุณสมบัติที่ไม่ใช้ร่วมกันสำหรับสื่อ"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "คุณสมบัติที่ไม่ใช้ร่วมกันสำหรับรายการราคา"
 
 msgid "None"
-msgstr ""
+msgstr "ไม่มี"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "ไม่สามารถลบรายการทั้งหมดได้"
+
+msgid "Not allowed or editor site is different"
+msgstr "ไม่อนุญาตหรือเว็บไซต์ของบรรณาธิการแตกต่าง"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "ไม่ได้รับอนุญาตให้เข้าถึง JQAdm \"%1$s\" client"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "ยังไม่ได้ดำเนินการ"
 
 msgid "Notes"
-msgstr ""
+msgstr "หมายเหตุ"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "หมายเหตุ (ไม่แสดงให้ลูกค้าเห็น)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "จำนวนสินค้าที่มีในสต็อกขณะนี้, ปล่อยว่างไว้สำหรับจำนวนไม่จำกัด"
 
 msgid "OK"
-msgstr ""
+msgstr "โอเค"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "หมายเลข VAT อย่างเป็นทางการเพื่อกำหนดว่าภาษีต้องถูกเรียกเก็บในใบแจ้งหนี้หรือไม่"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "ผู้ให้บริการหนึ่งรายและชื่อคลาสตกแต่งศูนย์หรือมากกว่านั้น แยกด้วยเครื่องหมายจุลภาค"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "อนุญาตให้ใช้ไฟล์ไอคอนได้เฉพาะ .webp, .jpg, .png และ .gif เท่านั้น"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "อนุญาตให้ใช้ไฟล์โลโก้เฉพาะ .webp, .jpg, .png, .gif และ .svg เท่านั้น"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "เฉพาะผู้ใช้งานระดับซุปเปอร์และแอดมินเท่านั้นที่สามารถลบรายการได้"
 
 msgid "Open"
-msgstr ""
+msgstr "เปิด"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "จำนวนคงเหลือ"
 
 msgid "Option"
-msgstr ""
+msgstr "ตัวเลือก"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "ส่วนประกอบผลิตภัณฑ์เสริมที่ลูกค้าสามารถเลือกได้พร้อมกับผลิตภัณฑ์"
 
 msgid "Order"
-msgstr ""
+msgstr "คำสั่ง"
 
 msgid "Order ID"
 msgstr "หมายเลขคำสั่งซื้อ"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "หมายเลขคำสั่งซื้อที่ลูกค้าป้อน"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "ลำดับของชุดภาษา/สกุลเงิน"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "ลำดับของตัวเลือกการบริการในขั้นตอนการชำระเงิน"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "ลำดับของประเภทในส่วนหน้า"
 
 msgid "Order totals"
-msgstr ""
+msgstr "ยอดรวมการสั่งซื้อ"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "สั่งที่"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "คำสั่งซื้อตามประเทศ"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "คำสั่งซื้อตามวัน"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "คำสั่งซื้อตามชั่วโมง"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "คำสั่งซื้อตามสถานะการชำระเงิน"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "เขียนทับไฟล์ที่มีอยู่เดิม และลูกค้าที่เคยซื้อสามารถดาวน์โหลดเนื้อหาใหม่ได้เช่นกัน"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "การตั้งค่า PHP \"%1$s\" ถูกปิดใช้งาน"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "การตั้งค่า PHP \"%1$s\" ถูกเปิดใช้งานแล้ว"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "การตั้งค่า PHP สำหรับ \"%1$s\" ต่ำเกินไป"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1228,84 +1233,84 @@ msgid "Password"
 msgstr "รหัสผ่าน"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "รหัสผ่าน (จำเป็น)"
 
 msgid "Path"
-msgstr ""
+msgstr "เส้นทาง"
 
 msgid "Pay date"
-msgstr ""
+msgstr "วันจ่ายเงิน"
 
 msgid "Pay status"
-msgstr ""
+msgstr "สถานะการชำระเงิน"
 
 msgid "Payment"
 msgstr "การชำระเงิน"
 
 msgid "Payment date"
-msgstr ""
+msgstr "วันที่ชำระเงิน"
 
 msgid "Payment status"
 msgstr "สถานะการชำระเงิน"
 
 msgid "Payment types"
-msgstr ""
+msgstr "ประเภทการชำระเงิน"
 
 msgid "Periods"
-msgstr ""
+msgstr "รอบเดือน"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "ไม่อนุญาต"
 
 msgid "Personal data"
-msgstr ""
+msgstr "ข้อมูลส่วนบุคคล"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "กรุณาใส่คำอธิบายของข้อความที่ควรสร้างขึ้นที่นี่"
 
 msgid "Please select"
 msgstr "กรุณาเลือก"
 
 msgid "Plugin"
-msgstr ""
+msgstr "ปลั๊กอิน"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "ประเภทปลั๊กอิน"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "ประเภทของปลั๊กอิน"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "ป้ายกำกับปลั๊กอินสำหรับอธิบายปลั๊กอินที่ตั้งค่าไว้"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "ตำแหน่งปลั๊กอิน (จำเป็น)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "ชื่อการกำหนดค่าของผู้ให้บริการปลั๊กอินหรือผู้ตกแต่งปลั๊กอิน"
 
 msgid "Position"
-msgstr ""
+msgstr "ตำแหน่ง"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "ตำแหน่ง (จำเป็น)"
 
 msgid "Postal"
-msgstr ""
+msgstr "ไปรษณีย์"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "รหัสไปรษณีย์สำหรับการจัดส่งหากใช้ในพื้นที่ที่ลูกค้าอาศัยอยู่"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "รหัสไปรษณีย์สำหรับการจัดส่งหากใช้ในพื้นที่ที่ผู้จัดหาอาศัยอยู่"
 
 msgid "Postition"
-msgstr ""
+msgstr "ตำแหน่ง"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "ปัญหาที่อาจเกิดขึ้น"
 
 msgid "Previous"
 msgstr "ก่อนหน้า"
@@ -1314,276 +1319,276 @@ msgid "Price"
 msgstr "ราคา"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "รายการราคา ประเภท"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "รายการราคา ประเภท"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "ราคา ประเภทอสังหาริมทรัพย์"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "ราคา ประเภทอสังหาริมทรัพย์"
 
 msgid "Price Type"
-msgstr ""
+msgstr "ประเภทราคา"
 
 msgid "Price Types"
-msgstr ""
+msgstr "ประเภทของราคา"
 
 msgid "Price properties"
-msgstr ""
+msgstr "ราคาทรัพย์สิน"
 
 msgid "Priority"
-msgstr ""
+msgstr "ลำดับความสำคัญ"
 
 msgid "Problem"
-msgstr ""
+msgstr "ปัญหา"
 
 msgid "Product"
 msgstr "ผลิตภัณฑ์"
 
 msgid "Product ID"
-msgstr ""
+msgstr "รหัสสินค้า"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "รหัสสินค้า, รหัสสินค้าสากล หรือฉลาก"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "ประเภทรายการสินค้า"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "รายการผลิตภัณฑ์ ประเภท"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "ประเภทคุณสมบัติของสินค้า"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "ประเภทคุณสมบัติของสินค้า"
 
 msgid "Product Type"
-msgstr ""
+msgstr "ประเภทสินค้า"
 
 msgid "Product Types"
-msgstr ""
+msgstr "ประเภทของสินค้า"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "คุณลักษณะของสินค้าที่เก็บไว้ในตะกร้าซึ่งลูกค้าสามารถกรอกข้อความหรือค่าของตนเองได้"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "คุณสมบัติของสินค้าที่ใช้โดยสินค้าอื่น ๆ ด้วย"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "ลักษณะของสินค้าที่ไม่เหมือนกับสินค้าอื่น"
 
 msgid "Product code"
-msgstr ""
+msgstr "รหัสสินค้า"
 
 msgid "Product costs"
-msgstr ""
+msgstr "ต้นทุนสินค้า"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "ความสูงของผลิตภัณฑ์, เช่น 20.0 (หลา, นิ้ว, ฯลฯ)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "ความยาวของสินค้า, เช่น 30.0 (หลา, นิ้ว, เป็นต้น)"
 
 msgid "Product name"
-msgstr ""
+msgstr "ชื่อสินค้า"
 
 msgid "Product payment"
-msgstr ""
+msgstr "การชำระเงินสำหรับสินค้า"
 
 msgid "Product price"
 msgstr "ราคาสินค้า"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "จำนวนสินค้า"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "ส่วนลดสินค้า"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "การจัดส่งสินค้า"
 
 msgid "Product status"
-msgstr ""
+msgstr "สถานะของสินค้า"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "ผู้จัดจำหน่ายสินค้า"
 
 msgid "Product tax"
-msgstr ""
+msgstr "ภาษีสินค้า"
 
 msgid "Product type"
-msgstr ""
+msgstr "ประเภทสินค้า"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "น้ำหนักสินค้า, เช่น 1.25 (เป็นปอนด์, ออนซ์, เป็นต้น)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "ความกว้างของสินค้า, เช่น 17.5 (หลา, นิ้ว ฯลฯ)"
 
 msgid "Products"
-msgstr ""
+msgstr "ผลิตภัณฑ์"
 
 msgid "Products bought together"
 msgstr "สินค้าที่ซื้อร่วมกัน"
 
 msgid "Promotion"
-msgstr ""
+msgstr "โปรโมชั่น"
 
 msgid "Properties"
-msgstr ""
+msgstr "คุณสมบัติ"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "มูลค่าทรัพย์สิน (จำเป็น)"
 
 msgid "Provider"
-msgstr ""
+msgstr "ผู้ให้บริการ"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "ชื่อคลาสผู้ให้บริการ/ตกแต่ง (จำเป็น)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "การซื้อ"
 
 msgid "Quantity"
 msgstr "ปริมาณ"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "ปริมาณ"
 
 msgid "Rabate"
-msgstr ""
+msgstr "ส่วนลด"
 
 msgid "Rating"
 msgstr "การให้คะแนน"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "คะแนนและจำนวนคะแนนสำหรับผู้ค้า"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "คะแนนของผู้รีวิว"
 
 msgid "Reason"
-msgstr ""
+msgstr "เหตุผล"
 
 msgid "Rebate"
-msgstr ""
+msgstr "ส่วนลด"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "ลดจากราคาเดิม ใช้คำนวณส่วนลดเป็นเปอร์เซ็นต์และราคาไขว้"
 
 msgid "Reference"
 msgstr "เอกสารอ้างอิง"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "รหัสอ้างอิง"
 
 msgid "Refund"
-msgstr ""
+msgstr "การคืนเงิน"
 
 msgid "Related ID"
-msgstr ""
+msgstr "รหัสที่เกี่ยวข้อง"
 
 msgid "Related order"
-msgstr ""
+msgstr "คำสั่งที่เกี่ยวข้อง"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "หมายเลขคำสั่งซื้อที่เกี่ยวข้อง (ไม่บังคับ)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "คำสั่งซื้อที่เกี่ยวข้องของลูกค้า"
 
 msgid "Remove background"
-msgstr ""
+msgstr "ลบพื้นหลัง"
 
 msgid "Renew"
-msgstr ""
+msgstr "ต่ออายุ"
 
 msgid "Replace file"
-msgstr ""
+msgstr "แทนที่ไฟล์"
 
 msgid "Request"
-msgstr ""
+msgstr "คำขอ"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "พารามิเตอร์ที่จำเป็น \"%1$s\" ขาดหายไป"
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "จำนวนสินค้าที่ต้องการสำหรับการกำหนดราคาแบบบล็อก, เช่น หนึ่งชิ้น $5.00, สิบชิ้น $45.00"
 
 msgid "Reset"
 msgstr "รีเซ็ต"
 
 msgid "Response"
-msgstr ""
+msgstr "การตอบกลับ"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "คำตอบสำหรับผู้ตรวจสอบ"
 
 msgid "Review"
-msgstr ""
+msgstr "รีวิว"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "รายการที่ตรวจสอบแล้ว"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "ชื่อผู้ตรวจสอบ"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "ชื่อเส้นทางหรือรหัสหน้าของหน้ารายการหมวดหมู่ หากหมวดหมู่นี้ควรแสดงบนหน้าอื่น"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "ชื่อเส้นทางหรือรหัสหน้าของหน้ารายละเอียดสินค้า หากสินค้านี้ควรแสดงบนหน้าอื่น"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "เส้นทางหรือรหัสหน้า (ไม่บังคับ)"
 
 msgid "Rule"
-msgstr ""
+msgstr "กฎ"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "ประเภทของกฎ"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "ประเภทของกฎ"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "ป้ายกำกับกฎสำหรับอธิบายกฎที่ตั้งค่าไว้"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "ตำแหน่งกฎ (จำเป็น)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "ชื่อการกำหนดค่าผู้ให้บริการกฎหรือผู้ตกแต่งกฎ"
 
 msgid "Rules"
-msgstr ""
+msgstr "กฎ"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "ยอดขายตามวันในสัปดาห์"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "ยอดขายในช่วง 30 วันที่ผ่านมา"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "ยอดขายต่อเดือน"
 
 msgid "Salutation"
 msgstr "คำทักทาย"
@@ -1592,175 +1597,175 @@ msgid "Save"
 msgstr "บันทึก"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "บันทึกและปิด"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "บันทึก &amp; คัดลอก"
 
 msgid "Save & New"
-msgstr ""
+msgstr "บันทึก &amp; ใหม่"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "บันทึกการป้อนข้อมูล (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "บันทึกการเข้า (Ctrl+S)"
 
 msgid "Search"
 msgstr "ค้นหา"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "ประเภทระดับที่สองสำหรับการจัดกลุ่มรายการ"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "เลือกทั้งหมด"
 
 msgid "Select file"
-msgstr ""
+msgstr "เลือกไฟล์"
 
 msgid "Service"
-msgstr ""
+msgstr "บริการ"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "รายการบริการ ประเภท"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "รายการบริการ ประเภท"
 
 msgid "Service Type"
-msgstr ""
+msgstr "ประเภทบริการ"
 
 msgid "Service Types"
-msgstr ""
+msgstr "ประเภทของบริการ"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "รหัสคุณลักษณะของบริการ"
 
 msgid "Service costs"
-msgstr ""
+msgstr "ค่าบริการ"
 
 msgid "Service name"
-msgstr ""
+msgstr "ชื่อบริการ"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "ตำแหน่งการให้บริการ (จำเป็น)"
 
 msgid "Service price"
-msgstr ""
+msgstr "ราคาบริการ"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "ชื่อการกำหนดค่าผู้ให้บริการหรือผู้ตกแต่งบริการ"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "เงินคืนค่าบริการ"
 
 msgid "Settings"
-msgstr ""
+msgstr "การตั้งค่า"
 
 msgid "Ship date"
-msgstr ""
+msgstr "วันที่จัดส่ง"
 
 msgid "Ship status"
-msgstr ""
+msgstr "สถานะการขนส่ง"
 
 msgid "Shipping"
 msgstr "การจัดส่ง"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "ค่าขนส่ง / ค่าชำระเงิน"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "ค่าขนส่ง/ค่าชำระเงิน"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "การจัดส่ง/สินค้า"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "โดเมนร้านค้า"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "โดเมนร้านค้า (จำเป็น)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "อีเมลร้านค้า"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "อีเมลสำหรับร้านค้า (จำเป็น)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "ชื่อร้าน"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "ชื่อร้าน (จำเป็น)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "ธีมร้านค้า"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "รหัสรัฐสั้น (เช่น NY) หากใช้ในประเทศที่ลูกค้าอาศัยอยู่"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "รหัสรัฐสั้น (เช่น NY) หากใช้ในประเทศที่ผู้จัดหาอาศัยอยู่"
 
 msgid "Show"
 msgstr "แสดง"
 
 msgid "Show entry"
-msgstr ""
+msgstr "แสดงรายการ"
 
 msgid "Show search form"
-msgstr ""
+msgstr "แสดงแบบฟอร์มการค้นหา"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "แสดง/ซ่อนข้อมูลขั้นสูง"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "แสดง/ซ่อนรายละเอียด"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "แสดง/ซ่อนป้ายกำกับนำทาง"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "แสดง/ซ่อนรายการนี้"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "แสดงหากบทความมีระดับสต็อกถึงศูนย์"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "ตั้งแต่เมื่อใดที่สินค้าพร้อมจำหน่าย ใช้สำหรับการคัดแยกในส่วนหน้า"
 
 msgid "Site"
-msgstr ""
+msgstr "ไซต์"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "ตัวเลือกการกำหนดค่าเฉพาะไซต์ จะมีให้ในรูปแบบคู่คีย์/ค่า"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "สถานที่ที่มีการสั่งซื้อ"
 
 msgid "Sites"
-msgstr ""
+msgstr "ไซต์"
 
 msgid "Size"
-msgstr ""
+msgstr "ขนาด"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "การจัดเรียงคุณลักษณะภายในประเภทคุณลักษณะเดียวกัน"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "การจัดเรียงผู้จัดจำหน่าย"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "แหล่งที่มาของใบแจ้งหนี้ เช่น ผ่านทางเว็บไซต์หรือทางโทรศัพท์"
 
 msgid "Start date"
-msgstr ""
+msgstr "วันเริ่มต้น"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "เริ่มพิมพ์ ..."
 
 msgid "State"
 msgstr "รัฐ"
@@ -1769,36 +1774,36 @@ msgid "Status"
 msgstr "สถานะ"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "ประเภทสินค้าคงคลัง"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "ประเภทของสินค้าคงคลัง"
 
 msgid "Stock level"
-msgstr ""
+msgstr "ระดับสต็อก"
 
 msgid "Stock type"
-msgstr ""
+msgstr "ประเภทสินค้าคงคลัง"
 
 msgid "Street"
 msgstr "ถนน"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "ชื่อถนน (ไม่บังคับ)"
 
 msgid "Style"
-msgstr ""
+msgstr "สไตล์"
 
 msgid "Sub-total"
 msgstr "ยอดรวมย่อย"
 
 msgid "Subscription"
-msgstr ""
+msgstr "การสมัครสมาชิก"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "ช่วงการสมัครสมาชิกโดยใช้ปี, เดือน, สัปดาห์ และวัน เช่น \"P0Y1M2W3D\" สำหรับศูนย์ปี, หนึ่งเดือน, สองสัปดาห์ และสามวัน"
 
 msgid "Suggested products"
 msgstr "สินค้าที่แนะนำ"
@@ -1807,185 +1812,185 @@ msgid "Sum"
 msgstr "ผลรวม"
 
 msgid "Supplier"
-msgstr ""
+msgstr "ผู้จัดหา"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "ชื่อผู้จัดจำหน่ายหรือบริษัท"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "ตำแหน่งผู้จัดจำหน่าย (จำเป็น)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "ผู้จัดหาที่ผลิตสินค้า"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "ประเภทแท็ก"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "ประเภทของแท็ก"
 
 msgid "Tax"
-msgstr ""
+msgstr "ภาษี"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "อัตราภาษี"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "อัตราภาษีเป็นร้อยละ"
 
 msgid "Telephone"
 msgstr "โทรศัพท์"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "หมายเลขโทรศัพท์ (ไม่บังคับ)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "โฟลเดอร์ชั่วคราวหายไป"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "ประเภทรายการข้อความ"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "ประเภทของรายการข้อความ"
 
 msgid "Text Type"
-msgstr ""
+msgstr "ประเภทของข้อความ"
 
 msgid "Text Types"
-msgstr ""
+msgstr "ประเภทของข้อความ"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "บทความนี้จะแสดงบนเว็บไซต์หลังจากวันที่และเวลาดังกล่าวเท่านั้น บทความที่มีประโยชน์หรือตามฤดูกาล"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "บทความนี้จะแสดงบนเว็บไซต์จนถึงวันที่และเวลาดังกล่าวเท่านั้น บทความที่มีประโยชน์หรือตามฤดูกาล"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "รายการนี้จะแสดงบนเว็บไซต์หลังจากวันที่และเวลาดังกล่าวเท่านั้น"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "รายการนี้จะแสดงบนเว็บไซต์จนถึงวันที่และเวลาดังกล่าวเท่านั้น"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "ชื่อสื่อใช้สำหรับแท็กชื่อของสื่อบนเว็บไซต์"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "ชื่อของหมวดหมู่ที่แสดงใน URL จะถูกใช้หากไม่มีส่วนของ URL ที่ระบุภาษาเฉพาะ"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "ชื่อของผลิตภัณฑ์ที่แสดงใน URL จะถูกใช้หากไม่มีส่วนของ URL ที่ระบุภาษา"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "ตัวเลือกนี้จะแสดงบนเว็บไซต์หลังจากวันที่และเวลาดังกล่าวเท่านั้น"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "ตัวเลือกนี้จะแสดงบนเว็บไซต์จนถึงวันที่และเวลาเท่านั้น"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "กฎนี้ใช้ได้เฉพาะหลังจากวันที่และเวลาดังกล่าวเท่านั้น"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "กฎนี้ใช้ได้จนถึงวันที่และเวลาดังกล่าวเท่านั้น"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "ค่าขั้นของจำนวนที่อนุญาตในตะกร้าสินค้า เช่น \"0.1\" สำหรับจำนวนเศษส่วน หรือ \"5\" สำหรับจำนวนที่เป็นจำนวนห้าชิ้น"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "ไฟล์ที่อัปโหลดมีขนาดใหญ่เกินขนาดไฟล์ที่อนุญาต"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "ไฟล์ที่อัปโหลดถูกอัปโหลดไม่สมบูรณ์"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "ธีมสำหรับเปลี่ยนรูปแบบร้านค้าของคุณ"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "รหัสสกุลเงิน ISO สามตัวอักษร"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "กรอบเวลา (ไม่บังคับ)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "เวลาประทับ"
 
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "สลับเมนูแบบเลื่อนลง"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "สลับการเลือก"
 
 msgid "Top countries"
-msgstr ""
+msgstr "ประเทศชั้นนำ"
 
 msgid "Total"
 msgstr "รวม"
 
 msgid "Total orders"
-msgstr ""
+msgstr "ยอดสั่งซื้อทั้งหมด"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "ยอดสั่งซื้อทั้งหมดในช่วงเจ็ดวันที่ผ่านมาเมื่อเทียบกับช่วงเวลาที่ผ่านมา"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "คะแนนรวม"
 
 msgid "Translate text"
-msgstr ""
+msgstr "แปลข้อความ"
 
 msgid "Translations"
-msgstr ""
+msgstr "การแปล"
 
 msgid "Tree node menu"
-msgstr ""
+msgstr "เมนูโหนดต้นไม้"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "รหัสประเทศ ISO สองตัวอักษร"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "รหัสภาษา ISO สองตัวอักษร"
 
 msgid "Type"
-msgstr ""
+msgstr "ประเภท"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "ประเภทตำแหน่ง (ไม่บังคับ)"
 
 msgid "Types"
-msgstr ""
+msgstr "ประเภท"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "ประเภทสำหรับรูปภาพเพิ่มเติม เช่น ไอคอน"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "ประเภทสำหรับราคาเพิ่มเติม เช่น ต่อหนึ่งปอนด์/กิโลกรัม หรือต่อเดือน"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "ประเภทสำหรับข้อความเพิ่มเติม เช่น ต่อหนึ่งปอนด์/กิโลกรัม หรือต่อเดือน"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "URL ของเว็บไซต์ลูกค้า"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "URL ของเว็บไซต์ผู้จัดจำหน่าย"
 
 msgid "URL segment"
-msgstr ""
+msgstr "ส่วนของ URL"
 
 msgid "URL target"
-msgstr ""
+msgstr "เป้าหมาย URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1993,173 +1998,173 @@ msgstr "ไม่สามารถเรียกเมธอด \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "ไม่สามารถอ่านเนื้อหาจาก \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "คำสั่งซื้อที่ยังไม่เสร็จ"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "คำสั่งซื้อที่ยังไม่เสร็จสิ้นภายในเจ็ดวันที่ผ่านมาเมื่อเทียบกับช่วงเวลาที่ผ่านมา"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "รหัสบทความเฉพาะที่เกี่ยวข้องกับระดับสต็อก เช่น จากระบบ ERP, หมายเลข EAN/GTIN หรือที่คิดขึ้นเอง"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "รหัสคุณลักษณะเฉพาะ (จำเป็น)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "รหัสคุณลักษณะเฉพาะ เช่น \"green\" สำหรับคุณลักษณะประเภท \"สี\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "รหัสหมวดหมู่เฉพาะ (จำเป็น)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "รหัสหมวดหมู่ที่ไม่ซ้ำกัน, จากระบบภายนอกหรือคิดค้นขึ้นเอง"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "รหัสเฉพาะ (จำเป็น)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "รหัสเฉพาะเพื่อระบุบริการ โดยปกติจะคิดขึ้นเอง"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "ชื่อบัญชีลูกค้าที่ไม่ซ้ำกัน"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "ที่อยู่อีเมลของลูกค้าที่ไม่ซ้ำกัน"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "รหัสกลุ่มเฉพาะ (จำเป็น)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "รหัสบริการเฉพาะ (จำเป็น)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "รหัสไซต์เฉพาะ (จำเป็น)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "รหัสผู้จัดจำหน่ายเฉพาะ"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "รหัสประเภทเฉพาะ"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "รหัสประเภทเฉพาะ (จำเป็น)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "รหัสประเภทเฉพาะ เช่น \"color\" สำหรับคุณลักษณะเช่น \"green\", \"blue\", \"red\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "ราคาต่อหน่วย"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการอัปโหลดที่ไม่ทราบสาเหตุ"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "อัปโหลด CSV"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "อัปโหลดไอคอนร้านค้า"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "อัปโหลดโลโก้ร้าน"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "อัปโหลดแล้ว"
 
 msgid "Use"
-msgstr ""
+msgstr "ใช้"
 
 msgid "User groups"
-msgstr ""
+msgstr "กลุ่มผู้ใช้"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "ระยะเวลาปกติสำหรับการจัดส่งสินค้า"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "หมายเลขประจำตัวผู้เสียภาษีมูลค่าเพิ่ม"
 
 msgid "Value"
-msgstr ""
+msgstr "มูลค่า"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "หมายเลขประจำตัวผู้เสียภาษีมูลค่าเพิ่ม (ไม่บังคับ)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "คุณลักษณะของตัวแปร"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "คุณลักษณะของผลิตภัณฑ์ทางเลือกที่จัดเก็บไว้พร้อมกับผลิตภัณฑ์ที่สั่งซื้อ"
 
 msgid "Vendor"
-msgstr ""
+msgstr "ผู้ขาย"
 
 msgid "Verified"
-msgstr ""
+msgstr "ยืนยันแล้ว"
 
 msgid "View details"
-msgstr ""
+msgstr "ดูรายละเอียด"
 
 msgid "Voucher"
 msgstr "บัตรกำนัล"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "คลังสินค้าหรือร้านค้าในพื้นที่หากสินค้าของคุณมีจำหน่ายในหลายแห่ง"
 
 msgid "Web site"
 msgstr "เว็บไซต์"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "URL ของเว็บไซต์ (ไม่บังคับ)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "สัปดาห์"
 
 msgid "Weight"
-msgstr ""
+msgstr "น้ำหนัก"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "เมื่อบัญชีและที่อยู่อีเมลได้รับการยืนยันแล้ว"
 
 msgid "Width"
-msgstr ""
+msgstr "ความกว้าง"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "ปี-เดือน-วัน hh:mm:ss (ไม่บังคับ)"
 
 msgid "Years"
-msgstr ""
+msgstr "ปี"
 
 msgid ""
 "You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgstr "คุณจะลบรายการหนึ่งรายการหรือมากกว่า คุณต้องการดำเนินการต่อหรือไม่"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "การส่งออกของคุณจะพร้อมให้ดาวน์โหลดในอีกไม่กี่นาที"
 
 msgid "Your response"
-msgstr ""
+msgstr "คำตอบของคุณ"
 
 msgid "Zip code"
-msgstr ""
+msgstr "รหัสไปรษณีย์"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "รหัสไปรษณีย์ (ไม่บังคับ)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__ซ่อน__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "บัญชี"
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "ที่อยู่"
 
 msgid "address:delivery"
 msgstr "ที่อยู่สำหรับการจัดส่ง"
@@ -2169,19 +2174,19 @@ msgstr "ที่อยู่สำหรับออกใบแจ้งหน
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "คุณลักษณะ"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "ตะกร้า"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "มัด"
 
 #, php-format
 msgid "catalog"
@@ -2197,74 +2202,74 @@ msgstr "ลักษณะ"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "โค้ด"
 
 msgid "company"
 msgstr "บริษัท"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "การกำหนดค่า"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "countcountry"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "countday"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "ชั่วโมง"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "สถานะการชำระเงิน"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "คูปอง"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "ลูกค้า"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "แดชบอร์ด"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "วัน"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "ประเภทการจัดส่ง"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "ดาวน์โหลด"
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "สินค้า"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "กลุ่ม"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "ชั่วโมง"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "รูปภาพ"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "ใบแจ้งหนี้"
 
 #, php-format
 msgid "latest"
@@ -2272,153 +2277,153 @@ msgstr "ล่าสุด"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "โลคัล"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "ภาษา/สกุลเงิน"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "locale/ภาษา"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "โลคัล/ไซต์"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "บันทึก"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "การตลาด"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "สื่อ"
 
 msgid "miss"
-msgstr ""
+msgstr "พลาด"
 
 msgid "mr"
-msgstr ""
+msgstr "คุณผู้ชาย"
 
 msgid "mrs"
-msgstr ""
+msgstr "คุณนาย"
 
 msgid "ms"
-msgstr ""
+msgstr "เอ็มเอส"
 
 msgid "new"
-msgstr ""
+msgstr "ใหม่"
 
 msgid "no"
-msgstr ""
+msgstr "ไม่มี"
 
 msgid "none"
 msgstr "ไม่มี"
 
 msgid "not available any more"
-msgstr ""
+msgstr "ไม่มีให้บริการอีกต่อไป"
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "ตัวเลือก"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "คำสั่ง"
 
 msgid "order:phone"
-msgstr ""
+msgstr "คำสั่ง:โทรศัพท์"
 
 msgid "order:web"
-msgstr ""
+msgstr "คำสั่ง:เว็บ"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "จ่าย:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "จ่าย: 0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "จ่าย:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "จ่าย:2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "จ่าย:3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "จ่าย:4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "จ่าย:5"
 
 msgid "pay:6"
-msgstr ""
+msgstr "จ่าย:6"
 
 msgid "pay:7"
-msgstr ""
+msgstr "จ่าย:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "สถานะการชำระเงิน"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "ประเภทการชำระเงิน"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "ทางกายภาพ"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "ปลั๊กอิน"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "ราคา"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "ผลิตภัณฑ์"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "ทรัพย์สิน"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "รวดเร็ว/นับเสร็จสิ้น"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "บันทึก/นับลูกค้า"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "เร็ว/นับรวมทั้งหมด"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "เร็ว/นับไม่เสร็จ"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "เหตุผล:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "เหตุผล:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "เหตุผล:1"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "เกี่ยวข้อง"
 
 #, php-format
 msgid "review"
@@ -2426,92 +2431,92 @@ msgstr "รีวิว"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "กฎ"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "ยอดขาย"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "วันทำการขาย"
 
 msgid "selected"
-msgstr ""
+msgstr "เลือกแล้ว"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "การเลือก"
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "บริการ"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "การให้บริการ"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "การชำระเงินค่าบริการ"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "การตั้งค่า"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "ตั้งค่า"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "พิเศษ"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "stat:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "สถานะ:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "สถิติ:1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "สถิติ:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "สถิติ:3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "สถิติ:4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "สถิติ:5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "สถิติ:6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "สถิติ:7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "สถานะ:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "สถานะ:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "สถานะ:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "สถานะ:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "สถานะ:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "สต็อก"
 
 #, php-format
 msgid "subscription"
@@ -2522,125 +2527,125 @@ msgid "supplier"
 msgstr "ผู้จัดหา"
 
 msgid "tag"
-msgstr ""
+msgstr "แท็ก"
 
 msgid "tax:0"
-msgstr ""
+msgstr "ภาษี:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "ภาษี:1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "ข้อความ"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "ธีม"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "ธุรกรรม"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "ประเภท"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "ประเภท/คุณลักษณะ"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "ประเภท/คุณลักษณะ/รายการ"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "ประเภท/คุณลักษณะ/คุณสมบัติ"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "ประเภท/แคตตาล็อก/รายการ"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "ประเภท/ลูกค้า/รายการ"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "ประเภท/ลูกค้า/ทรัพย์สิน"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "ประเภท/สื่อ"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "ประเภท/สื่อ/รายการ"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "ประเภท/สื่อ/ทรัพย์สิน"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "ประเภท/ปลั๊กอิน"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "ประเภท/ราคา"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "ประเภท/ราคา/รายการ"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "ประเภท/ราคา/อสังหาริมทรัพย์"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "ประเภท/ผลิตภัณฑ์"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "ประเภท/สินค้า/รายการ"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "ประเภท/สินค้า/อสังหาริมทรัพย์"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "ประเภท/กฎเกณฑ์"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "ประเภท/บริการ"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "ประเภท/บริการ/รายการ"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "ประเภท/สต็อก"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "ประเภท/แท็ก"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "ประเภท/ข้อความ"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "ประเภท/ข้อความ/รายการ"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "ผู้ใช้"
 
 msgid "yes"
-msgstr ""
+msgstr "ใช่"

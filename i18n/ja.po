@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 18:42+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -1117,6 +1117,9 @@ msgstr "なし"
 
 msgid "Not all entries could be deleted"
 msgstr "すべてのエントリーが削除されるわけではない"
+
+msgid "Not allowed or editor site is different"
+msgstr "許可されていないか、エディタサイトが異なる"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
