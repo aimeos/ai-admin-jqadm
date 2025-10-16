@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 12:17+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/"
@@ -1112,6 +1112,9 @@ msgid "None"
 msgstr ""
 
 msgid "Not all entries could be deleted"
+msgstr ""
+
+msgid "Not allowed or editor site is different"
 msgstr ""
 
 #, php-format

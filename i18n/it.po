@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 18:42+0200\n"
+"POT-Creation-Date: 2025-10-16 11:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: R M <roberto@proprionoi.it>, 2019\n"
 "Language-Team: Italian (http://app.transifex.com/aimeos/aimeos-core/language/it/)\n"
@@ -1122,6 +1122,9 @@ msgstr "Nessuno"
 
 msgid "Not all entries could be deleted"
 msgstr "Non tutte le voci possono essere eliminate"
+
+msgid "Not allowed or editor site is different"
+msgstr "Non è consentito o il sito dell'editore è diverso"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
