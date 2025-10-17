@@ -388,7 +388,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ) ?>"
-										v-bind:readonly="!can('change')">
+										v-bind:readonly="!can('change')"
+										v-on:change="exists($event, 'label')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ) ?>

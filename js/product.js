@@ -142,8 +142,14 @@ Aimeos.Product.Basic = {
 				},
 
 
-				exists(ev) {
-					const filter = {'==': {'product.code': ev.target.value}}
+				exists(ev, type) {
+					const filter = {}
+
+					if(type === 'label') {
+						filter['=='] = {'product.label': ev.target.value}
+					} else {
+						filter['=='] = {'product.code': ev.target.value}
+					}
 
 					Aimeos.graphql(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
