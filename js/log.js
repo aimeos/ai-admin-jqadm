@@ -7,22 +7,9 @@
 
 Aimeos.Log = {
 
-	time : null,
-
-
 	init() {
-
-		document.querySelector(".aimeos .list-log .log-message")?.addEventListener("mousedown", function() {
-			this.time = (new Date()).getTime();
-		});
-
-		document.querySelector(".aimeos .list-log .log-message")?.addEventListener("mouseup", function(ev) {
-			if(this.time < (new Date()).getTime() - 500) {
-				return false;
-			}
-
-			ev.currentTarget.classList.toggle("show");
-			return false;
+		document.querySelector(".aimeos .list-log .list-items")?.addEventListener("dblclick", function(ev) {
+			ev.target?.parentElement?.classList?.toggle("show");
 		});
 	}
 };
