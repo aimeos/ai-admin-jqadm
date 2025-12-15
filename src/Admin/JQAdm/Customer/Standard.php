@@ -562,7 +562,7 @@ class Standard
 
 		$siteId = (string) $context->user()?->getSiteId();
 
-		if( !$this->view()->access( ['super'] ) || ( strlen( $siteId ) > 0 && strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) ) )
+		if( !$this->view()->access( ['super'] ) && ( strlen( $siteId ) > 0 && strncmp( $item->getSiteId(), $siteId, strlen( $siteId ) ) ) )
 		{
 			$msg = $context->translate( 'admin', 'Not allowed or editor site is different' );
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg ) );
