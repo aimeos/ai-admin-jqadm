@@ -497,7 +497,7 @@ class Standard
 		}
 
 		$config = array_column( (array) $this->val( $data, 'config', [] ), 'val', 'key' );
-		$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
+		$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
 
 		$item->fromArray( $data, true )->setConfigFlat( $config );
 

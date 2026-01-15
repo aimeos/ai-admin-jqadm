@@ -286,7 +286,7 @@ class Standard
 			$refid = $this->val( $entry, 'attribute.id' );
 
 			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
-			$config = array_filter( array_map( fn( $val ) => trim( json_decode( $val, true ) ?? $val ?? '' ), $config ) );
+			$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
 
 			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
 			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
