@@ -585,6 +585,7 @@ class Standard
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
 		}
 
+		unset( $data['customer.password'], $data['customer.code'] );
 		return $item->fromArray( $data );
 	}
 
