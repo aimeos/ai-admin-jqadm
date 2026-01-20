@@ -269,7 +269,7 @@ class Standard
 		$idx = 0;
 		$context = $this->context();
 		$listItems = $item->getListItems( 'attribute', null, null, false )->remove(
-			$item->getListItems( 'attribute', ['config', 'custom'], ['interval', 'price'], false )->keys()
+			$item->getListItems( 'attribute', ['config', 'custom'], ['interval'], false )->keys()
 		);
 
 		$manager = \Aimeos\MShop::create( $context, 'attribute' );
