@@ -33,26 +33,31 @@ class Page extends Base
 		$view->pageParams = $this->getClientParams();
 		$context = $this->context();
 
+		$site = $view->param( 'site', 'default' );
+		$siteid = $context->user()?->getSiteId();
+
 		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 
-		if( $user = $context->user() )
+		if( $siteid )
 		{
-			$siteid = $user->getSiteId();
-			$view->pageUserSiteid = $siteid;
+			$filter = $siteManager->filter();
+			$filter->add( $filter->and( [
+				$filter->is( 'locale.site.code', '==', $site ),
+				$filter->is( 'locale.site.siteid', $view->access( ['admin'] ) ? '=~' : '==', $siteid )
+			] ) )->order( 'locale.site.siteid' )->slice( 0, 1 );
 
-			$search = $siteManager->filter();
-			$search->add( $search->and( [
-				$search->is( 'locale.site.code', '==', $view->param( 'site', 'default' ) ),
-				$search->is( 'locale.site.siteid', $view->access( ['admin'] ) ? '=~' : '==', $siteid )
-			] ) )->slice( 0, 1 );
-
-			$siteItem = $siteManager->search( $search )->first();
+			$siteItem = $siteManager->search( $filter )->first();
 		}
 		else
 		{
-			$siteItem = $siteManager->find( $view->param( 'site', 'default' ) );
+			$siteItem = $siteManager->find( $site );
 		}
+
+		if( !$siteItem ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Site "%1$s" not found', $site ), 404 );
+		}
+
 
 		$view->pageInfo = $context->session()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
@@ -60,6 +65,7 @@ class Page extends Base
 		$view->pageNumberStep = 1 / pow( 10, $context->config()->get( 'mshop/price/precision', 2 ) );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
 		$view->pageSiteItem = $siteItem;
+		$view->pageUserSiteid = $siteid;
 
 		$this->getClient()->setView( $view );
 		return $this;
