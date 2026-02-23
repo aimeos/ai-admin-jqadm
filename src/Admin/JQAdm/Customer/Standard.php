@@ -105,7 +105,7 @@ class Standard
 
 			foreach( $items as $item )
 			{
-				if( $view->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
+				if( $view->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() )
 				{
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 					!isset( $data['groups'] ) ?: $item->setGroups( array_filter( (array) $data['groups'] ) );
@@ -579,7 +579,7 @@ class Standard
 			$item->setGroups( array_unique( $this->val( $data, 'groups', [] ) ) );
 		}
 
-		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
+		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() )
 		{
 			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
