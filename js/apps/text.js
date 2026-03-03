@@ -139,9 +139,8 @@ Aimeos.Text = {
 					if(this.items[idx]['text.label']) {
 						label += ' : ' + this.items[idx]['text.label'].substr(0, 40);
 					} else if(this.items[idx]['text.content']) {
-						const tmp = document.createElement("span");
-						tmp.innerHTML = this.items[idx]['text.content'];
-						label += ' : ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
+						const doc = new DOMParser().parseFromString(this.items[idx]['text.content'], 'text/html');
+						label += ' : ' + (doc.body.textContent || "").substr(0, 40);
 					}
 				}
 

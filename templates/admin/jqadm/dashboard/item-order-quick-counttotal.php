@@ -12,10 +12,10 @@ $enc = $this->encoder();
 <div class="quick order-quick-counttotal col-sm-6 col-xl-3" title="<?= $enc->attr( $this->translate( 'admin', 'Total orders within the last seven days compared to the period before' ) ) ?>">
 	<div class="box row" v-bind:class="state">
 		<div class="col quick-start">
-			<div class="quick-number" v-html="current"></div>
+			<div class="quick-number" v-text="current"></div>
 		</div>
 		<div class="col quick-end">
-			<div class="quick-percent" v-bind:class="mood" v-html="percent"></div>
+			<div class="quick-percent" v-bind:class="mood" v-text="percent"></div>
 		</div>
 		<div class="col-xs-12">
 			<h2 class="quick-header"><?= $enc->html( $this->translate( 'admin', 'Total orders' ) ) ?></h2>
