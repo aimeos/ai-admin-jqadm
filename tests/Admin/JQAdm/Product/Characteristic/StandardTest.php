@@ -94,10 +94,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'characteristic' => [
-				'attribute' => [[
-					'product.lists.type' => 'default',
-					'attribute.id' => $attrManager->find( 'xs', [], 'product', 'size' )->getId(),
-				]],
+				'attribute' => [
+					'default' => [[
+						'product.lists.type' => 'default',
+						'attribute.id' => $attrManager->find( 'xs', [], 'product', 'size' )->getId(),
+					]],
+				],
 			],
 		);
 
