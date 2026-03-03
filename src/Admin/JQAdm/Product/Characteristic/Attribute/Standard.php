@@ -87,7 +87,7 @@ class Standard
 		$siteid = $this->context()->locale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
-		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/attribute', [] ) );
+		$data = array_replace_recursive( $itemData, array_values( $view->param( 'characteristic/attribute', [] ) ) );
 
 		foreach( $data as $key => $entry ) {
 			$data[$key]['product.lists.siteid'] = $siteid;
