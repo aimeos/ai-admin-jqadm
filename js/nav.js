@@ -94,7 +94,10 @@ Aimeos.Nav = {
 				const link = document.querySelector(".aimeos .sidebar-menu a[data-ctrlkey=" + ev.key + "]")
 
 				if(link) {
-					window.location = link.getAttribute("href");
+					const url = new URL(link.getAttribute("href"), window.location.origin);
+					if(url.origin === window.location.origin) {
+						window.location = url.href;
+					}
 				}
 				return false
 			}
