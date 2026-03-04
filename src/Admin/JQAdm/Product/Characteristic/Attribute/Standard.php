@@ -89,8 +89,10 @@ class Standard
 		$itemData = $this->toArray( $view->item );
 		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/attribute', [] ) );
 
-		foreach( $data as $key => $entry ) {
-			$data[$key]['product.lists.siteid'] = $siteid;
+		foreach( $data as $type => $list ) {
+			foreach( $list as $key => $entry ) {
+				$data[$type][$key]['product.lists.siteid'] = $siteid;
+			}
 		}
 
 		$view->attributeData = $data;
@@ -272,26 +274,37 @@ class Standard
 			$item->getListItems( 'attribute', ['config', 'custom'], ['interval'], false )->keys()
 		);
 
+		$refIds = [];
+
+		foreach( $data as $type => $list ) {
+			foreach( $list as $entry ) {
+				$refIds[] = $this->val( $entry, 'attribute.id' );
+			}
+		}
+
 		$manager = \Aimeos\MShop::create( $context, 'attribute' );
 		$filter = $manager->filter()
-			->add( 'attribute.id', '==', array_column( $data, 'attribute.id' ) )
-			->slice( 0, count( $data ) );
+			->add( 'attribute.id', '==', $refIds )
+			->slice( 0, count( $refIds ) );
 		$refItems = $manager->search( $filter );
 
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
-		foreach( $data as $entry )
+		foreach( $data as $type => $list )
 		{
-			$id = $this->val( $entry, 'product.lists.id' );
-			$refid = $this->val( $entry, 'attribute.id' );
+			foreach( $list as $entry )
+			{
+				$id = $this->val( $entry, 'product.lists.id' );
+				$refid = $this->val( $entry, 'attribute.id' );
 
-			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
-			$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
+				$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
+				$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
 
-			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
+				$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
+				$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
 
-			$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ) );
+				$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ) );
+			}
 		}
 
 		return $item->deleteListItems( $listItems );
@@ -330,7 +343,7 @@ class Standard
 				$list['config'][] = ['key' => $key, 'val' => $value];
 			}
 
-			$data[] = $list;
+			$data[$listItem->getType()][] = $list;
 		}
 
 		return $data;

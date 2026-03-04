@@ -87,10 +87,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'characteristic' => [
-				'attribute' => [[
-					'product.lists.type' => 'default',
-					'attribute.id' => '123',
-				]],
+				'attribute' => [
+					'default' => [[
+						'product.lists.type' => 'default',
+						'attribute.id' => '123',
+					]],
+				],
 			],
 		);
 
