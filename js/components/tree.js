@@ -11,6 +11,7 @@ Aimeos.components['tree'] = {
 	<div class="tree">
 		<div class="tree-filter">
 			<input class="form-control" v-model="input" :placeholder="placeholder" />
+			<a v-if="can('insert')" class="btn act-add icon" href="#" :title="i18n.new || 'New category'" @click.prevent="root()"></a>
 		</div>
 		<DragTree
 			ref="tree"
@@ -129,7 +130,7 @@ Aimeos.components['tree'] = {
 
 
 		can(action, siteid) {
-			return !this.readonly && Aimeos.can(action, siteid || null, this.siteid)
+			return !this.readonly && Aimeos.can(action, siteid || this.siteid, this.siteid)
 		},
 
 
@@ -244,6 +245,27 @@ Aimeos.components['tree'] = {
 					stat.data.hasChildren = true
 					this.$refs.tree.openNodeAndParents(stat)
 				}
+			})
+		},
+
+
+		root() {
+			Aimeos.graphql(`mutation {
+				insert` + this.name + `(input: {
+					label: "` + (this.i18n.new || 'New node') + `",
+					code: "new-` + Math.floor(Math.random()*10000) + `",
+					status: -1
+				}, parentid: null, refid: null ) {
+					id
+					siteid
+					code
+					label
+					status
+					hasChildren
+				}
+			}`).then(result => {
+				const name = 'insert' + this.name
+				this.$refs.tree.add(result[name], null)
 			})
 		},
 

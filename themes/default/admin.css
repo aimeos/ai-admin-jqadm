@@ -164,6 +164,11 @@
 	margin-bottom: 1rem;
 }
 
+.aimeos .tree .tree-filter {
+	display: flex;
+	gap: 0.25rem;
+}
+
 .aimeos .tree .tree-node-inner {
 	display: flex;
 	align-items: center;
