@@ -1,6 +1,48 @@
 import { createApp } from 'vue'
 import draggable from 'vuedraggable'
-import CKEditor from '@ckeditor/ckeditor5-vue'
+import { Ckeditor } from '@ckeditor/ckeditor5-vue';
+
+import {
+	ClassicEditor,
+	Alignment,
+	Autoformat,
+	AutoImage,
+	AutoLink,
+	BlockQuote,
+	Bold,
+	Essentials,
+	FindAndReplace,
+	GeneralHtmlSupport,
+	Heading,
+	HorizontalLine,
+	Image,
+	ImageCaption,
+	ImageInsert,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	Indent,
+	IndentBlock,
+	Italic,
+	Link,
+	LinkImage,
+	List,
+	MediaEmbed,
+	PasteFromOffice,
+	RemoveFormat,
+	SourceEditing,
+	SpecialCharacters,
+	SpecialCharactersText,
+	Strikethrough,
+	Style,
+	Table,
+	TableToolbar,
+	TextTransformation,
+	Underline,
+	WordCount
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
 
 import '@vueform/multiselect/themes/default.css'
 import Multiselect from '@vueform/multiselect'
@@ -37,7 +79,46 @@ globalThis.Multiselect = Multiselect
 globalThis.Flatpickr = flatpickr
 globalThis.FlatpickrL10n = l10n
 globalThis.confirmDatePlugin = confirmDatePlugin
-globalThis.CKEditor = CKEditor
+globalThis.CKEditor = Ckeditor
+globalThis.ClassicEditor = ClassicEditor
+globalThis.CKEditorPlugins = [
+	Alignment,
+	Autoformat,
+	AutoImage,
+	AutoLink,
+	BlockQuote,
+	Bold,
+	Essentials,
+	FindAndReplace,
+	GeneralHtmlSupport,
+	Heading,
+	HorizontalLine,
+	Image,
+	ImageCaption,
+	ImageInsert,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	Indent,
+	IndentBlock,
+	Italic,
+	Link,
+	LinkImage,
+	List,
+	MediaEmbed,
+	PasteFromOffice,
+	RemoveFormat,
+	SourceEditing,
+	SpecialCharacters,
+	SpecialCharactersText,
+	Strikethrough,
+	Style,
+	Table,
+	TableToolbar,
+	TextTransformation,
+	Underline,
+	WordCount
+]
 globalThis.LMap = LMap
 globalThis.LTileLayer = LTileLayer
 globalThis.LMarker = LMarker

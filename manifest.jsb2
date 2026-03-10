@@ -64,9 +64,6 @@
 			"text": "bootstrap.js",
 			"path": "js/"
 		},{
-			"text": "ckeditor.js",
-			"path": "js/"
-		},{
 			"text": "admin.js",
 			"path": "js/"
 		},{
