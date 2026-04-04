@@ -7,7 +7,7 @@
 
 $enc = $this->encoder();
 $trans = array(
-	null => '',
+	'' => '',
 	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
 	'0' => $this->translate( 'mshop/code', 'pay:0' ),
 	'1' => $this->translate( 'mshop/code', 'pay:1' ),
