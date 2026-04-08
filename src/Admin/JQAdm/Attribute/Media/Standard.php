@@ -350,6 +350,7 @@ class Standard
 
 			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
 			$config = array_map( fn( $val ) => json_decode( $val, true ) ?? $val, $config );
+			unset( $entry['config'] );
 
 			$refItem = $mediaManager->upload( $refItem, $file, $preview );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );

@@ -303,6 +303,7 @@ class Standard
 
 			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
 			$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
+			unset( $entry['config'] );
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
