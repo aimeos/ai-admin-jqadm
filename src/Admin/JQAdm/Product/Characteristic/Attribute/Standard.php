@@ -301,10 +301,10 @@ class Standard
 				$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
 				unset( $entry['config'] );
 
-				$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
+				$listItem = $listItems->pull( $id ?? '' ) ?: $manager->createListItem();
 				$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
 
-				$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ) );
+				$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ?? '' ) );
 			}
 		}
 

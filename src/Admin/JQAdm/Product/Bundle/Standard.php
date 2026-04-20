@@ -250,7 +250,7 @@ class Standard
 		foreach( $data as $idx => $entry )
 		{
 			$listid = $this->val( $entry, 'product.lists.id' );
-			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem = $listItems->pull( $listid ?? '' ) ?: $manager->createListItem();
 			$litem->setRefId( $this->val( $entry, 'product.id' ) )->setPosition( $idx );
 
 			$item->addListItem( 'product', $litem );
