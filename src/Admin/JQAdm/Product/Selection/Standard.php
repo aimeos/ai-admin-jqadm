@@ -287,7 +287,7 @@ class Standard
 			$item->addListItem( 'product', $litem, $manager->save( $refItem ) );
 
 			$prodIds[] = $data[$idx]['stock.productid'] = $refItem->getId();
-			unset( $listItems[$litem->getId()] );
+			unset( $listItems[$litem->getId() ?? ''] );
 		}
 
 		$this->fromArrayStocks( $prodIds, $data );
@@ -312,7 +312,7 @@ class Standard
 		foreach( $data as $attr )
 		{
 			$listid = $this->val( $attr, 'product.lists.id' );
-			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem = $listItems->pull( $listid ?? '' ) ?: $manager->createListItem();
 			$litem->setRefId( $this->val( $attr, 'attribute.id' ) )->setType( 'variant' )->setPosition( $pos++ );
 
 			$refItem->addListItem( 'attribute', $litem );
@@ -347,7 +347,7 @@ class Standard
 				continue;
 			}
 
-			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ?: $manager->create();
+			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? '' ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
 
 			$list[] = $stockItem;

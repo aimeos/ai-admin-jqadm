@@ -285,10 +285,10 @@ class Standard
 			$refid = $this->val( $entry, 'catalog.id' );
 			$listid = $this->val( $entry, 'product.lists.id' );
 
-			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem = $listItems->pull( $listid ?? '' ) ?: $manager->createListItem();
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )->setRefId( $refid );
 
-			$item->addListItem( 'catalog', $litem, $refItems->get( $refid ) );
+			$item->addListItem( 'catalog', $litem, $refItems->get( $refid ?? '' ) );
 		}
 
 		return $item->deleteListItems( $listItems );

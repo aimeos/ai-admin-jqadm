@@ -299,7 +299,7 @@ class Standard
 		{
 			$listId = $this->val( $data, 'product.lists.id' );
 
-			$litem = $listItems->pull( $listId ) ?: $prodManager->createListItem()->setType( 'hidden' );
+			$litem = $listItems->pull( $listId ?? '' ) ?: $prodManager->createListItem()->setType( 'hidden' );
 			$refItem = $litem->getRefItem() ?: $attrManager->create()->setType( 'download' );
 
 			$litem->fromArray( $data, true );
