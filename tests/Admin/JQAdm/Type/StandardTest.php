@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Type;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -113,7 +116,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNull( $this->getClientMock( ['redirect'], false )->delete() );
+		$mock = $this->getClientMock( ['redirect'], false );
+		$mock->method( 'redirect' )->willReturn( null );
+		$this->assertNull( $mock->delete() );
 	}
 
 
@@ -272,6 +277,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->onlyMethods( array( 'render' ) )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
 
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute/type' );
 

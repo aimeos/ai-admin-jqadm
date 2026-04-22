@@ -19,6 +19,7 @@ class Bundle
 	/**
 	 * Returns the concatenated files for the requested resource
 	 *
+	 * @param array $filenames List of paths to the manifest files
 	 * @param string $resource Name of the resource, i.e. "index-js", "index-css", "index-ltr-css" or "index-rtl-css"
 	 * @return string Concatenated files for the requested resource
 	 */

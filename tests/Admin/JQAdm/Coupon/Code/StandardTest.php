@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Coupon\Code;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -120,10 +123,15 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->onlyMethods( ['render'] )->addMethods( ['config'] )
+			->onlyMethods( ['render'] )
 			->getMock();
 
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+		$view->method( 'render' )->willReturn( '' );
+
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
+		$view->addHelper( 'config', $helper );
+
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$view->addHelper( 'request', $helper );
 

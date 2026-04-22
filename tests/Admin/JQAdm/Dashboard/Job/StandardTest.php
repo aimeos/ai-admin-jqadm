@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Job;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -94,8 +97,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->onlyMethods( ['render'] )->addMethods( ['config'] )
+			->onlyMethods( ['render'] )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
+
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
+		$view->addHelper( 'config', $helper );
 
 		$param = ['site' => 'unittest', 'id' => -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );

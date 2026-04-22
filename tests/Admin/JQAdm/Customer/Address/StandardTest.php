@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Customer\Address;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;

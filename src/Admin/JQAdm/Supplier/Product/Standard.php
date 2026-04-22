@@ -293,7 +293,10 @@ class Standard
 				->setDateEnd( $this->val( $data, 'product.lists.dateend/' . $idx ) );
 
 			$product->addListItem( 'supplier', $listItem );
-			$listItems->remove( $listItem->getId() );
+
+			if( $listItem->getId() ) {
+				$listItems->remove( $listItem->getId() );
+			}
 		}
 
 		\Aimeos\MShop::create( $context, 'index' )->save( $products );

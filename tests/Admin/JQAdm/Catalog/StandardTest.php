@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Catalog;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -21,8 +24,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelper::view();
 		$this->context = \TestHelper::context();
 
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$request->expects( $this->any() )->method( 'getUploadedFiles' )->willReturn( [] );
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getUploadedFiles' )->willReturn( [] );
 
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
@@ -215,6 +218,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->onlyMethods( array( 'render' ) )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
 
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 

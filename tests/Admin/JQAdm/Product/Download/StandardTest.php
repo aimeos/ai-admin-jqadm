@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Download;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -19,7 +22,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->view = \TestHelper::view();
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
@@ -95,11 +98,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$this->view->item = $manager->create();
 
-		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
-		$file->expects( $this->any() )->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
+		$file = $this->createStub( \Psr\Http\Message\UploadedFileInterface::class );
+		$file->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
 
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$request->expects( $this->any() )->method( 'getUploadedFiles' )
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getUploadedFiles' )
 			->willReturn( array( 'download' => array( 'file' => $file ) ) );
 
 		$this->object->expects( $this->once() )->method( 'storeFile' )

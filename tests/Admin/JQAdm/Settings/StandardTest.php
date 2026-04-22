@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Settings;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -52,15 +55,15 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$image = $this->getMockBuilder( \Intervention\Image\Interfaces\ImageInterface::class )->disableOriginalConstructor()->getMock();
 
-		$stream1 = $this->getMockBuilder( \Nyholm\Psr7\Stream::class )->disableOriginalConstructor()->getMock();
-		$stream2 = $this->getMockBuilder( \Nyholm\Psr7\Stream::class )->disableOriginalConstructor()->getMock();
+		$stream1 = $this->createStub( \Nyholm\Psr7\Stream::class );
+		$stream2 = $this->createStub( \Nyholm\Psr7\Stream::class );
 
 		$icon = new \Nyholm\Psr7\UploadedFile( $stream1, 1000, UPLOAD_ERR_OK, 'test.gif' );
 		$logo = new \Nyholm\Psr7\UploadedFile( $stream2, 1000, UPLOAD_ERR_OK, 'test.gif' );
 
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
 
-		$request->expects( $this->any() )->method( 'getUploadedFiles' )
+		$request->method( 'getUploadedFiles' )
 			->willReturn( ['media' => ['icon' => $icon, 'logo' => $logo]] );
 
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
@@ -142,6 +145,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->onlyMethods( array( 'render' ) )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
 
 		$param = ['site' => 'unittest'];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );

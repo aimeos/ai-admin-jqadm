@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Common\Decorator;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class BaseTest extends \PHPUnit\Framework\TestCase
 {
 	private $object;

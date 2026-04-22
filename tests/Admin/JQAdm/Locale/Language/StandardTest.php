@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Locale\Language;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -237,6 +240,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->onlyMethods( array( 'render' ) )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, ['id' => $real ? 'de' : 'xx'] );
 		$view->addHelper( 'param', $helper );

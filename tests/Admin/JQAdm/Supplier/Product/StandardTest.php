@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Supplier\Product;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -70,46 +73,54 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+
+		try { $manager->delete( $manager->find( 'jqadm_supplier_test' )->getId() ); } catch( \Exception $e ) {}
 		$prodId = $manager->save( $manager->create()->setCode( 'jqadm_supplier_test' ) )->getId();
-		$item = \Aimeos\MShop::create( $this->context, 'supplier' )->find( 'unitSupplier001' );
 
-		$param = array(
-			'site' => 'unittest',
-			'product' => array(
-				'product.lists.id' => [0 => ''],
-				'product.lists.parentid' => [0 => $prodId],
-				'product.lists.status' => [0 => 1],
-				'product.lists.refid' => [0 => 'test'],
-				'product.lists.type' => [0 => 'promotion'],
-				'product.lists.datestart' => [0 => '2000-01-01 00:00:00'],
-				'product.lists.dateend' => [0 => '2100-01-01 00:00:00'],
-				'product.lists.config' => [0 => '{"test": "value"}'],
-			),
-		);
-
-		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
-		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
-
-		$result = $this->object->save();
-
-		$product = $manager->get( $prodId, ['supplier'] );
-		$manager->delete( $prodId );
-
-		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertEmpty( $result );
-		$this->assertEquals( 1, count( $product->getListItems() ) );
-
-		foreach( $product->getListItems( 'supplier' ) as $listItem )
+		try
 		{
-			$this->assertEquals( $prodId, $listItem->getParentId() );
-			$this->assertEquals( 'promotion', $listItem->getType() );
-			$this->assertEquals( 'supplier', $listItem->getDomain() );
-			$this->assertEquals( '2000-01-01 00:00:00', $listItem->getDateStart() );
-			$this->assertEquals( '2100-01-01 00:00:00', $listItem->getDateEnd() );
-			$this->assertEquals( ['test' => 'value'], $listItem->getConfig() );
-			$this->assertEquals( $item->getId(), $listItem->getRefId() );
-			$this->assertEquals( 1, $listItem->getStatus() );
+			$item = \Aimeos\MShop::create( $this->context, 'supplier' )->find( 'unitSupplier001' );
+
+			$param = array(
+				'site' => 'unittest',
+				'product' => array(
+					'product.lists.id' => [0 => ''],
+					'product.lists.parentid' => [0 => $prodId],
+					'product.lists.status' => [0 => 1],
+					'product.lists.refid' => [0 => 'test'],
+					'product.lists.type' => [0 => 'promotion'],
+					'product.lists.datestart' => [0 => '2000-01-01 00:00:00'],
+					'product.lists.dateend' => [0 => '2100-01-01 00:00:00'],
+					'product.lists.config' => [0 => '{"test": "value"}'],
+				),
+			);
+
+			$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+			$this->view->addHelper( 'param', $helper );
+			$this->view->item = $item;
+
+			$result = $this->object->save();
+
+			$product = $manager->get( $prodId, ['supplier'] );
+
+			$this->assertEmpty( $this->view->get( 'errors' ) );
+			$this->assertEmpty( $result );
+			$this->assertEquals( 1, count( $product->getListItems() ) );
+
+			foreach( $product->getListItems( 'supplier' ) as $listItem )
+			{
+				$this->assertEquals( $prodId, $listItem->getParentId() );
+				$this->assertEquals( 'promotion', $listItem->getType() );
+				$this->assertEquals( 'supplier', $listItem->getDomain() );
+				$this->assertEquals( '2000-01-01 00:00:00', $listItem->getDateStart() );
+				$this->assertEquals( '2100-01-01 00:00:00', $listItem->getDateEnd() );
+				$this->assertEquals( ['test' => 'value'], $listItem->getConfig() );
+				$this->assertEquals( $item->getId(), $listItem->getRefId() );
+				$this->assertEquals( 1, $listItem->getStatus() );
+			}
+		}
+		finally {
+			$manager->delete( $prodId );
 		}
 	}
 
@@ -142,8 +153,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->onlyMethods( ['render'] )->addMethods( ['config'] )
+			->onlyMethods( ['render'] )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
+
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
+		$view->addHelper( 'config', $helper );
 
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$view->item = $manager->find( 'unitSupplier001' );

@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Catalog\Media\Property;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;

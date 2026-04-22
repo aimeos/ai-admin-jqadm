@@ -8,7 +8,10 @@
 
 namespace Aimeos\Admin\JQAdm\Review;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+
+#[AllowMockObjectsWithoutExpectations]
 class StandardTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
@@ -201,6 +204,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( [[]] )
 			->onlyMethods( ['render'] )
 			->getMock();
+
+		$view->method( 'render' )->willReturn( '' );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $this->getItem()->getId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
