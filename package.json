@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/aimeos/ai-admin-jqadm#readme",
   "dependencies": {
-    "ckeditor5": "^47.3.0",
-    "@ckeditor/ckeditor5-vue": "^7.3.0",
-    "@he-tree/vue": "^2.9.4",
+    "ckeditor5": "^48.0.1",
+    "@ckeditor/ckeditor5-vue": "^7.4.2",
+    "@he-tree/vue": "^2.10.5",
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vueform/multiselect": "^2.6.6",
     "awesome-graphql-client": "^2.0.0",
