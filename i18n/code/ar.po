@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ar\n"
+"Language-Team: Arabic (http://app.transifex.com/aimeos/aimeos-core/language/ar/)\n"
+"Last-Translator: Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019\n"
-"Language-Team: Arabic (http://app.transifex.com/aimeos/aimeos-core/language/ar/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "!="
 msgstr "لا يساوي"
@@ -39,20 +33,11 @@ msgstr "بعد"
 msgid ">="
 msgstr "بعد (ضمن)"
 
-msgid "~="
-msgstr "يحتوي على"
-
 msgid "address:delivery"
 msgstr "عنوان التوصيل"
 
 msgid "address:payment"
 msgstr "عنوان الدفع"
-
-msgid "service:delivery"
-msgstr "التوصيل"
-
-msgid "service:payment"
-msgstr "الدفع"
 
 msgid "attribute"
 msgstr "السمة"
@@ -99,6 +84,12 @@ msgstr "القاعدة"
 msgid "service"
 msgstr "الخدمة"
 
+msgid "service:delivery"
+msgstr "التوصيل"
+
+msgid "service:payment"
+msgstr "الدفع"
+
 msgid "stock"
 msgstr "المخزون"
 
@@ -116,3 +107,6 @@ msgstr "النص"
 
 msgid "type"
 msgstr "النوع"
+
+msgid "~="
+msgstr "يحتوي على"

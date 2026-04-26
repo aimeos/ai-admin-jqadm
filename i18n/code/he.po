@@ -1,23 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# shmuel adler, 2024
-# shmuel adler, 2024
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: he\n"
+"Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
+"Last-Translator: shmuel adler, 2024\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: shmuel adler, 2024\n"
-"Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
 msgid "!="
 msgstr "לא שווה"
@@ -40,20 +33,11 @@ msgstr "אחרי"
 msgid ">="
 msgstr "אחרי (כולל)"
 
-msgid "~="
-msgstr "מכיל"
-
 msgid "address:delivery"
 msgstr "כתובת:משלוח"
 
 msgid "address:payment"
 msgstr "כתובת:תשלום"
-
-msgid "service:delivery"
-msgstr "משלוח"
-
-msgid "service:payment"
-msgstr "תשלום"
 
 msgid "attribute"
 msgstr "תכונה"
@@ -100,6 +84,12 @@ msgstr "כלל"
 msgid "service"
 msgstr "שירות"
 
+msgid "service:delivery"
+msgstr "משלוח"
+
+msgid "service:payment"
+msgstr "תשלום"
+
 msgid "stock"
 msgstr "מלאי"
 
@@ -117,3 +107,6 @@ msgstr "טקסט"
 
 msgid "type"
 msgstr "סוג"
+
+msgid "~="
+msgstr "מכיל"

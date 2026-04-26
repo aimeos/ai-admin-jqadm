@@ -1,23 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# محمد مسعودزاده, 2021
-# محمد مسعودزاده, 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fa\n"
+"Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
+"Last-Translator: محمد مسعودزاده, 2021\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: محمد مسعودزاده, 2021\n"
-"Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "!="
 msgstr "برابر نیست"
@@ -40,14 +33,56 @@ msgstr "بعد از"
 msgid ">="
 msgstr "پس از (شامل)"
 
-msgid "~="
-msgstr "شامل"
-
 msgid "address:delivery"
 msgstr "آدرس تحویل"
 
 msgid "address:payment"
 msgstr "آدرس صورتحساب"
+
+msgid "attribute"
+msgstr "ویژگی"
+
+msgid "basket"
+msgstr "سبد خرید"
+
+msgid "catalog"
+msgstr "فهرست"
+
+msgid "coupon"
+msgstr "کوپن"
+
+msgid "customer"
+msgstr "مشتری"
+
+msgid "group"
+msgstr "گروه"
+
+msgid "locale"
+msgstr "محلی"
+
+msgid "media"
+msgstr "رسانه‌ها"
+
+msgid "order"
+msgstr "سفارش"
+
+msgid "plugin"
+msgstr "پلاگین"
+
+msgid "price"
+msgstr "قیمت"
+
+msgid "product"
+msgstr "محصول"
+
+msgid "review"
+msgstr "مرور"
+
+msgid "rule"
+msgstr "قانون"
+
+msgid "service"
+msgstr "خدمات"
 
 msgid "service:delivery"
 msgstr "تحویل"
@@ -55,65 +90,23 @@ msgstr "تحویل"
 msgid "service:payment"
 msgstr "پرداخت"
 
-msgid "attribute"
-msgstr ""
-
-msgid "basket"
-msgstr ""
-
-msgid "catalog"
-msgstr ""
-
-msgid "coupon"
-msgstr ""
-
-msgid "customer"
-msgstr ""
-
-msgid "group"
-msgstr ""
-
-msgid "locale"
-msgstr ""
-
-msgid "media"
-msgstr ""
-
-msgid "order"
-msgstr "سفارش"
-
-msgid "plugin"
-msgstr ""
-
-msgid "price"
-msgstr ""
-
-msgid "product"
-msgstr ""
-
-msgid "review"
-msgstr "مرور"
-
-msgid "rule"
-msgstr ""
-
-msgid "service"
-msgstr ""
-
 msgid "stock"
-msgstr ""
+msgstr "موجودی"
 
 msgid "subscription"
-msgstr ""
+msgstr "اشتراک"
 
 msgid "supplier"
-msgstr ""
+msgstr "تأمین‌کننده"
 
 msgid "tag"
-msgstr ""
+msgstr "برچسب"
 
 msgid "text"
-msgstr ""
+msgstr "متن"
 
 msgid "type"
-msgstr ""
+msgstr "نوع"
+
+msgid "~="
+msgstr "شامل"

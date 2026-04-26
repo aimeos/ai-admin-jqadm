@@ -1,29 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Shoon Lae Won <wonshoonlae@gmail.com>, 2018
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: my\n"
+"Language-Team: Burmese (http://app.transifex.com/aimeos/aimeos-core/language/my/)\n"
+"Last-Translator: Shoon Lae Won <wonshoonlae@gmail.com>, 2018\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 11:47+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Shoon Lae Won <wonshoonlae@gmail.com>, 2018\n"
-"Language-Team: Burmese (http://app.transifex.com/aimeos/aimeos-core/language/my/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: my\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "တစ်နှစ်လျှင် နှစ်ကြိမ်"
 
 #, php-format
 msgid ""
@@ -36,6 +30,14 @@ msgid ""
 "%11$s\n"
 "%12$s"
 msgstr ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
 
 #, php-format
 msgid ""
@@ -52,1220 +54,1188 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
+""
 msgstr ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+""
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
-msgstr ""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
+msgstr "ခွဲခြားသင်္ကေတမပါသော (အပြည်ပြည်ဆိုင်ရာ) ဖက်စ်နံပါတ်သည် \"+\" ဖြင့် စတင်နိုင်သည်။"
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
-msgstr ""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
+msgstr "ခွဲခြားသင်္ကေတများမပါသော (အပြည်ပြည်ဆိုင်ရာ) တယ်လီဖုန်းနံပါတ်သည် \"+\" ဖြင့် စတင်နိုင်သည်။"
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ အခွန်"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "လျှို့ဝှက်"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API သော့"
 
 msgid "Account"
 msgstr "အကောင့်"
 
 msgid "Active"
-msgstr ""
+msgstr "လှုပ်ရှားနေသော"
 
 msgid "Actual price"
-msgstr ""
+msgstr "တကယ့်ဈေးနှုန်း"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "ဝဘ်ဆိုဒ်တွင် ဖောက်သည်များသည် ထိုပစ္စည်းကို ဝယ်ယူနိုင်သည့် အမှန်တကယ် စျေးနှုန်း။"
 
 msgid "Add"
 msgstr "ထည့်မည်"
 
 msgid "Add after"
-msgstr ""
+msgstr "နောက်ထပ်ထည့်ပါ"
 
 msgid "Add before"
-msgstr ""
+msgstr "မတိုင်ခင်ထည့်ပါ"
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
-msgstr ""
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
+msgstr "ပစ္စည်းတစ်ခုချင်းစီအတွက် ပို့ဆောင်ခ ထပ်ဆောင်းကြေးများ၊ ဥပမာ အလေးချိန်ကြီးသော ပစ္စည်းတစ်ခုအတွက် $20 ဖြစ်ပြီး၊ ပစ္စည်းငါးခုအတွက် စုစုပေါင်း $100 ဖြစ်ပါမည်။"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "ဖောက်သည်၏ တည်းခိုခန်းကို တွေ့နိုင်မည့် နေရာအပိုအချက်အလက်"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "ပံ့ပိုးသူ၏ တည်းခိုခန်းကို ဘယ်မှာ တွေ့နိုင်သည်ဆိုသည့် ထပ်ဆောင်းအချက်အလက်"
 
 msgid "Address 1"
-msgstr ""
+msgstr "လိပ်စာ ၁"
 
 msgid "Address 2"
-msgstr ""
+msgstr "လိပ်စာ ၂"
 
 msgid "Address 3"
-msgstr ""
+msgstr "လိပ်စာ ၃"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "ပို့ဆောင်ရန် ဖောက်သည်၏အိမ်လိပ်စာ အမှတ်"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "ပို့ဆောင်ရန်အတွက် ပေးသွင်းသူ၏ အိမ်လိပ်စာ အမှတ်"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "အုပ်ချုပ်ရေး JQAdm အမျိုးအစားဟာ ဗလာနေပါတယ်။"
 
 msgid "Advanced"
-msgstr ""
+msgstr "အဆင့်မြင့်"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos caching ကို \"%1$s\" ဖြင့် ပိတ်ထားသည်။"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos ၏ debug မှတ်တမ်းရေးခြင်းကို \"%1$s\" ဖြင့် ဖွင့်ထားသည်။"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos အရာဝတ္ထု မရရှိနိုင်ပါ"
 
 msgid "All"
 msgstr "အားလုံး"
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
-msgstr ""
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
+msgstr "အထည်တစ်စုံကို ထူးခြားစွာ သတ်မှတ်ပေးသည့် လက္ခဏာအားလုံး၊ ဥပမာ ဂျင်းဘောင်းဘီအတွက် အကျယ်၊ အရှည်နှင့် အရောင်။"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "စိတ်ကြိုက်စျေးနှုန်းခွင့်ပြုပါ"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "ဖောက်သည်များအား မိမိတို့လိုချင်သလို ပေးချေရန် ရွေးချယ်ခွင့်ပြုပါ။"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "အုပ်စုကို ထူးခြားစွာ သတ်မှတ်နိုင်သည့် အက္ခရာနှင့် ဂဏန်း ပေါင်းစပ် စာကြောင်း"
 
 msgid "Apply"
-msgstr ""
+msgstr "လျှောက်ထားပါ"
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
-msgstr ""
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
+msgstr "ဆောင်းပါးအထူး ဖွဲ့စည်းမှုရွေးချယ်စရာများကို ပုံစံများတွင် key/value တွဲများအဖြစ် ရရှိနိုင်ပါမည်။"
 
 msgid "Attribute"
 msgstr "Attribute"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "အင်္ဂါရပ်စာရင်းအမျိုးအစား"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "အင်္ဂါရပ်စာရင်းအမျိုးအစားများ"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "အင်္ဂါရပ် ဂုဏ်သတ္တိ အမျိုးအစား"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "အင်္ဂါရပ် ဂုဏ်သတ္တိ အမျိုးအစားများ"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "အင်္ဂါရပ်အမျိုးအစား"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "အင်္ဂါရပ်အမျိုးအစားများ"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "အင်္ဂါရပ် တည်နေရာ (လိုအပ်ပါက)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "အခြား attribute များနှင့် မမျှဝေထားသော attribute ပိုင်ဆိုင်မှုများ"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "ရရှိနိုင်သည့် အင်္ဂါရပ်စာရင်းကို ကန့်သတ်သည့် အင်္ဂါရပ်အမျိုးအစား"
 
 msgid "Attributes"
-msgstr ""
+msgstr "အင်္ဂါရပ်များ"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "လက်ရှိဆိုဒ်အတွက် ရနိုင်သော ငွေကြေး"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "ရှေ့ဖက်တွင် ရနိုင်သည့် ကာလများ"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "လက်ရှိဆိုဒ်အတွက် ရနိုင်သော ဘာသာစကား"
 
-msgid ""
-"Average product rating and total number of ratings by customers for this "
-"product"
-msgstr ""
+msgid "Average product rating and total number of ratings by customers for this product"
+msgstr "ဤထုတ်ကုန်အတွက် ဖောက်သည်များမှ ပေးထားသော ပျမ်းမျှအဆင့်သတ်မှတ်ချက်နှင့် အဆင့်သတ်မှတ်ချက်စုစုပေါင်းအရေအတွက်"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "ပြန်လည်ရရှိပါပြီ"
 
 msgid "Basic"
-msgstr ""
+msgstr "အခြေခံ"
 
 msgid "Basket"
 msgstr "Basket"
 
 msgid "Billing address"
-msgstr ""
+msgstr "ငွေတောင်းခံလိပ်စာ"
 
 msgid "Birthday"
 msgstr "မွေးနေ့"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "ဖောက်သည်၏ မွေးနေ့"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "တိုးမြှင့်မှုအချက်"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "တိုးမြှင့်အချက် (လိုအပ်ပါက)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "အမှားလား၊ အကြံပြုချက်လား?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "အစုလိုက် တည်းဖြတ်ခြင်း"
 
 msgid "Cancel"
-msgstr ""
+msgstr "ဖျက်ရန်"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "ဖျက်၍ စာရင်းသို့ ပြန်သွား"
 
 msgid "Catalog"
 msgstr "Catalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "စာရင်းအမျိုးအစား"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "စာရင်းတွင် အမျိုးအစားများ ဖော်ပြထားသည်။"
 
 msgid "Categories"
 msgstr "အမျိုးအစားများ"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "ဝဘ်ဆိုဒ်ပေါ်တွင် အသုံးပြုသူများသည် ထုတ်ကုန်ကို ရှာတွေ့နိုင်သည့် အမျိုးအစားများ"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "ပရိုမိုးရှင်းအပိုင်းတွင် ထုတ်ကုန်ကို ပြသမည့် အမျိုးအစားများ"
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
-msgstr ""
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr "အမျိုးအစားအလိုက် ဖော်မတ်ဆက်တင်ရွေးချယ်စရာများကို ပုံစံများတွင် key/value တွဲများအဖြစ် ရရှိနိုင်ပါမည်။"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "တစ်ခုလျှင် ကုန်ကျစရိတ်ကို % ဖြင့် ပြောင်းပါ။"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "rebate ကို ရာခိုင်နှုန်းဖြင့် ပြောင်းပါ။"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "ရာခိုင်နှုန်းဖြင့် တန်ဖိုးပြောင်းပါ"
 
 msgid "Channel"
-msgstr ""
+msgstr "ချန်နယ်"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "အော်ဒါကို ချန်နယ်မှ တင်ထားပြီးပါပြီ။"
 
 msgid "Choose file"
-msgstr ""
+msgstr "ဖိုင်ကိုရွေးပါ"
 
 msgid "City"
 msgstr "မြို့နယ်"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "မြို့ သို့မဟုတ် မြို့ငယ်အမည် (လိုအပ်သည်)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "Class \"%1$s\" သည် \"%2$s\" ကို အကောင်အထည်မဖော်ပါ။"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Class \"%1$s\" မရရှိနိုင်ပါ။"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Class \"%1$s\" မတွေ့ပါ"
 
 msgid "Close"
 msgstr "ပိတ်မည်"
 
 msgid "Code"
-msgstr ""
+msgstr "ကုဒ်"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "ဆိုက်ကို ထူးခြားစွာ သတ်မှတ်ရန် သုံးသော ကုဒ်၊ အမည်ပြောင်းခြင်းသည် အန္တရာယ်ရှိသည်။"
 
 msgid "Columns"
-msgstr ""
+msgstr "ကော်လံများ"
 
 msgid "Comment"
-msgstr ""
+msgstr "မှတ်ချက်"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "သုံးသပ်သူ၏ မှတ်ချက်"
 
 msgid "Communication"
-msgstr ""
+msgstr "ဆက်သွယ်ရေး"
 
 msgid "Company"
 msgstr "ကုမ္ပဏီ"
 
 msgid "Company details"
-msgstr ""
+msgstr "ကုမ္ပဏီအသေးစိတ်"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "ကုမ္ပဏီအမည် (လိုအပ်ပါက)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "ပြီးစီးပြီးသော အော်ဒါများ"
 
-msgid ""
-"Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgid "Completed orders within the last seven days compared to the period before"
+msgstr "ပြီးခဲ့သည့် ၇ ရက်အတွင်း ပြီးစီးခဲ့သော အော်ဒါများကို ယခင်ကာလနှင့် နှိုင်းယှဉ်ခြင်း"
 
 msgid "Config"
-msgstr ""
+msgstr "ပြင်ဆင်ချက်များ"
 
 msgid "Configurable"
-msgstr ""
+msgstr "ပြင်ဆင်နိုင်သော"
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgid "Configuration options, will be available as key/value pairs in the list item"
+msgstr "ပြင်ဆင်မှုရွေးချယ်စရာများကို စာရင်းအချက်အလက်အတွင်း key/value တွဲများအဖြစ် ရရှိနိုင်ပါမည်။"
 
 msgid "Context"
-msgstr ""
+msgstr "အကြောင်းအရာ"
 
 msgid "Copy"
-msgstr ""
+msgstr "ကူးယူ"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "ဤစာကြောင်းကို မိတ္တူကူးပါ။"
 
 msgid "Costs"
-msgstr ""
+msgstr "ကုန်ကျစရိတ်များ"
 
 msgid "Count"
-msgstr ""
+msgstr "ရေတွက်"
 
 msgid "Country"
 msgstr "နိုင်ငံ"
 
 msgid "Country ID"
-msgstr ""
+msgstr "နိုင်ငံကုဒ်"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "နိုင်ငံကုဒ် (လိုအပ်သည်)"
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
-msgstr ""
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
+msgstr "နိုင်ငံအလိုက် အခွန်နှုန်းကို တွက်ချက်၍ ထည့်သွင်းထားသော အခွန် (B2C) ကို ပြသရန် သို့မဟုတ် လိုအပ်ပါက အခွန်ထပ်ထည့်ရန် (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "နိုင်ငံကုဒ် (လိုအပ်ပါက)"
 
 msgid "Coupon"
 msgstr "ကူပွန်"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "ကူပွန်ပေးသူ သို့မဟုတ် ကူပွန်အလှဆင်သူ ဖွဲ့စည်းမှုအမည်"
 
 msgid "Created"
-msgstr ""
+msgstr "ဖန်တီးခဲ့သည်"
 
 msgid "Currencies"
-msgstr ""
+msgstr "ငွေကြေးများ"
 
 msgid "Currency"
-msgstr ""
+msgstr "ငွေကြေး"
 
 msgid "Custom"
-msgstr ""
+msgstr "စိတ်ကြိုက်"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "သင့်ဆိုင်အတွက် စိတ်တိုင်းကျ ဒိုမိန်း သို့မဟုတ် ထူးခြားသောကုဒ်"
 
 msgid "Customer"
 msgstr "Customer"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ဖောက်သည် ID"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "ဖောက်သည်စာရင်းအမျိုးအစား"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "ဖောက်သည်စာရင်းအမျိုးအစားများ"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "ဖောက်သည်ပိုင်ဆိုင်မှုအမျိုးအစား"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "ဖောက်သည်ပိုင်ဆိုင်မှုအမျိုးအစားများ"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "အခြားဖောက်သည်များနှင့် မမျှဝေထားသော ဖောက်သည်၏ လက္ခဏာများ"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "ဖောက်သည်မှ မှတ်ချက် (လိုအပ်ပါက)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "ဖောက်သည်၏ အီးမေးလ်လိပ်စာ"
 
 msgid "Customer password"
-msgstr ""
+msgstr "ဖောက်သည် စကားဝှက်"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "အခြားဖောက်သည်များနှင့် မမျှဝေထားသော ဖောက်သည်၏ ပိုင်ဆိုင်မှုများ"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "ဖောက်သည် ကိုးကားချက်"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "ဖောက်သည် ကိုးကားချက် (လိုအပ်ပါက)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "ဒက်ရှ်ဘုတ်"
 
 msgid "Data"
-msgstr ""
+msgstr "ဒေတာ"
 
 msgid "Data set"
-msgstr ""
+msgstr "ဒေတာအစု"
 
 msgid "Dataset"
-msgstr ""
+msgstr "ဒေတာအစု"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "နောက်ဆုံးပို့ဆောင်မှုအခြေအနေပြောင်းလဲခဲ့သည့် ရက်စွဲ"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "နောက်ဆုံး ငွေပေးချေမှု အခြေအနေ ပြောင်းလဲခဲ့သည့် ရက်စွဲ"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "စာရင်းသွင်းမှုပြီးဆုံးမည့်ရက်"
 
 msgid "Days"
-msgstr ""
+msgstr "ရက်များ"
 
 msgid "Default"
-msgstr ""
+msgstr "မူလတန်ဖိုး"
 
 msgid "Delete"
-msgstr ""
+msgstr "ဖျက်ပါ"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "မှတ်တမ်းများကို ဖျက်မည်လား?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "ရွေးထားသော မှတ်တမ်းများကို ဖျက်ပါ"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "ဤ မှတ်တမ်းကို ဖျက်ပါ"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "သုံးသပ်ချက်များကို ဖျက်ခြင်း မခွင့်ပြုပါ။"
 
 msgid "Delivery"
-msgstr ""
+msgstr "ပို့ဆောင်ခြင်း"
 
 msgid "Delivery address"
 msgstr "ပေးပို့ရမည့်လိပ်စာ"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "ပို့ဆောင်မည့်ရက်"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "ပို့ဆောင်ချိန်"
 
-msgid ""
-"Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgid "Delivery or payment costs for the products in the basket of the customer"
+msgstr "ဖောက်သည်၏ စျေးဝယ်အိတ်ထဲရှိ ကုန်ပစ္စည်းများအတွက် ပို့ဆောင်ခ သို့မဟုတ် ငွေပေးချေမှု ကုန်ကျစရိတ်"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "ပို့ဆောင်မှုအခြေအနေ"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "ပို့ဆောင်ချိန်ကာလ (ရွေးချယ်နိုင်သည်)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "ပို့ဆောင်မှုအမျိုးအစားများ"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "အတွင်းပို့ဆောင်ခြင်း"
 
-msgid ""
-"Depending on the selected data set, the list of shown fields for the product"
-" will be different"
-msgstr ""
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
+msgstr "ရွေးချယ်ထားသော ဒေတာအစုပေါ် မူတည်၍ ထုတ်ကုန်အတွက် ပြသထားသော ကွက်လပ်များစာရင်းက ကွဲပြားမည်။"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "သင့်ပုံကို ဖော်ပြပါ။"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "နိုင်ငံခြားဘာသာစကားဖြင့် ရေးသားထားသော စာသားအကြောင်းအရာ၏ ဖော်ပြချက်။"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "ငွေကြေး၏ ဖော်ပြချက်အမည်"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "ဘာသာစကား၏ ဖော်ပြချက်အမည်"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "ဆိုက်၏ ဖော်ပြချက်အမည်"
 
 msgid "Discount"
-msgstr ""
+msgstr "လျှော့စျေး"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "ကူညီစာသားများကို ပြသပါ။"
 
 msgid "Domain"
-msgstr ""
+msgstr "ဒိုမိန်း"
 
 msgid "Download"
-msgstr ""
+msgstr "ဒေါင်းလုဒ်"
 
 msgid "Download this file"
-msgstr ""
+msgstr "ဤဖိုင်ကို ဒေါင်းလုဒ်လုပ်ပါ။"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "ထပ်ထည့်ခြင်း"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "ထပ်ထည့်ရန် (Ctrl+D)"
 
 msgid "E-Mail"
-msgstr ""
+msgstr "အီးမေးလ်"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "အီးမေးလ်လိပ်စာ (လိုအပ်သည်)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "အီးမေးလ်လိပ်စာ သို့မဟုတ် အကောင့်အမည် (လိုအပ်သည်)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "ဆိုင်နှင့်ဆိုင်သော အီးမေးလ်များ ပို့ရန် အသုံးပြုသော အီးမေးလ်လိပ်စာ"
 
 msgid "E-mail"
-msgstr ""
+msgstr "အီးမေးလ်"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "အီးမေးလ်လိပ်စာ (လိုအပ်ပါက)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "လိပ်စာနှင့်ဆက်စပ်သော အီးမေးလ်လိပ်စာ"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN၊ SKU သို့မဟုတ် ပစ္စည်းနံပါတ် (လိုအပ်သည်)"
 
 msgid "Edit"
-msgstr ""
+msgstr "ပြင်ဆင်"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "ရွေးထားသော မှတ်တမ်းများကို တည်းဖြတ်ပါ။"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "ဤစာရင်းဝင်ကို တည်းဖြတ်ပါ။"
 
 msgid "Editor"
-msgstr ""
+msgstr "အယ်ဒီတာ"
 
 msgid "Email"
-msgstr ""
+msgstr "အီးမေးလ်"
 
 msgid "End date"
-msgstr ""
+msgstr "အဆုံးသတ်ရက်"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "အဆုံးသတ်ရက် (ရွေးချယ်နိုင်သည်)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "အုပ်စု ID၊ ကုဒ် သို့မဟုတ် တံဆိပ်ကို ထည့်ပါ။"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "မှတ်တမ်းကို အောင်မြင်စွာ ဖျက်လိုက်ပါပြီ။"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "ဝင်စာအောင်မြင်စွာ သိမ်းဆည်းပြီးပါပြီ။"
 
-msgid ""
-"Entry specific configuration options, will be available as key/value pairs "
-"in the templates"
-msgstr ""
+msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
+msgstr "အထူးသတ်မှတ်ချက်များအတွက် ဖော်မတ်ရွေးချယ်စရာများကို ပုံစံများတွင် key/value တွဲများအဖြစ် ရရှိနိုင်ပါမည်။"
 
 msgid "Error"
-msgstr ""
+msgstr "အမှား"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "ဒေတာဖျက်ရာတွင် အမှားဖြစ်ပါသည်။"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "ဒေတာရယူရာတွင် အမှားဖြစ်နေပါသည်။"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "ဒေတာသိမ်းဆည်းရာတွင် အမှား"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "အခွန်မပါ"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "ပလပ်ဂင်များ၏ အကောင်အထည်ဖော်ခြင်း အမိန့်"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "စည်းကမ်းများအကောင်အထည်ဖော်ရေး အမိန့်"
 
 msgid "Export"
-msgstr ""
+msgstr "တင်ပို့"
 
 msgid "Facility"
-msgstr ""
+msgstr "အဆောက်အအုံ"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "မိတ္တူကူး"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "မိတ္တူနံပါတ် (လိုအပ်ပါက)"
 
-msgid ""
-"Factor to boost product in user search over other products (>1.0 positive "
-"boost, <1.0 negative boost)"
-msgstr ""
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
+msgstr "အခြားထုတ်ကုန်များနှင့်နှိုင်းယှဉ်၍ အသုံးပြုသူရှာဖွေမှုတွင် ထုတ်ကုန်အား မြှင့်တင်ရန် အချက် (>1.0 သည် အပြုမြှင့်တင်မှု၊ <1.0 သည် အနုတ်မြှင့်တင်မှု)။"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ဒစ်စခ််ပေါ်တွင် ဖိုင်ရေးရန် မအောင်မြင်ပါ။"
 
 msgid "File"
-msgstr ""
+msgstr "ဖိုင်"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "ဖိုင် မတွေ့ပါ: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "ဖိုင်တင်ခြင်းကို အက်ဆတန်ရှင်းမှ ရပ်တန့်ထားသည်။"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "ဖိုင်ကို အောင်မြင်စွာ တင်ပြီးပါပြီ။"
 
 msgid "Find category"
-msgstr ""
+msgstr "အမျိုးအစားရှာပါ"
 
 msgid "Find site"
-msgstr ""
+msgstr "ဆိုက်ရှာပါ"
 
 msgid "First"
-msgstr ""
+msgstr "ပထမ"
 
 msgid "First name"
-msgstr ""
+msgstr "အမည်ပထမ"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "အမည် (လိုအပ်ပါက)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "လူနာမည်ကို ယဉ်ကျေးမှုအချို့တွင် အသုံးပြုလေ့ရှိပါက ပထမနာမည်။"
 
 msgid "Floor"
-msgstr ""
+msgstr "ကြမ်းပြင်"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "ကြမ်းပြင် / တိုက်ခန်း"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "ကြမ်းပြင် သို့မဟုတ် တိုက်ခန်း (ရွေးချယ်နိုင်သည်)"
 
 msgid "For"
-msgstr ""
+msgstr "အတွက်"
 
 msgid "Generate"
-msgstr ""
+msgstr "ဖန်တီး"
 
 msgid "Generate image"
-msgstr ""
+msgstr "ပုံဖန်တီးပါ"
 
 msgid "Generate text"
-msgstr ""
+msgstr "စာသားဖန်တီးပါ"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "ပြန်အမ်းငွေပမာဏပေးထားသည်"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "အင်္ဂါရပ် ပန်နယ်သို့ သွားပါ။"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "ပိုင်ဆိုင်မှုအမျိုးအစား ပန်နယ်သို့ သွားပါ။"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "အင်္ဂါရပ်အမျိုးအစားများစာရင်းသို့ သွားပါ။"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "လျှော့စျေးခွင့်ပြုခဲ့သည်"
 
 msgid "Group"
 msgstr "Group"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "အဖွဲ့အမည်သည် အဖွဲ့ကို ဘယ်သူများအတွက် ရည်ရွယ်ထားသည်ကို ဖော်ပြသည်။"
 
 msgid "Groups"
-msgstr ""
+msgstr "အဖွဲ့များ"
 
 msgid "Height"
-msgstr ""
+msgstr "အမြင့်"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "ဖုံးကွယ်ထားသော လက္ခဏာများ"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "မှာယူထားသော ထုတ်ကုန်များနှင့်အတူ သိမ်းဆည်းထားသော ဖုံးကွယ်ထားသော ထုတ်ကုန်အင်္ဂါရပ်များ"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "ထုတ်ကုန်၏ ထင်ရှားသော ပံ့ပိုးပေးသူများ"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "ဂုဏ်ထူးခေါင်းစဉ် (လိုအပ်ပါက)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Dr.၊ Ph.D. စသည့် ဂုဏ်ထူးခေါင်းစဉ်များ"
 
 msgid "Hours"
-msgstr ""
+msgstr "နာရီများ"
 
 msgid "House number"
-msgstr ""
+msgstr "အိမ်နံပါတ်"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "အိမ်နံပါတ် (လိုအပ်ပါက)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "အီးမေးလ်များတွင် ဖောက်သည်အား ဘယ်လို လိပ်စာဖော်ပြသနည်း။"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "အီးမေးလ်များတွင် ပေးသွင်းသူအား ဘယ်လို လိပ်စာဖော်ပြထားသလဲ။"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "အလွန်တကယ့်နှင့် ဒရာမတစ်"
 
 msgid "ID"
-msgstr ""
+msgstr "အိုင်ဒီ"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "ဆက်စပ်ငွေတောင်းခံလွှာတစ်ခု၏ ID၊ ဥပမာ ပြင်ဆင်ထားသော သို့မဟုတ် ပြန်အမ်းပေးထားသော ငွေတောင်းခံလွှာ"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO ငွေကြေးကုဒ် (လိုအပ်သည်)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO ဘာသာစကားကုဒ် (လိုအပ်သည်)"
 
 msgid "Image"
-msgstr ""
+msgstr "ပုံ"
 
 msgid "Image description"
-msgstr ""
+msgstr "ပုံဖော်ပြချက်"
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
-msgstr ""
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
+msgstr "ပုံများကို ထိုဘာသာစကားအတွက်သာ ပြသမည်ဖြစ်ပြီး၊ မီဒီယာတွင် စာသားပါဝင်ပါက သို့မဟုတ် ဘာသာစကားအထူးသတ်မှတ်ထားပါက အသုံးဝင်ပါသည်။"
 
 msgid "Import"
-msgstr ""
+msgstr "တင်သွင်း"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "တင်သွင်း/တင်ပို့ အလုပ်များ"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "အခွန်ပါဝင်သည်။"
 
 msgid "Info"
-msgstr ""
+msgstr "အချက်အလက်"
 
 msgid "Insert into"
-msgstr ""
+msgstr "ထည့်သွင်းရန်"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "အသစ်ထည့်ပါ"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "အသစ်ထည့်ပါ (Ctrl+I)"
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
-msgstr ""
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgstr "အတွင်းဆောင်းပါးအမည်ကို ဝဘ်ဆိုဒ်ပေါ်တွင်နှင့် ရှာဖွေရေးအတွက်သာ အသုံးပြုမည်ဖြစ်ပြီး၊ မည်သည့်ဘာသာစကားတွင်မဆို အခြားထုတ်ကုန်အမည် မရှိပါကသာ အသုံးပြုမည်။"
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
-msgstr ""
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
+msgstr "ဘာသာစကားအတွက် ထုတ်ကုန်အမည် မရရှိပါက ဝက်ဘ်ဆိုဒ်တွင် အသုံးပြုရန် အတွင်းရေးဆောင်းပါးအမည်။"
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
+msgstr "ဘာသာစကားအမည် မရရှိပါက ဝဘ်ဆိုဒ်တွင် အတွင်းပိုင်း အမည်ကို အသုံးပြုမည်။"
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal category name, will be used on the web site if no name for the language is available"
+msgstr "ဘာသာစကားအတွက် အမည် မရရှိပါက ဝဘ်ဆိုဒ်တွင် အတွင်းပိုင်း အမျိုးအစားအမည်ကို အသုံးပြုမည်။"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "အတွင်းအမည် (လိုအပ်သည်)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "စီမံခန့်ခွဲမှု အင်တာဖေ့စ်တွင် ပြသထားသော အတွင်းပိုင်း အမျိုးအစားအမည်"
 
 msgid "Interval"
-msgstr ""
+msgstr "အကြားကာလ"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "အကြားကာလ (လိုအပ်သည်)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "class အမည် \"%1$s\" တွင် မမှန်ကန်သော အက္ခရာများ ပါဝင်နေပါသည်။"
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Client အမည် \"%1$s\" တွင် မမှန်ကန်သော အက္ခရာများ ပါဝင်နေပါသည်။"
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "အတန်းအမည် \"%1$s\" သည် မမှန်ကန်ပါ။"
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "မမှန်ကန်သော ဒိုမိန်း \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "မမှန်ကန်သော စက်ရုံ \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာ"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာနံပါတ်"
 
 msgid "Invoice no."
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာနံပါတ်"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာနံပါတ်"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "အော်ဒါအတွက် ငွေတောင်းခံလွှာနံပါတ်"
 
 msgid "Label"
-msgstr ""
+msgstr "အမှတ်တံဆိပ်"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "အမှတ်တံဆိပ် (လိုအပ်သည်)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "အမည်မရရှိပါက အကွာအဝေးကို ဖော်ပြသည့် တံဆိပ်ကို အသုံးပြုမည်။"
 
 msgid "Language"
 msgstr "ဘာသာစကား"
 
 msgid "Language ID"
-msgstr ""
+msgstr "ဘာသာစကား အိုင်ဒီ"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "ထည့်သွင်းထားသော စာသား၏ ဘာသာစကား"
 
 msgid "Languages"
-msgstr ""
+msgstr "ဘာသာစကားများ"
 
 msgid "Last"
-msgstr ""
+msgstr "နောက်ဆုံး"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "အော်ဒါ၏ နောက်ဆုံး ပို့ဆောင်မှု အခြေအနေ"
 
 msgid "Last name"
-msgstr ""
+msgstr "နောက်ဆုံးနာမည်"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "နောက်ဆုံးနာမည် (လိုအပ်ပါက)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "နောက်အမည် (လိုအပ်သည်)"
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
-msgstr ""
+msgid "Last name of the person or full name in cultures where no first names are used"
+msgstr "နာမည်မသုံးသော ယဉ်ကျေးမှုများတွင် လူတစ်ဦး၏ နောက်ဆုံးနာမည် သို့မဟုတ် အပြည့်အစုံနာမည်"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "အော်ဒါ၏ နောက်ဆုံး ငွေပေးချေမှု အခြေအနေ"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "နောက်ဆုံးအမှာစာများ"
 
 msgid "Length"
 msgstr "အနံ"
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
-msgstr ""
+msgid "List of articles that should be sold as one product, often at a reduced price"
+msgstr "တစ်ခုတည်းအဖြစ် ရောင်းချသင့်ပြီး၊ မကြာခဏ လျှော့စျေးဖြင့် ရောင်းချသော ဆောင်းပါးများစာရင်း"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "အတူတကွ မကြာခဏ ဝယ်ယူသော ထုတ်ကုန်များစာရင်း"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "အကြံပြုထားသော ထုတ်ကုန်များစာရင်း"
 
 msgid "List type"
-msgstr ""
+msgstr "စာရင်းအမျိုးအစား"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "မှတ်တမ်းများ တင်နေပါသည်..."
 
 msgid "Locale"
 msgstr "Locale"
 
 msgid "Log"
-msgstr ""
+msgstr "မှတ်တမ်း"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "လက်ဖြင့်လွှဲပြောင်းခြင်း"
 
 msgid "Map"
-msgstr ""
+msgstr "မြေပုံ"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "မီဒီယာစာရင်းအမျိုးအစား"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "မီဒီယာစာရင်းအမျိုးအစားများ"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "မီဒီယာ ပိုင်ဆိုင်မှု အမျိုးအစား"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "မီဒီယာပိုင်ဆိုင်မှုအမျိုးအစားများ"
 
 msgid "Media Type"
-msgstr ""
+msgstr "မီဒီယာအမျိုးအစား"
 
 msgid "Media Types"
-msgstr ""
+msgstr "မီဒီယာအမျိုးအစားများ"
 
 msgid "Media properties"
-msgstr ""
+msgstr "မီဒီယာပိုင်ဆိုင်မှုများ"
 
 msgid "Menu"
-msgstr ""
+msgstr "စာရင်း"
 
 msgid "Message"
-msgstr ""
+msgstr "မက်ဆေ့ခ်ျ"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "အနည်းဆုံး အရေအတွက်"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "အနည်းဆုံးအရေအတွက်"
 
 msgid "Mobile"
-msgstr ""
+msgstr "မိုဘိုင်း"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "မိုဘိုင်းနံပါတ်"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "မိုဘိုင်းနံပါတ် (လိုအပ်ပါက)"
 
 msgid "Model"
-msgstr ""
+msgstr "မော်ဒယ်"
 
 msgid "Modifed"
-msgstr ""
+msgstr "ပြင်ဆင်ထားသော"
 
 msgid "Modified"
-msgstr ""
+msgstr "ပြင်ဆင်ထားသော"
 
 msgid "Months"
-msgstr ""
+msgstr "လများ"
 
 msgid "More"
-msgstr ""
+msgstr "ပိုမို"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "ဤစာရင်းဝင်ကို အပေါ်/အောက် ရွှေ့ပါ။"
 
 msgid "Name"
 msgstr "အမည်"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "URL တွင် နာမည် (လိုအပ်ပါက)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "ပုံးအမည်"
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgid "Name of the downloaded file when customers saves the file on their computers"
+msgstr "ဖောက်သည်များသည် ဖိုင်ကို သူတို့၏ ကွန်ပျူတာတွင် သိမ်းဆည်းသည့်အခါ ဒေါင်းလုဒ်လုပ်ထားသော ဖိုင်အမည်"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "သုံးသပ်သူ၏အမည်"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "သင့်ဆိုင်အမည်ကို ဖောက်သည်များအား ပြသသည်။"
 
 msgid "Natural"
-msgstr ""
+msgstr "သဘာဝ"
 
 msgid "New"
-msgstr ""
+msgstr "အသစ်"
 
 msgid "New category"
-msgstr ""
+msgstr "အသစ်အမျိုးအစား"
 
 msgid "New customers"
-msgstr ""
+msgstr "အသစ်သော ဖောက်သည်များ"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၇ ရက်အတွင်း အသစ်ရောက်ရှိလာသော ဖောက်သည်များ"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "ယခင်ကာလနှင့် နှိုင်းယှဉ်၍ နောက်ဆုံး ၇ ရက်အတွင်း ရောက်ရှိလာသော ဖောက်သည်အသစ်များ"
 
 msgid "Next"
-msgstr ""
+msgstr "နောက်တစ်ခု"
 
 msgid "Next date"
-msgstr ""
+msgstr "နောက်တစ်ကြိမ်တွေ့မယ့်ရက်"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "နောက်တစ်ကြိမ် တွေ့မည့် ရက်စွဲ (လိုအပ်ပါက)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "စာရင်းသွင်းမှုကို နောက်တစ်ကြိမ် ပြန်လည်သက်တမ်းတိုးမည့် ရက်စွဲ"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "ငွေကြေးမတွေ့ပါ။ အနည်းဆုံး တစ်ခုသော ငွေကြေးကို ဖွင့်ပါ။"
 
 msgid "No entries found"
-msgstr ""
+msgstr "မတွေ့ရှိပါ"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "ဖိုင်မတင်နိုင်ခဲ့ပါ"
 
 msgid "No product found"
-msgstr ""
+msgstr "ထုတ်ကုန် မတွေ့ပါ။"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "အကြောင်းအရာရွေးချယ်စရာ မရရှိနိုင်ပါ။"
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "ကြည့်ရှုရန် မရနိုင်ပါ"
 
 msgid "No voucher"
-msgstr ""
+msgstr "လျှော့စျေးကတ်မရှိပါ"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "မီဒီယာအိုင်တမ်အတွက် မမျှဝေသည့် အင်္ဂါရပ်များ"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "စျေးနှုန်းပစ္စည်းအတွက် မမျှဝေသည့် အင်္ဂါရပ်များ"
 
 msgid "None"
-msgstr ""
+msgstr "မရှိပါ"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "အချက်အလက်အားလုံးကို ဖျက်၍ မရနိုင်ပါ။"
 
 msgid "Not allowed or editor site is different"
-msgstr ""
+msgstr "ခွင့်မပြုထားပါ သို့မဟုတ် အယ်ဒီတာဆိုဒ်က ကွဲပြားနေသည်။"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "JQAdm \"%1$s\" client ကို ဝင်ရောက်ခွင့် မပြုပါ။"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "အကောင်အထည်မဖော်သေးပါ"
 
 msgid "Notes"
-msgstr ""
+msgstr "မှတ်စုများ"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "မှတ်ချက်များ (ဖောက်သည်ထံ မပြသပါ)"
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "လက်ရှိတွင် ပစ္စည်းအရေအတွက်၊ အကန့်အသတ်မဲ့ အရေအတွက် ရယူရန် အကွက်ကို ဗလာထားပါ။"
 
 msgid "OK"
-msgstr ""
+msgstr "အိုကေ"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "အခွန်ကို ငွေတောင်းခံလွှာများတွင် ထည့်သွင်းရန် လိုအပ်မလိုအပ်ကို သတ်မှတ်ရန် တရားဝင် VAT အမှတ်"
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgid "One provider and zero or more decorator class names separated by commas"
+msgstr "ပရိုဗိုင်ဒါတစ်ခုနှင့် ကော်မာဖြင့် ခွဲထားသော ဒကိုရေးတာ ကလပ်နာမည် သုညခု သို့မဟုတ် ထိုထက်ပိုများ"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "အိုင်ကွန်များအတွက် .webp၊ .jpg၊ .png နှင့် .gif ပဲ ခွင့်ပြုထားသည်။"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "လိုဂိုများအတွက် .webp၊ .jpg၊ .png၊ .gif နှင့် .svg ပုံစံများကိုသာ ခွင့်ပြုထားသည်။"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "အထူးအသုံးပြုသူများနှင့် အုပ်ချုပ်သူများသာ မှတ်တမ်းများကို ဖျက်နိုင်ပါသည်။"
 
 msgid "Open"
-msgstr ""
+msgstr "ဖွင့်"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "ပမာဏ ဖွင့်ပါ"
 
 msgid "Option"
-msgstr ""
+msgstr "ရွေးချယ်စရာ"
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
-msgstr ""
+msgid "Optional product components that can be chosen by the customer together with the product"
+msgstr "ဖောက်သည်သည် ထုတ်ကုန်နှင့်အတူ ရွေးချယ်နိုင်သည့် ထပ်ဆောင်းထုတ်ကုန်အစိတ်အပိုင်းများ"
 
 msgid "Order"
 msgstr "Order"
 
 msgid "Order ID"
-msgstr ""
+msgstr "အော်ဒါနံပါတ်"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "ဖောက်သည်မှ ထည့်သွင်းထားသော အော်ဒါနံပါတ်"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "ဘာသာစကား/ငွေကြေး ပေါင်းစပ်မှုများ၏ အစီအစဉ်"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "ငွေပေးချေမှုလုပ်ငန်းစဉ်တွင် ဝန်ဆောင်မှုရွေးချယ်စရာများ၏ အဆင့်"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "ရှေ့ဖက်တွင် အမျိုးအစားများ၏ စီတန်းပုံစံ"
 
 msgid "Order totals"
-msgstr ""
+msgstr "အော်ဒါ စုစုပေါင်း"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "မှာယူခဲ့သည်"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "နိုင်ငံအလိုက် အော်ဒါများ"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "နေ့အလိုက် အော်ဒါများ"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "နာရီအလိုက် အော်ဒါများ"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "ငွေပေးချေမှုအခြေအနေအလိုက် အော်ဒါများ"
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
-msgstr ""
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgstr "လက်ရှိရှိနေသော ဖိုင်ကို အစားထိုးရေးပြီး ယခင်က ဝယ်ယူထားသော ဖောက်သည်များကလည်း အသစ်ထည့်သွင်းထားသော အကြောင်းအရာကို ဒေါင်းလုဒ်ဆွဲနိုင်ပါသည်။"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP ဆက်တင် \"%1$s\" ကို ပိတ်ထားသည်။"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP ဆက်တင် \"%1$s\" ကို ဖွင့်ထားသည်။"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "\"%1$s\" အတွက် PHP သတ်မှတ်ချက်သည် နည်းလွန်နေသည်။"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "စာမျက်နှာ %1$d၊ စုစုပေါင်း %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "စကားဝှက်"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "စကားဝှက် (လိုအပ်သည်)"
 
 msgid "Path"
-msgstr ""
+msgstr "လမ်းကြောင်း"
 
 msgid "Pay date"
-msgstr ""
+msgstr "လစာထုတ်ရက်"
 
 msgid "Pay status"
-msgstr ""
+msgstr "လစာအခြေအနေ"
 
 msgid "Payment"
-msgstr ""
+msgstr "ငွေပေးချေမှု"
 
 msgid "Payment date"
-msgstr ""
+msgstr "ငွေပေးချေမှုရက်စွဲ"
 
 msgid "Payment status"
-msgstr ""
+msgstr "ငွေပေးချေမှုအခြေအနေ"
 
 msgid "Payment types"
-msgstr ""
+msgstr "ငွေပေးချေမှုအမျိုးအစားများ"
 
 msgid "Periods"
-msgstr ""
+msgstr "ကာလများ"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "ခွင့်ပြုချက်ငြင်းဆိုပါသည်"
 
 msgid "Personal data"
-msgstr ""
+msgstr "ကိုယ်ရေးအချက်အလက်များ"
 
-msgid ""
-"Please insert the description of the text that should be generated here"
-msgstr ""
+msgid "Please insert the description of the text that should be generated here"
+msgstr "ဒီမှာ ဖန်တီးမည့် စာသား၏ ဖော်ပြချက်ကို ထည့်ပါ။"
 
 msgid "Please select"
 msgstr "ကျေးဇူးပြု၍ရွေးချယ်ပါ"
@@ -1274,890 +1244,864 @@ msgid "Plugin"
 msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "ပလပ်ဂင်အမျိုးအစား"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "ပလပ်ဂင်အမျိုးအစားများ"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "ပြင်ဆင်ထားသော plugin ကို ဖော်ပြရန် plugin အမှတ်အသား"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "ပလပ်ဂင် တည်နေရာ (လိုအပ်သည်)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "ပလပ်ဂင် ပံ့ပိုးသူ သို့မဟုတ် ပလပ်ဂင် အလှဆင်သူ ဖွဲ့စည်းမှုအမည်"
 
 msgid "Position"
-msgstr ""
+msgstr "ရာထူး"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "ရာထူး (လိုအပ်သည်)"
 
 msgid "Postal"
-msgstr ""
+msgstr "စာတိုက်"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "ဖောက်သည်နေထိုင်ရာဒေသတွင် အသုံးပြုပါက ပို့ဆောင်ရေးကုဒ်"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "ပံ့ပိုးသူနေထိုင်ရာဒေသတွင် အသုံးပြုပါက ပို့ဆောင်ရေးအတွက် စာတိုက်ကုဒ်"
 
 msgid "Postition"
-msgstr ""
+msgstr "ရာထူး"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "ဖြစ်နိုင်သောပြဿနာများ"
 
 msgid "Previous"
-msgstr ""
+msgstr "ယခင်"
 
 msgid "Price"
 msgstr "ဈေးနှုန်း"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "စျေးစာရင်းအမျိုးအစား"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "စျေးနှုန်းစာရင်း အမျိုးအစားများ"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "စျေးနှုန်း၊ အိမ်ခြံမြေအမျိုးအစား"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "စျေးနှုန်း အိမ်ခြံမြေအမျိုးအစားများ"
 
 msgid "Price Type"
-msgstr ""
+msgstr "စျေးနှုန်းအမျိုးအစား"
 
 msgid "Price Types"
-msgstr ""
+msgstr "စျေးနှုန်းအမျိုးအစားများ"
 
 msgid "Price properties"
-msgstr ""
+msgstr "စျေးနှုန်းအိမ်ခြံမြေများ"
 
 msgid "Priority"
-msgstr ""
+msgstr "ဦးစားပေးမှု"
 
 msgid "Problem"
-msgstr ""
+msgstr "ပြဿနာ"
 
 msgid "Product"
 msgstr "Product"
 
 msgid "Product ID"
-msgstr ""
+msgstr "ထုတ်ကုန် အိုင်ဒီ"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "ထုတ်ကုန် ID၊ SKU သို့မဟုတ် တံဆိပ်"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "ထုတ်ကုန်စာရင်းအမျိုးအစား"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "ထုတ်ကုန်စာရင်း အမျိုးအစားများ"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "ထုတ်ကုန် အင်္ဂါရပ် အမျိုးအစား"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "ထုတ်ကုန် အင်္ဂါရပ် အမျိုးအစားများ"
 
 msgid "Product Type"
-msgstr ""
+msgstr "ထုတ်ကုန်အမျိုးအစား"
 
 msgid "Product Types"
-msgstr ""
+msgstr "ထုတ်ကုန်အမျိုးအစားများ"
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
-msgstr ""
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
+msgstr "ဖောက်သည်များသည် မိမိတို့ စာသား သို့မဟုတ် တန်ဖိုးများကို ထည့်သွင်းနိုင်သည့် အိတ်ထဲတွင် သိမ်းဆည်းထားသော ထုတ်ကုန်အင်္ဂါရပ်များ"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "အခြားထုတ်ကုန်များတွင်လည်း အသုံးပြုသော ထုတ်ကုန်အင်္ဂါရပ်များ"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "အခြားထုတ်ကုန်များနှင့် မမျှဝေထားသော ထုတ်ကုန်၏ လက္ခဏာများ"
 
 msgid "Product code"
-msgstr ""
+msgstr "ထုတ်ကုန်ကုဒ်"
 
 msgid "Product costs"
-msgstr ""
+msgstr "ထုတ်ကုန်ကုန်ကျစရိတ်များ"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "ထုတ်ကုန်အမြင့်၊ ဥပမာ 20.0 (ယာဒ်၊ လက်မ စသည်)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "ထုတ်ကုန်အရှည်၊ ဥပမာ ၃၀.၀ (ယာဒ်၊ လက်မ စသည်)"
 
 msgid "Product name"
-msgstr ""
+msgstr "ထုတ်ကုန်အမည်"
 
 msgid "Product payment"
-msgstr ""
+msgstr "ထုတ်ကုန်ငွေပေးချေမှု"
 
 msgid "Product price"
-msgstr ""
+msgstr "ထုတ်ကုန်စျေးနှုန်း"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "ထုတ်ကုန်အရေအတွက်"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "ထုတ်ကုန်လျှော့စျေး"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "ထုတ်ကုန်ပို့ဆောင်ခြင်း"
 
 msgid "Product status"
-msgstr ""
+msgstr "ထုတ်ကုန်အခြေအနေ"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "ထုတ်ကုန်ပံ့ပိုးသူ"
 
 msgid "Product tax"
-msgstr ""
+msgstr "ထုတ်ကုန်အခွန်"
 
 msgid "Product type"
-msgstr ""
+msgstr "ထုတ်ကုန်အမျိုးအစား"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "ထုတ်ကုန်အလေးချိန်၊ ဥပမာ 1.25 (ပေါင်၊ အောင်စ် စသည်ဖြင့်)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "ထုတ်ကုန်၏ အကျယ်၊ ဥပမာ ၁၇.၅ (ယာဒ်၊ လက်မ စသည်)"
 
 msgid "Products"
-msgstr ""
+msgstr "ထုတ်ကုန်များ"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "အတူတကွ ဝယ်ယူထားသော ထုတ်ကုန်များ"
 
 msgid "Promotion"
-msgstr ""
+msgstr "မြှင့်တင်ရေး"
 
 msgid "Properties"
-msgstr ""
+msgstr "အင်္ဂါရပ်များ"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "ပိုင်ဆိုင်မှုတန်ဖိုး (လိုအပ်သည်)"
 
 msgid "Provider"
-msgstr ""
+msgstr "ပံ့ပိုးသူ"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "ပံ့ပိုးသူ/အလှဆင်သူ အတန်းအမည်များ (လိုအပ်သည်)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "ဝယ်ယူခြင်း"
 
 msgid "Quantity"
 msgstr "အရေအတွက်"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "အရေအတွက် စကေး"
 
 msgid "Rabate"
-msgstr ""
+msgstr "လျှော့စျေး"
 
 msgid "Rating"
-msgstr ""
+msgstr "အဆင့်သတ်မှတ်ချက်"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "ကုန်သည်အတွက် အဆင့်သတ်မှတ်ချက်နှင့် အဆင့်သတ်မှတ်ချက်အရေအတွက်"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "သုံးသပ်သူ၏ အဆင့်သတ်မှတ်ချက်"
 
 msgid "Reason"
-msgstr ""
+msgstr "အကြောင်းရင်း"
 
 msgid "Rebate"
-msgstr ""
+msgstr "ပြန်လည်ငွေပေးချေမှု"
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
-msgstr ""
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
+msgstr "မူလစျေးနှုန်းမှ လျော့ချမှု၊ ရာခိုင်နှုန်းအတိုင်း ပြန်အမ်းငွေတွက်ချက်ရာတွင်နှင့် cross price တွက်ချက်ရာတွင် အသုံးပြုသည်။"
 
 msgid "Reference"
-msgstr ""
+msgstr "ရည်ညွှန်းချက်"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ရည်ညွှန်းကုဒ်"
 
 msgid "Refund"
-msgstr ""
+msgstr "ငွေပြန်အမ်းပေးခြင်း"
 
 msgid "Related ID"
-msgstr ""
+msgstr "ဆက်စပ် ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "ဆက်စပ်အမိန့်"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "ဆက်စပ်အော်ဒါ ID (လိုအပ်ပါက)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "ဖောက်သည်၏ ဆက်စပ် အမှာစာ"
 
 msgid "Remove background"
-msgstr ""
+msgstr "နောက်ခံ ဖယ်ရှားပါ"
 
 msgid "Renew"
-msgstr ""
+msgstr "ပြန်လည်အသစ်ပြုလုပ်ရန်"
 
 msgid "Replace file"
-msgstr ""
+msgstr "ဖိုင်အစားထိုး"
 
 msgid "Request"
-msgstr ""
+msgstr "တောင်းဆိုချက်"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "လိုအပ်သော ပါရာမီတာ \"%1$s\" မတွေ့ပါ။"
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
-msgstr ""
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
+msgstr "အစုစျေးသတ်မှတ်ခြင်းအတွက် လိုအပ်သည့် ပစ္စည်းအရေအတွက်၊ ဥပမာ တစ်ခုလျှင် $5.00၊ ဆယ့်ခုလျှင် $45.00"
 
 msgid "Reset"
-msgstr ""
+msgstr "ပြန်စတင်"
 
 msgid "Response"
-msgstr ""
+msgstr "တုံ့ပြန်ချက်"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "ပြန်လည်သုံးသပ်သူထံ တုံ့ပြန်ချက်"
 
 msgid "Review"
 msgstr "Review"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "ပြန်လည်သုံးသပ်ထားသော ဝင်စာ"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "သုံးသပ်သူအမည်"
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
-msgstr ""
+msgid "Route name or page ID of the category page if this category should shown on a different page"
+msgstr "ဤအမျိုးအစားကို အခြားစာမျက်နှာတစ်ခုတွင် ပြသလိုပါက၊ ထိုစာမျက်နှာ၏ လမ်းကြောင်းအမည် သို့မဟုတ် စာမျက်နှာ ID"
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
-msgstr ""
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
+msgstr "ထုတ်ကုန်အသေးစိတ်ပြသရန် မူလစာမျက်နှာအမည် သို့မဟုတ် စာမျက်နှာ ID (ဤထုတ်ကုန်ကို အခြားစာမျက်နှာတွင် ပြသလိုပါက)"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "လမ်းကြောင်း သို့မဟုတ် စာမျက်နှာ ID (လိုအပ်ပါက)"
 
 msgid "Rule"
 msgstr "Rule"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "စည်းကမ်းအမျိုးအစား"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "စည်းကမ်းအမျိုးအစားများ"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "ပြင်ဆင်ထားသော စည်းမျဉ်းကို ဖော်ပြရန် စည်းမျဉ်းအမည်"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "အခြေနေ စည်းမျဉ်း (လိုအပ်သည်)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "စည်းကမ်းပေးသူ သို့မဟုတ် စည်းကမ်းအလှဆင်သူ ဖွဲ့စည်းမှုအမည်"
 
 msgid "Rules"
-msgstr ""
+msgstr "စည်းကမ်းများ"
 
 msgid "SKU"
-msgstr ""
+msgstr "ကုန်ပစ္စည်းကုဒ်"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "အပတ်ရက်အလိုက် အရောင်း"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "နောက်ဆုံး ၃၀ ရက်အတွင်း အရောင်း"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "လစဉ်အရောင်း"
 
 msgid "Salutation"
-msgstr ""
+msgstr "မင်္ဂလာပါ"
 
 msgid "Save"
-msgstr ""
+msgstr "သိမ်းဆည်း"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "သိမ်းပြီးပိတ်ရန်"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "သိမ်းပြီး မိတ္တူကူးရန်"
 
 msgid "Save & New"
-msgstr ""
+msgstr "သိမ်းရန်နှင့် အသစ်"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "စာရိုက်ချက် သိမ်းရန် (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "စာရင်းသွင်းချက် သိမ်းဆည်းပါ (Ctrl+S)"
 
 msgid "Search"
-msgstr ""
+msgstr "ရှာဖွေ"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "စာရင်းဝင်များကို အုပ်စုခွဲရန် ဒုတိယအဆင့် အမျိုးအစား"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "စာရင်းအားလုံးကိုရွေးချယ်ပါ"
 
 msgid "Select file"
-msgstr ""
+msgstr "ဖိုင်ကိုရွေးပါ"
 
 msgid "Service"
 msgstr "Service"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုစာရင်းအမျိုးအစား"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုစာရင်းအမျိုးအစားများ"
 
 msgid "Service Type"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုအမျိုးအစား"
 
 msgid "Service Types"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုအမျိုးအစားများ"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "ဝန်ဆောင်မှု အင်္ဂါရပ်ကုဒ်"
 
 msgid "Service costs"
-msgstr ""
+msgstr "ဝန်ဆောင်ခ"
 
 msgid "Service name"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုအမည်"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုရာထူး (လိုအပ်သည်)"
 
 msgid "Service price"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုဈေးနှုန်း"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုပေးသူ သို့မဟုတ် ဝန်ဆောင်မှုအလှဆင်သူ ဖွဲ့စည်းမှုအမည်"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "ဝန်ဆောင်မှု ပြန်အမ်းငွေ"
 
 msgid "Settings"
-msgstr ""
+msgstr "ဆက်တင်များ"
 
 msgid "Ship date"
-msgstr ""
+msgstr "ပို့ဆောင်မည့်ရက်"
 
 msgid "Ship status"
-msgstr ""
+msgstr "သင်္ဘောအခြေအနေ"
 
 msgid "Shipping"
-msgstr ""
+msgstr "ပို့ဆောင်ခြင်း"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "ပို့ဆောင်ခနှင့် ငွေပေးချေမှုကုန်ကျစရိတ်များ"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "ပို့ဆောင်ခ/ငွေပေးချေမှုကုန်ကျစရိတ်"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "ပို့ဆောင်ခြင်း/ပစ္စည်း"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "ဒိုမိန်းဝယ်ယူပါ"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "ဒိုမိန်းဆိုင် (လိုအပ်သည်)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "အွန်လိုင်းဆိုင် အီးမေးလ်"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "ဆိုင်၏ အီးမေးလ်လိပ်စာ (လိုအပ်သည်)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "ဆိုင်အမည်"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "ဆိုင်အမည် (လိုအပ်သည်)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "ဆိုင်ခေါင်းစဉ်"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "ဖောက်သည်နေထိုင်သောနိုင်ငံတွင် အသုံးပြုပါက ပြည်နယ်ကုဒ်တို (ဥပမာ NY)"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "ထောက်ပံ့သူ နေထိုင်သော နိုင်ငံတွင် အသုံးပြုပါက ပြည်နယ်ကုဒ်တို (ဥပမာ NY)"
 
 msgid "Show"
-msgstr ""
+msgstr "ပြသပါ"
 
 msgid "Show entry"
-msgstr ""
+msgstr "ဝင်ခွင့်ပြသပါ"
 
 msgid "Show search form"
-msgstr ""
+msgstr "ရှာဖွေဖောင် ပြသပါ"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "အဆင့်မြင့်ဒေတာကို ပြ/ဖျောက်"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "အသေးစိတ် ပြသ/ဖျောက်"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "လမ်းညွှန်တံဆိပ်များကို ပြသ/ဖျောက်"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "ဤ မှတ်တမ်းကို ပြ/ဖျောက်"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "ဆောင်းပါးသည် စတော့အဆင့် သုညသို့ ရောက်ရှိပါက ပြသပါသည်။"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "ထုတ်ကုန်ရရှိနိုင်သည့်အချိန်မှစ၍ front-end တွင် အဆင့်ခွဲရန် အသုံးပြုသည်။"
 
 msgid "Site"
-msgstr ""
+msgstr "ဆိုက်"
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "ဆိုက် \"%1$s\" မတွေ့ပါ။"
+
+msgid "Site specific configuration options, will be available as key/value pairs"
+msgstr "ဆိုက်အထူးပြု စနစ်ညှိနှိုင်းမှု ရွေးချယ်စရာများကို key/value တွဲများအဖြစ် ရရှိနိုင်ပါမည်။"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "အော်ဒါကို တင်ခဲ့သည့်နေရာမှာ"
 
 msgid "Sites"
-msgstr ""
+msgstr "ဆိုက်များ"
 
 msgid "Size"
 msgstr "အရွယ်အစား"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "တူညီသော အင်္ဂါရပ်အမျိုးအစားအတွင်းရှိ အင်္ဂါရပ်များကို စီခြင်း"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "ထောက်ပံ့သူများ ခွဲခြားခြင်း"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာရင်းမြစ်၊ ဥပမာ ဝက်ဘ် သို့မဟုတ် ဖုန်းမှ"
 
 msgid "Start date"
-msgstr ""
+msgstr "စတင်ရက်စွဲ"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "စတင် ရိုက်ထည့်ပါ ..."
 
 msgid "State"
-msgstr ""
+msgstr "ပြည်နယ်"
 
 msgid "Status"
-msgstr ""
+msgstr "အခြေအနေ"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "စတော့အမျိုးအစား"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "စတော့အမျိုးအစားများ"
 
 msgid "Stock level"
-msgstr ""
+msgstr "စတော့အဆင့်"
 
 msgid "Stock type"
-msgstr ""
+msgstr "စတော့အမျိုးအစား"
 
 msgid "Street"
-msgstr ""
+msgstr "လမ်း"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "လမ်းအမည် (လိုအပ်ပါက)"
 
 msgid "Style"
-msgstr ""
+msgstr "စတိုင်"
 
 msgid "Sub-total"
-msgstr ""
+msgstr "အပိုင်းစုစုပေါင်း"
 
 msgid "Subscription"
 msgstr "Subscription"
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
-msgstr ""
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
+msgstr "နှစ်၊ လ၊ အပတ်နှင့် ရက်အလိုက် စာရင်းသွင်းကာလ အကြားကာလ၊ ဥပမာ \"P0Y1M2W3D\" သည် နှစ်သုည၊ လတစ်လ၊ အပတ်နှစ်ပတ်နှင့် ရက်သုံးရက် ဖြစ်သည်"
 
 msgid "Suggested products"
-msgstr ""
+msgstr "အကြံပြု ထုတ်ကုန်များ"
 
 msgid "Sum"
-msgstr ""
+msgstr "စုစုပေါင်း"
 
 msgid "Supplier"
 msgstr "Supplier"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "ထောက်ပံ့သူအမည် သို့မဟုတ် ကုမ္ပဏီအမည်"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "ထောက်ပံ့သူ၏ တည်နေရာ (လိုအပ်သည်)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "ထုတ်ကုန်ကို ထုတ်လုပ်သည့် ပေးသွင်းသူများ"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "တက်တံအမျိုးအစား"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "တက်တံအမျိုးအစားများ"
 
 msgid "Tax"
-msgstr ""
+msgstr "အခွန်"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "အခွန်နှုန်း"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "အခွန်နှုန်း (%)"
 
 msgid "Telephone"
-msgstr ""
+msgstr "တယ်လီဖုန်း"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "တယ်လီဖုန်းနံပါတ် (လိုအပ်ပါက)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "ယာယီ ဖိုလ်ဒါ မတွေ့ပါ"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "စာသားစာရင်း အမျိုးအစား"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "စာသားစာရင်းအမျိုးအစားများ"
 
 msgid "Text Type"
-msgstr ""
+msgstr "စာသားအမျိုးအစား"
 
 msgid "Text Types"
-msgstr ""
+msgstr "စာသားအမျိုးအစားများ"
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
+msgstr "ဆောင်းပါးကို ထိုရက်နှင့်အချိန်ကျော်ပြီးနောက်မှသာ ဝက်ဘ်ဆိုဒ်ပေါ်တွင် ပြသမည်ဖြစ်ပြီး၊ အသုံးဝင် သို့မဟုတ် ရာသီအလိုက် ဆောင်းပါးများဖြစ်သည်။"
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
+msgstr "ဤဆောင်းပါးကို အဆိုပါ ရက်စွဲနှင့် အချိန်အထိသာ ဝက်ဘ်ဆိုဒ်ပေါ်တွင် ပြသမည်ဖြစ်ပြီး၊ အသုံးဝင် သို့မဟုတ် ရာသီအလိုက် ဆောင်းပါးများဖြစ်သည်။"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "ထိုရက်နှင့်အချိန်ကျော်ပြီးမှ ဝက်ဘ်ဆိုဒ်ပေါ်တွင်သာ ဖော်ပြမည်။"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "ဤအကြောင်းအရာကို ဝက်ဘ်ဆိုဒ်ပေါ်တွင်သာ အဆိုပါ ရက်နှင့် အချိန်အထိသာ ပြသထားမည်။"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "မီဒီယာခေါင်းစဉ်ကို ဝက်ဘ်ဆိုဒ်ပေါ်ရှိ မီဒီယာ၏ title tag အတွက် အသုံးပြုသည်။"
 
-msgid ""
-"The name of the category shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
+msgstr "URL တွင် ပြထားသော အမျိုးအစားအမည်ကို ဘာသာစကားအထူး URL အပိုင်း မရှိပါက အသုံးပြုမည်။"
 
-msgid ""
-"The name of the product shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
+msgstr "URL တွင် ပြထားသော ထုတ်ကုန်အမည်ကို ဘာသာစကားအထူး URL အပိုင်း မရှိပါက အသုံးပြုမည်။"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "ဒီရွေးချယ်စရာကို ဝက်ဘ်ဆိုဒ်ပေါ်တွင် အဆိုပါ ရက်စွဲနှင့် အချိန် ကျော်ပြီးမှသာ ပြသမည်။"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "ဒီရွေးချယ်စရာကို ဝက်ဘ်ဆိုဒ်ပေါ်တွင်သာ အဆိုပါ ရက်နှင့် အချိန်အထိသာ ပြသထားပါသည်။"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "စည်းကမ်းကို ထိုရက်နှင့်အချိန်ပြီးမှသာ အသုံးပြုသည်။"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "စည်းကမ်းကို အဆိုပါ ရက်စွဲနှင့် အချိန်အထိသာ အသုံးပြုသည်။"
 
-msgid ""
-"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
-"fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgstr "အဆင့်တန်ဖိုးသည် ကန်တင်းထဲရှိ ပမာဏများအတွက် ခွင့်ပြုထားပြီး၊ ဥပမာ အပိုင်းပိုင်းပမာဏများအတွက် \"0.1\" သို့မဟုတ် ငါးခုတိုးပမာဏများအတွက် \"5\" ဟု သတ်မှတ်နိုင်သည်။"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "တင်ထားသော ဖိုင်သည် ခွင့်ပြုထားသော အများဆုံး ဖိုင်အရွယ်အစားထက် ကျော်လွန်နေပါသည်။"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "တင်ထားသော ဖိုင်ကို အပိုင်းတစ်စိတ်တစ်ပိုင်းသာ တင်နိုင်ခဲ့သည်။"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "သင့်ဆိုင်၏ ဖွဲ့စည်းပုံကို ပြောင်းလဲရန် ခေါင်းစဉ်"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "သုံးအက္ခရာ ISO ငွေကြေးကုဒ်"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "အချိန်ကာလ (လိုအပ်ပါက)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "အချိန်တံဆိပ်"
 
 msgid "Title"
-msgstr ""
+msgstr "ခေါင်းစဉ်"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "ကျဆင်းစာရင်း ဖွင့်/ပိတ်"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "ရွေးချယ်မှုကို တူးလ်လုပ်ရန်"
 
 msgid "Top countries"
-msgstr ""
+msgstr "ထိပ်တန်းနိုင်ငံများ"
 
 msgid "Total"
-msgstr ""
+msgstr "စုစုပေါင်း"
 
 msgid "Total orders"
-msgstr ""
+msgstr "စုစုပေါင်းအမှာစာများ"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "လွန်ခဲ့သည့် ၇ ရက်အတွင်း စုစုပေါင်းမှာယူမှုများကို ယခင်ကာလနှင့် နှိုင်းယှဉ်ခြင်း"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "စုစုပေါင်းအဆင့်သတ်မှတ်ချက်များ"
 
 msgid "Translate text"
-msgstr ""
+msgstr "စာသားကို ဘာသာပြန်ပါ"
 
 msgid "Translations"
-msgstr ""
+msgstr "ဘာသာပြန်ချက်များ"
 
 msgid "Tree node menu"
-msgstr ""
+msgstr "သစ်ပင်နုဒ် မီနူး"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "အက္ခရာနှစ်လုံးပါ ISO နိုင်ငံကုဒ်"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "အက္ခရာနှစ်လုံးပါသော ISO ဘာသာစကားကုဒ်"
 
 msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "အမျိုးအစား အနေအထား (လိုအပ်ပါက)"
 
 msgid "Types"
-msgstr ""
+msgstr "အမျိုးအစားများ"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "အိုင်ကွန်ကဲ့သို့ ထပ်ထည့်ရန် ရုပ်ပုံအမျိုးအစားများ"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "တစ်ပေါင်/ကီလိုဂရမ်လျှင် သို့မဟုတ် တစ်လလျှင် ကဲ့သို့ ထပ်ဆောင်းစျေးနှုန်းအမျိုးအစားများ"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "တစ်ပေါင်/ကီလိုဂရမ်လျှင် သို့မဟုတ် တစ်လလျှင် စသည့် ထပ်ဆောင်းစာသားများအတွက် အမျိုးအစားများ"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "ဖောက်သည်၏ ဝက်ဘ်ဆိုဒ် URL"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "ထောက်ပံ့သူ၏ ဝက်ဘ်ဆိုဒ် URL"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL အပိုင်း"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL ပစ်မှတ်"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "နည်းလမ်း \"%1$s\" ကို ခေါ်၍ မရနိုင်ပါ။"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" မှ အကြောင်းအရာ ဖတ်ရှု၍ မရနိုင်ပါ။"
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "ပြီးစီးမထားသေးသော အော်ဒါများ"
 
-msgid ""
-"Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgid "Unfinished orders within the last seven days compared to the period before"
+msgstr "ပြီးခဲ့သည့် ၇ ရက်အတွင်း မပြီးစီးသေးသော အော်ဒါများသည် ယခင်ကာလနှင့် နှိုင်းယှဉ်၍"
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
-msgstr ""
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
+msgstr "ထူးခြားသော ကုန်ပစ္စည်းကုဒ်သည် စတော့အဆင့်များနှင့် ဆက်စပ်ပြီး၊ ဥပမာ ERP စနစ်မှ၊ EAN/GTIN နံပါတ်မှ သို့မဟုတ် ကိုယ်တိုင် ဖန်တီးထားသော ကုဒ်ဖြစ်သည်။"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "ထူးခြားသော အင်္ဂါရပ်ကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "ထူးခြားသော အင်္ဂါရပ်ကုဒ်၊ ဥပမာ အမျိုးအစား \"အရောင်\" အတွက် \"green\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "ထူးခြားသော အမျိုးအစားကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "အပြင်စနစ်မှ ရယူထားသော သို့မဟုတ် ကိုယ်တိုင် ဖန်တီးထားသော ထူးခြားသော အမျိုးအစားကုဒ်"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "ထူးခြားသောကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုကို သတ်မှတ်ရန် အသုံးပြုသော ထူးခြားသောကုဒ်၊ ပုံမှန်အားဖြင့် ကိုယ်တိုင် ဖန်တီးထားသည်။"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "ထူးခြားသော ဖောက်သည်အကောင့်အမည်"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "ထူးခြားသော ဖောက်သည် အီးမေးလ်လိပ်စာ"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "ထူးခြားသောအုပ်စုကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "ထူးခြားသော ဝန်ဆောင်မှုကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "ထူးခြားသောဆိုက်ကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "ထူးခြားသော ပေးသွင်းသူကုဒ်"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "ထူးခြားသော အမျိုးအစားကုဒ်"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "ထူးခြားသော အမျိုးအစားကုဒ် (လိုအပ်သည်)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "ထူးခြားသော အမျိုးအစားကုဒ်၊ ဥပမာ \"green\", \"blue\", \"red\" ကဲ့သို့သော လက္ခဏာများအတွက် \"color\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "တစ်ယူနစ်စျေးနှုန်း"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "မသိသော အပ်လုဒ်အမှား"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV တင်ပါ"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "ဆိုင်အိုင်ကွန် တင်ပါ။"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "ဆိုင်လိုဂို တင်ပါ"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "တင်ပြီးပါပြီ"
 
 msgid "Use"
-msgstr ""
+msgstr "အသုံးပြုပါ"
 
 msgid "User groups"
-msgstr ""
+msgstr "အသုံးပြုသူအုပ်စုများ"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "ထုတ်ကုန်ပို့ဆောင်ရန် ပုံမှန် အချိန်ကာလ"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "အခွန်ပေးဆောင်သူ မှတ်ပုံတင်နံပါတ်"
 
 msgid "Value"
-msgstr ""
+msgstr "တန်ဖိုး"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "တန်ဖိုးဖြည့်အခွန် အမှတ် (ရွေးချယ်နိုင်သည်)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "ဗားရှင်း၏ လက္ခဏာများ"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "မှာယူထားသော ထုတ်ကုန်များနှင့်အတူ သိမ်းဆည်းထားသော မတူကွဲပြားသည့် ထုတ်ကုန် လက္ခဏာများ"
 
 msgid "Vendor"
-msgstr ""
+msgstr "ရောင်းသူ"
 
 msgid "Verified"
-msgstr ""
+msgstr "အတည်ပြုထားသည်"
 
 msgid "View details"
-msgstr ""
+msgstr "အသေးစိတ်ကြည့်ရန်"
 
 msgid "Voucher"
-msgstr ""
+msgstr "လျှော့စျေးလက်မှတ်"
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgid "Warehouse or local store if your articles are available at several locations"
+msgstr "သင့်ပစ္စည်းများကို နေရာအများအပြားတွင် ရနိုင်ပါက ဂိုဒေါင် သို့မဟုတ် ဒေသဆိုင်တွင် ရနိုင်ပါသည်။"
 
 msgid "Web site"
-msgstr ""
+msgstr "ဝက်ဘ်ဆိုဒ်"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "ဝက်ဘ်ဆိုဒ် URL (လိုအပ်ပါက)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "အပတ်များ"
 
 msgid "Weight"
-msgstr ""
+msgstr "အလေးချိန်"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "အကောင့်နှင့် အီးမေးလ်လိပ်စာကို အတည်ပြုပြီးပါက"
 
 msgid "Width"
 msgstr "အလျား"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "နှစ်-လ-ရက် နာရီ:မိနစ်:စက္ကန့် (လိုအပ်ပါက)"
 
 msgid "Years"
-msgstr ""
+msgstr "နှစ်များ"
 
-msgid ""
-"You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgid "You are going to delete one or more entries. Would you like to proceed?"
+msgstr "သင်သည် တစ်ခု သို့မဟုတ် အများအပြား မှတ်တမ်းများကို ဖျက်မည်ဖြစ်သည်။ ဆက်လက်လုပ်ဆောင်လိုပါသလား။"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "သင့်ထုတ်ပို့မှုကို မိနစ်အနည်းငယ်အတွင်း ဒေါင်းလုဒ်ဆွဲနိုင်ပါမည်။"
 
 msgid "Your response"
-msgstr ""
+msgstr "သင့်တုံ့ပြန်ချက်"
 
 msgid "Zip code"
-msgstr ""
+msgstr "ဇစ်ကုဒ်"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "ဇစ်ကုဒ် (လိုအပ်ပါက)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__ဖျောက်ထား__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "အကောင့်"
 
 #, php-format
 msgid "address"
@@ -2167,23 +2111,23 @@ msgid "address:delivery"
 msgstr "ပေးပို့ရမည့်လိပ်စာ"
 
 msgid "address:payment"
-msgstr ""
+msgstr "လိပ်စာ:ငွေပေးချေမှု"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "အက်ပီ"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "ဂုဏ်သတ္တိ"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "ပုံး"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "ထုပ်ပိုး"
 
 #, php-format
 msgid "catalog"
@@ -2195,58 +2139,58 @@ msgstr "အမျိုးအစားများ"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "အင်္ဂါရပ်၊ လက္ခဏာ"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "ကုဒ်"
 
 msgid "company"
 msgstr "ကုမ္ပဏီ"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "ဖွဲ့စည်းမှု"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "ရေတွက်နိုင်ငံ"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "ရေတွက်နေ့"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "ရေတွက်နာရီ"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "လစာပေးချေမှုအခြေအနေရေတွက်ခြင်း"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "လျှော့စျေးကတ်"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "ဖောက်သည်"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "ကွန်ထရိုလ်ဘုတ်"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "နေ့"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "ပို့ဆောင်မှုအမျိုးအစား"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "ဒေါင်းလုဒ်"
 
 #, php-format
 msgid "goods"
@@ -2254,295 +2198,295 @@ msgstr "Catalog"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "အဖွဲ့"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "နာရီ"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "ပုံ"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "ငွေတောင်းခံလွှာ"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "နောက်ဆုံး"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "ဒေသဆိုင်ရာ သတ်မှတ်ချက်"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "ဒေသ/ငွေကြေး"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "ဒေသ/ဘာသာစကား"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "ဒေသ/ဆိုက်"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "မှတ်တမ်း"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "စျေးကွက်ရှာဖွေရေး"
 
 #, php-format
 msgid "media"
 msgstr "Media"
 
 msgid "miss"
-msgstr ""
+msgstr "လွတ်သွားခြင်း၊ မမှန်ခြင်း၊ မဖြစ်ခြင်း၊ မရောက်ခြင်း၊ မဖြစ်ပေါ်ခြင်း၊ မ"
 
 msgid "mr"
-msgstr ""
+msgstr "မစ္စတာ"
 
 msgid "mrs"
-msgstr ""
+msgstr "မစ္စစ်"
 
 msgid "ms"
-msgstr ""
+msgstr "အမ်အက်စ်"
 
 msgid "new"
-msgstr ""
+msgstr "အသစ်"
 
 msgid "no"
-msgstr ""
+msgstr "မဟုတ်ဘူး"
 
 msgid "none"
-msgstr ""
+msgstr "မရှိပါ"
 
 msgid "not available any more"
-msgstr ""
+msgstr "မရနိုင်တော့ပါ"
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "ရွေးချယ်စရာ"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "မှာယူခြင်း"
 
 msgid "order:phone"
-msgstr ""
+msgstr "အော်ဒါ:ဖုန်း"
 
 msgid "order:web"
-msgstr ""
+msgstr "အမိန့်:ဝက်ဘ်"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "လစာ:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "လစာ:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "ပေးချေ:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "လစာ:၂"
 
 msgid "pay:3"
-msgstr ""
+msgstr "လစာ:၃"
 
 msgid "pay:4"
-msgstr ""
+msgstr "လစာ:၄"
 
 msgid "pay:5"
-msgstr ""
+msgstr "ပေးချေ:၅"
 
 msgid "pay:6"
-msgstr ""
+msgstr "ပေးချေ:၆"
 
 msgid "pay:7"
-msgstr ""
+msgstr "လစာ:၇"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "ငွေပေးချေမှုအခြေအနေ"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "ငွေပေးချေမှုအမျိုးအစား"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "ကိုယ်ပိုင်းဆိုင်ရာ"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "ပလပ်ဂင်"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "စျေးနှုန်း"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "ထုတ်ကုန်"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "ပိုင်ဆိုင်မှု"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "လျင်မြန်/ပြီးစီးမှုရေတွက်"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "လျင်မြန်စွာ ဖောက်သည်အရေအတွက် ရေတွက်ခြင်း"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "အမြန်/စုစုပေါင်းရေတွက်"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "လျင်မြန်/မပြီးစီးသေးသောရေတွက်"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "အကြောင်းရင်း:-၁"
 
 msgid "reason:0"
-msgstr ""
+msgstr "အကြောင်းရင်း:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "အကြောင်းရင်း:၁"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "ဆက်စပ်သော"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "ပြန်လည်သုံးသပ်ချက်"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "စည်းကမ်း၊ စည်းမျဉ်း၊ စည်းစနစ်၊ ဥပဒေ၊"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "အရောင်း"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "ရောင်းအားအပတ်ရက်"
 
 msgid "selected"
-msgstr ""
+msgstr "ရွေးချယ်ထားသော"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "ရွေးချယ်မှု"
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "ဝန်ဆောင်မှု"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "ဝန်ဆောင်မှုပို့ဆောင်ခြင်း"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "ဝန်ဆောင်ခပေးချေမှု"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "ဆက်တင်များ"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "စနစ်တကျပြင်ဆင်ခြင်း"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "အထူး"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "အခြေအနေ:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "အချက်အလက်:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "အချက်အလက်:၁"
 
 msgid "stat:2"
-msgstr ""
+msgstr "အချက်အလက်:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "အချက်အလက်:၃"
 
 msgid "stat:4"
-msgstr ""
+msgstr "အချက်အလက်:၄"
 
 msgid "stat:5"
-msgstr ""
+msgstr "အချက်အလက်:၅"
 
 msgid "stat:6"
-msgstr ""
+msgstr "အချက်အလက်:၆"
 
 msgid "stat:7"
-msgstr ""
+msgstr "အချက်အလက်:၇"
 
 msgid "status:-1"
-msgstr ""
+msgstr "အခြေအနေ:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "အခြေအနေ:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "အခြေအနေ:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "အခြေအနေ:၁"
 
 msgid "status:2"
-msgstr ""
+msgstr "အခြေအနေ:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "စတော့ရှယ်ယာ"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "စာရင်းသွင်းခြင်း"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "ထောက်ပံ့သူ"
 
 msgid "tag"
-msgstr ""
+msgstr "တံဆိပ်"
 
 msgid "tax:0"
-msgstr ""
+msgstr "အခွန်:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "အခွန်:၁"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "စာသား"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "ခေါင်းစဉ်"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "ငွေလွှဲလုပ်ငန်း"
 
 #, php-format
 msgid "type"
@@ -2550,27 +2494,27 @@ msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "အမျိုးအစား/အင်္ဂါရပ်"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "အမျိုးအစား/ဂုဏ်သတ္တိ/စာရင်းများ"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "အမျိုးအစား/အင်္ဂါရပ်/ဂုဏ်သတ္တိ"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "အမျိုးအစား/စာရင်းအုပ်/စာရင်းများ"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "အမျိုးအစား/ဖောက်သည်/စာရင်းများ"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "အမျိုးအစား/ဖောက်သည်/ပိုင်ဆိုင်မှု"
 
 #, php-format
 msgid "type/media"
@@ -2578,71 +2522,71 @@ msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "အမျိုးအစား/မီဒီယာ/စာရင်းများ"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "အမျိုးအစား/မီဒီယာ/ပိုင်ဆိုင်မှု"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "အမျိုးအစား/ပလပ်ဂင်"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "အမျိုးအစား/စျေးနှုန်း"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "အမျိုးအစား/စျေးနှုန်း/စာရင်းများ"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "အမျိုးအစား/စျေးနှုန်း/အင်္ဂါရပ်"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "အမျိုးအစား/ထုတ်ကုန်"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "အမျိုးအစား/ထုတ်ကုန်/စာရင်းများ"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "အမျိုးအစား/ထုတ်ကုန်/အိမ်ခြံမြေ"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "အမျိုးအစား/စည်းကမ်း"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "အမျိုးအစား/ဝန်ဆောင်မှု"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "အမျိုးအစား/ဝန်ဆောင်မှု/စာရင်းများ"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "အမျိုးအစား/စတော့"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "အမျိုးအစား/တံဆိပ်"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "အမျိုးအစား/စာသား"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "အမျိုးအစား/စာသား/စာရင်းများ"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "အသုံးပြုသူများ"
 
 msgid "yes"
-msgstr ""
+msgstr "ဟုတ်ကဲ့"

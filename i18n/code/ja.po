@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Darshan Sampat <darshan@usindia.com>, 2018
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+"Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
+"Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
-"Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "!="
 msgstr "等しくない"
@@ -39,20 +33,11 @@ msgstr "後"
 msgid ">="
 msgstr "後（含む）"
 
-msgid "~="
-msgstr "含まれる"
-
 msgid "address:delivery"
 msgstr "配達先"
 
 msgid "address:payment"
 msgstr "請求先住所"
-
-msgid "service:delivery"
-msgstr "配達"
-
-msgid "service:payment"
-msgstr "支払い"
 
 msgid "attribute"
 msgstr "属性"
@@ -99,6 +84,12 @@ msgstr "ルール"
 msgid "service"
 msgstr "サービス"
 
+msgid "service:delivery"
+msgstr "配達"
+
+msgid "service:payment"
+msgstr "支払い"
+
 msgid "stock"
 msgstr "在庫"
 
@@ -116,3 +107,6 @@ msgstr "テキスト"
 
 msgid "type"
 msgstr "タイプ"
+
+msgid "~="
+msgstr "含まれる"

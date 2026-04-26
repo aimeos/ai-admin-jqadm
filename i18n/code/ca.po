@@ -1,45 +1,37 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ca\n"
+"Language-Team: Catalan (http://app.transifex.com/aimeos/aimeos-core/language/ca/)\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
-"Language-Team: Catalan (http://app.transifex.com/aimeos/aimeos-core/language/ca/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "!="
-msgstr ""
+msgstr "!="
 
 msgid "<"
-msgstr ""
+msgstr "<"
 
 msgid "<="
-msgstr ""
+msgstr "<="
 
 msgid "=="
-msgstr ""
+msgstr "=="
 
 msgid "=~"
-msgstr ""
+msgstr "=~"
 
 msgid ">"
-msgstr ""
+msgstr ">"
 
 msgid ">="
-msgstr ""
-
-msgid "~="
-msgstr ""
+msgstr ">="
 
 msgid "address:delivery"
 msgstr "Adreça de lliurament"
@@ -47,71 +39,74 @@ msgstr "Adreça de lliurament"
 msgid "address:payment"
 msgstr "Adreça de facturació"
 
+msgid "attribute"
+msgstr "atribut"
+
+msgid "basket"
+msgstr "cistella"
+
+msgid "catalog"
+msgstr "catàleg"
+
+msgid "coupon"
+msgstr "Cupó"
+
+msgid "customer"
+msgstr "client"
+
+msgid "group"
+msgstr "grup"
+
+msgid "locale"
+msgstr "lloc"
+
+msgid "media"
+msgstr "mitjans"
+
+msgid "order"
+msgstr "comanda"
+
+msgid "plugin"
+msgstr "plugin"
+
+msgid "price"
+msgstr "preu"
+
+msgid "product"
+msgstr "producte"
+
+msgid "review"
+msgstr "ressenya"
+
+msgid "rule"
+msgstr "norma"
+
+msgid "service"
+msgstr "servei"
+
 msgid "service:delivery"
 msgstr "Entrega"
 
 msgid "service:payment"
 msgstr "Pagament"
 
-msgid "attribute"
-msgstr ""
-
-msgid "basket"
-msgstr ""
-
-msgid "catalog"
-msgstr ""
-
-msgid "coupon"
-msgstr ""
-
-msgid "customer"
-msgstr ""
-
-msgid "group"
-msgstr ""
-
-msgid "locale"
-msgstr ""
-
-msgid "media"
-msgstr ""
-
-msgid "order"
-msgstr ""
-
-msgid "plugin"
-msgstr ""
-
-msgid "price"
-msgstr ""
-
-msgid "product"
-msgstr ""
-
-msgid "review"
-msgstr ""
-
-msgid "rule"
-msgstr ""
-
-msgid "service"
-msgstr ""
-
 msgid "stock"
-msgstr ""
+msgstr "estoc"
 
 msgid "subscription"
-msgstr ""
+msgstr "subscripció"
 
 msgid "supplier"
-msgstr ""
+msgstr "proveïdor"
 
 msgid "tag"
-msgstr ""
+msgstr "etiqueta"
 
 msgid "text"
-msgstr ""
+msgstr "text"
 
 msgid "type"
-msgstr ""
+msgstr "tipus"
+
+msgid "~="
+msgstr "~="

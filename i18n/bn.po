@@ -1,30 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Mohammad Nurul Islam, 2024
-# Mohammad Nurul Islam, 2024
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: bn\n"
+"Language-Team: Bengali (http://app.transifex.com/aimeos/aimeos-core/language/bn/)\n"
+"Last-Translator: Mohammad Nurul Islam, 2024\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 11:47+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Mohammad Nurul Islam, 2024\n"
-"Language-Team: Bengali (http://app.transifex.com/aimeos/aimeos-core/language/bn/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -37,6 +30,14 @@ msgid ""
 "%11$s\n"
 "%12$s"
 msgstr ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
 
 #, php-format
 msgid ""
@@ -53,41 +54,52 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
+""
 msgstr ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+""
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
 msgstr "(আন্তর্জাতিক) কোন ধরণের পৃথকিকরণ চিহ্ন ছাড়া ফ্যাক্স নাম্বার, যা + দিয়ে শুরু হতে পারে"
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
 msgstr "(আন্তর্জাতিক) কোন ধরণের পৃথকিকরণ চিহ্ন ছাড়া ফোন নাম্বার, যা + দিয়ে শুরু হতে পারে"
 
 msgid "+ Tax"
 msgstr "+ ট্যাক্স"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "এপিআই কী"
 
 msgid "Account"
 msgstr "অ্যাকাউন্ট"
@@ -99,27 +111,25 @@ msgid "Actual price"
 msgstr "মূল দাম"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "ওয়েবসাইটে গ্রাহকরা পণ্যটি কিনতে পারবেন প্রকৃত মূল্যে।"
 
 msgid "Add"
 msgstr "যুক্ত করুন"
 
 msgid "Add after"
-msgstr ""
+msgstr "পরবর্তীতে যোগ করুন"
 
 msgid "Add before"
-msgstr ""
+msgstr "এর আগে যোগ করুন"
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
-msgstr ""
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
+msgstr "প্রতিটি আইটেমের জন্য অতিরিক্ত ডেলিভারি খরচ, যেমন একটি ভারী আইটেমের জন্য $20, পাঁচটি আইটেমের জন্য মোট $100 হবে।"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "গ্রাহকের অ্যাপার্টমেন্ট কোথায় পাওয়া যাবে সে সম্পর্কে অতিরিক্ত তথ্য"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "সরবরাহের অ্যাপার্টমেন্ট কোথায় পাওয়া যাবে সে সম্পর্কে অতিরিক্ত তথ্য"
 
 msgid "Address 1"
 msgstr "ঠিকানার ১ম অংশ"
@@ -131,338 +141,326 @@ msgid "Address 3"
 msgstr "ঠিকানার ৩য় অংশ"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "ডেলিভারির জন্য গ্রাহকের বাড়ির ঠিকানা সনাক্তকারী"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "ডেলিভারির জন্য সরবরাহকারীর বাড়ির ঠিকানা সনাক্তকারী"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "অ্যাডমিন JQAdm টাইপ ফাঁকা"
 
 msgid "Advanced"
-msgstr ""
+msgstr "উন্নত"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos ক্যাশিং \"%1$s\" দ্বারা নিষ্ক্রিয় করা হয়েছে।"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos-এর ডিবাগ লগিং \"%1$s\" দ্বারা সক্ষম করা হয়েছে।"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos অবজেক্ট উপলব্ধ নয়"
 
 msgid "All"
-msgstr ""
+msgstr "সব"
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
-msgstr ""
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
+msgstr "যে কোনো বৈশিষ্ট যা একটি আইটেমকে অনন্যভাবে সংজ্ঞায়িত করে, যেমন জিন্সের প্রস্থ, দৈর্ঘ্য এবং রঙ।"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "কাস্টম মূল্য অনুমোদন করুন"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "গ্রাহকদের নিজেদের ইচ্ছামতো কত টাকা দিতে চান তা বেছে নেওয়ার সুযোগ দিন।"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "গ্রুপটিকে অনন্যভাবে শনাক্ত করতে সক্ষম আলফানিউমেরিক স্ট্রিং"
 
 msgid "Apply"
-msgstr ""
+msgstr "প্রয়োগ করুন"
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
-msgstr ""
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
+msgstr "প্রবন্ধ-নির্দিষ্ট কনফিগারেশন বিকল্পগুলি টেমপ্লেটগুলিতে কী/মান জোড়ার আকারে উপলব্ধ থাকবে।"
 
 msgid "Attribute"
 msgstr "Attribute"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "অ্যাট্রিবিউট তালিকা ধরন"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "অ্যাট্রিবিউট তালিকা প্রকারসমূহ"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "গুণাবলীর সম্পত্তি ধরন"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "অ্যাট্রিবিউট সম্পত্তি ধরনসমূহ"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "গুণবিশেষের ধরন"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "অ্যাট্রিবিউট প্রকারসমূহ"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "অ্যাট্রিবিউট অবস্থান (ঐচ্ছিক)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "অন্যান্য বৈশিষ্ট্যের সাথে ভাগ করা হয়নি এমন বৈশিষ্ট্য সম্পত্তি"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "অ্যাট্রিবিউট প্রকার যা উপলব্ধ অ্যাট্রিবিউটগুলির তালিকা সীমিত করে।"
 
 msgid "Attributes"
-msgstr ""
+msgstr "গুণাবলী"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "বর্তমান সাইটের জন্য উপলব্ধ মুদ্রা"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "ফ্রন্ট-এন্ডে উপলব্ধ ব্যবধানসমূহ"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "বর্তমান সাইটের জন্য উপলব্ধ ভাষা"
 
-msgid ""
-"Average product rating and total number of ratings by customers for this "
-"product"
-msgstr ""
+msgid "Average product rating and total number of ratings by customers for this product"
+msgstr "এই পণ্যের গড় রেটিং এবং গ্রাহকদের দ্বারা মোট রেটিং সংখ্যা"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "স্টকে ফিরে এসেছে"
 
 msgid "Basic"
-msgstr ""
+msgstr "মৌলিক"
 
 msgid "Basket"
 msgstr "Basket"
 
 msgid "Billing address"
-msgstr ""
+msgstr "বিলিং ঠিকানা"
 
 msgid "Birthday"
-msgstr ""
+msgstr "জন্মদিন"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "গ্রাহকের জন্মদিন"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "বর্ধক ফ্যাক্টর"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "বুস্ট ফ্যাক্টর (ঐচ্ছিক)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "বাগ নাকি পরামর্শ?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "বাল্ক সম্পাদনা"
 
 msgid "Cancel"
-msgstr ""
+msgstr "বাতিল করুন"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "বাতিল করুন এবং তালিকায় ফিরে যান"
 
 msgid "Catalog"
 msgstr "Catalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "ক্যাটালগ তালিকা প্রকার"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "ক্যাটালগ তালিকাভুক্ত করে ধরনসমূহ"
 
 msgid "Categories"
-msgstr ""
+msgstr "শ্রেণিবিভাগ"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "ওয়েবসাইটে ব্যবহারকারী যে বিভাগগুলোতে পণ্যটি খুঁজে পেতে পারে।"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "প্রচার বিভাগে পণ্যটি যে বিভাগগুলোর জন্য দেখানো হবে"
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
-msgstr ""
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr "শ্রেণি-নির্দিষ্ট কনফিগারেশন বিকল্পগুলো টেমপ্লেটে কী/মান জোড়ার আকারে উপলব্ধ থাকবে।"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "প্রতি আইটেমের খরচ %-এ পরিবর্তন করুন"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "রিবেট শতাংশে পরিবর্তন করুন"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "% অনুযায়ী মান পরিবর্তন করুন"
 
 msgid "Channel"
-msgstr ""
+msgstr "চ্যানেল"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "চ্যানেলে অর্ডারটি স্থাপন করা হয়েছে।"
 
 msgid "Choose file"
-msgstr ""
+msgstr "ফাইল নির্বাচন করুন"
 
 msgid "City"
-msgstr ""
+msgstr "শহর"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "শহর বা শহরের নাম (অবশ্যই)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "ক্লাস \"%1$s\" \"%2$s\" বাস্তবায়ন করে না।"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "ক্লাস \"%1$s\" উপলব্ধ নয়"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "ক্লাস \"%1$s\" পাওয়া যায়নি"
 
 msgid "Close"
-msgstr ""
+msgstr "বন্ধ করুন"
 
 msgid "Code"
-msgstr ""
+msgstr "কোড"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "সাইটটিকে অনন্যভাবে শনাক্ত করার কোড, নাম পরিবর্তন করা বিপজ্জনক!"
 
 msgid "Columns"
-msgstr ""
+msgstr "স্তম্ভসমূহ"
 
 msgid "Comment"
-msgstr ""
+msgstr "মন্তব্য"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "সমীক্ষকের মন্তব্য"
 
 msgid "Communication"
-msgstr ""
+msgstr "যোগাযোগ"
 
 msgid "Company"
-msgstr ""
+msgstr "কোম্পানি"
 
 msgid "Company details"
-msgstr ""
+msgstr "কোম্পানির বিবরণ"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "কোম্পানির নাম (ঐচ্ছিক)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "সম্পন্ন অর্ডারসমূহ"
 
-msgid ""
-"Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgid "Completed orders within the last seven days compared to the period before"
+msgstr "গত সাত দিনের মধ্যে সম্পন্ন অর্ডারগুলো আগের সময়ের তুলনায়"
 
 msgid "Config"
-msgstr ""
+msgstr "কনফিগ"
 
 msgid "Configurable"
-msgstr ""
+msgstr "কনফিগারযোগ্য"
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgid "Configuration options, will be available as key/value pairs in the list item"
+msgstr "কনফিগারেশন বিকল্পগুলি তালিকা আইটেমে কী/মান জোড়ার আকারে উপলব্ধ থাকবে।"
 
 msgid "Context"
-msgstr ""
+msgstr "প্রসঙ্গ"
 
 msgid "Copy"
-msgstr ""
+msgstr "নকল করুন"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "এই এন্ট্রিটি অনুলিপি করুন"
 
 msgid "Costs"
-msgstr ""
+msgstr "খরচসমূহ"
 
 msgid "Count"
-msgstr ""
+msgstr "গণুন"
 
 msgid "Country"
-msgstr ""
+msgstr "দেশ"
 
 msgid "Country ID"
-msgstr ""
+msgstr "দেশ আইডি"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "দেশ কোড (অবশ্যই)"
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
-msgstr ""
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
+msgstr "দেশ-নির্দিষ্ট করের হার ব্যবহার করে অন্তর্ভুক্ত কর (B2C) হিসাব ও প্রদর্শন করতে বা প্রয়োজনে কর যোগ করতে (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "দেশীয় রাষ্ট্র কোড (ঐচ্ছিক)"
 
 msgid "Coupon"
 msgstr "Coupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "কুপন প্রদানকারী বা কুপন সাজানোর কনফিগারেশনের নাম"
 
 msgid "Created"
-msgstr ""
+msgstr "সৃষ্ট"
 
 msgid "Currencies"
-msgstr ""
+msgstr "মুদ্রা"
 
 msgid "Currency"
-msgstr ""
+msgstr "মুদ্রা"
 
 msgid "Custom"
-msgstr ""
+msgstr "কাস্টম"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "আপনার দোকানের কাস্টম ডোমেইন বা অনন্য কোড"
 
 msgid "Customer"
 msgstr "Customer"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "গ্রাহক আইডি"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "গ্রাহক তালিকা ধরন"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "গ্রাহক তালিকা প্রকারসমূহ"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "গ্রাহকের সম্পত্তির ধরন"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "গ্রাহকের সম্পত্তির ধরনসমূহ"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "অন্যান্য গ্রাহকদের সাথে ভাগ করা হয় না এমন গ্রাহকের বৈশিষ্ট্যসমূহ"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "গ্রাহকের মন্তব্য (ঐচ্ছিক)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "গ্রাহকের ইমেইল ঠিকানা"
 
 msgid "Customer password"
-msgstr ""
+msgstr "গ্রাহকের পাসওয়ার্ড"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "অন্য গ্রাহকদের সাথে ভাগ করা হয়নি এমন গ্রাহকের বৈশিষ্ট্যসমূহ"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "গ্রাহক রেফারেন্স"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "গ্রাহক রেফারেন্স (ঐচ্ছিক)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "ড্যাশবোর্ড"
 
 msgid "Data"
 msgstr "উপাত্ত"
@@ -501,7 +499,7 @@ msgid "Delete this entry"
 msgstr "এই আইটেমটি মুছে ফেলুন"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "মতামত মুছে ফেলা অনুমোদিত নয়।"
 
 msgid "Delivery"
 msgstr "ডেলিভারি"
@@ -510,1744 +508,1689 @@ msgid "Delivery address"
 msgstr "ডেলিভারির ঠিকানা"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "ডেলিভারির তারিখ"
 
 msgid "Delivery in"
 msgstr "ডেলিভারি ইন"
 
-msgid ""
-"Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgid "Delivery or payment costs for the products in the basket of the customer"
+msgstr "গ্রাহকের বাস্কেটে থাকা পণ্যের ডেলিভারি বা পেমেন্ট খরচ"
 
 msgid "Delivery status"
 msgstr "ডেলিভারি স্ট্যাটাস"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "ডেলিভারির সময়সীমা (ঐচ্ছিক)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "ডেলিভারি ধরনসমূহ"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "ভিতরে ডেলিভারি"
 
-msgid ""
-"Depending on the selected data set, the list of shown fields for the product"
-" will be different"
-msgstr ""
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
+msgstr "নির্বাচিত ডেটা সেটের উপর নির্ভর করে পণ্যের জন্য প্রদর্শিত ক্ষেত্রগুলির তালিকা ভিন্ন হবে।"
 
 msgid "Describe your image"
-msgstr ""
+msgstr "আপনার চিত্রটি বর্ণনা করুন"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "যদি এটি কোনো বিদেশী ভাষায় থাকে, তবে পাঠ্যের বিষয়বস্তুর বর্ণনা।"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "মুদ্রার বর্ণনামূলক নাম"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "ভাষার বর্ণনামূলক নাম"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "সাইটটির বর্ণনামূলক নাম"
 
 msgid "Discount"
-msgstr ""
+msgstr "ছাড়"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "সহায়ক পাঠ্য প্রদর্শন করুন"
 
 msgid "Domain"
-msgstr ""
+msgstr "ডোমেইন"
 
 msgid "Download"
-msgstr ""
+msgstr "ডাউনলোড"
 
 msgid "Download this file"
-msgstr ""
+msgstr "এই ফাইলটি ডাউনলোড করুন"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "ডুপ্লিকেট এন্ট্রি"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "ডুপ্লিকেট এন্ট্রি (Ctrl+D)"
 
 msgid "E-Mail"
-msgstr ""
+msgstr "ই-মেইল"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "ই-মেইল ঠিকানা (অবশ্যই)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "ই-মেইল ঠিকানা অথবা অ্যাকাউন্টের নাম (অবশ্যই)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "দোকান সম্পর্কিত ইমেইল পাঠানোর জন্য ব্যবহৃত ইমেইল ঠিকানা"
 
 msgid "E-mail"
-msgstr ""
+msgstr "ই-মেইল"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "ই-মেইল ঠিকানা (ঐচ্ছিক)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "ঠিকানার অন্তর্গত ইমেইল ঠিকানা"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU বা আর্টিকেল নম্বর (অবশ্যই প্রয়োজন)"
 
 msgid "Edit"
-msgstr ""
+msgstr "সম্পাদনা"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "নির্বাচিত এন্ট্রিগুলো সম্পাদনা করুন"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "এই এন্ট্রিটি সম্পাদনা করুন"
 
 msgid "Editor"
-msgstr ""
+msgstr "সম্পাদক"
 
 msgid "Email"
-msgstr ""
+msgstr "ইমেইল"
 
 msgid "End date"
-msgstr ""
+msgstr "সমাপ্তির তারিখ"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "সমাপ্তির তারিখ (ঐচ্ছিক)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "গ্রুপ আইডি, কোড বা লেবেল লিখুন"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "এন্ট্রি সফলভাবে মুছে ফেলা হয়েছে"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "এন্ট্রি সফলভাবে সংরক্ষিত হয়েছে"
 
-msgid ""
-"Entry specific configuration options, will be available as key/value pairs "
-"in the templates"
-msgstr ""
+msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
+msgstr "এন্ট্রি-নির্দিষ্ট কনফিগারেশন বিকল্পগুলো টেমপ্লেটগুলোতে কী/মান জোড়ার আকারে উপলব্ধ থাকবে।"
 
 msgid "Error"
-msgstr ""
+msgstr "ত্রুটি"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "ডেটা মুছে ফেলার সময় ত্রুটি"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "ডেটা পুনরুদ্ধার করতে ত্রুটি"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "ডেটা সংরক্ষণে ত্রুটি"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "কর ব্যতীত"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "প্লাগইনগুলির কার্যन्वयन আদেশ"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "নিয়মগুলির কার্যনির্বাহী আদেশ"
 
 msgid "Export"
-msgstr ""
+msgstr "রপ্তানি"
 
 msgid "Facility"
-msgstr ""
+msgstr "সুবিধা"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "নকল অনুলিপি"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "ফ্যাক্সিমাইল নম্বর (ঐচ্ছিক)"
 
-msgid ""
-"Factor to boost product in user search over other products (>1.0 positive "
-"boost, <1.0 negative boost)"
-msgstr ""
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
+msgstr "ব্যবহারকারীর অনুসন্ধানে অন্যান্য পণ্যের তুলনায় পণ্যটিকে বাড়িয়ে তোলার ফ্যাক্টর (>1.0 ইতিবাচক বুস্ট, <1.0 নেতিবাচক বুস্ট)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "ডিস্কে ফাইল লেখতে ব্যর্থ হয়েছে"
 
 msgid "File"
-msgstr ""
+msgstr "ফাইল"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "ফাইলটি বিদ্যমান নেই: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "এক্সটেনশন দ্বারা ফাইল আপলোড বন্ধ করা হয়েছে।"
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "ফাইল সফলভাবে আপলোড হয়েছে"
 
 msgid "Find category"
-msgstr ""
+msgstr "শ্রেণী খুঁজুন"
 
 msgid "Find site"
-msgstr ""
+msgstr "সাইট খুঁজুন"
 
 msgid "First"
-msgstr ""
+msgstr "প্রথম"
 
 msgid "First name"
-msgstr ""
+msgstr "প্রথম নাম"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "প্রথম নাম (ঐচ্ছিক)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "যে সংস্কৃতিতে এগুলো ব্যবহৃত হয়, সেখানে ব্যক্তির প্রথম নাম।"
 
 msgid "Floor"
-msgstr ""
+msgstr "মেঝে"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "তলা / অ্যাপার্টমেন্ট"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "তলা এবং/অথবা ফ্ল্যাট (ঐচ্ছিক)"
 
 msgid "For"
-msgstr ""
+msgstr "জন্য"
 
 msgid "Generate"
-msgstr ""
+msgstr "উৎপন্ন করুন"
 
 msgid "Generate image"
-msgstr ""
+msgstr "ছবি তৈরি করুন"
 
 msgid "Generate text"
-msgstr ""
+msgstr "টেক্সট তৈরি করুন"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "রিবেটের পরিমাণ দেওয়া হয়েছে"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "অ্যাট্রিবিউট প্যানেলে যান"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "সম্পত্তি ধরন প্যানেলে যান"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "অ্যাট্রিবিউট প্রকারের তালিকায় যান"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "রিবেট মঞ্জুর করা হয়েছে"
 
 msgid "Group"
 msgstr "Group"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "গ্রুপের নাম যা বর্ণনা করে গ্রুপটি কোন সদস্যদের জন্য"
 
 msgid "Groups"
-msgstr ""
+msgstr "গোষ্ঠীসমূহ"
 
 msgid "Height"
-msgstr ""
+msgstr "উচ্চতা"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "লুকানো বৈশিষ্ট্যসমূহ"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "অর্ডারকৃত পণ্যের সাথে সংরক্ষিত লুকানো পণ্য বৈশিষ্ট্যসমূহ"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "পণ্যের হাইলাইট করা সরবরাহকারীরা"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "সম্মানসূচক শিরোনাম (ঐচ্ছিক)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "ডঃ, পিএইচডি ইত্যাদি সম্মানসূচক উপাধি।"
 
 msgid "Hours"
-msgstr ""
+msgstr "ঘন্টা"
 
 msgid "House number"
-msgstr ""
+msgstr "বাড়ির নম্বর"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "বাড়ির নম্বর (ঐচ্ছিক)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "ইমেইলে গ্রাহককে কীভাবে সম্বোধন করা হয়"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "ইমেইলে সরবরাহকারীকে কীভাবে সম্বোধন করা হয়"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "অতিবাস্তব এবং নাটকীয়"
 
 msgid "ID"
-msgstr ""
+msgstr "আইডি"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "সম্পর্কিত ইনভয়েসের আইডি, যেমন পরিবর্তিত বা ফেরত দেওয়া ইনভয়েসের আইডি"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "আইএসও মুদ্রা কোড (অত্যাবশ্যকীয়)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO ভাষা কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Image"
-msgstr ""
+msgstr "ছবি"
 
 msgid "Image description"
-msgstr ""
+msgstr "ছবির বর্ণনা"
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
-msgstr ""
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
+msgstr "ছবিগুলো শুধুমাত্র সেই ভাষার জন্যই দেখানো হবে, যদি মিডিয়ায় লেখা থাকে বা এটি কোনো নির্দিষ্ট ভাষার জন্য হয়।"
 
 msgid "Import"
-msgstr ""
+msgstr "আমদানি"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "আমদানি/রপ্তানি চাকরি"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "করসহ"
 
 msgid "Info"
-msgstr ""
+msgstr "তথ্য"
 
 msgid "Insert into"
-msgstr ""
+msgstr "এতে সন্নিবেশ করুন"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "নতুন এন্ট্রি সন্নিবেশ করুন"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "নতুন এন্ট্রি সন্নিবেশ করুন (Ctrl+I)"
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
-msgstr ""
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgstr "অভ্যন্তরীণ আর্টিকেলের নাম, ওয়েবসাইটে এবং অনুসন্ধানের জন্য ব্যবহার করা হবে, যদি অন্য কোনো ভাষায় কোনো পণ্য নাম না থাকে।"
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
-msgstr ""
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
+msgstr "যদি ভাষার জন্য কোনো পণ্যের নাম উপলব্ধ না থাকে, তবে ওয়েবসাইটে অভ্যন্তরীণ আর্টিকেলের নাম ব্যবহার করা হবে।"
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
+msgstr "যদি ভাষার জন্য কোনো নাম উপলব্ধ না থাকে, তবে ওয়েবসাইটে অভ্যন্তরীণ অ্যাট্রিবিউট নামটি ব্যবহার করা হবে।"
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal category name, will be used on the web site if no name for the language is available"
+msgstr "যদি ভাষার জন্য কোনো নাম উপলব্ধ না থাকে, তবে ওয়েবসাইটে অভ্যন্তরীণ ক্যাটাগরি নামটি ব্যবহার করা হবে।"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "অভ্যন্তরীণ নাম (অবশ্যই)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "প্রশাসন ইন্টারফেসে প্রদর্শিত অভ্যন্তরীণ টাইপের নাম"
 
 msgid "Interval"
-msgstr ""
+msgstr "ব্যবধান"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "ব্যবধান (অবশ্যিক)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "ক্লাসের নামের \"%1$s\"-এ অবৈধ অক্ষর"
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "ক্লায়েন্ট নামের \"%1$s\"-এ অবৈধ অক্ষর রয়েছে"
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "অবৈধ ক্লাস নাম \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "অবৈধ ডোমেইন \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "অবৈধ ফ্যাক্টরি \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "ইনভয়েস"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "ইনভয়েস নম্বর"
 
 msgid "Invoice no."
-msgstr ""
+msgstr "ইনভয়েস নম্বর"
 
 msgid "Invoice number"
-msgstr ""
+msgstr "ইনভয়েস নম্বর"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "অর্ডারের ইনভয়েস নম্বর"
 
 msgid "Label"
-msgstr ""
+msgstr "লেবেল"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "লেবেল (অবশ্যই)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "যদি কোনো নাম উপলব্ধ না থাকে, তবে ফাঁক বর্ণনা করে এমন লেবেল ব্যবহার করা হবে।"
 
 msgid "Language"
-msgstr ""
+msgstr "ভাষা"
 
 msgid "Language ID"
-msgstr ""
+msgstr "ভাষা আইডি"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "প্রবেশ করানো পাঠ্যের ভাষা"
 
 msgid "Languages"
-msgstr ""
+msgstr "ভাষাগুলো"
 
 msgid "Last"
-msgstr ""
+msgstr "শেষ"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "অর্ডারের সর্বশেষ ডেলিভারি অবস্থা"
 
 msgid "Last name"
-msgstr ""
+msgstr "উপাধি"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "উপাধি (ঐচ্ছিক)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "উপাধি (অবশ্যই)"
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
-msgstr ""
+msgid "Last name of the person or full name in cultures where no first names are used"
+msgstr "যে সংস্কৃতিতে প্রথম নাম ব্যবহার করা হয় না, সেখানে ব্যক্তির উপাধি বা পূর্ণ নাম।"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "অর্ডারের সর্বশেষ পেমেন্ট অবস্থা"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "সর্বশেষ অর্ডারসমূহ"
 
 msgid "Length"
-msgstr ""
+msgstr "দৈর্ঘ্য"
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
-msgstr ""
+msgid "List of articles that should be sold as one product, often at a reduced price"
+msgstr "একটি পণ্য হিসেবে বিক্রি করা উচিত এমন নিবন্ধগুলির তালিকা, প্রায়শই ছাড়প্রাপ্ত মূল্যে।"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "প্রায়ই একসঙ্গে কেনা পণ্যগুলির তালিকা"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "প্রস্তাবিত পণ্যের তালিকা"
 
 msgid "List type"
-msgstr ""
+msgstr "তালিকা ধরন"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "এন্ট্রি লোড হচ্ছে ..."
 
 msgid "Locale"
 msgstr "Locale"
 
 msgid "Log"
-msgstr ""
+msgstr "লগ"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "ম্যানুয়াল স্থানান্তর"
 
 msgid "Map"
-msgstr ""
+msgstr "মানচিত্র"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "মিডিয়া তালিকা ধরন"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "মিডিয়া তালিকা প্রকারসমূহ"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "মিডিয়া সম্পত্তির ধরন"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "মিডিয়া সম্পত্তির ধরনসমূহ"
 
 msgid "Media Type"
-msgstr ""
+msgstr "মিডিয়া প্রকার"
 
 msgid "Media Types"
-msgstr ""
+msgstr "মিডিয়া প্রকার"
 
 msgid "Media properties"
-msgstr ""
+msgstr "মিডিয়া সম্পত্তি"
 
 msgid "Menu"
-msgstr ""
+msgstr "মেনু"
 
 msgid "Message"
-msgstr ""
+msgstr "বার্তা"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "ন্যূনতম পরিমাণ"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "ন্যূনতম পরিমাণ"
 
 msgid "Mobile"
-msgstr ""
+msgstr "মোবাইল"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "মোবাইল নম্বর"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "মোবাইল নম্বর (ঐচ্ছিক)"
 
 msgid "Model"
-msgstr ""
+msgstr "মডেল"
 
 msgid "Modifed"
-msgstr ""
+msgstr "পরিমার্জিত"
 
 msgid "Modified"
-msgstr ""
+msgstr "পরিমার্জিত"
 
 msgid "Months"
-msgstr ""
+msgstr "মাসসমূহ"
 
 msgid "More"
-msgstr ""
+msgstr "আরও"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "এই এন্ট্রিটি উপরে/নিচে সরান"
 
 msgid "Name"
-msgstr ""
+msgstr "নাম"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "ইউআরএলে নাম (ঐচ্ছিক)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "ঝোড়ার নাম"
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgid "Name of the downloaded file when customers saves the file on their computers"
+msgstr "গ্রাহকরা যখন তাদের কম্পিউটারে ফাইলটি সংরক্ষণ করেন, তখন ডাউনলোডকৃত ফাইলের নাম।"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "সমীক্ষকের নাম"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "আপনার দোকানের নাম আপনার গ্রাহকদের দেখানো হচ্ছে"
 
 msgid "Natural"
-msgstr ""
+msgstr "প্রাকৃতিক"
 
 msgid "New"
-msgstr ""
+msgstr "নতুন"
 
 msgid "New category"
-msgstr ""
+msgstr "নতুন বিভাগ"
 
 msgid "New customers"
-msgstr ""
+msgstr "নতুন গ্রাহক"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "গত সাত দিনের মধ্যে নতুন গ্রাহক"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "আগের সময়ের তুলনায় গত সাত দিনে নতুন গ্রাহক"
 
 msgid "Next"
-msgstr ""
+msgstr "পরবর্তী"
 
 msgid "Next date"
-msgstr ""
+msgstr "পরবর্তী তারিখ"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "পরবর্তী তারিখ (ঐচ্ছিক)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "পরবর্তী তারিখে সাবস্ক্রিপশন নবায়ন করা হবে"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "কোনও মুদ্রা উপলব্ধ নেই। অনুগ্রহ করে অন্তত একটি মুদ্রা সক্ষম করুন।"
 
 msgid "No entries found"
-msgstr ""
+msgstr "কোনও এন্ট্রি পাওয়া যায়নি"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "কোনও ফাইল আপলোড করা হয়নি"
 
 msgid "No product found"
-msgstr ""
+msgstr "কোনও পণ্য পাওয়া যায়নি"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "কোনো থিম বিকল্প উপলব্ধ নেই"
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "কোনও দৃশ্য উপলব্ধ নেই"
 
 msgid "No voucher"
-msgstr ""
+msgstr "কোনো ভাউচার নেই"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "মিডিয়া আইটেমের জন্য অ-ভাগাভাগি সম্পত্তি"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "মূল্য আইটেমের জন্য অ-ভাগাভাগি সম্পত্তি"
 
 msgid "None"
-msgstr ""
+msgstr "কোনও নেই"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "সব এন্ট্রি মুছে ফেলা যায়নি"
 
 msgid "Not allowed or editor site is different"
-msgstr ""
+msgstr "অনুমতি নেই বা এডিটর সাইট ভিন্ন"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "JQAdm \"%1$s\" ক্লায়েন্টে অ্যাক্সেস করার অনুমতি নেই।"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "বাস্তবায়িত হয়নি"
 
 msgid "Notes"
-msgstr ""
+msgstr "নোটসমূহ"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "নোটসমূহ (গ্রাহককে দেখানো হয়নি)"
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "বর্তমানে স্টকে থাকা আইটেমের সংখ্যা, অনির্দিষ্ট পরিমাণের জন্য ফাঁকা রাখুন"
 
 msgid "OK"
-msgstr ""
+msgstr "ঠিক আছে"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "ইনভয়েসে কর বিল করতে হবে কিনা নির্ধারণের জন্য অফিসিয়াল ভ্যাট আইডি"
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgid "One provider and zero or more decorator class names separated by commas"
+msgstr "একটি প্রদানকারী এবং কমা দ্বারা পৃথককৃত শূন্য বা তার বেশি ডেকোরেটর ক্লাসের নাম"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "আইকনের জন্য শুধুমাত্র .webp, .jpg, .png এবং .gif অনুমোদিত।"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "লোগোর জন্য শুধুমাত্র .webp, .jpg, .png, .gif এবং .svg ফরম্যাট অনুমোদিত।"
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "শুধুমাত্র সুপার ব্যবহারকারী এবং প্রশাসকরা এন্ট্রি মুছতে পারেন।"
 
 msgid "Open"
-msgstr ""
+msgstr "খোলা"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "খোলা পরিমাণ"
 
 msgid "Option"
-msgstr ""
+msgstr "বিকল্প"
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
-msgstr ""
+msgid "Optional product components that can be chosen by the customer together with the product"
+msgstr "গ্রাহক পণ্যটির সাথে একত্রে বেছে নিতে পারেন এমন ঐচ্ছিক পণ্য উপাদানসমূহ"
 
 msgid "Order"
 msgstr "Order"
 
 msgid "Order ID"
-msgstr ""
+msgstr "অর্ডার আইডি"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "গ্রাহক দ্বারা প্রবেশকৃত অর্ডার নম্বর"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "ভাষা/মুদ্রা সংমিশ্রণের ক্রম"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "চেকআউট প্রক্রিয়ায় সেবার বিকল্পগুলির ক্রম"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "ফ্রন্টএন্ডে টাইপগুলির ক্রম"
 
 msgid "Order totals"
-msgstr ""
+msgstr "অর্ডার মোট"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "এতে আদেশ করা হয়েছে"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "দেশ অনুযায়ী অর্ডার"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "দিন অনুযায়ী অর্ডার"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "প্রতি ঘণ্টায় অর্ডার"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "পেমেন্ট স্ট্যাটাস অনুযায়ী অর্ডারসমূহ"
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
-msgstr ""
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgstr "বিদ্যমান ফাইলটি ওভাররাইট করুন, এবং অতীতে এটি কেনা গ্রাহকরাও নতুন বিষয়বস্তু ডাউনলোড করতে পারবেন।"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP সেটিং \"%1$s\" নিষ্ক্রিয় করা হয়েছে।"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP সেটিং \"%1$s\" সক্রিয় আছে।"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "\"%1$s\"-এর জন্য PHP সেটিং খুবই কম।"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "%1$d পৃষ্ঠা %2$d এর"
 
 msgid "Password"
-msgstr ""
+msgstr "পাসওয়ার্ড"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "পাসওয়ার্ড (অবশ্যই)"
 
 msgid "Path"
-msgstr ""
+msgstr "পথ"
 
 msgid "Pay date"
-msgstr ""
+msgstr "বেতন প্রদানের তারিখ"
 
 msgid "Pay status"
-msgstr ""
+msgstr "বেতন অবস্থা"
 
 msgid "Payment"
-msgstr ""
+msgstr "পরিশোধ"
 
 msgid "Payment date"
-msgstr ""
+msgstr "পরিশোধের তারিখ"
 
 msgid "Payment status"
-msgstr ""
+msgstr "পরিশোধের অবস্থা"
 
 msgid "Payment types"
-msgstr ""
+msgstr "পরিশোধের ধরনসমূহ"
 
 msgid "Periods"
-msgstr ""
+msgstr "অবধি"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "অনুমতি অস্বীকৃত"
 
 msgid "Personal data"
-msgstr ""
+msgstr "ব্যক্তিগত তথ্য"
 
-msgid ""
-"Please insert the description of the text that should be generated here"
-msgstr ""
+msgid "Please insert the description of the text that should be generated here"
+msgstr "অনুগ্রহ করে এখানে তৈরি করা উচিত এমন পাঠ্যের বিবরণ সন্নিবেশ করুন।"
 
 msgid "Please select"
-msgstr ""
+msgstr "অনুগ্রহ করে নির্বাচন করুন"
 
 msgid "Plugin"
 msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "প্লাগইন ধরন"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "প্লাগইন প্রকার"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "সংরক্ষিত প্লাগইন বর্ণনা করার জন্য প্লাগইন লেবেল"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "প্লাগইন অবস্থান (অবশ্যই)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "প্লাগইন প্রদানকারী বা প্লাগইন সজ্জাকারের কনফিগারেশন নাম"
 
 msgid "Position"
-msgstr ""
+msgstr "পদবী"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "পদবী (প্রয়োজনীয়)"
 
 msgid "Postal"
-msgstr ""
+msgstr "ডাকযোগ"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "গ্রাহক যে এলাকায় বসবাস করেন, সেখানে যদি ডাক কোড ব্যবহার করা হয় তবে ডাক কোড।"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "সরবরাহের বাসস্থানের এলাকায় যদি ডাক কোড ব্যবহার করা হয় তবে ডাক কোড"
 
 msgid "Postition"
-msgstr ""
+msgstr "পদ"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "সম্ভাব্য সমস্যা"
 
 msgid "Previous"
-msgstr ""
+msgstr "পূর্ববর্তী"
 
 msgid "Price"
 msgstr "Price"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "মূল্য তালিকা ধরন"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "মূল্য তালিকা ধরনসমূহ"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "মূল্য সম্পত্তির ধরন"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "মূল্য সম্পত্তি ধরনসমূহ"
 
 msgid "Price Type"
-msgstr ""
+msgstr "মূল্যের ধরন"
 
 msgid "Price Types"
-msgstr ""
+msgstr "মূল্য ধরনসমূহ"
 
 msgid "Price properties"
-msgstr ""
+msgstr "প্রাইস প্রপার্টিজ"
 
 msgid "Priority"
-msgstr ""
+msgstr "অগ্রাধিকার"
 
 msgid "Problem"
-msgstr ""
+msgstr "সমস্যা"
 
 msgid "Product"
 msgstr "Product"
 
 msgid "Product ID"
-msgstr ""
+msgstr "পণ্যের আইডি"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "পণ্যের আইডি, এসকেইউ বা লেবেল"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "পণ্যের তালিকা ধরন"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "পণ্যের তালিকা ধরনসমূহ"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "পণ্যের বৈশিষ্ট্য প্রকার"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "পণ্যের বৈশিষ্ট্য প্রকার"
 
 msgid "Product Type"
-msgstr ""
+msgstr "পণ্যের ধরন"
 
 msgid "Product Types"
-msgstr ""
+msgstr "পণ্যের ধরন"
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
-msgstr ""
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
+msgstr "বাকেট-এ সংরক্ষিত পণ্য বৈশিষ্ট্য, যেখানে গ্রাহকরা তাদের নিজস্ব টেক্সট বা মান প্রবেশ করাতে পারেন।"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "অন্যান্য পণ্যতেও ব্যবহৃত পণ্যের বৈশিষ্ট্যসমূহ"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "অন্যান্য পণ্যের সাথে ভাগ করা হয়নি এমন পণ্যের বৈশিষ্ট্যসমূহ"
 
 msgid "Product code"
-msgstr ""
+msgstr "পণ্যের কোড"
 
 msgid "Product costs"
-msgstr ""
+msgstr "পণ্যের খরচ"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "পণ্যের উচ্চতা, উদাহরণস্বরূপ ২০.০ (ইয়ার্ড, ইঞ্চি ইত্যাদি)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "পণ্যের দৈর্ঘ্য, উদাহরণস্বরূপ ৩০.০ (ইয়ার্ড, ইঞ্চি ইত্যাদি)"
 
 msgid "Product name"
-msgstr ""
+msgstr "পণ্যের নাম"
 
 msgid "Product payment"
-msgstr ""
+msgstr "পণ্যের পেমেন্ট"
 
 msgid "Product price"
-msgstr ""
+msgstr "পণ্যের মূল্য"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "পণ্যের পরিমাণ"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "পণ্যের ছাড়"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "পণ্যের শিপিং"
 
 msgid "Product status"
-msgstr ""
+msgstr "পণ্যের অবস্থা"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "পণ্য সরবরাহকারী"
 
 msgid "Product tax"
-msgstr ""
+msgstr "পণ্যের কর"
 
 msgid "Product type"
-msgstr ""
+msgstr "পণ্যের ধরন"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "পণ্যের ওজন, উদাহরণস্বরূপ ১.২৫ (পাউন্ড, আউন্স ইত্যাদি)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "পণ্যের প্রস্থ, উদাহরণস্বরূপ ১৭.৫ (গজ, ইঞ্চি ইত্যাদি)"
 
 msgid "Products"
-msgstr ""
+msgstr "পণ্যসমূহ"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "একসঙ্গে কেনা পণ্যসমূহ"
 
 msgid "Promotion"
-msgstr ""
+msgstr "উন্নীতকরণ"
 
 msgid "Properties"
-msgstr ""
+msgstr "গুণাবলী"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "সম্পত্তির মূল্য (অবশ্যই)"
 
 msgid "Provider"
-msgstr ""
+msgstr "প্রদানকারী"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "প্রোভাইডার/ডেকোরেটর ক্লাসের নাম (অত্যাবশ্যক)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "ক্রয় করুন"
 
 msgid "Quantity"
-msgstr ""
+msgstr "পরিমাণ"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "পরিমাণ স্কেল"
 
 msgid "Rabate"
-msgstr ""
+msgstr "রabat"
 
 msgid "Rating"
-msgstr ""
+msgstr "রেটিং"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "বিক্রেতার রেটিং এবং রেটিংয়ের সংখ্যা"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "সমীক্ষকের রেটিং"
 
 msgid "Reason"
-msgstr ""
+msgstr "কারণ"
 
 msgid "Rebate"
-msgstr ""
+msgstr "ছাড়"
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
-msgstr ""
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
+msgstr "মূল মূল্যের হ্রাস, যা % রিবেট এবং ক্রস মূল্য হিসাব করতে ব্যবহৃত হয়।"
 
 msgid "Reference"
-msgstr ""
+msgstr "তথ্যসূত্র"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "রেফারেন্স আইডি"
 
 msgid "Refund"
-msgstr ""
+msgstr "ফেরত"
 
 msgid "Related ID"
-msgstr ""
+msgstr "সম্পর্কিত আইডি"
 
 msgid "Related order"
-msgstr ""
+msgstr "সম্পর্কিত আদেশ"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "সম্পর্কিত অর্ডার আইডি (ঐচ্ছিক)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "গ্রাহকের সংশ্লিষ্ট অর্ডার"
 
 msgid "Remove background"
-msgstr ""
+msgstr "পটভূমি সরান"
 
 msgid "Renew"
-msgstr ""
+msgstr "নবীকরণ করুন"
 
 msgid "Replace file"
-msgstr ""
+msgstr "ফাইল প্রতিস্থাপন করুন"
 
 msgid "Request"
-msgstr ""
+msgstr "অনুরোধ"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "প্রয়োজনীয় প্যারামিটার \"%1$s\" অনুপস্থিত"
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
-msgstr ""
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
+msgstr "ব্লক প্রাইসিং-এর জন্য প্রয়োজনীয় পণ্যের পরিমাণ, উদাহরণস্বরূপ: একটি পণ্যের জন্য $5.00, দশটি পণ্যের জন্য $45.00"
 
 msgid "Reset"
-msgstr ""
+msgstr "পুনঃসেট"
 
 msgid "Response"
-msgstr ""
+msgstr "প্রতিক্রিয়া"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "পর্যালোচকের প্রতি প্রতিক্রিয়া"
 
 msgid "Review"
 msgstr "Review"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "পর্যালোচিত এন্ট্রি"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "সমীক্ষকের নাম"
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
-msgstr ""
+msgid "Route name or page ID of the category page if this category should shown on a different page"
+msgstr "যদি এই বিভাগটি অন্য কোনো পৃষ্ঠায় দেখানো উচিত হয়, তাহলে রুটের নাম বা বিভাগ পৃষ্ঠার পৃষ্ঠা আইডি।"
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
-msgstr ""
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
+msgstr "যদি এই পণ্যটি অন্য পৃষ্ঠায় দেখানো হয়, তাহলে রুটের নাম বা পণ্যের বিস্তারিত পৃষ্ঠার পৃষ্ঠা আইডি।"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "রুট বা পৃষ্ঠা আইডি (ঐচ্ছিক)"
 
 msgid "Rule"
 msgstr "Rule"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "নিয়মের ধরন"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "নিয়মের ধরন"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "সংরক্ষিত নিয়ম বর্ণনা করার জন্য নিয়মের লেবেল"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "নিয়ম অবস্থান (অবশ্যই)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "রুল প্রদানকারী বা রুল সজ্জাকারীর কনফিগারেশন নাম"
 
 msgid "Rules"
-msgstr ""
+msgstr "নিয়মাবলী"
 
 msgid "SKU"
-msgstr ""
+msgstr "এসকেইউ"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "সপ্তাহের দিন অনুযায়ী বিক্রয়"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "গত ৩০ দিনের বিক্রয়"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "প্রতি মাসে বিক্রয়"
 
 msgid "Salutation"
-msgstr ""
+msgstr "শুভেচ্ছা"
 
 msgid "Save"
-msgstr ""
+msgstr "সংরক্ষণ করুন"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "সংরক্ষণ ও বন্ধ করুন"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "সংরক্ষণ ও অনুলিপি"
 
 msgid "Save & New"
-msgstr ""
+msgstr "সংরক্ষণ ও নতুন"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "প্রবেশ সংরক্ষণ করুন (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "প্রবেশ সংরক্ষণ করুন (Ctrl+S)"
 
 msgid "Search"
-msgstr ""
+msgstr "অনুসন্ধান"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "এন্ট্রিগুলো গ্রুপ করার জন্য দ্বিতীয় স্তরের ধরন"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "সমস্ত এন্ট্রি নির্বাচন করুন"
 
 msgid "Select file"
-msgstr ""
+msgstr "ফাইল নির্বাচন করুন"
 
 msgid "Service"
 msgstr "Service"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "সেবা তালিকা ধরন"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "সেবা তালিকা প্রকারসমূহ"
 
 msgid "Service Type"
-msgstr ""
+msgstr "সেবার ধরন"
 
 msgid "Service Types"
-msgstr ""
+msgstr "সেবা প্রকার"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "সেবা বৈশিষ্ট্য কোড"
 
 msgid "Service costs"
-msgstr ""
+msgstr "সেবা খরচ"
 
 msgid "Service name"
-msgstr ""
+msgstr "সেবার নাম"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "সেবা অবস্থান (প্রয়োজনীয়)"
 
 msgid "Service price"
-msgstr ""
+msgstr "সেবার মূল্য"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "সার্ভিস প্রদানকারী বা সার্ভিস ডেকোরেটর কনফিগারেশনের নাম"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "সেবা ফেরত"
 
 msgid "Settings"
-msgstr ""
+msgstr "সেটিংস"
 
 msgid "Ship date"
-msgstr ""
+msgstr "জাহাজ প্রেরণের তারিখ"
 
 msgid "Ship status"
-msgstr ""
+msgstr "জাহাজের অবস্থা"
 
 msgid "Shipping"
-msgstr ""
+msgstr "শিপিং"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "শিপিং/পেমেন্ট খরচ"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "শিপিং/পেমেন্ট খরচ"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "শিপিং/আইটেম"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "ডোমেইন শপ"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "শপ ডোমেইন (অবশ্যই)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "দোকান ইমেইল"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "শপ ইমেইল ঠিকানা (অবশ্যই প্রয়োজন)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "দোকানের নাম"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "দোকানের নাম (অবশ্যই)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "থিম শপ"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "গ्राहক যে দেশে বসবাস করেন, সেখানে ব্যবহৃত হলে রাজ্যের সংক্ষিপ্ত কোড (যেমন NY)"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "সরবরাহের বাসস্থান দেশ হলে ব্যবহারের জন্য সংক্ষিপ্ত রাজ্য কোড (যেমন NY)"
 
 msgid "Show"
-msgstr ""
+msgstr "দেখাও"
 
 msgid "Show entry"
-msgstr ""
+msgstr "প্রবেশ দেখান"
 
 msgid "Show search form"
-msgstr ""
+msgstr "অনুসন্ধান ফর্ম দেখান"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "উন্নত তথ্য দেখুন/লুকান"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "বিবরণ দেখান/লুকান"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "নেভিগেশন লেবেল দেখান/লুকান"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "এই এন্ট্রিটি দেখান/লুকান"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "প্রবন্ধটি যদি শূন্য স্টক স্তরে পৌঁছায় তবে দেখানো হয়"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "পণ্যটি কখন থেকে উপলব্ধ, ফ্রন্ট-এন্ডে সাজানোর জন্য ব্যবহৃত হয়"
 
 msgid "Site"
-msgstr ""
+msgstr "সাইট"
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "সাইট \"%1$s\" পাওয়া যায়নি"
+
+msgid "Site specific configuration options, will be available as key/value pairs"
+msgstr "সাইট-নির্দিষ্ট কনফিগারেশন বিকল্পগুলি কী/মান জোড়ার আকারে উপলব্ধ থাকবে।"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "যেখানে অর্ডারটি রাখা হয়েছিল"
 
 msgid "Sites"
-msgstr ""
+msgstr "সাইটসমূহ"
 
 msgid "Size"
-msgstr ""
+msgstr "আকার"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "একই বৈশিষ্ট্যের ধরনের মধ্যে বৈশিষ্ট্যগুলির সাজানো"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "সরবরাহের বাছাইকরণ"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "ইনভয়েসের উৎস, যেমন ওয়েব বা ফোন"
 
 msgid "Start date"
-msgstr ""
+msgstr "শুরু করার তারিখ"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "টাইপ করা শুরু করুন ..."
 
 msgid "State"
-msgstr ""
+msgstr "রাজ্য"
 
 msgid "Status"
-msgstr ""
+msgstr "অবস্থা"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "স্টকের ধরন"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "স্টকের ধরন"
 
 msgid "Stock level"
-msgstr ""
+msgstr "স্টকের স্তর"
 
 msgid "Stock type"
-msgstr ""
+msgstr "স্টকের ধরন"
 
 msgid "Street"
-msgstr ""
+msgstr "রাস্তা"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "রাস্তার নাম (ঐচ্ছিক)"
 
 msgid "Style"
-msgstr ""
+msgstr "শৈলী"
 
 msgid "Sub-total"
-msgstr ""
+msgstr "উপ-মোট"
 
 msgid "Subscription"
 msgstr "Subscription"
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
-msgstr ""
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
+msgstr "বছর, মাস, সপ্তাহ ও দিনের সাবস্ক্রিপশন ইন্টারভাল, যেমন \"P0Y1M2W3D\" শূন্য বছর, এক মাস, দুই সপ্তাহ ও তিন দিনের জন্য"
 
 msgid "Suggested products"
-msgstr ""
+msgstr "প্রস্তাবিত পণ্যসমূহ"
 
 msgid "Sum"
-msgstr ""
+msgstr "সমষ্টি"
 
 msgid "Supplier"
 msgstr "Supplier"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "সরবরাহের নাম বা কোম্পানি"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "সরবরাহের অবস্থান (প্রয়োজনীয়)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "যে সরবরাহকারীরা পণ্যটি উৎপাদন করে"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "ট্যাগ ধরন"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "ট্যাগ প্রকার"
 
 msgid "Tax"
-msgstr ""
+msgstr "কর"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "কর হার"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "শুল্কের হার %"
 
 msgid "Telephone"
-msgstr ""
+msgstr "টেলিফোন"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "টেলিফোন নম্বর (ঐচ্ছিক)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "অস্থায়ী ফোল্ডার অনুপস্থিত"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "টেক্সট তালিকা টাইপ"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "টেক্সট তালিকা প্রকারসমূহ"
 
 msgid "Text Type"
-msgstr ""
+msgstr "টেক্সট ধরন"
 
 msgid "Text Types"
-msgstr ""
+msgstr "পাঠ্য ধরণসমূহ"
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
+msgstr "প্রবন্ধটি শুধুমাত্র সেই তারিখ ও সময়ের পর ওয়েবসাইটে দেখানো হবে, দরকারী বা মৌসুমি প্রবন্ধসমূহ।"
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
+msgstr "এই নিবন্ধটি শুধুমাত্র সেই তারিখ ও সময় পর্যন্ত ওয়েবসাইটে দেখানো হয়, দরকারী বা মৌসুমি নিবন্ধসমূহ।"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "সেই তারিখ ও সময়ের পরেই এন্ট্রিটি ওয়েবসাইটে দেখানো হবে।"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "প্রবেশটি শুধুমাত্র সেই তারিখ এবং সময় পর্যন্ত ওয়েবসাইটে দেখানো হয়।"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "মিডিয়া শিরোনামটি ওয়েবসাইটে মিডিয়ার টাইটেল ট্যাগের জন্য ব্যবহৃত হয়।"
 
-msgid ""
-"The name of the category shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
+msgstr "যদি কোনো ভাষা-নির্দিষ্ট URL সেগমেন্ট না থাকে, তবে URL-এ প্রদর্শিত ক্যাটাগরির নাম ব্যবহার করা হবে।"
 
-msgid ""
-"The name of the product shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
+msgstr "যদি কোনো ভাষা-নির্দিষ্ট URL সেগমেন্ট না থাকে, তবে URL-এ প্রদর্শিত পণ্যের নামটি ব্যবহার করা হবে।"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "এই বিকল্পটি শুধুমাত্র সেই তারিখ ও সময়ের পর ওয়েবসাইটে দেখানো হয়।"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "এই বিকল্পটি শুধুমাত্র সেই তারিখ ও সময় পর্যন্ত ওয়েবসাইটে দেখানো হবে।"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "এই নিয়মটি শুধুমাত্র সেই তারিখ ও সময়ের পরই ব্যবহার করা হয়।"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "এই নিয়মটি শুধুমাত্র সেই তারিখ এবং সময় পর্যন্ত ব্যবহার করা হয়।"
 
-msgid ""
-"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
-"fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgstr "বাস্কেটের পরিমাণের জন্য ধাপ মান অনুমোদিত, যেমন ভগ্নাংশ পরিমাণের জন্য \"0.1\" বা পাঁচটি পণ্যের গুণের জন্য \"5\"।"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "আপলোড করা ফাইলের আকার সর্বোচ্চ অনুমোদিত সীমা অতিক্রম করেছে।"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "আপলোড করা ফাইলটি কেবল আংশিকভাবে আপলোড হয়েছে।"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "আপনার দোকানের বিন্যাস পরিবর্তনের থিম"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "তিন অক্ষরের ISO মুদ্রা কোড"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "সময়সীমা (ঐচ্ছিক)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "সময়চিহ্ন"
 
 msgid "Title"
-msgstr ""
+msgstr "শিরোনাম"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "ড্রপডাউন টগল করুন"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "টগল নির্বাচন"
 
 msgid "Top countries"
-msgstr ""
+msgstr "শীর্ষ দেশসমূহ"
 
 msgid "Total"
-msgstr ""
+msgstr "মোট"
 
 msgid "Total orders"
-msgstr ""
+msgstr "মোট অর্ডার"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "গত সাত দিনের মোট অর্ডার, আগের সময়ের তুলনায়"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "মোট রেটিং"
 
 msgid "Translate text"
-msgstr ""
+msgstr "টেক্সট অনুবাদ করুন"
 
 msgid "Translations"
-msgstr ""
+msgstr "অনুবাদসমূহ"
 
 msgid "Tree node menu"
-msgstr ""
+msgstr "গাছ নোড মেনু"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "দুটি অক্ষরের ISO দেশ কোড"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "দুটি অক্ষরের ISO ভাষা কোড"
 
 msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "পজিশন টাইপ করুন (ঐচ্ছিক)"
 
 msgid "Types"
-msgstr ""
+msgstr "ধরনসমূহ"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "আইকনের মতো অতিরিক্ত চিত্রের ধরন"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "প্রতি ১ পাউন্ড/কিলোগ্রাম বা প্রতি মাসের মতো অতিরিক্ত মূল্যের ধরন"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "প্রতি পাউন্ড/কিলোগ্রাম বা প্রতি মাসের মতো অতিরিক্ত পাঠ্যের ধরন"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "গ্রাহকের ওয়েবসাইটের URL"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "সরবরাহের ওয়েবসাইটের URL"
 
 msgid "URL segment"
-msgstr ""
+msgstr "ইউআরএল সেগমেন্ট"
 
 msgid "URL target"
-msgstr ""
+msgstr "ইউআরএল লক্ষ্য"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "মেথড \"%1$s\" কল করতে অক্ষম"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" থেকে বিষয়বস্তু পড়তে অক্ষম"
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "অসম্পূর্ণ অর্ডারসমূহ"
 
-msgid ""
-"Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgid "Unfinished orders within the last seven days compared to the period before"
+msgstr "আগের সময়ের তুলনায় গত সাত দিনের মধ্যে সম্পন্ন না হওয়া অর্ডার"
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
-msgstr ""
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
+msgstr "স্টকের স্তরের সাথে সম্পর্কিত অনন্য আইটেম কোড, যেমন ERP সিস্টেম থেকে, EAN/GTIN নম্বর অথবা নিজে উদ্ভাবিত"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "অনন্য বৈশিষ্ট্য কোড (অবশ্যই)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "অনন্য বৈশিষ্ট্য কোড, যেমন \"color\" ধরনের বৈশিষ্ট্যের জন্য \"green\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "অনন্য বিভাগ কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "অনন্য বিভাগ কোড, যা বাহ্যিক সিস্টেম থেকে বা নিজেই উদ্ভাবিত"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "অনন্য কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "সেবা সনাক্ত করার জন্য অনন্য কোড, সাধারণত নিজেই উদ্ভাবিত"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "অনন্য গ্রাহক অ্যাকাউন্টের নাম"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "অনন্য গ্রাহক ইমেইল ঠিকানা"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "অনন্য গ্রুপ কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "অনন্য সার্ভিস কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "অনন্য সাইট কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "অনন্য সরবরাহকারী কোড"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "অনন্য টাইপ কোড"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "অনন্য টাইপ কোড (অবশ্যই প্রয়োজন)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "অনন্য টাইপ কোড, যেমন \"green\", \"blue\", \"red\" এর মতো বৈশিষ্ট্যের জন্য \"color\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "একক মূল্য"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "অজানা আপলোড ত্রুটি"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV আপলোড করুন"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "দোকানের আইকন আপলোড করুন"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "দোকানের লোগো আপলোড করুন"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "আপলোড করা হয়েছে"
 
 msgid "Use"
-msgstr ""
+msgstr "ব্যবহার করুন"
 
 msgid "User groups"
-msgstr ""
+msgstr "ব্যবহারকারী গোষ্ঠীসমূহ"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "পণ্যের ডেলিভারির স্বাভাবিক সময়সীমা"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "ভ্যাট আইডি"
 
 msgid "Value"
-msgstr ""
+msgstr "মূল্য"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "মূল্য সংযোজন কর শনাক্তকারী (ঐচ্ছিক)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "ভ্যারিয়েন্ট বৈশিষ্ট্যসমূহ"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "অর্ডারকৃত পণ্যের সাথে সংরক্ষিত ভেরিয়েন্ট পণ্যের বৈশিষ্ট্যসমূহ"
 
 msgid "Vendor"
-msgstr ""
+msgstr "বিক্রেতা"
 
 msgid "Verified"
-msgstr ""
+msgstr "যাচাইকৃত"
 
 msgid "View details"
-msgstr ""
+msgstr "বিবরণ দেখুন"
 
 msgid "Voucher"
-msgstr ""
+msgstr "ভাউচার"
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgid "Warehouse or local store if your articles are available at several locations"
+msgstr "গুদাম বা স্থানীয় দোকান, যদি আপনার পণ্যসমূহ একাধিক স্থানে উপলব্ধ থাকে।"
 
 msgid "Web site"
-msgstr ""
+msgstr "ওয়েবসাইট"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "ওয়েবসাইট ইউআরএল (ঐচ্ছিক)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "সপ্তাহ"
 
 msgid "Weight"
-msgstr ""
+msgstr "ওজন"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "অ্যাকাউন্ট এবং ইমেইল ঠিকানা যাচাই হয়ে গেলে"
 
 msgid "Width"
-msgstr ""
+msgstr "প্রস্থ"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD hh:mm:ss (ঐচ্ছিক)"
 
 msgid "Years"
-msgstr ""
+msgstr "বছর"
 
-msgid ""
-"You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgid "You are going to delete one or more entries. Would you like to proceed?"
+msgstr "আপনি এক বা একাধিক এন্ট্রি মুছে ফেলতে যাচ্ছেন। আপনি কি এগিয়ে যেতে চান?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "আপনার এক্সপোর্ট কয়েক মিনিটের মধ্যে ডাউনলোডের জন্য উপলব্ধ হবে।"
 
 msgid "Your response"
-msgstr ""
+msgstr "আপনার প্রতিক্রিয়া"
 
 msgid "Zip code"
-msgstr ""
+msgstr "জিপ কোড"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "জীপ কোড (ঐচ্ছিক)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__লুকানো__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "হিসাব"
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "ঠিকানা"
 
 msgid "address:delivery"
 msgstr "ডেলিভারির ঠিকানা"
 
 msgid "address:payment"
-msgstr ""
+msgstr "ঠিকানা: পেমেন্ট"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "এপিআই"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "গুণ, বৈশিষ্ট্য"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "ঝুড়ি"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "বंडल"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "তালিকা"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "শ্রেণী"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "বিশেষ বৈশিষ্ট্য"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "কোড"
 
 msgid "company"
-msgstr ""
+msgstr "কোম্পানি"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "সংরচনা"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "গণনাকান্ট্রি"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "গণনাদিব"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "গণনা-ঘন্টা"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "পেমেন্ট স্ট্যাটাস গণনা"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "কুপন"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "গ্রাহক"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "ড্যাশবোর্ড"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "দিন"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "ডেলিভারি ধরন"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "ডাউনলোড"
 
 #, php-format
 msgid "goods"
@@ -2255,295 +2198,295 @@ msgstr "Catalog"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "দল"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "ঘণ্টা"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "ছবি"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "চালান"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "সর্বশেষ"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "স্থানীয়করণ"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "স্থানীয়/মুদ্রা"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "স্থানীয়/ভাষা"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "স্থান/সাইট"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "লগ"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "বিপণন"
 
 #, php-format
 msgid "media"
 msgstr "Media"
 
 msgid "miss"
-msgstr ""
+msgstr "মিস"
 
 msgid "mr"
-msgstr ""
+msgstr "মিস্টার"
 
 msgid "mrs"
-msgstr ""
+msgstr "মিসেস"
 
 msgid "ms"
-msgstr ""
+msgstr "এমএস"
 
 msgid "new"
-msgstr ""
+msgstr "নতুন"
 
 msgid "no"
-msgstr ""
+msgstr "না"
 
 msgid "none"
-msgstr ""
+msgstr "কোনও নেই"
 
 msgid "not available any more"
-msgstr ""
+msgstr "আর উপলব্ধ নেই"
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "বিকল্প"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "আদেশ"
 
 msgid "order:phone"
-msgstr ""
+msgstr "অর্ডার:ফোন"
 
 msgid "order:web"
-msgstr ""
+msgstr "অর্ডার:ওয়েব"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "বেতন:-1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "বেতন:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "বেতন:১"
 
 msgid "pay:2"
-msgstr ""
+msgstr "বেতন:২"
 
 msgid "pay:3"
-msgstr ""
+msgstr "বেতন:৩"
 
 msgid "pay:4"
-msgstr ""
+msgstr "বেতন:৪"
 
 msgid "pay:5"
-msgstr ""
+msgstr "বেতন:৫"
 
 msgid "pay:6"
-msgstr ""
+msgstr "বেতন:৬"
 
 msgid "pay:7"
-msgstr ""
+msgstr "বেতন:৭"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "পরিশোধের স্থিতি"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "পেমেন্টের ধরন"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "শারীরিক"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "প্লাগইন"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "মূল্য"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "পণ্য"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "সম্পত্তি"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "দ্রুত/সম্পন্ন সংখ্যা"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "দ্রুত/গ্রাহকগণনা"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "দ্রুত/মোটগণনা"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "দ্রুত/গণনাঅসম্পূর্ণ"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "কারণ:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "কারণ:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "কারণ:১"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "সম্পর্কিত"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "সমীক্ষা"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "নিয়ম"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "বিক্রি"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "বিক্রয় সপ্তাহের দিন"
 
 msgid "selected"
-msgstr ""
+msgstr "নির্বাচিত"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "নির্বাচন"
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "সেবা"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "পরিষেবা ডেলিভারি"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "সেবা-পরিশোধ"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "সেটিংস"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "সেটআপ"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "বিশেষ"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "পরিসংখ্যান:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "পরিসংখ্যান:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "পরিসংখ্যান:১"
 
 msgid "stat:2"
-msgstr ""
+msgstr "পরিসংখ্যান:২"
 
 msgid "stat:3"
-msgstr ""
+msgstr "পরিসংখ্যান:৩"
 
 msgid "stat:4"
-msgstr ""
+msgstr "পরিসংখ্যান:৪"
 
 msgid "stat:5"
-msgstr ""
+msgstr "পরিসংখ্যান:৫"
 
 msgid "stat:6"
-msgstr ""
+msgstr "পরিসংখ্যান:৬"
 
 msgid "stat:7"
-msgstr ""
+msgstr "পরিসংখ্যান:৭"
 
 msgid "status:-1"
-msgstr ""
+msgstr "অবস্থা:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "অবস্থা:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "অবস্থা:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "অবস্থা:১"
 
 msgid "status:2"
-msgstr ""
+msgstr "অবস্থা:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "স্টক"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "সদস্যতা"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "সরবরাহকারী"
 
 msgid "tag"
-msgstr ""
+msgstr "ট্যাগ"
 
 msgid "tax:0"
-msgstr ""
+msgstr "কর:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "কর:১"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "টেক্সট"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "থিম"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "লেনদেন"
 
 #, php-format
 msgid "type"
@@ -2551,27 +2494,27 @@ msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "ধরন/অ্যাট্রিবিউট"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "ধরন/অ্যাট্রিবিউট/তালিকা"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "ধরন/অ্যাট্রিবিউট/প্রপার্টি"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "ধরন/ক্যাটালগ/তালিকা"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "ধরন/গ্রাহক/তালিকা"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "ধরন/গ্রাহক/সম্পত্তি"
 
 #, php-format
 msgid "type/media"
@@ -2579,71 +2522,71 @@ msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "ধরন/মিডিয়া/তালিকা"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "ধরন/মিডিয়া/সম্পত্তি"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "টাইপ/প্লাগইন"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "ধরন/মূল্য"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "ধরন/মূল্য/তালিকা"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "ধরন/মূল্য/সম্পত্তি"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "ধরন/পণ্য"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "ধরন/পণ্য/তালিকা"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "ধরন/পণ্য/সম্পত্তি"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "ধরন/নিয়ম"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "ধরন/সেবা"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "ধরন/সেবা/তালিকা"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "ধরন/স্টক"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "ধরন/ট্যাগ"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "ধরন/টেক্সট"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "প্রকার/পাঠ্য/তালিকা"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "ব্যবহারকারীরা"
 
 msgid "yes"
-msgstr ""
+msgstr "হ্যাঁ"

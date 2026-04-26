@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Bruce Liu <zcon.bruce@gmail.com>, 2016
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh\n"
+"Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
+"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>, 2016\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>, 2016\n"
-"Language-Team: Chinese (http://app.transifex.com/aimeos/aimeos-core/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "!="
 msgstr "不等於"
@@ -39,20 +33,11 @@ msgstr "大於"
 msgid ">="
 msgstr "大於(等於)"
 
-msgid "~="
-msgstr "包含"
-
 msgid "address:delivery"
 msgstr "配送地址"
 
 msgid "address:payment"
 msgstr "帳單地址"
-
-msgid "service:delivery"
-msgstr "運送"
-
-msgid "service:payment"
-msgstr "支付"
 
 msgid "attribute"
 msgstr "特质"
@@ -99,6 +84,12 @@ msgstr "规则"
 msgid "service"
 msgstr "服务"
 
+msgid "service:delivery"
+msgstr "運送"
+
+msgid "service:payment"
+msgstr "支付"
+
 msgid "stock"
 msgstr "股票"
 
@@ -116,3 +107,6 @@ msgstr "文本"
 
 msgid "type"
 msgstr "类型"
+
+msgid "~="
+msgstr "包含"

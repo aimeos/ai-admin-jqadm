@@ -1,21 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
-"Language-Team: Spanish (http://app.transifex.com/aimeos/aimeos-core/language/es/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "!="
 msgstr "no es igual a"
@@ -38,20 +33,11 @@ msgstr "después"
 msgid ">="
 msgstr "después (incl.)"
 
-msgid "~="
-msgstr "contiene"
-
 msgid "address:delivery"
 msgstr "Dirección de entrega"
 
 msgid "address:payment"
 msgstr "Dirección de cobro"
-
-msgid "service:delivery"
-msgstr "Entrega"
-
-msgid "service:payment"
-msgstr "Pago"
 
 msgid "attribute"
 msgstr "atributo"
@@ -98,6 +84,12 @@ msgstr "regla"
 msgid "service"
 msgstr "servicio"
 
+msgid "service:delivery"
+msgstr "Entrega"
+
+msgid "service:payment"
+msgstr "Pago"
+
 msgid "stock"
 msgstr "stock"
 
@@ -115,3 +107,6 @@ msgstr "texto"
 
 msgid "type"
 msgstr "tipo"
+
+msgid "~="
+msgstr "contiene"

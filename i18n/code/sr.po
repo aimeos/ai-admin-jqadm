@@ -1,23 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# danijel marinovic <danijel06@gmail.com>, 2015
-# Mario Domonji <mario.mk.gromovi@gmail.com>, 2015
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sr\n"
+"Language-Team: Serbian (http://app.transifex.com/aimeos/aimeos-core/language/sr/)\n"
+"Last-Translator: Mario Domonji <mario.mk.gromovi@gmail.com>, 2015\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Mario Domonji <mario.mk.gromovi@gmail.com>, 2015\n"
-"Language-Team: Serbian (http://app.transifex.com/aimeos/aimeos-core/language/sr/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: sr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "!="
 msgstr "nije jednako"
@@ -40,14 +33,56 @@ msgstr "posle"
 msgid ">="
 msgstr "Posle  (incl.)"
 
-msgid "~="
-msgstr "sadrži"
-
 msgid "address:delivery"
 msgstr "Adresa Isporuke"
 
 msgid "address:payment"
 msgstr "Adresa za račun"
+
+msgid "attribute"
+msgstr "атрибут"
+
+msgid "basket"
+msgstr "кош"
+
+msgid "catalog"
+msgstr "каталог"
+
+msgid "coupon"
+msgstr "купон"
+
+msgid "customer"
+msgstr "купац"
+
+msgid "group"
+msgstr "група"
+
+msgid "locale"
+msgstr "локал"
+
+msgid "media"
+msgstr "медији"
+
+msgid "order"
+msgstr "porudzbina"
+
+msgid "plugin"
+msgstr "плагин"
+
+msgid "price"
+msgstr "цена"
+
+msgid "product"
+msgstr "производ"
+
+msgid "review"
+msgstr "преглед"
+
+msgid "rule"
+msgstr "правило"
+
+msgid "service"
+msgstr "услуга"
 
 msgid "service:delivery"
 msgstr "Isporuka"
@@ -55,65 +90,23 @@ msgstr "Isporuka"
 msgid "service:payment"
 msgstr "Placanje"
 
-msgid "attribute"
-msgstr ""
-
-msgid "basket"
-msgstr ""
-
-msgid "catalog"
-msgstr ""
-
-msgid "coupon"
-msgstr ""
-
-msgid "customer"
-msgstr ""
-
-msgid "group"
-msgstr ""
-
-msgid "locale"
-msgstr ""
-
-msgid "media"
-msgstr ""
-
-msgid "order"
-msgstr "porudzbina"
-
-msgid "plugin"
-msgstr ""
-
-msgid "price"
-msgstr ""
-
-msgid "product"
-msgstr ""
-
-msgid "review"
-msgstr ""
-
-msgid "rule"
-msgstr ""
-
-msgid "service"
-msgstr ""
-
 msgid "stock"
-msgstr ""
+msgstr "акција"
 
 msgid "subscription"
-msgstr ""
+msgstr "претплата"
 
 msgid "supplier"
-msgstr ""
+msgstr "добављач"
 
 msgid "tag"
-msgstr ""
+msgstr "ознака"
 
 msgid "text"
-msgstr ""
+msgstr "текст"
 
 msgid "type"
-msgstr ""
+msgstr "тип"
+
+msgid "~="
+msgstr "sadrži"

@@ -1,33 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Csaba Balazs <support@webstergeek.eu>, 2022
-# Csernus Zoltan <d3v3lop3r1@gmail.com>, 2022
-# Dávid Komjáti, 2022
-# Dávid Komjáti, 2022
-# György Szikinger <gyorgyszikinger@gmail.com>, 2019
-# nzed <nemesreviz@gmail.com>, 2020-2022
-# Nóra Antal <nora1984antal@gmail.com>, 2016
-# Patrik Szakos <szakos0208@gmail.com>, 2021
-# Péter Kozma <kopegrafika@gmail.com>, 2016
-# György Szikinger <gyorgyszikinger@gmail.com>, 2019
-# Zoltán Csordás, 2023
-# Zoltán Csordás, 2023
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: hu\n"
+"Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
+"Last-Translator: Zoltán Csordás, 2023\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 11:47+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Zoltán Csordás, 2023\n"
-"Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
 msgstr " "
@@ -46,7 +29,15 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
+msgstr ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
 
 #, php-format
 msgid ""
@@ -63,7 +54,22 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+""
+msgstr ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+""
 
 #, php-format
 msgid "%1$s %2$s"
@@ -77,14 +83,10 @@ msgstr "%1$s (Ctrl+Alt+%2$s)"
 msgid "%s/%s/%s.%s"
 msgstr "%s/%s/%s.%s"
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
 msgstr "(Nemzetközi) faxszám elválasztó karakterek nélkül, kezdődhet \"+\" jellel"
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
 msgstr "(Nemzetközi) telefonszám elválasztó karakterek nélkül, kezdődhet \"+\" jellel"
 
 msgid "+ Tax"
@@ -120,9 +122,7 @@ msgstr "Adja hozzá utána"
 msgid "Add before"
 msgstr "Hozzáadás előtt"
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
 msgstr "További szállítási költség tételenként, pl. 5.000 Ft egy túlsúlyos árucikkre összesen 25.000 Ft lesz öt árucikkre"
 
 msgid "Additional information where the customer's apartment can be found"
@@ -168,9 +168,7 @@ msgstr "Aimeos objektum nem elérhető"
 msgid "All"
 msgstr "Mind"
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
 msgstr "Az összes jellemző, amelyek egyedileg meghatároznak egy árucikket, pl. szélesség, hosszúság és szín egy farmernadrágnál"
 
 msgid "Allow custom price"
@@ -185,9 +183,7 @@ msgstr "A csoport egyedi azonosítására alkalmas karaktersor"
 msgid "Apply"
 msgstr "Elfogad"
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
 msgstr "Cikkekre vonatkozó beállítási lehetőségek, a sablonokban kulcs-érték párokként lesznek elérhetők"
 
 msgid "Attribute"
@@ -232,9 +228,7 @@ msgstr "A nyilvános oldalon elérhető időközök"
 msgid "Available language for the current site"
 msgstr "A jelenlegi oldalon elérhető nyelvek"
 
-msgid ""
-"Average product rating and total number of ratings by customers for this "
-"product"
+msgid "Average product rating and total number of ratings by customers for this product"
 msgstr "Termékek átlagos értékelése és a vásárlók által leadott összes értékelések száma"
 
 msgid "Back in stock"
@@ -291,9 +285,7 @@ msgstr "Azok a kategóriák, amelyekben a felhasználó megtalálja a terméket 
 msgid "Categories the product will be shown for in the promotional section"
 msgstr "Azok a kategóriák, amelyekben a termék megjelenik a kedvezményes szakaszban"
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
 msgstr "Termékkörre vonatkozó beállítási lehetőségek, a sablonokban kulcs-érték párokként lesznek elérhetők"
 
 msgid "Change costs/item in %"
@@ -365,8 +357,7 @@ msgstr "Vállalat neve (nem kötelező)"
 msgid "Completed orders"
 msgstr "Teljesített megrendelések"
 
-msgid ""
-"Completed orders within the last seven days compared to the period before"
+msgid "Completed orders within the last seven days compared to the period before"
 msgstr "Az elmúlt hét napban teljesített megrendelések az előző időszakhoz képest"
 
 msgid "Config"
@@ -375,8 +366,7 @@ msgstr "Beállítások"
 msgid "Configurable"
 msgstr "Beállítható"
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
+msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Beállítási lehetőségek, a felsorolás elemeiben kulcs-érték párokként lesznek elérhetők"
 
 msgid "Context"
@@ -403,9 +393,7 @@ msgstr "Országazonosító"
 msgid "Country code (required)"
 msgstr "Országkód (kötelező)"
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
 msgstr "Országfüggő adókulcs a tartalmazott adó kiszámításához és megjelenítéséhez (kisker), vagy esetleges hozzáadásához (nagyker)"
 
 msgid "Country state code (optional)"
@@ -525,8 +513,7 @@ msgstr "Szállítási dátum"
 msgid "Delivery in"
 msgstr "Beszállítás"
 
-msgid ""
-"Delivery or payment costs for the products in the basket of the customer"
+msgid "Delivery or payment costs for the products in the basket of the customer"
 msgstr "A vásárló kosarában levő termékek szállítási vagy fizetési költségei"
 
 msgid "Delivery status"
@@ -541,9 +528,7 @@ msgstr "Szállítási típusok"
 msgid "Delivery within"
 msgstr "Szállítás határnapja:"
 
-msgid ""
-"Depending on the selected data set, the list of shown fields for the product"
-" will be different"
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
 msgstr "A kiválasztott adatállománytól függően a terméknél megjelenített mezők listája eltérő lesz"
 
 msgid "Describe your image"
@@ -636,9 +621,7 @@ msgstr "A bejegyzés sikeresen törölve"
 msgid "Entry saved successfully"
 msgstr "A bejegyzés sikeresen mentve"
 
-msgid ""
-"Entry specific configuration options, will be available as key/value pairs "
-"in the templates"
+msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
 msgstr "A bejegyzésspecifikus konfigurációs beállítások kulcs/érték párokként lesznek elérhetőek a sablonokban."
 
 msgid "Error"
@@ -674,9 +657,7 @@ msgstr "Távmásoló"
 msgid "Facsimile number (optional)"
 msgstr "Fax száma (nem kötelező)"
 
-msgid ""
-"Factor to boost product in user search over other products (>1.0 positive "
-"boost, <1.0 negative boost)"
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
 msgstr "A terméknek a felhasználói keresésben a többi termékkel szemben történő növelésére szolgáló tényező (>1.0 pozitív növelés, <1.0 negatív növelés)"
 
 msgid "Failed to write file to disk"
@@ -812,9 +793,7 @@ msgstr "Kép"
 msgid "Image description"
 msgstr "Kép leírása"
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
 msgstr "A képek csak az adott nyelvnél jelennek meg. Akkor hasznos, ha a kép szöveget tartalmaz, vagy nyelvhez köthetők"
 
 msgid "Import"
@@ -838,24 +817,16 @@ msgstr "Új bejegyzés beszúrása"
 msgid "Insert new entry (Ctrl+I)"
 msgstr "Új bejegyzés beszúrása (Ctrl+I)"
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
 msgstr "Cikk belső neve, csak akkor használja a rendszer a weboldalon vagy a keresésnél, ha egyik nyelven sincs megadva terméknév"
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
 msgstr "Cikk belső neve, csak akkor használja a rendszer a weboldalon, ha az adott nyelven nincs megadva terméknév"
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
 msgstr "Belső attribútumnév, ami akkor lesz használatos a webhelyen ha nem áll rendelkezésre az adott nyelven"
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
+msgid "Internal category name, will be used on the web site if no name for the language is available"
 msgstr "Belső kategórianév, ami akkor lesz használatos a webhelyen ha nem áll rendelkezésre az adott nyelven"
 
 msgid "Internal name (required)"
@@ -941,9 +912,7 @@ msgstr "Vezetéknév (opcionális)"
 msgid "Last name (required)"
 msgstr "Vezetéknév (kötelező)"
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
+msgid "Last name of the person or full name in cultures where no first names are used"
 msgstr "Vezetéknév, ha az adott kultúrában az a használatos"
 
 msgid "Last payment status of the order"
@@ -955,9 +924,7 @@ msgstr "Legújabb megrendelések"
 msgid "Length"
 msgstr "Hossz"
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
+msgid "List of articles that should be sold as one product, often at a reduced price"
 msgstr "Azon termékek listája, amelyeket egy termékként kell értékesíteni, gyakran csökkentett áron"
 
 msgid "List of products often bought together"
@@ -1053,8 +1020,7 @@ msgstr "Url cím (opcionális)"
 msgid "Name of the basket"
 msgstr "A kosár neve"
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
+msgid "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Mentett fájl neve, az ügyfél gépén"
 
 msgid "Name of the reviewer"
@@ -1143,8 +1109,7 @@ msgstr "Jegyzetek"
 msgid "Notes (not shown to customer)"
 msgstr "Megjegyzések (nem jelenik meg az ügyfélnek)"
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Jelenleg raktáron lévő cikkek száma, hagyja üresen korlátlan mennyiségre"
 
 msgid "OK"
@@ -1153,8 +1118,7 @@ msgstr "Rendben"
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr "Hivatalos Nav azonosító, annak megállapítására, hogy szükséges-e adózni"
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
+msgid "One provider and zero or more decorator class names separated by commas"
 msgstr "Egy szolgáltató és nulla vagy több dekorációs osztály neve vesszővel elválasztva"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
@@ -1175,9 +1139,7 @@ msgstr "Nyitott mennyiség"
 msgid "Option"
 msgstr "Választási lehetőség"
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
+msgid "Optional product components that can be chosen by the customer together with the product"
 msgstr "Választható termékkomponensek, amelyeket a vevő a termékkel együtt választhat"
 
 msgid "Order"
@@ -1216,9 +1178,7 @@ msgstr "Rendelések óra szerint"
 msgid "Orders by payment status"
 msgstr "Rendelések fizetési státusz szerint"
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
 msgstr "Írja felül a meglévő fájlban és a korábban megvásárolt termékeket és töltse le az új tartalmat"
 
 #, php-format
@@ -1274,8 +1234,7 @@ msgstr "Engedély megtagadva"
 msgid "Personal data"
 msgstr "Személyes adatok"
 
-msgid ""
-"Please insert the description of the text that should be generated here"
+msgid "Please insert the description of the text that should be generated here"
 msgstr "Kérjük, illessze be ide a generálandó szöveg leírását."
 
 msgid "Please select"
@@ -1380,9 +1339,7 @@ msgstr "Termék típusa"
 msgid "Product Types"
 msgstr "Termék típusa"
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
 msgstr "A kosárban tárolt termékattribútumok, ahol az ügyfelek megadhatják saját szövegeiket vagy értékeiket"
 
 msgid "Product attributes that are used by other products too"
@@ -1487,9 +1444,7 @@ msgstr "Indok"
 msgid "Rebate"
 msgstr "Engedmény"
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
 msgstr "Csökkentés az eredeti árhoz képest, a visszatérítés százalékos kiszámításához és a keresztárhoz"
 
 msgid "Reference"
@@ -1529,9 +1484,7 @@ msgstr "Kérés"
 msgid "Required parameter \"%1$s\" is missing"
 msgstr "\"%1$s\" kötelező segédváltozó hiányzik"
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
 msgstr "A mennyiségi kedvezményhez szükséges mennyiség, pl. egy cikk 5,00 dollárért, tíz cikk 45,00 dollárért"
 
 msgid "Reset"
@@ -1552,14 +1505,10 @@ msgstr "Felülvizsgált bejegyzés"
 msgid "Reviewer name"
 msgstr "Véleményező neve"
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
+msgid "Route name or page ID of the category page if this category should shown on a different page"
 msgstr "A kategóriaoldal elérési útja vagy azonosítója, ha ezt a kategóriát egy másik oldalon jelenítjük meg"
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
 msgstr "Ha a terméket egy másik oldalon kell megjeleníteni, akkor adja meg az útvonal nevét vagy a termékadat -oldal azonosítóját"
 
 msgid "Route or page ID (optional)"
@@ -1709,12 +1658,10 @@ msgstr "Shop név (kötelező)"
 msgid "Shop theme"
 msgstr "Shop téma"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Rövid államkód (Pl: NY), ha az ügyfél lakhellyével megegyező"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
 msgstr "Rövid államkód (Pl: NY), ha a támogató lakhellyével megegyező"
 
 msgid "Show"
@@ -1747,8 +1694,11 @@ msgstr "Mióta a termék elérhető, a kezelőfelület válogatásához használ
 msgid "Site"
 msgstr "Webhely"
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "A „%1$s” webhely nem található"
+
+msgid "Site specific configuration options, will be available as key/value pairs"
 msgstr "A helyspecifikus konfigurációs lehetőségek kulcs/érték párokként állnak rendelkezésre"
 
 msgid "Site the order was placed at"
@@ -1808,9 +1758,7 @@ msgstr "Részösszeg"
 msgid "Subscription"
 msgstr "Előfizetés"
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
 msgstr "Előfizetési intervallum évekkel, hónapokkal, hetekkel és napokkal, pl. \"P0Y1M2W3D\" nulla évre, egy hónapra, két hétre és három napra"
 
 msgid "Suggested products"
@@ -1867,14 +1815,10 @@ msgstr "Szöveg típusa"
 msgid "Text Types"
 msgstr "Szöveg típusok"
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
 msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
 msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
 msgid "The entry is only shown on the web site after that date and time"
@@ -1886,14 +1830,10 @@ msgstr "A bejegyzés csak addig a dátumig és időpontig jelenik meg a weboldal
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "A média címe a webhelyen található média címcímkéje"
 
-msgid ""
-"The name of the category shown in the URL, will be used if no language "
-"specific URL segment exists"
+msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
 msgstr "Az URL -ben megjelenő kategória nevét akkor használjuk, ha nem létezik nyelvspecifikus URL -szegmens"
 
-msgid ""
-"The name of the product shown in the URL, will be used if no language "
-"specific URL segment exists"
+msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
 msgstr "Az URL -ben látható termék nevét akkor használjuk, ha nem létezik nyelvspecifikus URL -szegmens"
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1908,9 +1848,7 @@ msgstr "A szabály csak az adott dátum és idő után használható"
 msgid "The rule is only used until that date and time"
 msgstr "A szabály csak addig a dátumig és időpontig használható"
 
-msgid ""
-"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
-"fractional quantities or \"5\" for multiple of five articles"
+msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
 msgstr "A kosárban a mennyiségekhez engedélyezett lépésköz, pl. \"0.1\" tört mennyiségekhez, vagy \"5\" az öt és többszöröseihez"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
@@ -2011,13 +1949,10 @@ msgstr "Nem sikerült beolvasni a tartalmat a \"%1$s\"-ból."
 msgid "Unfinished orders"
 msgstr "Befejezetlen rendelések"
 
-msgid ""
-"Unfinished orders within the last seven days compared to the period before"
+msgid "Unfinished orders within the last seven days compared to the period before"
 msgstr "Befejezetlen megrendelések az elmúlt hét napban az előző időszakhoz képest"
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
 msgstr "A készletek szintjéhez kapcsolódó egyedi cikkkód, pl. az ERP rendszerből, egy EAN/GTIN szám vagy kitalált kód"
 
 msgid "Unique attribute code (required)"
@@ -2119,8 +2054,7 @@ msgstr "Részletek megjelenítése"
 msgid "Voucher"
 msgstr "Utalvány"
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
+msgid "Warehouse or local store if your articles are available at several locations"
 msgstr "Raktár vagy helyi üzlet, ha cikkei több helyen is elérhetők"
 
 msgid "Web site"
@@ -2147,8 +2081,7 @@ msgstr "ÉÉÉÉ-HH-NN hh:mm:ss (választható)"
 msgid "Years"
 msgstr "Évek"
 
-msgid ""
-"You are going to delete one or more entries. Would you like to proceed?"
+msgid "You are going to delete one or more entries. Would you like to proceed?"
 msgstr "Egy vagy több bejegyzést törölni fog. Szeretné folytatni?"
 
 msgid "Your export will be available in a few minutes for download"

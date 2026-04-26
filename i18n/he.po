@@ -1,28 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Aimeos, 2024
-# Aimeos, 2024
-# shmuel adler, 2024
-# shmuel adler, 2024
 msgid ""
 msgstr ""
-"Project-Id-Version: aimeos-core\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 11:47+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: shmuel adler, 2024\n"
-"Language-Team: Hebrew (http://app.transifex.com/aimeos/aimeos-core/language/he/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Language: he\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
+"MIME-Version: 1.0\n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"Report-Msgid-Bugs-To: \n"
 
 msgid " "
-msgstr "</text_to_translate>"
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
@@ -38,7 +24,15 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
+msgstr ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
 
 #, php-format
 msgid ""
@@ -55,7 +49,22 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+""
+msgstr ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+""
 
 #, php-format
 msgid "%1$s %2$s"
@@ -63,27 +72,23 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr "%1$s (Ctrl Alt %2$s)"
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
 msgstr "%s/%s/%s.%s"
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
-msgstr "(בינלאומי) מספר פקסימיליה ללא תווי הפרדה, יכול להתחיל ב- \" \""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
+msgstr "(בינלאומי) מספר פקס ללא תווי הפרדה, יכול להתחיל ב-\"+\""
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
-msgstr "מספר טלפון (בינלאומי) ללא תווים מופרדים, עשוי להתחיל עם \"+\""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
+msgstr "מספר טלפון (בינלאומי) ללא תווי הפרדה, יכול להתחיל ב-\"+\""
 
 msgid "+ Tax"
 msgstr "+ מס"
 
 msgid "<hidden>"
-msgstr "<hidden>"
+msgstr "<מוסתר>"
 
 msgid "?"
 msgstr "?"
@@ -98,30 +103,28 @@ msgid "Active"
 msgstr "פעיל"
 
 msgid "Actual price"
-msgstr "מחיר בפועל"
+msgstr "המחיר בפועל"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "המחיר בפועל שלקוחות יכולים לקנות עבורו את המאמר באתר האינטרנט"
+msgstr "המחיר בפועל שבו הלקוחות יכולים לרכוש את המוצר באתר"
 
 msgid "Add"
 msgstr "הוסף"
 
 msgid "Add after"
-msgstr "הוסף אחרי"
+msgstr "להוסיף אחרי"
 
 msgid "Add before"
-msgstr "הוסף לפני"
+msgstr "להוסיף לפני"
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
-msgstr "עלויות משלוח נוספות עבור כל פריט, למשל. $20 לפריט כבד אחד יהיו $100 עבור חמישה פריטים בסך הכל"
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
+msgstr "עלויות משלוח נוספות עבור כל פריט; לדוגמה, 20 דולר עבור פריט כבד אחד, ו-100 דולר עבור חמישה פריטים בסך הכל"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr "מידע נוסף היכן ניתן למצוא את דירת הלקוח"
+msgstr "מידע נוסף על מיקום דירתו של הלקוח"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr "מידע נוסף היכן ניתן למצוא את דירת הספק"
+msgstr "מידע נוסף על מיקום דירתו של הספק"
 
 msgid "Address 1"
 msgstr "כתובת 1"
@@ -133,81 +136,77 @@ msgid "Address 3"
 msgstr "כתובת 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr "מזהה כתובת של בית הלקוח למשלוח"
+msgstr "מספר הזיהוי של כתובת בית הלקוח לצורך משלוח"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr "מזהה כתובת של בית הספק למשלוח"
+msgstr "מזהה הכתובת של בית הספק לצורך משלוח"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr "סוג Admin JQAdm ריק"
+msgstr "סוג ה-Admin JQAdm ריק"
 
 msgid "Advanced"
 msgstr "מתקדם"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr "המטמון של Aimeos מושבת על ידי \"%1$s\""
+msgstr "אחסון המטמון של Aimeos מושבת על ידי \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr "רישום ניפוי באגים של Aimeos מופעל על ידי \"%1$s\""
+msgstr "רישום באגים של Aimeos מופעל על ידי \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr "אובייקט Aimeos אינו זמין"
+msgstr "הפריט Aimeos אינו זמין"
 
 msgid "All"
 msgstr "הכל"
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
-msgstr "כל התכונות שמגדירות מאמר באופן ייחודי, למשל. "
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
+msgstr "כל המאפיינים המגדירים באופן ייחודי פריט לבוש, כגון רוחב, אורך וצבע בג'ינס"
 
 msgid "Allow custom price"
 msgstr "אפשר מחיר מותאם אישית"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr "אפשר ללקוחות לבחור בעצמם כמה הם רוצים לשלם"
+msgstr "לאפשר ללקוחות לבחור בעצמם כמה הם רוצים לשלם"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr "מחרוזת אלפאנומרית שיכולה לזהות את הקבוצה באופן ייחודי"
+msgstr "מחרוזת אלפאנומרית המזהה את הקבוצה באופן ייחודי"
 
 msgid "Apply"
 msgstr "הגש בקשה"
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
-msgstr "אפשרויות תצורה ספציפיות למאמר, יהיו זמינות כצמדי מפתח/ערך בתבניות"
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
+msgstr "אפשרויות התצורה הספציפיות למאמר יהיו זמינות כצמדי מפתח-ערך בתבניות"
 
 msgid "Attribute"
 msgstr "תכונה"
 
 msgid "Attribute Lists Type"
-msgstr "סוג רשימות תכונות"
+msgstr "סוגי רשימות תכונות"
 
 msgid "Attribute Lists Types"
 msgstr "סוגי רשימות תכונות"
 
 msgid "Attribute Property Type"
-msgstr "סוג מאפיין תכונה"
+msgstr "מאפיין סוג המאפיין"
 
 msgid "Attribute Property Types"
 msgstr "סוגי מאפיינים"
 
 msgid "Attribute Type"
-msgstr "סוג תכונה"
+msgstr "סוג התכונה"
 
 msgid "Attribute Types"
 msgstr "סוגי תכונות"
 
 msgid "Attribute position (optional)"
-msgstr "מיקום תכונה (אופציונלי)"
+msgstr "מיקום התכונה (אופציונלי)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr "מאפייני תכונה שאינם משותפים עם תכונות אחרות"
+msgstr "מאפייני תכונות שאינם משותפים לתכונות אחרות"
 
 msgid "Attribute type that limits the list of available attributes"
 msgstr "סוג תכונה המגביל את רשימת התכונות הזמינות"
@@ -216,21 +215,19 @@ msgid "Attributes"
 msgstr "תכונות"
 
 msgid "Available currency for the current site"
-msgstr "מטבע זמין עבור האתר הנוכחי"
+msgstr "המטבעות הזמינים באתר הנוכחי"
 
 msgid "Available intervals in the front-end"
-msgstr "מרווחים זמינים בחלק הקדמי"
+msgstr "האינטרוולים הזמינים בממשק המשתמש"
 
 msgid "Available language for the current site"
-msgstr "שפה זמינה עבור האתר הנוכחי"
+msgstr "השפות הזמינות באתר הנוכחי"
 
-msgid ""
-"Average product rating and total number of ratings by customers for this "
-"product"
-msgstr "דירוג מוצר ממוצע ומספר כולל של דירוגים על ידי לקוחות עבור מוצר זה"
+msgid "Average product rating and total number of ratings by customers for this product"
+msgstr "דירוג ממוצע של המוצר ומספר הדירוגים הכולל של הלקוחות עבור מוצר זה"
 
 msgid "Back in stock"
-msgstr "חוזר למלאי"
+msgstr "חזר למלאי"
 
 msgid "Basic"
 msgstr "בסיסי"
@@ -245,22 +242,22 @@ msgid "Birthday"
 msgstr "יום הולדת"
 
 msgid "Birthday of the customer"
-msgstr "יום הולדת ללקוח"
+msgstr "יום ההולדת של הלקוח"
 
 msgid "Boost factor"
-msgstr "גורם חיזוק"
+msgstr "מקדם הגברה"
 
 msgid "Boost factor (optional)"
-msgstr "גורם חיזוק (אופציונלי)"
+msgstr "מקדם הגברה (אופציונלי)"
 
 msgid "Bug or suggestion?"
 msgstr "באג או הצעה?"
 
 msgid "Bulk edit"
-msgstr "עריכה בכמות גדולה"
+msgstr "עריכה מרוכזת"
 
 msgid "Cancel"
-msgstr "בטל"
+msgstr "ביטול"
 
 msgid "Cancel and return to list"
 msgstr "בטל וחזור לרשימה"
@@ -272,36 +269,34 @@ msgid "Catalog Lists Type"
 msgstr "סוג רשימות קטלוג"
 
 msgid "Catalog Lists Types"
-msgstr "סוגי רשימות קטלוגים"
+msgstr "הקטלוג מפרט את הסוגים"
 
 msgid "Categories"
 msgstr "קטגוריות"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr "קטגוריות בהן ניתן למצוא את המוצר על ידי המשתמש באתר האינטרנט"
+msgstr "הקטגוריות שבהן המשתמש יכול למצוא את המוצר באתר"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr "קטגוריות שבהן המוצר יוצג בסעיף הקידום"
+msgstr "הקטגוריות שבהן יוצג המוצר במדור המבצעים"
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
-msgstr "אפשרויות תצורה ספציפיות לקטגוריה, יהיו זמינות כצמדי מפתח/ערך בתבניות"
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr "אפשרויות התצורה הספציפיות לקטגוריה יהיו זמינות כצמדי מפתח-ערך בתבניות"
 
 msgid "Change costs/item in %"
-msgstr "שנה עלויות/פריט באחוזים"
+msgstr "שינוי בעלות ליחידה באחוזים"
 
 msgid "Change rebate in %"
-msgstr "שנה הנחה באחוזים"
+msgstr "שינוי בשיעור ההנחה באחוזים"
 
 msgid "Change value in %"
-msgstr "שנה ערך באחוזים"
+msgstr "שינוי הערך באחוזים"
 
 msgid "Channel"
 msgstr "ערוץ"
 
 msgid "Channel the order has been placed"
-msgstr "ערוץ ההזמנה בוצעה"
+msgstr "הזמנה הוזמנה"
 
 msgid "Choose file"
 msgstr "בחר קובץ"
@@ -310,19 +305,19 @@ msgid "City"
 msgstr "עיר"
 
 msgid "City or town name (required)"
-msgstr "שם עיר או עיירה (חובה)"
+msgstr "שם העיר או היישוב (חובה)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "מחלקה \"%1$s\" לא מיישמת \"%2$s\""
+msgstr "המחלקת \"%1$s\" אינה מיישמת את \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "מחלקה \"%1$s\" לא זמינה"
+msgstr "המחלקה \"%1$s\" אינה זמינה"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr "הכיתה \"%1$s\" לא נמצאה"
+msgstr "לא נמצא מחלקה \"%1$s\""
 
 msgid "Close"
 msgstr "סגור"
@@ -331,7 +326,7 @@ msgid "Code"
 msgstr "קוד"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr "קוד לזיהוי ייחודי של האתר, שינוי שם מסוכן!"
+msgstr "קוד לזיהוי ייחודי של האתר; שינוי השם עלול לגרום לבעיות!"
 
 msgid "Columns"
 msgstr "עמודות"
@@ -352,24 +347,22 @@ msgid "Company details"
 msgstr "פרטי החברה"
 
 msgid "Company name (optional)"
-msgstr "שם חברה (אופציונלי)"
+msgstr "שם החברה (לא חובה)"
 
 msgid "Completed orders"
-msgstr "הזמנות הושלמו"
+msgstr "הזמנות שהושלמו"
 
-msgid ""
-"Completed orders within the last seven days compared to the period before"
-msgstr "הזמנות הושלמו בשבעת הימים האחרונים בהשוואה לתקופה שלפני כן"
+msgid "Completed orders within the last seven days compared to the period before"
+msgstr "הזמנות שהושלמו בשבעת הימים האחרונים בהשוואה לתקופה שקדמה לכך"
 
 msgid "Config"
-msgstr "תצורה"
+msgstr "הגדרות"
 
 msgid "Configurable"
 msgstr "ניתן להגדרה"
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
-msgstr "אפשרויות תצורה, יהיו זמינות כצמדי מפתח/ערך בפריט הרשימה"
+msgid "Configuration options, will be available as key/value pairs in the list item"
+msgstr "אפשרויות התצורה יהיו זמינות כצמדי מפתח-ערך בפריט הרשימה"
 
 msgid "Context"
 msgstr "הקשר"
@@ -378,7 +371,7 @@ msgid "Copy"
 msgstr "העתק"
 
 msgid "Copy this entry"
-msgstr "העתק את הערך הזה"
+msgstr "העתק ערך זה"
 
 msgid "Costs"
 msgstr "עלויות"
@@ -390,18 +383,16 @@ msgid "Country"
 msgstr "מדינה"
 
 msgid "Country ID"
-msgstr "מזהה מדינה"
+msgstr "מזהה המדינה"
 
 msgid "Country code (required)"
-msgstr "קוד מדינה (חובה)"
+msgstr "קוד המדינה (חובה)"
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
-msgstr "שיעור מס ספציפי למדינה כדי לחשב ולהציג את המס הכלול (B2C) או להוסיף את המס אם נדרש (B2B)"
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
+msgstr "שיעור המס הספציפי למדינה לצורך חישוב והצגת המס הכלול (B2C) או הוספת המס במידת הצורך (B2B)"
 
 msgid "Country state code (optional)"
-msgstr "קוד מדינה (אופציונלי)"
+msgstr "קוד המדינה (לא חובה)"
 
 msgid "Coupon"
 msgstr "קופון"
@@ -422,64 +413,64 @@ msgid "Custom"
 msgstr "מותאם אישית"
 
 msgid "Custom domain or unique code of your shop"
-msgstr "דומיין מותאם אישית או קוד ייחודי של החנות שלך"
+msgstr "דומיין מותאם אישית או קוד ייחודי לחנות שלך"
 
 msgid "Customer"
 msgstr "לקוח"
 
 msgid "Customer ID"
-msgstr "זיהוי לקוח"
+msgstr "מספר לקוח"
 
 msgid "Customer Lists Type"
-msgstr "סוג רשימות לקוחות"
+msgstr "סוגי רשימות לקוחות"
 
 msgid "Customer Lists Types"
 msgstr "סוגי רשימות לקוחות"
 
 msgid "Customer Property Type"
-msgstr "סוג נכס לקוח"
+msgstr "סוג הנכס של הלקוח"
 
 msgid "Customer Property Types"
 msgstr "סוגי נכסי לקוחות"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr "מאפייני לקוח שאינם משותפים עם לקוחות אחרים"
+msgstr "מאפייני לקוח שאינם משותפים ללקוחות אחרים"
 
 msgid "Customer comment (optional)"
-msgstr "הערת לקוח (אופציונלי)"
+msgstr "הערה של הלקוח (לא חובה)"
 
 msgid "Customer e-mail address"
-msgstr "כתובת דואר אלקטרוני של לקוח"
+msgstr "כתובת הדוא\"ל של הלקוח"
 
 msgid "Customer password"
-msgstr "סיסמת לקוח"
+msgstr "סיסמת הלקוח"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr "נכסי לקוח שאינם משותפים עם לקוחות אחרים"
+msgstr "מאפייני לקוח שאינם משותפים ללקוחות אחרים"
 
 msgid "Customer reference"
-msgstr "הפניה ללקוח"
+msgstr "המלצת לקוח"
 
 msgid "Customer reference (optional)"
-msgstr "הפניה ללקוח (אופציונלי)"
+msgstr "המלצת לקוח (לא חובה)"
 
 msgid "Dashboard"
-msgstr "לוח מחוונים"
+msgstr "לוח המחוונים"
 
 msgid "Data"
 msgstr "נתונים"
 
 msgid "Data set"
-msgstr "מערך נתונים"
+msgstr "מאגר נתונים"
 
 msgid "Dataset"
-msgstr "מערך נתונים"
+msgstr "מאגר נתונים"
 
 msgid "Date of the last delivery status change"
-msgstr "תאריך השינוי האחרון בסטטוס המסירה"
+msgstr "תאריך השינוי האחרון בסטטוס המשלוח"
 
 msgid "Date of the last payment status change"
-msgstr "תאריך השינוי האחרון בסטטוס התשלום"
+msgstr "תאריך השינוי האחרון במצב התשלום"
 
 msgid "Date the subscription ends"
 msgstr "תאריך סיום המנוי"
@@ -494,16 +485,16 @@ msgid "Delete"
 msgstr "מחק"
 
 msgid "Delete entries?"
-msgstr "למחוק ערכים?"
+msgstr "למחוק רשומות?"
 
 msgid "Delete selected entries"
-msgstr "מחק ערכים נבחרים"
+msgstr "מחק את הערכים שנבחרו"
 
 msgid "Delete this entry"
-msgstr "מחק ערך זה"
+msgstr "מחק את הערך הזה"
 
 msgid "Deleting reviews is not allowed"
-msgstr "אסור למחוק ביקורות"
+msgstr "אין למחוק ביקורות"
 
 msgid "Delivery"
 msgstr "משלוח"
@@ -512,20 +503,19 @@ msgid "Delivery address"
 msgstr "כתובת למשלוח"
 
 msgid "Delivery date"
-msgstr "תאריך אספקה"
+msgstr "תאריך משלוח"
 
 msgid "Delivery in"
-msgstr "משלוח בתוך"
+msgstr "משלוח ב-"
 
-msgid ""
-"Delivery or payment costs for the products in the basket of the customer"
-msgstr "עלויות משלוח או תשלום עבור המוצרים בסל של הלקוח"
+msgid "Delivery or payment costs for the products in the basket of the customer"
+msgstr "עלויות משלוח או תשלום עבור המוצרים בסל הקניות של הלקוח"
 
 msgid "Delivery status"
-msgstr "סטטוס משלוח"
+msgstr "סטטוס המשלוח"
 
 msgid "Delivery timeframe (optional)"
-msgstr "מסגרת זמן אספקה ​​(אופציונלי)"
+msgstr "מסגרת זמן לאספקה (לא חובה)"
 
 msgid "Delivery types"
 msgstr "סוגי משלוח"
@@ -533,16 +523,14 @@ msgstr "סוגי משלוח"
 msgid "Delivery within"
 msgstr "משלוח בתוך"
 
-msgid ""
-"Depending on the selected data set, the list of shown fields for the product"
-" will be different"
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
 msgstr "בהתאם למערך הנתונים שנבחר, רשימת השדות המוצגים עבור המוצר תהיה שונה"
 
 msgid "Describe your image"
 msgstr "תאר את התמונה שלך"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr "תיאור של תוכן הטקסט אם הוא בשפה זרה"
+msgstr "תיאור תוכן הטקסט, אם הוא בשפה זרה"
 
 msgid "Descritive name of the currency"
 msgstr "שם תיאורי של המטבע"
@@ -557,7 +545,7 @@ msgid "Discount"
 msgstr "הנחה"
 
 msgid "Display help texts"
-msgstr "הצג טקסטים של עזרה"
+msgstr "הצגת טקסטים של עזרה"
 
 msgid "Domain"
 msgstr "דומיין"
@@ -566,43 +554,43 @@ msgid "Download"
 msgstr "הורד"
 
 msgid "Download this file"
-msgstr "הורד את הקובץ הזה"
+msgstr "הורד קובץ זה"
 
 msgid "Duplicate entry"
-msgstr "כניסה כפולה"
+msgstr "רשומה כפולה"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr "כפל ערך (Ctrl D)"
+msgstr "העתק רשומה (Ctrl+D)"
 
 msgid "E-Mail"
-msgstr "דואר אלקטרוני"
+msgstr "דוא\"ל"
 
 msgid "E-Mail address (required)"
-msgstr "כתובת דואר אלקטרוני (חובה)"
+msgstr "כתובת דוא\"ל (חובה)"
 
 msgid "E-Mail address or account name (required)"
-msgstr "כתובת דואר אלקטרוני או שם חשבון (חובה)"
+msgstr "כתובת דוא\"ל או שם משתמש (חובה)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr "כתובת דואר אלקטרוני המשמשת לשליחת הודעות דואר אלקטרוני הקשורות לחנות"
+msgstr "כתובת הדוא\"ל המשמשת לשליחת הודעות דוא\"ל הקשורות לחנות"
 
 msgid "E-mail"
-msgstr "דואר אלקטרוני"
+msgstr "דוא\"ל"
 
 msgid "E-mail address (optional)"
-msgstr "כתובת דואר אלקטרוני (אופציונלי)"
+msgstr "כתובת דוא\"ל (לא חובה)"
 
 msgid "E-mail address that belongs to the address"
 msgstr "כתובת דואר אלקטרוני השייכת לכתובת"
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, מקט או מספר מאמר (חובה)"
+msgstr "EAN, SKU או מספר פריט (חובה)"
 
 msgid "Edit"
-msgstr "עריכה"
+msgstr "ערוך"
 
 msgid "Edit selected entries"
-msgstr "ערוך ערכים נבחרים"
+msgstr "ערוך את הערכים שנבחרו"
 
 msgid "Edit this entry"
 msgstr "ערוך ערך זה"
@@ -611,16 +599,16 @@ msgid "Editor"
 msgstr "עורך"
 
 msgid "Email"
-msgstr "אימייל"
+msgstr "דוא\"ל"
 
 msgid "End date"
 msgstr "תאריך סיום"
 
 msgid "End date (optional)"
-msgstr "תאריך סיום (אופציונלי)"
+msgstr "תאריך סיום (לא חובה)"
 
 msgid "Enter group ID, code or label"
-msgstr "הזן את מזהה הקבוצה, הקוד או התווית"
+msgstr "הזן מזהה קבוצה, קוד או תווית"
 
 msgid "Entry deleted successfully"
 msgstr "הרשומה נמחקה בהצלחה"
@@ -628,10 +616,8 @@ msgstr "הרשומה נמחקה בהצלחה"
 msgid "Entry saved successfully"
 msgstr "הרשומה נשמרה בהצלחה"
 
-msgid ""
-"Entry specific configuration options, will be available as key/value pairs "
-"in the templates"
-msgstr "אפשרויות תצורה ספציפיות לכניסה, יהיו זמינות כצמדי מפתח/ערך בתבניות."
+msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
+msgstr "אפשרויות תצורה ספציפיות לכל ערך יהיו זמינות כצמדי מפתח-ערך בתבניות"
 
 msgid "Error"
 msgstr "שגיאה"
@@ -640,39 +626,37 @@ msgid "Error deleting data"
 msgstr "שגיאה במחיקת נתונים"
 
 msgid "Error retrieving data"
-msgstr "שגיאה באחזור נתונים"
+msgstr "שגיאה באחזור הנתונים"
 
 msgid "Error saving data"
-msgstr "שגיאה בשמירת נתונים"
+msgstr "שגיאה בשמירת הנתונים"
 
 msgid "Excl. tax"
-msgstr "לא כולל "
+msgstr "לא כולל מס"
 
 msgid "Execution order of the plugins"
-msgstr "הוראת ביצוע של התוספים"
+msgstr "סדר הפעלת התוספים"
 
 msgid "Execution order of the rules"
-msgstr "צו ביצוע הכללים"
+msgstr "סדר ביצוע הכללים"
 
 msgid "Export"
-msgstr "יצוא"
+msgstr "ייצוא"
 
 msgid "Facility"
 msgstr "מתקן"
 
 msgid "Facsimile"
-msgstr "פקסימיליה"
+msgstr "פקס"
 
 msgid "Facsimile number (optional)"
-msgstr "מספר פקסימיליה (אופציונלי)"
+msgstr "מספר פקס (לא חובה)"
 
-msgid ""
-"Factor to boost product in user search over other products (>1.0 positive "
-"boost, <1.0 negative boost)"
-msgstr "גורם להגברת המוצר בחיפוש המשתמש על פני מוצרים אחרים (> 1.0 חיזוק חיובי, < 1.0 חיזוק שלילי)"
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
+msgstr "מקדם להגברת החשיפה של המוצר בתוצאות החיפוש של המשתמשים לעומת מוצרים אחרים (מקדם חיובי >1.0, מקדם שלילי <1.0)"
 
 msgid "Failed to write file to disk"
-msgstr "נכשל לכתוב קובץ לדיסק"
+msgstr "לא ניתן היה לשמור את הקובץ בדיסק"
 
 msgid "File"
 msgstr "קובץ"
@@ -682,28 +666,28 @@ msgid "File does not exists: \"%1$s\""
 msgstr "הקובץ אינו קיים: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr "העלאת הקובץ הופסקה על ידי הרחבה"
+msgstr "העלאת הקובץ הופסקה על ידי הסיומת"
 
 msgid "File uploaded successfully"
 msgstr "הקובץ הועלה בהצלחה"
 
 msgid "Find category"
-msgstr "מצא קטגוריה"
+msgstr "חפש קטגוריה"
 
 msgid "Find site"
-msgstr "מצא אתר"
+msgstr "חפש באתר"
 
 msgid "First"
-msgstr "ראשון"
+msgstr "ראשית"
 
 msgid "First name"
 msgstr "שם פרטי"
 
 msgid "First name (optional)"
-msgstr "שם פרטי (אופציונלי)"
+msgstr "שם פרטי (לא חובה)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr "שם פרטי של האדם אם נעשה בו שימוש בתרבויות שבהן משתמשים בו"
+msgstr "שם פרטי של האדם, אם נהוג להשתמש בו בתרבויות שבהן נהוג לעשות כן"
 
 msgid "Floor"
 msgstr "קומה"
@@ -712,10 +696,10 @@ msgid "Floor / Appartment"
 msgstr "קומה / דירה"
 
 msgid "Floor and/or apartment (optional)"
-msgstr "קומה ו/או דירה (אופציונלי)"
+msgstr "קומה ו/או דירה (לא חובה)"
 
 msgid "For"
-msgstr "עבור"
+msgstr "ל"
 
 msgid "Generate"
 msgstr "ליצור"
@@ -724,28 +708,28 @@ msgid "Generate image"
 msgstr "צור תמונה"
 
 msgid "Generate text"
-msgstr "צור טקסט"
+msgstr "יצירת טקסט"
 
 msgid "Given rebate amount"
-msgstr "נתון סכום הנחה"
+msgstr "סכום ההחזר"
 
 msgid "Go to attribute panel"
-msgstr "עבור ללוח התכונות"
+msgstr "עבור לחלונית התכונות"
 
 msgid "Go to property type panel"
-msgstr "עבור לחלונית סוג נכס"
+msgstr "עבור לחלונית 'סוג הנכס'"
 
 msgid "Go to the list of attribute types"
 msgstr "עבור לרשימת סוגי התכונות"
 
 msgid "Granted rebate"
-msgstr "מוענקת הנחה"
+msgstr "הנחה שהוענקה"
 
 msgid "Group"
 msgstr "קבוצה"
 
 msgid "Group name describing for which members the group is for"
-msgstr "שם קבוצה המתאר עבור אילו חברים מיועדת הקבוצה"
+msgstr "שם הקבוצה המתאר לאילו חברים מיועדת הקבוצה"
 
 msgid "Groups"
 msgstr "קבוצות"
@@ -757,114 +741,104 @@ msgid "Hidden attributes"
 msgstr "תכונות נסתרות"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr "תכונות מוצר נסתרות המאוחסנות עם המוצרים שהוזמנו"
+msgstr "מאפייני מוצר מוסתרים המאוחסנים יחד עם המוצרים שהוזמנו"
 
 msgid "Highlighted suppliers of the product"
-msgstr "ספקים מודגשים של המוצר"
+msgstr "ספקים נבחרים של המוצר"
 
 msgid "Honorary title (optional)"
-msgstr "תואר כבוד (אופציונלי)"
+msgstr "תואר כבוד (לא חובה)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr "תארי כבוד כמו ד\"ר, דוקטורט וכו'."
+msgstr "תארים כבוד כגון ד\"ר, דוקטור וכו'"
 
 msgid "Hours"
 msgstr "שעות"
 
 msgid "House number"
-msgstr "מספר בית"
+msgstr "מספר הבית"
 
 msgid "House number (optional)"
-msgstr "מספר בית (אופציונלי)"
+msgstr "מספר בית (לא חובה)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr "איך פונים ללקוח בדואר אלקטרוני"
+msgstr "כיצד פונים ללקוח במיילים"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr "איך הספק פונה במיילים"
+msgstr "כיצד פונים לספק במיילים"
 
 msgid "Hyper-real and dramatic"
 msgstr "היפר-ריאלי ודרמטי"
 
 msgid "ID"
-msgstr "תעודת זהות"
+msgstr "מספר זיהוי"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr "מזהה של חשבונית קשורה, למשל. "
+msgstr "מספר הזיהוי של חשבונית קשורה, למשל חשבונית שעברה שינוי או שהוחזר כספה"
 
 msgid "ISO currency code (required)"
 msgstr "קוד מטבע ISO (חובה)"
 
 msgid "ISO language code (required)"
-msgstr "קוד שפה ISO (נדרש)"
+msgstr "קוד שפה ISO (חובה)"
 
 msgid "Image"
 msgstr "תמונה"
 
 msgid "Image description"
-msgstr "תיאור תמונה"
+msgstr "תיאור התמונה"
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
-msgstr "תמונות יוצגו רק עבור שפה זו, שימושי אם המדיה מכילה טקסט או שפה ספציפית"
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
+msgstr "התמונות יוצגו רק בשפה זו; תכונה זו שימושית אם המדיה מכילה טקסט או שהיא ספציפית לשפה מסוימת"
 
 msgid "Import"
-msgstr "יבוא"
+msgstr "ייבוא"
 
 msgid "Import/Export jobs"
-msgstr "עבודות ייבוא/ייצוא"
+msgstr "משרות בתחום היבוא והיצוא"
 
 msgid "Incl. tax"
-msgstr "כולל "
+msgstr "כולל מע\"מ"
 
 msgid "Info"
 msgstr "מידע"
 
 msgid "Insert into"
-msgstr "הכנס ל"
+msgstr "להכניס ל-"
 
 msgid "Insert new entry"
-msgstr "הכנס ערך חדש"
+msgstr "הוסף ערך חדש"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr "הוסף ערך חדש (Ctrl I)"
+msgstr "הוסף ערך חדש (Ctrl+I)"
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
-msgstr "שם מאמר פנימי, ישמש באתר האינטרנט ולחיפוש רק אם לא קיימים שמות מוצרים אחרים בשפה כלשהי"
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgstr "שם המאמר הפנימי ישמש באתר האינטרנט ובחיפוש רק אם אין שמות מוצרים אחרים בשום שפה"
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
-msgstr "שם מאמר פנימי, ישמש באתר האינטרנט אם אין שם מוצר עבור השפה זמין"
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
+msgstr "שם המאמר הפנימי, ישמש באתר האינטרנט אם אין שם מוצר זמין בשפה זו"
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
-msgstr "שם תכונה פנימית, ישמש באתר האינטרנט אם אין שם לשפה זמין"
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
+msgstr "שם התכונה הפנימית, ישמש באתר האינטרנט אם לא קיים שם לשפה"
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
-msgstr "שם קטגוריה פנימית, ישמש באתר האינטרנט אם אין שם לשפה זמין"
+msgid "Internal category name, will be used on the web site if no name for the language is available"
+msgstr "שם קטגוריה פנימי, ישמש באתר האינטרנט אם לא קיים שם לשפה"
 
 msgid "Internal name (required)"
 msgstr "שם פנימי (חובה)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr "שם סוג פנימי מוצג בממשק הניהול"
+msgstr "שם הסוג הפנימי המוצג בממשק הניהול"
 
 msgid "Interval"
 msgstr "מרווח"
 
 msgid "Interval (required)"
-msgstr "מרווח (נדרש)"
+msgstr "טווח (חובה)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr "תווים לא חוקיים בשם המחלקה \"%1$s\""
+msgstr "תווים לא חוקיים בשם הכיתה \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
@@ -876,7 +850,7 @@ msgstr "שם מחלקה לא חוקי \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr "דומיין לא חוקי \"%1$s\""
+msgstr "שם תחום לא חוקי \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
@@ -886,7 +860,7 @@ msgid "Invoice"
 msgstr "חשבונית"
 
 msgid "Invoice No."
-msgstr "חשבונית מס'"
+msgstr "מספר חשבונית"
 
 msgid "Invoice no."
 msgstr "מספר חשבונית"
@@ -895,22 +869,22 @@ msgid "Invoice number"
 msgstr "מספר חשבונית"
 
 msgid "Invoice number for the order"
-msgstr "מספר חשבונית עבור ההזמנה"
+msgstr "מספר החשבונית של ההזמנה"
 
 msgid "Label"
 msgstr "תווית"
 
 msgid "Label (required)"
-msgstr "תווית (חובה)"
+msgstr "כותרת (חובה)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr "תווית המתארת ​​את המרווח, תשמש אם אין שם זמין"
+msgstr "תווית המתארת את הטווח, תשמש אם אין שם זמין"
 
 msgid "Language"
 msgstr "שפה"
 
 msgid "Language ID"
-msgstr "מזהה שפה"
+msgstr "זיהוי שפה"
 
 msgid "Language of the entered text"
 msgstr "שפת הטקסט שהוזן"
@@ -922,24 +896,22 @@ msgid "Last"
 msgstr "אחרון"
 
 msgid "Last delivery status of the order"
-msgstr "סטטוס משלוח אחרון של ההזמנה"
+msgstr "סטטוס המשלוח האחרון של ההזמנה"
 
 msgid "Last name"
 msgstr "שם משפחה"
 
 msgid "Last name (optional)"
-msgstr "שם משפחה (אופציונלי)"
+msgstr "שם משפחה (לא חובה)"
 
 msgid "Last name (required)"
 msgstr "שם משפחה (חובה)"
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
-msgstr "שם משפחה של האדם או שם מלא בתרבויות שבהן לא נעשה שימוש בשמות פרטיים"
+msgid "Last name of the person or full name in cultures where no first names are used"
+msgstr "שם המשפחה של האדם או שמו המלא בתרבויות שבהן לא נהוג להשתמש בשמות פרטיים"
 
 msgid "Last payment status of the order"
-msgstr "מצב התשלום האחרון של ההזמנה"
+msgstr "סטטוס התשלום האחרון של ההזמנה"
 
 msgid "Latest orders"
 msgstr "ההזמנות האחרונות"
@@ -947,25 +919,23 @@ msgstr "ההזמנות האחרונות"
 msgid "Length"
 msgstr "אורך"
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
-msgstr "רשימת מאמרים שיש למכור כמוצר אחד, לרוב במחיר מוזל"
+msgid "List of articles that should be sold as one product, often at a reduced price"
+msgstr "רשימת פריטים שיש למכור כמוצר אחד, לרוב במחיר מוזל"
 
 msgid "List of products often bought together"
-msgstr "רשימת מוצרים שנקנים לעתים קרובות ביחד"
+msgstr "רשימת מוצרים שנרכשים לעתים קרובות יחד"
 
 msgid "List of suggested products"
-msgstr "רשימת המוצרים המוצעים"
+msgstr "רשימת מוצרים מומלצים"
 
 msgid "List type"
-msgstr "סוג רשימה"
+msgstr "סוג הרשימה"
 
 msgid "Loading entries ..."
 msgstr "טוען רשומות..."
 
 msgid "Locale"
-msgstr "מקומי"
+msgstr "מיקום"
 
 msgid "Log"
 msgstr "יומן"
@@ -977,7 +947,7 @@ msgid "Map"
 msgstr "מפה"
 
 msgid "Media Lists Type"
-msgstr "סוג רשימות מדיה"
+msgstr "סוגי רשימות מדיה"
 
 msgid "Media Lists Types"
 msgstr "סוגי רשימות מדיה"
@@ -995,7 +965,7 @@ msgid "Media Types"
 msgstr "סוגי מדיה"
 
 msgid "Media properties"
-msgstr "מאפייני מדיה"
+msgstr "נכסי מדיה"
 
 msgid "Menu"
 msgstr "תפריט"
@@ -1004,7 +974,7 @@ msgid "Message"
 msgstr "הודעה"
 
 msgid "Min. quantity"
-msgstr "דקות "
+msgstr "כמות מינימלית"
 
 msgid "Minimum quantity"
 msgstr "כמות מינימלית"
@@ -1013,19 +983,19 @@ msgid "Mobile"
 msgstr "נייד"
 
 msgid "Mobile number"
-msgstr "מספר נייד"
+msgstr "מספר טלפון נייד"
 
 msgid "Mobile number (optional)"
-msgstr "מספר נייד (אופציונלי)"
+msgstr "מספר טלפון נייד (לא חובה)"
 
 msgid "Model"
 msgstr "דגם"
 
 msgid "Modifed"
-msgstr "שונה"
+msgstr "ערוך"
 
 msgid "Modified"
-msgstr "שונה"
+msgstr "ערוך"
 
 msgid "Months"
 msgstr "חודשים"
@@ -1034,26 +1004,25 @@ msgid "More"
 msgstr "עוד"
 
 msgid "Move this entry up/down"
-msgstr "הזז את הערך הזה למעלה/מטה"
+msgstr "העבר את הערך הזה למעלה/למטה"
 
 msgid "Name"
 msgstr "שם"
 
 msgid "Name in URL (optional)"
-msgstr "שם בכתובת האתר (אופציונלי)"
+msgstr "שם בכתובת ה-URL (לא חובה)"
 
 msgid "Name of the basket"
 msgstr "שם הסל"
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
-msgstr "שם הקובץ שהורד כאשר לקוחות שומרים את הקובץ במחשבים שלהם"
+msgid "Name of the downloaded file when customers saves the file on their computers"
+msgstr "שם הקובץ שהורד כאשר הלקוחות שומרים את הקובץ במחשבים שלהם"
 
 msgid "Name of the reviewer"
 msgstr "שם המבקר"
 
 msgid "Name of your shop shown to your customers"
-msgstr "שם החנות שלך מוצג ללקוחות שלך"
+msgstr "שם החנות שלך המוצג ללקוחותיך"
 
 msgid "Natural"
 msgstr "טבעי"
@@ -1071,7 +1040,7 @@ msgid "New customers within the last seven days"
 msgstr "לקוחות חדשים בשבעת הימים האחרונים"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr "לקוחות חדשים בשבעת הימים האחרונים בהשוואה לתקופה שלפני כן"
+msgstr "לקוחות חדשים בשבעת הימים האחרונים בהשוואה לתקופה שקדמה לכך"
 
 msgid "Next"
 msgstr "הבא"
@@ -1080,16 +1049,16 @@ msgid "Next date"
 msgstr "התאריך הבא"
 
 msgid "Next date (optional)"
-msgstr "התאריך הבא (אופציונלי)"
+msgstr "התאריך הבא (לא חובה)"
 
 msgid "Next date the subscription is renewed"
-msgstr "בתאריך הבא חידוש המנוי"
+msgstr "התאריך הבא שבו תתחדש המנוי"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr "אין מטבעות זמינים. "
+msgstr "אין מטבעות זמינים. אנא הגדר לפחות מטבע אחד"
 
 msgid "No entries found"
-msgstr "לא נמצאו רשומות"
+msgstr "לא נמצאו תוצאות"
 
 msgid "No file was uploaded"
 msgstr "לא הועלה קובץ"
@@ -1098,7 +1067,7 @@ msgid "No product found"
 msgstr "לא נמצא מוצר"
 
 msgid "No theme options available"
-msgstr "אין אפשרויות ערכת נושא זמינות"
+msgstr "אין אפשרויות עיצוב זמינות"
 
 #, php-format
 msgid "No view available"
@@ -1108,10 +1077,10 @@ msgid "No voucher"
 msgstr "אין שובר"
 
 msgid "Non-shared properties for the media item"
-msgstr "מאפיינים לא משותפים עבור פריט המדיה"
+msgstr "מאפיינים שאינם משותפים עבור פריט המדיה"
 
 msgid "Non-shared properties for the price item"
-msgstr "נכסים לא משותפים לפריט המחיר"
+msgstr "מאפיינים שאינם משותפים עבור פריט המחיר"
 
 msgid "None"
 msgstr "אין"
@@ -1120,14 +1089,14 @@ msgid "Not all entries could be deleted"
 msgstr "לא ניתן היה למחוק את כל הערכים"
 
 msgid "Not allowed or editor site is different"
-msgstr "לא מורשה או אתר העורך שונה"
+msgstr "אסור או שהאתר של העורך שונה"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr "לא מורשה לגשת ללקוח JQAdm \"%1$s\"."
+msgstr "אין הרשאה לגשת ללקוח JQAdm \"%1$s\""
 
 msgid "Not implemented"
-msgstr "לא מיושם"
+msgstr "לא יושם"
 
 msgid "Notes"
 msgstr "הערות"
@@ -1135,28 +1104,26 @@ msgstr "הערות"
 msgid "Notes (not shown to customer)"
 msgstr "הערות (לא מוצגות ללקוח)"
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr "מספר המאמרים במלאי כרגע, השאר ריקים לכמות בלתי מוגבלת"
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "מספר הפריטים הקיימים כרגע במלאי; השאר שדה זה ריק אם הכמות אינה מוגבלת"
 
 msgid "OK"
 msgstr "בסדר"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr "מזהה מע\"מ רשמי כדי לקבוע אם יש לחייב את המס בחשבוניות"
+msgstr "מספר עוסק מורשה לצורך קביעת הצורך בהכללת המס בחשבוניות"
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
-msgstr "ספק אחד ואפס או יותר שמות מחלקות מעצבים מופרדים בפסיקים"
+msgid "One provider and zero or more decorator class names separated by commas"
+msgstr "ספק אחד ואפס או יותר שמות של מחלקות דקורטור, מופרדים בפסיקים"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr "רק קבצי .webp, .jpg, .png ו-.gif מותרים עבור סמלים."
+msgstr "רק קבצים בפורמטים .webp, .jpg, .png ו-.gif מותרים לשימוש כסמלים"
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr "רק קבצי .webp, .jpg, .png, .gif ו-.svg מותרים עבור לוגואים."
+msgstr "לוגואים יכולים להיות רק בפורמטים .webp, .jpg, .png, .gif ו-.svg"
 
 msgid "Only super users and administrators can delete entries"
-msgstr "רק משתמשים-על ומנהלים יכולים למחוק רשומות."
+msgstr "רק משתמשים בעלי הרשאות גבוהות ומנהלים יכולים למחוק רשומות"
 
 msgid "Open"
 msgstr "פתוח"
@@ -1165,36 +1132,34 @@ msgid "Open Qty"
 msgstr "כמות פתוחה"
 
 msgid "Option"
-msgstr "אופציה"
+msgstr "אפשרות"
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
-msgstr "רכיבי מוצר אופציונליים שניתן לבחור על ידי הלקוח יחד עם המוצר"
+msgid "Optional product components that can be chosen by the customer together with the product"
+msgstr "רכיבי מוצר אופציונליים שהלקוח יכול לבחור יחד עם המוצר"
 
 msgid "Order"
 msgstr "הזמנה"
 
 msgid "Order ID"
-msgstr "מזהה הזמנה"
+msgstr "מספר הזמנה"
 
 msgid "Order number entered by the customer"
-msgstr "מספר הזמנה שהוזן על ידי הלקוח"
+msgstr "מספר ההזמנה שהוזן על ידי הלקוח"
 
 msgid "Order of the language/currency combinations"
-msgstr "סדר שילובי השפה/מטבע"
+msgstr "סדר שילובי השפה והמטבע"
 
 msgid "Order of the service options in the checkout process"
 msgstr "סדר אפשרויות השירות בתהליך התשלום"
 
 msgid "Order of the types in the frontend"
-msgstr "סדר הסוגים בחזית"
+msgstr "סדר הסוגים בממשק המשתמש"
 
 msgid "Order totals"
-msgstr "סיכומי הזמנה"
+msgstr "סך ההזמנות"
 
 msgid "Ordered at"
-msgstr "הוזמן ב"
+msgstr "הוזמן ב-"
 
 msgid "Orders by country"
 msgstr "הזמנות לפי מדינה"
@@ -1206,24 +1171,22 @@ msgid "Orders by hour"
 msgstr "הזמנות לפי שעה"
 
 msgid "Orders by payment status"
-msgstr "הזמנות לפי מצב תשלום"
+msgstr "מיון לפי מצב התשלום"
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
-msgstr "החלף את הקובץ הקיים ולקוחות קנו אותו בעבר יוכלו להוריד גם את התוכן החדש"
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgstr "החלף את הקובץ הקיים, ולקוחות שרכשו אותו בעבר יוכלו להוריד גם את התוכן החדש"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr "PHP הגדרת \"%1$s\" מושבתת"
+msgstr "ההגדרה \"%1$s\" ב-PHP אינה פעילה"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr "PHP הגדרת \"%1$s\" מופעלת"
+msgstr "ההגדרה \"%1$s\" ב-PHP מופעלת"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr "הגדרת PHP עבור \"%1$s\" נמוכה מדי"
+msgstr "הגדרת ה-PHP עבור \"%1$s\" נמוכה מדי"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1239,7 +1202,7 @@ msgid "Path"
 msgstr "נתיב"
 
 msgid "Pay date"
-msgstr "תאריך תשלום"
+msgstr "תאריך התשלום"
 
 msgid "Pay status"
 msgstr "סטטוס תשלום"
@@ -1248,66 +1211,65 @@ msgid "Payment"
 msgstr "תשלום"
 
 msgid "Payment date"
-msgstr "תאריך תשלום"
+msgstr "תאריך התשלום"
 
 msgid "Payment status"
-msgstr "סטטוס תשלום"
+msgstr "סטטוס התשלום"
 
 msgid "Payment types"
-msgstr "סוגי תשלום"
+msgstr "אמצעי תשלום"
 
 msgid "Periods"
-msgstr "תקופות"
+msgstr "מחזור"
 
 #, php-format
 msgid "Permission denied"
-msgstr "הרשות נדחתה"
+msgstr "הבקשה נדחתה"
 
 msgid "Personal data"
 msgstr "נתונים אישיים"
 
-msgid ""
-"Please insert the description of the text that should be generated here"
-msgstr "אנא הכנס את התיאור של הטקסט שאמור להיווצר כאן"
+msgid "Please insert the description of the text that should be generated here"
+msgstr "אנא הזן כאן את התיאור של הטקסט שיש ליצור"
 
 msgid "Please select"
 msgstr "אנא בחר"
 
 msgid "Plugin"
-msgstr "פלאגין"
+msgstr "תוסף"
 
 msgid "Plugin Type"
-msgstr "סוג תוסף"
+msgstr "סוג התוסף"
 
 msgid "Plugin Types"
-msgstr "סוגי פלאגין"
+msgstr "סוגי תוספים"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr "תווית תוסף לתיאור הפלאגין שהוגדר"
+msgstr "תווית תוסף לתיאור התוסף שהוגדר"
 
 msgid "Plugin position (required)"
-msgstr "מיקום הפלאגין (נדרש)"
+msgstr "מיקום התוסף (חובה)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr "שם תצורת ספק הפלאגין או מעצב הפלאגין"
+msgstr "שם תצורת ספק התוסף או מעצב התוסף"
 
 msgid "Position"
-msgstr "עמדה"
+msgstr "תפקיד"
 
 msgid "Position (required)"
-msgstr "עמדה (חובה)"
+msgstr "תפקיד (חובה)"
 
 msgid "Postal"
 msgstr "דואר"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr "מיקוד למשלוח אם נעשה בו שימוש באזור שבו מתגורר הלקוח"
+msgstr "מיקוד למשלוח, אם הוא נמצא באזור מגוריו של הלקוח"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr "מיקוד למשלוח אם נעשה בו שימוש באזור שבו הספק מתגורר"
+msgstr "מיקוד למשלוח, אם הוא נמצא בשימוש באזור מגוריו של הספק"
 
 msgid "Postition"
-msgstr "עמדה"
+msgstr "מיקום"
 
 msgid "Potential problems"
 msgstr "בעיות אפשריות"
@@ -1319,87 +1281,85 @@ msgid "Price"
 msgstr "מחיר"
 
 msgid "Price Lists Type"
-msgstr "סוג מחירונים"
+msgstr "סוג מחירון"
 
 msgid "Price Lists Types"
 msgstr "סוגי מחירונים"
 
 msgid "Price Property Type"
-msgstr "מחיר סוג נכס"
+msgstr "מחיר סוג הנכס"
 
 msgid "Price Property Types"
-msgstr "סוגי נכסים מחיר"
+msgstr "מחיר סוגי נכסים"
 
 msgid "Price Type"
-msgstr "סוג מחיר"
+msgstr "סוג המחיר"
 
 msgid "Price Types"
-msgstr "סוגי מחיר"
+msgstr "סוגי מחירים"
 
 msgid "Price properties"
-msgstr "נכסי מחיר"
+msgstr "נכסי Price"
 
 msgid "Priority"
 msgstr "עדיפות"
 
 msgid "Problem"
-msgstr "בעיה"
+msgstr "הבעיה"
 
 msgid "Product"
 msgstr "מוצר"
 
 msgid "Product ID"
-msgstr "מזהה מוצר"
+msgstr "מספר מוצר"
 
 msgid "Product ID, SKU or label"
-msgstr "מזהה מוצר, מק\"ט או תווית"
+msgstr "מזהה מוצר, SKU או תווית"
 
 msgid "Product Lists Type"
-msgstr "סוג רשימות מוצרים"
-
-msgid "Product Lists Types"
 msgstr "סוגי רשימות מוצרים"
 
+msgid "Product Lists Types"
+msgstr "רשימות מוצרים וסוגים"
+
 msgid "Product Property Type"
-msgstr "סוג נכס מוצר"
+msgstr "סוג הנכס"
 
 msgid "Product Property Types"
-msgstr "סוגי נכסי מוצר"
+msgstr "סוגי נכסי המוצר"
 
 msgid "Product Type"
-msgstr "סוג מוצר"
+msgstr "סוג המוצר"
 
 msgid "Product Types"
 msgstr "סוגי מוצרים"
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
-msgstr "מאפייני מוצר מאוחסנים בסל שבו לקוחות יכולים להזין טקסטים או ערכים משלהם"
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
+msgstr "מאפייני מוצר המאוחסנים בסל הקניות, שבהם הלקוחות יכולים להזין טקסטים או ערכים משלהם"
 
 msgid "Product attributes that are used by other products too"
-msgstr "מאפייני מוצר המשמשים גם מוצרים אחרים"
+msgstr "מאפייני מוצר המשמשים גם במוצרים אחרים"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr "מאפייני מוצר שאינם משותפים עם מוצרים אחרים"
+msgstr "מאפייני מוצר שאינם משותפים למוצרים אחרים"
 
 msgid "Product code"
 msgstr "קוד מוצר"
 
 msgid "Product costs"
-msgstr "עלויות מוצר"
+msgstr "עלויות המוצר"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr "גובה המוצר, למשל. 20.0 (בחצר, אינץ' וכו')"
+msgstr "גובה המוצר, לדוגמה 20.0 (ביארדים, אינצ'ים וכו')"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr "אורך המוצר, למשל. 30.0 (בחצר, אינץ' וכו')"
+msgstr "אורך המוצר, לדוגמה 30.0 (ביארדים, אינצ'ים וכו')"
 
 msgid "Product name"
 msgstr "שם המוצר"
 
 msgid "Product payment"
-msgstr "תשלום מוצר"
+msgstr "תשלום עבור המוצר"
 
 msgid "Product price"
 msgstr "מחיר המוצר"
@@ -1411,25 +1371,25 @@ msgid "Product rebate"
 msgstr "הנחה על מוצר"
 
 msgid "Product shipping"
-msgstr "משלוח מוצר"
+msgstr "משלוח המוצר"
 
 msgid "Product status"
-msgstr "מצב המוצר"
+msgstr "סטטוס המוצר"
 
 msgid "Product supplier"
-msgstr "ספק מוצר"
+msgstr "ספק מוצרים"
 
 msgid "Product tax"
-msgstr "מס מוצרים"
+msgstr "מס על מוצרים"
 
 msgid "Product type"
-msgstr "סוג מוצר"
+msgstr "סוג המוצר"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr "משקל המוצר, למשל. 1.25 (בפאונד, אונקיה וכו')"
+msgstr "משקל המוצר, לדוגמה 1.25 (בליברות, אונקיות וכו')"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "רוחב המוצר, למשל. 17.5 (בחצר, אינץ' וכו')"
+msgstr "רוחב המוצר, לדוגמה 17.5 (ביארד, אינץ' וכו')"
 
 msgid "Products"
 msgstr "מוצרים"
@@ -1438,19 +1398,19 @@ msgid "Products bought together"
 msgstr "מוצרים שנרכשו יחד"
 
 msgid "Promotion"
-msgstr "קידום"
+msgstr "מבצע"
 
 msgid "Properties"
-msgstr "נכסים"
+msgstr "מאפיינים"
 
 msgid "Property value (required)"
-msgstr "ערך נכס (חובה)"
+msgstr "ערך הנכס (חובה)"
 
 msgid "Provider"
 msgstr "ספק"
 
 msgid "Provider/decorator class names (required)"
-msgstr "שמות כיתות של ספק/מעצב (חובה)"
+msgstr "שמות מחלקות ספק/מעצב (חובה)"
 
 msgid "Purchase"
 msgstr "רכישה"
@@ -1459,7 +1419,7 @@ msgid "Quantity"
 msgstr "כמות"
 
 msgid "Quantity scale"
-msgstr "סולם כמות"
+msgstr "סולם הכמויות"
 
 msgid "Rabate"
 msgstr "רבאטה"
@@ -1468,30 +1428,28 @@ msgid "Rating"
 msgstr "דירוג"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr "דירוג ומספר דירוגים של הסוחר"
+msgstr "דירוג ומספר הדירוגים של העסק"
 
 msgid "Rating of the reviewer"
 msgstr "דירוג המבקר"
 
 msgid "Reason"
-msgstr "סיבה"
+msgstr "הסיבה"
 
 msgid "Rebate"
 msgstr "הנחה"
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
-msgstr "הפחתה מהמחיר המקורי, המשמשת לחישוב ההנחה באחוזים ומחיר הצלב"
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
+msgstr "הנחה מהמחיר המקורי, המשמשת לחישוב ההנחה באחוזים ומחיר הצלב"
 
 msgid "Reference"
 msgstr "הפניה"
 
 msgid "Reference ID"
-msgstr "מזהה סימוכין"
+msgstr "מספר התייחסות"
 
 msgid "Refund"
-msgstr "החזר"
+msgstr "החזר כספי"
 
 msgid "Related ID"
 msgstr "מזהה קשור"
@@ -1500,16 +1458,16 @@ msgid "Related order"
 msgstr "הזמנה קשורה"
 
 msgid "Related order ID (optional)"
-msgstr "מזהה הזמנה קשור (אופציונלי)"
+msgstr "מספר הזמנה קשור (לא חובה)"
 
 msgid "Related order of the customer"
 msgstr "הזמנה קשורה של הלקוח"
 
 msgid "Remove background"
-msgstr "הסר רקע"
+msgstr "הסר את הרקע"
 
 msgid "Renew"
-msgstr "תחדש"
+msgstr "לחדש"
 
 msgid "Replace file"
 msgstr "החלף קובץ"
@@ -1519,15 +1477,13 @@ msgstr "בקשה"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr "פרמטר נדרש \"%1$s\" חסר"
+msgstr "הפרמטר הנדרש \"%1$s\" חסר"
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
-msgstr "הכמות הנדרשת של פריטים לתמחור בלוק, למשל. "
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
+msgstr "הכמות הנדרשת של פריטים לצורך תמחור בכמות, לדוגמה: פריט אחד ב-5.00$, עשרה פריטים ב-45.00$"
 
 msgid "Reset"
-msgstr "אפס"
+msgstr "איפוס"
 
 msgid "Response"
 msgstr "תגובה"
@@ -1536,7 +1492,7 @@ msgid "Response to the reviewer"
 msgstr "תגובה למבקר"
 
 msgid "Review"
-msgstr "סקירה"
+msgstr "ביקורת"
 
 msgid "Reviewed entry"
 msgstr "ערך שנבדק"
@@ -1544,36 +1500,32 @@ msgstr "ערך שנבדק"
 msgid "Reviewer name"
 msgstr "שם המבקר"
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
-msgstr "שם המסלול או מזהה העמוד של דף הקטגוריה אם קטגוריה זו אמורה להופיע בדף אחר"
+msgid "Route name or page ID of the category page if this category should shown on a different page"
+msgstr "שם הנתיב או מזהה הדף של דף הקטגוריה, אם יש להציג קטגוריה זו בדף אחר"
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
-msgstr "שם המסלול או מזהה העמוד של דף פרטי המוצר אם מוצר זה אמור להופיע בדף אחר"
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
+msgstr "שם הנתיב או מזהה הדף של דף פרטי המוצר, אם יש להציג מוצר זה בדף אחר"
 
 msgid "Route or page ID (optional)"
-msgstr "מזהה מסלול או עמוד (אופציונלי)"
+msgstr "מזהה מסלול או דף (לא חובה)"
 
 msgid "Rule"
 msgstr "כלל"
 
 msgid "Rule Type"
-msgstr "סוג כלל"
+msgstr "סוג הכלל"
 
 msgid "Rule Types"
 msgstr "סוגי כללים"
 
 msgid "Rule label for describing the configured rule"
-msgstr "תווית כלל לתיאור הכלל המוגדר"
+msgstr "תווית כלל לתיאור הכלל שהוגדר"
 
 msgid "Rule position (required)"
-msgstr "עמדת כלל (חובה)"
+msgstr "תפקיד (חובה)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr "שם תצורה של ספק כלל או מעצב כלל"
+msgstr "שם תצורת ספק הכללים או מקשט הכללים"
 
 msgid "Rules"
 msgstr "כללים"
@@ -1582,13 +1534,13 @@ msgid "SKU"
 msgstr "מספר קטלוגי"
 
 msgid "Sales by weekday"
-msgstr "מכירות לפי ימי חול"
+msgstr "מכירות לפי ימי השבוע"
 
 msgid "Sales of the last 30 days"
-msgstr "מכירות של 30 הימים האחרונים"
+msgstr "מכירות ב-30 הימים האחרונים"
 
 msgid "Sales per month"
-msgstr "מכירות לחודש"
+msgstr "מכירות בחודש"
 
 msgid "Salutation"
 msgstr "ברכה"
@@ -1603,19 +1555,19 @@ msgid "Save & Copy"
 msgstr "שמור והעתק"
 
 msgid "Save & New"
-msgstr "שמור וצור חדש"
+msgstr "שמור וחדש"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr "שמור ערך (Ctrl+Enter)"
+msgstr "שמור את הערך (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr "שמור ערך (Ctrl+S)"
+msgstr "שמור את הערך (Ctrl+S)"
 
 msgid "Search"
-msgstr "חפש"
+msgstr "חיפוש"
 
 msgid "Second level type for grouping entries"
-msgstr "סוג רמה שני לקבץ ערכים"
+msgstr "סוג ברמה השנייה לקיבוץ רשומות"
 
 msgid "Select all entries"
 msgstr "בחר את כל הערכים"
@@ -1627,37 +1579,37 @@ msgid "Service"
 msgstr "שירות"
 
 msgid "Service Lists Type"
-msgstr "סוג רשימות שירות"
+msgstr "סוגי רשימות שירות"
 
 msgid "Service Lists Types"
 msgstr "סוגי רשימות שירות"
 
 msgid "Service Type"
-msgstr "סוג שירות"
+msgstr "סוג השירות"
 
 msgid "Service Types"
-msgstr "סוגי שירות"
+msgstr "סוגי השירותים"
 
 msgid "Service attribute code"
-msgstr "קוד תכונת שירות"
+msgstr "קוד תכונת השירות"
 
 msgid "Service costs"
-msgstr "עלויות שירות"
+msgstr "עלויות השירות"
 
 msgid "Service name"
 msgstr "שם השירות"
 
 msgid "Service position (required)"
-msgstr "מיקום השירות (חובה)"
+msgstr "תפקיד בשירות (חובה)"
 
 msgid "Service price"
 msgstr "מחיר השירות"
 
 msgid "Service provider or service decorator configuration name"
-msgstr "שם תצורת ספק שירות או מעצב שירות"
+msgstr "שם תצורת ספק השירות או מעצב השירות"
 
 msgid "Service rebate"
-msgstr "הנחת שירות"
+msgstr "הנחה על השירות"
 
 msgid "Settings"
 msgstr "הגדרות"
@@ -1666,7 +1618,7 @@ msgid "Ship date"
 msgstr "תאריך משלוח"
 
 msgid "Ship status"
-msgstr "סטטוס משלוח"
+msgstr "סטטוס המשלוח"
 
 msgid "Shipping"
 msgstr "משלוח"
@@ -1678,19 +1630,19 @@ msgid "Shipping/Payment costs"
 msgstr "עלויות משלוח/תשלום"
 
 msgid "Shipping/item"
-msgstr "משלוח לפריט"
+msgstr "משלוח/פריט"
 
 msgid "Shop domain"
-msgstr "תחום החנות"
+msgstr "דומיין חנות"
 
 msgid "Shop domain (required)"
-msgstr "תחום החנות (חובה)"
+msgstr "דומיין החנות (חובה)"
 
 msgid "Shop e-mail"
-msgstr "דואר אלקטרוני של החנות"
+msgstr "דוא\"ל החנות"
 
 msgid "Shop e-mail address (required)"
-msgstr "כתובת דואר אלקטרוני של החנות (חובה)"
+msgstr "כתובת הדוא\"ל של החנות (חובה)"
 
 msgid "Shop name"
 msgstr "שם החנות"
@@ -1699,18 +1651,16 @@ msgid "Shop name (required)"
 msgstr "שם החנות (חובה)"
 
 msgid "Shop theme"
-msgstr "ערכת נושא של החנות"
+msgstr "ערכת עיצוב לחנות"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
-msgstr "קוד מדינה קצר (למשל NY) אם נעשה בו שימוש במדינה שבה הלקוח גר"
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "קוד מדינה קצר (למשל NY) אם המדינה שבה מתגורר הלקוח"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr "קוד מדינה קצר (למשל ניו יורק) אם נעשה בו שימוש במדינה שבה הספק גר"
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "קוד מדינה קצר (למשל NY) אם הוא נמצא בשימוש במדינה שבה מתגורר הספק"
 
 msgid "Show"
-msgstr "הצגה"
+msgstr "הצג"
 
 msgid "Show entry"
 msgstr "הצג ערך"
@@ -1731,20 +1681,23 @@ msgid "Show/hide this entry"
 msgstr "הצג/הסתר ערך זה"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr "מוצג אם המאמר הגיע לרמת מלאי של אפס"
+msgstr "מוצג אם המלאי של הפריט הגיע לרמה של אפס"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr "מאז המוצר זמין, משמש למיון בחזית"
+msgstr "מאז שהמוצר זמין, הוא משמש למיון בצד הלקוח"
 
 msgid "Site"
 msgstr "אתר"
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
-msgstr "אפשרויות תצורה ספציפיות לאתר, יהיו זמינות כצמדי מפתח/ערך"
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "לא נמצא אתר \"%1$s\""
+
+msgid "Site specific configuration options, will be available as key/value pairs"
+msgstr "אפשרויות התצורה הספציפיות לאתר יהיו זמינות כצמדי מפתח-ערך"
 
 msgid "Site the order was placed at"
-msgstr "אתר בו ההזמנה בוצעה"
+msgstr "האתר שבו בוצעה ההזמנה"
 
 msgid "Sites"
 msgstr "אתרים"
@@ -1753,13 +1706,13 @@ msgid "Size"
 msgstr "גודל"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr "מיון התכונות בתוך אותו סוג תכונות"
+msgstr "מיון התכונות בתוך אותו סוג תכונה"
 
 msgid "Sorting of the suppliers"
 msgstr "מיון הספקים"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr "מקור החשבונית, למשל. "
+msgstr "מקור החשבונית, למשל דרך האינטרנט או בטלפון"
 
 msgid "Start date"
 msgstr "תאריך התחלה"
@@ -1780,7 +1733,7 @@ msgid "Stock Types"
 msgstr "סוגי מניות"
 
 msgid "Stock level"
-msgstr "רמת המלאי"
+msgstr "מלאי"
 
 msgid "Stock type"
 msgstr "סוג המניה"
@@ -1789,24 +1742,22 @@ msgid "Street"
 msgstr "רחוב"
 
 msgid "Street name (optional)"
-msgstr "שם רחוב (אופציונלי)"
+msgstr "שם הרחוב (לא חובה)"
 
 msgid "Style"
 msgstr "סגנון"
 
 msgid "Sub-total"
-msgstr "סה\"כ משנה"
+msgstr "סך ביניים"
 
 msgid "Subscription"
 msgstr "מנוי"
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
-msgstr "מרווח מנוי עם שנים, חודשים, שבועות וימים, למשל. "
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
+msgstr "מרווח מנוי בשנים, חודשים, שבועות וימים, לדוגמה: \"P0Y1M2W3D\" עבור אפס שנים, חודש אחד, שבועיים ושלושה ימים"
 
 msgid "Suggested products"
-msgstr "מוצרים מוצעים"
+msgstr "מוצרים מומלצים"
 
 msgid "Sum"
 msgstr "סכום"
@@ -1815,110 +1766,100 @@ msgid "Supplier"
 msgstr "ספק"
 
 msgid "Supplier name or company"
-msgstr "שם או חברה של הספק"
+msgstr "שם הספק או שם החברה"
 
 msgid "Supplier position (required)"
-msgstr "עמדת ספק (חובה)"
+msgstr "תפקיד ספק (חובה)"
 
 msgid "Suppliers who manufacture the product"
 msgstr "ספקים המייצרים את המוצר"
 
 msgid "Tag Type"
-msgstr "סוג תג"
+msgstr "סוג התג"
 
 msgid "Tag Types"
-msgstr "סוגי תגים"
+msgstr "סוגי תגיות"
 
 msgid "Tax"
 msgstr "מס"
 
 msgid "Tax rate"
-msgstr "שיעור מס"
+msgstr "שיעור המס"
 
 msgid "Tax rate in %"
-msgstr "שיעור מס באחוזים"
+msgstr "שיעור המס באחוזים"
 
 msgid "Telephone"
 msgstr "טלפון"
 
 msgid "Telephone number (optional)"
-msgstr "מספר טלפון (אופציונלי)"
+msgstr "מספר טלפון (לא חובה)"
 
 msgid "Temporary folder is missing"
-msgstr "תיקייה זמנית חסרה"
+msgstr "התיקייה הזמנית חסרה"
 
 msgid "Text Lists Type"
-msgstr "סוג רשימות טקסט"
-
-msgid "Text Lists Types"
 msgstr "סוגי רשימות טקסט"
 
+msgid "Text Lists Types"
+msgstr "רשימות טקסט וסוגים"
+
 msgid "Text Type"
-msgstr "סוג טקסט"
+msgstr "סוג הטקסט"
 
 msgid "Text Types"
 msgstr "סוגי טקסט"
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
-msgstr "המאמר מוצג באתר האינטרנט רק לאחר תאריך ושעה אלה, מאמרים שימושיים או עונתיים"
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
+msgstr "המאמר מוצג באתר האינטרנט רק לאחר אותו תאריך ושעה; מאמרים שימושיים או עונתיים"
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
-msgstr "המאמר מוצג רק באתר האינטרנט עד לאותו תאריך ושעה, מאמרים שימושיים או עונתיים"
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
+msgstr "המאמר מוצג באתר האינטרנט רק עד לתאריך ולשעה האמורים; מאמרים שימושיים או עונתיים"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr "הכניסה תופיע באתר האינטרנט רק לאחר תאריך ושעה אלה."
+msgstr "הפרסום יופיע באתר האינטרנט רק לאחר אותו תאריך ושעה"
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr "הכניסה תוצג באתר האינטרנט רק עד לתאריך ולשעה האמורים."
+msgstr "הפרסום יופיע באתר האינטרנט רק עד לתאריך ולשעה האמורים"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr "כותרת המדיה משמשת לתג הכותרת של המדיה באתר האינטרנט"
+msgstr "כותרת המדיה משמשת כתגית הכותרת של המדיה באתר האינטרנט"
 
-msgid ""
-"The name of the category shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr "שם הקטגוריה המוצגת בכתובת האתר, ישמש אם לא קיים קטע כתובת URL ספציפי לשפה"
+msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
+msgstr "שם הקטגוריה המופיע בכתובת ה-URL ישמש אם לא קיים קטע בכתובת ה-URL המתייחס לשפה ספציפית"
 
-msgid ""
-"The name of the product shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr "שם המוצר המוצג בכתובת ה-URL ישמש אם לא קיים פלח כתובת URL ספציפי לשפה"
+msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
+msgstr "שם המוצר המופיע בכתובת ה-URL ישמש אם לא קיים קטע בכתובת ה-URL המתייחס לשפה ספציפית"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr "האפשרות מוצגת רק באתר האינטרנט לאחר תאריך ושעה אלה"
+msgstr "האפשרות תופיע באתר האינטרנט רק לאחר אותו תאריך ושעה"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr "האפשרות מוצגת רק באתר האינטרנט עד לתאריך ושעה אלה"
+msgstr "האפשרות תוצג באתר האינטרנט רק עד לתאריך ולשעה האמורים"
 
 msgid "The rule is only used after that date and time"
-msgstr "הכלל משמש רק לאחר תאריך ושעה אלה"
+msgstr "הכלל חל רק לאחר תאריך ושעה אלה"
 
 msgid "The rule is only used until that date and time"
-msgstr "הכלל משמש רק עד לתאריך ושעה אלה"
+msgstr "הכלל חל רק עד לתאריך ולשעה האמורים"
 
-msgid ""
-"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
-"fractional quantities or \"5\" for multiple of five articles"
-msgstr "ערך הצעד המותר לכמויות בסל, למשל. \"0.1\" עבור כמויות חלקיות או \"5\" עבור מכפלה של חמישה מאמרים"
+msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgstr "ערך הצעד המותר לכמויות בסל, למשל \"0.1\" לכמויות חלקיות או \"5\" לכפולות של חמש יחידות"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr "הקובץ שהועלה חורג מהמקסימום. "
+msgstr "הקובץ שהועלה חורג מגודל הקובץ המרבי המותר"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr "הקובץ שהועלה הועלה רק חלקית"
+msgstr "הקובץ הועלה רק באופן חלקי"
 
 msgid "Theme to change the layout of your shop"
-msgstr "ערכת נושא לשינוי הפריסה של החנות שלך"
+msgstr "תבנית לשינוי הפריסה של החנות שלך"
 
 msgid "Three letter ISO currency code"
 msgstr "קוד מטבע ISO בן שלוש אותיות"
 
 msgid "Time frame (optional)"
-msgstr "מסגרת זמן (אופציונלי)"
+msgstr "טווח זמן (לא חובה)"
 
 msgid "Timestamp"
 msgstr "חותמת זמן"
@@ -1927,25 +1868,25 @@ msgid "Title"
 msgstr "כותרת"
 
 msgid "Toggle dropdown"
-msgstr "החלף את התפריט הנפתח"
+msgstr "הפעל/כבה תפריט נפתח"
 
 msgid "Toogle selection"
-msgstr "בחירת Toogle"
+msgstr "החלף בחירה"
 
 msgid "Top countries"
-msgstr "מדינות מובילות"
+msgstr "המדינות המובילות"
 
 msgid "Total"
 msgstr "סה\"כ"
 
 msgid "Total orders"
-msgstr "סך ההזמנות"
+msgstr "סה\"כ הזמנות"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr "סה\"כ הזמנות בשבעת הימים האחרונים בהשוואה לתקופה שלפני כן"
+msgstr "סך ההזמנות בשבעת הימים האחרונים בהשוואה לתקופה שקדמה לכך"
 
 msgid "Total ratings"
-msgstr "רייטינג כולל"
+msgstr "דירוג כולל"
 
 msgid "Translate text"
 msgstr "תרגם טקסט"
@@ -1954,93 +1895,90 @@ msgid "Translations"
 msgstr "תרגומים"
 
 msgid "Tree node menu"
-msgstr "תפריט צומת עץ"
+msgstr "תפריט צומת העץ"
 
 msgid "Two letter ISO country code"
-msgstr "קוד מדינה ISO של שתי אותיות"
+msgstr "קוד מדינה בן שתי אותיות לפי תקן ISO"
 
 msgid "Two letter ISO language code"
-msgstr "קוד שפה ISO של שתי אותיות"
+msgstr "קוד שפה ISO בן שתי אותיות"
 
 msgid "Type"
 msgstr "סוג"
 
 msgid "Type position (optional)"
-msgstr "מיקום הקלד (אופציונלי)"
+msgstr "סוג המשרה (לא חובה)"
 
 msgid "Types"
 msgstr "סוגים"
 
 msgid "Types for additional images like icons"
-msgstr "הקלדת תמונות נוספות כמו אייקונים"
+msgstr "סוגי תמונות נוספות, כגון סמלים"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr "סוגים למחירים נוספים כמו לכל ק\"ג אחד או לחודש"
+msgstr "סוגי מחירים נוספים, כגון מחיר ליחידת משקל (ליברה/ק\"ג) או מחיר חודשי"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr "סוגים עבור טקסטים נוספים כמו לכל ק\"ג אחד או לחודש"
+msgstr "פורמטים לטקסטים נוספים, כגון לכל ק\"ג או לחודש"
 
 msgid "URL of the customer web site"
-msgstr "URL של אתר האינטרנט של הלקוח"
+msgstr "כתובת האתר של הלקוח"
 
 msgid "URL of the supplier web site"
-msgstr "URL של אתר האינטרנט של הספק"
+msgstr "כתובת האתר של הספק"
 
 msgid "URL segment"
-msgstr "קטע URL"
+msgstr "קטע כתובת URL"
 
 msgid "URL target"
-msgstr "יעד כתובת אתר"
+msgstr "יעד ה-URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr "לא ניתן לקרוא לשיטה \"%1$s\""
+msgstr "לא ניתן לקרוא למתודה \"%1$s\""
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr "לא ניתן לקרוא תוכן מ-\"%1$s\""
+msgstr "לא ניתן לקרוא את התוכן מ-\"%1$s\""
 
 msgid "Unfinished orders"
-msgstr "הזמנות לא גמורות"
+msgstr "הזמנות שלא הושלמו"
 
-msgid ""
-"Unfinished orders within the last seven days compared to the period before"
-msgstr "הזמנות לא גמורות בשבעת הימים האחרונים בהשוואה לתקופה שלפני כן"
+msgid "Unfinished orders within the last seven days compared to the period before"
+msgstr "הזמנות שלא הושלמו בשבעת הימים האחרונים בהשוואה לתקופה שקדמה לכך"
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
-msgstr "קוד מאמר ייחודי הקשור לרמות המלאי, למשל. "
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
+msgstr "קוד פריט ייחודי הקשור לרמות המלאי, למשל ממערכת ה-ERP, מספר EAN/GTIN או קוד שהומצא באופן עצמאי"
 
 msgid "Unique attribute code (required)"
 msgstr "קוד תכונה ייחודי (חובה)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr "קוד תכונה ייחודי, למשל. "
+msgstr "קוד ייחודי לתכונה, לדוגמה \"ירוק\" עבור תכונות מסוג \"צבע\""
 
 msgid "Unique category code (required)"
 msgstr "קוד קטגוריה ייחודי (חובה)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr "קוד קטגוריה ייחודי, ממערכת חיצונית או שהומצא בעצמו"
+msgstr "קוד קטגוריה ייחודי, שמקורו במערכת חיצונית או שהומצא באופן עצמאי"
 
 msgid "Unique code (required)"
-msgstr "קוד ייחודי (נדרש)"
+msgstr "קוד ייחודי (חובה)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr "קוד ייחודי לזיהוי השירות, בדרך כלל בהמצאה עצמית"
+msgstr "קוד ייחודי לזיהוי השירות, שבדרך כלל נוצר באופן עצמאי"
 
 msgid "Unique customer account name"
 msgstr "שם חשבון לקוח ייחודי"
 
 msgid "Unique customer e-mail address"
-msgstr "כתובת דואר אלקטרוני ייחודית של לקוח"
+msgstr "כתובת דוא\"ל ייחודית של הלקוח"
 
 msgid "Unique group code (required)"
 msgstr "קוד קבוצה ייחודי (חובה)"
 
 msgid "Unique service code (required)"
-msgstr "קוד שירות ייחודי (נדרש)"
+msgstr "קוד שירות ייחודי (חובה)"
 
 msgid "Unique site code (required)"
 msgstr "קוד אתר ייחודי (חובה)"
@@ -2055,7 +1993,7 @@ msgid "Unique type code (required)"
 msgstr "קוד סוג ייחודי (חובה)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr "קוד סוג ייחודי, למשל "
+msgstr "קוד סוג ייחודי, למשל \"צבע\" עבור תכונות כמו \"ירוק\", \"כחול\", \"אדום\""
 
 msgid "Unit price"
 msgstr "מחיר ליחידה"
@@ -2064,13 +2002,13 @@ msgid "Unknown upload error"
 msgstr "שגיאת העלאה לא ידועה"
 
 msgid "Upload CSV"
-msgstr "העלה CSV"
+msgstr "העלה קובץ CSV"
 
 msgid "Upload shop icon"
-msgstr "העלה סמל חנות"
+msgstr "העלה סמל לחנות"
 
 msgid "Upload shop logo"
-msgstr "העלה לוגו של החנות"
+msgstr "העלה את לוגו החנות"
 
 msgid "Uploaded"
 msgstr "הועלה"
@@ -2082,22 +2020,22 @@ msgid "User groups"
 msgstr "קבוצות משתמשים"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr "מסגרת זמן רגילה לאספקת המוצר"
+msgstr "משך הזמן הרגיל לאספקת המוצר"
 
 msgid "VAT ID"
-msgstr "מזהה מע\"מ"
+msgstr "מספר עוסק מורשה"
 
 msgid "Value"
 msgstr "ערך"
 
 msgid "Value added tax identifier (optional)"
-msgstr "מזהה מס ערך מוסף (אופציונלי)"
+msgstr "מספר זיהוי מע\"מ (לא חובה)"
 
 msgid "Variant attributes"
-msgstr "תכונות שונות"
+msgstr "תכונות של גרסאות"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr "תכונות מוצר שונות המאוחסנות עם המוצרים שהוזמנו"
+msgstr "מאפייני מוצרים וריאנטים המאוחסנים יחד עם המוצרים שהוזמנו"
 
 msgid "Vendor"
 msgstr "ספק"
@@ -2111,15 +2049,14 @@ msgstr "הצג פרטים"
 msgid "Voucher"
 msgstr "שובר"
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
-msgstr "מחסן או חנות מקומית אם המאמרים שלך זמינים במספר מיקומים"
+msgid "Warehouse or local store if your articles are available at several locations"
+msgstr "מחסן או חנות מקומית, אם הפריטים שלך זמינים במספר מיקומים"
 
 msgid "Web site"
 msgstr "אתר אינטרנט"
 
 msgid "Web site URL (optional)"
-msgstr "כתובת אתר אינטרנט (אופציונלי)"
+msgstr "כתובת אתר האינטרנט (לא חובה)"
 
 msgid "Weeks"
 msgstr "שבועות"
@@ -2128,32 +2065,31 @@ msgid "Weight"
 msgstr "משקל"
 
 msgid "When the account and e-mail address has been verified"
-msgstr "כאשר החשבון וכתובת הדואר האלקטרוני אומתו"
+msgstr "לאחר אימות החשבון וכתובת הדוא\"ל"
 
 msgid "Width"
 msgstr "רוחב"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "YYYY-MM-DD hh:mm:ss (אופציונלי)"
+msgstr "שנה-חודש-יום שעה:דקות:שניות (לא חובה)"
 
 msgid "Years"
 msgstr "שנים"
 
-msgid ""
-"You are going to delete one or more entries. Would you like to proceed?"
-msgstr "אתה עומד למחוק ערך אחד או יותר. האם ברצונך להמשיך?"
+msgid "You are going to delete one or more entries. Would you like to proceed?"
+msgstr "אתה עומד למחוק רשומה אחת או יותר. האם ברצונך להמשיך?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr "הייצוא שלך יהיה זמין להורדה בעוד מספר דקות"
+msgstr "הקובץ שייצא יהיה זמין להורדה בעוד מספר דקות"
 
 msgid "Your response"
-msgstr "התגובה שלך"
+msgstr "תגובתך"
 
 msgid "Zip code"
 msgstr "מיקוד"
 
 msgid "Zip code (optional)"
-msgstr "מיקוד (אופציונלי)"
+msgstr "מיקוד (לא חובה)"
 
 msgid "__hidden__"
 msgstr "__מוסתר__"
@@ -2164,21 +2100,21 @@ msgstr "חשבון"
 
 #, php-format
 msgid "address"
-msgstr "כתובת"
+msgstr "Addresses"
 
 msgid "address:delivery"
-msgstr "כתובת:משלוח"
+msgstr "Delivery address"
 
 msgid "address:payment"
-msgstr "כתובת:תשלום"
+msgstr "Billing address"
 
 #, php-format
 msgid "api"
-msgstr "api"
+msgstr "APIs"
 
 #, php-format
 msgid "attribute"
-msgstr "תכונה"
+msgstr "Attributes"
 
 #, php-format
 msgid "basket"
@@ -2186,26 +2122,26 @@ msgstr "סל"
 
 #, php-format
 msgid "bundle"
-msgstr "צרור"
+msgstr "Bundles"
 
 #, php-format
 msgid "catalog"
-msgstr "קטלוג"
+msgstr "Categories"
 
 #, php-format
 msgid "category"
-msgstr "קטגוריה"
+msgstr "Categories"
 
 #, php-format
 msgid "characteristic"
-msgstr "מאפיין"
+msgstr "Characteristics"
 
 #, php-format
 msgid "code"
-msgstr "קוד"
+msgstr "Codes"
 
 msgid "company"
-msgstr "חברה"
+msgstr "Company"
 
 #, php-format
 msgid "configuration"
@@ -2217,100 +2153,100 @@ msgstr "מדינה"
 
 #, php-format
 msgid "countday"
-msgstr "יום הספירה"
+msgstr "Orders by day"
 
 #, php-format
 msgid "counthour"
-msgstr "שעה ספירה"
+msgstr "Orders by hour"
 
 #, php-format
 msgid "countpaystatus"
-msgstr "הזמנות לפי מצב תשלום"
+msgstr "Orders by payment status"
 
 #, php-format
 msgid "coupon"
-msgstr "קופון"
+msgstr "Vouchers"
 
 #, php-format
 msgid "customer"
-msgstr "לקוח"
+msgstr "Customers"
 
 #, php-format
 msgid "dashboard"
-msgstr "לוח מחוונים"
+msgstr "Dashboard"
 
 #, php-format
 msgid "day"
-msgstr "יום"
+msgstr "By days"
 
 #, php-format
 msgid "deliverytype"
-msgstr "סוג משלוח"
+msgstr "By delivery type"
 
 #, php-format
 msgid "download"
-msgstr "הורדה"
+msgstr "Paid downloads"
 
 #, php-format
 msgid "goods"
-msgstr "סחורה"
+msgstr "Catalog"
 
 #, php-format
 msgid "group"
-msgstr "קבוצה"
+msgstr "Groups"
 
 #, php-format
 msgid "hour"
-msgstr "שעה"
+msgstr "By hour"
 
 #, php-format
 msgid "image"
-msgstr "תמונה"
+msgstr "Images"
 
 #, php-format
 msgid "invoice"
-msgstr "חשבונית"
+msgstr "Invoices"
 
 #, php-format
 msgid "latest"
-msgstr "האחרון"
+msgstr "Latest"
 
 #, php-format
 msgid "locale"
-msgstr "מקומי"
+msgstr "Locales"
 
 #, php-format
 msgid "locale/currency"
-msgstr "מקום/מטבע"
+msgstr "Currencies"
 
 #, php-format
 msgid "locale/language"
-msgstr "מקום/שפה"
+msgstr "Languages"
 
 #, php-format
 msgid "locale/site"
-msgstr "מקומי/אתר"
+msgstr "Sites"
 
 #, php-format
 msgid "log"
-msgstr "יומן"
+msgstr "Logs"
 
 #, php-format
 msgid "marketing"
-msgstr "שיווק"
+msgstr "Marketing"
 
 #, php-format
 msgid "media"
-msgstr "מדיה"
+msgstr "Media"
 
 msgid "miss"
-msgstr "מיס"
+msgstr "Miss"
 
 msgid "mr"
-msgstr "מר"
+msgstr "Mr"
 
 msgid "mrs"
-msgstr "גברת"
+msgstr "Mrs"
 
 msgid "ms"
 msgstr "ms"
@@ -2325,80 +2261,80 @@ msgid "none"
 msgstr "אין"
 
 msgid "not available any more"
-msgstr "לא זמין יותר"
+msgstr "כבר לא זמין"
 
 #, php-format
 msgid "option"
-msgstr "אופציה"
+msgstr "Options"
 
 #, php-format
 msgid "order"
-msgstr "הזמנה"
+msgstr "Orders"
 
 msgid "order:phone"
-msgstr "הזמנה:טלפון"
+msgstr "phone"
 
 msgid "order:web"
-msgstr "הזמנה:אינטרנט"
+msgstr "web"
 
 msgid "pay:-1"
-msgstr "תשלום: -1"
+msgstr "unfinished"
 
 msgid "pay:0"
-msgstr "נמחק"
+msgstr "deleted"
 
 msgid "pay:1"
-msgstr "בוטל"
+msgstr "canceled"
 
 msgid "pay:2"
-msgstr "נדחה"
+msgstr "refused"
 
 msgid "pay:3"
-msgstr "זוכה"
+msgstr "refunded"
 
 msgid "pay:4"
-msgstr "ממתין"
+msgstr "pending"
 
 msgid "pay:5"
-msgstr "מורשה"
+msgstr "authorized"
 
 msgid "pay:6"
-msgstr "התקבל"
+msgstr "received"
 
 msgid "pay:7"
-msgstr "הועבר"
+msgstr "שכר:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "מצב תשלום"
+msgstr "By payment status"
 
 #, php-format
 msgid "paymenttype"
-msgstr "סוג תשלום"
+msgstr "By payment types"
 
 #, php-format
 msgid "physical"
-msgstr "פיזי"
+msgstr "Physical"
 
 #, php-format
 msgid "plugin"
-msgstr "פלאגין"
+msgstr "Plugins"
 
 #, php-format
 msgid "price"
-msgstr "מחיר"
+msgstr "Prices"
 
 #, php-format
 msgid "product"
-msgstr "מוצר"
+msgstr "Products"
 
 #, php-format
 msgid "property"
-msgstr "נכס"
+msgstr "Properties"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr "מהיר/ספירה הושלמה"
+msgstr "מהיר/הספירה הושלמה"
 
 #, php-format
 msgid "quick/countcustomer"
@@ -2406,142 +2342,142 @@ msgstr "מהיר/ספירת לקוחות"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr "מהיר/ספירה סה\"כ"
+msgstr "מהיר/ספירה כוללת"
 
 #, php-format
 msgid "quick/countunfinished"
 msgstr "מהיר/ספירה לא גמורה"
 
 msgid "reason:-1"
-msgstr "סיבה:-1"
+msgstr "failed"
 
 msgid "reason:0"
-msgstr "סיבה:0"
+msgstr "ended"
 
 msgid "reason:1"
-msgstr "בוטל"
+msgstr "canceled"
 
 #, php-format
 msgid "related"
-msgstr "קשור"
+msgstr "Products"
 
 #, php-format
 msgid "review"
-msgstr "סקירה"
+msgstr "Reviews"
 
 #, php-format
 msgid "rule"
-msgstr "כלל"
+msgstr "Price rules"
 
 #, php-format
 msgid "sales"
-msgstr "מכירות"
+msgstr "Sales"
 
 #, php-format
 msgid "salesweekday"
-msgstr "יום שבוע מכירות"
+msgstr "Sales by weekday"
 
 msgid "selected"
 msgstr "נבחר"
 
 #, php-format
 msgid "selection"
-msgstr "בחירה"
+msgstr "Variants"
 
 #, php-format
 msgid "service"
-msgstr "שירות"
+msgstr "Services"
 
 #, php-format
 msgid "servicedelivery"
-msgstr "משלוח שירות"
+msgstr "By delivery types"
 
 #, php-format
 msgid "servicepayment"
-msgstr "תשלום שירות"
+msgstr "By payment types"
 
 #, php-format
 msgid "settings"
-msgstr "הגדרות"
+msgstr "Settings"
 
 #, php-format
 msgid "setup"
-msgstr "התקנה"
+msgstr "הגדרה"
 
 #, php-format
 msgid "special"
-msgstr "מיוחד"
+msgstr "Special"
 
 msgid "stat:-1"
-msgstr "סטטוס: -1"
+msgstr "unfinished"
 
 msgid "stat:0"
-msgstr "נמחק"
+msgstr "deleted"
 
 msgid "stat:1"
-msgstr "ממתין"
+msgstr "pending"
 
 msgid "stat:2"
-msgstr "בתהליך"
+msgstr "in progress"
 
 msgid "stat:3"
-msgstr "נשלח"
+msgstr "dispatched"
 
 msgid "stat:4"
-msgstr "נמסר"
+msgstr "delivered"
 
 msgid "stat:5"
-msgstr "אבד"
+msgstr "lost"
 
 msgid "stat:6"
-msgstr "נדחה"
+msgstr "refused"
 
 msgid "stat:7"
-msgstr "הוחזר"
+msgstr "returned"
 
 msgid "status:-1"
-msgstr "בארכיון"
+msgstr "archived"
 
 msgid "status:-2"
-msgstr "לִסְקוֹר"
+msgstr "review"
 
 msgid "status:0"
-msgstr "נָכֶה"
+msgstr "disabled"
 
 msgid "status:1"
-msgstr "מופעל"
+msgstr "enabled"
 
 msgid "status:2"
-msgstr "סטטוס: 2"
+msgstr "סטטוס:2"
 
 #, php-format
 msgid "stock"
-msgstr "מלאי"
+msgstr "Stocks"
 
 #, php-format
 msgid "subscription"
-msgstr "מנוי"
+msgstr "Subscriptions"
 
 #, php-format
 msgid "supplier"
-msgstr "ספק"
+msgstr "Suppliers"
 
 msgid "tag"
-msgstr "תג"
+msgstr "Tags"
 
 msgid "tax:0"
-msgstr "מס: 0"
+msgstr "מס:0"
 
 msgid "tax:1"
-msgstr "מס: 1"
+msgstr "מס:1"
 
 #, php-format
 msgid "text"
-msgstr "טקסט"
+msgstr "Texts"
 
 #, php-format
 msgid "theme"
-msgstr "נושא"
+msgstr "Theme"
 
 #, php-format
 msgid "transaction"
@@ -2549,55 +2485,55 @@ msgstr "עסקה"
 
 #, php-format
 msgid "type"
-msgstr "סוג"
+msgstr "Type"
 
 #, php-format
 msgid "type/attribute"
-msgstr "סוג/תכונה"
+msgstr "Attributes"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "סוג/תכונה/רשימות"
+msgstr "Attribute Lists"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr "סוג/תכונה/מאפיין"
+msgstr "Attribute properties"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr "סוג/קטלוג/רשימות"
+msgstr "Catalog Lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr "סוג/לקוח/רשימות"
+msgstr "Customer Lists"
 
 #, php-format
 msgid "type/customer/property"
-msgstr "סוג/לקוח/נכס"
+msgstr "Customer properties"
 
 #, php-format
 msgid "type/media"
-msgstr "סוג/מדיה"
+msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr "סוג/מדיה/רשימות"
+msgstr "Media Lists"
 
 #, php-format
 msgid "type/media/property"
-msgstr "סוג/מדיה/נכס"
+msgstr "Media Properties"
 
 #, php-format
 msgid "type/plugin"
-msgstr "פלאגין"
+msgstr "Plugins"
 
 #, php-format
 msgid "type/price"
-msgstr "סוג/מחיר"
+msgstr "Prices"
 
 #, php-format
 msgid "type/price/lists"
-msgstr "סוג/מחיר/רשימות"
+msgstr "Price Lists"
 
 #, php-format
 msgid "type/price/property"
@@ -2605,15 +2541,15 @@ msgstr "סוג/מחיר/נכס"
 
 #, php-format
 msgid "type/product"
-msgstr "סוג/מוצר"
+msgstr "Products"
 
 #, php-format
 msgid "type/product/lists"
-msgstr "סוג/מוצר/רשימות"
+msgstr "Product Lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr "סוג/מוצר/נכס"
+msgstr "Product Properties"
 
 #, php-format
 msgid "type/rule"
@@ -2621,31 +2557,31 @@ msgstr "סוג/כלל"
 
 #, php-format
 msgid "type/service"
-msgstr "סוג/שירות"
+msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"
-msgstr "סוג/שירות/רשימות"
+msgstr "Service Lists"
 
 #, php-format
 msgid "type/stock"
-msgstr "סוג/מלאי"
+msgstr "Stocks"
 
 #, php-format
 msgid "type/tag"
-msgstr "תג"
+msgstr "Tags"
 
 #, php-format
 msgid "type/text"
-msgstr "סוג/טקסט"
+msgstr "Texts"
 
 #, php-format
 msgid "type/text/lists"
-msgstr "סוג/טקסט/רשימות"
+msgstr "Text Lists"
 
 #, php-format
 msgid "users"
-msgstr "משתמשים"
+msgstr "Users"
 
 msgid "yes"
 msgstr "כן"

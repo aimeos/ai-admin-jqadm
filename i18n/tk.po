@@ -1,23 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# Ayshe Sammiyeva, 2023
-# Ayshe Sammiyeva, 2023
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: tk\n"
+"Language-Team: Turkmen (http://app.transifex.com/aimeos/aimeos-core/language/tk/)\n"
+"Last-Translator: Ayshe Sammiyeva, 2023\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 11:47+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Ayshe Sammiyeva, 2023\n"
-"Language-Team: Turkmen (http://app.transifex.com/aimeos/aimeos-core/language/tk/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: tk\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
 msgstr " "
@@ -36,7 +29,15 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s%6$s\n%8$s%9$s\n%10$s\n%11$s\n%12$s"
+msgstr ""
+"%1$s\n"
+"%2$s%3$s\n"
+"%5$s%4$s\n"
+"%7$s%6$s\n"
+"%8$s%9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
 
 #, php-format
 msgid ""
@@ -53,7 +54,22 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+""
+msgstr ""
+"%1$s\n"
+"%2$s%3$s%4$s%5$s\n"
+"%6$s%7$s\n"
+"%8$s\n"
+"%9$s%10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+""
 
 #, php-format
 msgid "%1$s %2$s"
@@ -67,14 +83,10 @@ msgstr "%1$s (Ctrl+Alt+%2$s)"
 msgid "%s/%s/%s.%s"
 msgstr "%s/%s/%s.%s"
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
 msgstr "(Halkara) faks belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
 msgstr "(Halkara) telefon belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
 
 msgid "+ Tax"
@@ -87,7 +99,7 @@ msgid "?"
 msgstr "?"
 
 msgid "API key"
-msgstr ""
+msgstr "API açary"
 
 msgid "Account"
 msgstr "Hasap"
@@ -105,14 +117,12 @@ msgid "Add"
 msgstr "Goşmak"
 
 msgid "Add after"
-msgstr ""
+msgstr "Soňra goşuň"
 
 msgid "Add before"
-msgstr ""
+msgstr "Öňüne goş"
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
 msgstr "Her haryt üçin goşmaça eltip bermek bahasy goşulýar, meselem: 1 agyr haryt üçin 20TMT, bolsa 5 haryt üçin jemi 100TMT bolýar"
 
 msgid "Additional information where the customer's apartment can be found"
@@ -158,9 +168,7 @@ msgstr "Aimeos obýekti elýeterli däl"
 msgid "All"
 msgstr "Hemmesi"
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
 msgstr "Harydyň özboluşlylygyny kesgitleýän ähli häsiýetler, meselem: jynsy üçin ini, uzynlygy, reňki"
 
 msgid "Allow custom price"
@@ -175,9 +183,7 @@ msgstr "Topary özboluşly kesgitläp bilýän harp sanlary"
 msgid "Apply"
 msgstr "Giriş"
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
 msgstr "Harydyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Attribute"
@@ -222,9 +228,7 @@ msgstr "Front-enddäki elýeterli aralyklar "
 msgid "Available language for the current site"
 msgstr "Häzirki sahypa üçin bar bolan diller"
 
-msgid ""
-"Average product rating and total number of ratings by customers for this "
-"product"
+msgid "Average product rating and total number of ratings by customers for this product"
 msgstr "Bu önüm üçin müşderileriň ortaça bahalandyrmasy we bahalarynyň umumy sany"
 
 msgid "Back in stock"
@@ -281,9 +285,7 @@ msgstr "Ulanyjy tarapyndan web sahypasynda önüm tapyp boljak kategoriýalar"
 msgid "Categories the product will be shown for in the promotional section"
 msgstr "Mahabat bölüminde görkeziljek harytlaryň kategoriýalary"
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
 msgstr "Kategoriýanyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Change costs/item in %"
@@ -355,8 +357,7 @@ msgstr "Kompaniýanyň ady (islege görä)"
 msgid "Completed orders"
 msgstr "Tamamlanan sargytlar"
 
-msgid ""
-"Completed orders within the last seven days compared to the period before"
+msgid "Completed orders within the last seven days compared to the period before"
 msgstr "Öňkiler bilen deňeşdirilende soňky ýedi günüň içinde tamamlanan sargytlar"
 
 msgid "Config"
@@ -365,12 +366,11 @@ msgstr "Sazlamak"
 msgid "Configurable"
 msgstr "Sazlap bolýan"
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
+msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr "Sazlama görnüşleri, sanaw elementinde açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Context"
-msgstr ""
+msgstr "Kontekst"
 
 msgid "Copy"
 msgstr "Göçürmek"
@@ -393,10 +393,8 @@ msgstr "Ýurt ID"
 msgid "Country code (required)"
 msgstr "Ýurt kody (hökmany)"
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
-msgstr ""
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
+msgstr "Ýurda mahsus salgyt derejesini hasaplamak we goşulan salgyt (B2C) görkezmek ýa-da zerur bolsa salgyt goşmak (B2B)"
 
 msgid "Country state code (optional)"
 msgstr "Döwlet kody (islege görä)"
@@ -405,7 +403,7 @@ msgid "Coupon"
 msgstr "Kupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Kupon üpjün edijisiniň ýa-da kupon bezegçisiniň konfigurasiýa ady"
 
 msgid "Created"
 msgstr "Döredildi"
@@ -420,7 +418,7 @@ msgid "Custom"
 msgstr "Hususy"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Dükanyňyzyň ýörite domeni ýa-da özboluşly kody"
 
 msgid "Customer"
 msgstr "Müşderi"
@@ -456,52 +454,52 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Müşderiniň başga müşderiler bilen paýlaşylmadyk häsiýetleri"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Müşderi salgysy"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Müşderi salgysy (islegli)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Dolandyryş paneli"
 
 msgid "Data"
 msgstr "Maglumat"
 
 msgid "Data set"
-msgstr ""
+msgstr "Maglumat toplumy"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Maglumat toplumy"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Soňky eltip beriliş ýagdaýynyň üýtgedilen senesi"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Soňky töleg ýagdaýynyň üýtgedilen senesi"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Abunalygyň gutarýan senesi"
 
 msgid "Days"
 msgstr "Günler"
 
 msgid "Default"
-msgstr ""
+msgstr "Öňünden kesgitlenen"
 
 msgid "Delete"
 msgstr "Pozuň"
 
 msgid "Delete entries?"
-msgstr ""
+msgstr "Ýazgylary öçüriňmi?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Saýlanan ýazgylary öçüriň"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Bu ýazgyny öçüriň"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Syniýetleri pozmak rugsat berilmeýär."
 
 msgid "Delivery"
 msgstr "Eltip bermek"
@@ -510,355 +508,338 @@ msgid "Delivery address"
 msgstr "Eltip beriş salgysy"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Eltip beriş senesi"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Eltip beriliş"
 
-msgid ""
-"Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgid "Delivery or payment costs for the products in the basket of the customer"
+msgstr "Müşderiniň sepetindäki önümleriň eltip bermek ýa-da töleg çykdajylary"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Eltip beriliş ýagdaýy"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Eltip bermek üçin möhlet (islegli)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Eltip beriş görnüşleri"
 
 msgid "Delivery within"
 msgstr "Içinde eltip bermek"
 
-msgid ""
-"Depending on the selected data set, the list of shown fields for the product"
-" will be different"
-msgstr ""
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
+msgstr "Saýlanan maglumat toplumyna görä, önüm üçin görkezilen meýdanlaryň sanawy üýtgär."
 
 msgid "Describe your image"
-msgstr ""
+msgstr "Suratyňyzy beýan ediň"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Eger tekst daşary ýurt dilinde bolsa, onuň mazmunynyň düşündirişi"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Walýutanyň düşündiriş ady"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Diliniň düşündirişli ady"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Saýtyň düşündiriş ady"
 
 msgid "Discount"
-msgstr ""
+msgstr "Arzanladyş"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Kömek tekstlerini görkez"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domeýn"
 
 msgid "Download"
-msgstr ""
+msgstr "Ýüklä"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Bu faýly ýükläň"
 
 msgid "Duplicate entry"
-msgstr ""
+msgstr "Girizmäni gaýtalamak"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Girizmäni gaýtalamak (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "E-poçta salgysy (zerur)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "E-poçta salgysy ýa-da hasap ady (talap edilýär)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Dükana degişli e-poçta hatlaryny ibermek üçin ulanylýan e-poçta salgysy"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-poçta"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "E-poçta salgysy (islegli)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Adresa degişli e-poçta salgysy"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU ýa-da haryt nomeri (zerur)"
 
 msgid "Edit"
-msgstr ""
+msgstr "Üýtget"
 
 msgid "Edit selected entries"
-msgstr ""
+msgstr "Saýlanan ýazgylary redaktirlemek"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Bu ýazgyny redaktirläň"
 
 msgid "Editor"
-msgstr ""
+msgstr "Redaktor"
 
 msgid "Email"
-msgstr ""
+msgstr "E-poçta"
 
 msgid "End date"
 msgstr "Ahyrky senesi"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Ahyr senesi (islegli)"
 
 msgid "Enter group ID, code or label"
-msgstr ""
+msgstr "Topar ID-sini, koduny ýa-da belligini giriziň"
 
 msgid "Entry deleted successfully"
-msgstr ""
+msgstr "Giriş üstünlikli pozuldy"
 
 msgid "Entry saved successfully"
-msgstr ""
+msgstr "Giriş üstünlikli ýazdyryldy"
 
-msgid ""
-"Entry specific configuration options, will be available as key/value pairs "
-"in the templates"
-msgstr ""
+msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
+msgstr "Girişe aýratyn konfigurasiýa opsiýalary şablonlarda açar/değer jübütleri görnüşinde elýeterli bolar."
 
 msgid "Error"
-msgstr ""
+msgstr "Ýalňyşlyk"
 
 msgid "Error deleting data"
-msgstr ""
+msgstr "Maglumatlary öçürmekde ýalňyşlyk"
 
 msgid "Error retrieving data"
-msgstr ""
+msgstr "Maglumatlary almaga ýalňyşlyk"
 
 msgid "Error saving data"
-msgstr ""
+msgstr "Maglumatlary ýatda saklamakda ýalňyşlyk"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Salgyt goşulmaýar"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Pluginleriň ýerine ýetiriş tertibi"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Düzgünleriň ýerine ýetiriş buýrugy"
 
 msgid "Export"
-msgstr ""
+msgstr "Eksport"
 
 msgid "Facility"
-msgstr ""
+msgstr "Desgäh"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Faksimile"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Faksimile belgisi (islegli)"
 
-msgid ""
-"Factor to boost product in user search over other products (>1.0 positive "
-"boost, <1.0 negative boost)"
-msgstr ""
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
+msgstr "Ulanyjynyň gözleginde önümi beýleki önümlerden ýokarlandyrmak üçin faktor (>1.0 oňyn artdyryş, <1.0 negatiw artdyryş)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Diskde faýly ýazmak mümkin bolmady"
 
 msgid "File"
-msgstr ""
+msgstr "Faýl"
 
 #, php-format
 msgid "File does not exists: \"%1$s\""
-msgstr ""
+msgstr "Faýl ýok: \"%1$s\""
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Faýl ýüklemek goşmaça programma tarapyndan togtadyldy."
 
 msgid "File uploaded successfully"
-msgstr ""
+msgstr "Faýl üstünlikli ýüklendi"
 
 msgid "Find category"
-msgstr ""
+msgstr "Kategoriýany tapyň"
 
 msgid "Find site"
-msgstr ""
+msgstr "Saýty tapyň"
 
 msgid "First"
-msgstr ""
+msgstr "Ilki"
 
 msgid "First name"
 msgstr "Ady"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Ilkinji at (islegli)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Eger ol medeniýetlerde ulanylýan bolsa, adamyň ilkinji ady"
 
 msgid "Floor"
-msgstr ""
+msgstr "Pol"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Pol / Kvartira"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Pol we/ýa-da jaý (islegli)"
 
 msgid "For"
-msgstr ""
+msgstr "Uçun"
 
 msgid "Generate"
-msgstr ""
+msgstr "Döret"
 
 msgid "Generate image"
-msgstr ""
+msgstr "Suraty döret"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Tekst döret"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Geri töleg mukdary berilende"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Aýratynlyk paneline geçiň"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Mülk görnüşi paneline geçiň"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Atr terror guramalarynyň sanawyna geçiň"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Gaýtaryp berlen arzanladyş"
 
 msgid "Group"
 msgstr "Group"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Toparyň haýsy agzalar üçin niýetlenendigini düşündirýän at"
 
 msgid "Groups"
-msgstr ""
+msgstr "Toparlar"
 
 msgid "Height"
-msgstr ""
+msgstr "Böýügi"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Gizlin häsiýetler"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Sargyt edilen önümler bilen bilelikde saklanýan gizlin önüm häsiýetnamalary"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Önüm üçin nyşana alnan üpjün edijiler"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Hormatly at (islegli)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Dr., Ph.D. we ş.m. ýaly hormatlyk atlar"
 
 msgid "Hours"
-msgstr ""
+msgstr "Sagatlar"
 
 msgid "House number"
-msgstr ""
+msgstr "Öý nomeri"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Öý nomeri (islegli)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Müşderä e-poçtalarda nähili ýüzlenilýär"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "E-poçtalarda üpjün ediji nähili salgylanylýar"
 
 msgid "Hyper-real and dramatic"
-msgstr ""
+msgstr "Giperrealistik we dramatik"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "Baglanşykly fakturanyň ID-si, mysal üçin üýtgedilen ýa-da gaýtarylan faktura"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO walýuta kody (zerur)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO dil kody (talap edilýär)"
 
 msgid "Image"
-msgstr ""
+msgstr "Surat"
 
 msgid "Image description"
-msgstr ""
+msgstr "Suratyň düşündirişi"
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
-msgstr ""
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
+msgstr "Suratlar diňe şol dilde görkeziler; media teksti özünde saklasa ýa-da dil spesifik bolsa peýdalydyr."
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Import/eksport işleri"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Salgy goşuldy"
 
 msgid "Info"
-msgstr ""
+msgstr "Maglumat"
 
 msgid "Insert into"
-msgstr ""
+msgstr "Girizmek"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Täze ýazgy giriziň"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Täze ýazgy giriziň (Ctrl+I)"
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
-msgstr ""
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgstr "Içki makala ady, web sahypasynda we gözlegde ulanylýar; başga dilde başga önüm ady ýok bolsa."
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
-msgstr ""
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
+msgstr "Içki makala ady, eger dil üçin önümiň ady elýeterli bolmasa, web sahypasynda ulanylýar."
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
+msgstr "Içki häsiýet ady, eger dil üçin hiç hili ad elýeterli bolmasa, web sahypasynda ulanylýar."
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
-msgstr ""
+msgid "Internal category name, will be used on the web site if no name for the language is available"
+msgstr "Eger diliň ady elýeterli bolmasa, web sahypasynda içerki kategoriýa ady ulanylýar."
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Içerki at (talap edilýär)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Administrasiýa interfeýsinde görkezilen içerki tip ady"
 
 msgid "Interval"
 msgstr "Aralyk"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Aralyk (zerur)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -881,294 +862,285 @@ msgid "Invalid factory \"%1$s\""
 msgstr "Nädogry fabrika \"%1$s\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Hasap-faktura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Hasap-faktura №"
 
 msgid "Invoice no."
-msgstr ""
+msgstr "Hasap-faktura no."
 
 msgid "Invoice number"
-msgstr ""
+msgstr "Hasap-faktura belgisi"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Sargyt üçin hasap-faktura nomeri"
 
 msgid "Label"
-msgstr ""
+msgstr "Etiket"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Etiket (zerur)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Ady ýok bolsa, aralygy düşündirýän bellik ulanylýar."
 
 msgid "Language"
 msgstr "Dil"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Dil ID"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Girizilen tekstiň dili"
 
 msgid "Languages"
-msgstr ""
+msgstr "Diller"
 
 msgid "Last"
-msgstr ""
+msgstr "Soňky"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Sargydyň iň soňky ýerine ýetiriş ýagdaýy"
 
 msgid "Last name"
 msgstr "Familýasy"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Soňky at (islegli)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Soňky at (talap edilýär)"
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
-msgstr ""
+msgid "Last name of the person or full name in cultures where no first names are used"
+msgstr "Adamlaryň familiýasy ýa-da ady ulanylmaýan medeniýetlerde olaryň doly ady"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Sargydyň iň soňky töleg ýagdaýy"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Soňky sargytlar"
 
 msgid "Length"
-msgstr ""
+msgstr "Uzynlyk"
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
-msgstr ""
+msgid "List of articles that should be sold as one product, often at a reduced price"
+msgstr "Bir önüm hökmünde, köplenç arzanladylandan satylmaly makalalaryň sanawy"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Köp gezek bilelikde satyn alynýan önümleriň sanawy"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Teklif edilen önümleriň sanawy"
 
 msgid "List type"
-msgstr ""
+msgstr "Sanaw görnüşi"
 
 msgid "Loading entries ..."
-msgstr ""
+msgstr "Ýazgylary ýükleýär ..."
 
 msgid "Locale"
 msgstr "Locale"
 
 msgid "Log"
-msgstr ""
+msgstr "Giriş"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "El bilen geçiriş"
 
 msgid "Map"
-msgstr ""
+msgstr "Karta"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Media sanawlarynyň görnüşi"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Metbugat sanawlarynyň görnüşleri"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Media mülkiýet görnüşi"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Media mülkiýet görnüşleri"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Media görnüşi"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Media görnüşleri"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Media mülkiýetleri"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menýu"
 
 msgid "Message"
-msgstr ""
+msgstr "Habar"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Minimum mukdar"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Iň az mukdar"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Mobil telefon belgisi"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Mobil telefon belgisi (islegli)"
 
 msgid "Model"
-msgstr ""
+msgstr "Modeli"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Üýtgedilen"
 
 msgid "Modified"
-msgstr ""
+msgstr "Üýtgedilen"
 
 msgid "Months"
-msgstr ""
+msgstr "Aýlar"
 
 msgid "More"
-msgstr ""
+msgstr "Has köp"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Bu ýazgyny ýokara/aşaga süýşüriň"
 
 msgid "Name"
 msgstr "Ady"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "URL-däki at (islegli)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Sabyň ady"
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgid "Name of the downloaded file when customers saves the file on their computers"
+msgstr "Müşderiler faýly öz kompýuterlerine ýazdyryp saklanda, onuň ýüklenen faýlyň ady"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Syniýaçynyň ady"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Dükanyňyzyň ady müşderileriňize görkezilýär"
 
 msgid "Natural"
-msgstr ""
+msgstr "Tebigy"
 
 msgid "New"
 msgstr "Täze"
 
 msgid "New category"
-msgstr ""
+msgstr "Täze kategoriýa"
 
 msgid "New customers"
-msgstr ""
+msgstr "Täze müşderiler"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Soňky ýedi gün içinde täze müşderiler"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Soňky ýedi gün içinde täze müşderiler öňki döwre garanyňda"
 
 msgid "Next"
 msgstr "Indiki"
 
 msgid "Next date"
-msgstr ""
+msgstr "Indiki duşuşyk"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Indiki senä (islegli)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Abunalygyň indiki täzelenjek senesi"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Walýutalar elýeterli däl. Iň azyndan bir walýutany işjeňleşdiriň."
 
 msgid "No entries found"
-msgstr ""
+msgstr "Tapylan ýazgy ýok"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Hiç bir faýl ýüklänok"
 
 msgid "No product found"
-msgstr ""
+msgstr "Häsi önüm tapylmady"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Tema opsiýalary elýeterli däl"
 
 #, php-format
 msgid "No view available"
 msgstr "Görnüş ýok"
 
 msgid "No voucher"
-msgstr ""
+msgstr "Çek ýok"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Media elementi üçin paýlaşylmadyk häsiýetler"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Bahasy madda degişli bolmadyk aýratynlyklar"
 
 msgid "None"
-msgstr ""
+msgstr "Ýok"
 
 msgid "Not all entries could be deleted"
-msgstr ""
+msgstr "Ähli ýazgylary öçürmek mümkin bolmady"
 
 msgid "Not allowed or editor site is different"
-msgstr ""
+msgstr "Ruhsat berilmeýär ýa-da redaktor saýty başga."
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "JQAdm \"%1$s\" kliente girmäge rugsat berilmeýär."
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Ýerine ýetirilmedi"
 
 msgid "Notes"
-msgstr ""
+msgstr "Bellikler"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Bellikler (müşderä görkezilmeýär)"
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "Häzirki wagtda ätiýaçlykdaky makalalaryň sany, çäksiz mukdar üçin boş goýuň"
 
 msgid "OK"
-msgstr ""
+msgstr "Oké"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Hasap-fakturalarda salgyt salynmaly ýa salynmaly däldigini kesgitlemek üçin resmi VAT ID"
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgid "One provider and zero or more decorator class names separated by commas"
+msgstr "Bir üpjün ediji we virgulalar bilen aýrylan nol ýa-da ondan köp bezegçi klas ady"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
-msgstr ""
+msgstr "Diňe .webp, .jpg, .png we .gif ikonalar üçin rugsat berilýär."
 
 msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
-msgstr ""
+msgstr "Logotipler üçin diňe .webp, .jpg, .png, .gif we .svg kabul edilýär."
 
 msgid "Only super users and administrators can delete entries"
-msgstr ""
+msgstr "Diňe super ulanyjylar we administratoriýalar ýazgylary öçürip bilerler."
 
 msgid "Open"
-msgstr ""
+msgstr "Açyk"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Açyk mukdar"
 
 msgid "Option"
-msgstr ""
+msgstr "Wariant"
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
-msgstr ""
+msgid "Optional product components that can be chosen by the customer together with the product"
+msgstr "Müşderiniň önüm bilen bilelikde saýlap biljek islege bagly önüm komponentleri"
 
 msgid "Order"
 msgstr "Sargyt"
@@ -1177,51 +1149,49 @@ msgid "Order ID"
 msgstr "Sargyt ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Müşderi tarapyndan girizilen sargyt nomeri"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "Dil/walýuta utgaşmalarynyň tertibi"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "Töleg prosesiňdäki hyzmat opsiýalarynyň tertibi"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Frontendde görnüşleriň tertibi"
 
 msgid "Order totals"
-msgstr ""
+msgstr "Sargyt jemi"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Sargyt edildi"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Ölke boýunça sargytlar"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Günlik sargytlar"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Sagatlyk sargytlar"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Töleg statusy boýunça sargytlar"
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
-msgstr ""
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgstr "Bar bolan faýly ýazyp geçiň, öň müşderiler satyn alyp bilýänler täze mazmuny hem göçürip alyp bilerler."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP sazlamasy \"%1$s\" öçürilipdir"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP sazlamasy \"%1$s\" işjeňleşdirildi."
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "\"%1$s\" üçin PHP sazlamasy gaty pesdir."
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1231,42 +1201,41 @@ msgid "Password"
 msgstr "Açar sözi"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Parol (talap edilýär)"
 
 msgid "Path"
-msgstr ""
+msgstr "Ýol"
 
 msgid "Pay date"
-msgstr ""
+msgstr "Aýlyk töleg senesi"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Töleg statusy"
 
 msgid "Payment"
 msgstr "Töleg"
 
 msgid "Payment date"
-msgstr ""
+msgstr "Töleg senesi"
 
 msgid "Payment status"
 msgstr "Töleg ýagdaýy"
 
 msgid "Payment types"
-msgstr ""
+msgstr "Töleg görnüşleri"
 
 msgid "Periods"
-msgstr ""
+msgstr "Döwürler"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Rugsat ret edildi"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Şahsy maglumatlar"
 
-msgid ""
-"Please insert the description of the text that should be generated here"
-msgstr ""
+msgid "Please insert the description of the text that should be generated here"
+msgstr "Şu ýere döredilmelisi tekstiň düşündirişini giriziň."
 
 msgid "Please select"
 msgstr "Saýlaň"
@@ -1275,40 +1244,40 @@ msgid "Plugin"
 msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Plugin görnüşi"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Plugin görnüşleri"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Konfigurirlenen plagin barada düşündiriş berýän plagin bellik"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Pluginiň ýerleşişi (zerur)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Plugin üpjün edijisi ýa-da plugin bezegçisi konfigurasiýasynyň ady"
 
 msgid "Position"
-msgstr ""
+msgstr "Wezipe"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Wezipe (talap edilýär)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Poçta"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Müşderiniň ýaşaýan sebitinde ulanylýan bolsa eltip bermek üçin poçta indeksi"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Eger üpjün ediji şol sebitde ýaşaýan bolsa, eltip bermek üçin poçta indeksi"
 
 msgid "Postition"
-msgstr ""
+msgstr "Wezipe"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Mümkin bolan kynçylyklar"
 
 msgid "Previous"
 msgstr "Öňki"
@@ -1317,276 +1286,266 @@ msgid "Price"
 msgstr "Bahasy"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Bahalar sanawy görnüşi"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Bahalar sanawlarynyň görnüşleri"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Baha   Emläk görnüşi"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Bahalar Emläk görnüşleri"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Bahanyň görnüşi"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Bahalar görnüşleri"
 
 msgid "Price properties"
-msgstr ""
+msgstr "Bahalar emläkler"
 
 msgid "Priority"
-msgstr ""
+msgstr "Öňdebaryjylyk"
 
 msgid "Problem"
-msgstr ""
+msgstr "Mesele"
 
 msgid "Product"
 msgstr "Haryt"
 
 msgid "Product ID"
-msgstr ""
+msgstr "Önümiň ID-si"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Önümiň ID-si, SKU ýa-da bellik"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Önümler sanawynyň görnüşi"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Önümleriň sanawlary görnüşleri"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Önümiň häsiýet görnüşi"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Önümiň häsiýet görnüşleri"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Önümiň görnüşi"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Önüm görnüşleri"
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
-msgstr ""
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
+msgstr "Hasaba goýlan önüm aýratynlyklary, müşderileriň öz tekstlerini ýa-da bahalaryny girizip bilýän ýeridir."
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Beýleki önümlerde hem ulanylýan önüm häsiýetleri"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Beýleki önümler bilen paýlaşylmaýan önüm häsiýetleri"
 
 msgid "Product code"
-msgstr ""
+msgstr "Önümiň kody"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Önümiň çykdajylary"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Önümiň beýikligi, mysal üçin 20,0 (yard, dýuým we ş.m.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "Önümiň uzynlygy, mysal üçin 30,0 (yard, dýuým we ş.m.)"
 
 msgid "Product name"
-msgstr ""
+msgstr "Önümiň ady"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Önümiň tölegi"
 
 msgid "Product price"
-msgstr ""
+msgstr "Önümiň bahasy"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "Önümiň mukdary"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "Önüm boýunça gaýtaryp beriş"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Önümiň ugradylmagy"
 
 msgid "Product status"
-msgstr ""
+msgstr "Önümiň ýagdaýy"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Önüm üpjün ediji"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Önüm salgygy"
 
 msgid "Product type"
-msgstr ""
+msgstr "Önümiň görnüşi"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "Önümiň agramy, mysal üçin 1,25 (funtt, unsiýa we ş.m.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "Önümiň ini, mysal üçin 17,5 (yard, dýuým we ş.m.)"
 
 msgid "Products"
-msgstr ""
+msgstr "Önümler"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "Birlikde satyn alnan önümler"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Öňe sürme"
 
 msgid "Properties"
 msgstr "Aýratynlyklary"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "Mülk bahasy (talap edilýär)"
 
 msgid "Provider"
-msgstr ""
+msgstr "Üpjün ediji"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Beriji/bezegçi klaslaryň atlary (zerur)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Satyn al"
 
 msgid "Quantity"
 msgstr "Mukdar"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Miktar şkalasy"
 
 msgid "Rabate"
-msgstr ""
+msgstr "Arzanladyş"
 
 msgid "Rating"
 msgstr "Bahalandyrma"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Söwdagär üçin baha we bahalaryň sany"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Syniýaçynyň bahasy"
 
 msgid "Reason"
-msgstr ""
+msgstr "Sebäp"
 
 msgid "Rebate"
-msgstr ""
+msgstr "Gaýtaryp beriş"
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
-msgstr ""
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
+msgstr "Asyl bahadan azaldylma, % görnüşindäki gaýtarylyşy we çarpma bahasyny hasaplamak üçin ulanylýar."
 
 msgid "Reference"
 msgstr "Salgylanma"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Salgy ID"
 
 msgid "Refund"
-msgstr ""
+msgstr "Pul yzyna gaýtarylyşy"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Degişli ID"
 
 msgid "Related order"
-msgstr ""
+msgstr "Degişli buýruk"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Degişli sargyt ID-si (islegli)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Müşderiniň degişli sargydy"
 
 msgid "Remove background"
-msgstr ""
+msgstr "Arka plani aýyrmak"
 
 msgid "Renew"
-msgstr ""
+msgstr "Täzeden"
 
 msgid "Replace file"
-msgstr ""
+msgstr "Faýly çalyşdyr"
 
 msgid "Request"
-msgstr ""
+msgstr "Haýyş"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Talap edilýän parametr \"%1$s\" ýok."
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
-msgstr ""
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
+msgstr "Blok bahalandyrma üçin zerur haryt sany, mysal üçin: bir haryt 5,00 $, on haryt 45,00 $"
 
 msgid "Reset"
 msgstr "Täzeden düzmek"
 
 msgid "Response"
-msgstr ""
+msgstr "Jogap"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Syniýetçä jogap"
 
 msgid "Review"
 msgstr "Review"
 
 msgid "Reviewed entry"
-msgstr ""
+msgstr "Gözden geçirilen ýazgy"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Syniýaçynyň ady"
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
-msgstr ""
+msgid "Route name or page ID of the category page if this category should shown on a different page"
+msgstr "Eger bu kategoriýa başga bir sahifede görkezilmeli bolsa, onuň sahifa ady ýa-da sahifäniň ID-si."
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
-msgstr ""
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
+msgstr "Eger bu önüm başga bir sahifede görkezilmeli bolsa, onuň sahifa ady ýa-da sahifa ID-si."
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "Ýol ýa-da sahypa ID-si (islegli)"
 
 msgid "Rule"
 msgstr "Rule"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "Düzgün görnüşi"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "Düzgün görnüşleri"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "Täze düzülen düzgüni beýan etmek üçin düzgüniň bellikleri"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "Düzgün pozisiýasy (talap edilýär)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "Düzgün üpjün edijisi ýa-da düzgün bezegçisi konfigurasiýa ady"
 
 msgid "Rules"
-msgstr ""
+msgstr "Düzgünler"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Hepdäki günlere görä satuwlar"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Soňky 30 günüň satuwlary"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Aýlyk satuwlar"
 
 msgid "Salutation"
 msgstr "Gutlag"
@@ -1595,175 +1554,176 @@ msgid "Save"
 msgstr "Ýatda sakla"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Sakla we ýap"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Sakla we köçür"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Sakla we Täze"
 
 msgid "Save entry (Ctrl+Enter)"
-msgstr ""
+msgstr "Girişi sakla (Ctrl+Enter)"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Girişi sakla (Ctrl+S)"
 
 msgid "Search"
 msgstr "Gözlemek"
 
 msgid "Second level type for grouping entries"
-msgstr ""
+msgstr "Girişleri toparlamak üçin ikinji derejeli görnüş"
 
 msgid "Select all entries"
-msgstr ""
+msgstr "Ähli ýazgylary saýlaň"
 
 msgid "Select file"
-msgstr ""
+msgstr "Faýly saýlaň"
 
 msgid "Service"
 msgstr "Service"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Hizmat sanawlarynyň görnüşi"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Hizmat sanawlarynyň görnüşleri"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Hyzmat görnüşi"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Hyzmat görnüşleri"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "Hyzmat aýratynlyk kody"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Hyzmat çykdajylary"
 
 msgid "Service name"
-msgstr ""
+msgstr "Hyzmatyň ady"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Hyzmat pozisiýasy (talap edilýär)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Hyzmat bahasy"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Hyzmat üpjün edijisiniň ýa-da hyzmat bezegçisiniň konfigurasiýa ady"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Hyzmat boýunça gaýtaryp beriş"
 
 msgid "Settings"
-msgstr ""
+msgstr "Täze sazlamalar"
 
 msgid "Ship date"
-msgstr ""
+msgstr "Göndüriliş senesi"
 
 msgid "Ship status"
-msgstr ""
+msgstr "Gäminiň ýagdaýy"
 
 msgid "Shipping"
 msgstr "Eltip bermek"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "Gibrit / töleg çykdajylary"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Gibrit/töleg çykdajylary"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Gibrit/haryt"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Domeni satyn al"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Dükanyň domeni (zerur)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Dükana e-poçta"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Dükanyň e-poçta salgysy (talap edilýär)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Dükanyň ady"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Dükanyň ady (zerur)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Dükanyň temasy"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "Müşderiniň ýaşaýan ýurdunda ulanylýan bolsa, gysga döwlet kody (meselem, NY)"
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "Gysga döwlet kody (meselem, NY), üpjün ediji ýaşaýan ýurtda ulanylýan bolsa"
 
 msgid "Show"
 msgstr "Görkez"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Girişi görkez"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Gözleg formasyny görkez"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Ösen maglumatlary görkez/gizläň"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Jikme-jiklikleri görkez/gizläň"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "Navigasiýa belliklerini görkez/gizläň"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Bu ýazgyny görkez/gizläň"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Makalaň stok derejesiniň nol bolan ýagdaýynda görkezilýär."
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Önüm elýeterli bolanyndan bäri, front-endde sortlamak üçin ulanylýar."
 
 msgid "Site"
-msgstr ""
+msgstr "Saýt"
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "Saýt \"%1$s\" tapylmady"
+
+msgid "Site specific configuration options, will be available as key/value pairs"
+msgstr "Saýt üçin ýörite konfigurasiýa opsiýalary açar/değer jübütleri görnüşinde elýeterli bolar."
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Sargyt şu ýerde ýerleşdirildi"
 
 msgid "Sites"
-msgstr ""
+msgstr "Suwetler"
 
 msgid "Size"
-msgstr ""
+msgstr "Ölçeg"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Bir xususyýet görnüşi içindäki aýratynlyklaryň tertiplenmegi"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Täminleýjileriň tertipleşdirilmegi"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "Hasap-fakturanyň çeşmesi, mysal üçin web ýa-da telefon arkaly"
 
 msgid "Start date"
-msgstr ""
+msgstr "Başlaýan senesi"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Ýazmaga başla ..."
 
 msgid "State"
 msgstr "Ýagdaý"
@@ -1772,25 +1732,25 @@ msgid "Status"
 msgstr "Ýagdaý"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Aktiw görnüşi"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Aktiýa görnüşleri"
 
 msgid "Stock level"
-msgstr ""
+msgstr "Ätiýaçlyk derejesi"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Aktiýa görnüşi"
 
 msgid "Street"
 msgstr "Köçe"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Köçe ady (islegli)"
 
 msgid "Style"
-msgstr ""
+msgstr "Üslup"
 
 msgid "Sub-total"
 msgstr "Jemi"
@@ -1798,10 +1758,8 @@ msgstr "Jemi"
 msgid "Subscription"
 msgstr "Subscription"
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
-msgstr ""
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
+msgstr "Abuna aralygy ýyllar, aýlar, hepdeler we günler boýunça, meselem \"P0Y1M2W3D\" – nul ýyl, bir aý, iki hepde we üç gün üçin"
 
 msgid "Suggested products"
 msgstr "Teklip edilýän önümler"
@@ -1813,182 +1771,172 @@ msgid "Supplier"
 msgstr "Supplier"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "Täminleýjiniň ady ýa-da kompaniýasy"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Täminleýjiniň ýerleşişi (talap edilýär)"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Önümi öndürýän üpjün edijiler"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Etiket görnüşi"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Etiket görnüşleri"
 
 msgid "Tax"
-msgstr ""
+msgstr "Salgyt"
 
 msgid "Tax rate"
-msgstr ""
+msgstr "Salgyt derejesi"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "Salyk derejesi %"
 
 msgid "Telephone"
 msgstr "Telefon"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Telefon belgisi (islegli)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Wagtlaýyn papka ýok"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Tekst sanawlarynyň görnüşi"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Tekst sanawlarynyň görnüşleri"
 
 msgid "Text Type"
-msgstr ""
+msgstr "Tekst görnüşi"
 
 msgid "Text Types"
-msgstr ""
+msgstr "Tekst görnüşleri"
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
+msgstr "Makala diňe şol seneden we sagatdan soň web sahypasynda görkezilýär, peýdaly ýa-da möwsümleýin makalalar"
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
-msgstr ""
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
+msgstr "Makala diňe şol senä we sagada çenli web sahypasynda görkezilýär, peýdaly ýa-da möwsümleýin makalalar"
 
 msgid "The entry is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Giriş diňe şol seneden we wagtdan soň web sahypasynda görkezilýär."
 
 msgid "The entry is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Giriş diňe şol senä we sagada çenli web sahypasynda görkezilýär."
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Media ady web sahypasyndaky media üçin title teginde ulanylýar."
 
-msgid ""
-"The name of the category shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
+msgstr "URL-de görkezilen kategoriýanyň ady, dil üçin ýörite URL bölegi ýok bolsa ulanylýar."
 
-msgid ""
-"The name of the product shown in the URL, will be used if no language "
-"specific URL segment exists"
-msgstr ""
+msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
+msgstr "URL-de görkezilen önümiň ady, dil üçin ýörite URL bölegi ýok bolsa ulanylýar."
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Saýlaw diňe şol seneden we sagatdan soň web sahypasynda görkezilýär."
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Saýlaw diňe şol senä we sagada çenli web sahypasynda görkezilýär."
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "Bu düzgün diňe şol seneden we sagatdan soň ulanylýar."
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "Bu düzgün diňe şol senä we sagada çenli ulanylýar."
 
-msgid ""
-"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
-"fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgstr "Sepetdäki mukdarlara rugsat berlen ädim gymmaty, mysal üçin kesirli mukdarlarda \"0.1\" ýa-da bäş sany önümiň köpeltmesinde \"5\"."
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Ýüklenen faýl rugsat berlen iň uly ululygyny aşaýar."
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Ýüklenen faýl diňe bölekleýin ýüklendi."
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Dükanyňyzyň ýerleşişini üýtgetmek üçin tema"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "Üç harply ISO walýuta kody"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Wagt çägi (islegli)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Wagt möhüri"
 
 msgid "Title"
-msgstr ""
+msgstr "At"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Aç-ýap düşürme menýusyny"
 
 msgid "Toogle selection"
-msgstr ""
+msgstr "Saýlamany öwür"
 
 msgid "Top countries"
-msgstr ""
+msgstr "Iň gowy ýurtlar"
 
 msgid "Total"
 msgstr "Jemi"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Jemi sargytlar"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Soňky ýedi gün içindäki jemi sargytlar öňki döwre garanyňda"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "Jemi baha berişler"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Teksti terjime et"
 
 msgid "Translations"
-msgstr ""
+msgstr " terjimeler"
 
 msgid "Tree node menu"
-msgstr ""
+msgstr "Agaç düwüm menýusy"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "ISO ýurduň iki harply kody"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "Iki harply ISO dil kody"
 
 msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Pozisiýa görnüşi (islegli)"
 
 msgid "Types"
-msgstr ""
+msgstr "Tipler"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Ikonalar ýaly goşmaça suratlar üçin görnüşler"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Her bir funt/kilograma ýa-da aýlyk tölegler ýaly goşmaça tölegler üçin görnüşler"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Her funt/kilograma ýa-da her aý üçin goşmaça tekstler üçin görnüşler"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "Müşderiniň web sahypasynyň URL salgysy"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "Täminleýjiniň web sahypasynyň URL salgysy"
 
 msgid "URL segment"
-msgstr ""
+msgstr "URL bölegi"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL maksady"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1996,169 +1944,164 @@ msgstr "\"%1$s\" metodyny işledip bolmaýar"
 
 #, php-format
 msgid "Unable to read content from \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\"-den mazmuny okaýyp bolmaýar"
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Tamamlanmadyk buýruklar"
 
-msgid ""
-"Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgid "Unfinished orders within the last seven days compared to the period before"
+msgstr "Soňky ýedi gün içindäki tamamlanmadyk sargytlar öňki döwre garanyňda"
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
-msgstr ""
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
+msgstr "Unikal haryt kody ätiýaçlyk derejesine degişli, mysal üçin ERP ulgamyndan, EAN/GTIN nomerinden ýa-da özüňiz oýlap tapylan"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "Aýratyn häsiýet kody (zerur)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Aýratyn häsiýet kody, mysal üçin \"green\" reňk görnüşindäki häsiýetler üçin"
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Aýratyn kategoriýa kody (zerur)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Daşarky ulgamdan ýa-da özüňiz oýlap tapylan ýeke-täk kategoriýa kody"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Aýratyn kod (talap edilýär)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "Hyzmaty anyklamak üçin ýörite kod, adatça özbaşdak oýlap tapylan"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "Aýratyn müşderi hasap ady"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "Aýratyn müşderiniň e-poçta salgysy"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Aýratyn topar kody (zerur)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "Aýratyn hyzmat kody (zerur)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "Ýeke sahypa kody (talap edilýär)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "Aýratyn üpjün ediji kody"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "Aýratyn görnüş kody"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "Üýtgeşik görnüş kody (talap edilýär)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "Aýratyn tip kody, mysal üçin \"green\", \"blue\", \"red\" ýaly aýratynlyklar üçin \"color\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "Birlik bahasy"
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Näbelli ýükleme säwligi"
 
 msgid "Upload CSV"
-msgstr ""
+msgstr "CSV-faylyny ýükle"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Dükanyň nyşanyny ýükläň"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Dükanyň logotipini ýükläň"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Ýüklendi"
 
 msgid "Use"
-msgstr ""
+msgstr "Ulanyň"
 
 msgid "User groups"
-msgstr ""
+msgstr "Ulanyjy toparlary"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Önümiň eltilmegiň adaty wagt çägi"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "KDÖ kody"
 
 msgid "Value"
-msgstr ""
+msgstr "Gymmat"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Goşulan bahanyň salgynyň belgisi (islegli)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "Wariant aýratynlyklary"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Sargyt edilen önümler bilen bilelikde saklanýan wariant önüm aýratynlyklary"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Satjy"
 
 msgid "Verified"
-msgstr ""
+msgstr "Tassyklanan"
 
 msgid "View details"
-msgstr ""
+msgstr "Jikme-jiklikleri gör"
 
 msgid "Voucher"
-msgstr ""
+msgstr "Wauçer"
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgid "Warehouse or local store if your articles are available at several locations"
+msgstr "Eger harytlaryňyz birnäçe ýerde bar bolsa, ammarda ýa-da ýerli dükanda."
 
 msgid "Web site"
 msgstr "Web sahypa"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "Web sahypasynyň URL salgysy (islegli)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "Hepdeler"
 
 msgid "Weight"
-msgstr ""
+msgstr "Agram"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Hasap we e-poçta salgysy tassyklanan soň"
 
 msgid "Width"
-msgstr ""
+msgstr "Genişlik"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD sag:daq:sek (islegli)"
 
 msgid "Years"
-msgstr ""
+msgstr "Ýyllar"
 
-msgid ""
-"You are going to delete one or more entries. Would you like to proceed?"
-msgstr ""
+msgid "You are going to delete one or more entries. Would you like to proceed?"
+msgstr "Siz bir ýa-da birden köp ýazgyny pozjak bolýarsyňyz. Dowam etmegi isleýärsiňizmi?"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "Eksportyňyz birnäçe minutdan soň ýükläp almak üçin elýeterli bolar."
 
 msgid "Your response"
-msgstr ""
+msgstr "Siziň jogabyňyz"
 
 msgid "Zip code"
-msgstr ""
+msgstr "Poçta indeksi"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Poçta indeksi (islegli)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__gizlin__"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "hasap"
 
 #, php-format
 msgid "address"
@@ -2172,7 +2115,7 @@ msgstr "Hasaplaşyk salgysy"
 
 #, php-format
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #, php-format
 msgid "attribute"
@@ -2180,11 +2123,11 @@ msgstr "Aýratynlyklar"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "saby"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "toplum"
 
 #, php-format
 msgid "catalog"
@@ -2200,54 +2143,54 @@ msgstr "Häsiýetleri"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "kod"
 
 msgid "company"
 msgstr "Kompanýa"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "Konfigurasiýa"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "ölçäp gör"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "gün sanama"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "sany sagat"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "tölegstatusyny san"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "kupon"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "müşderi"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "paneli"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "gün"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "Eltip beriş görnüşi"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Ýüklä"
 
 #, php-format
 msgid "goods"
@@ -2255,19 +2198,19 @@ msgstr "Katalog"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "topar"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "saat"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "surat"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "hasap-faktura"
 
 #, php-format
 msgid "latest"
@@ -2275,7 +2218,7 @@ msgstr "Iň soňky"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "ýerli sazlama"
 
 #, php-format
 msgid "locale/currency"
@@ -2283,47 +2226,47 @@ msgstr "Walýutalar"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "ýerli/dil"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "ýerleşýän ýer/saýt"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "ýazgy"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "Marketing"
 
 #, php-format
 msgid "media"
 msgstr "Media"
 
 msgid "miss"
-msgstr ""
+msgstr "Ýalňyşdym"
 
 msgid "mr"
-msgstr ""
+msgstr "muhterem jenap"
 
 msgid "mrs"
-msgstr ""
+msgstr "hanym"
 
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 msgid "new"
-msgstr ""
+msgstr "täze"
 
 msgid "no"
-msgstr ""
+msgstr "ýok"
 
 msgid "none"
 msgstr "hijisi"
 
 msgid "not available any more"
-msgstr ""
+msgstr "Indi elýeterli däl"
 
 #, php-format
 msgid "option"
@@ -2331,64 +2274,64 @@ msgstr "Görnüşler"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "sargyt"
 
 msgid "order:phone"
-msgstr ""
+msgstr "sargyt:telefon"
 
 msgid "order:web"
-msgstr ""
+msgstr "sargyt:web"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "öwezini tölemek: -1"
 
 msgid "pay:0"
-msgstr ""
+msgstr "Töleg:0"
 
 msgid "pay:1"
-msgstr ""
+msgstr "öwezini tölemek:1"
 
 msgid "pay:2"
-msgstr ""
+msgstr "öwezini tölemek:2"
 
 msgid "pay:3"
-msgstr ""
+msgstr "öwezini tölemek:3"
 
 msgid "pay:4"
-msgstr ""
+msgstr "öwezini tölemek:4"
 
 msgid "pay:5"
-msgstr ""
+msgstr "öwezini tölemek:5"
 
 msgid "pay:6"
-msgstr ""
+msgstr "öwezini tölemek:6"
 
 msgid "pay:7"
-msgstr ""
+msgstr "öwezini tölemek:7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "tölegstatusy"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "töleg görnüşi"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "fiziki"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "Plugin"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "baha"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "Önüm"
 
 #, php-format
 msgid "property"
@@ -2396,32 +2339,32 @@ msgstr "Aýratynlyklary"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "tiz/tamamlanan sany"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "Tez/müşderi sanyny hasapla"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "Tez/Jemi san"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "Tez/sany tamamlanmadyk"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "sebäbi:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "sebäbi:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "sebäbi:1"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "degişli"
 
 #, php-format
 msgid "review"
@@ -2429,22 +2372,22 @@ msgstr "Synlar"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "däp"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "satylşy"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "satış hepdäniň iş günleri"
 
 msgid "selected"
-msgstr ""
+msgstr "Saýlanan"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "saýlaw"
 
 #, php-format
 msgid "service"
@@ -2452,69 +2395,69 @@ msgstr "Hyzmatlar"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "Hyzmatly eltip beriliş"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "hyzmat tölegi"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Täze sazlamalar"
 
 #, php-format
 msgid "setup"
-msgstr ""
+msgstr "gurnama"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "ýörite"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "stat:-1"
 
 msgid "stat:0"
-msgstr ""
+msgstr "stat:0"
 
 msgid "stat:1"
-msgstr ""
+msgstr "stat:1"
 
 msgid "stat:2"
-msgstr ""
+msgstr "stat:2"
 
 msgid "stat:3"
-msgstr ""
+msgstr "stat:3"
 
 msgid "stat:4"
-msgstr ""
+msgstr "stat:4"
 
 msgid "stat:5"
-msgstr ""
+msgstr "stat:5"
 
 msgid "stat:6"
-msgstr ""
+msgstr "stat:6"
 
 msgid "stat:7"
-msgstr ""
+msgstr "stat:7"
 
 msgid "status:-1"
-msgstr ""
+msgstr "status:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "status:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "status:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "status:1"
 
 msgid "status:2"
-msgstr ""
+msgstr "status:2"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "ämbar"
 
 #, php-format
 msgid "subscription"
@@ -2525,25 +2468,25 @@ msgid "supplier"
 msgstr "Üpjün edijiler"
 
 msgid "tag"
-msgstr ""
+msgstr "belgi"
 
 msgid "tax:0"
-msgstr ""
+msgstr "salgyt:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "salgyt:1"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "matn"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "mowzuk"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "amal"
 
 #, php-format
 msgid "type"
@@ -2555,23 +2498,23 @@ msgstr "Aýratynlyklar"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "tip/aýratynlyk/sanawlar"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "tip/aýratynlyk/hususyýet"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "tip/katalog/sanawlar"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "tip/müşderi/sanawlar"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "tip/müşderi/emläk"
 
 #, php-format
 msgid "type/media"
@@ -2579,43 +2522,43 @@ msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "tip/mediýa/sanawlar"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "tip/mediýa/emläk"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "tip/plugin"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "tipi/baha"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "tipi/baha/sanawlar"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "tipi/bähäsi/öýe degişli aýratynlyk"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "tip/haryt"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "tip/önüm/sanawlar"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "tip/önüm/emläk"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "tip/däp"
 
 #, php-format
 msgid "type/service"
@@ -2623,27 +2566,27 @@ msgstr "Hyzmatlar"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "tip/hyzmat/sanawlar"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "tipi/stok"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "tip/tag"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "tip/tekst"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "tipi/tekst/sanawlar"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "Ulanyjylar"
 
 msgid "yes"
-msgstr ""
+msgstr "hawa"

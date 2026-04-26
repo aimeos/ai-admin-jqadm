@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# iulian iulian <iulian.abc@gmail.com>, 2020
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ro\n"
+"Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
+"Last-Translator: iulian iulian <iulian.abc@gmail.com>, 2020\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: iulian iulian <iulian.abc@gmail.com>, 2020\n"
-"Language-Team: Romanian (http://app.transifex.com/aimeos/aimeos-core/language/ro/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "!="
 msgstr "nu este egal"
@@ -39,20 +33,11 @@ msgstr "dupa"
 msgid ">="
 msgstr "dupa (inclusiv)"
 
-msgid "~="
-msgstr "contine"
-
 msgid "address:delivery"
 msgstr "Adresa de livrare"
 
 msgid "address:payment"
 msgstr "Adresa de facturare"
-
-msgid "service:delivery"
-msgstr "LIvrare"
-
-msgid "service:payment"
-msgstr "Plata"
 
 msgid "attribute"
 msgstr "atribut"
@@ -99,6 +84,12 @@ msgstr "regulă"
 msgid "service"
 msgstr "serviciu"
 
+msgid "service:delivery"
+msgstr "LIvrare"
+
+msgid "service:payment"
+msgstr "Plata"
+
 msgid "stock"
 msgstr "stoc"
 
@@ -116,3 +107,6 @@ msgstr "text"
 
 msgid "type"
 msgstr "tip"
+
+msgid "~="
+msgstr "contine"
