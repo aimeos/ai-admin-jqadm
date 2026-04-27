@@ -1,16 +1,21 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Language: th\n"
-"Language-Team: Thai (http://app.transifex.com/aimeos/aimeos-core/language/th/)\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
-"MIME-Version: 1.0\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"Language-Team: Thai (http://app.transifex.com/aimeos/aimeos-core/language/th/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "!="
 msgstr "ไม่เท่ากับ"
@@ -33,11 +38,20 @@ msgstr "&gt;"
 msgid ">="
 msgstr "&gt;="
 
+msgid "~="
+msgstr "~="
+
 msgid "address:delivery"
 msgstr "ที่อยู่สำหรับการจัดส่ง"
 
 msgid "address:payment"
 msgstr "ที่อยู่สำหรับออกใบแจ้งหนี้"
+
+msgid "service:delivery"
+msgstr "การจัดส่ง"
+
+msgid "service:payment"
+msgstr "การชำระเงิน"
 
 msgid "attribute"
 msgstr "คุณลักษณะ"
@@ -84,12 +98,6 @@ msgstr "กฎ"
 msgid "service"
 msgstr "บริการ"
 
-msgid "service:delivery"
-msgstr "การจัดส่ง"
-
-msgid "service:payment"
-msgstr "การชำระเงิน"
-
 msgid "stock"
 msgstr "สต็อก"
 
@@ -107,6 +115,3 @@ msgstr "ข้อความ"
 
 msgid "type"
 msgstr "ประเภท"
-
-msgid "~="
-msgstr "~="

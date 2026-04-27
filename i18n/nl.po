@@ -1,16 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Boyd Lamers <boyd.lamers@webits.nl>, 2015
+# Bram Verhaegh <bram@beech.it>, 2015
+# CROB Support <support@crob.nl>, 2018
+# Kevin Peters <kevin@popkorn.be>, 2018
+# Klaas Runia <info@sennik.nl>, 2015
+# Maikel Slot <maikelslot@msdesigns.nl>, 2017
+# Maurice Lourens <mlourens@gmail.com>, 2015,2017,2019
+# Niek Eichner, 2021
+# Niek Eichner, 2021
+# Sten Pelzer <pelzersten@gmail.com>, 2015
+# Victor Oomens, 2022
+# Victor Oomens, 2022
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Language: nl\n"
-"Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
-"Last-Translator: Victor Oomens, 2022\n"
-"MIME-Version: 1.0\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"POT-Creation-Date: 2026-04-25 11:20+0200\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-25 11:20+0200\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: Victor Oomens, 2022\n"
+"Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
 msgstr " "
@@ -29,15 +46,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
-"%1$s\n"
-"%2$s %3$s\n"
-"%5$s %4$s\n"
-"%7$s, %6$s\n"
-"%8$s, %9$s\n"
-"%10$s\n"
-"%11$s\n"
-"%12$s"
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -54,22 +63,7 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-""
-msgstr ""
-"%1$s\n"
-"%2$s %3$s %4$s %5$s\n"
-"%6$s %7$s\n"
-"%8$s\n"
-"%9$s %10$s\n"
-"%11$s\n"
-"%12$s\n"
-"%13$s\n"
-"%14$s\n"
-"%15$s\n"
-"%16$s\n"
-"%17$s\n"
-"%18$s\n"
-""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
@@ -83,10 +77,14 @@ msgstr "%1$s (Ctrl+Alt+%2$s)"
 msgid "%s/%s/%s.%s"
 msgstr "%s/%s/%s.%s"
 
-msgid "(International) facsimilie number without separation characters, can start with a \"+\""
+msgid ""
+"(International) facsimilie number without separation characters, can start "
+"with a \"+\""
 msgstr "(Internationaal) facsimile nummer zonder scheidingstekens, kan beginnen met een \"+\""
 
-msgid "(International) telephone number without separation characters, can start with a \"+\""
+msgid ""
+"(International) telephone number without separation characters, can start "
+"with a \"+\""
 msgstr "(Internationaal) telefoonnummer zonder scheidingsteken, kan beginnen met \"+\""
 
 msgid "+ Tax"
@@ -122,7 +120,9 @@ msgstr "Toevoegen na"
 msgid "Add before"
 msgstr "Toevoegen vóór"
 
-msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
+msgid ""
+"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
+" $100 for five items it total"
 msgstr "Extra verzendkosten voor elk item, bijvoorbeeld; €20 voor een zwaar artikel wordt totaal  €100 voor 5 artikelen."
 
 msgid "Additional information where the customer's apartment can be found"
@@ -168,7 +168,9 @@ msgstr "Aimeos object niet beschikbaar"
 msgid "All"
 msgstr "Allemaal"
 
-msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
+msgid ""
+"All attributes that uniquely define an article, e.g. width, length and color"
+" for jeans"
 msgstr "Alle attributen die een uniek artikel definiëren , bijvoorbeeld breedte, lengte en kleur voor een broek"
 
 msgid "Allow custom price"
@@ -183,7 +185,9 @@ msgstr "Alfanumerieke string dat de groep uniek kan identificeren"
 msgid "Apply"
 msgstr "Toepassen"
 
-msgid "Article specific configuration options, will be available as key/value pairs in the templates"
+msgid ""
+"Article specific configuration options, will be available as key/value pairs"
+" in the templates"
 msgstr "Artikelspecifieke configuratieopties, zullen beschikbaar zijn als sleutel/warde set in de sjablonen."
 
 msgid "Attribute"
@@ -228,7 +232,9 @@ msgstr "Beschikbare intervallen in de front-end"
 msgid "Available language for the current site"
 msgstr "Beschikbare talen voor de huidige site"
 
-msgid "Average product rating and total number of ratings by customers for this product"
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
 msgstr "Gemiddelde productbeoordeling en totaal aantal beoordelingen per klant voor dit product"
 
 msgid "Back in stock"
@@ -285,7 +291,9 @@ msgstr "Categorieën waarin het product door de gebruiker gevonden kan worden op
 msgid "Categories the product will be shown for in the promotional section"
 msgstr "Categorieën waarin het product getoond zal worden in de sectie met gepromote artikelen"
 
-msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgid ""
+"Category specific configuration options, will be available as key/value "
+"pairs in the templates"
 msgstr "Categoriespecifieke configuratieopties, zullen beschikbaar zijn als sleutel/waarde set in de sjablonen"
 
 msgid "Change costs/item in %"
@@ -357,7 +365,8 @@ msgstr "Naam bedrijf (optioneel)"
 msgid "Completed orders"
 msgstr "Afgeronde bestellingen"
 
-msgid "Completed orders within the last seven days compared to the period before"
+msgid ""
+"Completed orders within the last seven days compared to the period before"
 msgstr "Afgeronde bestellingen in de laatste zeven dagen in vergelijking tot de vorige periode"
 
 msgid "Config"
@@ -366,7 +375,8 @@ msgstr "Configuratie"
 msgid "Configurable"
 msgstr "Configureerbaar"
 
-msgid "Configuration options, will be available as key/value pairs in the list item"
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
 msgstr "Configuratieopties, zullen beschikbaar zijn als sleutel/waarde set in het lijstitem"
 
 msgid "Context"
@@ -393,7 +403,9 @@ msgstr "Land ID"
 msgid "Country code (required)"
 msgstr "Landcode (vereist)"
 
-msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
+msgid ""
+"Country specific tax rate to calculate and display the included tax (B2C) or"
+" add the tax if required (B2B)"
 msgstr "Land specifieke belastingswaarde om de inbegrepen belastingen (B2C) te calculeren en tonen, of om de belastingen toe te voegen indien nodig (B2B)"
 
 msgid "Country state code (optional)"
@@ -513,7 +525,8 @@ msgstr "Bezorg datum"
 msgid "Delivery in"
 msgstr "Geleverd in"
 
-msgid "Delivery or payment costs for the products in the basket of the customer"
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
 msgstr "Leverings- of betalingskosten voor de producten in de winkelwagen van de klant"
 
 msgid "Delivery status"
@@ -528,7 +541,9 @@ msgstr "Leveringstypes"
 msgid "Delivery within"
 msgstr "Levering binnen"
 
-msgid "Depending on the selected data set, the list of shown fields for the product will be different"
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr "Afhankelijk van de selectie zal de lijst met getoonde velden voor het product variëren"
 
 msgid "Describe your image"
@@ -621,7 +636,9 @@ msgstr "Item succesvol verwijderd"
 msgid "Entry saved successfully"
 msgstr "Item succesvol opgeslagen"
 
-msgid "Entry specific configuration options, will be available as key/value pairs in the templates"
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
 msgstr "Specifieke instellingsopties zijn beschikbaar als key/value-paren in de sjablonen"
 
 msgid "Error"
@@ -657,7 +674,9 @@ msgstr "Fax"
 msgid "Facsimile number (optional)"
 msgstr "Fax-nummer (optioneel)"
 
-msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
 msgstr "Factor om het product in de zoekopdracht van de gebruiker een boost te geven boven andere producten (>1,0 positieve boost, <1,0 negatieve boost)"
 
 msgid "Failed to write file to disk"
@@ -793,7 +812,9 @@ msgstr "Afbeelding"
 msgid "Image description"
 msgstr "Beschrijving afbeelding"
 
-msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
+msgid ""
+"Images will only be shown for that language, useful if the media contains "
+"text or is language sepecific"
 msgstr "Afbeeldingen worden alleen getoond voor die taal, handig als de media tekst bevat of taalspecifiek is."
 
 msgid "Import"
@@ -817,16 +838,24 @@ msgstr "Nieuwe toevoegen"
 msgid "Insert new entry (Ctrl+I)"
 msgstr "Nieuwe toevoegen (Ctrl+I)"
 
-msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
 msgstr "Interne artikelbenaming, zal op de website worden gebruikt en voor zoekacties, enkel wanneer er geen andere productnamen in welke taal ook bestaan"
 
-msgid "Internal article name, will be used on the web site if no product name for the language is available"
+msgid ""
+"Internal article name, will be used on the web site if no product name for "
+"the language is available"
 msgstr "Interne artikelbenaming, zal op de website worden gebruikt wanneer er geen andere productnaam voor de taal beschikbaar is"
 
-msgid "Internal attribute name, will be used on the web site if no name for the language is available"
+msgid ""
+"Internal attribute name, will be used on the web site if no name for the "
+"language is available"
 msgstr "Interne attribuut naam, zal gebruikt op de website worden indien er geen naam voor de gekozen taal aanwezig is"
 
-msgid "Internal category name, will be used on the web site if no name for the language is available"
+msgid ""
+"Internal category name, will be used on the web site if no name for the "
+"language is available"
 msgstr "Interne categorie naam, zal gebruikt op de website worden indien er geen naam voor de gekozen taal aanwezig is"
 
 msgid "Internal name (required)"
@@ -912,7 +941,9 @@ msgstr "Achternaam (optioneel)"
 msgid "Last name (required)"
 msgstr "Achternaam (verplicht)"
 
-msgid "Last name of the person or full name in cultures where no first names are used"
+msgid ""
+"Last name of the person or full name in cultures where no first names are "
+"used"
 msgstr "Achternaam van de persoon of volledige naam in culturen waar geen voornaam gebruikelijk is."
 
 msgid "Last payment status of the order"
@@ -924,7 +955,9 @@ msgstr "Laatste bestellingen"
 msgid "Length"
 msgstr "Lengte"
 
-msgid "List of articles that should be sold as one product, often at a reduced price"
+msgid ""
+"List of articles that should be sold as one product, often at a reduced "
+"price"
 msgstr "Lijst van artikels dat verkocht zouden worden als één product, meestal onder een verlaagde prijs"
 
 msgid "List of products often bought together"
@@ -1020,7 +1053,8 @@ msgstr "Naam in URL (optioneel)"
 msgid "Name of the basket"
 msgstr "Naam van de mand"
 
-msgid "Name of the downloaded file when customers saves the file on their computers"
+msgid ""
+"Name of the downloaded file when customers saves the file on their computers"
 msgstr "Naam van het downloadbestand wanneer deze opgeslagen wordt door de klant "
 
 msgid "Name of the reviewer"
@@ -1109,7 +1143,8 @@ msgstr "Opmerkingen"
 msgid "Notes (not shown to customer)"
 msgstr "Opmerkingen (niet aan de klant getoond)"
 
-msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
+msgid ""
+"Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Actueel aantal artikelen op voorraad, leeglaten indien hoeveelheid oneindig is"
 
 msgid "OK"
@@ -1118,7 +1153,8 @@ msgstr "OK"
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr "Officiële BTW registratienummer om te bepalen of er BTW berekend moet worden op de facturen"
 
-msgid "One provider and zero or more decorator class names separated by commas"
+msgid ""
+"One provider and zero or more decorator class names separated by commas"
 msgstr "Een provider en nul of meer decorator klassenamen, gescheiden door komma"
 
 msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
@@ -1139,7 +1175,9 @@ msgstr "Open Qty"
 msgid "Option"
 msgstr "Optie"
 
-msgid "Optional product components that can be chosen by the customer together with the product"
+msgid ""
+"Optional product components that can be chosen by the customer together with"
+" the product"
 msgstr "Optionele productcomponenten die door de klant kunnen worden gekozen bij het product"
 
 msgid "Order"
@@ -1178,7 +1216,9 @@ msgstr "Bestellingen per uur"
 msgid "Orders by payment status"
 msgstr "Bestellingen op betaalstatus"
 
-msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgid ""
+"Overwrite the existing file and customers bought it in the past can then "
+"download the new content too"
 msgstr "Overschrijf het bestaande bestand en klanten die dit artikel in het verleden hebben aangekocht, kunnen de nieuwe inhoud ook downloaden"
 
 #, php-format
@@ -1234,7 +1274,8 @@ msgstr "Toegang geweigerd "
 msgid "Personal data"
 msgstr "Persoonlijke gegevens"
 
-msgid "Please insert the description of the text that should be generated here"
+msgid ""
+"Please insert the description of the text that should be generated here"
 msgstr "Voer hier de beschrijving in van de tekst die moet worden gegenereerd"
 
 msgid "Please select"
@@ -1339,7 +1380,9 @@ msgstr "Product Type"
 msgid "Product Types"
 msgstr "Product Types"
 
-msgid "Product attributes stored in the basket where customers can enter their own texts or values"
+msgid ""
+"Product attributes stored in the basket where customers can enter their own "
+"texts or values"
 msgstr "Product eigenschappen opgeslagen in de mand waar klanten hun eigen text of waarden kunnen ingeven"
 
 msgid "Product attributes that are used by other products too"
@@ -1444,7 +1487,9 @@ msgstr "Reden"
 msgid "Rebate"
 msgstr "Korting"
 
-msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
+msgid ""
+"Reduction from the original price, used to calculate the rebate in % and the"
+" cross price"
 msgstr "Korting op de originele prijs, gebruikt om het kortingspercentage te berekenen en de kruisprijs"
 
 msgid "Reference"
@@ -1484,7 +1529,9 @@ msgstr "Aanvraag"
 msgid "Required parameter \"%1$s\" is missing"
 msgstr "Vereiste parameter \"%1$s\" ontbreekt"
 
-msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
+msgid ""
+"Required quantity of articles for block pricing, e.g. one article for $5.00,"
+" ten articles for $45.00"
 msgstr "Vereist aantal van artikelen voor staffelprijzen, bijvoorbeeld 1 stuk voor €5,00 en 10 stuks voor €45,00"
 
 msgid "Reset"
@@ -1505,10 +1552,14 @@ msgstr "Gerecenseerd item"
 msgid "Reviewer name"
 msgstr "Naam recensent"
 
-msgid "Route name or page ID of the category page if this category should shown on a different page"
+msgid ""
+"Route name or page ID of the category page if this category should shown on "
+"a different page"
 msgstr "Route naam of pagina ID van de categorie pagina als deze categorie moet getoond worden op een andere pagina"
 
-msgid "Route name or page ID of the product detail page if this product should shown on a different page"
+msgid ""
+"Route name or page ID of the product detail page if this product should "
+"shown on a different page"
 msgstr "Route naam of pagina ID van de product pagina als dit product moet getoond worden op een andere pagina"
 
 msgid "Route or page ID (optional)"
@@ -1658,10 +1709,12 @@ msgstr "Winkelnaam (verplicht)"
 msgid "Shop theme"
 msgstr "Thema winkelen"
 
-msgid "Short state code (e.g. NY) if used in the country the customer is living"
+msgid ""
+"Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Korte staatscode (bijv. NY) indien gebruikt in het land waar de klant woont"
 
-msgid "Short state code (e.g. NY) if used in the country the supplier is living"
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
 msgstr "Korte staatscode (bijv. NY) indien gebruikt in het land waar de leverancier woont"
 
 msgid "Show"
@@ -1698,7 +1751,8 @@ msgstr "Site"
 msgid "Site \"%1$s\" not found"
 msgstr "Pagina \"%1$s\" niet gevonden"
 
-msgid "Site specific configuration options, will be available as key/value pairs"
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
 msgstr "Site-specifieke configuratie-opties zijn beschikbaar als key/value sets"
 
 msgid "Site the order was placed at"
@@ -1758,7 +1812,9 @@ msgstr "Subtotaal"
 msgid "Subscription"
 msgstr "Inschrijving"
 
-msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
 msgstr "Abonnementsinterval met jaren, maanden, weken en dagen, bijv. \"P0Y1M2W3D\" voor nul jaar, een maand, twee weken en drie dagen"
 
 msgid "Suggested products"
@@ -1815,10 +1871,14 @@ msgstr "Teksttype"
 msgid "Text Types"
 msgstr "Teksttypes"
 
-msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
+msgid ""
+"The article is only shown on the web site after that date and time, useful "
+"or seasonal articles"
 msgstr "Het artikel wordt pas na die datum en tijd op de website getoond, nuttige of seizoensartikelen"
 
-msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
+msgid ""
+"The article is only shown on the web site until that date and time, useful "
+"or seasonal articles"
 msgstr "Het artikel wordt tot die datum en tijd alleen op de website getoond, nuttige of seizoensartikelen"
 
 msgid "The entry is only shown on the web site after that date and time"
@@ -1830,10 +1890,14 @@ msgstr "De inzending wordt alleen op de website getoond tot die datum en tijd"
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "De mediatitel wordt gebruikt voor de titeltag van de media op de website"
 
-msgid "The name of the category shown in the URL, will be used if no language specific URL segment exists"
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr "De naam van de categorie die in de URL wordt weergegeven, wordt gebruikt als er geen taalspecifiek URL-segment bestaat"
 
-msgid "The name of the product shown in the URL, will be used if no language specific URL segment exists"
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr "De naam van het product dat in de URL wordt weergegeven, wordt gebruikt als er geen taalspecifiek URL-segment bestaat"
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1848,7 +1912,9 @@ msgstr "De regel wordt alleen gebruikt na die datum en tijd"
 msgid "The rule is only used until that date and time"
 msgstr "De regel wordt alleen gebruikt tot die datum en tijd"
 
-msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
 msgstr "De stapwaarde die is toegestaan voor hoeveelheden in het winkelmandje, bijvoorbeeld \"0,1\" voor fractionele hoeveelheden of \"5\" voor veelvoud van vijf artikelen"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
@@ -1949,10 +2015,13 @@ msgstr "Kan inhoud van \"%1$s\" niet lezen"
 msgid "Unfinished orders"
 msgstr "Onvoltooide bestellingen"
 
-msgid "Unfinished orders within the last seven days compared to the period before"
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
 msgstr "Onvoltooide orders in de laatste zeven dagen vergeleken met de periode daarvoor"
 
-msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
+msgid ""
+"Unique article code related to stock levels, e.g. from the ERP system, an "
+"EAN/GTIN number or self invented"
 msgstr "Unieke artikelcode die correspondeert met voorraadniveaus, bijvoorbeeld vanuit het ERP-syteem, een EAN/GTIN nummer of eigen nummer."
 
 msgid "Unique attribute code (required)"
@@ -2054,7 +2123,8 @@ msgstr "Toon details"
 msgid "Voucher"
 msgstr "Waardebon"
 
-msgid "Warehouse or local store if your articles are available at several locations"
+msgid ""
+"Warehouse or local store if your articles are available at several locations"
 msgstr "Magazijn, warenhuis of winkel als uw artikelen op diverse locaties beschikbaar zijn"
 
 msgid "Web site"
@@ -2081,7 +2151,8 @@ msgstr "DD-MM-YYYY hh:mm:ss (optioneel)"
 msgid "Years"
 msgstr "Jaren"
 
-msgid "You are going to delete one or more entries. Would you like to proceed?"
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
 msgstr "U gaat een of meer items verwijderen. Wilt u doorgaan?"
 
 msgid "Your export will be available in a few minutes for download"

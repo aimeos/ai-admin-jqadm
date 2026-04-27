@@ -1,0 +1,2653 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# giorgi metivishvili <giorgi.jorji@gmail.com>, 2021
+# giorgi metivishvili <giorgi.jorji@gmail.com>, 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: aimeos-core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 11:12+0200\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: giorgi metivishvili <giorgi.jorji@gmail.com>, 2021\n"
+"Language-Team: Georgian (http://app.transifex.com/aimeos/aimeos-core/language/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid " "
+msgstr " "
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s\n"
+"%5$s %4$s\n"
+"%7$s, %6$s\n"
+"%8$s, %9$s\n"
+"%10$s\n"
+"%11$s\n"
+"%12$s"
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#, php-format
+msgid "%1$s (Ctrl+Alt+%2$s)"
+msgstr "%1$s (Ctrl+Alt+%2$s)"
+
+#, php-format
+msgid "%s/%s/%s.%s"
+msgstr "%s/%s/%s.%s"
+
+msgid ""
+"(International) facsimilie number without separation characters, can start "
+"with a \"+\""
+msgstr "(საერთაშორისო) ფაქსის ნომერი გამყოფი სიმბოლოების გარეშე, შეიძლება იწყებოდეს ნიშნით \"+\"."
+
+msgid ""
+"(International) telephone number without separation characters, can start "
+"with a \"+\""
+msgstr "(საერთაშორისო) სატელეფონო ნომერი გამყოფი სიმბოლოების გარეშე, შეიძლება იწყებოდეს ნიშნით \"+\"."
+
+msgid "+ Tax"
+msgstr "+ გადასახადი"
+
+msgid "<hidden>"
+msgstr "<დამალული>"
+
+msgid "?"
+msgstr "?"
+
+msgid "API key"
+msgstr "API გასაღები"
+
+msgid "Account"
+msgstr "პროფილი"
+
+msgid "Active"
+msgstr "აქტიური"
+
+msgid "Actual price"
+msgstr "რეალური ფასი"
+
+msgid "Actual price customers can buy the article for on the web site"
+msgstr "ვებგვერდზე ნივთის ფასი."
+
+msgid "Add"
+msgstr "დამატება"
+
+msgid "Add after"
+msgstr "დაამატეთ შემდეგ"
+
+msgid "Add before"
+msgstr "დაამატეთ ადრე"
+
+msgid ""
+"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
+" $100 for five items it total"
+msgstr "თითოეული ნივთისთვის მიწოდების დამატებითი ხარჯი, მაგალითად, ერთი მძიმე ნივთისთვის 20 დოლარი, ხუთი ნივთისთვის ჯამში 100 დოლარი იქნება."
+
+msgid "Additional information where the customer's apartment can be found"
+msgstr "დამატებითი ინფორმაცია იმის შესახებ, თუ სად მდებარეობს მომხმარებლის ბინა"
+
+msgid "Additional information where the supplier's apartment can be found"
+msgstr "დამატებითი ინფორმაცია იმის შესახებ, თუ სად მდებარეობს მომწოდებლის ბინა"
+
+msgid "Address 1"
+msgstr "მისამართი 1"
+
+msgid "Address 2"
+msgstr "მისამართი 2"
+
+msgid "Address 3"
+msgstr "მისამართი 3"
+
+msgid "Address identifier of the customer's house for delivery"
+msgstr "მიწოდებისთვის მომხმარებლის სახლის მისამართის მაიდენტიფიცირებელი"
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr "მიწოდებისთვის მომწოდებლის საცხოვრებელი მისამართის იდენტიფიკატორი"
+
+#, php-format
+msgid "Admin JQAdm type is empty"
+msgstr "ადმინისტრატორი JQAdm ტიპი ცარიელია"
+
+msgid "Advanced"
+msgstr "გარდამავალი"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr "Aimeos-ის ქეშირება გამორთულია \"%1$s\"-ის მიერ"
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr "Aimeos-ის გამართვის ლოგირგი ჩაირთვება \"%1$s\"-ის საშუალებით."
+
+#, php-format
+msgid "Aimeos object not available"
+msgstr "Aimeos-ის ობიექტი ხელმისაწვდომი არ არის"
+
+msgid "All"
+msgstr "ყველა"
+
+msgid ""
+"All attributes that uniquely define an article, e.g. width, length and color"
+" for jeans"
+msgstr "ყველა ატრიბუტი, რომელიც უნიკალურად განსაზღვრავს პროდუქტს, მაგალითად: ჯინსების სიგანე, სიგრძე და ფერი."
+
+msgid "Allow custom price"
+msgstr "დართეთ საკუთარი ფასი"
+
+msgid "Allow customers to choose themselves how much they want to pay"
+msgstr "მიეცით მომხმარებლებს საშუალება, თავად აირჩიონ, რამდენის გადახდა სურთ."
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr "ალფანუმერული სტრიქონი, რომელსაც შეუძლია ჯგუფის უნიკალურად იდენტიფიცირება"
+
+msgid "Apply"
+msgstr "განაცხადის შეტანა"
+
+msgid ""
+"Article specific configuration options, will be available as key/value pairs"
+" in the templates"
+msgstr "სტატიისთვის დამახასიათებელი კონფიგურაციის პარამეტრები ტემპლეტებში ხელმისაწვდომი იქნება, როგორც გასაღების/მნიშვნელობის წყვილები."
+
+msgid "Attribute"
+msgstr "ათრიბუტი"
+
+msgid "Attribute Lists Type"
+msgstr "ათრიბუტების სიის ტიპი"
+
+msgid "Attribute Lists Types"
+msgstr "ატრიბუტების სიების ტიპები"
+
+msgid "Attribute Property Type"
+msgstr "ათრიბუტის თვისების ტიპი"
+
+msgid "Attribute Property Types"
+msgstr "ატრიბუტის თვისებების ტიპები"
+
+msgid "Attribute Type"
+msgstr "ათრიბუტის ტიპი"
+
+msgid "Attribute Types"
+msgstr "ათრიბუტის ტიპები"
+
+msgid "Attribute position (optional)"
+msgstr "ათრიბუტის პოზიცია (არასავალდებულო)"
+
+msgid "Attribute properties that are not shared with other attributes"
+msgstr "ათრიბუტის თვისებები, რომლებიც სხვა ათრიბუტებთან საერთო არ არის"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr "ატრიბუტის ტიპი, რომელიც ზღუდავს ხელმისაწვდომი ატრიბუტების სიას"
+
+msgid "Attributes"
+msgstr "ათრიბუტები"
+
+msgid "Available currency for the current site"
+msgstr "მიმდინარე საიტისთვის ხელმისაწვდომი ვალუტა"
+
+msgid "Available intervals in the front-end"
+msgstr "ხელმისაწვდომი ინტერვალები ფრონტენდში"
+
+msgid "Available language for the current site"
+msgstr "მიმდინარე საიტის ხელმისაწვდომი ენა"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr "ამ პროდუქტის მომხმარებელთა შეფასებების საშუალო ქულა და შეფასებების საერთო რაოდენობა"
+
+msgid "Back in stock"
+msgstr "მარაგში დაბრუნდა"
+
+msgid "Basic"
+msgstr "საბაზისო"
+
+msgid "Basket"
+msgstr "კალათა"
+
+msgid "Billing address"
+msgstr "ანგარიშსაწერი მისამართი"
+
+msgid "Birthday"
+msgstr "დაბადების დღე"
+
+msgid "Birthday of the customer"
+msgstr "მომხმარებლის დაბადების დღე"
+
+msgid "Boost factor"
+msgstr "გაძლიერების ფაქტორი"
+
+msgid "Boost factor (optional)"
+msgstr "გაძლიერების ფაქტორი (არასავალდებულო)"
+
+msgid "Bug or suggestion?"
+msgstr "ბაგია თუ შემოთავაზება?"
+
+msgid "Bulk edit"
+msgstr "ჯამური რედაქტირება"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Cancel and return to list"
+msgstr "გაუქმება და სიაში დაბრუნება"
+
+msgid "Catalog"
+msgstr "კატალოგი"
+
+msgid "Catalog Lists Type"
+msgstr "კატალოგი ტიპს ჩამოთვლის"
+
+msgid "Catalog Lists Types"
+msgstr "კატალოგი ტიპებს ასახელებს"
+
+msgid "Categories"
+msgstr "კატეგორიები"
+
+msgid "Categories the product can be found in by the user on the web site"
+msgstr "კატეგორიები, რომლებითაც მომხმარებელს შეუძლია ვებსაიტზე პროდუქტის მოძიება"
+
+msgid "Categories the product will be shown for in the promotional section"
+msgstr "კატეგორიები, რომლებშიც პროდუქტი სარეკლამო სექციაში გამოჩნდება"
+
+msgid ""
+"Category specific configuration options, will be available as key/value "
+"pairs in the templates"
+msgstr "კატეგორიის სპეციფიკური კონფიგურაციის პარამეტრები შაბლონებში ხელმისაწვდომი იქნება, როგორც გასაღების/მნიშვნელობის წყვილები."
+
+msgid "Change costs/item in %"
+msgstr "ერთეულის ღირებულების ცვლილება %-ში"
+
+msgid "Change rebate in %"
+msgstr "პროცენტული დაბრუნების შეცვლა"
+
+msgid "Change value in %"
+msgstr "ცვლილების %"
+
+msgid "Channel"
+msgstr "არხი"
+
+msgid "Channel the order has been placed"
+msgstr "შეკვეთა მიღებულია"
+
+msgid "Choose file"
+msgstr "ფაილის არჩევა"
+
+msgid "City"
+msgstr "ქალაქი"
+
+msgid "City or town name (required)"
+msgstr "ქალაქის ან დაბის სახელი (სავალდებულოა)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "კლასი \"%1$s\" არ ახორციელებს \"%2$s\"-ს"
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr "კლასი \"%1$s\" არ არის ხელმისაწვდომი"
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr "კლასი \"%1$s\" არ მოიძებნა"
+
+msgid "Close"
+msgstr "დახურვა"
+
+msgid "Code"
+msgstr "კოდი"
+
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr "კოდი საიტის უნიკალური იდენტიფიკაციისთვის, გადარქმევა საშიშია!"
+
+msgid "Columns"
+msgstr "სვეტები"
+
+msgid "Comment"
+msgstr "კომენტარი"
+
+msgid "Comment of the reviewer"
+msgstr "რეცენზენტის კომენტარი"
+
+msgid "Communication"
+msgstr "კომუნიკაცია"
+
+msgid "Company"
+msgstr "კომპანია"
+
+msgid "Company details"
+msgstr "კომპანიის მონაცემები"
+
+msgid "Company name (optional)"
+msgstr "კომპანიის სახელი (არასავალდებულო)"
+
+msgid "Completed orders"
+msgstr "შესრულებული შეკვეთები"
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr "ბოლო შვიდი დღის განმავლობაში შესრულებული შეკვეთები წინა პერიოდთან შედარებით"
+
+msgid "Config"
+msgstr "კონფიგ"
+
+msgid "Configurable"
+msgstr "კონფიგურირებადი"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
+msgstr "კონფიგურაციის პარამეტრები სიის ელემენტში ხელმისაწვდომი იქნება, როგორც გასაღები/მნიშვნელობის წყვილები."
+
+msgid "Context"
+msgstr "კონტექსტი"
+
+msgid "Copy"
+msgstr "ასლის გადაღება"
+
+msgid "Copy this entry"
+msgstr "ასლის გადაღება ამ ჩანაწერის"
+
+msgid "Costs"
+msgstr "ხარჯები"
+
+msgid "Count"
+msgstr "თვლა"
+
+msgid "Country"
+msgstr "ქვეყანა"
+
+msgid "Country ID"
+msgstr "ქვეყნის ID"
+
+msgid "Country code (required)"
+msgstr "ქვეყნის კოდი (სავალდებულოა)"
+
+msgid ""
+"Country specific tax rate to calculate and display the included tax (B2C) or"
+" add the tax if required (B2B)"
+msgstr "კონკრეტული ქვეყნის საგადასახადო განაკვეთის მიხედვით ჩათვლილი გადასახადის გამოთვლა და ჩვენება (B2C) ან გადასახადის დამატება, საჭიროების შემთხვევაში (B2B)."
+
+msgid "Country state code (optional)"
+msgstr "ქვეყნის სახელმწიფო კოდი (არასავალდებულო)"
+
+msgid "Coupon"
+msgstr "კუპონი"
+
+msgid "Coupon provider or coupon decorator configuration name"
+msgstr "კუპონის მომწოდებლის ან კუპონის მორგების კონფიგურაციის სახელი"
+
+msgid "Created"
+msgstr "შექმნილი"
+
+msgid "Currencies"
+msgstr "ვალუტები"
+
+msgid "Currency"
+msgstr "ვალუტა"
+
+msgid "Custom"
+msgstr "მორგებული"
+
+msgid "Custom domain or unique code of your shop"
+msgstr "თქვენი მაღაზიის საკუთარი დომენი ან უნიკალური კოდი"
+
+msgid "Customer"
+msgstr "მომხმარებელი"
+
+msgid "Customer ID"
+msgstr "მომხმარებლის ID"
+
+msgid "Customer Lists Type"
+msgstr "მომხმარებელთა სიების ტიპი"
+
+msgid "Customer Lists Types"
+msgstr "მომხმარებელთა სიების ტიპები"
+
+msgid "Customer Property Type"
+msgstr "მომხმარებლის საკუთრების ტიპი"
+
+msgid "Customer Property Types"
+msgstr "მომხმარებლის საკუთრების ტიპები"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr "მომხმარებლის მახასიათებლები, რომლებსაც სხვა მომხმარებლები არ იზიარებენ"
+
+msgid "Customer comment (optional)"
+msgstr "მომხმარებლის კომენტარი (არასავალდებულო)"
+
+msgid "Customer e-mail address"
+msgstr "მომხმარებლის ელფოსტის მისამართი"
+
+msgid "Customer password"
+msgstr "მომხმარებლის პაროლი"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr "მომხმარებლის მონაცემები, რომლებიც სხვა მომხმარებლებისთვის არ არის გაზიარებული"
+
+msgid "Customer reference"
+msgstr "მომხმარებლის რეკომენდაცია"
+
+msgid "Customer reference (optional)"
+msgstr "მომხმარებლის რეკომენდაცია (არასავალდებულო)"
+
+msgid "Dashboard"
+msgstr "მართვის პანელი"
+
+msgid "Data"
+msgstr "მონაცემები"
+
+msgid "Data set"
+msgstr "მონაცემთა ნაკრები"
+
+msgid "Dataset"
+msgstr "მონაცემთა ნაკრები"
+
+msgid "Date of the last delivery status change"
+msgstr "ბოლო მიწოდების სტატუსის შეცვლის თარიღი"
+
+msgid "Date of the last payment status change"
+msgstr "ბოლო გადახდის სტატუსის შეცვლის თარიღი"
+
+msgid "Date the subscription ends"
+msgstr "გამოწერის დასრულების თარიღი"
+
+msgid "Days"
+msgstr "დღეები"
+
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Delete entries?"
+msgstr "ჩანაწერების წაშლა?"
+
+msgid "Delete selected entries"
+msgstr "შერჩეული ჩანაწერების წაშლა"
+
+msgid "Delete this entry"
+msgstr "შეწერეთ ეს ჩანაწერი"
+
+msgid "Deleting reviews is not allowed"
+msgstr "მიმოხილვების წაშლა დაუშვებელია"
+
+msgid "Delivery"
+msgstr "მიწოდება"
+
+msgid "Delivery address"
+msgstr "მიწოდების მისამართი"
+
+msgid "Delivery date"
+msgstr "მიწოდების თარიღი"
+
+msgid "Delivery in"
+msgstr "მიწოდება"
+
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr "მომხმარებლის კალათაში არსებული პროდუქტების მიწოდების ან გადახდის ხარჯები"
+
+msgid "Delivery status"
+msgstr "მიწოდების სტატუსი"
+
+msgid "Delivery timeframe (optional)"
+msgstr "მიწოდების ვადები (არასავალდებულო)"
+
+msgid "Delivery types"
+msgstr "მიწოდების ტიპები"
+
+msgid "Delivery within"
+msgstr "მიწოდება"
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
+msgstr "არჩეული მონაცემთა ნაკრების მიხედვით, პროდუქტისთვის ნაჩვენები ველების სია განსხვავებული იქნება."
+
+msgid "Describe your image"
+msgstr "აღწერე შენი სურათი"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr "ტექსტის შინაარსის აღწერა, თუ ის უცხო ენაზეა"
+
+msgid "Descritive name of the currency"
+msgstr "ვალუტის აღწერითი სახელი"
+
+msgid "Descritive name of the language"
+msgstr "ენის აღწერითი სახელი"
+
+msgid "Descritive name of the site"
+msgstr "საიტის აღწერითი სახელი"
+
+msgid "Discount"
+msgstr "ფასდაკლება"
+
+msgid "Display help texts"
+msgstr "დამხმარე ტექსტების ჩვენება"
+
+msgid "Domain"
+msgstr "დომენი"
+
+msgid "Download"
+msgstr "ჩამოტვირთვა"
+
+msgid "Download this file"
+msgstr "ჩამოტვირთეთ ეს ფაილი"
+
+msgid "Duplicate entry"
+msgstr "ორმაგი ჩანაწერი"
+
+msgid "Duplicate entry (Ctrl+D)"
+msgstr "ჩანაწერის დუბლიკატი (Ctrl+D)"
+
+msgid "E-Mail"
+msgstr "ელფოსტა"
+
+msgid "E-Mail address (required)"
+msgstr "ელფოსტის მისამართი (სავალდებულოა)"
+
+msgid "E-Mail address or account name (required)"
+msgstr "ელფოსტის მისამართი ან ანგარიშის სახელი (სავალდებულო)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr "ელფოსტის მისამართი, რომელიც გამოიყენება მაღაზიასთან დაკავშირებული ელფოსტის გასაგზავნად"
+
+msgid "E-mail"
+msgstr "ელფოსტა"
+
+msgid "E-mail address (optional)"
+msgstr "ელფოსტის მისამართი (არასავალდებულო)"
+
+msgid "E-mail address that belongs to the address"
+msgstr "ელფოსტის მისამართი, რომელიც მიეკუთვნება მისამართს"
+
+msgid "EAN, SKU or article number (required)"
+msgstr "EAN, SKU ან არტიკულის ნომერი (სავალდებულოა)"
+
+msgid "Edit"
+msgstr "რედაქტირება"
+
+msgid "Edit selected entries"
+msgstr "არჩეული ჩანაწერების რედაქტირება"
+
+msgid "Edit this entry"
+msgstr "რედაქტირება ამ ჩანაწერის"
+
+msgid "Editor"
+msgstr "რედაქტორი"
+
+msgid "Email"
+msgstr "ელფოსტა"
+
+msgid "End date"
+msgstr "დასრულების თარიღი"
+
+msgid "End date (optional)"
+msgstr "დასრულების თარიღი (არასავალდებულო)"
+
+msgid "Enter group ID, code or label"
+msgstr "შეიყვანეთ ჯგუფის ID, კოდი ან ეტიკეტი"
+
+msgid "Entry deleted successfully"
+msgstr "ჩანაწერი წარმატებით წაიშალა"
+
+msgid "Entry saved successfully"
+msgstr "ჩანაწერი წარმატებით შეინახა"
+
+msgid ""
+"Entry specific configuration options, will be available as key/value pairs "
+"in the templates"
+msgstr "შესვლის სპეციფიკური კონფიგურაციის პარამეტრები ხელმისაწვდომი იქნება შაბლონებში, როგორც გასაღების/მნიშვნელობის წყვილები."
+
+msgid "Error"
+msgstr "შეცდომა"
+
+msgid "Error deleting data"
+msgstr "მონაცემების წაშლის შეცდომა"
+
+msgid "Error retrieving data"
+msgstr "მონაცემების მოპოვებისას შეცდომა"
+
+msgid "Error saving data"
+msgstr "მონაცემების შენახვისას შეცდომა"
+
+msgid "Excl. tax"
+msgstr "გადასახადების გარეშე"
+
+msgid "Execution order of the plugins"
+msgstr "პლაგინების შესრულების რიგი"
+
+msgid "Execution order of the rules"
+msgstr "წესების აღსრულების ბრძანება"
+
+msgid "Export"
+msgstr "ექსპორტი"
+
+msgid "Facility"
+msgstr "დაწესებულება"
+
+msgid "Facsimile"
+msgstr "ფაქსიმილე"
+
+msgid "Facsimile number (optional)"
+msgstr "ფაქსის ნომერი (არასავალდებულო)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr "ფაქტორი პროდუქტის მომხმარებლის ძიებაში სხვა პროდუქტებთან შედარებით გასაძლიერებლად (>1.0 დადებითი გაძლიერება, <1.0 უარყოფითი გაძლიერება)"
+
+msgid "Failed to write file to disk"
+msgstr "ფაილის დისკზე ჩაწერა ვერ მოხერხდა"
+
+msgid "File"
+msgstr "ფაილი"
+
+#, php-format
+msgid "File does not exists: \"%1$s\""
+msgstr "ფაილი არ არსებობს: \"%1$s\""
+
+msgid "File upload stopped by extension"
+msgstr "ფაილის ატვირთვა შეჩერდა გაფართოების მიერ"
+
+msgid "File uploaded successfully"
+msgstr "ფაილი წარმატებით აიტვირთა"
+
+msgid "Find category"
+msgstr "იპოვე კატეგორია"
+
+msgid "Find site"
+msgstr "საიტის მოძიება"
+
+msgid "First"
+msgstr "პირველი"
+
+msgid "First name"
+msgstr "სახელი"
+
+msgid "First name (optional)"
+msgstr "სახელი (არასავალდებულო)"
+
+msgid "First name of the person if used in cultures where they are used"
+msgstr "პირველი სახელი, თუ ის გამოიყენება იმ კულტურებში, სადაც მისთვის დამახასიათებელია."
+
+msgid "Floor"
+msgstr "იატაკი"
+
+msgid "Floor / Appartment"
+msgstr "იატაკი / ბინა"
+
+msgid "Floor and/or apartment (optional)"
+msgstr "სართული და/ან ბინა (არასავალდებულო)"
+
+msgid "For"
+msgstr "სათაო"
+
+msgid "Generate"
+msgstr "გენერირება"
+
+msgid "Generate image"
+msgstr "გამოსახულების გენერირება"
+
+msgid "Generate text"
+msgstr "ტექსტის გენერირება"
+
+msgid "Given rebate amount"
+msgstr "დაკისრებული თანხა"
+
+msgid "Go to attribute panel"
+msgstr "გადადით ატრიბუტების პანელზე"
+
+msgid "Go to property type panel"
+msgstr "გადადით საკუთრების ტიპის პანელზე"
+
+msgid "Go to the list of attribute types"
+msgstr "გადადით ატრიბუტის ტიპების სიაში"
+
+msgid "Granted rebate"
+msgstr "დაკმაყოფილებული ანაზღაურება"
+
+msgid "Group"
+msgstr "ჯგუფი"
+
+msgid "Group name describing for which members the group is for"
+msgstr "ჯგუფის სახელწოდება, რომელიც აღწერს, თუ რომელ წევრებზეა ის გათვლილი"
+
+msgid "Groups"
+msgstr "ჯგუფები"
+
+msgid "Height"
+msgstr "სიმაღლე"
+
+msgid "Hidden attributes"
+msgstr "დამალული ატრიბუტები"
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr "დაკვეთილი პროდუქტების შენახული ფარული ატრიბუტები"
+
+msgid "Highlighted suppliers of the product"
+msgstr "პროდუქტის გამორჩეული მომწოდებლები"
+
+msgid "Honorary title (optional)"
+msgstr "საპატიო წოდება (არასავალდებულო)"
+
+msgid "Honorary titles like Dr., Ph.D, etc."
+msgstr "საპატიო წოდებები, როგორიცაა დოქტორი, ფილოსოფიის დოქტორი და ა.შ."
+
+msgid "Hours"
+msgstr "საათები"
+
+msgid "House number"
+msgstr "სახლის ნომერი"
+
+msgid "House number (optional)"
+msgstr "სახლის ნომერი (არასავალდებულო)"
+
+msgid "How the customer is addressed in e-mails"
+msgstr "როგორ მიმართავენ მომხმარებელს ელექტრონულ წერილებში"
+
+msgid "How the supplier is addressed in e-mails"
+msgstr "როგორ მიმართავენ მომწოდებელს ელექტრონულ წერილებში"
+
+msgid "Hyper-real and dramatic"
+msgstr "ჰიპერრეალური და დრამატული"
+
+msgid "ID"
+msgstr "იდენტიფიკატორი"
+
+msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
+msgstr "დაკავშირებული ინვოისის ID, მაგ., შეცვლილი ან ანაზღაურებული ინვოისის"
+
+msgid "ISO currency code (required)"
+msgstr "სავალუტო კოდი ISO (სავალდებულო)"
+
+msgid "ISO language code (required)"
+msgstr "ISO ენობრივი კოდი (სავალდებულო)"
+
+msgid "Image"
+msgstr "სურათი"
+
+msgid "Image description"
+msgstr "სურათის აღწერა"
+
+msgid ""
+"Images will only be shown for that language, useful if the media contains "
+"text or is language sepecific"
+msgstr "სურათები მხოლოდ ამ ენაზე გამოჩნდება, რაც სასარგებლოა, თუ მედია შეიცავს ტექსტს ან ენაზეა მორგებული."
+
+msgid "Import"
+msgstr "იმპორტი"
+
+msgid "Import/Export jobs"
+msgstr "იმპორტი/ექსპორტი სამუშაოები"
+
+msgid "Incl. tax"
+msgstr "გადასახადების ჩათვლით"
+
+msgid "Info"
+msgstr "ინფორმაცია"
+
+msgid "Insert into"
+msgstr "ჩასმაში"
+
+msgid "Insert new entry"
+msgstr "ახალი ჩანაწერის ჩასმა"
+
+msgid "Insert new entry (Ctrl+I)"
+msgstr "ახალი ჩანაწერის ჩასმა (Ctrl+I)"
+
+msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr "შიდა სტატიის სახელი, რომელიც გამოყენებული იქნება ვებსაიტზე და ძიებისთვის მხოლოდ იმ შემთხვევაში, თუ სხვა ენაზე არ არსებობს პროდუქტის სხვა სახელწოდება."
+
+msgid ""
+"Internal article name, will be used on the web site if no product name for "
+"the language is available"
+msgstr "შიდა სტატიის სათაური, რომელიც გამოიყენება ვებსაიტზე, თუ ენისთვის პროდუქტის სახელი ხელმისაწვდომი არ არის."
+
+msgid ""
+"Internal attribute name, will be used on the web site if no name for the "
+"language is available"
+msgstr "შიდა ატრიბუტის სახელი, რომელიც გამოყენებული იქნება ვებსაიტზე, თუ ენისთვის სახელი ხელმისაწვდომი არ არის."
+
+msgid ""
+"Internal category name, will be used on the web site if no name for the "
+"language is available"
+msgstr "შიდა კატეგორიის სახელი გამოყენებული იქნება ვებსაიტზე, თუ ენისთვის სახელი ხელმისაწვდომი არ იქნება."
+
+msgid "Internal name (required)"
+msgstr "შინაგანი სახელი (სავალდებულოა)"
+
+msgid "Internal type name shown in the administration interface"
+msgstr "შინაგანი ტიპის სახელი, რომელიც ადმინისტრაციულ ინტერფეისშია ნაჩვენები"
+
+msgid "Interval"
+msgstr "ინტერვალი"
+
+msgid "Interval (required)"
+msgstr "ინტერვალი (სავალდებულო)"
+
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr "არასწორი სიმბოლოები კლასის სახელში \"%1$s\""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr "არასწორი სიმბოლოები კლიენტის სახელში \"%1$s\""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr "არასწორი კლასის სახელი \"%1$s\""
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr "არასწორი დომენი \"%1$s\""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
+msgstr "არასწორი ქარხანა \"%1$s\""
+
+msgid "Invoice"
+msgstr "საქონლის ნახევარფასი"
+
+msgid "Invoice No."
+msgstr "საქონლის ნომერი"
+
+msgid "Invoice no."
+msgstr "საანგარიშფაქტურის №"
+
+msgid "Invoice number"
+msgstr "საანგარიშფაქტურის ნომერი"
+
+msgid "Invoice number for the order"
+msgstr "შეკვეთის ინვოისის ნომერი"
+
+msgid "Label"
+msgstr "ეტიკეტი"
+
+msgid "Label (required)"
+msgstr "ნიშნული (სავალდებულო)"
+
+msgid "Label describing the interval, will be used if no name is available"
+msgstr "ინტერვალის აღმწერი ეტიკეტი იქნება გამოყენებული, თუ სახელი არ იქნება ხელმისაწვდომი."
+
+msgid "Language"
+msgstr "ენა"
+
+msgid "Language ID"
+msgstr "ენასი"
+
+msgid "Language of the entered text"
+msgstr "შეყვანილი ტექსტის ენა"
+
+msgid "Languages"
+msgstr "ენები"
+
+msgid "Last"
+msgstr "ბოლო"
+
+msgid "Last delivery status of the order"
+msgstr "შეკვეთის ბოლო მიწოდების სტატუსი"
+
+msgid "Last name"
+msgstr "გვარი"
+
+msgid "Last name (optional)"
+msgstr "გვარი (არასავალდებულო)"
+
+msgid "Last name (required)"
+msgstr "გვარი (სავალდებულოა)"
+
+msgid ""
+"Last name of the person or full name in cultures where no first names are "
+"used"
+msgstr "პირის გვარი ან სრული სახელი იმ კულტურებში, სადაც პირველი სახელები არ გამოიყენება"
+
+msgid "Last payment status of the order"
+msgstr "შეკვეთის ბოლო გადახდის სტატუსი"
+
+msgid "Latest orders"
+msgstr "ბოლო შეკვეთები"
+
+msgid "Length"
+msgstr "სიგრძე"
+
+msgid ""
+"List of articles that should be sold as one product, often at a reduced "
+"price"
+msgstr "სტატიების სია, რომლებიც უნდა იყიდებოდეს როგორც ერთი პროდუქტი, ხშირად შემცირებულ ფასად."
+
+msgid "List of products often bought together"
+msgstr "ხშირად ერთად ნაყიდი პროდუქტების სია"
+
+msgid "List of suggested products"
+msgstr "რეკომენდებული პროდუქტების სია"
+
+msgid "List type"
+msgstr "სიის ტიპი"
+
+msgid "Loading entries ..."
+msgstr "ჩანაწერების ჩატვირთვა..."
+
+msgid "Locale"
+msgstr "ადგილმდებარეობა"
+
+msgid "Log"
+msgstr "ჟურნალი"
+
+msgid "Manual transfer"
+msgstr "ხელით გადაცემა"
+
+msgid "Map"
+msgstr "რუკა"
+
+msgid "Media Lists Type"
+msgstr "მედიის ტიპების სია"
+
+msgid "Media Lists Types"
+msgstr "მედია სიების ტიპები"
+
+msgid "Media Property Type"
+msgstr "მედიის ტიპი"
+
+msgid "Media Property Types"
+msgstr "მედიის საკუთრების ტიპები"
+
+msgid "Media Type"
+msgstr "მედიის ტიპი"
+
+msgid "Media Types"
+msgstr "მედიის ტიპები"
+
+msgid "Media properties"
+msgstr "მედია საკუთრება"
+
+msgid "Menu"
+msgstr "მენიუ"
+
+msgid "Message"
+msgstr "შეტყობინება"
+
+msgid "Min. quantity"
+msgstr "მინიმალური რაოდენობა"
+
+msgid "Minimum quantity"
+msgstr "მინიმალური რაოდენობა"
+
+msgid "Mobile"
+msgstr "მობილური"
+
+msgid "Mobile number"
+msgstr "მობილური ნომერი"
+
+msgid "Mobile number (optional)"
+msgstr "მობილური ნომერი (არასავალდებულო)"
+
+msgid "Model"
+msgstr "მოდელი"
+
+msgid "Modifed"
+msgstr "შეცვლილი"
+
+msgid "Modified"
+msgstr "შეცვლილი"
+
+msgid "Months"
+msgstr "თვეები"
+
+msgid "More"
+msgstr "მეტი"
+
+msgid "Move this entry up/down"
+msgstr "ამ ჩანაწერის გადაადგილება ზემოთ/ქვემოთ"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "Name in URL (optional)"
+msgstr "სახელი URL-ში (არასავალდებულო)"
+
+msgid "Name of the basket"
+msgstr "კალათის სახელი"
+
+msgid ""
+"Name of the downloaded file when customers saves the file on their computers"
+msgstr "ჩამოტვირთული ფაილის სახელი, როდესაც მომხმარებლები ფაილს თავიანთ კომპიუტერებში ინახავენ"
+
+msgid "Name of the reviewer"
+msgstr "რეცენზენტის სახელი"
+
+msgid "Name of your shop shown to your customers"
+msgstr "თქვენი მაღაზიის სახელი, რომელიც თქვენს მომხმარებლებს ეჩვენებათ"
+
+msgid "Natural"
+msgstr "ბუნებრივი"
+
+msgid "New"
+msgstr "ახალი"
+
+msgid "New category"
+msgstr "ახალი კატეგორია"
+
+msgid "New customers"
+msgstr "ახალი მომხმარებლები"
+
+msgid "New customers within the last seven days"
+msgstr "ბოლო შვიდი დღის განმავლობაში ახალი მომხმარებლები"
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr "ახალი მომხმარებლები ბოლო შვიდი დღის განმავლობაში წინა პერიოდთან შედარებით"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "Next date"
+msgstr "შემდეგი თარიღი"
+
+msgid "Next date (optional)"
+msgstr "შემდეგი თარიღი (არასავალდებულო)"
+
+msgid "Next date the subscription is renewed"
+msgstr "გამოწერის განახლების შემდეგი თარიღი"
+
+msgid "No currencies available. Please enable at least one currency"
+msgstr "არცერთი ვალუტა არ არის ხელმისაწვდომი. გთხოვთ, ჩართოთ სულ მცირე ერთი ვალუტა."
+
+msgid "No entries found"
+msgstr "არ მოიძებნა ჩანაწერები"
+
+msgid "No file was uploaded"
+msgstr "ფაილი არ აიტვირთა"
+
+msgid "No product found"
+msgstr "პროდუქტი არ მოიძებნა"
+
+msgid "No theme options available"
+msgstr "თემის პარამეტრები არ არის ხელმისაწვდომი"
+
+#, php-format
+msgid "No view available"
+msgstr "მონახაზი არ არის ხელმისაწვდომი"
+
+msgid "No voucher"
+msgstr "არ არის ვაუჩერი"
+
+msgid "Non-shared properties for the media item"
+msgstr "მედია ერთეულისთვის არაზიარებული თვისებები"
+
+msgid "Non-shared properties for the price item"
+msgstr "არაზიარებული თვისებები ფასის ელემენტისთვის"
+
+msgid "None"
+msgstr "არცერთი"
+
+msgid "Not all entries could be deleted"
+msgstr "ყველა ჩანაწერის წაშლა ვერ მოხერხდა"
+
+msgid "Not allowed or editor site is different"
+msgstr "არ არის ნებადართული ან რედაქტორის საიტი განსხვავებულია"
+
+#, php-format
+msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr "JQAdm-ზე \"%1$s\"-ის კლიენტის წვდომა დაუშვებელია."
+
+msgid "Not implemented"
+msgstr "არ არის განხორციელებული"
+
+msgid "Notes"
+msgstr "შენიშვნები"
+
+msgid "Notes (not shown to customer)"
+msgstr "შენიშვნები (არ ეჩვენება მომხმარებელს)"
+
+msgid ""
+"Number of articles currently in stock, leave empty for an unlimited quantity"
+msgstr "სტატიების რაოდენობა ამჟამად მარაგშია, დატოვეთ ცარიელი შეუზღუდავი რაოდენობისთვის"
+
+msgid "OK"
+msgstr "კარგი"
+
+msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
+msgstr "დღგ-ის ოფიციალური ნომერი, რათა დადგინდეს, საჭიროა თუ არა გადასახადის გამოწერა ინვოისებში."
+
+msgid ""
+"One provider and zero or more decorator class names separated by commas"
+msgstr "ერთი პროვაიდერი და მძიმით გამოყოფილი ნული ან მეტი decorator კლასის სახელი"
+
+msgid "Only .webp, .jpg, .png and .gif are allowed for icons"
+msgstr "სიმბოლოსთვის დაშვებულია მხოლოდ .webp, .jpg, .png და .gif ფაილები."
+
+msgid "Only .webp, .jpg, .png, .gif and .svg are allowed for logos"
+msgstr "ლოგოებისთვის დაშვებულია მხოლოდ .webp, .jpg, .png, .gif და .svg ფაილები."
+
+msgid "Only super users and administrators can delete entries"
+msgstr "მხოლოდ სუპერმომხმარებლებსა და ადმინისტრატორებს შეუძლიათ ჩანაწერების წაშლა."
+
+msgid "Open"
+msgstr "გახსნილი"
+
+msgid "Open Qty"
+msgstr "რაოდენობის გახსნა"
+
+msgid "Option"
+msgstr "ვარიანტი"
+
+msgid ""
+"Optional product components that can be chosen by the customer together with"
+" the product"
+msgstr "პროდუქტის არჩევითი კომპონენტები, რომელთა შერჩევაც მომხმარებელს პროდუქტთან ერთად შეუძლია"
+
+msgid "Order"
+msgstr "შეკვეთა"
+
+msgid "Order ID"
+msgstr "შეკვეთის ID"
+
+msgid "Order number entered by the customer"
+msgstr "მომხმარებლის მიერ შეყვანილი შეკვეთის ნომერი"
+
+msgid "Order of the language/currency combinations"
+msgstr "ენების/ვალუტების კომბინაციების თანმიმდევრობა"
+
+msgid "Order of the service options in the checkout process"
+msgstr "გადახდის პროცესში სერვისების არჩევის თანმიმდევრობა"
+
+msgid "Order of the types in the frontend"
+msgstr "ფრონტენდში ტიპების თანმიმდევრობა"
+
+msgid "Order totals"
+msgstr "შეკვეთის საერთო ღირებულება"
+
+msgid "Ordered at"
+msgstr "დაკვეთილია"
+
+msgid "Orders by country"
+msgstr "შეკვეთები ქვეყნის მიხედვით"
+
+msgid "Orders by day"
+msgstr "დღიური შეკვეთები"
+
+msgid "Orders by hour"
+msgstr "შეკვეთები საათების მიხედვით"
+
+msgid "Orders by payment status"
+msgstr "შეკვეთები გადახდის სტატუსის მიხედვით"
+
+msgid ""
+"Overwrite the existing file and customers bought it in the past can then "
+"download the new content too"
+msgstr "დააფარეთ არსებულ ფაილს და მომხმარებლებს, რომლებმაც ის წარსულში შეიძინეს, ასევე შეეძლებათ ახალი კონტენტის ჩამოტვირთვა."
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr "PHP-ის პარამეტრი \"%1$s\" გამორთულია"
+
+#, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr "PHP-ის პარამეტრი \"%1$s\" ჩართულია"
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
+msgstr "PHP-ის პარამეტრი \"%1$s\"-ისთვის ძალიან დაბალია"
+
+#, php-format
+msgid "Page %1$d of %2$d"
+msgstr "გვერდი %1$d / %2$d-დან"
+
+msgid "Password"
+msgstr "პაროლი"
+
+msgid "Password (required)"
+msgstr "პაროლი (სავალდებულოა)"
+
+msgid "Path"
+msgstr "გზა"
+
+msgid "Pay date"
+msgstr "გადახდის თარიღი"
+
+msgid "Pay status"
+msgstr "გადახდის სტატუსი"
+
+msgid "Payment"
+msgstr "გადახდა"
+
+msgid "Payment date"
+msgstr "გადახდის თარიღი"
+
+msgid "Payment status"
+msgstr "გადახდის სტატუსი"
+
+msgid "Payment types"
+msgstr "გადახდის ტიპები"
+
+msgid "Periods"
+msgstr "პერიოდები"
+
+#, php-format
+msgid "Permission denied"
+msgstr "ნებართვა უარყოფილია"
+
+msgid "Personal data"
+msgstr "პირადი მონაცემები"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr "გთხოვთ, აქ ჩასვათ ტექსტის აღწერა, რომელიც უნდა გენერირდეს."
+
+msgid "Please select"
+msgstr "გთხოვთ აირჩიოთ"
+
+msgid "Plugin"
+msgstr "პლაგინი"
+
+msgid "Plugin Type"
+msgstr "პლაგინის ტიპი"
+
+msgid "Plugin Types"
+msgstr "პლაგინების ტიპები"
+
+msgid "Plugin label for describing the configured plugin"
+msgstr "დამონტაჟებული პლაგინის აღწერის ეტიკეტი"
+
+msgid "Plugin position (required)"
+msgstr "პლაგინის პოზიცია (სავალდებულო)"
+
+msgid "Plugin provider or plugin decorator configuration name"
+msgstr "პლაგინის მომწოდებლის ან პლაგინის დეკორატორის კონფიგურაციის სახელი"
+
+msgid "Position"
+msgstr "პოზიცია"
+
+msgid "Position (required)"
+msgstr "პოზიცია (სავალდებულო)"
+
+msgid "Postal"
+msgstr "საფოსტო"
+
+msgid "Postal code for delivery if used in the area the customer is living"
+msgstr "მიწოდების საფოსტო ინდექსი, თუ ის გამოიყენება მომხმარებლის საცხოვრებელ ტერიტორიაზე"
+
+msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr "საფოსტო ინდექსი მიწოდებისთვის, თუ ის გამოიყენება მომწოდებლის საცხოვრებელ ტერიტორიაზე."
+
+msgid "Postition"
+msgstr "პოზიცია"
+
+msgid "Potential problems"
+msgstr "პოტენციური პრობლემები"
+
+msgid "Previous"
+msgstr "წინა"
+
+msgid "Price"
+msgstr "ფასი"
+
+msgid "Price Lists Type"
+msgstr "ფასების სია ტიპი"
+
+msgid "Price Lists Types"
+msgstr "ფასების სია ტიპები"
+
+msgid "Price Property Type"
+msgstr "ფასი საკუთრების ტიპი"
+
+msgid "Price Property Types"
+msgstr "ფასი, საკუთრების ტიპები"
+
+msgid "Price Type"
+msgstr "ფასის ტიპი"
+
+msgid "Price Types"
+msgstr "ფასის ტიპები"
+
+msgid "Price properties"
+msgstr "ფასი უძრავ ქონებაზე"
+
+msgid "Priority"
+msgstr "პრიორიტეტი"
+
+msgid "Problem"
+msgstr "პრობლემა"
+
+msgid "Product"
+msgstr "პროდუქტი"
+
+msgid "Product ID"
+msgstr "პროდუქტის ID"
+
+msgid "Product ID, SKU or label"
+msgstr "პროდუქტის ID, SKU ან ეტიკეტი"
+
+msgid "Product Lists Type"
+msgstr "პროდუქტების ტიპი"
+
+msgid "Product Lists Types"
+msgstr "პროდუქტების ტიპები"
+
+msgid "Product Property Type"
+msgstr "პროდუქტის თვისობის ტიპი"
+
+msgid "Product Property Types"
+msgstr "პროდუქტის თვისებების ტიპები"
+
+msgid "Product Type"
+msgstr "პროდუქტის ტიპი"
+
+msgid "Product Types"
+msgstr "პროდუქტის ტიპები"
+
+msgid ""
+"Product attributes stored in the basket where customers can enter their own "
+"texts or values"
+msgstr "კალათაში შენახული პროდუქტის ატრიბუტები, სადაც მომხმარებლებს შეუძლიათ შეიყვანონ საკუთარი ტექსტები ან მნიშვნელობები"
+
+msgid "Product attributes that are used by other products too"
+msgstr "პროდუქტის ატრიბუტები, რომლებსაც სხვა პროდუქტებიც იყენებენ"
+
+msgid "Product characteristics that are not shared with other products"
+msgstr "პროდუქტის მახასიათებლები, რომლებიც არ არის დამახასიათებელი სხვა პროდუქტებისთვის"
+
+msgid "Product code"
+msgstr "პროდუქტის კოდი"
+
+msgid "Product costs"
+msgstr "პროდუქტის ღირებულება"
+
+msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
+msgstr "პროდუქტის სიმაღლე, მაგ. 20.0 (იარდებში, დუიმებში და ა.შ.)"
+
+msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr "პროდუქტის სიგრძე, მაგ. 30.0 (იარდებში, დუიმებში და ა.შ.)"
+
+msgid "Product name"
+msgstr "პროდუქტის სახელი"
+
+msgid "Product payment"
+msgstr "პროდუქტის გადახდა"
+
+msgid "Product price"
+msgstr "პროდუქტის ფასი"
+
+msgid "Product quantity"
+msgstr "პროდუქტის რაოდენობა"
+
+msgid "Product rebate"
+msgstr "პროდუქტის თანხის დაბრუნება"
+
+msgid "Product shipping"
+msgstr "პროდუქტის მიწოდება"
+
+msgid "Product status"
+msgstr "პროდუქტის სტატუსი"
+
+msgid "Product supplier"
+msgstr "პროდუქტის მომწოდებელი"
+
+msgid "Product tax"
+msgstr "პროდუქტის გადასახადი"
+
+msgid "Product type"
+msgstr "პროდუქტის ტიპი"
+
+msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
+msgstr "პროდუქტის წონა, მაგ. 1.25 (ფუნტებში, უნციებში და ა.შ.)"
+
+msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
+msgstr "პროდუქტის სიგანე, მაგ. 17.5 (იარდებში, დუიმებში და ა.შ.)"
+
+msgid "Products"
+msgstr "პროდუქტები"
+
+msgid "Products bought together"
+msgstr "ერთად შეძენილი პროდუქტები"
+
+msgid "Promotion"
+msgstr "პრომოუშენი"
+
+msgid "Properties"
+msgstr "თვისებები"
+
+msgid "Property value (required)"
+msgstr "ქონების ღირებულება (სავალდებულო)"
+
+msgid "Provider"
+msgstr "მომწოდებელი"
+
+msgid "Provider/decorator class names (required)"
+msgstr "პროვაიდერის/დეკორატორის კლასის სახელები (სავალდებულო)"
+
+msgid "Purchase"
+msgstr "შეძენა"
+
+msgid "Quantity"
+msgstr "რაოდენობა"
+
+msgid "Quantity scale"
+msgstr "რაოდენობრივი მასშტაბი"
+
+msgid "Rabate"
+msgstr "ფასდაკლება"
+
+msgid "Rating"
+msgstr "რეიტინგი"
+
+msgid "Rating and number of ratings for the merchant"
+msgstr "მოსაზღვრის შეფასება და შეფასებების რაოდენობა"
+
+msgid "Rating of the reviewer"
+msgstr "რეცენზენტის შეფასება"
+
+msgid "Reason"
+msgstr "მიზეზი"
+
+msgid "Rebate"
+msgstr "დაბრუნება"
+
+msgid ""
+"Reduction from the original price, used to calculate the rebate in % and the"
+" cross price"
+msgstr "შემცირება საწყისი ფასიდან, რომელიც გამოიყენება %-იანი დანაზოგისა და ჯვარედინი ფასის გამოსათვლელად"
+
+msgid "Reference"
+msgstr "წყარო"
+
+msgid "Reference ID"
+msgstr "საორიენტაციო ID"
+
+msgid "Refund"
+msgstr "ანაზღაურება"
+
+msgid "Related ID"
+msgstr "დაკავშირებული ID"
+
+msgid "Related order"
+msgstr "დაკავშირებული შეკვეთა"
+
+msgid "Related order ID (optional)"
+msgstr "დაკავშირებული შეკვეთის ID (არასავალდებულო)"
+
+msgid "Related order of the customer"
+msgstr "მომხმარებლის დაკავშირებული შეკვეთა"
+
+msgid "Remove background"
+msgstr "ფონის მოშორება"
+
+msgid "Renew"
+msgstr "განახლება"
+
+msgid "Replace file"
+msgstr "ფაილის ჩანაცვლება"
+
+msgid "Request"
+msgstr "მოთხოვნა"
+
+#, php-format
+msgid "Required parameter \"%1$s\" is missing"
+msgstr "საჭირო პარამეტრი \"%1$s\" აკლია"
+
+msgid ""
+"Required quantity of articles for block pricing, e.g. one article for $5.00,"
+" ten articles for $45.00"
+msgstr "საჭირო რაოდენობა ბლოკური ფასდაკლებისთვის, მაგალითად: ერთი ერთეული – 5.00 დოლარად, ათი ერთეული – 45.00 დოლარად."
+
+msgid "Reset"
+msgstr "გადატვირთვა"
+
+msgid "Response"
+msgstr "პასუხი"
+
+msgid "Response to the reviewer"
+msgstr "პასუხი რეცენზენტს"
+
+msgid "Review"
+msgstr "მიმოხილვა"
+
+msgid "Reviewed entry"
+msgstr "გადახედული ჩანაწერი"
+
+msgid "Reviewer name"
+msgstr "მიმოხილველის სახელი"
+
+msgid ""
+"Route name or page ID of the category page if this category should shown on "
+"a different page"
+msgstr "მარშრუტის სახელი ან კატეგორიის გვერდის ID, თუ ეს კატეგორია სხვა გვერდზე უნდა გამოჩნდეს."
+
+msgid ""
+"Route name or page ID of the product detail page if this product should "
+"shown on a different page"
+msgstr "მარშრუტის სახელი ან პროდუქტის დეტალური გვერდის გვერდის ID, თუ ეს პროდუქტი სხვა გვერდზე უნდა გამოჩნდეს."
+
+msgid "Route or page ID (optional)"
+msgstr "მარშრუტის ან გვერდის ID (არასავალდებულო)"
+
+msgid "Rule"
+msgstr "წესი"
+
+msgid "Rule Type"
+msgstr "წესის ტიპი"
+
+msgid "Rule Types"
+msgstr "წესების ტიპები"
+
+msgid "Rule label for describing the configured rule"
+msgstr "წესის აღწერის ეტიკეტი"
+
+msgid "Rule position (required)"
+msgstr "პოზიცია (სავალდებულო)"
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr "წესის მომწოდებლის ან წესის დეკორატორის კონფიგურაციის სახელი"
+
+msgid "Rules"
+msgstr "წესები"
+
+msgid "SKU"
+msgstr "არტიკული"
+
+msgid "Sales by weekday"
+msgstr "გაყიდვები კვირის დღეების მიხედვით"
+
+msgid "Sales of the last 30 days"
+msgstr "გაყიდვები ბოლო 30 დღის განმავლობაში"
+
+msgid "Sales per month"
+msgstr "გაყიდვები თვეში"
+
+msgid "Salutation"
+msgstr "მოკითხვა"
+
+msgid "Save"
+msgstr "შენახვა"
+
+msgid "Save & Close"
+msgstr "შენახვა და დახურვა"
+
+msgid "Save & Copy"
+msgstr "შენახვა და კოპირება"
+
+msgid "Save & New"
+msgstr "შენახვა და ახალი"
+
+msgid "Save entry (Ctrl+Enter)"
+msgstr "შენახვა (Ctrl+Enter)"
+
+msgid "Save entry (Ctrl+S)"
+msgstr "შენახვა (Ctrl+S)"
+
+msgid "Search"
+msgstr "ძიება"
+
+msgid "Second level type for grouping entries"
+msgstr "მეორე დონის ტიპი ჩანაწერების ჯგუფირებისთვის"
+
+msgid "Select all entries"
+msgstr "ყველა ჩანაწერის მონიშვნა"
+
+msgid "Select file"
+msgstr "ფაილის არჩევა"
+
+msgid "Service"
+msgstr "მომსახურება"
+
+msgid "Service Lists Type"
+msgstr "მომსახურების სიების ტიპი"
+
+msgid "Service Lists Types"
+msgstr "მომსახურების სიების ტიპები"
+
+msgid "Service Type"
+msgstr "მომსახურების ტიპი"
+
+msgid "Service Types"
+msgstr "მომსახურების ტიპები"
+
+msgid "Service attribute code"
+msgstr "მომსახურების ატრიბუტის კოდი"
+
+msgid "Service costs"
+msgstr "მომსახურების საფასური"
+
+msgid "Service name"
+msgstr "მომსახურების სახელი"
+
+msgid "Service position (required)"
+msgstr "მომსახურების პოზიცია (სავალდებულო)"
+
+msgid "Service price"
+msgstr "მომსახურების ფასი"
+
+msgid "Service provider or service decorator configuration name"
+msgstr "მომსახურების მიმწოდებლის ან მომსახურების დეკორატორის კონფიგურაციის სახელი"
+
+msgid "Service rebate"
+msgstr "სერვისის თანხის დაბრუნება"
+
+msgid "Settings"
+msgstr "პარამეტრები"
+
+msgid "Ship date"
+msgstr "გაგზავნის თარიღი"
+
+msgid "Ship status"
+msgstr "ნავის სტატუსი"
+
+msgid "Shipping"
+msgstr "მიწოდება"
+
+msgid "Shipping / Payment costs"
+msgstr "მიწოდების / გადახდის ხარჯები"
+
+msgid "Shipping/Payment costs"
+msgstr "მიწოდების/გადახდის ხარჯები"
+
+msgid "Shipping/item"
+msgstr "მიწოდება/ნივთი"
+
+msgid "Shop domain"
+msgstr "დომენის მაღაზია"
+
+msgid "Shop domain (required)"
+msgstr "დომენის მაღაზია (სავალდებულო)"
+
+msgid "Shop e-mail"
+msgstr "მაღაზია ელფოსტა"
+
+msgid "Shop e-mail address (required)"
+msgstr "მაღაზიის ელფოსტის მისამართი (სავალდებულოა)"
+
+msgid "Shop name"
+msgstr "მაღაზიის სახელი"
+
+msgid "Shop name (required)"
+msgstr "მაღაზიის სახელი (სავალდებულოა)"
+
+msgid "Shop theme"
+msgstr "მაღაზიის თემა"
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the customer is living"
+msgstr "შტატის შემოკლებული კოდი (მაგ., NY), თუ ის გამოიყენება ქვეყანაში, სადაც ცხოვრობს მომხმარებელი"
+
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "შტატის შემოკლებული კოდი (მაგ., NY), თუ მიმწოდებელი იმავე შტატში ცხოვრობს."
+
+msgid "Show"
+msgstr "ჩვენება"
+
+msgid "Show entry"
+msgstr "ჩანაწერის ჩვენება"
+
+msgid "Show search form"
+msgstr "საძიებო ფორმის ჩვენება"
+
+msgid "Show/hide advanced data"
+msgstr "წინასწარგანმწყობი მონაცემების ჩვენება/დამალვა"
+
+msgid "Show/hide details"
+msgstr "დეტალების ჩვენება/დამალვა"
+
+msgid "Show/hide navigation labels"
+msgstr "ნავიგაციის ეტიკეტების ჩვენება/დამალვა"
+
+msgid "Show/hide this entry"
+msgstr "ამ ჩანაწერის ჩვენება/დამალვა"
+
+msgid "Shown if the article reached a stock level of zero"
+msgstr "ჩაისახება, თუ სტატიის მარაგის დონე ნულს მიაღწევს"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr "როდის არის პროდუქტი ხელმისაწვდომი, გამოიყენება ფრონტ-ენდში დახარისხებისთვის"
+
+msgid "Site"
+msgstr "საიტი"
+
+#, php-format
+msgid "Site \"%1$s\" not found"
+msgstr "საიტი \"%1$s\" ვერ მოიძებნა"
+
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
+msgstr "საიტისთვის სპეციფიკური კონფიგურაციის პარამეტრები ხელმისაწვდომი იქნება, როგორც გასაღების/მნიშვნელობის წყვილები."
+
+msgid "Site the order was placed at"
+msgstr "შეკვეთა განთავსდა"
+
+msgid "Sites"
+msgstr "ადგილები"
+
+msgid "Size"
+msgstr "ზომა"
+
+msgid "Sorting of the attributes within the same attribute type"
+msgstr "ერთსა და იმავე ტიპის ატრიბუტების დახარისხება"
+
+msgid "Sorting of the suppliers"
+msgstr "მომწოდებლების დახარისხება"
+
+msgid "Source of the invoice, e.g. by web or phone"
+msgstr "ინვოისის წყარო, მაგ. ვებგვერდის ან ტელეფონის საშუალებით"
+
+msgid "Start date"
+msgstr "დაწყების თარიღი"
+
+msgid "Start typing ..."
+msgstr "დაიწყეთ ტექსტის აკრეფა ..."
+
+msgid "State"
+msgstr "შტატი"
+
+msgid "Status"
+msgstr "სტატუსი"
+
+msgid "Stock Type"
+msgstr "მარაგის ტიპი"
+
+msgid "Stock Types"
+msgstr "აქციების ტიპები"
+
+msgid "Stock level"
+msgstr "მარაგის დონე"
+
+msgid "Stock type"
+msgstr "აქციების ტიპი"
+
+msgid "Street"
+msgstr "ქუჩა"
+
+msgid "Street name (optional)"
+msgstr "ქუჩის სახელი (არასავალდებულო)"
+
+msgid "Style"
+msgstr "სტილი"
+
+msgid "Sub-total"
+msgstr "შუალედური ჯამი"
+
+msgid "Subscription"
+msgstr "გამოწერა"
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
+msgstr "გამოწერის ინტერვალი წლებით, თვეებით, კვირეებითა და დღეებით, მაგალითად, \"P0Y1M2W3D\" ნიშნავს ნულ წელს, ერთ თვეს, ორ კვირასა და სამ დღეს."
+
+msgid "Suggested products"
+msgstr "რეკომენდებული პროდუქტები"
+
+msgid "Sum"
+msgstr "ჯამი"
+
+msgid "Supplier"
+msgstr "მომწოდებელი"
+
+msgid "Supplier name or company"
+msgstr "მომწოდებლის სახელი ან კომპანია"
+
+msgid "Supplier position (required)"
+msgstr "მომწოდებლის პოზიცია (სავალდებულო)"
+
+msgid "Suppliers who manufacture the product"
+msgstr "მომწოდებლები, რომლებიც აწარმოებენ პროდუქტს"
+
+msgid "Tag Type"
+msgstr "თეგის ტიპი"
+
+msgid "Tag Types"
+msgstr "თეგების ტიპები"
+
+msgid "Tax"
+msgstr "გადასახადი"
+
+msgid "Tax rate"
+msgstr "საგადასახადო განაკვეთი"
+
+msgid "Tax rate in %"
+msgstr "საგადასახადო განაკვეთი %-ში"
+
+msgid "Telephone"
+msgstr "ტელეფონი"
+
+msgid "Telephone number (optional)"
+msgstr "სატელეფონო ნომერი (არასავალდებულო)"
+
+msgid "Temporary folder is missing"
+msgstr "დროებითი საქაღალდე დაიკარგა"
+
+msgid "Text Lists Type"
+msgstr "ტექსტის სიის ტიპი"
+
+msgid "Text Lists Types"
+msgstr "ტექსტის სიები ტიპები"
+
+msgid "Text Type"
+msgstr "ტექსტის ტიპი"
+
+msgid "Text Types"
+msgstr "ტექსტის ტიპები"
+
+msgid ""
+"The article is only shown on the web site after that date and time, useful "
+"or seasonal articles"
+msgstr "სტატია ვებსაიტზე მხოლოდ ამ თარიღისა და დროის შემდეგ ჩნდება, სასარგებლო ან სეზონური სტატიები"
+
+msgid ""
+"The article is only shown on the web site until that date and time, useful "
+"or seasonal articles"
+msgstr "სტატია ვებსაიტზე მხოლოდ ამ თარიღამდე და დრომდეა ხელმისაწვდომი, სასარგებლო ან სეზონური სტატიები"
+
+msgid "The entry is only shown on the web site after that date and time"
+msgstr "ჩანაწერი ვებსაიტზე მხოლოდ ამ თარიღისა და დროის შემდეგ ჩანს."
+
+msgid "The entry is only shown on the web site until that date and time"
+msgstr "ჩანაწერი ვებსაიტზე მხოლოდ ამ თარიღამდე და დრომდე ჩანს."
+
+msgid "The media title is used for the title tag of the media on the web site"
+msgstr "მედიის სათაური გამოიყენება ვებსაიტზე არსებული მედიის title თეგისთვის."
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "URL-ში ნაჩვენები კატეგორიის სახელი იქნება გამოყენებული, თუ ენისთვის სპეციფიკური URL სეგმენტი არ არსებობს."
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "პროდუქტის სახელი, რომელიც URL-შია მითითებული, გამოყენებული იქნება, თუ ენის სპეციფიკური URL სეგმენტი არ არსებობს."
+
+msgid "The option is only shown on the web site after that date and time"
+msgstr "ვარიანტი ვებსაიტზე მხოლოდ ამ თარიღისა და დროის შემდეგ ჩანს."
+
+msgid "The option is only shown on the web site until that date and time"
+msgstr "არჩევანი ვებსაიტზე მხოლოდ ამ თარიღამდე და დრომდე ჩანს."
+
+msgid "The rule is only used after that date and time"
+msgstr "წესი გამოიყენება მხოლოდ ამ თარიღისა და დროის შემდეგ."
+
+msgid "The rule is only used until that date and time"
+msgstr "წესი გამოიყენება მხოლოდ ამ თარიღამდე და დრომდე."
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr "კალათაში არსებული რაოდენობებისთვის ნაბიჯის მნიშვნელობა, მაგალითად, წილადური რაოდენობებისთვის \"0.1\" ან ხუთი ერთეულის მრავლობითისთვის \"5\"."
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr "გადმოტვირთული ფაილი აღემატება მაქსიმალურად დაშვებულ ზომას."
+
+msgid "The uploaded file was only partially uploaded"
+msgstr "გადმოტვირთული ფაილი მხოლოდ ნაწილობრივ გადმოიტვირთა."
+
+msgid "Theme to change the layout of your shop"
+msgstr "თემა თქვენი მაღაზიის განლაგების შესაცვლელად"
+
+msgid "Three letter ISO currency code"
+msgstr "სამასო ISO სავალუტო კოდი"
+
+msgid "Time frame (optional)"
+msgstr "ვადები (არასავალდებულო)"
+
+msgid "Timestamp"
+msgstr "დროის ნიშნული"
+
+msgid "Title"
+msgstr "სათაური"
+
+msgid "Toggle dropdown"
+msgstr "გადმოსაშლელი მენიუს ჩართვა/გამორთვა"
+
+msgid "Toogle selection"
+msgstr "გამორჩევის ჩართვა/გამორთვა"
+
+msgid "Top countries"
+msgstr "წამყვანი ქვეყნები"
+
+msgid "Total"
+msgstr "სულ"
+
+msgid "Total orders"
+msgstr "საერთო შეკვეთები"
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr "საერთო შეკვეთები ბოლო შვიდი დღის განმავლობაში წინა პერიოდთან შედარებით"
+
+msgid "Total ratings"
+msgstr "საერთო შეფასებები"
+
+msgid "Translate text"
+msgstr "თარგმნა ტექსტი"
+
+msgid "Translations"
+msgstr "თარგმანები"
+
+msgid "Tree node menu"
+msgstr "ხე-ნოდის მენიუ"
+
+msgid "Two letter ISO country code"
+msgstr "ISO-ს ქვეყნის ორასო კოდი"
+
+msgid "Two letter ISO language code"
+msgstr "ISO-ს ენობრივი კოდი ორი ასოდან"
+
+msgid "Type"
+msgstr "ტიპი"
+
+msgid "Type position (optional)"
+msgstr "პოზიციის ტიპი (არასავალდებულო)"
+
+msgid "Types"
+msgstr "ტიპები"
+
+msgid "Types for additional images like icons"
+msgstr "ტიპები დამატებითი გამოსახულებებისთვის, როგორიცაა ხატულები"
+
+msgid "Types for additional prices like per one lb/kg or per month"
+msgstr "დამატებითი საფასურის ტიპები, მაგალითად, თითო ფუნტზე/კილოგრამზე ან თვეში"
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr "ტიპები დამატებითი ტექსტებისთვის, მაგალითად, თითო ფუნტზე/კილოგრამზე ან თვეში"
+
+msgid "URL of the customer web site"
+msgstr "მომხმარებლის ვებსაიტის URL"
+
+msgid "URL of the supplier web site"
+msgstr "მომწოდებლის ვებსაიტის URL"
+
+msgid "URL segment"
+msgstr "URL-ის სეგმენტი"
+
+msgid "URL target"
+msgstr "URL სამიზნე"
+
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr "შეუძლებელია მეთოდის \"%1$s\" გამოძახება"
+
+#, php-format
+msgid "Unable to read content from \"%1$s\""
+msgstr "შეუძლებელია \"%1$s\"-დან შიგთავსის წაკითხვა"
+
+msgid "Unfinished orders"
+msgstr "დაუსრულებელი შეკვეთები"
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr "ბოლო შვიდი დღის დაუსრულებელი შეკვეთები წინა პერიოდთან შედარებით"
+
+msgid ""
+"Unique article code related to stock levels, e.g. from the ERP system, an "
+"EAN/GTIN number or self invented"
+msgstr "არტიკულის უნიკალური კოდი, რომელიც დაკავშირებულია მარაგის დონეებთან, მაგ., ERP სისტემიდან, EAN/GTIN ნომერი ან თვითშექმნილი"
+
+msgid "Unique attribute code (required)"
+msgstr "უნიკალური ატრიბუტის კოდი (სავალდებულოა)"
+
+msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
+msgstr "უნიკალური ატრიბუტის კოდი, მაგალითად, \"მწვანე\" ფერის ტიპის ატრიბუტებისთვის"
+
+msgid "Unique category code (required)"
+msgstr "კატეგორიის უნიკალური კოდი (სავალდებულოა)"
+
+msgid "Unique category code, either from external system or self-invented"
+msgstr "კატეგორიის უნიკალური კოდი, იქნება ეს გარე სისტემიდან თუ თვითონ შექმნილი"
+
+msgid "Unique code (required)"
+msgstr "უნიკალური კოდი (სავალდებულოა)"
+
+msgid "Unique code to identify the service, usually self-invented"
+msgstr "სერვისის საიდენტიფიკაციო უნიკალური კოდი, რომელიც, როგორც წესი, თავად არის მოფიქრებული"
+
+msgid "Unique customer account name"
+msgstr "კლიენტის ანგარიშის უნიკალური სახელი"
+
+msgid "Unique customer e-mail address"
+msgstr "უნიკალური მომხმარებლის ელფოსტის მისამართი"
+
+msgid "Unique group code (required)"
+msgstr "უნიკალური ჯგუფის კოდი (სავალდებულოა)"
+
+msgid "Unique service code (required)"
+msgstr "უნიკალური სერვისის კოდი (სავალდებულოა)"
+
+msgid "Unique site code (required)"
+msgstr "საიტის უნიკალური კოდი (სავალდებულო)"
+
+msgid "Unique supplier code"
+msgstr "უნიკალური მომწოდებლის კოდი"
+
+msgid "Unique type code"
+msgstr "უნიკალური ტიპის კოდი"
+
+msgid "Unique type code (required)"
+msgstr "ტიპის უნიკალური კოდი (სავალდებულოა)"
+
+msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr "ტიპის უნიკალური კოდი, მაგალითად, \"ფერი\" ისეთი ატრიბუტებისთვის, როგორიცაა \"მწვანე\", \"ლურჯი\", \"წითელი\""
+
+msgid "Unit price"
+msgstr "ერთეულის ფასი"
+
+msgid "Unknown upload error"
+msgstr "ცნობილი არ არის ატვირთვის შეცდომა"
+
+msgid "Upload CSV"
+msgstr "CSV-ის ატვირთვა"
+
+msgid "Upload shop icon"
+msgstr "მაღაზიის ხატულის ატვირთვა"
+
+msgid "Upload shop logo"
+msgstr "მაღაზიის ლოგოს ატვირთვა"
+
+msgid "Uploaded"
+msgstr "გადმოტვირთულია"
+
+msgid "Use"
+msgstr "გამოყენება"
+
+msgid "User groups"
+msgstr "მომხმარებელთა ჯგუფები"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr "პროდუქტის მიწოდების ჩვეული ვადები"
+
+msgid "VAT ID"
+msgstr "დღგ-ის ნომერი"
+
+msgid "Value"
+msgstr "ღირებულება"
+
+msgid "Value added tax identifier (optional)"
+msgstr "დამატებული ღირებულების გადასახადის საიდენტიფიკაციო ნომერი (არასავალდებულო)"
+
+msgid "Variant attributes"
+msgstr "ვარიანტის ატრიბუტები"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr "ვარიანტული პროდუქტის ატრიბუტები, რომლებიც შენახულია შეკვეთილი პროდუქტებისთვის"
+
+msgid "Vendor"
+msgstr "მომწოდებელი"
+
+msgid "Verified"
+msgstr "დადასტურებული"
+
+msgid "View details"
+msgstr "დეტალების ნახვა"
+
+msgid "Voucher"
+msgstr "ვაუჩერი"
+
+msgid ""
+"Warehouse or local store if your articles are available at several locations"
+msgstr "საწყობი ან ადგილობრივი მაღაზია, თუ თქვენი პროდუქტები რამდენიმე ლოკაციაზეა ხელმისაწვდომი"
+
+msgid "Web site"
+msgstr "ვებგვერდი"
+
+msgid "Web site URL (optional)"
+msgstr "ვებსაიტის URL (არასავალდებულო)"
+
+msgid "Weeks"
+msgstr "კვირები"
+
+msgid "Weight"
+msgstr "წონა"
+
+msgid "When the account and e-mail address has been verified"
+msgstr "როდესაც ანგარიში და ელფოსტის მისამართი დამოწმდება"
+
+msgid "Width"
+msgstr "სიგანე"
+
+msgid "YYYY-MM-DD hh:mm:ss (optional)"
+msgstr "წწწწ-თთ-დდ სს:წწ:სს (არასავალდებულო)"
+
+msgid "Years"
+msgstr "წლები"
+
+msgid ""
+"You are going to delete one or more entries. Would you like to proceed?"
+msgstr "თქვენ წაშლით ერთ ან მეტ ჩანაწერს. გსურთ გაგრძელება?"
+
+msgid "Your export will be available in a few minutes for download"
+msgstr "თქვენი ექსპორტი ჩამოსატვირთად ხელმისაწვდომი იქნება რამდენიმე წუთში."
+
+msgid "Your response"
+msgstr "თქვენი პასუხი"
+
+msgid "Zip code"
+msgstr "პოსტის ინდექსი"
+
+msgid "Zip code (optional)"
+msgstr "საფოსტო ინდექსი (არასავალდებულო)"
+
+msgid "__hidden__"
+msgstr "__დამალული__"
+
+#, php-format
+msgid "account"
+msgstr "ანგარიში"
+
+#, php-format
+msgid "address"
+msgstr "მისამართი"
+
+msgid "address:delivery"
+msgstr "მიწოდების მისამართი"
+
+msgid "address:payment"
+msgstr "ანგარიშსაწერი მისამართი"
+
+#, php-format
+msgid "api"
+msgstr "აპი"
+
+#, php-format
+msgid "attribute"
+msgstr "ათრიბუტი"
+
+#, php-format
+msgid "basket"
+msgstr "კალათა"
+
+#, php-format
+msgid "bundle"
+msgstr "პაკეტი"
+
+#, php-format
+msgid "catalog"
+msgstr "კატეგორიები"
+
+#, php-format
+msgid "category"
+msgstr "კატეგორიები"
+
+#, php-format
+msgid "characteristic"
+msgstr "მახასიათებლები"
+
+#, php-format
+msgid "code"
+msgstr "კოდი"
+
+msgid "company"
+msgstr "კომპანია"
+
+#, php-format
+msgid "configuration"
+msgstr "კონფიგურაცია"
+
+#, php-format
+msgid "countcountry"
+msgstr "ქვეყნის დათვლა"
+
+#, php-format
+msgid "countday"
+msgstr "დღის თვლა"
+
+#, php-format
+msgid "counthour"
+msgstr "საათის თვლა"
+
+#, php-format
+msgid "countpaystatus"
+msgstr "გადახდის სტატუსის დათვლა"
+
+#, php-format
+msgid "coupon"
+msgstr "კუპონი"
+
+#, php-format
+msgid "customer"
+msgstr "მომხმარებელი"
+
+#, php-format
+msgid "dashboard"
+msgstr "მართვის პანელი"
+
+#, php-format
+msgid "day"
+msgstr "დღე"
+
+#, php-format
+msgid "deliverytype"
+msgstr "მიწოდების ტიპი"
+
+#, php-format
+msgid "download"
+msgstr "ჩამოტვირთვა"
+
+#, php-format
+msgid "goods"
+msgstr "საქონელი"
+
+#, php-format
+msgid "group"
+msgstr "ჯგუფი"
+
+#, php-format
+msgid "hour"
+msgstr "საათი"
+
+#, php-format
+msgid "image"
+msgstr "სურათი"
+
+#, php-format
+msgid "invoice"
+msgstr "საქონლის ნახევარფაბრიკატი"
+
+#, php-format
+msgid "latest"
+msgstr "უახლესი"
+
+#, php-format
+msgid "locale"
+msgstr "ადგილობრივი"
+
+#, php-format
+msgid "locale/currency"
+msgstr "ადგილობრივი/ვალუტა"
+
+#, php-format
+msgid "locale/language"
+msgstr "ადგილობრივი/ენა"
+
+#, php-format
+msgid "locale/site"
+msgstr "ადგილობრივი/საიტი"
+
+#, php-format
+msgid "log"
+msgstr "ჟურნალი"
+
+#, php-format
+msgid "marketing"
+msgstr "მარკეტინგი"
+
+#, php-format
+msgid "media"
+msgstr "მედია"
+
+msgid "miss"
+msgstr "მის"
+
+msgid "mr"
+msgstr "ბატონი"
+
+msgid "mrs"
+msgstr "ქალბატონი"
+
+msgid "ms"
+msgstr "მს"
+
+msgid "new"
+msgstr "ახალი"
+
+msgid "no"
+msgstr "არა"
+
+msgid "none"
+msgstr "არცერთი"
+
+msgid "not available any more"
+msgstr "აღარ არის ხელმისაწვდომი"
+
+#, php-format
+msgid "option"
+msgstr "არჩევანი"
+
+#, php-format
+msgid "order"
+msgstr "შეკვეთა"
+
+msgid "order:phone"
+msgstr "დარეკეთ:"
+
+msgid "order:web"
+msgstr "დავალება:ვებ"
+
+msgid "pay:-1"
+msgstr "გადახდა:-1"
+
+msgid "pay:0"
+msgstr "გადახდა:0"
+
+msgid "pay:1"
+msgstr "გადაიხადე:1"
+
+msgid "pay:2"
+msgstr "გადაიხადე:2"
+
+msgid "pay:3"
+msgstr "გადაიხადე:3"
+
+msgid "pay:4"
+msgstr "გადაიხადე:4"
+
+msgid "pay:5"
+msgstr "გადაიხადე:5"
+
+msgid "pay:6"
+msgstr "გადაიხადე:6"
+
+msgid "pay:7"
+msgstr "გადაიხადე:7"
+
+#, php-format
+msgid "paymentstatus"
+msgstr "გადახდის სტატუსი"
+
+#, php-format
+msgid "paymenttype"
+msgstr "გადახდის ტიპი"
+
+#, php-format
+msgid "physical"
+msgstr "ფიზიკური"
+
+#, php-format
+msgid "plugin"
+msgstr "პლაგინი"
+
+#, php-format
+msgid "price"
+msgstr "ფასი"
+
+#, php-format
+msgid "product"
+msgstr "პროდუქტი"
+
+#, php-format
+msgid "property"
+msgstr "საკუთრება"
+
+#, php-format
+msgid "quick/countcompleted"
+msgstr "სწრაფი/შესრულებული რაოდენობა"
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr "სწრაფი/მომხმარებელთა დათვლა"
+
+#, php-format
+msgid "quick/counttotal"
+msgstr "სწრაფი/ჯამის დათვლა"
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr "სწრაფი/უნგრძილო"
+
+msgid "reason:-1"
+msgstr "მიზეზი:-1"
+
+msgid "reason:0"
+msgstr "მიზეზი:0"
+
+msgid "reason:1"
+msgstr "მიზეზი:1"
+
+#, php-format
+msgid "related"
+msgstr "დაკავშირებული"
+
+#, php-format
+msgid "review"
+msgstr "მიმოხილვები"
+
+#, php-format
+msgid "rule"
+msgstr "წესი"
+
+#, php-format
+msgid "sales"
+msgstr "გაყიდვები"
+
+#, php-format
+msgid "salesweekday"
+msgstr "გაყიდვების სამუშაო დღე"
+
+msgid "selected"
+msgstr "არჩეული"
+
+#, php-format
+msgid "selection"
+msgstr "არჩევა"
+
+#, php-format
+msgid "service"
+msgstr "მომსახურება"
+
+#, php-format
+msgid "servicedelivery"
+msgstr "მომსახურება, მიწოდება"
+
+#, php-format
+msgid "servicepayment"
+msgstr "მომსახურების გადახდა"
+
+#, php-format
+msgid "settings"
+msgstr "პარამეტრები"
+
+#, php-format
+msgid "setup"
+msgstr "დაყენება"
+
+#, php-format
+msgid "special"
+msgstr "სპეციალური"
+
+msgid "stat:-1"
+msgstr "სტატუსი:-1"
+
+msgid "stat:0"
+msgstr "სტატ:0"
+
+msgid "stat:1"
+msgstr "მდგომარეობა:1"
+
+msgid "stat:2"
+msgstr "მდგომარეობა:2"
+
+msgid "stat:3"
+msgstr "სტატისტიკა:3"
+
+msgid "stat:4"
+msgstr "სტატ:4"
+
+msgid "stat:5"
+msgstr "სტატ:5"
+
+msgid "stat:6"
+msgstr "სტატისტიკა:6"
+
+msgid "stat:7"
+msgstr "სტატისტიკა:7"
+
+msgid "status:-1"
+msgstr "სტატუსი:-1"
+
+msgid "status:-2"
+msgstr "სტატუსი:-2"
+
+msgid "status:0"
+msgstr "სტატუსი:0"
+
+msgid "status:1"
+msgstr "სტატუსი:1"
+
+msgid "status:2"
+msgstr "სტატუსი:2"
+
+#, php-format
+msgid "stock"
+msgstr "მარაგში"
+
+#, php-format
+msgid "subscription"
+msgstr "გამოწერები"
+
+#, php-format
+msgid "supplier"
+msgstr "მომწოდებლები"
+
+msgid "tag"
+msgstr "თეგი"
+
+msgid "tax:0"
+msgstr "გადასახადი:0"
+
+msgid "tax:1"
+msgstr "გადასახადი:1"
+
+#, php-format
+msgid "text"
+msgstr "ტექსტი"
+
+#, php-format
+msgid "theme"
+msgstr "თემა"
+
+#, php-format
+msgid "transaction"
+msgstr "ტრანზაქცია"
+
+#, php-format
+msgid "type"
+msgstr "ტიპი"
+
+#, php-format
+msgid "type/attribute"
+msgstr "ტიპი/ათრიბუტი"
+
+#, php-format
+msgid "type/attribute/lists"
+msgstr "ტიპი/ათრიბუტი/სიები"
+
+#, php-format
+msgid "type/attribute/property"
+msgstr "ტიპი/ატრიბუტი/თვისება"
+
+#, php-format
+msgid "type/catalog/lists"
+msgstr "ტიპი/კატალოგი/სიები"
+
+#, php-format
+msgid "type/customer/lists"
+msgstr "ტიპი/მომხმარებელი/სიები"
+
+#, php-format
+msgid "type/customer/property"
+msgstr "ტიპი/მომხმარებელი/საკუთრება"
+
+#, php-format
+msgid "type/media"
+msgstr "ტიპი/მედია"
+
+#, php-format
+msgid "type/media/lists"
+msgstr "ტიპი/მედია/სიები"
+
+#, php-format
+msgid "type/media/property"
+msgstr "ტიპი/მედია/საკუთრება"
+
+#, php-format
+msgid "type/plugin"
+msgstr "ტიპი/პლაგინი"
+
+#, php-format
+msgid "type/price"
+msgstr "ტიპი/ფასი"
+
+#, php-format
+msgid "type/price/lists"
+msgstr "ტიპი/ფასი/სიები"
+
+#, php-format
+msgid "type/price/property"
+msgstr "ტიპი/ფასი/საკუთრება"
+
+#, php-format
+msgid "type/product"
+msgstr "ტიპი/პროდუქტი"
+
+#, php-format
+msgid "type/product/lists"
+msgstr "ტიპი/პროდუქტი/სიები"
+
+#, php-format
+msgid "type/product/property"
+msgstr "ტიპი/პროდუქტი/უძრავი ქონება"
+
+#, php-format
+msgid "type/rule"
+msgstr "ტიპი/წესი"
+
+#, php-format
+msgid "type/service"
+msgstr "ტიპი/მომსახურება"
+
+#, php-format
+msgid "type/service/lists"
+msgstr "ტიპი/მომსახურება/სიები"
+
+#, php-format
+msgid "type/stock"
+msgstr "ტიპი/სტანდარტი"
+
+#, php-format
+msgid "type/tag"
+msgstr "ტიპი/თეგი"
+
+#, php-format
+msgid "type/text"
+msgstr "ტიპი/ტექსტი"
+
+#, php-format
+msgid "type/text/lists"
+msgstr "ტიპი/ტექსტი/სიები"
+
+#, php-format
+msgid "users"
+msgstr "მომხმარებლები"
+
+msgid "yes"
+msgstr "დიახ"

@@ -1,16 +1,22 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Андрей Аксёнов <aksenovaa@bk.ru>, 2014
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Language: ru\n"
-"Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
-"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>, 2014\n"
-"MIME-Version: 1.0\n"
-"PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-21 23:29+0200\n"
+"PO-Revision-Date: 2015-07-09 20:33+0000\n"
+"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>, 2014\n"
+"Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "!="
 msgstr "не равно"
@@ -33,11 +39,20 @@ msgstr "после"
 msgid ">="
 msgstr "после (вкл.)"
 
+msgid "~="
+msgstr "содержит"
+
 msgid "address:delivery"
 msgstr "Адрес доставки"
 
 msgid "address:payment"
 msgstr "Платёжный адрес"
+
+msgid "service:delivery"
+msgstr "Доставка"
+
+msgid "service:payment"
+msgstr "Оплата"
 
 msgid "attribute"
 msgstr "атрибут"
@@ -84,12 +99,6 @@ msgstr "правило"
 msgid "service"
 msgstr "сервис"
 
-msgid "service:delivery"
-msgstr "Доставка"
-
-msgid "service:payment"
-msgstr "Оплата"
-
 msgid "stock"
 msgstr "акции"
 
@@ -107,6 +116,3 @@ msgstr "текст"
 
 msgid "type"
 msgstr "тип"
-
-msgid "~="
-msgstr "содержит"
