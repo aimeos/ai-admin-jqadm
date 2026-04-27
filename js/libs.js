@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import draggable from 'vuedraggable'
-import { Ckeditor } from '@ckeditor/ckeditor5-vue';
+import { CkeditorPlugin } from '@ckeditor/ckeditor5-vue';
 
 import {
 	ClassicEditor,
@@ -79,7 +79,7 @@ globalThis.Multiselect = Multiselect
 globalThis.Flatpickr = flatpickr
 globalThis.FlatpickrL10n = l10n
 globalThis.confirmDatePlugin = confirmDatePlugin
-globalThis.CKEditor = Ckeditor
+globalThis.CKEditor = CkeditorPlugin
 globalThis.ClassicEditor = ClassicEditor
 globalThis.CKEditorPlugins = [
 	Alignment,
