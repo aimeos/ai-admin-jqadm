@@ -81,6 +81,18 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
+	start(selector) {
+		const canvas = document.querySelector(selector + ' .chart canvas');
+		if(canvas) {
+			Chart.getChart(canvas)?.destroy();
+		}
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+	},
+
+
 	gradient(ctx, index) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
@@ -123,6 +135,7 @@ Aimeos.Dashboard.Sales = {
 	chartDay() {
 
 		const self = this;
+		this.start('.order-salesday');
 		const ctx = this.context('.order-salesday');
 		const keys = ["order.currencyid", "order.cdate"];
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
@@ -188,6 +201,7 @@ Aimeos.Dashboard.Sales = {
 	chartMonth() {
 
 		const self = this;
+		this.start('.order-salesmonth');
 		const ctx = this.context('.order-salesmonth');
 		const keys = ["order.currencyid", "order.cmonth"];
 		const startdate = moment().utc().startOf('month').subtract(12, 'months');
@@ -256,6 +270,7 @@ Aimeos.Dashboard.Sales = {
 	chartWeekday() {
 
 		const self = this;
+		this.start('.order-salesweekday');
 		const ctx = this.context('.order-salesweekday');
 		const keys = ["order.currencyid", "order.cwday"];
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');

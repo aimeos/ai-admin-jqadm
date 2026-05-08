@@ -34,6 +34,18 @@ Aimeos.Dashboard.Service = {
 	},
 
 
+	start(selector) {
+		const canvas = document.querySelector(selector + ' .chart canvas');
+		if(canvas) {
+			Chart.getChart(canvas)?.destroy();
+		}
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+	},
+
+
 	gradient(alpha, context) {
 		const chartArea = context.chart.chartArea;
 		const ctx = context.chart.ctx;
@@ -66,6 +78,7 @@ Aimeos.Dashboard.Service = {
 	chartDelivery() {
 
 		const self = this;
+		this.start('.order-servicedelivery');
 		const keys = "order.service.code";
 		const ctx = this.context('.order-servicedelivery');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
@@ -134,6 +147,7 @@ Aimeos.Dashboard.Service = {
 	chartPayment() {
 
 		const self = this;
+		this.start('.order-servicepayment');
 		const keys = "order.service.code";
 		const ctx = this.context('.order-servicepayment');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
