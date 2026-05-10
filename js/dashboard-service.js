@@ -23,6 +23,13 @@ Aimeos.Dashboard.Service = {
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
 		}
+
+		Chart.getChart(canvas)?.destroy();
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+
 		return canvas.getContext('2d');
 	},
 
@@ -30,18 +37,6 @@ Aimeos.Dashboard.Service = {
 	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
-		});
-	},
-
-
-	start(selector) {
-		const canvas = document.querySelector(selector + ' .chart canvas');
-		if(canvas) {
-			Chart.getChart(canvas)?.destroy();
-		}
-
-		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
-			el.classList.add('loading');
 		});
 	},
 
@@ -78,7 +73,6 @@ Aimeos.Dashboard.Service = {
 	chartDelivery() {
 
 		const self = this;
-		this.start('.order-servicedelivery');
 		const keys = "order.service.code";
 		const ctx = this.context('.order-servicedelivery');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
@@ -147,7 +141,6 @@ Aimeos.Dashboard.Service = {
 	chartPayment() {
 
 		const self = this;
-		this.start('.order-servicepayment');
 		const keys = "order.service.code";
 		const ctx = this.context('.order-servicepayment');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');

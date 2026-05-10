@@ -26,6 +26,13 @@ Aimeos.Dashboard.Order = {
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
 		}
+
+		Chart.getChart(canvas)?.destroy();
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+
 		return canvas.getContext('2d');
 	},
 
@@ -33,18 +40,6 @@ Aimeos.Dashboard.Order = {
 	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
-		});
-	},
-
-
-	start(selector) {
-		const canvas = document.querySelector(selector + ' .chart canvas');
-		if(canvas) {
-			Chart.getChart(canvas)?.destroy();
-		}
-
-		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
-			el.classList.add('loading');
 		});
 	},
 
@@ -73,7 +68,6 @@ Aimeos.Dashboard.Order = {
 	chartDay() {
 
 		const self = this;
-		this.start('.order-countday');
 		const ctx = this.context('.order-countday');
 
 		const cellWidth = this.dayCellSize + 4;
@@ -200,7 +194,6 @@ Aimeos.Dashboard.Order = {
 	chartHour() {
 
 		const self = this;
-		this.start('.order-counthour');
 		const keys = "order.chour";
 		const ctx = this.context('.order-counthour');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
@@ -293,7 +286,6 @@ Aimeos.Dashboard.Order = {
 	chartPaymentStatus() {
 
 		const self = this;
-		this.start('.order-countpaystatus');
 		const ctx = this.context('.order-countpaystatus');
 		const keys = ["order.statuspayment", "order.cdate"];
 		const labels = JSON.parse(document.querySelector('.order-countpaystatus').dataset.labels) || {};
@@ -411,7 +403,6 @@ Aimeos.Dashboard.Order = {
 	chartCountry() {
 
 		const self = this;
-		this.start('.order-countcountry');
 		const keys = "order.address.countryid";
 		const ctx = this.context('.order-countcountry');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');

@@ -70,6 +70,13 @@ Aimeos.Dashboard.Sales = {
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
 		}
+
+		Chart.getChart(canvas)?.destroy();
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+
 		return canvas.getContext('2d');
 	},
 
@@ -77,18 +84,6 @@ Aimeos.Dashboard.Sales = {
 	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
-		});
-	},
-
-
-	start(selector) {
-		const canvas = document.querySelector(selector + ' .chart canvas');
-		if(canvas) {
-			Chart.getChart(canvas)?.destroy();
-		}
-
-		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
-			el.classList.add('loading');
 		});
 	},
 
@@ -135,7 +130,6 @@ Aimeos.Dashboard.Sales = {
 	chartDay() {
 
 		const self = this;
-		this.start('.order-salesday');
 		const ctx = this.context('.order-salesday');
 		const keys = ["order.currencyid", "order.cdate"];
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
@@ -201,7 +195,6 @@ Aimeos.Dashboard.Sales = {
 	chartMonth() {
 
 		const self = this;
-		this.start('.order-salesmonth');
 		const ctx = this.context('.order-salesmonth');
 		const keys = ["order.currencyid", "order.cmonth"];
 		const startdate = moment().utc().startOf('month').subtract(12, 'months');
@@ -270,7 +263,6 @@ Aimeos.Dashboard.Sales = {
 	chartWeekday() {
 
 		const self = this;
-		this.start('.order-salesweekday');
 		const ctx = this.context('.order-salesweekday');
 		const keys = ["order.currencyid", "order.cwday"];
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
