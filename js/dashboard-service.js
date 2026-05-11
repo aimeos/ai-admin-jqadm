@@ -23,6 +23,13 @@ Aimeos.Dashboard.Service = {
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
 		}
+
+		Chart.getChart(canvas)?.destroy();
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+
 		return canvas.getContext('2d');
 	},
 
