@@ -26,6 +26,13 @@ Aimeos.Dashboard.Order = {
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
 		}
+
+		Chart.getChart(canvas)?.destroy();
+
+		document.querySelectorAll(selector + ' .chart, ' + selector + ' .content').forEach(function(el) {
+			el.classList.add('loading');
+		});
+
 		return canvas.getContext('2d');
 	},
 
@@ -456,6 +463,7 @@ Aimeos.Dashboard.Order = {
 			const toplist = document.querySelector('.order-countcountry .toplist');
 
 			if(toplist) {
+				toplist.innerHTML = '';
 				list.sort((a, b) => b.val - a.val);
 
 				for(const entry of list.slice(0, self.topLimit)) {
