@@ -19,7 +19,7 @@ namespace Aimeos\Admin\JQAdm;
  */
 class Exception extends \Exception
 {
-	private $details;
+	private mixed $details = null;
 
 
 	/**

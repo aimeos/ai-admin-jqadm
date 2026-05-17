@@ -27,7 +27,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Characteristic\Attribute\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -47,7 +47,7 @@ class Standard
 		 * to the ones listed here. The order of the types in the list defines
 		 * the order of the attribute types in the JQAdm product characteristic panel.
 		 *
-		 * @param array List of attribute types
+		 * @type array List of attribute types
 		 * @since 2025.04
 		 */
 		$types = $this->context()->config()->get( 'admin/jqadm/product/characteristic/attribute/types', [] );
@@ -56,7 +56,7 @@ class Standard
 		$filter = $manager->filter()->add( 'product.lists.type.code', '==', $types )->slice( 0, 10000 );
 		$map = $manager->search( $filter )->col( null, 'product.lists.type.code' );
 
-		$view->attributeTypes = $map->order( $types );
+		$view->attributeTypes = $map->order( (array) $types );
 		return $view;
 	}
 
@@ -69,6 +69,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->attributeData = $this->toArray( $view->item, true );
 		$view->attributeBody = parent::copy();
 
@@ -86,7 +87,9 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
 
+		// @phpstan-ignore argument.type
 		$itemData = $this->toArray( $view->item );
+		// @phpstan-ignore argument.type
 		$data = array_replace_recursive( $itemData, $view->param( 'characteristic/attribute', [] ) );
 
 		foreach( $data as $type => $list ) {
@@ -110,6 +113,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->attributeData = $this->toArray( $view->item );
 		$view->attributeBody = parent::get();
 
@@ -126,7 +130,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'characteristic/attribute', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'characteristic/attribute', [] ) );
 		$view->attributeBody = parent::save();
 
 		return null;
@@ -160,7 +165,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/attribute/decorators/global
@@ -183,7 +188,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/attribute/decorators/excludes
@@ -206,7 +211,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/attribute/decorators/excludes
@@ -252,10 +257,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/characteristic/attribute/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/characteristic/attribute/subparts', [] );
 	}
 
 
@@ -278,7 +283,7 @@ class Standard
 
 		foreach( $data as $type => $list ) {
 			foreach( $list as $entry ) {
-				$refIds[] = $this->val( $entry, 'attribute.id' );
+				$refIds[] = $this->val( (array) $entry, 'attribute.id' );
 			}
 		}
 
@@ -294,17 +299,18 @@ class Standard
 		{
 			foreach( $list as $entry )
 			{
-				$id = $this->val( $entry, 'product.lists.id' );
-				$refid = $this->val( $entry, 'attribute.id' );
+				$id = $this->val( (array) $entry, 'product.lists.id' );
+				$refid = $this->val( (array) $entry, 'attribute.id' );
 
-				$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
-				$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
+				$config = array_column( (array) $this->val( (array) $entry, 'config', [] ), 'val', 'key' );
+				$config = array_filter( array_map( fn( $val ) => json_decode( (string) $val, true ) ?? trim( (string) $val ), $config ) );
 				unset( $entry['config'] );
 
-				$listItem = $listItems->pull( $id ?? '' ) ?: $manager->createListItem();
+				$listItem = $listItems->pull( (string) $id ) ?: $manager->createListItem();
 				$listItem->fromArray( $entry, true )->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setConfigFlat( $config );
 
-				$item->addListItem( 'attribute', $listItem, $refItems->get( $refid ?? '' ) );
+				// @phpstan-ignore argument.type, argument.type
+				$item->addListItem( 'attribute', $listItem, $refItems->get( (string) $id ) );
 			}
 		}
 
@@ -317,7 +323,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -374,7 +380,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/characteristic/attribute/template-item';

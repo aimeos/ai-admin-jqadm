@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2016.01
 	 */
 
@@ -69,7 +69,7 @@ class Standard
 		$codes = [];
 
 		foreach( $this->context()->config()->get( 'common/countries', [] ) as $code ) {
-			$codes[$code] = $view->translate( 'country', $code );
+			$codes[$code] = $view->translate( 'country', (string) $code );
 		}
 
 		asort( $codes );
@@ -112,7 +112,9 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 
-			$view->item = $manager->get( $id, $refs );
+			// @phpstan-ignore argument.type, argument.type
+			$view->item = $manager->get( (string) $id, (array) $refs );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -136,7 +138,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $this->context(), 'order' )->create();
@@ -144,6 +146,7 @@ class Standard
 
 			$data['order.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -168,7 +171,7 @@ class Standard
 
 		try
 		{
-			$params = $this->storeFilter( $view->param(), 'order' );
+			$params = $this->storeFilter( (array) $view->param(), 'order' );
 			$msg = ['sitecode' => $context->locale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
@@ -180,7 +183,9 @@ class Standard
 			}
 
 			$queue = $view->param( 'queue', 'order-export' );
-			$mq = $context->queue( 'mq-admin', $queue );
+			// @phpstan-ignore argument.type
+			$mq = $context->queue( 'mq-admin', (string) $queue );
+			// @phpstan-ignore argument.type
 			$mq->add( json_encode( $msg ) );
 
 			$msg = $context->translate( 'admin', 'Your export will be available in a few minutes for download' );
@@ -216,7 +221,9 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 
-			$view->item = $manager->get( $id, $refs );
+			// @phpstan-ignore argument.type, argument.type
+			$view->item = $manager->get( (string) $id, (array) $refs );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -243,7 +250,7 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( clone $item );
 			$view->itemBody = parent::save();
 
@@ -251,7 +258,8 @@ class Standard
 			$manager->update( $view->item ); // update stock, coupons, etc.
 			$manager->commit();
 
-			return $this->redirect( 'order', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'order', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -279,12 +287,13 @@ class Standard
 			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 
 			$manager = \Aimeos\MShop::create( $context, 'order' );
-			$params = $this->storeFilter( $view->param(), 'order' );
+			$params = $this->storeFilter( (array) $view->param(), 'order' );
 
 			$search = $manager->filter( false, true )->order( '-order.id' );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->search( $search, $refs, $total );
+			// @phpstan-ignore argument.type
+			$view->items = $manager->search( $search, (array) $refs, $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
@@ -310,7 +319,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/order/template-list';
@@ -347,7 +356,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/decorators/global
@@ -370,7 +379,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/decorators/excludes
@@ -393,7 +402,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Order\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/decorators/excludes
@@ -491,10 +500,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/order/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/order/subparts', [] );
 	}
 
 
@@ -511,7 +520,8 @@ class Standard
 
 		if( isset( $data['order.id'] ) ) {
 			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
-			$item = $manager->get( $data['order.id'], $refs )->off();
+			// @phpstan-ignore argument.type
+			$item = $manager->get( (string) $data['order.id'], (array) $refs )->off();
 		} else {
 			$item = $manager->create()->off();
 		}
@@ -520,7 +530,7 @@ class Standard
 
 		foreach( $item->getProducts() as $pos => $product )
 		{
-			$list = $this->allowed( 'order/product', $data['product'][$pos] );
+			$list = $this->allowed( 'order/product', (array) $data['product'][$pos] );
 			$product->fromArray( $list );
 		}
 
@@ -543,7 +553,9 @@ class Standard
 			{
 				$list = [];
 				$serviceId = $service->getId();
+				// @phpstan-ignore argument.type
 				$attrItems = $this->attributes( 'order/service/attribute', $service->getAttributeItems() );
+				// @phpstan-ignore argument.type
 				$excluded = $this->excluded( 'order/service/attribute', $service->getAttributeItems() );
 
 				foreach( $data['service'][$type][$serviceId] ?? [] as $entry )
@@ -552,8 +564,8 @@ class Standard
 						continue;
 					}
 
-					$entry = array_filter( $entry );
-					$entry['order.service.attribute.value'] = json_decode( $value, true ) ?? $value;
+					$entry = array_filter( (array) $entry );
+					$entry['order.service.attribute.value'] = json_decode( (string) $value, true ) ?? $value;
 					$id = $entry['order.service.attribute.id'] ?? '';
 
 					$attrItem = $attrItems[$id] ?? $manager->createServiceAttribute();
@@ -564,6 +576,7 @@ class Standard
 			}
 		}
 
+		// @phpstan-ignore return.type
 		return $item;
 	}
 
@@ -572,7 +585,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Order\Item\Iface $item Order item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Order\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -640,6 +653,7 @@ class Standard
 				$data['service'][$type][$serviceId] = $serviceItem->toArray( true );
 				$data['service'][$type][$serviceId]['attributes'] = [];
 
+				// @phpstan-ignore argument.type
 				foreach( $this->attributes( 'order/service/attribute', $serviceItem->getAttributeItems() ) as $attrItem )
 				{
 					$entry = $attrItem->toArray( true );
@@ -688,7 +702,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/order/template-item';

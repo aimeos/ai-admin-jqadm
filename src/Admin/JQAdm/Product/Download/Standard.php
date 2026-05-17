@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Download\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->downloadData = $this->toArray( $view->item, true );
 		$view->downloadBody = parent::copy();
 
@@ -58,6 +59,7 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$data['product.lists.siteid'] = $this->context()->locale()->getSiteId();
+		// @phpstan-ignore argument.type, argument.type
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
 		$view->downloadData = $data;
@@ -83,8 +85,8 @@ class Standard
 		{
 			$refItem = $listItem->getRefItem();
 
-			if( $refItem !== null && $refItem->getCode() != '' && $fs->has( $refItem->getCode() ) ) {
-				$fs->rm( $refItem->getCode() );
+			if( $refItem !== null && $refItem->getCode() != '' && $fs->has( (string) $refItem->getCode() ) ) {
+				$fs->rm( (string) $refItem->getCode() );
 			}
 
 			$item->deleteListItem( 'attribute', $listItem, $refItem );
@@ -102,6 +104,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->downloadData = $this->toArray( $view->item );
 		$view->downloadBody = parent::get();
 
@@ -118,7 +121,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'download', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'download', [] ) );
 		$view->downloadBody = parent::save();
 
 		return null;
@@ -152,7 +156,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.03
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/download/decorators/global
@@ -175,7 +179,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.03
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/download/decorators/excludes
@@ -198,7 +202,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.03
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/download/decorators/excludes
@@ -244,10 +248,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.03
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/download/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/download/subparts', [] );
 	}
 
 
@@ -264,6 +268,7 @@ class Standard
 
 		if( $path === null )
 		{
+			// @phpstan-ignore argument.type
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$hash = md5( $file->getClientFilename() . microtime( true ) );
 			$path = sprintf( '%s/%s/%s.%s', $hash[0], $hash[1], $hash, $ext );
@@ -273,6 +278,7 @@ class Standard
 			}
 		}
 
+		// @phpstan-ignore argument.type
 		$fs->writes( $path, $file->getStream()->detach() );
 
 		return $path;
@@ -299,7 +305,7 @@ class Standard
 		{
 			$listId = $this->val( $data, 'product.lists.id' );
 
-			$litem = $listItems->pull( $listId ?? '' ) ?: $prodManager->createListItem()->setType( 'hidden' );
+			$litem = $listItems->pull( (string) $listId ) ?: $prodManager->createListItem()->setType( 'hidden' );
 			$refItem = $litem->getRefItem() ?: $attrManager->create()->setType( 'download' );
 
 			$litem->fromArray( $data, true );
@@ -309,9 +315,11 @@ class Standard
 				&& $file->getError() === UPLOAD_ERR_OK
 			) {
 				$path = ( $this->val( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
-				$refItem->setCode( $this->storeFile( $file, $path ) );
+				// @phpstan-ignore argument.type
+				$refItem->setCode( $this->storeFile( $file, (string) $path ) );
 			}
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->addListItem( 'attribute', $litem, $refItem );
 		}
 
@@ -319,10 +327,11 @@ class Standard
 		{
 			$refItem = $listItem->getRefItem();
 
-			if( $refItem !== null && ( $path = $refItem->getCode() ) != '' && $fs->has( $path ) ) {
-				$fs->rm( $path );
+			if( $refItem !== null && ( $path = $refItem->getCode() ) != '' && $fs->has( (string) $path ) ) {
+				$fs->rm( (string) $path );
 			}
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->deleteListItem( 'attribute', $listItem, $refItem );
 		}
 
@@ -335,7 +344,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -391,7 +400,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/download/template-item';

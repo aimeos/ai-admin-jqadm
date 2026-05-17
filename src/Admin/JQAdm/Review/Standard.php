@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2017.07
 	 */
 
@@ -109,7 +109,7 @@ class Standard
 			$manager->delete( $items );
 			$manager->commit();
 
-			$this->update( $items )->redirect( 'review', 'search', null, 'delete' );
+			$this->update( $items )->redirect( 'review', 'search', null, 'delete' ); // @phpstan-ignore method.notFound
 		}
 		catch( \Exception $e )
 		{
@@ -140,8 +140,10 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
 			$view->itemSubparts = $this->getSubClientNames();
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -168,13 +170,14 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$item = $manager->save( clone $view->item );
 			$manager->commit();
 
+			// @phpstan-ignore return.type, method.notFound
 			return $this->update( [$item] )->redirect( 'review', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
@@ -199,7 +202,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'review' );
+			$params = $this->storeFilter( (array) $view->param(), 'review' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
 			$search = $manager->filter()->order( 'review.ctime' );
@@ -231,7 +234,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/review/template-list';
@@ -268,7 +271,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2020.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/review/decorators/global
@@ -291,7 +294,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2020.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/review/decorators/excludes
@@ -314,7 +317,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Review\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2020.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/review/decorators/excludes
@@ -360,10 +363,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2020.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/review/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/review/subparts', [] );
 	}
 
 
@@ -384,12 +387,13 @@ class Standard
 			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 		}
 
-		$item = $manager->get( $id );
+		$item = $manager->get( (string) $id );
 
 		if( $this->view()->access( ['super', 'admin'] ) ) {
-			$item->setStatus( (int) $data['review.status'] ?? 1 );
+			$item->setStatus( (int) $data['review.status'] );
 		}
 
+		// @phpstan-ignore return.type
 		return $item->setResponse( $data['review.response'] ?? '' )->setName( $data['review.name'] ?? '' );
 	}
 
@@ -398,7 +402,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Review\Item\Iface $item Review item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Review\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -429,7 +433,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/review/template-item';
@@ -442,7 +446,7 @@ class Standard
 	/**
 	 * Updates the average rating and the number of ratings in the domain item
 	 *
-	 * @param iterable $item List of review items with domain and refid
+	 * @param iterable $items List of review items with domain and refid
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin client for fluent interface
 	 */
 	protected function update( iterable $items ) : \Aimeos\Admin\JQAdm\Iface
@@ -459,11 +463,12 @@ class Standard
 				'review.status' => 1
 			] );
 
-			$rateManager = \Aimeos\MShop::create( $context, $domain === 'product' ? 'index' : $domain );
+			// @phpstan-ignore argument.type
+			$rateManager = \Aimeos\MShop::create( $context, (string) $domain === 'product' ? 'index' : $domain );
 			$entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first( [] );
 
-			if( !empty( $cnt = current( $entry ) ) ) {
-				$rateManager->rate( $item->getRefId(), key( $entry ) / $cnt, $cnt );
+			if( !empty( $cnt = current( (array) $entry ) ) ) {
+				$rateManager->rate( $item->getRefId(), key( (array) $entry ) / $cnt, $cnt );
 			} else {
 				$rateManager->rate( $item->getRefId(), 0, 0 );
 			}

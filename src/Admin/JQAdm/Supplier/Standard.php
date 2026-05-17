@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2017.10
 	 */
 
@@ -69,7 +69,7 @@ class Standard
 		$codes = [];
 
 		foreach( $this->context()->config()->get( 'common/countries', [] ) as $code ) {
-			$codes[$code] = $view->translate( 'country', $code );
+			$codes[$code] = $view->translate( 'country', (string) $code );
 		}
 
 		asort( $codes );
@@ -109,8 +109,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'supplier' );
-			$view->item = $manager->get( $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, $this->getDomains() );
 
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -134,7 +136,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $this->context(), 'supplier' )->create();
@@ -142,6 +144,7 @@ class Standard
 
 			$data['supplier.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -218,7 +221,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'supplier' );
 
-			$view->item = $manager->get( $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -245,14 +250,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'supplier', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'supplier', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -276,7 +282,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'supplier' );
+			$params = $this->storeFilter( (array) $view->param(), 'supplier' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'supplier' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
@@ -306,7 +312,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/supplier/template-list';
@@ -343,7 +349,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/decorators/global
@@ -366,7 +372,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/decorators/excludes
@@ -389,7 +395,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Supplier\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/decorators/excludes
@@ -413,10 +419,10 @@ class Standard
 		 * list of domains (attribute, media, price, supplier, text, etc. are
 		 * domains) whose items are fetched from the storage.
 		 *
-		 * @param array List of domain names
+		 * @type array List of domain names
 		 * @since 2017.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/supplier/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/supplier/domains', [] ); // @phpstan-ignore return.type
 	}
 
 
@@ -456,10 +462,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/supplier/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/supplier/subparts', [] );
 	}
 
 
@@ -475,14 +481,14 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'supplier' );
 
 		if( isset( $data['supplier.id'] ) && $data['supplier.id'] != '' ) {
-			$item = $manager->get( $data['supplier.id'], $this->getDomains() );
+			$item = $manager->get( (string) $data['supplier.id'], $this->getDomains() );
 		} else {
 			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );
 
-		return $item;
+		return $item; // @phpstan-ignore return.type
 	}
 
 
@@ -490,7 +496,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -499,7 +505,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['supplier.siteid'] = $this->context()->locale()->getSiteId();
-			$data['supplier.code'] = $data['supplier.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$data['supplier.code'] = $data['supplier.code'] . '_' . substr( md5( (string) microtime( true ) ), -5 );
 			$data['supplier.id'] = '';
 		}
 
@@ -530,7 +536,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/supplier/template-item';

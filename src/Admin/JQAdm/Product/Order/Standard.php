@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Order\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 * @order Developer
 	 */
@@ -98,7 +98,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @order Developer
 		 * @see admin/jqadm/common/decorators/default
@@ -122,7 +122,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @order Developer
 		 * @see admin/jqadm/common/decorators/default
@@ -146,7 +146,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @order Developer
 		 * @see admin/jqadm/common/decorators/default
@@ -193,11 +193,11 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 * @order Developer
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/order/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/order/subparts', [] );
 	}
 
 
@@ -224,7 +224,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 * @order Developer
 		 */

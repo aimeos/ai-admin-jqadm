@@ -52,7 +52,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2017.10
 	 */
 
@@ -99,8 +99,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
 
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -130,6 +132,7 @@ class Standard
 				$view->item = \Aimeos\MShop::create( $this->context(), 'locale/currency' )->create();
 			}
 
+			// @phpstan-ignore argument.type, argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -205,7 +208,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -232,14 +237,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'locale/currency', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'locale/currency', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -263,7 +269,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'locale/currency' );
+			$params = $this->storeFilter( (array) $view->param(), 'locale/currency' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
 			$search = $manager->filter()->order( ['-locale.currency.status', 'locale.currency.id'] );
@@ -295,7 +301,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-list';
@@ -332,7 +338,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/global
@@ -355,7 +361,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
@@ -378,7 +384,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Locale\Currency\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
@@ -424,10 +430,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/locale/currency/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/locale/currency/subparts', [] );
 	}
 
 
@@ -443,14 +449,14 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
 		if( isset( $data['locale.currency.id'] ) && $data['locale.currency.id'] != '' ) {
-			$item = $manager->get( $data['locale.currency.id'] );
+			$item = $manager->get( (string) $data['locale.currency.id'] );
 		} else {
 			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );
 
-		return $item;
+		return $item; // @phpstan-ignore return.type
 	}
 
 
@@ -458,7 +464,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Locale\Item\Currency\Iface $item Locale currency item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Locale\Item\Currency\Iface $item, bool $copy = false ) : array
 	{
@@ -497,7 +503,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2017.10
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-item';

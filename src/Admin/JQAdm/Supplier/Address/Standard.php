@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Supplier\Address\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.10
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->addressData = $this->toArray( $view->item, true );
 		$view->addressBody = parent::copy();
 
@@ -79,6 +80,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->addressData = $this->toArray( $view->item );
 		$view->addressBody = parent::get();
 
@@ -95,7 +97,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'address', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'address', [] ) );
 		$view->addressBody = parent::save();
 
 		return null;
@@ -129,7 +132,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/address/decorators/global
@@ -152,7 +155,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/address/decorators/excludes
@@ -175,7 +178,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Supplier\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/address/decorators/excludes
@@ -221,10 +224,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/supplier/address/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/supplier/address/subparts', [] );
 	}
 
 
@@ -233,7 +236,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object without referenced domain items
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Service\Item\Iface Modified supplier item
+	 * @return \Aimeos\MShop\Supplier\Item\Iface Modified supplier item
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data ) : \Aimeos\MShop\Supplier\Item\Iface
 	{
@@ -242,13 +245,14 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			if( ( $addrItem = $addrItems->get( $entry['supplier.address.id'] ) ) !== null ) {
-				$addrItems->remove( $entry['supplier.address.id'] );
+			if( ( $addrItem = $addrItems->get( (string) $entry['supplier.address.id'] ) ) !== null ) {
+				$addrItems->remove( (string) $entry['supplier.address.id'] );
 			} else {
 				$addrItem = $manager->createAddressItem();
 			}
 
 			$addrItem->fromArray( $entry, true );
+			// @phpstan-ignore argument.type
 			$item->addAddressItem( $addrItem );
 		}
 
@@ -261,7 +265,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -308,7 +312,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2017.10
 		 */
 		$tplconf = 'admin/jqadm/supplier/address/template-item';

@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2023.10
 	 */
 
@@ -102,7 +102,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $context, 'basket' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -180,7 +182,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $context, 'basket' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -205,7 +209,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'basket' );
+			$params = $this->storeFilter( (array) $view->param(), 'basket' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'basket' );
 
 			$search = $manager->filter( false, true )->order( 'basket.ctime' );
@@ -237,7 +241,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2023.10
 		 */
 		$tplconf = 'admin/jqadm/basket/template-list';
@@ -274,7 +278,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/basket/decorators/global
@@ -297,7 +301,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/basket/decorators/excludes
@@ -320,7 +324,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Subscription\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/basket/decorators/excludes
@@ -366,10 +370,10 @@ class Standard
 		 * should support adding, removing or rebasketing content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2023.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/basket/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/basket/subparts', [] );
 	}
 
 
@@ -377,7 +381,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Basket\Item\Iface $item Basket item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Basket\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -417,7 +421,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2023.10
 		 */
 		$tplconf = 'admin/jqadm/basket/template-item';

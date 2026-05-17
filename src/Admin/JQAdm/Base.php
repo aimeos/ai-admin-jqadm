@@ -152,7 +152,7 @@ abstract class Base
 		foreach( $this->getSubClients() as $idx => $client )
 		{
 			$view->tabindex = ++$idx + 1;
-			$body .= $client->copy();
+			$body .= $client->copy(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -172,7 +172,7 @@ abstract class Base
 		foreach( $this->getSubClients() as $idx => $client )
 		{
 			$view->tabindex = ++$idx + 1;
-			$body .= $client->create();
+			$body .= $client->create(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -189,7 +189,7 @@ abstract class Base
 		$body = null;
 
 		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->delete();
+			$body .= $client->delete(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -206,7 +206,7 @@ abstract class Base
 		$body = null;
 
 		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->export();
+			$body .= $client->export(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -226,7 +226,7 @@ abstract class Base
 		foreach( $this->getSubClients() as $idx => $client )
 		{
 			$view->tabindex = ++$idx + 1;
-			$body .= $client->get();
+			$body .= $client->get(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -243,7 +243,7 @@ abstract class Base
 		$body = null;
 
 		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->import();
+			$body .= $client->import(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -260,7 +260,7 @@ abstract class Base
 		$body = null;
 
 		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->save();
+			$body .= $client->save(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -277,7 +277,7 @@ abstract class Base
 		$body = null;
 
 		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->search();
+			$body .= $client->search(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $body;
@@ -321,6 +321,7 @@ abstract class Base
 			$client = \Aimeos\Utils::create( $classname, [$client, $this->context], $interface );
 		}
 
+		// @phpstan-ignore return.type
 		return $client;
 	}
 
@@ -334,7 +335,7 @@ abstract class Base
 	 */
 	protected function addClientDecorators( \Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		if( !is_string( $path ) || $path === '' )
+		if( $path === '' )
 		{
 			$msg = $this->context->translate( 'admin', 'Invalid domain "%1$s"' );
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
@@ -345,11 +346,11 @@ abstract class Base
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
-		$client = $this->addDecorators( $client, $decorators, $classprefix );
+		$client = $this->addDecorators( $client, (array) $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\' . $localClass . '\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] );
-		$client = $this->addDecorators( $client, $decorators, $classprefix );
+		$client = $this->addDecorators( $client, (array) $decorators, $classprefix );
 
 		return $client;
 	}
@@ -369,7 +370,7 @@ abstract class Base
 		if( !empty( $ids = $view->param( 'id' ) ) )
 		{
 			$manager = \Aimeos\MShop::create( $this->context(), $domain );
-			$filter = $manager->filter()->add( [str_replace( '/', '.', $domain ) . '.id' => $ids] )->slice( 0, count( $ids ) );
+			$filter = $manager->filter()->add( [str_replace( '/', '.', $domain ) . '.id' => $ids] )->slice( 0, (int) count( (array) $ids ) );
 			$items = $manager->search( $filter, $this->getDomains() );
 
 			$data = $view->param( 'item', [] );
@@ -405,6 +406,7 @@ abstract class Base
 		$name = $name ?: $this->context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
 
 		if( empty( $name ) || ctype_alnum( $name ) === false ) {
+			// @phpstan-ignore argument.type
 			throw new \LogicException( sprintf( 'Invalid characters in client name "%1$s"', $name ), 400 );
 		}
 
@@ -413,8 +415,10 @@ abstract class Base
 		$interface = \Aimeos\Admin\JQAdm\Iface::class;
 
 		$object = \Aimeos\Utils::create( $classname, [$this->context], $interface );
+		// @phpstan-ignore argument.type
 		$object = $this->addClientDecorators( $object, $path );
 
+		// @phpstan-ignore return.type, method.notFound
 		return $object->setObject( $object )->setAimeos( $this->aimeos )->setView( $this->view );
 	}
 
@@ -498,7 +502,7 @@ abstract class Base
 
 		foreach( $this->getAimeos()->getIncludePaths() as $path )
 		{
-			$path .= DIRECTORY_SEPARATOR . $relpath;
+			$path .= DIRECTORY_SEPARATOR . $relpath; // @phpstan-ignore assignOp.invalid
 
 			if( is_dir( $path ) )
 			{
@@ -533,7 +537,7 @@ abstract class Base
 				if( $key != '' && isset( $params['op'][$idx] ) && $params['op'][$idx] != ''
 					&& isset( $params['val'][$idx] ) && $params['val'][$idx] != ''
 				) {
-					$expr[] = [$params['op'][$idx] => [$key => $params['val'][$idx]]];
+					$expr[] = [(string) $params['op'][$idx] => [(string) $key => $params['val'][$idx]]];
 				}
 			}
 
@@ -587,7 +591,7 @@ abstract class Base
 			$this->subclients = [];
 
 			foreach( $this->getSubClientNames() as $name ) {
-				$this->subclients[] = $this->getSubClient( $name );
+				$this->subclients[] = $this->getSubClient( (string) $name );
 			}
 		}
 
@@ -616,11 +620,12 @@ abstract class Base
 	protected function initCriteria( \Aimeos\Base\Criteria\Iface $criteria, array $params ) : \Aimeos\Base\Criteria\Iface
 	{
 		if( isset( $params['sort'] ) && !empty( $params['sort'] ) ) {
+			// @phpstan-ignore argument.type
 			$criteria->order( $params['sort'] );
 		}
 
-		return $criteria->slice( $params['page']['offset'] ?? 0, $params['page']['limit'] ?? 25 )
-			->add( $criteria->parse( $this->getCriteriaConditions( $params['filter'] ?? [] ) ) );
+		return $criteria->slice( (int) ( $params['page']['offset'] ?? 0 ), (int) ( $params['page']['limit'] ?? 25 ) )
+			->add( $criteria->parse( $this->getCriteriaConditions( (array) $params['filter'] ) ) );
 	}
 
 
@@ -711,7 +716,7 @@ abstract class Base
 		}
 
 		$view->response()->withStatus( 302 );
-		$view->response()->withHeader( 'Location', $url );
+		$view->response()->withHeader( 'Location', (string) $url );
 		$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
 		return null;
@@ -732,11 +737,13 @@ abstract class Base
 
 		if( $e instanceof \Aimeos\Admin\JQAdm\Exception )
 		{
+			// @phpstan-ignore argument.type
 			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
 			return $this->log( $e );
 		}
 		elseif( $e instanceof \Aimeos\MShop\Exception )
 		{
+			// @phpstan-ignore argument.type
 			$view->errors = array_merge( $view->get( 'errors', [] ), [$i18n->dt( 'mshop', $e->getMessage() )] );
 			return $this->log( $e );
 		}
@@ -748,6 +755,7 @@ abstract class Base
 			default: $msg = $i18n->dt( 'admin', 'Error retrieving data' ); break;
 		}
 
+		// @phpstan-ignore argument.type
 		$view->errors = array_merge( $view->get( 'errors', [] ), [$msg] );
 
 		return $this->log( $e );
@@ -814,7 +822,7 @@ abstract class Base
 		foreach( $errors as $key => $error )
 		{
 			if( $error ) {
-				$list[] = $key . ': ' . $i18n->dt( 'mshop', $error );
+				$list[] = $key . ': ' . $i18n->dt( 'mshop', (string) $error );
 			}
 		}
 

@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Coupon\Code\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -72,7 +72,8 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 
 		$total = 0;
-		$params = $this->storeFilter( $view->param( 'vc', [] ), 'couponcode' );
+		$params = $this->storeFilter( (array) $view->param( 'vc', [] ), 'couponcode' );
+		// @phpstan-ignore argument.type
 		$codeItems = $this->getCodeItems( $view->item, $params, $total );
 
 		$view->codeData = $this->toArray( $codeItems );
@@ -97,9 +98,11 @@ class Standard
 
 		try
 		{
-			$this->storeFilter( $view->param( 'vc', [] ), 'couponcode' );
+			$this->storeFilter( (array) $view->param( 'vc', [] ), 'couponcode' );
+			// @phpstan-ignore argument.type
 			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
-			$this->fromArray( $view->item, $view->param( 'code', [] ) );
+			// @phpstan-ignore argument.type
+			$this->fromArray( $view->item, (array) $view->param( 'code', [] ) );
 			$view->codeBody = parent::save();
 
 			$manager->commit();
@@ -141,7 +144,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/coupon/code/decorators/global
@@ -164,7 +167,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/coupon/code/decorators/excludes
@@ -187,7 +190,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Coupon\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/coupon/code/decorators/excludes
@@ -203,7 +206,7 @@ class Standard
 	 * @param \Psr\Http\Message\UploadedFileInterface $file Uploaded file
 	 * @throws \Aimeos\Admin\JQAdm\Exception If an error occured during upload
 	 */
-	protected function checkFileUpload( \Psr\Http\Message\UploadedFileInterface $file )
+	protected function checkFileUpload( \Psr\Http\Message\UploadedFileInterface $file ) : void
 	{
 		if( $file->getError() !== UPLOAD_ERR_OK )
 		{
@@ -246,6 +249,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
 
 		$search = $manager->filter();
+		// @phpstan-ignore argument.type
 		$search->setSortations( [$search->sort( '+', 'coupon.code.code' )] );
 
 		$search = $this->initCriteria( $search, $params );
@@ -253,6 +257,7 @@ class Standard
 			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
 			$search->getConditions(),
 		];
+		// @phpstan-ignore argument.type
 		$search->setConditions( $search->and( $expr ) );
 
 		return $manager->search( $search, [], $total );
@@ -295,10 +300,10 @@ class Standard
 		 * should support adding, removing or recodeing content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/coupon/code/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/coupon/code/subparts', [] );
 	}
 
 
@@ -316,7 +321,7 @@ class Standard
 		}
 
 		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
-		$filter = $manager->filter()->add( ['coupon.code.id' => $ids] )->slice( 0, count( $ids ) );
+		$filter = $manager->filter()->add( ['coupon.code.id' => $ids] )->slice( 0, count( (array) $ids ) );
 		$items = $manager->search( $filter );
 
 		foreach( $ids as $idx => $id )
@@ -335,6 +340,7 @@ class Standard
 			$citem->setDateEnd( $this->val( $data, 'coupon.code.dateend/' . $idx, $citem->getDateEnd() ) );
 			$citem->setRef( $this->val( $data, 'coupon.code.ref/' . $idx, $citem->getRef() ) );
 
+			// @phpstan-ignore argument.type
 			$manager->save( $citem, false );
 		}
 
@@ -348,7 +354,7 @@ class Standard
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
 	 * @param array $files File upload array including the PSR-7 file upload objects
 	 */
-	protected function storeFile( \Aimeos\MShop\Coupon\Item\Iface $item, array $files )
+	protected function storeFile( \Aimeos\MShop\Coupon\Item\Iface $item, array $files ) : void
 	{
 		$file = $this->val( $files, 'code/file' );
 
@@ -356,6 +362,7 @@ class Standard
 			return;
 		}
 
+		// @phpstan-ignore argument.type
 		$this->checkFileUpload( $file );
 
 		$context = $this->context();
@@ -366,6 +373,7 @@ class Standard
 			$fs->mkdir( $dir );
 		}
 
+		// @phpstan-ignore argument.type
 		$fs->writes( $dir . '/' . $item->getId() . '.csv', $file->getStream()->detach() );
 	}
 
@@ -374,7 +382,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\Map $items Coupon code items implementing \Aimeos\MShop\Coupon\Item\Code\Iface
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\Map $items )
 	{
@@ -414,7 +422,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/coupon/code/template-item';

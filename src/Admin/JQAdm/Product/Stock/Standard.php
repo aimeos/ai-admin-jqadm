@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Stock\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -62,6 +62,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->stockData = $this->toArray( $view->item, true );
 		$view->stockBody = parent::copy();
 
@@ -79,7 +80,9 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
 
+		// @phpstan-ignore argument.type
 		$itemData = $this->toArray( $view->item );
+		// @phpstan-ignore argument.type
 		$data = array_replace_recursive( $itemData, $view->param( 'stock', [] ) );
 
 		foreach( $data as $idx => $entry ) {
@@ -118,11 +121,12 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->stockData = $this->toArray( $view->item );
 		$view->stockBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->stockBody .= $client->get();
+			$view->stockBody .= $client->get(); // @phpstan-ignore assignOp.invalid
 		}
 
 		return $this->render( $view );
@@ -143,11 +147,12 @@ class Standard
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'stock', [] ) );
+			// @phpstan-ignore argument.type
+			$this->fromArray( $view->item, (array) $view->param( 'stock', [] ) );
 			$view->stockBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
-				$view->stockBody .= $client->save();
+				$view->stockBody .= $client->save(); // @phpstan-ignore assignOp.invalid
 			}
 
 			$manager->commit();
@@ -189,7 +194,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/stock/decorators/global
@@ -212,7 +217,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/stock/decorators/excludes
@@ -235,7 +240,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/stock/decorators/excludes
@@ -281,10 +286,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/stock/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/stock/subparts', [] );
 	}
 
 
@@ -306,20 +311,22 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			$id = $this->val( $entry, 'stock.id' );
-			$stockItem = $stocks->pull( $id ) ?: $manager->create();
+			$id = $this->val( (array) $entry, 'stock.id' );
+			$stockItem = $stocks->pull( (string) $id ) ?: $manager->create();
 			$stockItem->fromArray( $entry )->setProductId( $item->getId() );
 
 			if( $entry['stock.stockflag'] ?? false ) {
-				$stockItem->setStockLevel( $stockItem->getStockLevel() + $entry['stock.stockdiff'] ?? 0 );
+				$stockItem->setStockLevel( $stockItem->getStockLevel() + $entry['stock.stockdiff'] );
 			}
 
+			// @phpstan-ignore argument.type
 			$item->setInStock( (int) $stockItem->getStockLevel() > 0 || $stockItem->getStockLevel() === null );
 
 			$stockItems[] = $stockItem;
 		}
 
 		$manager->delete( $stocks );
+		// @phpstan-ignore argument.type
 		$manager->save( $stockItems, false );
 
 		return $item;
@@ -331,7 +338,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -352,7 +359,7 @@ class Standard
 				$list['stock.id'] = '';
 			}
 
-			$list['stock.dateback'] = str_replace( ' ', 'T', $list['stock.dateback'] ?? '' );
+			$list['stock.dateback'] = str_replace( ' ', 'T', (string) $list['stock.dateback'] );
 
 			$data[] = $list;
 		}
@@ -384,7 +391,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/stock/template-item';

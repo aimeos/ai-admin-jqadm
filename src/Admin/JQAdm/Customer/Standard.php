@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2016.01
 	 */
 
@@ -69,7 +69,7 @@ class Standard
 		$codes = [];
 
 		foreach( $this->context()->config()->get( 'common/countries', [] ) as $code ) {
-			$codes[$code] = $view->translate( 'country', $code );
+			$codes[$code] = $view->translate( 'country', (string) $code );
 		}
 
 		asort( $codes );
@@ -98,7 +98,7 @@ class Standard
 		{
 			$context = $this->context();
 			$manager = \Aimeos\MShop::create( $context, 'customer' );
-			$filter = $manager->filter()->add( ['customer.id' => $ids] )->slice( 0, count( $ids ) );
+			$filter = $manager->filter()->add( ['customer.id' => $ids] )->slice( 0, (int) count( (array) $ids ) );
 			$items = $manager->search( $filter );
 
 			$data = $view->param( 'item', [] );
@@ -142,8 +142,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
-			$view->item = $manager->get( $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, $this->getDomains() );
 
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -167,7 +169,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $this->context(), 'customer' )->create();
@@ -175,6 +177,7 @@ class Standard
 
 			$data['customer.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -268,7 +271,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 
-			$view->item = $manager->get( $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, $this->getDomains() );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -302,7 +307,8 @@ class Standard
 
 		foreach( is_array( $files ) ? $files : [$files] as $idx => $file )
 		{
-			$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( microtime( true ) ), 0, 4 ) . '.csv';
+			$filename = date( 'YmdHis' ) . '_' . str_pad( $idx, 3, '0', STR_PAD_LEFT ) . '_' . substr( md5( (string) microtime( true ) ), 0, 4 ) . '.csv';
+			// @phpstan-ignore argument.type
 			$fs->writes( $dir . '/' . $site . '/' . $filename, $file->getStream()->detach() );
 		}
 
@@ -324,14 +330,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'customer', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'customer', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -355,7 +362,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'customer' );
+			$params = $this->storeFilter( (array) $view->param(), 'customer' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
@@ -385,7 +392,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/customer/template-list';
@@ -422,7 +429,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/customer/decorators/global
@@ -445,7 +452,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/customer/decorators/excludes
@@ -468,7 +475,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Customer\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/customer/decorators/excludes
@@ -492,10 +499,10 @@ class Standard
 		 * list of domains (attribute, media, price, customer, text, etc. are
 		 * domains) whose items are fetched from the storage.
 		 *
-		 * @param array List of domain names
+		 * @type array List of domain names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/customer/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/customer/domains', [] ); // @phpstan-ignore return.type
 	}
 
 
@@ -535,10 +542,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/customer/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/customer/subparts', [] );
 	}
 
 
@@ -555,7 +562,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
-			$item = $manager->get( $data['customer.id'], $this->getDomains() );
+			$item = $manager->get( (string) $data['customer.id'], $this->getDomains() );
 		} else {
 			$item = $manager->create();
 		}
@@ -576,7 +583,8 @@ class Standard
 			->setDateVerified( $data['customer.dateverified'] ?? null );
 
 		if( $this->view()->access( ['super', 'admin'] ) ) {
-			$item->setGroups( array_unique( $this->val( $data, 'groups', [] ) ) );
+			// @phpstan-ignore argument.type
+			$item->setGroups( array_unique( (array) $this->val( $data, 'groups', [] ) ) );
 		}
 
 		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() )
@@ -586,7 +594,7 @@ class Standard
 		}
 
 		unset( $data['customer.password'], $data['customer.code'] );
-		return $item->fromArray( $data );
+		return $item->fromArray( $data ); // @phpstan-ignore return.type
 	}
 
 
@@ -594,7 +602,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Customer\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -643,7 +651,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/customer/template-item';

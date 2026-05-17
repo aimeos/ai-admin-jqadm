@@ -48,6 +48,7 @@ abstract class Base
 	 */
 	public function __call( string $name, array $param )
 	{
+		// @phpstan-ignore argument.type
 		return @call_user_func_array( [$this->client, $name], $param );
 	}
 
@@ -201,7 +202,7 @@ abstract class Base
 	{
 		parent::setAimeos( $aimeos );
 
-		$this->client->setAimeos( $aimeos );
+		$this->client->setAimeos( $aimeos ); // @phpstan-ignore method.notFound
 		return $this;
 	}
 

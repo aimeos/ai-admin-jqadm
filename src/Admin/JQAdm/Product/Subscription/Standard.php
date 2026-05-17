@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Subscription\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2018.04
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->subscriptionData = $this->toArray( $view->item, true );
 		$view->subscriptionBody = parent::copy();
 
@@ -58,9 +59,9 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'subscription', [] );
+		$data = (array) $view->param( 'subscription', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+		foreach( $view->value( (array) $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;
 		}
 
@@ -79,6 +80,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->subscriptionData = $this->toArray( $view->item );
 		$view->subscriptionBody = parent::get();
 
@@ -95,7 +97,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'subscription', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'subscription', [] ) );
 		$view->subscriptionBody = parent::save();
 
 		return null;
@@ -129,7 +132,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/subscription/decorators/global
@@ -152,7 +155,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/subscription/decorators/excludes
@@ -175,7 +178,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/subscription/decorators/excludes
@@ -238,10 +241,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2018.04
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/subscription/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/subscription/subparts', [] );
 	}
 
 
@@ -263,11 +266,11 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			if( !array_key_exists( 'attribute.id', $entry ) ) {
+			if( !array_key_exists( 'attribute.id', (array) $entry ) ) {
 				continue;
 			}
 
-			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'], false ) ) === null ) {
+			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', (string) $entry['attribute.id'], false ) ) === null ) {
 				$listItem = $manager->createListItem()->setType( 'config' );
 			}
 
@@ -279,6 +282,7 @@ class Standard
 
 			unset( $listItems[$listItem->getId()] );
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->addListItem( 'attribute', $listItem, $refItem );
 		}
 
@@ -291,7 +295,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -320,7 +324,7 @@ class Standard
 			$matches = [];
 			$regex = '/^P(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)W)?(([0-9]+)D)?(T([0-9]+)H)?$/';
 
-			preg_match( $regex, $list['attribute.code'], $matches );
+			preg_match( $regex, (string) $list['attribute.code'], $matches );
 
 			$list['Y'] = (int) ( $matches[2] ?? 0 );
 			$list['M'] = (int) ( $matches[4] ?? 0 );
@@ -358,7 +362,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2018.04
 		 */
 		$tplconf = 'admin/jqadm/product/subscription/template-item';

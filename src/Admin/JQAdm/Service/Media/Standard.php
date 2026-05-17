@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Service\Media\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -65,6 +65,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->mediaData = $this->toArray( $view->item, true );
 		$view->mediaBody = parent::copy();
 
@@ -82,7 +83,9 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
 
+		// @phpstan-ignore argument.type
 		$itemData = $this->toArray( $view->item );
+		// @phpstan-ignore argument.type
 		$data = array_replace_recursive( $itemData, $view->param( 'media', [] ) );
 
 		foreach( $data as $idx => $entry )
@@ -110,6 +113,8 @@ class Standard
 		parent::delete();
 
 		$item = $this->view()->item;
+		// @phpstan-ignore argument.type
+		// @phpstan-ignore argument.type, argument.type
 		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false ) );
 
 		return null;
@@ -124,6 +129,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->mediaData = $this->toArray( $view->item );
 		$view->mediaBody = parent::get();
 
@@ -140,7 +146,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
+		// @phpstan-ignore argument.type
+		$view->item = $this->fromArray( $view->item, (array) $view->param( 'media', [] ) );
 		$view->mediaBody = parent::save();
 
 		return null;
@@ -174,7 +181,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/global
@@ -197,7 +204,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/excludes
@@ -220,7 +227,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Service\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/excludes
@@ -252,9 +259,11 @@ class Standard
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
+				// @phpstan-ignore argument.type
 				$mediaManager->delete( $refItem );
 			}
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->deleteListItem( 'media', $listItem, $refItem );
 		}
 
@@ -298,10 +307,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/service/media/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/service/media/subparts', [] );
 	}
 
 
@@ -327,10 +336,10 @@ class Standard
 			// disallow overwriting for security reasons
 			unset( $entry['media.url'], $entry['media.preview'], $entry['media.previews'] );
 
-			$id = $this->val( $entry, 'media.id', '' );
-			$type = $this->val( $entry, 'service.lists.type', 'default' );
+			$id = $this->val( (array) $entry, 'media.id', '' );
+			$type = $this->val( (array) $entry, 'service.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
+			$listItem = $item->getListItem( 'media', (string) $type, (string) $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			unset( $entry['property'] ); // avoid media mtime update
@@ -343,13 +352,14 @@ class Standard
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
-			$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
+			$config = array_column( (array) $this->val( (array) $entry, 'config', [] ), 'val', 'key' );
+			$config = array_filter( array_map( fn( $val ) => json_decode( (string) $val, true ) ?? trim( (string) $val ), $config ) );
 			unset( $entry['config'] );
 
 			$refItem = $mediaManager->upload( $refItem, $file, $preview );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->addListItem( 'media', $listItem, $refItem );
 			unset( $listItems[$listItem->getId()] );
 		}
@@ -363,7 +373,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -387,10 +397,10 @@ class Standard
 			}
 
 			$list['media.previews'] = $this->view()->imageset( $refItem->getPreviews(), $refItem->getFileSystem() );
-			$list['media.preview'] = $this->view()->content( $refItem->getPreview(), $refItem->getFileSystem() );
+			$list['media.preview'] = $this->view()->content( (string) $refItem->getPreview(), $refItem->getFileSystem() );
 
-			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] ?? '' );
-			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] ?? '' );
+			$list['service.lists.datestart'] = str_replace( ' ', 'T', (string) $list['service.lists.datestart'] );
+			$list['service.lists.dateend'] = str_replace( ' ', 'T', (string) $list['service.lists.dateend'] );
 			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
@@ -427,7 +437,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2017.07
 		 */
 		$tplconf = 'admin/jqadm/service/media/template-item';

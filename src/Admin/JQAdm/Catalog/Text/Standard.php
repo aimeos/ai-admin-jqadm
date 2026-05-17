@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Catalog\Text\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->textData = $this->toArray( $view->item, true );
 		$view->textBody = parent::copy();
 
@@ -97,6 +98,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->textData = $this->toArray( $view->item );
 		$view->textBody = parent::get();
 
@@ -113,7 +115,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$view->item = $this->fromArray( $view->item, $view->param( 'text', [] ) );
+		// @phpstan-ignore argument.type
+		$view->item = $this->fromArray( $view->item, (array) $view->param( 'text', [] ) );
 		$view->textBody = parent::save();
 
 		return null;
@@ -147,7 +150,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/text/decorators/global
@@ -170,7 +173,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/text/decorators/excludes
@@ -193,7 +196,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Catalog\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/text/decorators/excludes
@@ -239,10 +242,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/catalog/text/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/catalog/text/subparts', [] );
 	}
 
 
@@ -288,23 +291,24 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( trim( $this->val( $entry, 'text.content', '' ) ) === '' ) {
+			if( trim( (string) $this->val( (array) $entry, 'text.content', '' ) ) === '' ) {
 				continue;
 			}
 
-			$id = $this->val( $entry, 'text.id', '' );
-			$type = $this->val( $entry, 'catalog.lists.type', 'default' );
+			$id = $this->val( (array) $entry, 'text.id', '' );
+			$type = $this->val( (array) $entry, 'catalog.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'text', $type, $id, false ) ?: $manager->createListItem();
+			$listItem = $item->getListItem( 'text', (string) $type, (string) $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $textManager->create();
 
-			$config = array_column( (array) $this->val( $entry, 'config', [] ), 'val', 'key' );
-			$config = array_map( fn( $val ) => json_decode( $val, true ) ?? $val, $config );
+			$config = array_column( (array) $this->val( (array) $entry, 'config', [] ), 'val', 'key' );
+			$config = array_map( fn( $val ) => json_decode( (string) $val, true ) ?? $val, $config );
 			unset( $entry['config'] );
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
 
+			// @phpstan-ignore argument.type, argument.type
 			$item->addListItem( 'text', $listItem, $refItem );
 			unset( $listItems[$listItem->getId()] );
 		}
@@ -318,7 +322,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Catalog\Item\Iface $item Catalog item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -341,8 +345,8 @@ class Standard
 				$list['text.id'] = null;
 			}
 
-			$list['catalog.lists.datestart'] = str_replace( ' ', 'T', $list['catalog.lists.datestart'] ?? '' );
-			$list['catalog.lists.dateend'] = str_replace( ' ', 'T', $list['catalog.lists.dateend'] ?? '' );
+			$list['catalog.lists.datestart'] = str_replace( ' ', 'T', (string) $list['catalog.lists.datestart'] );
+			$list['catalog.lists.dateend'] = str_replace( ' ', 'T', (string) $list['catalog.lists.dateend'] );
 			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
@@ -379,7 +383,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/catalog/text/template-item';

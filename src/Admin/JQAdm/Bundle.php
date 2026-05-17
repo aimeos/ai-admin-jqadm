@@ -64,7 +64,7 @@ class Bundle
 
 			foreach( $manifest->pkgs as $package )
 			{
-				if( !isset( $package->file ) || !is_object( $package ) ) {
+				if( !isset( $package->file ) ) {
 					throw new \Aimeos\Admin\JQAdm\Exception( 'Invalid package content' );
 				}
 
@@ -96,11 +96,13 @@ class Bundle
 
 		foreach( $filepaths as $filepath )
 		{
-			if( !file_exists( $filepath ) ) {
+			if( !file_exists( (string) $filepath ) ) {
+				// @phpstan-ignore argument.type
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'File does not exists: "%1$s"', $filepath ) );
 			}
 
-			if( ( $content = file_get_contents( $filepath ) ) === false ) {
+			if( ( $content = file_get_contents( (string) $filepath ) ) === false ) {
+				// @phpstan-ignore argument.type
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Unable to read content from "%1$s"', $filepath ) );
 			}
 
@@ -108,7 +110,7 @@ class Bundle
 				throw new \Aimeos\Admin\JQAdm\Exception( 'File content is not JSON encoded' );
 			}
 
-			$list[dirname( $filepath )] = $content;
+			$list[dirname( (string) $filepath )] = $content;
 		}
 
 		return $list;

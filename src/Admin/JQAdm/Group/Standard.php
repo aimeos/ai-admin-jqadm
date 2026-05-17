@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2018.07
 	 */
 
@@ -100,8 +100,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
 
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -125,7 +127,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $this->context(), 'group' )->create();
@@ -133,6 +135,7 @@ class Standard
 
 			$data['group.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -208,7 +211,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -235,14 +240,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'group', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'group', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -266,7 +272,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'group' );
+			$params = $this->storeFilter( (array) $view->param(), 'group' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
@@ -296,7 +302,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2018.07
 		 */
 		$tplconf = 'admin/jqadm/group/template-list';
@@ -333,7 +339,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/group/decorators/global
@@ -356,7 +362,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/group/decorators/excludes
@@ -379,7 +385,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Group\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/group/decorators/excludes
@@ -425,10 +431,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2018.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/group/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/group/subparts', [] );
 	}
 
 
@@ -444,14 +450,14 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'group' );
 
 		if( isset( $data['group.id'] ) && $data['group.id'] != '' ) {
-			$item = $manager->get( $data['group.id'] );
+			$item = $manager->get( (string) $data['group.id'] );
 		} else {
 			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );
 
-		return $item;
+		return $item; // @phpstan-ignore return.type
 	}
 
 
@@ -459,7 +465,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Group\Item\Iface $item Group item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Group\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -468,7 +474,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['product.siteid'] = $this->context()->locale()->getSiteId();
-			$data['group.code'] = $data['group.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$data['group.code'] = $data['group.code'] . '_' . substr( md5( (string) microtime( true ) ), -5 );
 			$data['group.id'] = '';
 		}
 
@@ -499,7 +505,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2018.07
 		 */
 		$tplconf = 'admin/jqadm/group/template-item';

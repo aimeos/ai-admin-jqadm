@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Media\Property\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2018.04
 	 */
 
@@ -62,7 +62,8 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ), true );
+		// @phpstan-ignore argument.type
+		$view->mediaData = $this->toArray( $view->item, (array) $view->get( 'mediaData', [] ), true );
 		$view->propertyBody = parent::copy();
 
 		return $this->render( $view );
@@ -82,7 +83,7 @@ class Standard
 
 		foreach( $data as $index => $entry )
 		{
-			foreach( $view->value( $entry, 'property', [] ) as $idx => $y ) {
+			foreach( $view->value( (array) $entry, 'property', [] ) as $idx => $y ) {
 				$data[$index]['property'][$idx]['media.property.siteid'] = $siteid;
 			}
 		}
@@ -102,7 +103,8 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ) );
+		// @phpstan-ignore argument.type
+		$view->mediaData = $this->toArray( $view->item, (array) $view->get( 'mediaData', [] ) );
 		$view->propertyBody = parent::get();
 
 		return $this->render( $view );
@@ -117,7 +119,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->view();
-		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
+		// @phpstan-ignore argument.type
+		$view->item = $this->fromArray( $view->item, (array) $view->param( 'media', [] ) );
 		$view->propertyBody = parent::save();
 
 		return null;
@@ -151,7 +154,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/media/property/decorators/global
@@ -174,7 +177,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/media/property/decorators/excludes
@@ -197,7 +200,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/media/property/decorators/excludes
@@ -243,10 +246,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2018.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/media/property/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/media/property/subparts', [] );
 	}
 
 
@@ -303,7 +306,7 @@ class Standard
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param array $data Associative list of media data
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, array $data, bool $copy = false ) : array
 	{
@@ -357,7 +360,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/media/property/template-item';

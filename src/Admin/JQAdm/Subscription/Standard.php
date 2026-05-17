@@ -53,7 +53,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2018.04
 	 */
 
@@ -102,7 +102,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
 
-			$view->item = $manager->get( $id, ['order', 'order/address', 'order/product'] );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, ['order', 'order/address', 'order/product'] );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -127,7 +129,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $context, 'subscription' )->create();
@@ -137,13 +139,14 @@ class Standard
 			$orderId = ( $view->item->getOrderId() ?: $view->param( 'item/subscription.orderid' ) );
 
 			if( $orderId ) {
-				$view->itemOrder = $manager->get( $orderId, ['order/address', 'order/product'] );
+				$view->itemOrder = $manager->get( (string) $orderId, ['order/address', 'order/product'] );
 			} else {
 				$view->itemOrder = $manager->create();
 			}
 
 			$data['subscription.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -212,7 +215,7 @@ class Standard
 
 		try
 		{
-			$params = $this->storeFilter( $view->param(), 'subscription' );
+			$params = $this->storeFilter( (array) $view->param(), 'subscription' );
 			$msg = ['sitecode' => $context->locale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
@@ -224,6 +227,7 @@ class Standard
 			}
 
 			$mq = $context->queue( 'mq-admin', 'subscription-export' );
+			// @phpstan-ignore argument.type
 			$mq->add( json_encode( $msg ) );
 
 			$msg = $context->translate( 'admin', 'Your export will be available in a few minutes for download' );
@@ -258,7 +262,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
 
-			$view->item = $manager->get( $id, ['order', 'order/address', 'order/product'] );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id, ['order', 'order/address', 'order/product'] );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -285,14 +291,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'subscription', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'subscription', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -316,7 +323,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'subscription' );
+			$params = $this->storeFilter( (array) $view->param(), 'subscription' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 
 			$search = $manager->filter( false, true )->order( '-subscription.ctime' );
@@ -348,7 +355,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-list';
@@ -385,7 +392,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/global
@@ -408,7 +415,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/excludes
@@ -431,7 +438,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Subscription\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/excludes
@@ -477,10 +484,10 @@ class Standard
 		 * should support adding, removing or resubscriptioning content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2018.04
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/subscription/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/subscription/subparts', [] );
 	}
 
 
@@ -495,14 +502,14 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 
 		if( isset( $data['subscription.id'] ) && $data['subscription.id'] != '' ) {
-			$item = $manager->get( $data['subscription.id'] );
+			$item = $manager->get( (string) $data['subscription.id'] );
 		} else {
 			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );
 
-		return $item;
+		return $item; // @phpstan-ignore return.type
 	}
 
 
@@ -510,7 +517,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Subscription\Item\Iface $item Subscription item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Subscription\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -550,7 +557,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-item';

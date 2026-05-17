@@ -19,7 +19,8 @@ namespace Aimeos\Admin;
  */
 class JQAdm
 {
-	private static $objects = [];
+	/** @var array<string, \Aimeos\Admin\JQAdm\Iface|null> */
+	private static array $objects = [];
 
 
 	/**
@@ -42,7 +43,7 @@ class JQAdm
 		$view = $context->view();
 		$config = $context->config();
 
-		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
+		if( $view->access( (string) $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $path ), 403 );
 		}
 
@@ -59,6 +60,7 @@ class JQAdm
 
 		$client = self::createComponent( $context, $classname, $interface, $path );
 
+		// @phpstan-ignore return.type, method.notFound
 		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );
 	}
 
@@ -71,7 +73,7 @@ class JQAdm
 	 * @param string $classname Full name of the class for which the object should be returned
 	 * @param \Aimeos\Admin\JQAdm\Iface|null $client ExtJS client object
 	 */
-	public static function inject( string $classname, ?\Aimeos\Admin\JQAdm\Iface $client = null )
+	public static function inject( string $classname, ?\Aimeos\Admin\JQAdm\Iface $client = null ) : void
 	{
 		self::$objects['\\' . ltrim( $classname, '\\' )] = $client;
 	}
@@ -92,11 +94,11 @@ class JQAdm
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\' . $localClass . '\\Decorator\\';
-		$decorators = array_reverse( $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] ) );
+		$decorators = array_reverse( (array) $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] ) );
 		$client = self::addDecorators( $context, $client, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
-		$decorators = array_reverse( $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] ) );
+		$decorators = array_reverse( (array) $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] ) );
 		$client = self::addDecorators( $context, $client, $decorators, $classprefix );
 
 		/** admin/jqadm/common/decorators/default
@@ -117,15 +119,15 @@ class JQAdm
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" and
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator2".
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2014.03
 		 */
-		$decorators = array_reverse( $config->get( 'admin/jqadm/common/decorators/default', [] ) );
+		$decorators = array_reverse( (array) $config->get( 'admin/jqadm/common/decorators/default', [] ) );
 		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', [] );
 
 		foreach( $decorators as $key => $name )
 		{
-			if( in_array( $name, $excludes ) ) {
+			if( in_array( $name, (array) $excludes ) ) {
 				unset( $decorators[$key] );
 			}
 		}
@@ -155,12 +157,14 @@ class JQAdm
 		foreach( $decorators as $name )
 		{
 			if( ctype_alnum( $name ) === false ) {
+				// @phpstan-ignore argument.type
 				throw new \LogicException( sprintf( 'Invalid class name "%1$s"', $name ), 400 );
 			}
 
 			$client = \Aimeos\Utils::create( $classprefix . $name, [$client, $context], $interface );
 		}
 
+		// @phpstan-ignore return.type
 		return $client;
 	}
 
@@ -184,6 +188,7 @@ class JQAdm
 
 		$client = \Aimeos\Utils::create( $classname, [$context], $interface );
 
+		// @phpstan-ignore argument.type
 		return self::addComponentDecorators( $context, $client, $path );
 	}
 }

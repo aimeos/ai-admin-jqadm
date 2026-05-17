@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Catalog\Product\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -107,8 +107,9 @@ class Standard
 
 		try
 		{
-			$this->storeFilter( $view->param( 'cp', [] ), 'catalogproduct' );
-			$this->fromArray( $view->item, $view->param( 'product', [] ) );
+			$this->storeFilter( (array) $view->param( 'cp', [] ), 'catalogproduct' );
+			// @phpstan-ignore argument.type
+			$this->fromArray( $view->item, (array) $view->param( 'product', [] ) );
 			$view->productBody = parent::save();
 
 			$manager->commit();
@@ -150,7 +151,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/product/decorators/global
@@ -173,7 +174,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/product/decorators/excludes
@@ -196,7 +197,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Catalog\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/product/decorators/excludes
@@ -242,10 +243,10 @@ class Standard
 		 * should support adding, removing or reproducting content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/catalog/product/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/catalog/product/subparts', [] );
 	}
 
 
@@ -265,8 +266,9 @@ class Standard
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 
-		$filter = $manager->filter()->add( ['product.id' => $prodIds] )->slice( 0, count( $prodIds ) );
-		$products = $manager->search( $filter, $context->config()->get( 'mshop/index/manager/domains', ['catalog'] ) );
+		$filter = $manager->filter()->add( ['product.id' => $prodIds] )->slice( 0, count( (array) $prodIds ) );
+		// @phpstan-ignore argument.type
+		$products = $manager->search( $filter, (array) $context->config()->get( 'mshop/index/manager/domains', ['catalog'] ) );
 
 		$id = $item->getId();
 		$listItem = $manager->createListItem()->setRefId( $id );
@@ -275,15 +277,15 @@ class Standard
 
 		foreach( (array) $prodIds as $idx => $prodId )
 		{
-			if( ( $product = $products->get( $prodId ) ) === null ) {
+			if( ( $product = $products->get( (string) $prodId ) ) === null ) {
 				continue;
 			}
 
 			$listId = $this->val( $data, 'product.lists.id/' . $idx );
-			$listItem = $listItems->get( $listId ) ?: clone $listItem;
+			$listItem = $listItems->get( $listId ) ?: clone $listItem; // @phpstan-ignore clone.nonObject
 
 			$listItem->setType( $this->val( $data, 'product.lists.type/' . $idx, 'default' ) )
-				->setConfig( (array) json_decode( $this->val( $data, 'product.lists.config/' . $idx, '{}' ) ) )
+				->setConfig( (array) json_decode( (string) $this->val( $data, 'product.lists.config/' . $idx, '{}' ) ) )
 				->setPosition( (int) $this->val( $data, 'product.lists.position/' . $idx, 0 ) )
 				->setStatus( (int) $this->val( $data, 'product.lists.status/' . $idx, 1 ) )
 				->setDateStart( $this->val( $data, 'product.lists.datestart/' . $idx ) )
@@ -325,7 +327,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/catalog/product/template-item';

@@ -52,7 +52,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2021.07
 	 */
 
@@ -90,7 +90,7 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$view->item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
@@ -103,7 +103,7 @@ class Standard
 
 			$view->response()->withStatus( 302 );
 			$view->response()->withHeader( 'Cache-Control', 'no-store' );
-			$view->response()->withHeader( 'Location', $view->link( 'admin/jqadm/url/search', $params ) );
+			$view->response()->withHeader( 'Location', (string) $view->link( 'admin/jqadm/url/search', $params ) );
 
 			return null;
 		}
@@ -129,6 +129,7 @@ class Standard
 		try
 		{
 			$view->item = $this->context()->locale()->getSiteItem();
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'item', [] ) );
 			$view->itemBody = parent::search();
 		}
@@ -168,7 +169,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2021.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/global
@@ -191,7 +192,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2021.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/excludes
@@ -214,7 +215,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Settings\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2021.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/excludes
@@ -260,10 +261,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2021.07
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/settings/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/settings/subparts', [] );
 	}
 
 
@@ -285,17 +286,18 @@ class Standard
 		$item = $this->fromArrayIcon( $item, $files );
 		$item = $this->fromArrayLogo( $item, $files );
 
+		// @phpstan-ignore argument.type
 		return $item->setConfig( array_replace_recursive( $item->getConfig(), $config ) )
-			->setTheme( $data['locale.site.theme'] ?? '' )
-			->setLabel( $data['locale.site.label'] ?? '' )
-			->setCode( $data['locale.site.code'] ?? '' );
+			->setTheme( (string) $data['locale.site.theme'] )
+			->setLabel( (string) $data['locale.site.label'] )
+			->setCode( (string) $data['locale.site.code'] );
 	}
 
 
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Locale\Item\Site\Iface Site item object
+	 * @param \Aimeos\MShop\Locale\Item\Site\Iface $item Site item object
 	 * @param array $files Uploaded files
 	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
 	 */
@@ -304,6 +306,7 @@ class Standard
 		if( ( $file = $this->val( $files, 'media/icon' ) ) && $file->getError() !== \UPLOAD_ERR_NO_FILE )
 		{
 			$context = $this->context();
+			// @phpstan-ignore argument.type
 			$mime = $this->mimetype( $file );
 			$siteId = $context->locale()->getSiteId();
 
@@ -314,6 +317,7 @@ class Standard
 			}
 
 			$filepath = $siteId . 'd/icon.' . $this->extension( $mime );
+			// @phpstan-ignore argument.type
 			$this->storeFile( $file, $filepath );
 
 			$item->setIcon( $filepath );
@@ -326,7 +330,7 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Locale\Item\Site\Iface Site item object
+	 * @param \Aimeos\MShop\Locale\Item\Site\Iface $item Site item object
 	 * @param array $files Uploaded files
 	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
 	 */
@@ -336,6 +340,7 @@ class Standard
 		{
 			$previews = [];
 			$context = $this->context();
+			// @phpstan-ignore argument.type
 			$mime = $this->mimetype( $file );
 			$siteId = $context->locale()->getSiteId();
 
@@ -347,7 +352,7 @@ class Standard
 			 * they are larger than the configured values. If the width or height is
 			 * set to null, the image will be scaled proportionally to the other value.
 			 *
-			 * @param array Associative list with maxwidth/maxheight keys and the maximum width/height in pixels (or NULL)
+			 * @type array Associative list with maxwidth/maxheight keys and the maximum width/height in pixels (or NULL)
 			 * @since 2024.04
 			 */
 			$sizes = $context->config()->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] );
@@ -359,9 +364,10 @@ class Standard
 			}
 
 			$filepath = $siteId . 'd/logo.' . $this->extension( $mime );
+			// @phpstan-ignore argument.type
 			$this->storeFile( $file, $filepath );
 
-			foreach( $this->createPreviews( $this->image( $filepath ), $sizes ) as $width => $image )
+			foreach( $this->createPreviews( $this->image( $filepath ), (array) $sizes ) as $width => $image )
 			{
 				$path = $siteId . 'd/logo' . $width . '.webp';
 				$context->fs( 'fs-media' )->write( $path, (string) $image->toWebp() );
@@ -400,7 +406,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Locale\Item\Site\Iface $item Settings item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, bool $copy = false ) : array
 	{
@@ -450,7 +456,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2021.07
 		 */
 		$tplconf = 'admin/jqadm/settings/template-item';

@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Physical\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->physicalData = $this->toArray( $view->item, true );
 		$view->physicalBody = parent::copy();
 
@@ -58,9 +59,9 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'physical', [] );
+		$data = (array) $view->param( 'physical', [] );
 
-		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {
+		foreach( $view->value( (array) $data, 'product.property.id', [] ) as $idx => $value ) {
 			$data['product.property.siteid'][$idx] = $siteid;
 		}
 
@@ -79,6 +80,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->physicalData = $this->toArray( $view->item );
 		$view->physicalBody = parent::get();
 
@@ -95,7 +97,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'physical', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'physical', [] ) );
 		$view->physicalBody = parent::save();
 
 		return null;
@@ -129,7 +132,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/physical/decorators/global
@@ -152,7 +155,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/physical/decorators/excludes
@@ -175,7 +178,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/physical/decorators/excludes
@@ -221,10 +224,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/physical/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/physical/subparts', [] );
 	}
 
 
@@ -243,7 +246,7 @@ class Standard
 		{
 			$propItems = $item->getPropertyItems( $type, false );
 
-			if( ( $value = trim( $value ) ) != '' )
+			if( ( $value = trim( (string) $value ) ) != '' )
 			{
 				if( ( $propItem = $propItems->first() ) === null ) {
 					$propItem = $manager->createPropertyItem()->setType( $type );
@@ -252,6 +255,7 @@ class Standard
 				$propItem->setLanguageId( null );
 				$propItem->setValue( $value );
 
+				// @phpstan-ignore argument.type
 				$item->addPropertyItem( $propItem );
 			}
 			else
@@ -269,7 +273,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -286,11 +290,12 @@ class Standard
 		 * input fields for displaying and changing them in the product/item-physical
 		 * template.
 		 *
-		 * @param array List of product property type codes
+		 * @type array List of product property type codes
 		 * @since 2021.07
 		 */
 		$types = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 
+		// @phpstan-ignore argument.type
 		foreach( $item->getPropertyItems( $types, false ) as $item ) {
 			$data[$item->getType()] = $item->getValue();
 		}
@@ -322,7 +327,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/physical/template-item';

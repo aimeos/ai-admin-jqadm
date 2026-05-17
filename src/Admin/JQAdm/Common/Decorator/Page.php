@@ -55,6 +55,7 @@ class Page extends Base
 		}
 
 		if( !$siteItem ) {
+			// @phpstan-ignore argument.type
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Site "%1$s" not found', $site ), 404 );
 		}
 
@@ -62,7 +63,7 @@ class Page extends Base
 		$view->pageInfo = $context->session()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
-		$view->pageNumberStep = 1 / pow( 10, $context->config()->get( 'mshop/price/precision', 2 ) );
+		$view->pageNumberStep = 1 / pow( 10, (float) $context->config()->get( 'mshop/price/precision', 2 ) );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
 		$view->pageSiteItem = $siteItem;
 		$view->pageUserSiteid = $siteid;

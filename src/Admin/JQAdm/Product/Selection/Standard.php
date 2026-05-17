@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Selection\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -42,6 +42,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->selectionData = $this->toArray( $view->item, true );
 		$view->selectionBody = parent::copy();
 
@@ -59,7 +60,9 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
 
+		// @phpstan-ignore argument.type
 		$itemData = $this->toArray( $view->item );
+		// @phpstan-ignore argument.type
 		$data = array_replace_recursive( $itemData, $view->param( 'selection', [] ) );
 
 		foreach( $data as $key => $entry )
@@ -87,6 +90,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->selectionData = $this->toArray( $view->item );
 		$view->selectionBody = parent::get();
 
@@ -105,7 +109,8 @@ class Standard
 
 		if( in_array( $view->item->getType(), ['group', 'select'] ) )
 		{
-			$this->fromArray( $view->item, $view->param( 'selection', [] ) );
+			// @phpstan-ignore argument.type
+			$this->fromArray( $view->item, (array) $view->param( 'selection', [] ) );
 			$view->selectionBody = parent::save();
 		}
 
@@ -140,7 +145,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/selection/decorators/global
@@ -163,7 +168,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/selection/decorators/excludes
@@ -186,7 +191,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/selection/decorators/excludes
@@ -203,6 +208,7 @@ class Standard
 	 */
 	protected function getDomains() : array
 	{
+		// @phpstan-ignore return.type
 		return $this->context()->config()->get( 'admin/jqadm/product/domains', [] );
 	}
 
@@ -243,10 +249,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/selection/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/selection/subparts', [] );
 	}
 
 
@@ -271,19 +277,21 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$qty = $this->val( $entry, 'quantity', 1 );
-			$id = $this->val( $entry, 'product.id', '' );
+			$qty = $this->val( (array) $entry, 'quantity', 1 );
+			$id = $this->val( (array) $entry, 'product.id', '' );
 
-			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $manager->createListItem();
-			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
+			$litem = $item->getListItem( 'product', 'default', (string) $id, false ) ?: $manager->createListItem();
+			$refItem = $prodItems->get( (string) $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
 
 			$litem->fromArray( $entry, true )->setPosition( $idx )->setConfigValue( 'quantity', $qty );
 			$refItem->fromArray( $entry, true );
 
 			if( isset( $entry['attr'] ) ) {
-				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
+				// @phpstan-ignore argument.type
+				$refItem = $this->fromArrayAttributes( $refItem, (array) $entry['attr'] );
 			}
 
+			// @phpstan-ignore argument.type, argument.type, argument.type
 			$item->addListItem( 'product', $litem, $manager->save( $refItem ) );
 
 			$prodIds[] = $data[$idx]['stock.productid'] = $refItem->getId();
@@ -311,10 +319,11 @@ class Standard
 
 		foreach( $data as $attr )
 		{
-			$listid = $this->val( $attr, 'product.lists.id' );
-			$litem = $listItems->pull( $listid ?? '' ) ?: $manager->createListItem();
-			$litem->setRefId( $this->val( $attr, 'attribute.id' ) )->setType( 'variant' )->setPosition( $pos++ );
+			$listid = $this->val( (array) $attr, 'product.lists.id' );
+			$litem = $listItems->pull( (string) $listid ) ?: $manager->createListItem();
+			$litem->setRefId( $this->val( (array) $attr, 'attribute.id' ) )->setType( 'variant' )->setPosition( $pos++ );
 
+			// @phpstan-ignore argument.type
 			$refItem->addListItem( 'attribute', $litem );
 		}
 
@@ -328,7 +337,7 @@ class Standard
 	 * @param array $data List of product codes
 	 * @param array $data Data array
 	 */
-	protected function fromArrayStocks( array $prodIds, array $data )
+	protected function fromArrayStocks( array $prodIds, array $data ) : void
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 
@@ -347,13 +356,14 @@ class Standard
 				continue;
 			}
 
-			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? '' ) ?: $manager->create();
+			$stockItem = $stockItems->get( (string) $map[$entry['stock.productid']] ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
 
 			$list[] = $stockItem;
 		}
 
 		$manager->begin();
+		// @phpstan-ignore argument.type
 		$manager->save( $list, false );
 		$manager->commit();
 	}
@@ -364,7 +374,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -391,12 +401,13 @@ class Standard
 				$list['product.lists.id'] = '';
 				$list['product.siteid'] = $siteId;
 				$list['product.id'] = '';
-				$list['product.code'] = $list['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+				$list['product.code'] = $list['product.code'] . '_' . substr( md5( (string) microtime( true ) ), -5 );
 
 				$list['stock.stocklevel'] = 0;
 			}
 			else
 			{
+				// @phpstan-ignore argument.type
 				$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 			}
 
@@ -441,7 +452,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/selection/template-item';

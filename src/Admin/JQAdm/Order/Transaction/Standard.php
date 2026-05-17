@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Order\Transaction\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2023.01
 	 */
 
@@ -78,7 +78,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'transaction', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'transaction', [] ) );
 		$view->transactionBody = parent::save();
 
 		return null;
@@ -112,7 +113,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/transaction/decorators/global
@@ -135,7 +136,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/transaction/decorators/excludes
@@ -158,7 +159,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Order\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2023.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/order/transaction/decorators/excludes
@@ -204,10 +205,10 @@ class Standard
 		 * should support adding, removing or retransactioning content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2023.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/order/transaction/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/order/transaction/subparts', [] );
 	}
 
 
@@ -229,23 +230,24 @@ class Standard
 
 		foreach( $data as $serviceId => $entry )
 		{
-			if( array_sum( $entry ) === 0 || ( $service = $services->get( $serviceId ) ) === null ) {
+			if( array_sum( (array) $entry ) === 0 || ( $service = $services->get( $serviceId ) ) === null ) {
 				continue;
 			}
 
 			$price = $priceManager->create()
-				->setValue( -$entry['order.service.transaction.value'] ?? 0 )
-				->setCosts( -$entry['order.service.transaction.costs'] ?? 0 )
+				->setValue( -(float) $entry['order.service.transaction.value'] )
+				->setCosts( -(float) $entry['order.service.transaction.costs'] )
 				->setCurrencyId( $service->getPrice()->getCurrencyId() );
 
 			$txItem = $manager->createServiceTransaction()
 				->setType( 'payment' )->setPrice( $price )
 				->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
 
-			$serviceItem = $serviceManager->get( $service->getServiceId() );
+			$serviceItem = $serviceManager->get( (string) $service->getServiceId() );
 			$provider = $serviceManager->getProvider( $serviceItem, 'payment' );
 
 			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) ) {
+				// @phpstan-ignore argument.type
 				$manager->save( $provider->refund( $order, $price ) );
 			} else {
 				$txItem->setConfigValue( 'info', $context->translate( 'admin', 'Manual transfer' ) );
@@ -281,7 +283,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/order/transaction/template-item';

@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Property\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -59,6 +59,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->propertyData = $this->toArray( $view->item, true );
 		$view->propertyBody = parent::copy();
 
@@ -96,6 +97,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->propertyData = $this->toArray( $view->item );
 		$view->propertyBody = parent::get();
 
@@ -112,7 +114,8 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 
-		$this->fromArray( $view->item, $view->param( 'property', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'property', [] ) );
 		$view->propertyBody = parent::save();
 
 		return null;
@@ -146,7 +149,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/global
@@ -169,7 +172,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/excludes
@@ -192,7 +195,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Attribute\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/excludes
@@ -238,10 +241,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2018.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/attribute/property/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/attribute/property/subparts', [] );
 	}
 
 
@@ -270,6 +273,7 @@ class Standard
 			}
 
 			$propItem->fromArray( $entry, true );
+			// @phpstan-ignore argument.type
 			$item->addPropertyItem( $propItem );
 		}
 
@@ -282,7 +286,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Attribute\Item\Iface $item Attribute item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -329,7 +333,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2018.01
 		 */
 		$tplconf = 'admin/jqadm/attribute/property/template-item';

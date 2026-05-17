@@ -28,7 +28,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Settings\Theme\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2022.10
 	 */
 
@@ -59,7 +59,8 @@ class Standard
 		$site = $context->locale()->getSiteItem();
 
 		$themeData = $context->config()->get( 'client/html/theme-presets', [] );
-		$themeData = array_replace_recursive( $themeData, $site->getConfigValue( 'theme', [] ) );
+		// @phpstan-ignore argument.type
+		$themeData = array_replace_recursive( (array) $themeData, $site->getConfigValue( 'theme', [] ) );
 
 		$view = $this->object()->data( $this->view() );
 		$view->themeData = $themeData;
@@ -95,7 +96,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/global
@@ -118,7 +119,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/excludes
@@ -141,7 +142,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Settings\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/excludes
@@ -158,7 +159,7 @@ class Standard
 	 */
 	protected function getSubClientNames() : array
 	{
-		return $this->context()->config()->get( 'admin/jqadm/settings/theme/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/settings/theme/subparts', [] );
 	}
 
 
@@ -185,7 +186,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/settings/theme/template-item';

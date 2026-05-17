@@ -52,7 +52,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @param string Last part of the class name
+	 * @type string Last part of the class name
 	 * @since 2017.10
 	 */
 
@@ -108,8 +108,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
 
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -133,7 +135,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item', [] );
+			$data = (array) $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop::create( $this->context(), 'locale' )->create();
@@ -141,6 +143,7 @@ class Standard
 
 			$data['locale.siteid'] = $view->item->getSiteId();
 
+			// @phpstan-ignore argument.type
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = parent::create();
 		}
@@ -216,7 +219,9 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 
-			$view->item = $manager->get( $id );
+			// @phpstan-ignore argument.type
+			$view->item = $manager->get( (string) $id );
+			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -243,14 +248,15 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$item = $this->fromArray( (array) $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
 			$manager->save( $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'locale', $view->param( 'next' ), $view->item->getId(), 'save' );
+			// @phpstan-ignore argument.type
+			return $this->redirect( 'locale', (string) $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
@@ -274,7 +280,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeFilter( $view->param(), 'locale' );
+			$params = $this->storeFilter( (array) $view->param(), 'locale' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
@@ -304,7 +310,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2017.10
 		 */
 		$tplconf = 'admin/jqadm/locale/template-list';
@@ -341,7 +347,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/decorators/global
@@ -364,7 +370,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/decorators/excludes
@@ -387,7 +393,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Locale\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/decorators/excludes
@@ -433,10 +439,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2017.10
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/locale/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/locale/subparts', [] );
 	}
 
 
@@ -453,14 +459,14 @@ class Standard
 		$manager = \Aimeos\MShop::create( $context, 'locale' );
 
 		if( isset( $data['locale.id'] ) && $data['locale.id'] != '' ) {
-			$item = $manager->get( $data['locale.id'] );
+			$item = $manager->get( (string) $data['locale.id'] );
 		} else {
 			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true )->set( 'site_id', $context->locale()->get( 'site_id' ) );
 
-		return $item;
+		return $item; // @phpstan-ignore return.type
 	}
 
 
@@ -468,7 +474,7 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Locale\Item\Iface $item Locale item object
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Locale\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -507,7 +513,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2017.10
 		 */
 		$tplconf = 'admin/jqadm/locale/template-item';

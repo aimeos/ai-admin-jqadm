@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Category\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @param string Last part of the JQAdm class name
+	 * @type string Last part of the JQAdm class name
 	 * @since 2016.04
 	 */
 
@@ -49,7 +49,7 @@ class Standard
 		 * to the ones listed here. The order of the types in the list defines
 		 * the order of the category types in the JQAdm product category panel.
 		 *
-		 * @param array List of category types
+		 * @type array List of category types
 		 * @since 2025.04
 		 */
 		$types = $this->context()->config()->get( 'admin/jqadm/product/category/types', [] );
@@ -58,7 +58,7 @@ class Standard
 		$filter = $manager->filter( true )->add( 'product.lists.type.code', '==', $types )->slice( 0, 10000 );
 		$map = $manager->search( $filter )->col( null, 'product.lists.type.code' );
 
-		$view->categoryTypes = $map->order( $types );
+		$view->categoryTypes = $map->order( (array) $types );
 		return $view;
 	}
 
@@ -72,6 +72,7 @@ class Standard
 	{
 		$view = $this->object()->data( $this->view() );
 
+		// @phpstan-ignore argument.type
 		$view->categoryData = $this->toArray( $view->item, true );
 		$view->categoryBody = parent::copy();
 
@@ -89,7 +90,9 @@ class Standard
 		$view = $this->object()->data( $this->view() );
 		$siteid = $this->context()->locale()->getSiteId();
 
+		// @phpstan-ignore argument.type
 		$itemData = $this->toArray( $view->item );
+		// @phpstan-ignore argument.type
 		$data = array_replace_recursive( $itemData, $view->param( 'category', [] ) );
 
 		foreach( $data as $key => $entry ) {
@@ -111,6 +114,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
+		// @phpstan-ignore argument.type
 		$view->categoryData = $this->toArray( $view->item );
 		$view->categoryBody = parent::get();
 
@@ -127,7 +131,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$this->fromArray( $view->item, $view->param( 'category', [] ) );
+		// @phpstan-ignore argument.type
+		$this->fromArray( $view->item, (array) $view->param( 'category', [] ) );
 		$view->categoryBody = parent::save();
 
 		return null;
@@ -161,7 +166,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/category/decorators/global
@@ -184,7 +189,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/category/decorators/excludes
@@ -207,7 +212,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @param array List of decorator names
+		 * @type array List of decorator names
 		 * @since 2016.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/category/decorators/excludes
@@ -253,10 +258,10 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @param array List of sub-client names
+		 * @type array List of sub-client names
 		 * @since 2016.01
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/category/subparts', [] );
+		return (array) $this->context()->config()->get( 'admin/jqadm/product/category/subparts', [] );
 	}
 
 
@@ -282,13 +287,14 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			$refid = $this->val( $entry, 'catalog.id' );
-			$listid = $this->val( $entry, 'product.lists.id' );
+			$refid = $this->val( (array) $entry, 'catalog.id' );
+			$listid = $this->val( (array) $entry, 'product.lists.id' );
 
-			$litem = $listItems->pull( $listid ?? '' ) ?: $manager->createListItem();
-			$litem->setType( $this->val( $entry, 'product.lists.type' ) )->setRefId( $refid );
+			$litem = $listItems->pull( (string) $listid ) ?: $manager->createListItem();
+			$litem->setType( $this->val( (array) $entry, 'product.lists.type' ) )->setRefId( $refid );
 
-			$item->addListItem( 'catalog', $litem, $refItems->get( $refid ?? '' ) );
+			// @phpstan-ignore argument.type, argument.type
+			$item->addListItem( 'catalog', $litem, $refItems->get( (string) $refid ) );
 		}
 
 		return $item->deleteListItems( $listItems );
@@ -300,7 +306,7 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @return array Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
@@ -352,7 +358,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @param string Relative path to the template creating the HTML code
+		 * @type string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/product/category/template-item';
