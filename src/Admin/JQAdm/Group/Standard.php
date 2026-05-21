@@ -467,8 +467,8 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['product.siteid'] = $this->context()->locale()->getSiteId();
-			$data['group.code'] = $data['group.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$data['group.siteid'] = $this->context()->locale()->getSiteId();
+			$data['group.code'] = $data['group.code'] . '_' . substr( md5( (string) microtime( true ) ), -5 );
 			$data['group.id'] = '';
 		}
 
