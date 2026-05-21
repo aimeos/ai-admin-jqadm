@@ -66,7 +66,7 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'plugin' );
+		return $this->batchBase( 'review' );
 	}
 
 
