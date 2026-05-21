@@ -43,7 +43,7 @@ class JQAdm
 		$view = $context->view();
 		$config = $context->config();
 
-		if( $view->access( (string) $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
+		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $path ), 403 );
 		}
 
