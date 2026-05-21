@@ -499,10 +499,11 @@ class Standard
 
 		if( $copy === true )
 		{
+			$hash = substr( md5( (string) microtime( true ) ), -5 );
+			$data['catalog.url'] = $data['catalog.url'] . '-' . $hash;
+			$data['catalog.code'] = $data['catalog.code'] . '_' . $hash;
+			$data['catalog.siteid'] = $this->context()->locale()->getSiteId();
 			$data['catalog.id'] = '';
-			$data['catalog.url'] = '';
-			$data['catalog.siteid'] = $item->getSiteId();
-			$data['catalog.code'] = $data['catalog.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 		}
 
 		return $data;
