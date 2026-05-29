@@ -226,7 +226,7 @@ class Standard
 
 		foreach( $data as $serviceId => $entry )
 		{
-			if( array_sum( array_map( 'floatval', (array) $entry ) ) === 0 || ( $service = $services->get( $serviceId ) ) === null ) {
+			if( array_sum( array_map( 'floatval', (array) $entry ) ) == 0 || ( $service = $services->get( $serviceId ) ) === null ) {
 				continue;
 			}
 
