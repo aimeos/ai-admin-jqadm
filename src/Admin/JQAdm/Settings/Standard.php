@@ -359,7 +359,13 @@ class Standard
 			}
 
 			$filepath = $siteId . 'd/logo.' . $this->extension( $mime );
-			$this->storeFile( $file, $filepath );
+
+			if( $mime === 'image/svg+xml' ) {
+				$content = \Aimeos\Sanitizer\Sane::html( (string) $file->getStream(), ['svg' => true] );
+				$context->fs( 'fs-media' )->write( $filepath, $content );
+			} else {
+				$this->storeFile( $file, $filepath );
+			}
 
 			foreach( $this->createPreviews( $this->image( $filepath ), $sizes ) as $width => $image )
 			{
