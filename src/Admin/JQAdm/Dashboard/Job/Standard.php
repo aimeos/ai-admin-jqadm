@@ -94,7 +94,8 @@ class Standard
 		if( ( $path = $item->getPath() ) && $fs->has( $path ) )
 		{
 			$stream = $view->response()->createStream( $fs->reads( $path ) );
-			$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $path . '"' );
+			$filename = str_replace( ["\r", "\n", '"'], '', basename( $path ) );
+			$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $filename . '"' );
 			$view->response()->withHeader( 'Content-Type', 'text/csv' );
 			$view->response()->withBody( $stream );
 		}
