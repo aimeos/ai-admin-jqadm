@@ -12,6 +12,12 @@ Aimeos = {
 	siteid: document.querySelector('.aimeos')?.dataset['user-siteid'] || '',
 
 	ckeditor: {
+		licenseKey: 'GPL',
+		markdown: false,
+		get removePlugins() {
+			return this.markdown ? [] : ['Markdown']
+		},
+		plugins: typeof CKEditorPlugins !== 'undefined' ? CKEditorPlugins : [],
 		htmlSupport: {
 			allow: [{
 				name: /div|p|span/,
