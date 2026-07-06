@@ -106,6 +106,7 @@ globalThis.CKEditorPlugins = [
 	LinkImage,
 	List,
 	MediaEmbed,
+	Markdown,
 	PasteFromOffice,
 	RemoveFormat,
 	SourceEditing,

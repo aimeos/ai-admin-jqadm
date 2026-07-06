@@ -13,6 +13,10 @@ Aimeos = {
 
 	ckeditor: {
 		licenseKey: 'GPL',
+		markdown: false,
+		get removePlugins() {
+			return this.markdown ? [] : ['Markdown']
+		},
 		plugins: typeof CKEditorPlugins !== 'undefined' ? CKEditorPlugins : [],
 		htmlSupport: {
 			allow: [{
