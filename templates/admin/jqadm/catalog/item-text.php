@@ -25,8 +25,6 @@ $enc = $this->encoder();
 
 	<div id="item-text-group"
 		data-prompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
-		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai' ) ) ?>"
-		data-deepl="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="catalog" >

@@ -8,7 +8,6 @@ Aimeos.components['imagegen'] = {
 	template: '#imagegen',
 	emits: ['close', 'confirm'],
 	props: {
-		'config': {type: Object, required: true},
 		'show': {type: Boolean, default: false}
 	},
 	data() {
@@ -24,11 +23,6 @@ Aimeos.components['imagegen'] = {
 	},
 	methods: {
 		async generate() {
-			if(!this.config['key']) {
-				alert('Add the OpenAI API key in the Setting > API panel first');
-				return;
-			}
-
 			if(!this.prompt.trim().length) {
 				this.missing = true;
 				return;
@@ -38,38 +32,30 @@ Aimeos.components['imagegen'] = {
 
 			this.loading = true;
 
-			await fetch(this.config['image-url'] || 'https://api.openai.com/v1/images/generations', {
-				body: JSON.stringify({
-					model: this.config['image-model'] || 'dall-e-3',
-					response_format: 'b64_json',
-					prompt: this.prompt,
-					style: this.style,
-					size: this.size,
-				}),
-				headers: {
-					'Content-Type': 'application/json',
-					'Authorization': 'Bearer ' + this.config['key']
-				},
-				method: 'POST'
-			}).then(response => {
-				if(!response.ok) {
-					throw new Error(`${response.status}: ${response.statusText}`)
-				}
-				return response.json();
+			await Aimeos.graphql(`mutation($prompt: String!, $size: String, $style: String) {
+				imagine(prompt: $prompt, size: $size, style: $style)
+			}`, {
+				prompt: this.prompt,
+				size: this.size,
+				style: this.style
 			}).then(result => {
-				for(const item of result.data) {
-					if(item.b64_json) {
-						const file = new File([Uint8Array.from(atob(item.b64_json), (m) => m.codePointAt(0))], new Date().getTime() + '.png', {
-							lastModified: new Date().getTime(),
-							type: 'image/png'
-						});
-						this.images.push({
-							file: file,
-							url: URL.createObjectURL(file),
-							prompt: this.prompt,
-							usedprompt: item.revised_prompt
-						});
-					}
+				const item = typeof result.imagine === 'string'
+					? JSON.parse(result.imagine)
+					: result.imagine;
+
+				if(item?.base64) {
+					const mime = item.mimeType || 'image/png';
+					const ext = mime.split('/')[1]?.replace('jpeg', 'jpg') || 'png';
+					const file = new File([Uint8Array.from(atob(item.base64), (m) => m.codePointAt(0))], `${Date.now()}.${ext}`, {
+						lastModified: Date.now(),
+						type: mime
+					});
+					this.images.push({
+						file: file,
+						url: URL.createObjectURL(file),
+						prompt: this.prompt,
+						usedprompt: item.description || this.prompt
+					});
 				}
 
 				if(this.images.length) {
