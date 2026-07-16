@@ -15,8 +15,6 @@ Aimeos.Text = {
 					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
-					openai: {type: String, default: '{}'},
-					deepl: {type: String, default: '{}'},
 					prompt: {type: String, default: 'Please enter what kind of text you want to generate'},
 				},
 				data() {
@@ -81,46 +79,19 @@ Aimeos.Text = {
 					return;
 				}
 
-				const config = JSON.parse(this.openai || '{}');
-
-				if(!config['key']) {
-					alert('Add the OpenAI API key in the Setting > API panel first');
-					return;
-				}
-
 				if(!(this.items[idx]['text.content'] || '').trim().length) {
 					this.items[idx]['text.content'] = this.prompt;
 					return;
 				}
 
-				const self = this;
-				const params = {
-					model: config['model'] || 'gpt-4o-mini',
-					messages: [{
-						role: 'system',
-						content: config['context'] || 'You are a professional writer for product texts and blog articles and create descriptions and articles in the language of the input without markup'
-					}, {
-						role: 'user',
-						content: this.items[idx]['text.content']
-					}]
-				};
-
 				this.items[idx]['_loading'] = true;
 
-				await fetch(config['url'] || 'https://api.openai.com/v1/chat/completions', {
-					body: JSON.stringify(params),
-					headers: {
-						'Content-Type': 'application/json',
-						'Authorization': 'Bearer ' + config['key']
-					},
-					method: 'POST'
-				}).then(response => {
-					if(!response.ok) {
-						throw new Error(`${response.status}: ${response.statusText}`)
-					}
-					return response.json();
-				}).then(data => {
-					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['message'] && data['choices'][0]['message']['content'] || '').trim();
+				await Aimeos.graphql(`mutation($prompt: String!) {
+					write(prompt: $prompt)
+				}`, {
+					prompt: this.items[idx]['text.content']
+				}).then(result => {
+					this.items[idx]['text.content'] = (result.write || '').trim();
 				}).finally(() => {
 					this.items[idx]['_loading'] = false;
 				}).catch((error) => {
@@ -168,44 +139,15 @@ Aimeos.Text = {
 					return;
 				}
 
-				const config = JSON.parse(this.deepl || '{}');
-
-				if(!config['key']) {
-					alert('Add the DeepL API key in the Setting > API panel first');
-					return;
-				}
-
-				const self = this;
-				const url = (config['url'] || 'https://api-free.deepl.com/v2') + '/translate?auth_key=' + encodeURIComponent(config['key']);
-				let body = 'text=' + encodeURIComponent([this.items[idx]['text.content']]) + '&target_lang=' + langid.toUpperCase().replace(/_/g, '-');
-
-				if(this.items[idx]['text.languageid']) {
-					body += '&source_lang=' + this.items[idx]['text.languageid'].toUpperCase().replace(/_/g, '-');
-				}
-
-				await fetch(url, {
-					method: "POST",
-					body: body,
-					headers: {"Content-Type": "application/x-www-form-urlencoded"},
-				}).then(response => {
-					if(!response.ok) {
-						let msg = '';
-						switch(response.status) {
-							case 200: break;
-							case 400: msg = 'Bad request: ' + response.statusText; break;
-							case 403: msg = 'Invalid DeepL API token'; break;
-							case 413: msg = 'The text size exceeds the limit'; break;
-							case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
-							case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
-							case 503: msg = 'Resource currently unavailable. Try again later.'; break;
-							default: msg = 'Unexpected response code: ' + response.status + ' => ' + response.statusText;
-						}
-						throw new Error(msg);
-					}
-					return response.json();
-				}).then(data => {
-					self.add({
-						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
+				await Aimeos.graphql(`mutation($texts: [String!]!, $to: String!, $from: String) {
+					translate(texts: $texts, to: $to, from: $from)
+				}`, {
+					texts: [this.items[idx]['text.content']],
+					to: langid.toUpperCase().replace(/_/g, '-'),
+					from: this.items[idx]['text.languageid']?.toUpperCase().replace(/_/g, '-') || null
+				}).then(result => {
+					this.add({
+						'text.content': result.translate?.[0] || '',
 						'text.languageid': langid.toLowerCase().replace(/-/g, '_'),
 						'text.type': this.items[idx]['text.type'] || '',
 						'text.label': (this.items[idx]['text.label'] || '') + ' (' + langid + ')'

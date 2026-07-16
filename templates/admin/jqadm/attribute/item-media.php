@@ -24,8 +24,6 @@ $enc = $this->encoder();
 <div id="media" class="item-media tab-pane fade" role="tablist" aria-labelledby="media">
 
 	<div id="item-media-group"
-		data-removebg="<?= $enc->attr( $this->config( 'admin/jqadm/api/removebg', new \stdClass ) ) ?>"
-		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai', new \stdClass ) ) ?>"
 		data-data="<?= $enc->attr( $this->get( 'mediaData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="attribute" >
@@ -303,7 +301,7 @@ $enc = $this->encoder();
 			</div>
 		</div>
 
-		<imagegen v-bind:show="generate" v-bind:config="JSON.parse(openai)"
+		<imagegen v-bind:show="generate"
 			v-on:close="generate = false" v-on:confirm="use($event)">
 		</imagegen>
 

@@ -15,8 +15,6 @@ Aimeos.Media = {
 					data: {type: String, default: '[]'},
 					domain: {type: String, default: ''},
 					siteid: {type: String, default: ''},
-					removebg: {type: String, default: '{}'},
-					openai: {type: String, default: '{}'},
 				},
 				data() {
 					return {
@@ -74,40 +72,30 @@ Aimeos.Media = {
 
 
 			async background(entry) {
-				const config = JSON.parse(this.removebg || '{}');
-
-				if(!config['key']) {
-					alert('Add the RemoveBG API key in the Setting > API panel first');
+				if(!entry['file']?.[0]) {
 					return;
 				}
 
-				const formData = new FormData();
-				formData.append("crop", true);
-				formData.append("size", "auto");
-				formData.append("format", "png");
-				formData.append("image_file", entry['file'][0]);
-
 				entry['_loading'] = true;
 
-				await fetch(config['url'] || 'https://api.remove.bg/v1.0/removebg', {
-					body: formData,
-					headers: {
-						'X-Api-Key': config['key']
-					},
-					method: 'POST'
-				}).then(response => {
-					if(!response.ok) {
-						throw new Error(`${response.status}: ${response.statusText}`)
-					}
-					return response.arrayBuffer()
-				}).then(data => {
-					const file = new File([data], entry['file'][0].name, {
+				await Aimeos.graphql(`mutation($image: Upload!) {
+					isolate(image: $image)
+				}`, {
+					image: entry['file'][0]
+				}).then(result => {
+					const data = typeof result.isolate === 'string'
+						? JSON.parse(result.isolate)
+						: result.isolate;
+					const mime = data?.mimeType || 'image/png';
+					const bytes = Uint8Array.from(atob(data?.base64 || ''), (m) => m.codePointAt(0));
+					const file = new File([bytes], entry['file'][0].name, {
 						lastModified: new Date().getTime(),
-						type: 'image/png'
+						type: mime
 					});
 
 					URL.revokeObjectURL(entry['media.preview']);
 					entry['media.preview'] = URL.createObjectURL(file);
+					entry['media.mimetype'] = mime;
 
 					const tx = new DataTransfer();
 					tx.items.add(file);

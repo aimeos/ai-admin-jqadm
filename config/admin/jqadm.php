@@ -201,9 +201,7 @@ return [
 	'settings' => [
 		'api' => [
 			'subparts' => [
-				'deepl' => 'deepl',
-				'openai' => 'openai',
-				'removebg' => 'removebg',
+				'ai' => 'ai',
 			],
 		],
 		'subparts' => [
