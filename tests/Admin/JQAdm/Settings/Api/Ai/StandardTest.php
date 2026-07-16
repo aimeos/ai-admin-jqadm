@@ -39,6 +39,33 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSearchUsesConfiguredAiSettings()
+	{
+		$this->context->locale()->getSiteItem()->setConfigValue( 'admin/ai', [] );
+		$this->context->locale()->getSiteItem()->setConfigValue( 'admin/jqadm/api/openai', [] );
+		$this->context->config()->set( 'admin/ai', [
+			'write' => [
+				'provider' => 'configured-text-provider',
+				'model' => 'configured-text-model',
+			],
+			'imagine' => [
+				'provider' => 'configured-image-provider',
+				'model' => 'configured-image-model',
+			],
+		] );
+		$this->object = new Standard( $this->context );
+		$this->object->setAimeos( \TestHelper::getAimeos() );
+		$this->object->setView( $this->view );
+
+		$result = $this->object->search();
+
+		$this->assertStringContainsString( 'value="configured-text-provider"', (string) $result );
+		$this->assertStringContainsString( 'value="configured-text-model"', (string) $result );
+		$this->assertStringContainsString( 'value="configured-image-provider"', (string) $result );
+		$this->assertStringContainsString( 'value="configured-image-model"', (string) $result );
+	}
+
+
 	public function testSaveStoresFlatProviderSettings()
 	{
 		$this->context->locale()->getSiteItem()->setConfigValue( 'admin/ai', [

@@ -108,13 +108,26 @@ class Standard
 	{
 		$site = $this->context()->locale()->getSiteItem();
 		$data = (array) $site->getConfigValue( 'admin/ai', [] );
+		$defaults = (array) $this->context()->config()->get( 'admin/ai', [] );
 		$openai = (array) $site->getConfigValue( 'admin/jqadm/api/openai', [] );
 
 		$data += [
-			'write' => $this->legacy( $openai, 'openai', 'model', 'gpt-4o-mini', 'url' ),
-			'translate' => $this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/translate', [] ), 'deepl', null, null, 'url' ),
-			'imagine' => $this->legacy( $openai, 'openai', 'image-model', 'dall-e-3', 'image-url' ),
-			'isolate' => $this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/removebg', [] ), 'removebg' ),
+			'write' => array_replace(
+				(array) ( $defaults['write'] ?? [] ),
+				$this->legacy( $openai, 'openai', 'model', 'url' )
+			),
+			'translate' => array_replace(
+				(array) ( $defaults['translate'] ?? [] ),
+				$this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/translate', [] ), 'deepl', null, 'url' )
+			),
+			'imagine' => array_replace(
+				(array) ( $defaults['imagine'] ?? [] ),
+				$this->legacy( $openai, 'openai', 'image-model', 'image-url' )
+			),
+			'isolate' => array_replace(
+				(array) ( $defaults['isolate'] ?? [] ),
+				$this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/removebg', [] ), 'removebg' )
+			),
 		];
 
 		return $data;
@@ -127,17 +140,20 @@ class Standard
 	 * @param array $data Legacy settings
 	 * @param string $provider Provider name
 	 * @param string|null $modelKey Legacy model key
-	 * @param string|null $modelDefault Default model
 	 * @param string|null $urlKey Legacy URL key
 	 * @return array Flat provider settings
 	 */
 	protected function legacy( array $data, string $provider, ?string $modelKey = null,
-		?string $modelDefault = null, ?string $urlKey = null ) : array
+		?string $urlKey = null ) : array
 	{
+		if( !$data ) {
+			return [];
+		}
+
 		$result = ['provider' => $provider, 'api_key' => $data['key'] ?? null];
 
 		if( $modelKey ) {
-			$result['model'] = $data[$modelKey] ?? $modelDefault;
+			$result['model'] = $data[$modelKey] ?? null;
 		}
 
 		if( $urlKey && !empty( $data[$urlKey] ) ) {
