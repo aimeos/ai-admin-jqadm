@@ -108,6 +108,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->search();
 
 		$this->assertStringContainsString( 'from-email', $result );
+		$this->assertStringContainsString( 'href="#ai"', $result );
+		$this->assertStringContainsString( 'id="ai"', $result );
+		$this->assertStringNotContainsString( 'href="#api"', $result );
 	}
 
 

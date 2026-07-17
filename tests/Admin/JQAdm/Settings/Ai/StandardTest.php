@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Settings\Api\Ai;
+namespace Aimeos\Admin\JQAdm\Settings\Ai;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -34,6 +34,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
+		$this->assertStringContainsString( 'id="ai"', (string) $result );
+		$this->assertStringContainsString( 'name="ai[write][provider]"', (string) $result );
 		$this->assertStringContainsString( 'value="openai"', (string) $result );
 		$this->assertStringNotContainsString( 'secret', (string) $result );
 	}
@@ -71,7 +73,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context->locale()->getSiteItem()->setConfigValue( 'admin/ai', [
 			'write' => ['provider' => 'openai', 'api_key' => 'secret'],
 		] );
-		$params = ['api' => ['ai' => [
+		$params = ['ai' => [
 			'write' => [
 				'provider' => 'azure',
 				'model' => 'gpt',
@@ -82,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'translate' => ['provider' => 'deepl', 'api_key' => '', 'url' => '', 'extra' => ''],
 			'imagine' => ['provider' => 'openai', 'model' => 'image', 'api_key' => '', 'url' => '', 'extra' => ''],
 			'isolate' => ['provider' => 'removebg', 'api_key' => '', 'url' => '', 'extra' => ''],
-		]]];
+		]];
 		$this->view->addHelper( 'param', new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $params ) );
 
 		$this->object->save();
@@ -100,14 +102,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveRequiresApiKeyForCustomUrl()
 	{
-		$params = ['api' => ['ai' => [
+		$params = ['ai' => [
 			'write' => [
 				'provider' => 'openai',
 				'api_key' => '',
 				'url' => 'https://example.test',
 				'extra' => '',
 			],
-		]]];
+		]];
 		$this->view->addHelper( 'param', new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $params ) );
 
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );

@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Settings\Api\Ai;
+namespace Aimeos\Admin\JQAdm\Settings\Ai;
 
-sprintf( 'api' ); // for translation
+sprintf( 'ai' ); // for translation
 
 
 /**
- * AI API settings implementation.
+ * AI settings implementation.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -31,7 +31,7 @@ class Standard
 	public function save() : ?string
 	{
 		$current = $this->settings();
-		$data = (array) $this->view()->param( 'api/ai', [] );
+		$data = (array) $this->view()->param( 'ai', [] );
 
 		foreach( ['write', 'translate', 'imagine', 'isolate'] as $action )
 		{
@@ -72,30 +72,6 @@ class Standard
 		$view->aiData = $this->settings();
 
 		return $this->render( $view );
-	}
-
-
-	/**
-	 * Returns a sub-client by name.
-	 *
-	 * @param string $type Sub-client type
-	 * @param string|null $name Sub-client implementation name
-	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
-	 */
-	public function getSubClient( string $type, ?string $name = null ) : \Aimeos\Admin\JQAdm\Iface
-	{
-		return $this->createSubClient( 'settings/api/ai/' . $type, $name );
-	}
-
-
-	/**
-	 * Returns the configured sub-client names.
-	 *
-	 * @return array Sub-client names
-	 */
-	protected function getSubClientNames() : array
-	{
-		return (array) $this->context()->config()->get( 'admin/jqadm/settings/api/ai/subparts', [] );
 	}
 
 
@@ -146,7 +122,7 @@ class Standard
 	protected function legacy( array $data, string $provider, ?string $modelKey = null,
 		?string $urlKey = null ) : array
 	{
-		if( !$data ) {
+		if( empty( $data ) ) {
 			return [];
 		}
 
@@ -172,7 +148,7 @@ class Standard
 	 */
 	protected function render( \Aimeos\Base\View\Iface $view ) : string
 	{
-		$path = $view->config( 'admin/jqadm/settings/api/ai/template-item', 'settings/item-api-ai' );
+		$path = $view->config( 'admin/jqadm/settings/ai/template-item', 'settings/item-ai' );
 		return $view->render( $path );
 	}
 }

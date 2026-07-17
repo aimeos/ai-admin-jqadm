@@ -199,14 +199,9 @@ return [
 		],
 	],
 	'settings' => [
-		'api' => [
-			'subparts' => [
-				'ai' => 'ai',
-			],
-		],
 		'subparts' => [
 			'theme' => 'theme',
-			'api' => 'api',
+			'ai' => 'ai',
 		],
 	],
 	'supplier' => [
