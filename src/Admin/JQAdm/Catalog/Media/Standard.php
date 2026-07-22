@@ -333,19 +333,20 @@ class Standard
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'catalog.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
-			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
-
-			$refItem->fromArray( $entry, true )->setDomain( 'catalog' );
-
 			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
 			$file = $this->val( $files, 'media/' . $idx . '/file' );
+
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
+			$label = $entry['media.label'] ?? $file?->getClientFilename();
+
+			$refItem->fromArray( $entry, true )->setDomain( 'catalog' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			$refItem = $mediaManager->upload( $refItem, $file, $preview );
+			$refItem = $mediaManager->upload( $refItem, $file, $preview )->setLabel( (string) $label );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
