@@ -356,14 +356,15 @@ class Standard
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'product.lists.type', 'default' );
 
+			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
+			$file = $this->val( $files, 'media/' . $idx . '/file' );
+
 			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
+			$label = $entry['media.label'] ?? $file?->getClientFilename();
 
 			unset( $entry['property'] ); // avoid media mtime update
 			$refItem->fromArray( $entry, true )->setDomain( 'product' );
-
-			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
-			$file = $this->val( $files, 'media/' . $idx . '/file' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $mediaManager->copy( $refItem );
@@ -373,7 +374,8 @@ class Standard
 			$config = array_filter( array_map( fn( $val ) => json_decode( $val, true ) ?? trim( $val ) ?? '', $config ) );
 			unset( $entry['config'] );
 
-			$refItem = $mediaManager->upload( $refItem, $file, $preview );
+			$refItem = $mediaManager->upload( $refItem, $file, $preview )->setLabel( (string) $label );
+
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfigFlat( $config );
 
 			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false );

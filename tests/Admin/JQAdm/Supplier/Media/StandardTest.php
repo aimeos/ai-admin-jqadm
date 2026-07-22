@@ -121,7 +121,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		\Aimeos\MShop::inject( \Aimeos\MShop\Media\Manager\Standard::class, $managerStub );
 
 		$managerStub->method( 'type' )->willReturn( ['media'] );
-		$managerStub->expects( $this->once() )->method( 'upload' )->willReturnArgument( 0 );
+		$managerStub->expects( $this->once() )->method( 'upload' )
+			->willReturnCallback( fn( $item ) => $item->setLabel( 'test.gif' ) );
 
 
 		$result = $this->object->save();
