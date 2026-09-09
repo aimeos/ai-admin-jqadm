@@ -124,7 +124,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 
 ?>
-<div class="aimeos" lang="<?= $this->param( 'locale' ) ?>"
+<div class="aimeos" lang="<?= $enc->attr( $this->param( 'locale' ) ) ?>"
 	data-graphql="<?= $enc->attr( $this->link( 'admin/graphql/url', ['site' => $site, $this->csrf()->name() => $this->csrf()->value()] ) ) ?>"
 	data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url/options', array( 'site' => $site ) ) ) ?>"
 	data-user-siteid="<?= $enc->attr( $this->get( 'pageUserSiteid' ) ) ?>">
