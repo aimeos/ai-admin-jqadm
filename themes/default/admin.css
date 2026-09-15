@@ -16,7 +16,6 @@
 }
 
 .aimeos .item-service .decorator-menu {
-	max-height: calc(100vh - 1rem);
 	overflow-y: auto;
 }
 
