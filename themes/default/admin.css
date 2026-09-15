@@ -15,6 +15,11 @@
 	text-decoration-skip-ink: all;
 }
 
+.aimeos .item-service .decorator-menu {
+	max-height: calc(100vh - 1rem);
+	overflow-y: auto;
+}
+
 .aimeos .btn:not(.is-invalid):first-child:hover,
 .aimeos .btn:not(.is-invalid):first-child:focus,
 .aimeos :not(.btn-check)+.btn:not(.is-invalid):hover,
