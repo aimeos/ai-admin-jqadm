@@ -154,7 +154,7 @@ class TestHelper
 		$helper = new \Aimeos\Base\View\Helper\Access\All( $view );
 		$view->addHelper( 'access', $helper );
 
-		$view->pageSitePath = [];
+		$view->pageSitePath = map();
 
 		return $view;
 	}

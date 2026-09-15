@@ -34,7 +34,7 @@ class CouponTemplateTest extends \PHPUnit\Framework\TestCase
 
 		$view = \TestHelper::view( 'unittest', new \Aimeos\Base\Config\PHPArray() );
 		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( 'locale.site.', ['locale.site.id' => '1', 'locale.site.label' => 'Test'] );
-		$view->item = $domain === 'order' ? $order : new \Aimeos\MShop\Basket\Item\Standard( [], $order );
+		$view->item = $domain === 'order' ? $order : new \Aimeos\MShop\Order\Item\Basket\Standard( [], $order );
 		$output = $view->render( $domain . '/item' );
 
 		$doc = new \DOMDocument();
