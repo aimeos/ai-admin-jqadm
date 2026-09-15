@@ -72,6 +72,15 @@ Aimeos.Service = {
 			},
 
 
+			resizeDecorators(event) {
+				const button = event.currentTarget
+				const menu = button.nextElementSibling
+				const spacer = Number.parseFloat(getComputedStyle(menu).getPropertyValue('--bs-dropdown-spacer')) || 0
+
+				menu.style.maxHeight = Math.max(0, window.innerHeight - button.getBoundingClientRect().bottom - spacer) + 'px'
+			},
+
+
 			toggle() {
 				this.show = Aimeos.session('aimeos/jqadm/item/form', +!this.show)
 			}

@@ -186,7 +186,8 @@ $enc = $this->encoder();
 										>
 										</Multiselect>
 										<div v-if="can('change')" class="dropdown input-group-end">
-											<div class="btn act-add icon" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}' aria-haspopup="true" aria-expanded="false"></div>
+											<div class="btn act-add icon" data-bs-toggle="dropdown" data-bs-popper-config='{"strategy":"fixed"}'
+												aria-haspopup="true" aria-expanded="false" @click="resizeDecorators"></div>
 											<ul class="dropdown-menu dropdown-menu-end decorator-menu" aria-labelledby="decoratorButton">
 												<li v-for="(name, idx) in JSON.parse(decorators)" :key="idx" class="dropdown-item">
 													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
