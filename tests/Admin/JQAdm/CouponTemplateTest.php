@@ -20,21 +20,20 @@ class CouponTemplateTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testCouponCodesAreSafeText( string $domain )
 	{
-		$order = new \Aimeos\MShop\Order\Item\Standard( 'order.', [
-			'.locale' => new \Aimeos\MShop\Locale\Item\Standard( ['locale.siteid' => '1.', 'locale.languageid' => 'en'] ),
-			'.price' => new \Aimeos\MShop\Price\Item\Standard( 'price.', ['price.currencyid' => 'EUR'] ),
-		] );
+		$locale = new \Aimeos\MShop\Locale\Item\Standard( ['locale.siteid' => '1.', 'locale.languageid' => 'en'] );
+		$price = new \Aimeos\MShop\Price\Item\Standard( ['price.currencyid' => 'EUR'] );
+		$order = new \Aimeos\MShop\Order\Item\Standard( $price, $locale );
 
 		foreach( ['<svg/onload=alert(1)>', '<img/src/onerror=alert(1)>', '{{constructor.constructor("alert(1)")()}}', 'SAVE&WIN', 'été-10'] as $code )
 		{
-			$coupon = new \Aimeos\MShop\Coupon\Item\Code\Standard( 'coupon.code.' );
+			$coupon = new \Aimeos\MShop\Coupon\Item\Code\Standard();
 			$order->addCoupon( $coupon->setCode( $code )->getCode() );
 		}
 
 		$view = \TestHelper::view( 'unittest', new \Aimeos\Base\Config\PHPArray() );
-		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( 'locale.site.', ['locale.site.id' => '1', 'locale.site.label' => 'Test'] );
+		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( ['locale.site.id' => '1', 'locale.site.label' => 'Test'] );
 		$view->pageSitePath = map( [$view->pageSiteItem] );
-		$view->item = $domain === 'order' ? $order : new \Aimeos\MShop\Basket\Item\Standard( [], $order );
+		$view->item = $domain === 'order' ? $order : new \Aimeos\MShop\Order\Item\Basket\Standard( [], $order );
 		$output = $view->render( $domain . '/item' );
 
 		$doc = new \DOMDocument();
