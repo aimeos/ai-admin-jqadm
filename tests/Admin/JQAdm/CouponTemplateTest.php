@@ -7,9 +7,6 @@
 
 namespace Aimeos\Admin\JQAdm;
 
-use PHPUnit\Framework\Attributes\DataProvider;
-
-
 class CouponTemplateTest extends \PHPUnit\Framework\TestCase
 {
 	public static function templates() : array
@@ -18,7 +15,9 @@ class CouponTemplateTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	#[DataProvider('templates')]
+	/**
+	 * @dataProvider templates
+	 */
 	public function testCouponCodesAreSafeText( string $domain )
 	{
 		$order = new \Aimeos\MShop\Order\Item\Standard( 'order.', [
@@ -34,6 +33,7 @@ class CouponTemplateTest extends \PHPUnit\Framework\TestCase
 
 		$view = \TestHelper::view( 'unittest', new \Aimeos\Base\Config\PHPArray() );
 		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( 'locale.site.', ['locale.site.id' => '1', 'locale.site.label' => 'Test'] );
+		$view->pageSitePath = map( [$view->pageSiteItem] );
 		$view->item = $domain === 'order' ? $order : new \Aimeos\MShop\Basket\Item\Standard( [], $order );
 		$output = $view->render( $domain . '/item' );
 
