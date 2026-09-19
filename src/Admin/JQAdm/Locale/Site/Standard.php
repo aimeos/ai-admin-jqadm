@@ -78,7 +78,34 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'locale/site' );
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
+			$filter = $manager->filter()->add( ['locale.site.id' => $ids] )->slice( 0, (int) count( (array) $ids ) );
+			$items = $manager->search( $filter, $this->getDomains() );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item )
+			{
+				// Non-super users may only modify their own site, not arbitrary sites addressed by ID
+				$this->checkSite( $view->access( 'super' ), (string) $item->getSiteId() );
+
+				$temp = $data; $item->fromArray( $temp, true );
+			}
+
+			$view->items = $items;
+
+			foreach( $this->getSubClients() as $client ) {
+				$client->batch();
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( 'locale/site', 'search', null, 'save' );
 	}
 
 
