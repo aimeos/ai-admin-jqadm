@@ -65,7 +65,39 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'review' );
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
+			$filter = $manager->filter()->add( ['review.id' => $ids] )->slice( 0, (int) count( (array) $ids ) );
+			$items = $manager->search( $filter, $this->getDomains() );
+
+			$data = $view->param( 'item', [] );
+
+			// The review status is a moderation control and must not be changed by editors
+			$status = $data['review.status'] ?? null;
+			unset( $data['review.status'] );
+
+			foreach( $items as $item )
+			{
+				if( $status !== null && $view->access( ['super', 'admin'] ) ) {
+					$item->setStatus( (int) $status );
+				}
+
+				$temp = $data; $item->fromArray( $temp, true );
+			}
+
+			$view->items = $items;
+
+			foreach( $this->getSubClients() as $client ) {
+				$client->batch();
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( 'review', 'search', null, 'save' );
 	}
 
 
