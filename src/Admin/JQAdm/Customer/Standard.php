@@ -105,10 +105,12 @@ class Standard
 
 			foreach( $items as $item )
 			{
-				if( $view->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() )
-				{
-					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+				if( $view->access( ['super', 'admin'] ) ) {
 					!isset( $data['groups'] ) ?: $item->setGroups( array_filter( (array) $data['groups'] ) );
+				}
+
+				if( $view->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() ) {
+					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 				}
 
 				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
