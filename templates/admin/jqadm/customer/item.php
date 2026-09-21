@@ -128,13 +128,13 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 							</div>
 							<?php if( $this->get( 'itemData/.modify' ) ) : ?>
-								<div class="form-group row mandatory">
+								<?php $new = !$this->get( 'itemData/customer.id' ) // stored password hash is write-only ?>
+								<div class="form-group row <?= $new ? 'mandatory' : 'optional' ?>">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="new-password"
+										<input class="form-control item-password" type="password" <?= $new ? 'required="required"' : '' ?> tabindex="1" autocomplete="new-password"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ) ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ) ?>"
+											placeholder="<?= $enc->attr( $new ? $this->translate( 'admin', 'Password (required)' ) : $this->translate( 'admin', 'Leave empty to keep the current password' ) ) ?>"
 											v-bind:readonly="!can('change')">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
