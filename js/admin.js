@@ -8,6 +8,7 @@ Aimeos = {
 
 	apps: {},
 	components: {},
+	i18n: window.Aimeos?.i18n || {},
 	options: null,
 	siteid: document.querySelector('.aimeos')?.dataset['user-siteid'] || '',
 
