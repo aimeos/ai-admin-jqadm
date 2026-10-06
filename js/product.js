@@ -160,7 +160,7 @@ Aimeos.Product.Basic = {
 					}`).then(result => {
 						this.duplicate = result?.searchProducts?.items?.length > 0
 							&& result?.searchProducts?.items[0]?.id !== this.item['product.id']
-					})
+					}).catch(() => {})
 				},
 
 
@@ -256,7 +256,7 @@ Aimeos.Product.Attribute = {
 						return (result?.searchAttributes?.items || []).map(item => {
 							return {'attribute.id': item.id, 'attribute.label': item.label}
 						})
-					})
+					}).catch(() => [])
 				},
 
 
@@ -288,7 +288,7 @@ Aimeos.Product.Attribute = {
 						return (result?.searchAttributeTypes?.items || []).map(item => {
 							return {'attribute.type': item.code}
 						})
-					})
+					}).catch(() => [])
 				},
 
 
@@ -404,7 +404,7 @@ Aimeos.Product.Catalog = {
 						return (result?.searchCatalogs?.items || []).map(item => {
 							return {'catalog.id': item.id, 'catalog.label': item.label + ' (' + item.code + ')'}
 						})
-					})
+					}).catch(() => [])
 				},
 
 
@@ -558,6 +558,9 @@ Aimeos.Product.Order = {
 					`).then((result) => {
 						this.total = result?.searchOrders?.total || 0;
 						this.items = result?.searchOrders?.items || [];
+					}).catch(error => {
+						alert(error)
+					}).finally(() => {
 						this.loading = false;
 					});
 				},
@@ -703,7 +706,7 @@ Aimeos.Product.Product = {
 						return (result?.searchProducts?.items || []).map(item => {
 							return {'product.id': item.id, 'product.label': item.label + ' (' + item.code + ')'}
 						})
-					})
+					}).catch(() => [])
 				},
 
 
@@ -905,7 +908,7 @@ Aimeos.Product.Selection = {
 								})
 							};
 						});
-					});
+					}).catch(() => []);
 				},
 
 
@@ -976,7 +979,7 @@ Aimeos.Product.Selection = {
 						return (result?.searchAttributes?.items || []).map(item => {
 							return {'attribute.id': item.id, 'attribute.label': item.label + ' (' + item.type + ')'}
 						})
-					})
+					}).catch(() => [])
 				},
 
 
@@ -1218,7 +1221,7 @@ Aimeos.Product.Supplier = {
 						return (result?.searchSuppliers?.items || []).map(item => {
 							return {'supplier.id': item.id, 'supplier.label': item.label + ' (' + item.code + ')'}
 						})
-					})
+					}).catch(() => [])
 				},
 
 

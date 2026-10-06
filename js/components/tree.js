@@ -164,6 +164,8 @@ Aimeos.components['tree'] = {
 				if(stat.parent && !stat.parent.children?.length) {
 					stat.parent.open = false
 				}
+			}).catch(error => {
+				alert(error)
 			})
 		},
 
@@ -203,6 +205,8 @@ Aimeos.components['tree'] = {
 		init() {
 			this.fetch().then(items => {
 				this.tree = items
+			}).catch(error => {
+				alert(error)
 			})
 		},
 
@@ -226,7 +230,7 @@ Aimeos.components['tree'] = {
 
 			Aimeos.graphql(`mutation {
 				insert` + this.name + `(input: {
-					label: "` + (this.i18n.new || 'New node') + `",
+					label: ` + JSON.stringify(this.i18n.new || 'New node') + `,
 					code: "new-` + Math.floor(Math.random()*10000) + `",
 					status: -1
 				}, parentid: ${parentid}, refid: ${refid} ) {
@@ -245,6 +249,8 @@ Aimeos.components['tree'] = {
 					stat.data.hasChildren = true
 					this.$refs.tree.openNodeAndParents(stat)
 				}
+			}).catch(error => {
+				alert(error)
 			})
 		},
 
@@ -252,7 +258,7 @@ Aimeos.components['tree'] = {
 		root() {
 			Aimeos.graphql(`mutation {
 				insert` + this.name + `(input: {
-					label: "` + (this.i18n.new || 'New node') + `",
+					label: ` + JSON.stringify(this.i18n.new || 'New node') + `,
 					code: "new-` + Math.floor(Math.random()*10000) + `",
 					status: -1
 				}, parentid: null, refid: null ) {
@@ -266,6 +272,8 @@ Aimeos.components['tree'] = {
 			}`).then(result => {
 				const name = 'insert' + this.name
 				this.$refs.tree.add(result[name], null)
+			}).catch(error => {
+				alert(error)
 			})
 		},
 
@@ -275,6 +283,8 @@ Aimeos.components['tree'] = {
 				this.$refs.tree.remove(stat)
 				this.fetch(stat).then(items => {
 					this.$refs.tree.addMulti(items, stat?.parent)
+				}).catch(error => {
+					alert(error)
 				})
 			} else {
 				this.$emit('load', stat, ev)
@@ -295,7 +305,15 @@ Aimeos.components['tree'] = {
 
 			Aimeos.graphql(`mutation {
 				move` + this.name + `(id: "${id}", parentid: ${parentid}, targetid: ${targetid}, refid: ${refid})
-			}`)
+			}`).catch(error => {
+				alert(error)
+				this.reload() // revert the moved node in the tree
+			})
+		},
+
+
+		reload() {
+			this.input ? this.search(this.input) : this.init()
 		},
 
 
@@ -375,7 +393,7 @@ Aimeos.components['tree'] = {
 				this.tree = result[name] || []
 			}).then(() => {
 				this.$refs.tree.openAll()
-			})
+			}).catch(() => {})
 		},
 
 
@@ -389,6 +407,9 @@ Aimeos.components['tree'] = {
 					if(!items.length) {
 						stat.data.hasChildren = false
 					}
+				}).catch(error => {
+					stat.open = false
+					alert(error)
 				})
 			}
 		}

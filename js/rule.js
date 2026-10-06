@@ -44,10 +44,10 @@ Aimeos.Rule = {
 
 
 			config(provider, type) {
-				if(!provider) return []
-				if(this.cache[provider]) return this.cache[provider]
+				if(!provider || !type) return []
+				if(this.cache[type + ':' + provider]) return this.cache[type + ':' + provider]
 
-				return this.cache[provider] = Aimeos.graphql(`query {
+				return this.cache[type + ':' + provider] = Aimeos.graphql(`query {
 					getRuleConfig(provider: ` + JSON.stringify(provider) + `, type: ` + JSON.stringify(type) + `) {
 						code
 						label
@@ -61,7 +61,7 @@ Aimeos.Rule = {
 						entry.key = entry.code
 						return entry
 					})
-				})
+				}).catch(() => [])
 			},
 
 

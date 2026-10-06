@@ -138,13 +138,16 @@ Aimeos.ProductList = {
 				`).then(result => {
 					this.total = result?.searchIndex?.total || 0
 					this.items = result?.searchIndex?.items || []
+				}).catch(error => {
+					alert(error)
+				}).finally(() => {
 					this.loading = false;
 				})
 			},
 
 
 			remove(idx, index) {
-				if(idx !== 'undefined' && index !== 'undefined' && this.items[idx] && this.items[idx].lists && this.items[idx].lists[this.domain] && this.items[idx].lists[this.domain][index]) {
+				if(idx !== undefined && index !== undefined && this.items[idx] && this.items[idx].lists && this.items[idx].lists[this.domain] && this.items[idx].lists[this.domain][index]) {
 					this.items[idx].lists[this.domain].splice(index, 1);
 					this.save([this.items[idx]])
 
@@ -197,10 +200,10 @@ Aimeos.ProductList = {
 					for(const litem of (item.lists[this.domain] || [])) {
 						input += `		{\n`
 						input += `			id: "` + litem.id + `"\n`
-						input += `			type: "` + litem.type + `"\n`
+						input += `			type: ` + JSON.stringify(litem.type) + `\n`
 						input += `			config: ` + JSON.stringify(litem.config) + `\n`
-						input += `			datestart: ` + (litem.datestart ? `"` + litem.datestart + `"` : 'null') + `\n`
-						input += `			dateend: ` + (litem.dateend ? `"` + litem.dateend + `"` : 'null') + `\n`
+						input += `			datestart: ` + (litem.datestart ? JSON.stringify(litem.datestart) : 'null') + `\n`
+						input += `			dateend: ` + (litem.dateend ? JSON.stringify(litem.dateend) : 'null') + `\n`
 						input += `			position: ` + litem.position + `\n`
 						input += `			status: ` + litem.status + `\n`
 						input += `			refid: "` + litem.refid + `"\n`
@@ -213,12 +216,15 @@ Aimeos.ProductList = {
 				}
 				input += `]\n`
 
-				Aimeos.graphql(`mutation {
+				return Aimeos.graphql(`mutation {
 					saveProducts(input: ` + input + `) {
 						id
 					}
 				  }
-				`)
+				`).catch(error => {
+					alert(error)
+					this.fetch() // restore the entries removed from the list
+				})
 			},
 
 
