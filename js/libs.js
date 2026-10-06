@@ -27,6 +27,7 @@ import {
 	Link,
 	LinkImage,
 	List,
+	Markdown,
 	MediaEmbed,
 	PasteFromOffice,
 	RemoveFormat,
