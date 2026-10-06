@@ -61,7 +61,7 @@ Aimeos.Coupon = {
 						entry.key = entry.code
 						return entry
 					})
-				})
+				}).catch(() => [])
 			},
 
 
@@ -217,6 +217,9 @@ Aimeos.Coupon.Code = {
 				`).then((result) => {
 					this.total = result?.searchCouponCodes?.total || 0;
 					this.items = result?.searchCouponCodes?.items || [];
+				}).catch(error => {
+					alert(error)
+				}).finally(() => {
 					this.loading = false;
 				});
 			},
@@ -245,6 +248,9 @@ Aimeos.Coupon.Code = {
 					for(const id of (result?.deleteCouponCodes || [])) {
 						this.items.splice(map[id], 1)
 					}
+				}).catch(error => {
+					alert(error)
+				}).finally(() => {
 					this.loading = false;
 				});
 			},

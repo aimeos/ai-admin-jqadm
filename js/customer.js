@@ -78,7 +78,7 @@ Aimeos.Customer = {
 					}
 				}`).then(result => {
 					return (result?.searchGroups?.items || [])
-				})
+				}).catch(() => [])
 			},
 
 

@@ -240,7 +240,7 @@ Aimeos.ProductRef = {
 						entry[this.prefix + 'refid'] = item.id;
 						return entry
 					})
-				})
+				}).catch(() => [])
 			},
 
 

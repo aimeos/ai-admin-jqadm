@@ -50,6 +50,6 @@ Aimeos.Dashboard = {
 			}
 		}`).then(result => {
 			return JSON.parse(result[method]?.aggregates || '{}')
-		})
+		}).catch(() => ({}))
 	}
 };
