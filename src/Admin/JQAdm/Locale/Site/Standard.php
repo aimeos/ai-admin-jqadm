@@ -65,6 +65,23 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
+		/** client/html/themes
+		 * List of available frontend themes
+		 *
+		 * Contains the list of themes that can be selected for each site in the
+		 * admin backend. The keys are the theme names, which must be the same as
+		 * the theme directory names, and the values are the labels displayed in
+		 * the backend, e.g.
+		 *
+		 *  client/html/themes = [
+		 *      'default' => 'Default',
+		 *      'mytheme' => 'My theme',
+		 *  ]
+		 *
+		 * @type array Associative list of theme names as keys and labels as values
+		 * @since 2021.07
+		 * @see client/html/theme-presets
+		 */
 		$view->themes = $this->context()->config()->get( 'client/html/themes', [] );
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
