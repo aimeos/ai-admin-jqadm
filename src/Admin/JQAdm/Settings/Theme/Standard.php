@@ -28,7 +28,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Settings\Theme\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @type string Last part of the JQAdm class name
+	 * @param string Last part of the JQAdm class name
 	 * @since 2022.10
 	 */
 
@@ -76,7 +76,7 @@ class Standard
 		 * The values configured for the site in the admin backend overwrite
 		 * these default values.
 		 *
-		 * @type array Associative list of theme names as keys and lists of CSS variable/value pairs as values
+		 * @param array Associative list of theme names as keys and lists of CSS variable/value pairs as values
 		 * @since 2022.07
 		 * @see client/html/themes
 		 */
@@ -118,7 +118,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/global
@@ -141,7 +141,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/excludes
@@ -164,7 +164,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Settings\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2022.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/theme/decorators/excludes
@@ -210,7 +210,7 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @type array List of sub-client names
+		 * @param array List of sub-client names
 		 * @since 2022.10
 		 */
 		return (array) $this->context()->config()->get( 'admin/jqadm/settings/theme/subparts', [] );
@@ -240,7 +240,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2022.10
 		 */
 		$tplconf = 'admin/jqadm/settings/theme/template-item';

@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Property\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @type string Last part of the JQAdm class name
+	 * @param string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -149,7 +149,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/global
@@ -172,7 +172,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/excludes
@@ -195,7 +195,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Attribute\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2018.01
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/property/decorators/excludes
@@ -241,7 +241,7 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @type array List of sub-client names
+		 * @param array List of sub-client names
 		 * @since 2018.01
 		 */
 		return (array) $this->context()->config()->get( 'admin/jqadm/attribute/property/subparts', [] );
@@ -333,7 +333,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2018.01
 		 */
 		$tplconf = 'admin/jqadm/attribute/property/template-item';

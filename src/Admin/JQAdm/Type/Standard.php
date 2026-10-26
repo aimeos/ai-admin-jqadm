@@ -52,7 +52,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @type string Last part of the class name
+	 * @param string Last part of the class name
 	 * @since 2025.04
 	 */
 
@@ -72,7 +72,7 @@ class Standard
 		 * to be able to filter the items in the JQAdm panel. The configured
 		 * domain names limits the domains in the panel to the available ones.
 		 *
-		 * @type array List of domain names
+		 * @param array List of domain names
 		 * @since 2025.04
 		 */
 		$domains = $view->config( 'admin/jqadm/type/domains', [] );
@@ -316,7 +316,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2025.04
 		 */
 		$tplconf = 'admin/jqadm/type/template-list';
@@ -353,7 +353,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/decorators/global
@@ -376,7 +376,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/decorators/excludes
@@ -399,7 +399,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Type\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2025.04
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/decorators/excludes
@@ -445,7 +445,7 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @type array List of sub-client names
+		 * @param array List of sub-client names
 		 * @since 2025.04
 		 */
 		return (array) $this->context()->config()->get( 'admin/jqadm/type/subparts', [] );
@@ -519,7 +519,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2025.04
 		 */
 		$tplconf = 'admin/jqadm/type/template-item';

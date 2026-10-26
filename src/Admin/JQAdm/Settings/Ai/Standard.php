@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Settings\Ai\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @type string Last part of the JQAdm class name
+	 * @param string Last part of the JQAdm class name
 	 * @since 2026.10
 	 */
 
@@ -52,7 +52,7 @@ class Standard
 	 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 	 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 	 *
-	 * @type array List of decorator names
+	 * @param array List of decorator names
 	 * @since 2026.10
 	 * @see admin/jqadm/common/decorators/default
 	 * @see admin/jqadm/settings/ai/decorators/global
@@ -75,7 +75,7 @@ class Standard
 	 * This would add the decorator named "decorator1" defined by
 	 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 	 *
-	 * @type array List of decorator names
+	 * @param array List of decorator names
 	 * @since 2026.10
 	 * @see admin/jqadm/common/decorators/default
 	 * @see admin/jqadm/settings/ai/decorators/excludes
@@ -98,7 +98,7 @@ class Standard
 	 * This would add the decorator named "decorator2" defined by
 	 * "\Aimeos\Admin\JQAdm\Settings\Decorator\Decorator2" only to the JQAdm client.
 	 *
-	 * @type array List of decorator names
+	 * @param array List of decorator names
 	 * @since 2026.10
 	 * @see admin/jqadm/common/decorators/default
 	 * @see admin/jqadm/settings/ai/decorators/excludes
@@ -246,7 +246,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2026.10
 		 */
 

@@ -52,7 +52,7 @@ class Standard
 	 * name with an upper case character and continue only with lower case characters
 	 * or numbers. Avoid chamel case names like "MyFavorite"!
 	 *
-	 * @type string Last part of the class name
+	 * @param string Last part of the class name
 	 * @since 2017.10
 	 */
 
@@ -301,7 +301,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-list';
@@ -338,7 +338,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/global
@@ -361,7 +361,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
@@ -384,7 +384,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Locale\Currency\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.10
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
@@ -430,7 +430,7 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @type array List of sub-client names
+		 * @param array List of sub-client names
 		 * @since 2017.10
 		 */
 		return (array) $this->context()->config()->get( 'admin/jqadm/locale/currency/subparts', [] );
@@ -503,7 +503,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.10
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-item';

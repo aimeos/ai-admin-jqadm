@@ -29,7 +29,7 @@ class Standard
 	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Service\Media\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
-	 * @type string Last part of the JQAdm class name
+	 * @param string Last part of the JQAdm class name
 	 * @since 2017.07
 	 */
 
@@ -181,7 +181,7 @@ class Standard
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/global
@@ -204,7 +204,7 @@ class Standard
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/excludes
@@ -227,7 +227,7 @@ class Standard
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Service\Decorator\Decorator2" only to the JQAdm client.
 		 *
-		 * @type array List of decorator names
+		 * @param array List of decorator names
 		 * @since 2017.07
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/media/decorators/excludes
@@ -307,7 +307,7 @@ class Standard
 		 * should support adding, removing or reordering content by a fluid like
 		 * design.
 		 *
-		 * @type array List of sub-client names
+		 * @param array List of sub-client names
 		 * @since 2017.07
 		 */
 		return (array) $this->context()->config()->get( 'admin/jqadm/service/media/subparts', [] );
@@ -439,7 +439,7 @@ class Standard
 		 * you've implemented an alternative client class as well, "default"
 		 * should be replaced by the name of the new class.
 		 *
-		 * @type string Relative path to the template creating the HTML code
+		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.07
 		 */
 		$tplconf = 'admin/jqadm/service/media/template-item';
