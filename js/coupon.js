@@ -223,28 +223,19 @@ Aimeos.Coupon.Code = {
 
 
 			remove(idx) {
-				const map = {};
+				const ids = idx !== undefined
+					? [this.items[idx]['id']]
+					: this.items.filter(item => item.checked).map(item => item['id']);
 
 				this.loading = true;
 				this.checked = false;
 
-				if(idx !== undefined) {
-					map[this.items[idx]['id']] = idx;
-				} else {
-					for(const pos in this.items) {
-						if(this.items[pos].checked) {
-							map[this.items[pos]['id']] = pos;
-						}
-					}
-				}
-
 				return Aimeos.graphql(`mutation {
-					deleteCouponCodes(id: ` + JSON.stringify(Object.keys(map)) + `)
+					deleteCouponCodes(id: ` + JSON.stringify(ids) + `)
 				  }
 				`).then((result) => {
-					for(const id of (result?.deleteCouponCodes || [])) {
-						this.items.splice(map[id], 1)
-					}
+					const deleted = (result?.deleteCouponCodes || []).map(String);
+					this.items = this.items.filter(item => !deleted.includes(String(item['id'])));
 					this.loading = false;
 				});
 			},
