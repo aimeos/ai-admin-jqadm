@@ -29,6 +29,24 @@ $idx = 0;
 
 $enc = $this->encoder();
 
+/** admin/jqadm/listsearch/operator
+ * Default operator of the search fields in the list views
+ *
+ * The search fields in the table header of the list views compare the
+ * entered value using this operator unless the list template sets an
+ * operator for the field. The default "=~" matches values which start
+ * with the entered string, "~=" matches values which contain the string
+ * anywhere and "==" matches exact values only.
+ *
+ * Searching with "~=" can't use the database indexes and may be slow if
+ * there are many records.
+ *
+ * @param string Operator code, e.g. "=~", "~=" or "=="
+ * @since 2026.10
+ * @see admin/jqadm/partial/listsearch
+ */
+$operator = $this->config( 'admin/jqadm/listsearch/operator', '=~' );
+
 
 ?>
 <tr class="list-search">
@@ -43,7 +61,7 @@ $enc = $this->encoder();
 				<?php if( $list !== null ) : $type = $this->value( $list, 'type', 'text' ) ?>
 					<input type="hidden" value="<?= $enc->attr( $key ) ?>"
 						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ) ?>">
-					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ) ?>"
+					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', $operator ) ) ?>"
 						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ) ?>">
 
 					<?php if( $type === 'select' ) : ?>
