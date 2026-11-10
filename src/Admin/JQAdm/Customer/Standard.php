@@ -105,18 +105,24 @@ class Standard
 
 			foreach( $items as $item )
 			{
-				if( $view->access( ['super', 'admin'] ) ) {
+				$temp = $data;
+
+				// Groups, status and verification of accounts are admin-only
+				if( $view->access( ['super', 'admin'] ) )
+				{
 					!isset( $data['groups'] ) ?: $item->setGroups( array_filter( (array) $data['groups'] ) );
+					!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
+					!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
 				}
 
 				if( $view->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() ) {
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+				} else {
+					// The e-mail address of existing accounts is used for password resets
+					unset( $temp['customer.email'] );
 				}
 
-				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
-				!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
-
-				$temp = $data; $item->fromArray( $temp );
+				$item->fromArray( $temp );
 			}
 
 			$manager->save( $items );

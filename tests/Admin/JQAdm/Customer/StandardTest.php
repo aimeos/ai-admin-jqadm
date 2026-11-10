@@ -58,6 +58,42 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatchEditorOtherAccount()
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
+		$this->context->setUser( $manager->find( 'test2@example.com' ) );
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['editor'] ) );
+
+		$expected = $manager->find( 'test@example.com' );
+		$param = [
+			'site' => 'unittest',
+			'id' => [$expected->getId()],
+			'item' => [
+				'customer.email' => 'jqadm@example.test',
+				'customer.status' => -1,
+				'customer.dateverified' => '2000-01-01',
+			],
+		];
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		try
+		{
+			$this->object->batch();
+			$item = $manager->get( $expected->getId() );
+		}
+		finally
+		{
+			$manager->save( $expected->setModified() );
+		}
+
+		$this->assertEquals( 'test@example.com', $item->getPaymentAddress()->getEmail() );
+		$this->assertEquals( $expected->getStatus(), $item->getStatus() );
+		$this->assertEquals( $expected->getDateVerified(), $item->getDateVerified() );
+	}
+
+
 	public function testCreate()
 	{
 		$result = $this->object->create();
