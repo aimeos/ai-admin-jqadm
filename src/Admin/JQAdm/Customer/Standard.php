@@ -101,18 +101,24 @@ class Standard
 
 			foreach( $items as $item )
 			{
-				if( $view->access( ['super', 'admin'] ) ) {
+				$temp = $data;
+
+				// Groups, status and verification of accounts are admin-only
+				if( $view->access( ['super', 'admin'] ) )
+				{
 					!isset( $data['customer.groups'] ) ?: $item->setGroups( array_filter( (array) $data['customer.groups'] ) );
+					!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
+					!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
 				}
 
 				if( $view->access( ['super', 'admin'] ) || $item->getId() === (string) $context->user() ) {
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+				} else {
+					// The e-mail address of existing accounts is used for password resets
+					unset( $temp['customer.email'] );
 				}
 
-				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
-				!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
-
-				$temp = $data; $item->fromArray( $temp );
+				$item->fromArray( $temp );
 			}
 
 			$manager->save( $items );
@@ -580,8 +586,12 @@ class Standard
 			$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 			$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-			$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
-				->setDateVerified( $data['customer.dateverified'] ?? null );
+			$item->setLabel( $label );
+
+			// Status and verification of existing accounts are admin-only
+			if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === null ) {
+				$item->setStatus( $data['customer.status'] ?? 0 )->setDateVerified( $data['customer.dateverified'] ?? null );
+			}
 
 			if( $this->view()->access( ['super', 'admin'] ) )
 			{
@@ -595,6 +605,11 @@ class Standard
 			{
 				!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 				!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
+			}
+			elseif( $item->getId() !== null )
+			{
+				// The e-mail address of existing accounts is used for password resets
+				unset( $data['customer.email'] );
 			}
 
 			$item->fromArray( $data );

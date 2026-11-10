@@ -236,6 +236,7 @@ $columnList = [
 								<div class="card-body">
 									<div class="row">
 										<div class="col-lg-6">
+											<?php if( $this->access( ['super', 'admin'] ) ) : // status and verification of accounts are admin-only ?>
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.status')">
@@ -254,6 +255,7 @@ $columnList = [
 													</select>
 												</div>
 											</div>
+											<?php endif ?>
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-label" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.label')">
@@ -278,6 +280,7 @@ $columnList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>">
 												</div>
 											</div>
+											<?php if( $this->access( ['super', 'admin'] ) ) : // status and verification of accounts are admin-only ?>
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-dateverified" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.dateverified')">
@@ -294,6 +297,7 @@ $columnList = [
 													>
 												</div>
 											</div>
+											<?php endif ?>
 										</div>
 										<div class="col-lg-6">
 											<div class="row">
