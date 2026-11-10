@@ -28,10 +28,11 @@ class Exception extends \Exception
 	 * @param string $message Exception message
 	 * @param int $code Custom exception code
 	 * @param mixed $details Custom exception details
+	 * @param \Throwable|null $previous Previous exception
 	 */
-	public function __construct( string $message = '', int $code = 0, $details = null )
+	public function __construct( string $message = '', int $code = 0, $details = null, ?\Throwable $previous = null )
 	{
-		parent::__construct( $message, $code );
+		parent::__construct( $message, $code, $previous );
 
 		$this->details = $details;
 	}

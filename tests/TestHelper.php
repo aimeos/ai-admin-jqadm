@@ -55,6 +55,8 @@ class TestHelper
 	private static function createContext( $site )
 	{
 		$ctx = new \Aimeos\MShop\Context();
+		// tests create most clients directly, so the policy is not set by the interface
+		$ctx->setPolicy( \Aimeos\Admin\JQAdm::policy() );
 		$aimeos = self::getAimeos();
 
 
@@ -99,6 +101,12 @@ class TestHelper
 
 		$session = new \Aimeos\Base\Session\None();
 		$ctx->setSession( $session );
+
+
+		// fixtures are created as super user, tests set views with the user groups they check
+		$view = new \Aimeos\Base\View\Standard();
+		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\All( $view ) );
+		$ctx->setView( $view );
 
 
 		$localeManager = \Aimeos\MShop::create( $ctx, 'locale' );

@@ -17,6 +17,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $context;
 	private $object;
 	private $view;
+	private $productIds = [];
+	private $priceIds = [];
 
 
 	protected function setUp() : void
@@ -33,6 +35,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function tearDown() : void
 	{
+		$context = \TestHelper::context();
+		\Aimeos\MShop::create( $context, 'product' )->delete( $this->productIds );
+		\Aimeos\MShop::create( $context, 'price' )->delete( $this->priceIds );
+
 		unset( $this->object, $this->view, $this->context );
 	}
 
@@ -160,6 +166,31 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testGetEditorServiceOwned()
+	{
+		$service = $this->price( 'service' );
+		$this->editor();
+
+		$this->view->item = $this->product( $service );
+		$result = $this->object->get();
+
+		// shared items of domains the user isn't allowed to access can be read
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertStringContainsString( '&quot;price.id&quot;:&quot;' . $service->getId() . '&quot;', $result );
+	}
+
+
+	public function testSaveEditorServiceOwned()
+	{
+		$service = $this->price( 'service' );
+		$product = $this->product( $service );
+
+		$this->expectException( \Aimeos\MShop\Exception::class );
+		$this->expectExceptionCode( 403 );
+		$this->save( $product, [$this->entry( ['price.id' => $service->getId(), 'price.value' => '99.00'] )] );
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Price\Standard::class )
@@ -210,5 +241,59 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
+	}
+
+
+	protected function editor( array $params = ['site' => 'unittest'] ) : void
+	{
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['editor'] ) );
+		$this->view->addHelper( 'param', new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $params ) );
+		$this->context->setView( $this->view );
+	}
+
+
+	protected function entry( array $data ) : array
+	{
+		return $data + [
+			'price.value' => '10.00', 'price.currencyid' => 'EUR', 'price.type' => 'default',
+			'product.lists.type' => 'default',
+		];
+	}
+
+
+	protected function price( string $domain ) : \Aimeos\MShop\Price\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( \TestHelper::context(), 'price' );
+		$item = $manager->save( $manager->create()->setDomain( $domain )->setValue( '10.00' )->setCurrencyId( 'EUR' ) );
+		$this->priceIds[] = $item->getId();
+
+		return $item;
+	}
+
+
+	protected function product( \Aimeos\MShop\Price\Item\Iface ...$prices ) : \Aimeos\MShop\Product\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( \TestHelper::context(), 'product' );
+		$item = $manager->create()->setCode( 'jqadm-price-test' )->setLabel( 'test' );
+
+		foreach( $prices as $price ) {
+			$item->addListItem( 'price', $manager->createListItem()->setType( 'default' )->setRefId( $price->getId() ) );
+		}
+
+		$item = $manager->save( $item );
+		$this->productIds[] = $item->getId();
+
+		return \Aimeos\MShop::create( $this->context, 'product' )->get( $item->getId(), ['price'] );
+	}
+
+
+	protected function save( \Aimeos\MShop\Product\Item\Iface $product, array $entries ) : void
+	{
+		// the product is loaded by the request of the editor
+		$this->editor( ['site' => 'unittest', 'price' => $entries] );
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->get( $product->getId(), ['price'] );
+
+		$this->object->save();
+		\Aimeos\MShop::create( $this->context, 'product' )->save( $this->view->item );
 	}
 }

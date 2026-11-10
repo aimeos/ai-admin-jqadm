@@ -19,12 +19,17 @@ namespace Aimeos\Admin;
  */
 class JQAdm
 {
+	use \Aimeos\MShop\PolicyTrait;
+
 	/** @var array<string, \Aimeos\Admin\JQAdm\Iface|null> */
 	private static array $objects = [];
 
 
 	/**
 	 * Creates a new client object.
+	 *
+	 * The user must be allowed to perform the "get" action for the client path to open
+	 * the client. Saving and deleting items requires the "save" and "delete" actions too.
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Shop context instance with necessary objects
 	 * @param \Aimeos\Bootstrap $aimeos Aimeos object
@@ -40,12 +45,12 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( 'Component path is empty', 400 );
 		}
 
+		$context = static::withPolicy( $context );
+
+		static::check( $context, $path, 'get' );
+
 		$view = $context->view();
 		$config = $context->config();
-
-		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $path ), 403 );
-		}
 
 		if( empty( $name ) ) {
 			$name = $config->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
@@ -59,6 +64,7 @@ class JQAdm
 		}
 
 		$client = self::createComponent( $context, $classname, $interface, $path );
+		$client = new \Aimeos\Admin\JQAdm\Common\Decorator\Policy( $client, $context, $path );
 
 		// @phpstan-ignore return.type, method.notFound
 		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );
@@ -76,6 +82,46 @@ class JQAdm
 	public static function inject( string $classname, ?\Aimeos\Admin\JQAdm\Iface $client = null ) : void
 	{
 		self::$objects['\\' . ltrim( $classname, '\\' )] = $client;
+	}
+
+
+	/**
+	 * Returns the default authorization policy of the JQAdm interface
+	 *
+	 * The interface uses it if the passed context contains no policy, so it also protects
+	 * shared items like prices of domains the user isn't allowed to access. Host applications
+	 * can use their own policy by setting it in the context with $context->setPolicy().
+	 *
+	 * @return \Aimeos\MShop\PolicyIface Authorization policy
+	 */
+	public static function policy() : \Aimeos\MShop\PolicyIface
+	{
+		return new \Aimeos\MShop\Policy\Groups( static::prefix() );
+	}
+
+
+	/**
+	 * Creates the exception of the interface
+	 *
+	 * @param string $msg Translated error message
+	 * @param int $code Error code, e.g. 403 for actions which aren't allowed
+	 * @param \Throwable|null $previous Previous exception
+	 * @return \Exception Exception with the passed code
+	 */
+	protected static function exception( string $msg, int $code, ?\Throwable $previous = null ) : \Exception
+	{
+		return new \Aimeos\Admin\JQAdm\Exception( $msg, $code, previous: $previous );
+	}
+
+
+	/**
+	 * Returns the configuration key prefix of the resources protected by the interface
+	 *
+	 * @return string Configuration key prefix
+	 */
+	protected static function prefix() : string
+	{
+		return 'admin/jqadm/resource';
 	}
 
 
