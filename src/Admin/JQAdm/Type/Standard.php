@@ -469,7 +469,9 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$data['type.i18n'] = json_decode( (string) $data['type.i18n'], true );
+		if( isset( $data['type.i18n'] ) ) {
+			$data['type.i18n'] = json_decode( (string) $data['type.i18n'], true );
+		}
 
 		return $item->fromArray( $data, true ); // @phpstan-ignore return.type
 	}

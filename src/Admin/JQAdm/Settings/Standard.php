@@ -288,9 +288,9 @@ class Standard
 
 		// @phpstan-ignore argument.type
 		return $item->setConfig( array_replace_recursive( $item->getConfig(), $config ) )
-			->setTheme( (string) $data['locale.site.theme'] )
-			->setLabel( (string) $data['locale.site.label'] )
-			->setCode( (string) $data['locale.site.code'] );
+			->setTheme( (string) ( $data['locale.site.theme'] ?? $item->getTheme() ) )
+			->setLabel( (string) ( $data['locale.site.label'] ?? $item->getLabel() ) )
+			->setCode( (string) ( $data['locale.site.code'] ?? $item->getCode() ) );
 	}
 
 
