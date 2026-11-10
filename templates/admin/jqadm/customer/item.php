@@ -84,28 +84,35 @@ $params = $this->get( 'pageParams', [] );
 
 					<div class="col-xl-6 <?= $readonly ?>">
 						<div class="box">
+							<?php $manage = $this->access( ['super', 'admin'] ) || !$this->get( 'itemData/customer.id' ) // status and verification of accounts are admin-only ?>
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-select item-status" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
-										<option value="">
-											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-										</option>
-										<option value="1" <?= $selected( $this->get( 'itemData/customer.status', 1 ), 1 ) ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
-										</option>
-										<option value="0" <?= $selected( $this->get( 'itemData/customer.status', 1 ), 0 ) ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
-										</option>
-										<option value="-1" <?= $selected( $this->get( 'itemData/customer.status', 1 ), -1 ) ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?>
-										</option>
-										<option value="-2" <?= $selected( $this->get( 'itemData/customer.status', 1 ), -2 ) ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?>
-										</option>
-									</select>
+									<?php if( $manage ) : ?>
+										<select class="form-select item-status" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ) ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+											<option value="">
+												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+											</option>
+											<option value="1" <?= $selected( $this->get( 'itemData/customer.status', 1 ), 1 ) ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
+											</option>
+											<option value="0" <?= $selected( $this->get( 'itemData/customer.status', 1 ), 0 ) ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
+											</option>
+											<option value="-1" <?= $selected( $this->get( 'itemData/customer.status', 1 ), -1 ) ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?>
+											</option>
+											<option value="-2" <?= $selected( $this->get( 'itemData/customer.status', 1 ), -2 ) ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?>
+											</option>
+										</select>
+									<?php else : ?>
+										<span class="form-control item-status">
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:' . $this->get( 'itemData/customer.status', 1 ) ) ) ?>
+										</span>
+									<?php endif ?>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
@@ -145,11 +152,17 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateverified" type="date" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
-										v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
-										v-bind:config="Aimeos.flatpickr.date"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+									<?php if( $manage ) : ?>
+										<input is="flat-pickr" class="form-control item-dateverified" type="date" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
+											v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
+											v-bind:config="Aimeos.flatpickr.date"
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+									<?php else : ?>
+										<span class="form-control item-dateverified">
+											<?= $enc->html( $this->get( 'itemData/customer.dateverified' ) ) ?>
+										</span>
+									<?php endif ?>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'When the account and e-mail address has been verified' ) ) ?>
