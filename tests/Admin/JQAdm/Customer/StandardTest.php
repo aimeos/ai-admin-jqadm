@@ -169,6 +169,50 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testFromArrayEditorOtherAccount()
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
+		$this->context->setUser( $manager->find( 'test2@example.com' ) );
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['editor'] ) );
+
+		$expected = $manager->find( 'test@example.com' );
+		$data = [
+			'customer.id' => $expected->getId(),
+			'customer.email' => 'jqadm@example.test',
+			'customer.firstname' => 'jqadm',
+			'customer.status' => -1,
+			'customer.dateverified' => '2000-01-01',
+		];
+
+		$object = new \Aimeos\Admin\JQAdm\Customer\Standard( $this->context );
+		$object->setAimeos( \TestHelper::getAimeos() )->setView( $this->view );
+
+		$item = ( new \ReflectionMethod( $object, 'fromArray' ) )->invoke( $object, $data );
+
+		$this->assertEquals( 'test@example.com', $item->getPaymentAddress()->getEmail() );
+		$this->assertEquals( 'jqadm', $item->getPaymentAddress()->getFirstname() );
+		$this->assertEquals( $expected->getStatus(), $item->getStatus() );
+		$this->assertEquals( $expected->getDateVerified(), $item->getDateVerified() );
+	}
+
+
+	public function testFromArrayEmailOwnAccount()
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
+		$this->context->setUser( $user = $manager->find( 'test@example.com' ) );
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['editor'] ) );
+
+		$data = ['customer.id' => $user->getId(), 'customer.email' => 'jqadm@example.test'];
+
+		$object = new \Aimeos\Admin\JQAdm\Customer\Standard( $this->context );
+		$object->setAimeos( \TestHelper::getAimeos() )->setView( $this->view );
+
+		$item = ( new \ReflectionMethod( $object, 'fromArray' ) )->invoke( $object, $data );
+
+		$this->assertEquals( 'jqadm@example.test', $item->getPaymentAddress()->getEmail() );
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getClientMock( 'fromArray' );
