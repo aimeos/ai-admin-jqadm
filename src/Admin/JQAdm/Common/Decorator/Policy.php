@@ -30,9 +30,9 @@ class Policy extends Base
 	 *
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
 	 * @param \Aimeos\MShop\ContextIface $context Context object with required objects
-	 * @param string $path Path of the client, e.g. "product"
+	 * @param string $path Path of the client, e.g. "product", empty for the root resource
 	 */
-	public function __construct( \Aimeos\Admin\JQAdm\Iface $client, \Aimeos\MShop\ContextIface $context, string $path )
+	public function __construct( \Aimeos\Admin\JQAdm\Iface $client, \Aimeos\MShop\ContextIface $context, string $path = '' )
 	{
 		parent::__construct( $client, $context );
 		$this->path = $path;
