@@ -581,8 +581,12 @@ class Standard
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
-			->setDateVerified( $data['customer.dateverified'] ?? null );
+		$item->setLabel( $label );
+
+		// Status and verification of existing accounts are admin-only
+		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === null ) {
+			$item->setStatus( $data['customer.status'] ?? 0 )->setDateVerified( $data['customer.dateverified'] ?? null );
+		}
 
 		if( $this->view()->access( ['super', 'admin'] ) ) {
 			// @phpstan-ignore argument.type
@@ -593,6 +597,11 @@ class Standard
 		{
 			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
+		}
+		elseif( $item->getId() !== null )
+		{
+			// The e-mail address of existing accounts is used for password resets
+			unset( $data['customer.email'] );
 		}
 
 		unset( $data['customer.password'], $data['customer.code'] );
