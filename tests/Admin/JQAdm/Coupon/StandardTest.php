@@ -157,6 +157,41 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSaveImportDenied()
+	{
+		$this->context->config()->set( 'admin/jqadm/resource/coupon/import', ['admin'] );
+		$view = new \Aimeos\Base\View\Standard();
+		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, ['editor'] ) );
+		$this->context->setView( $view );
+
+		$file = $this->createStub( \Psr\Http\Message\UploadedFileInterface::class );
+		$file->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
+
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getUploadedFiles' )->willReturn( ['code' => ['file' => $file]] );
+
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$this->view->addHelper( 'request', $helper );
+
+		$param = ['site' => 'unittest', 'item' => ['coupon.id' => '', 'coupon.label' => 'jqadm test import', 'coupon.provider' => 'None']];
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$object = new \Aimeos\Admin\JQAdm\Coupon\Standard( $this->context );
+		$object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $object, $this->context );
+		$object = new \Aimeos\Admin\JQAdm\Common\Decorator\Policy( $object, $this->context, 'coupon' );
+		$object->setAimeos( \TestHelper::getAimeos() )->setView( $this->view )->setObject( $object );
+
+		$object->save();
+
+		$manager = \Aimeos\MShop::create( $this->context, 'coupon' );
+		$filter = $manager->filter()->add( 'coupon.label', '==', 'jqadm test import' );
+
+		$this->assertEquals( ['Action "import" is not allowed for "coupon"'], $this->view->get( 'errors' ) );
+		$this->assertEquals( 0, count( $manager->search( $filter ) ) );
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getClientMock( 'fromArray' );

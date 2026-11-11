@@ -62,6 +62,67 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertStringContainsString( 'item-code', $result );
+		$this->assertStringContainsString( 'Upload CSV', $result );
+	}
+
+
+	public function testGetNoImport()
+	{
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['test'] ) );
+		$this->view->item = $this->getCouponItem();
+
+		$result = $this->object->get();
+
+		$this->assertStringNotContainsString( 'Upload CSV', $result );
+	}
+
+
+	public function testImport()
+	{
+		$handle = fopen( 'php://memory', 'r' );
+		$stream = $this->createStub( \Psr\Http\Message\StreamInterface::class );
+		$stream->method( 'detach' )->willReturn( $handle );
+
+		$file = $this->createStub( \Psr\Http\Message\UploadedFileInterface::class );
+		$file->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
+		$file->method( 'getStream' )->willReturn( $stream );
+
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getUploadedFiles' )->willReturn( ['code' => ['file' => $file]] );
+
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$this->view->addHelper( 'request', $helper );
+		$this->view->item = $this->getCouponItem();
+
+		$fs = $this->context->fs( 'fs-import' );
+		$path = 'couponcode/unittest/' . $this->view->item->getId() . '.csv';
+
+		try
+		{
+			$this->assertNull( $this->object->import() );
+			$this->assertTrue( $fs->has( $path ) );
+		}
+		finally
+		{
+			fclose( $handle );
+
+			if( $fs->has( $path ) ) {
+				$fs->rm( $path );
+			}
+
+			// directories may contain files which don't belong to the test
+			foreach( ['couponcode/unittest', 'couponcode'] as $dir )
+			{
+				try { $fs->rmdir( $dir ); }
+				catch( \Aimeos\Base\Filesystem\Exception $e ) {}
+			}
+		}
+	}
+
+
+	public function testImportNoItem()
+	{
+		$this->assertNull( $this->object->import() );
 	}
 
 

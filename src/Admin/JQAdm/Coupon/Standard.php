@@ -242,6 +242,11 @@ class Standard
 			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
+			// uploaded files are imported by the sub-parts, the import action is authorized separately
+			if( !empty( $view->request()->getUploadedFiles() ) ) {
+				$this->object()->import();
+			}
+
 			$manager->save( clone $view->item );
 			$manager->commit();
 

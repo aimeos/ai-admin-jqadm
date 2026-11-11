@@ -178,6 +178,21 @@ abstract class Base
 
 
 	/**
+	 * Makes the outer decorator object available to inner objects
+	 *
+	 * @param \Aimeos\Admin\JQAdm\Iface $object Outmost object
+	 * @return \Aimeos\Admin\JQAdm\Iface Same object for fluent interface
+	 */
+	public function setObject( \Aimeos\Admin\JQAdm\Iface $object ) : \Aimeos\Admin\JQAdm\Iface
+	{
+		parent::setObject( $object );
+
+		$this->client->setObject( $object ); // @phpstan-ignore method.notFound
+		return $this;
+	}
+
+
+	/**
 	 * Sets the view object that will generate the admin output.
 	 *
 	 * @param \Aimeos\Base\View\Iface $view The view object which generates the admin output

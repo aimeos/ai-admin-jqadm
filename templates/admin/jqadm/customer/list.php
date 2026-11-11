@@ -136,12 +136,14 @@ $columnList = [
 								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
 							</button>
 							<ul class="dropdown-menu">
-								<li>
-									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
-									<input type="file" id="import" class="btn-text fileupload" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										name="<?= $enc->attr( $this->formparam( ['import'] ) ) ?>" v-on:change="upload()">
-									<button ref="import" class="btn-text fileupload" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/import', $params ) ) ?>" formenctype="multipart/form-data"></button>
-								</li>
+								<?php if( $this->access( $this->config( 'admin/jqadm/resource/customer/import', [] ) ) ) : ?>
+									<li>
+										<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
+										<input type="file" id="import" class="btn-text fileupload" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( ['import'] ) ) ?>" v-on:change="upload()">
+										<button ref="import" class="btn-text fileupload" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/import', $params ) ) ?>" formenctype="multipart/form-data"></button>
+									</li>
+								<?php endif ?>
 								<li>
 									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
 										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>

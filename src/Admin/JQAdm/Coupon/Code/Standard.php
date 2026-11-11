@@ -85,6 +85,23 @@ class Standard
 
 
 	/**
+	 * Imports the uploaded file with the coupon codes
+	 *
+	 * @return string|null HTML output
+	 */
+	public function import() : ?string
+	{
+		$view = $this->view();
+
+		if( $view->get( 'item' ) instanceof \Aimeos\MShop\Coupon\Item\Iface ) {
+			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
+		}
+
+		return null;
+	}
+
+
+	/**
 	 * Saves the data
 	 *
 	 * @return string|null HTML output
@@ -99,8 +116,6 @@ class Standard
 		try
 		{
 			$this->storeFilter( (array) $view->param( 'vc', [] ), 'couponcode' );
-			// @phpstan-ignore argument.type
-			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
 			// @phpstan-ignore argument.type
 			$this->fromArray( $view->item, (array) $view->param( 'code', [] ) );
 			$view->codeBody = parent::save();

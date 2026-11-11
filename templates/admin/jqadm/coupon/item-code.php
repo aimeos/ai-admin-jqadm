@@ -67,11 +67,13 @@ $columnList = [
 								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
 							</button>
 							<ul class="dropdown-menu">
-								<li>
-									<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
-									<input id="import" class="btn-text fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										name="<?= $enc->attr( $this->formparam( ['code', 'file'] ) ) ?>">
-								</li>
+								<?php if( $this->access( $this->config( 'admin/jqadm/resource/coupon/import', [] ) ) ) : ?>
+									<li>
+										<label for="import" class="btn btn-text fileupload"><?= $enc->html( $this->translate( 'admin', 'Upload CSV' ) ) ?></label>
+										<input id="import" class="btn-text fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( ['code', 'file'] ) ) ?>">
+									</li>
+								<?php endif ?>
 								<li>
 									<a v-on:click.prevent.stop="remove()" class="btn"
 										tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"

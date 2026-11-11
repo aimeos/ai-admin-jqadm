@@ -14,8 +14,8 @@ namespace Aimeos\Admin\JQAdm\Common\Decorator;
 /**
  * Policy decorator for JQAdm clients
  *
- * Checks if the authorization policy allows changing or deleting the items of
- * the client. Opening the client ("get" action) is checked by JQAdm::create().
+ * Checks if the authorization policy allows changing, deleting or importing the items
+ * of the client. Opening the client ("get" action) is checked by JQAdm::create().
  *
  * @package Admin
  * @subpackage JQAdm
@@ -70,7 +70,7 @@ class Policy extends Base
 	 */
 	public function import() : ?string
 	{
-		$this->authorize( 'save' );
+		$this->authorize( 'import' );
 		return parent::import();
 	}
 
@@ -90,7 +90,7 @@ class Policy extends Base
 	/**
 	 * Ensures that the user is allowed to perform the action for the resource of the client
 	 *
-	 * @param string $action Action name, i.e. "delete" or "save"
+	 * @param string $action Action name, i.e. "delete", "import" or "save"
 	 * @throws \Aimeos\Admin\JQAdm\Exception If the action isn't allowed
 	 */
 	protected function authorize( string $action ) : void

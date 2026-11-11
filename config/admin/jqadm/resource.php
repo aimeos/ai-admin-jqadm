@@ -105,6 +105,19 @@ return [
 		 */
 		'groups' => ['admin', 'editor', 'super'],
 
+		/** admin/jqadm/resource/customer/import
+		 * List of user groups that are allowed to upload customer CSV files
+		 *
+		 * The uploaded files are imported by the customer import job which
+		 * doesn't check the permissions of the user who uploaded the file.
+		 * Thus, only trusted user groups should be allowed to import files.
+		 *
+		 * @param array List of user group names
+		 * @since 2026.10
+		 * @see admin/jqadm/resource/customer/groups
+		 */
+		'import' => ['admin', 'super'],
+
 		/** admin/jqadm/resource/customer/key
 		 * Shortcut key to switch to the user panel by using the keyboard
 		 *
@@ -147,6 +160,19 @@ return [
 		 * @since 2017.10
 		 */
 		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/product/import
+		 * List of user groups that are allowed to upload product CSV files
+		 *
+		 * The uploaded files are imported by the product import job which
+		 * doesn't check the permissions of the user who uploaded the file.
+		 * Thus, only trusted user groups should be allowed to import files.
+		 *
+		 * @param array List of user group names
+		 * @since 2026.10
+		 * @see admin/jqadm/resource/product/groups
+		 */
+		'import' => ['admin', 'editor', 'super'],
 
 		/** admin/jqadm/resource/product/key
 		 * Shortcut key to switch to the product panel by using the keyboard
@@ -224,6 +250,19 @@ return [
 		 * @since 2017.10
 		 */
 		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/coupon/import
+		 * List of user groups that are allowed to upload coupon code CSV files
+		 *
+		 * The uploaded files are imported by the coupon code import job which
+		 * doesn't check the permissions of the user who uploaded the file.
+		 * Thus, only trusted user groups should be allowed to import files.
+		 *
+		 * @param array List of user group names
+		 * @since 2026.10
+		 * @see admin/jqadm/resource/coupon/groups
+		 */
+		'import' => ['admin', 'editor', 'super'],
 
 		/** admin/jqadm/resource/coupon/key
 		 * Shortcut key to switch to the voucher panel by using the keyboard

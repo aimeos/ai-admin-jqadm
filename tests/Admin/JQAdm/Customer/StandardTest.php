@@ -297,6 +297,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->search();
 
 		$this->assertStringContainsString( '>test@example.com<', $result );
+		$this->assertStringContainsString( 'Upload CSV', $result );
+	}
+
+
+	public function testSearchNoImport()
+	{
+		$this->view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['test'] ) );
+
+		$result = $this->object->search();
+
+		$this->assertStringNotContainsString( 'Upload CSV', $result );
 	}
 
 
