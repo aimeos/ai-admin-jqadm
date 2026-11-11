@@ -24,7 +24,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelper::view();
 		$this->context = \TestHelper::context();
 
-		$helper = new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['super'] );
+		$helper = new \Aimeos\Base\View\Helper\Access\All( $this->view );
 		$this->view->addHelper( 'access', $helper );
 
 		$this->object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $this->context );
@@ -242,7 +242,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
 		$view->addHelper( 'config', $helper );
 
-		$helper = new \Aimeos\Base\View\Helper\Access\Standard( $this->view, ['super'] );
+		$helper = new \Aimeos\Base\View\Helper\Access\All( $this->view );
 		$view->addHelper( 'access', $helper );
 
 		return $view;
