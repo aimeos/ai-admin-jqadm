@@ -131,10 +131,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'locale.site.status' => '1',
 				'locale.site.code' => 'jqadm@test',
 				'locale.site.label' => 'jqadm test',
-				'config' => [[
-					'key' => 'test',
-					'val' => 'value',
-				]],
+				'config' => [
+					['key' => 'test', 'val' => 'value'],
+					['key' => 'zero', 'val' => '0'],
+					['key' => 'off', 'val' => 'false'],
+					['key' => 'empty', 'val' => ''],
+				],
 			),
 		);
 
@@ -147,7 +149,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->find( 'jqadm@test' );
 		$manager->delete( $item->getId() );
 
-		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
+		$this->assertSame( ['test' => 'value', 'zero' => 0, 'off' => false], $item->getConfig() );
 	}
 
 
