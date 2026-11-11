@@ -88,6 +88,30 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSaveSettingsConfig()
+	{
+		$context = clone $this->context;
+		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+		$item = $manager->insert( $manager->create()->setCode( 'jqadm-settings' )->setLabel( 'jqadm' ) );
+
+		$view = clone $this->view;
+		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, ['admin'] ) );
+		$context->setView( $view );
+
+		try
+		{
+			$item->setConfigValue( 'theme', ['--bs-primary' => '#000000'] );
+			$item->setConfigValue( 'admin/ai', ['text' => ['model' => 'test']] );
+
+			$this->assertEquals( '#000000', $manager->save( $item )->getConfigValue( 'theme/--bs-primary' ) );
+		}
+		finally
+		{
+			$manager->delete( $item->getId() );
+		}
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getClientMock( 'fromArray' );
