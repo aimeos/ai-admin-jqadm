@@ -135,6 +135,69 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSaveIgnoreCode()
+	{
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
+
+		$param = ['site' => 'unittest', 'download' => [
+			'product.lists.id' => '',
+			'attribute.label' => 'test',
+			'attribute.code' => 'shell.php',
+		]];
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$this->object->save();
+
+		$listItems = $this->view->item->getListItems( 'attribute' );
+
+		$this->assertEquals( 1, count( $listItems ) );
+		$this->assertEquals( '', $listItems->first()->getRefItem()->getCode() );
+	}
+
+
+	public function testStoreFile()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Product\Download\Standard( $this->context );
+		$method = new \ReflectionMethod( $object, 'storeFile' );
+
+		$path = $method->invoke( $object, $this->file( 'test.PDF' ), null );
+		$this->assertMatchesRegularExpression( '#^[0-9a-f]/[0-9a-f]/[0-9a-f]{32}\.pdf$#', $path );
+
+		$this->assertEquals( $path, $method->invoke( $object, $this->file( 'test.pdf' ), $path ) );
+
+		$newpath = $method->invoke( $object, $this->file( 'test.zip' ), $path );
+		$this->assertMatchesRegularExpression( '#^[0-9a-f]/[0-9a-f]/[0-9a-f]{32}\.zip$#', $newpath );
+
+		$fs = $this->context->fs( 'fs-secure' );
+		$fs->rm( $path );
+		$fs->rm( $newpath );
+	}
+
+
+	public function testStoreFileInvalidPath()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Product\Download\Standard( $this->context );
+		$method = new \ReflectionMethod( $object, 'storeFile' );
+
+		$path = $method->invoke( $object, $this->file( 'test.txt' ), 'shell.php' );
+		$this->assertMatchesRegularExpression( '#^[0-9a-f]/[0-9a-f]/[0-9a-f]{32}\.txt$#', $path );
+
+		$this->context->fs( 'fs-secure' )->rm( $path );
+	}
+
+
+	public function testStoreFileDenied()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Product\Download\Standard( $this->context );
+		$method = new \ReflectionMethod( $object, 'storeFile' );
+
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$method->invoke( $object, $this->file( 'shell.PHP' ), null );
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
@@ -185,5 +248,18 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
+	}
+
+
+	protected function file( string $name ) : \Psr\Http\Message\UploadedFileInterface
+	{
+		$stream = $this->createStub( \Psr\Http\Message\StreamInterface::class );
+		$stream->method( 'detach' )->willReturnCallback( fn() => fopen( 'php://memory', 'r' ) );
+
+		$file = $this->createStub( \Psr\Http\Message\UploadedFileInterface::class );
+		$file->method( 'getClientFilename' )->willReturn( $name );
+		$file->method( 'getStream' )->willReturn( $stream );
+
+		return $file;
 	}
 }

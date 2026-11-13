@@ -256,22 +256,62 @@ class Standard
 
 
 	/**
+	 * Returns the sanitized file extension of the uploaded file
+	 *
+	 * @param \Psr\Http\Message\UploadedFileInterface $file Uploaded file
+	 * @return string Lower case file extension without dot or empty string if none is available
+	 * @throws \Aimeos\Admin\JQAdm\Exception If the file extension is not allowed
+	 */
+	protected function extension( \Psr\Http\Message\UploadedFileInterface $file ) : string
+	{
+		$ext = strtolower( pathinfo( (string) $file->getClientFilename(), PATHINFO_EXTENSION ) );
+		$ext = (string) preg_replace( '/[^a-z0-9]/', '', $ext );
+
+		/** admin/jqadm/product/download/denied-extensions
+		 * List of file extensions which are not allowed for uploaded download files
+		 *
+		 * Downloadable files are stored in the "fs-secure" file system. If this
+		 * file system is located below the document root of the web server, files
+		 * with these extensions could be executed by the web server (e.g. PHP files)
+		 * or rendered by the browser (e.g. HTML or SVG files) if requested directly.
+		 * Uploads of files with one of these extensions are rejected.
+		 *
+		 * @param array List of lower case file extensions without dot
+		 * @since 2026.10
+		 */
+		$default = [
+			'asp', 'aspx', 'cgi', 'htaccess', 'htm', 'html', 'inc', 'jsp', 'jspx', 'phar', 'php', 'php3', 'php4',
+			'php5', 'php6', 'php7', 'php8', 'phps', 'pht', 'phtm', 'phtml', 'pl', 'py', 'shtml', 'svg', 'svgz', 'xhtml'
+		];
+		$denied = (array) $this->context()->config()->get( 'admin/jqadm/product/download/denied-extensions', $default );
+
+		if( in_array( $ext, $denied, true ) )
+		{
+			$msg = $this->context()->translate( 'admin', 'Uploading files with extension "%1$s" is not allowed' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $ext ) );
+		}
+
+		return $ext;
+	}
+
+
+	/**
 	 * Stores the uploaded file in the "fs-secure" file system
 	 *
 	 * @param \Psr\Http\Message\UploadedFileInterface $file
-	 * @param string|null $path Path the file should be stored at
+	 * @param string|null $path Existing path of the file which should be overwritten
 	 * @return string Path to the uploaded file
 	 */
 	protected function storeFile( \Psr\Http\Message\UploadedFileInterface $file, ?string $path = null ) : string
 	{
 		$fs = $this->context()->fs( 'fs-secure' );
+		$ext = $this->extension( $file );
 
-		if( $path === null )
+		// Overwrite existing files only if their name matches the generated names incl. the new extension
+		if( $path === null || !preg_match( '#^[0-9a-f]/[0-9a-f]/[0-9a-f]{32}' . ( $ext !== '' ? '\.' . $ext : '' ) . '$#', $path ) )
 		{
-			// @phpstan-ignore argument.type
-			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$hash = md5( $file->getClientFilename() . microtime( true ) );
-			$path = sprintf( '%s/%s/%s.%s', $hash[0], $hash[1], $hash, $ext );
+			$path = sprintf( '%s/%s/%s', $hash[0], $hash[1], $hash ) . ( $ext !== '' ? '.' . $ext : '' );
 
 			if( !$fs->isdir( $hash[0] . '/' . $hash[1] ) ) {
 				$fs->mkdir( $hash[0] . '/' . $hash[1] );
@@ -308,15 +348,23 @@ class Standard
 			$litem = $listItems->pull( (string) $listId ) ?: $prodManager->createListItem()->setType( 'hidden' );
 			$refItem = $litem->getRefItem() ?: $attrManager->create()->setType( 'download' );
 
+			// The file path is generated when uploading the file and must not be set by the client
+			unset( $data['attribute.code'] );
+
 			$litem->fromArray( $data, true );
 			$refItem->fromArray( $data, true );
 
 			if( ( $file = $this->val( (array) $this->view()->request()->getUploadedFiles(), 'download/file' ) ) !== null
 				&& $file->getError() === UPLOAD_ERR_OK
 			) {
-				$path = ( $this->val( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
+				$oldpath = $refItem->getCode();
+				$path = ( $this->val( $data, 'overwrite' ) == 1 && $oldpath != '' ? $oldpath : null );
 				// @phpstan-ignore argument.type
-				$refItem->setCode( $this->storeFile( $file, (string) $path ) );
+				$refItem->setCode( $newpath = $this->storeFile( $file, $path ) );
+
+				if( $path !== null && $newpath !== $path && $fs->has( $path ) ) {
+					$fs->rm( $path );
+				}
 			}
 
 			// @phpstan-ignore argument.type, argument.type
