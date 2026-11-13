@@ -652,7 +652,7 @@ $columnList = [
 								<td class="customer-status"><a class="items-field" href="<?= $url ?>"><div class="icon status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.code', $fields ) ) : ?>
-								<td class="customer-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
+								<td class="customer-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $this->idn( $item->getCode() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.label', $fields ) ) : ?>
 								<td class="customer-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
@@ -706,7 +706,7 @@ $columnList = [
 								<td class="customer-telefax"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getTelefax() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.email', $fields ) ) : ?>
-								<td class="customer-email"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getEmail() ) ?></a></td>
+								<td class="customer-email"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $this->idn( $address->getEmail() ) ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.website', $fields ) ) : ?>
 								<td class="customer-website"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getWebsite() ) ?></a></td>
