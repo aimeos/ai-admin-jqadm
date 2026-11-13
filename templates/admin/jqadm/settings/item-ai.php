@@ -41,13 +41,16 @@ $sections = [
 				<div class="box">
 					<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', $section['label'] ) ) ?></h2>
 
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
+					<div class="form-group row">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 						<div class="col-sm-8">
-							<input class="form-control" required tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<input class="form-control" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								name="<?= $enc->attr( $this->formparam( ['ai', $action, 'provider'] ) ) ?>"
 								value="<?= $enc->attr( $this->get( 'aiData/' . $action . '/provider' ) ) ?>"
 							>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Leave empty to use the default settings of the shop' ) ) ?>
 						</div>
 					</div>
 

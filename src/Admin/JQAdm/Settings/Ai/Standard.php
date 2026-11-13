@@ -116,29 +116,40 @@ class Standard
 		$current = $this->settings();
 		$data = (array) $this->view()->param( 'ai', [] );
 
+		$result = [];
+
 		foreach( ['write', 'translate', 'imagine', 'isolate'] as $action )
 		{
-			$entry = array_filter( (array) ( $data[$action] ?? [] ), fn( $value ) => $value !== '' && $value !== null );
+			$entry = $this->filter( (array) ( $data[$action] ?? [] ) );
 			$extra = json_decode( (string) ( $entry['extra'] ?? '{}' ), true, 512, JSON_THROW_ON_ERROR );
 			unset( $entry['extra'] );
 
-			if( empty( $entry['api_key'] ) && !empty( $current[$action]['api_key'] ) ) {
-				$entry['api_key'] = $current[$action]['api_key'];
-			}
-
 			$entry = array_replace( (array) $extra, $entry );
 
-			if( trim( (string) ( $entry['url'] ?? '' ) ) !== ''
-				&& trim( (string) ( $entry['api_key'] ?? '' ) ) === ''
-			) {
-				$msg = $this->context()->i18n()->dt( 'admin', 'An API key is required for custom AI endpoints' );
+			// empty settings inherit those of the application config
+			if( empty( $entry ) ) {
+				continue;
+			}
+
+			if( empty( $entry['provider'] ) )
+			{
+				$msg = $this->context()->i18n()->dt( 'admin', 'A provider is required for custom AI settings' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			$data[$action] = $entry;
+			$old = $current[$action] ?? [];
+
+			// the stored API key is only kept for the same endpoint, so it's never sent to other ones
+			if( isset( $old['api_key'] ) && $entry['provider'] === ( $old['provider'] ?? null )
+				&& ( $entry['url'] ?? null ) === ( $old['url'] ?? null )
+			) {
+				$entry['api_key'] ??= $old['api_key'];
+			}
+
+			$result[$action] = $entry;
 		}
 
-		$this->context()->locale()->getSiteItem()->setConfigValue( 'admin/ai', $data );
+		$this->context()->locale()->getSiteItem()->setConfigValue( 'admin/ai', $result );
 
 		return null;
 	}
@@ -159,37 +170,42 @@ class Standard
 
 
 	/**
-	 * Returns the consolidated settings with legacy fallbacks.
+	 * Removes empty settings.
 	 *
-	 * @return array AI settings
+	 * @param array $entry Provider settings
+	 * @return array Provider settings without empty values
+	 */
+	protected function filter( array $entry ) : array
+	{
+		return array_filter( $entry, fn( $value ) => $value !== '' && $value !== null );
+	}
+
+
+	/**
+	 * Returns the settings stored in the site config including legacy settings.
+	 *
+	 * Legacy settings are only returned until the AI settings of the site have been saved once,
+	 * so the form always shows the settings which are used by the AI requests.
+	 *
+	 * @return array AI settings of the site
 	 */
 	protected function settings() : array
 	{
 		$site = $this->context()->locale()->getSiteItem();
-		$data = (array) $site->getConfigValue( 'admin/ai', [] );
-		$defaults = (array) $this->context()->config()->get( 'admin/ai', [] );
+
+		// saved settings replace the legacy ones even if they are empty
+		if( array_key_exists( 'ai', (array) ( $site->getConfig()['admin'] ?? [] ) ) ) {
+			return (array) $site->getConfigValue( 'admin/ai', [] );
+		}
+
 		$openai = (array) $site->getConfigValue( 'admin/jqadm/api/openai', [] );
 
-		$data += [
-			'write' => array_replace(
-				(array) ( $defaults['write'] ?? [] ),
-				$this->legacy( $openai, 'openai', 'model', 'url' )
-			),
-			'translate' => array_replace(
-				(array) ( $defaults['translate'] ?? [] ),
-				$this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/translate', [] ), 'deepl', null, 'url' )
-			),
-			'imagine' => array_replace(
-				(array) ( $defaults['imagine'] ?? [] ),
-				$this->legacy( $openai, 'openai', 'image-model', 'image-url' )
-			),
-			'isolate' => array_replace(
-				(array) ( $defaults['isolate'] ?? [] ),
-				$this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/removebg', [] ), 'removebg' )
-			),
+		return [
+			'write' => $this->legacy( $openai, 'openai', 'model', 'url' ),
+			'translate' => $this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/translate', [] ), 'deepl', null, 'url' ),
+			'imagine' => $this->legacy( $openai, 'openai', 'image-model', 'image-url' ),
+			'isolate' => $this->legacy( (array) $site->getConfigValue( 'admin/jqadm/api/removebg', [] ), 'removebg' ),
 		];
-
-		return $data;
 	}
 
 
@@ -219,7 +235,7 @@ class Standard
 			$result['url'] = preg_replace( '#/(?:v1/(?:chat/completions|images/generations)|v2)/?$#', '', (string) $data[$urlKey] );
 		}
 
-		return array_filter( $result, fn( $value ) => $value !== '' && $value !== null );
+		return $this->filter( $result );
 	}
 
 
