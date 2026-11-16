@@ -164,6 +164,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, ['editor'] ) );
 		$this->context->setView( $view );
 
+		// users who aren't super users always belong to a site
+		$siteid = \Aimeos\MShop::create( $this->context, 'locale/site' )->find( 'unittest' )->getSiteId();
+		$this->context->setUser( \Aimeos\MShop::create( $this->context, 'customer' )->create( ['customer.siteid' => $siteid] ) );
+
 		$file = $this->createStub( \Psr\Http\Message\UploadedFileInterface::class );
 		$file->method( 'getError' )->willReturn( UPLOAD_ERR_OK );
 

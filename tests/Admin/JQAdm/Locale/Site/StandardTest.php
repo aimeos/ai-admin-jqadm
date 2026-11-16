@@ -82,9 +82,59 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatchEditor()
+	{
+		$view = $this->userView( ['editor'], ['id' => [$this->siteId( 'unittest' )], 'item' => ['locale.site.label' => 'editor']] );
+		$object = $this->policy( $this->getClientMock( 'redirect' ), $view );
+
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectExceptionCode( 403 );
+		$object->batch();
+	}
+
+
+	public function testBatchOtherSite()
+	{
+		// no changes passed, so the site stays untouched if it's wrongly included
+		$view = $this->userView( ['admin'], ['id' => [$this->siteId( 'unittest' )], 'item' => []], '-1.' );
+		$object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $view->context );
+		$this->policy( $object->setAimeos( \TestHelper::getAimeos() ), $view )->batch();
+
+		$this->assertCount( 0, $view->items );
+	}
+
+
 	public function testDelete()
 	{
 		$this->assertNull( $this->getClientMock( ['redirect'], false )->delete() );
+	}
+
+
+	public function testDeleteAdmin()
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
+		$item = $manager->insert( $manager->create()->setCode( 'jqadm-admin' )->setLabel( 'jqadm' ) );
+
+		try
+		{
+			$mock = $this->getClientMock( ['redirect', 'search'] );
+			$mock->expects( $this->never() )->method( 'redirect' );
+
+			$view = $this->userView( ['admin'], ['id' => [$item->getId()]], $item->getSiteId() );
+			$this->policy( $mock, $view )->delete();
+
+			$this->fail( 'Exception expected' );
+		}
+		catch( \Aimeos\Admin\JQAdm\Exception $e )
+		{
+			// only super users are allowed to delete sites, even their own ones
+			$this->assertEquals( 403, $e->getCode() );
+			$this->assertEquals( 'jqadm-admin', $manager->get( $item->getId() )->getCode() );
+		}
+		finally
+		{
+			$manager->delete( $item->getId() );
+		}
 	}
 
 
@@ -156,6 +206,42 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSaveAdmin()
+	{
+		$this->assertEquals( 'jqadm admin', $this->saveAdmin( fn( $item ) => $item->getSiteId() )->getLabel() );
+	}
+
+
+	public function testSaveAdminInsert()
+	{
+		$view = $this->userView( ['admin'], ['item' => ['locale.site.code' => 'jqadm-insert', 'locale.site.label' => 'jqadm']], $this->siteId( 'unittest' ) );
+
+		$object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $view->context );
+		$this->policy( $object->setAimeos( \TestHelper::getAimeos() ), $view )->save();
+
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
+		$items = $manager->search( $manager->filter()->add( 'locale.site.code', '==', 'jqadm-insert' ) );
+		$manager->delete( $items );
+
+		// only super users are allowed to add new sites
+		$this->assertCount( 0, $items );
+	}
+
+
+	public function testSaveAdminOtherSite()
+	{
+		$this->assertEquals( 'jqadm', $this->saveAdmin( fn( $item ) => '-1.' )->getLabel() );
+	}
+
+
+	public function testSaveEditor()
+	{
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectExceptionCode( 403 );
+		$this->saveAdmin( fn( $item ) => $item->getSiteId(), ['editor'] );
+	}
+
+
 	public function testSaveException()
 	{
 		$object = $this->getClientMock( 'fromArray' );
@@ -223,6 +309,59 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->setView( $this->getViewNoRender( $real ) );
 
 		return $object;
+	}
+
+
+	protected function saveAdmin( \Closure $siteFcn, array $groups = ['admin'] ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
+		$item = $manager->insert( $manager->create()->setCode( 'jqadm-admin' )->setLabel( 'jqadm' ) );
+
+		$view = $this->userView( $groups, [
+			'item' => ['locale.site.id' => $item->getId(), 'locale.site.label' => 'jqadm admin']
+		], $siteFcn( $item ) );
+
+		$object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $view->context );
+		$object = $this->policy( $object->setAimeos( \TestHelper::getAimeos() ), $view );
+
+		try
+		{
+			$object->save();
+			return $manager->get( $item->getId() );
+		}
+		finally
+		{
+			$manager->delete( $item->getId() );
+		}
+	}
+
+
+	protected function policy( \Aimeos\Admin\JQAdm\Iface $client, \Aimeos\Base\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
+	{
+		// the policy decorator added by JQAdm::create() checks the actions of the user
+		$object = new \Aimeos\Admin\JQAdm\Common\Decorator\Policy( $client, $view->context, 'locale/site' );
+		return $object->setAimeos( \TestHelper::getAimeos() )->setView( $view )->setObject( $object );
+	}
+
+
+	protected function siteId( string $code ) : string
+	{
+		return \Aimeos\MShop::create( $this->context, 'locale/site' )->find( $code )->getId();
+	}
+
+
+	protected function userView( array $groups, array $params, string $siteid = '' ) : \Aimeos\Base\View\Iface
+	{
+		$context = clone $this->context;
+		$view = clone $this->view;
+		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, $groups ) );
+		$view->addHelper( 'param', new \Aimeos\Base\View\Helper\Param\Standard( $view, $params ) );
+
+		$user = \Aimeos\MShop::create( $context, 'customer' )->create( ['customer.siteid' => $siteid] );
+		$context->setView( $view )->setUser( $user );
+		$view->context = $context;
+
+		return $view;
 	}
 
 

@@ -75,6 +75,7 @@ Aimeos.components['tree'] = {
 		readonly: {type: Boolean, default: false},
 		rtl: {type: Boolean, default: false},
 		siteid: {type: String, default: ''},
+		top: {type: Object, default: null}, // conditions for the top-level nodes if not the root nodes
 	},
 
 	emits: ['load'],
@@ -171,7 +172,8 @@ Aimeos.components['tree'] = {
 
 
 		fetch(stat = null) {
-			let filter = {'==': {[this.prefix + '.parentid']: stat?.data?.id || 0}};
+			const parentid = stat?.data?.id || 0
+			const filter = parentid || !this.top ? {'==': {[this.prefix + '.parentid']: parentid}} : this.top
 			stat ? stat.loading = true : null
 
 			return Aimeos.graphql(`query {

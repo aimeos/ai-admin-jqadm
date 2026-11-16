@@ -387,10 +387,52 @@ return [
 			/** admin/jqadm/resource/locale/site/groups
 			 * List of user groups that are allowed to access the locale site panel
 			 *
+			 * Users who aren't super users can only see and change the sites within
+			 * the site tree of their own site.
+			 *
 			 * @param array List of user group names
 			 * @since 2017.10
+			 * @see admin/jqadm/resource/locale/site/delete
+			 * @see admin/jqadm/resource/locale/site/insert
+			 * @see admin/jqadm/resource/locale/site/save
 			 */
-			'groups' => ['super'],
+			'groups' => ['admin', 'super'],
+
+			/** admin/jqadm/resource/locale/site/delete
+			 * List of user groups that are allowed to delete sites
+			 *
+			 * Deleting a site removes all data of the site, so only trusted user
+			 * groups should be allowed to delete sites.
+			 *
+			 * @param array List of user group names
+			 * @since 2026.10
+			 * @see admin/jqadm/resource/locale/site/groups
+			 */
+			'delete' => ['super'],
+
+			/** admin/jqadm/resource/locale/site/insert
+			 * List of user groups that are allowed to add new sites
+			 *
+			 * Users who aren't super users can only add sites below the sites within
+			 * the site tree of their own site.
+			 *
+			 * @param array List of user group names
+			 * @since 2026.10
+			 * @see admin/jqadm/resource/locale/site/groups
+			 */
+			'insert' => ['super'],
+
+			/** admin/jqadm/resource/locale/site/save
+			 * List of user groups that are allowed to update sites
+			 *
+			 * Users who aren't super users can only update the sites within the site
+			 * tree of their own site.
+			 *
+			 * @param array List of user group names
+			 * @since 2026.10
+			 * @see admin/jqadm/resource/locale/site/groups
+			 */
+			'save' => ['admin', 'super'],
 
 			/** admin/jqadm/resource/locale/site/key
 			 * Shortcut key to switch to the locale site panel by using the keyboard

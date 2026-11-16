@@ -101,15 +101,13 @@ class Standard
 		{
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
 			$filter = $manager->filter()->add( ['locale.site.id' => $ids] )->slice( 0, (int) count( (array) $ids ) );
+			// limited to the site tree of the user if not a super user
+			\Aimeos\Admin\JQAdm::restrict( $this->context(), $manager, $filter );
 			$items = $manager->search( $filter, $this->getDomains() );
 
 			$data = $view->param( 'item', [] );
 
-			foreach( $items as $item )
-			{
-				// Non-super users may only modify their own site, not arbitrary sites addressed by ID
-				$this->checkSite( $view->access( 'super' ), (string) $item->getSiteId() );
-
+			foreach( $items as $item ) {
 				$temp = $data; $item->fromArray( $temp, true );
 			}
 
@@ -144,11 +142,7 @@ class Standard
 			}
 
 			// @phpstan-ignore argument.type
-			$this->checkSite( $view->access( 'super' ), (string) $id );
-
-			$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
-			// @phpstan-ignore argument.type
-			$view->item = $manager->get( (string) $id );
+			$view->item = $this->getItem( (string) $id );
 
 			// @phpstan-ignore argument.type
 			$view->itemData = $this->toArray( $view->item, true );
@@ -174,8 +168,6 @@ class Standard
 
 		try
 		{
-			$this->checkSite( $view->access( 'super' ) );
-
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
@@ -216,11 +208,12 @@ class Standard
 			}
 
 			$search = $manager->filter()->add( 'locale.site.id', '==', $ids )->slice( 0, count( (array) $ids ) );
+			// limited to the site tree of the user if not a super user
+			\Aimeos\Admin\JQAdm::restrict( $this->context(), $manager, $search );
 			$items = $manager->search( $search );
 
 			foreach( $items as $id => $item )
 			{
-				$this->checkSite( $view->access( 'super' ), (string) $item->getSiteId() );
 				$view->item = $item;
 				parent::delete();
 			}
@@ -258,13 +251,10 @@ class Standard
 			}
 
 			// @phpstan-ignore argument.type
-			$item = \Aimeos\MShop::create( $this->context(), 'locale/site' )->get( (string) $id );
+			$view->item = $this->getItem( (string) $id );
 
-			$this->checkSite( $view->access( 'super' ), $item->getSiteId() );
-
-			$view->item = $item;
 			// @phpstan-ignore argument.type
-			$view->itemData = $this->toArray( $item );
+			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
@@ -290,15 +280,24 @@ class Standard
 
 		try
 		{
-			$item = $this->fromArray( (array) $view->param( 'item', [] ), $view->access( 'super' ) );
-			$view->item = $item->getId() ? $item : $manager->save( $item );
+			$data = (array) $view->param( 'item', [] );
+			$view->item = $this->fromArray( $data );
+
+			if( empty( $view->item->getId() ) )
+			{
+				// the policy decorator checks the "save" action, adding sites is a separate action
+				\Aimeos\Admin\JQAdm::check( $this->context(), 'locale/site', 'insert' );
+				// sub-clients need the ID of the new site, so it must be added before
+				$view->item = $manager->insert( $view->item, $this->val( $data, 'locale.site.parentid' ) ?: null );
+			}
+
 			$view->itemBody = parent::save();
 
 			$manager->save( clone $view->item );
 			$manager->commit();
 
 			// @phpstan-ignore argument.type
-			return $this->redirect( 'locale/site', (string) $view->param( 'next' ), $view->item->getId(), 'save', ['site' => $item->getCode()] );
+			return $this->redirect( 'locale/site', (string) $view->param( 'next' ), $view->item->getId(), 'save', ['site' => $view->item->getCode()] );
 		}
 		catch( \Exception $e )
 		{
@@ -325,15 +324,8 @@ class Standard
 			$params = $this->storeFilter( (array) $view->param(), 'locale/site' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
 			$search = $this->initCriteria( $manager->filter(), $params );
-
-			if( $view->access( 'super' ) === false )
-			{
-				// @phpstan-ignore argument.type
-				$search->setConditions( $search->and( [
-					$search->compare( '==', 'locale.site.id', $this->getUserSiteId() ),
-					$search->getConditions(),
-				] ) );
-			}
+			// limited to the site tree of the user if not a super user
+			\Aimeos\Admin\JQAdm::restrict( $this->context(), $manager, $search );
 
 			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
@@ -455,35 +447,6 @@ class Standard
 
 
 	/**
-	 * Checks if the user is allowed to access the site item
-	 *
-	 * @param bool $super True if user is a super user
-	 * @param string $id ID of the site to access
-	 * @throws \Aimeos\Admin\JQAdm\Exception If user isn't allowed to access the site
-	 */
-	protected function checkSite( bool $super, ?string $id = null ) : void
-	{
-		if( $super === true || $id === null || (string) $this->getUserSiteId() === (string) $id ) {
-			return;
-		}
-
-		$msg = $this->context()->translate( 'admin', 'Permission denied' );
-		throw new \Aimeos\Admin\JQAdm\Exception( $msg );
-	}
-
-
-	/**
-	 * Returns the site ID of the current user
-	 *
-	 * @return string|null Site ID of the current user
-	 */
-	protected function getUserSiteId() : ?string
-	{
-		return $this->context()->user()?->getSiteId();
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -527,40 +490,37 @@ class Standard
 
 
 	/**
-	 * Creates new and updates existing items using the data array
+	 * Returns the site item for the given ID if the user is allowed to retrieve it
+	 *
+	 * @param string $id Unique site ID
+	 * @return \Aimeos\MShop\Locale\Item\Site\Iface Locale site item object
+	 * @throws \Aimeos\MShop\Exception If the site doesn't exist or is outside the site tree of the user
+	 */
+	protected function getItem( string $id ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	{
+		$item = \Aimeos\MShop::create( $this->context(), 'locale/site' )->get( $id );
+		return \Aimeos\Admin\JQAdm::readable( $this->context(), $item ); // @phpstan-ignore return.type
+	}
+
+
+	/**
+	 * Creates new or updates existing items using the data array without storing them
 	 *
 	 * @param array $data Data array
-	 * @param bool $super If current user is a super user
-	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New locale site item object
+	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New or updated locale site item object
 	 */
-	protected function fromArray( array $data, bool $super ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
 
-		if( !empty( $data['locale.site.id'] ) )
-		{
-			$this->checkSite( $super, (string) $data['locale.site.id'] );
-			$item = $manager->get( (string) $data['locale.site.id'] );
-		}
-		else
-		{
-			$this->checkSite( $super );
-			$item = $manager->create();
-		}
+		$item = !empty( $data['locale.site.id'] ) ? $this->getItem( (string) $data['locale.site.id'] ) : $manager->create();
 
 		$config = array_column( (array) $this->val( $data, 'config', [] ), 'val', 'key' );
 		$config = array_map( fn( $val ) => json_decode( (string) $val, true ) ?? trim( (string) $val ), $config );
 		$config = array_filter( $config, fn( $val ) => $val !== '' ); // keep values like 0 and false
 		unset( $data['config'] );
 
-		$item->fromArray( $data, true )->setConfigFlat( $config );
-
-		if( empty( $item->getId() ) ) {
-			// @phpstan-ignore return.type
-			return $manager->insert( $item );
-		}
-
-		return $item; // @phpstan-ignore return.type
+		return $item->fromArray( $data, true )->setConfigFlat( $config ); // @phpstan-ignore return.type
 	}
 
 

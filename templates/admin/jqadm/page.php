@@ -157,6 +157,9 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
 									url="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['site' => '_code_'] + $params ) ) ?>"
 									:readonly="true"
+								<?php if( ( $top = $this->get( 'pageSiteTop' ) ) !== null ) : ?>
+									:top="<?= $enc->attr( $top ) ?>"
+								<?php endif ?>
 									:rtl="rtl"
 								></tree>
 							</div>

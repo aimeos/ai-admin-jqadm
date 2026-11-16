@@ -96,7 +96,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$view = clone $this->view;
 		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, ['admin'] ) );
-		$context->setView( $view );
+
+		// admins can only change sites within their own site tree
+		$user = \Aimeos\MShop::create( $context, 'customer' )->create( ['customer.siteid' => $item->getSiteId()] );
+		$context->setView( $view )->setUser( $user );
 
 		try
 		{
