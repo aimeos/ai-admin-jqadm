@@ -182,9 +182,18 @@ class Standard
 				$msg['sort'] = (array) $params['sort'];
 			}
 
-			$queue = $view->param( 'queue', 'order-export' );
-			// @phpstan-ignore argument.type
-			$mq = $context->queue( 'mq-admin', (string) $queue );
+			$defaultQueue = 'order-export';
+			$queue = $view->param( 'queue', $defaultQueue );
+			$actions = (array) $context->config()->get( 'admin/jqadm/order/actions', [$defaultQueue] );
+
+			// only configured export queues are allowed
+			if( !is_string( $queue ) || !in_array( $queue, $actions, true ) )
+			{
+				$text = $context->translate( 'admin', 'Invalid value for parameter "%1$s"' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $text, 'queue' ) );
+			}
+
+			$mq = $context->queue( 'mq-admin', $queue );
 			// @phpstan-ignore argument.type
 			$mq->add( json_encode( $msg ) );
 
