@@ -136,6 +136,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testExportInvalidQueue()
+	{
+		$param = ['site' => 'unittest', 'queue' => 'jqadm-invalid-queue'];
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->export();
+
+		$this->assertNull( $this->context->queue( 'mq-admin', 'jqadm-invalid-queue' )->get() );
+		$this->assertStringContainsString( 'Invalid value for parameter', $result );
+	}
+
+
 	public function testExportException()
 	{
 		$object = $this->getClientMock( 'storeFilter' );
