@@ -41,50 +41,38 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$param = array(
-			'site' => 'unittest',
-			'item' => array(
-				'key' => [
-					'subkey' => 'value',
-				],
-			),
-		);
-
-		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
-		$this->view->addHelper( 'param', $helper );
-
 		$image = $this->getMockBuilder( \Intervention\Image\Interfaces\ImageInterface::class )->disableOriginalConstructor()->getMock();
 
-		$stream1 = $this->createStub( \Nyholm\Psr7\Stream::class );
-		$stream2 = $this->createStub( \Nyholm\Psr7\Stream::class );
-
-		$icon = new \Nyholm\Psr7\UploadedFile( $stream1, 1000, UPLOAD_ERR_OK, 'test.gif' );
-		$logo = new \Nyholm\Psr7\UploadedFile( $stream2, 1000, UPLOAD_ERR_OK, 'test.gif' );
-
-		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
-
-		$request->method( 'getUploadedFiles' )
-			->willReturn( ['media' => ['icon' => $icon, 'logo' => $logo]] );
-
-		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
-		$this->view->addHelper( 'request', $helper );
+		$icon = new \Nyholm\Psr7\UploadedFile( $this->createStub( \Nyholm\Psr7\Stream::class ), 1000, UPLOAD_ERR_OK, 'test.gif' );
+		$logo = new \Nyholm\Psr7\UploadedFile( $this->createStub( \Nyholm\Psr7\Stream::class ), 1000, UPLOAD_ERR_OK, 'test.gif' );
 
 		$object = $this->getClientMock( ['createPreviews', 'image', 'mimetype', 'storeFile'] );
 		$object->expects( $this->exactly( 2 ) )->method( 'mimetype' )->willReturn( 'image/gif' );
 		$object->expects( $this->once() )->method( 'image' )->willReturn( $image );
 		$object->expects( $this->once() )->method( 'createPreviews' );
 		$object->expects( $this->exactly( 2 ) )->method( 'storeFile' );
-		$object->setView( $this->view );
 
-		$mock = $this->getMockBuilder( \Aimeos\MShop\Locale\Manager\Site\Standard::class )
-			->setConstructorArgs( [$this->context] )
-			->getMock();
+		$this->saveWith( $object, ['icon' => $icon, 'logo' => $logo], ['item' => ['key' => ['subkey' => 'value']]] );
+	}
 
-		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, $mock );
 
-		$object->save();
+	public function testSaveLogoSvg()
+	{
+		$svg = '<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script><rect width="1"/></svg>';
+		$logo = new \Nyholm\Psr7\UploadedFile( \Nyholm\Psr7\Stream::create( $svg ), strlen( $svg ), UPLOAD_ERR_OK, 'test.svg' );
 
-		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, null );
+		$object = $this->getClientMock( ['createPreviews'] );
+		$object->expects( $this->never() )->method( 'createPreviews' );
+
+		$this->saveWith( $object, ['logo' => $logo] );
+
+		$fs = $this->context->fs( 'fs-media' );
+		$path = $this->context->locale()->getSiteId() . 'd/logo.svg';
+
+		$this->assertEquals( [$path], $this->view->item->getLogos() );
+		$this->assertStringNotContainsString( 'script', $fs->read( $path ) );
+
+		$fs->rm( $path );
 	}
 
 
@@ -152,6 +140,38 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
+	}
+
+
+	/**
+	 * Saves the settings with the given uploaded files and a mocked site manager
+	 *
+	 * @param \Aimeos\Admin\JQAdm\Iface $object Settings client object
+	 * @param array $files Uploaded files with "icon" and/or "logo" as keys
+	 * @param array $params Additional request parameters
+	 */
+	protected function saveWith( \Aimeos\Admin\JQAdm\Iface $object, array $files, array $params = [] )
+	{
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, ['site' => 'unittest'] + $params );
+		$this->view->addHelper( 'param', $helper );
+
+		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getUploadedFiles' )->willReturn( ['media' => $files] );
+
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$this->view->addHelper( 'request', $helper );
+
+		$mock = $this->getMockBuilder( \Aimeos\MShop\Locale\Manager\Site\Standard::class )
+			->setConstructorArgs( [$this->context] )
+			->getMock();
+
+		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, $mock );
+
+		try {
+			$object->setView( $this->view )->save();
+		} finally {
+			\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, null );
+		}
 	}
 
 
