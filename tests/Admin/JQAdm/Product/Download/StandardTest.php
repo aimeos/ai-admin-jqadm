@@ -193,8 +193,18 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object = new \Aimeos\Admin\JQAdm\Product\Download\Standard( $this->context );
 		$method = new \ReflectionMethod( $object, 'storeFile' );
 
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\MShop\Exception::class );
 		$method->invoke( $object, $this->file( 'shell.PHP' ), null );
+	}
+
+
+	public function testStoreFileDeniedHtaccess()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Product\Download\Standard( $this->context );
+		$method = new \ReflectionMethod( $object, 'storeFile' );
+
+		$this->expectException( \Aimeos\MShop\Exception::class );
+		$method->invoke( $object, $this->file( '.htaccess' ), null );
 	}
 
 

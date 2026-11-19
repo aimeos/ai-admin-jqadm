@@ -260,38 +260,15 @@ class Standard
 	 *
 	 * @param \Psr\Http\Message\UploadedFileInterface $file Uploaded file
 	 * @return string Lower case file extension without dot or empty string if none is available
-	 * @throws \Aimeos\Admin\JQAdm\Exception If the file extension is not allowed
+	 * @throws \Aimeos\MShop\Exception If the file extension is not allowed
 	 */
 	protected function extension( \Psr\Http\Message\UploadedFileInterface $file ) : string
 	{
 		$ext = strtolower( pathinfo( (string) $file->getClientFilename(), PATHINFO_EXTENSION ) );
 		$ext = (string) preg_replace( '/[^a-z0-9]/', '', $ext );
 
-		/** admin/jqadm/product/download/denied-extensions
-		 * List of file extensions which are not allowed for uploaded download files
-		 *
-		 * Downloadable files are stored in the "fs-secure" file system. If this
-		 * file system is located below the document root of the web server, files
-		 * with these extensions could be executed by the web server (e.g. PHP files)
-		 * or rendered by the browser (e.g. HTML or SVG files) if requested directly.
-		 * Uploads of files with one of these extensions are rejected.
-		 *
-		 * @param array List of lower case file extensions without dot
-		 * @since 2026.10
-		 */
-		$default = [
-			'asp', 'aspx', 'cgi', 'htaccess', 'htm', 'html', 'inc', 'jsp', 'jspx', 'phar', 'php', 'php3', 'php4',
-			'php5', 'php6', 'php7', 'php8', 'phps', 'pht', 'phtm', 'phtml', 'pl', 'py', 'shtml', 'svg', 'svgz', 'xhtml'
-		];
-		$denied = (array) $this->context()->config()->get( 'admin/jqadm/product/download/denied-extensions', $default );
-
-		if( in_array( $ext, $denied, true ) )
-		{
-			$msg = $this->context()->translate( 'admin', 'Uploading files with extension "%1$s" is not allowed' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $ext ) );
-		}
-
-		return $ext;
+		// files in "fs-secure" below the document root must not be executed or rendered if requested directly
+		return \Aimeos\Utils::extension( $ext, ['svg', 'svgz'] );
 	}
 
 
