@@ -32,6 +32,19 @@ class PageTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatchGet()
+	{
+		$view = \TestHelper::view();
+		$request = ( new \Nyholm\Psr7\Factory\Psr17Factory() )->createServerRequest( 'GET', 'https://aimeos.org' );
+		$view->addHelper( 'request', new \Aimeos\Base\View\Helper\Request\Standard( $view, $request ) );
+		$this->object->setView( $view );
+
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectExceptionCode( 405 );
+		$this->object->batch();
+	}
+
+
 	public function testSetView()
 	{
 		$view = \TestHelper::view();
