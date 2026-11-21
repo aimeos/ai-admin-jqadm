@@ -20,6 +20,24 @@ namespace Aimeos\Admin\JQAdm\Common\Decorator;
 class Page extends Base
 {
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		// Batch updates change data so they must be protected by the CSRF checks for POST requests
+		if( $this->view()->request()->getMethod() !== 'POST' )
+		{
+			$msg = $this->context()->translate( 'admin', 'Batch updates require a POST request' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg, 405 );
+		}
+
+		return parent::batch();
+	}
+
+
+	/**
 	 * Sets the view object and adds the required page data to the view
 	 *
 	 * @param \Aimeos\Base\View\Iface $view The view object which generates the admin output

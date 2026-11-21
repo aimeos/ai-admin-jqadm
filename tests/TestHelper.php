@@ -138,7 +138,7 @@ class TestHelper
 		$view->addHelper( 'session', $helper );
 
 		$psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
-		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $view, $psr17Factory->createServerRequest( 'GET', 'https://aimeos.org' ) );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $view, $psr17Factory->createServerRequest( 'POST', 'https://aimeos.org' ) );
 		$view->addHelper( 'request', $helper );
 
 		$helper = new \Aimeos\Base\View\Helper\Response\Standard( $view, $psr17Factory->createResponse() );
