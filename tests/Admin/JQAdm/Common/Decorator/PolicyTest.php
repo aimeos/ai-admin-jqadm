@@ -46,9 +46,21 @@ class PolicyTest extends \PHPUnit\Framework\TestCase
 
 	public function testBatch()
 	{
+		$this->object->setView( $this->view( 'POST' ) );
 		$this->mock->expects( $this->once() )->method( 'batch' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->batch() );
+	}
+
+
+	public function testBatchGet()
+	{
+		$this->object->setView( $this->view( 'GET' ) );
+		$this->mock->expects( $this->never() )->method( 'batch' );
+
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectExceptionCode( 405 );
+		$this->object->batch();
 	}
 
 
@@ -94,6 +106,16 @@ class PolicyTest extends \PHPUnit\Framework\TestCase
 		$this->mock->expects( $this->once() )->method( 'save' )->willReturn( 'test' );
 
 		$this->assertEquals( 'test', $this->object->save() );
+	}
+
+
+	protected function view( string $method ) : \Aimeos\Base\View\Iface
+	{
+		$view = \TestHelper::view();
+		$request = ( new \Nyholm\Psr7\Factory\Psr17Factory() )->createServerRequest( $method, 'https://aimeos.org' );
+		$view->addHelper( 'request', new \Aimeos\Base\View\Helper\Request\Standard( $view, $request ) );
+
+		return $view;
 	}
 
 

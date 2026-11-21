@@ -47,6 +47,14 @@ class Policy extends Base
 	public function batch() : ?string
 	{
 		$this->authorize( 'save' );
+
+		// Batch updates change data so they must be protected by the CSRF checks for POST requests
+		if( $this->view()->request()->getMethod() !== 'POST' )
+		{
+			$msg = $this->context()->translate( 'admin', 'Batch updates require a POST request' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg, 405 );
+		}
+
 		return parent::batch();
 	}
 

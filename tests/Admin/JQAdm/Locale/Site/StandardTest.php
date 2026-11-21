@@ -357,6 +357,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$view->addHelper( 'access', new \Aimeos\Base\View\Helper\Access\Standard( $view, $groups ) );
 		$view->addHelper( 'param', new \Aimeos\Base\View\Helper\Param\Standard( $view, $params ) );
 
+		$request = ( new \Nyholm\Psr7\Factory\Psr17Factory() )->createServerRequest( 'POST', 'https://aimeos.org' );
+		$view->addHelper( 'request', new \Aimeos\Base\View\Helper\Request\Standard( $view, $request ) );
+
 		$user = \Aimeos\MShop::create( $context, 'customer' )->create( ['customer.siteid' => $siteid] );
 		$context->setView( $view )->setUser( $user );
 		$view->context = $context;
