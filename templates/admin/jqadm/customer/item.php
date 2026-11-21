@@ -126,7 +126,7 @@ $params = $this->get( 'pageParams', [] );
 											v-bind:readonly="!can('change')">
 									<?php else : ?>
 										<span class="form-control item-code">
-											<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
+											<?= $enc->html( $this->idn( $this->get( 'itemData/customer.code' ) ) ) ?>
 										</span>
 									<?php endif ?>
 								</div>
@@ -420,7 +420,7 @@ $params = $this->get( 'pageParams', [] );
 													v-bind:readonly="!can('change')">
 											<?php else : ?>
 												<span class="form-control item-email">
-													<?= $enc->html( $this->get( 'itemData/customer.email' ) ) ?>
+													<?= $enc->html( $this->idn( $this->get( 'itemData/customer.email' ) ) ) ?>
 												</span>
 											<?php endif ?>
 										</div>

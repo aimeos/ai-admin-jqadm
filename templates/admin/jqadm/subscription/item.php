@@ -344,7 +344,7 @@ $params = $this->get( 'pageParams', [] );
 														$addr->getState(),
 														$this->translate( 'country', $addr->getCountryId() ),
 														$this->translate( 'language', $addr->getLanguageId() ),
-														$addr->getEmail(),
+														$this->idn( $addr->getEmail() ),
 														$addr->getTelephone(),
 														$addr->getTelefax(),
 														$addr->getWebsite(),
