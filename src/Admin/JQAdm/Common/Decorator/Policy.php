@@ -60,6 +60,24 @@ class Policy extends Base
 
 
 	/**
+	 * Exports a resource
+	 *
+	 * @return string|null HTML output
+	 */
+	public function export() : ?string
+	{
+		// Exports create jobs and files so they must be protected by the CSRF checks for POST requests
+		if( $this->view()->request()->getMethod() !== 'POST' )
+		{
+			$msg = $this->context()->translate( 'admin', 'Exports require a POST request' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg, 405 );
+		}
+
+		return parent::export();
+	}
+
+
+	/**
 	 * Deletes a resource
 	 *
 	 * @return string|null HTML output

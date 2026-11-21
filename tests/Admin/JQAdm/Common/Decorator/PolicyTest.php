@@ -23,7 +23,7 @@ class PolicyTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Product\Standard' )
-			->onlyMethods( array( 'batch', 'delete', 'import', 'save' ) )
+			->onlyMethods( array( 'batch', 'delete', 'export', 'import', 'save' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -61,6 +61,26 @@ class PolicyTest extends \PHPUnit\Framework\TestCase
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->expectExceptionCode( 405 );
 		$this->object->batch();
+	}
+
+
+	public function testExport()
+	{
+		$this->object->setView( $this->view( 'POST' ) );
+		$this->mock->expects( $this->once() )->method( 'export' )->willReturn( 'test' );
+
+		$this->assertEquals( 'test', $this->object->export() );
+	}
+
+
+	public function testExportGet()
+	{
+		$this->object->setView( $this->view( 'GET' ) );
+		$this->mock->expects( $this->never() )->method( 'export' );
+
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectExceptionCode( 405 );
+		$this->object->export();
 	}
 
 
