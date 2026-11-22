@@ -38,6 +38,24 @@ class Page extends Base
 
 
 	/**
+	 * Exports a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function export() : ?string
+	{
+		// Exports create jobs and files so they must be protected by the CSRF checks for POST requests
+		if( $this->view()->request()->getMethod() !== 'POST' )
+		{
+			$msg = $this->context()->translate( 'admin', 'Exports require a POST request' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg, 405 );
+		}
+
+		return parent::export();
+	}
+
+
+	/**
 	 * Sets the view object and adds the required page data to the view
 	 *
 	 * @param \Aimeos\Base\View\Iface $view The view object which generates the admin output

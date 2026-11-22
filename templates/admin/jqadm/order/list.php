@@ -302,12 +302,12 @@ $statusList = [
 									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuButton">
 										<?php foreach( $actions as $code ) : ?>
 											<li class="dropdown-item">
-												<a class="btn icon act-download" tabindex="1"
-													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
+												<button type="button" class="btn icon act-download" tabindex="1" v-on:click="submit($event)"
+													data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
 													aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>"
 													title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>">
 													<?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?>
-												</a>
+												</button>
 											</li>
 										<?php endforeach ?>
 									</ul>
