@@ -215,11 +215,11 @@ $reasonList = [
 						?>
 
 						<th class="actions">
-							<a class="btn fa act-download" tabindex="1"
-								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params ) ) ?>"
+							<button type="button" class="btn fa act-download" tabindex="1" v-on:click="submit($event)"
+								data-url="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>">
-							</a>
+							</button>
 
 							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"

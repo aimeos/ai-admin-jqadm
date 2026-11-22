@@ -927,6 +927,15 @@ Aimeos.List = {
 				this.dialog = false;
 			},
 
+			submit: function(ev) {
+				if(this.$refs.form && ev.currentTarget.dataset.url) {
+					this.$refs.form.action = ev.currentTarget.dataset.url;
+					this.$refs.form.submit();
+				} else {
+					console.log('[Aimeos] Missing form reference or data-url');
+				}
+			},
+
 			clear: function(val) {
 				this.all = val;
 				for(const key in this.items) {
