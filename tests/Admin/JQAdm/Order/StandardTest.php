@@ -23,6 +23,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelper::view();
 		$request = $this->createStub( \Psr\Http\Message\ServerRequestInterface::class );
+		$request->method( 'getMethod' )->willReturn( 'POST' );
 		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
@@ -152,6 +153,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$expected = '{"sitecode":"unittest","filter":{"&&":[{"==":{"order.id":"1"}}]},"sort":["-order.ctime","order.id"]}';
 		$this->assertEquals( $expected, $msg->getBody() );
+	}
+
+
+	public function testExportInvalidQueue()
+	{
+		$param = ['site' => 'unittest', 'queue' => 'jqadm-invalid-queue'];
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->export();
+
+		$this->assertNull( $this->context->queue( 'mq-admin', 'jqadm-invalid-queue' )->get() );
+		$this->assertStringContainsString( 'Invalid value for parameter', $result );
 	}
 
 
