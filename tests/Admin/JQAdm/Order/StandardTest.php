@@ -41,6 +41,22 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testToArrayEmailDisplay()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Order\Standard( $this->context );
+		$object->setView( $this->view );
+
+		$address = \Aimeos\MShop::create( $this->context, 'order/address' )->create()->setEmail( 'test@xn--mller-kva.de' );
+		$item = \Aimeos\MShop::create( $this->context, 'order' )->create()->addAddress( $address, 'payment' );
+
+		$method = new \ReflectionMethod( \Aimeos\Admin\JQAdm\Order\Standard::class, 'toArray' );
+		$result = $method->invokeArgs( $object, [$item] );
+
+		$this->assertEquals( 'test@xn--mller-kva.de', $result['address']['payment'][0]['order.address.email'] );
+		$this->assertEquals( "test@m\u{fc}ller.de", $result['address']['payment'][0]['_email_display'] );
+	}
+
+
 	public function testCreate()
 	{
 		$result = $this->object->create();
@@ -202,6 +218,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->search();
 
 		$this->assertStringContainsString( '>Unittest<', $result );
+	}
+
+
+	public function testSearchEmail()
+	{
+		$config = $this->context->config()->set( 'admin/jqadm/order/fields', ['order.address.email'] );
+		$this->view->addHelper( 'config', new \Aimeos\Base\View\Helper\Config\Standard( $this->view, $config ) );
+
+		$param = ['site' => 'unittest', 'locale' => 'de'];
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->search();
+
+		$this->assertMatchesRegularExpression( '#class="order-address-email"><a [^>]+>test@example\.com</a>#', $result );
 	}
 
 

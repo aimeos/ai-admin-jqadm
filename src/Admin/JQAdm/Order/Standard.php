@@ -611,6 +611,8 @@ class Standard
 			foreach( $addresses as $pos => $addrItem )
 			{
 				$data['address'][$type][$pos] = $addrItem->toArray( true );
+				// e-mail address with the domain in its Unicode form for displaying only, not sent back
+				$data['address'][$type][$pos]['_email_display'] = $this->view()->idn( $addrItem->getEmail() );
 
 				if( $copy === true )
 				{
