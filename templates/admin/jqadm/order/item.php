@@ -530,7 +530,7 @@ $paymentStatusList = [
 												{{ addr['order.address.address1'] }} {{ addr['order.address.address2'] }}<br>
 												{{ addr['order.address.postal'] }} {{ addr['order.address.city'] }}<br>
 												{{ addr['order.address.countryid'] }} {{ addr['order.address.state'] }}<br>
-												{{ addr['order.address.email'] }}<br>
+												{{ addr['_email_display'] }}<br>
 												{{ addr['order.address.telephone'] }}<br>
 												{{ addr['order.address.mobile'] }}<br>
 												{{ addr['order.address.vatid'] }}

@@ -561,7 +561,7 @@ $reasonList = [
 								<td class="order-address-telefax"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.address.email', $fields ) ) : ?>
-								<td class="order-address-email"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : '' ?></a></td>
+								<td class="order-address-email"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $this->idn( $addrItem->getEmail() ) ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.address.website', $fields ) ) : ?>
 								<td class="order-address-website"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : '' ?></a></td>

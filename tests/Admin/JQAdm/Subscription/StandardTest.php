@@ -192,6 +192,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSearchEmail()
+	{
+		$config = $this->context->config()->set( 'admin/jqadm/subscription/fields', ['order.address.email'] );
+		$this->view->addHelper( 'config', new \Aimeos\Base\View\Helper\Config\Standard( $this->view, $config ) );
+
+		$param = ['site' => 'unittest', 'locale' => 'de'];
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->search();
+
+		$this->assertMatchesRegularExpression( '#class="order-address-email"><a [^>]+>test@example\.com</a>#', $result );
+	}
+
+
 	public function testSearchException()
 	{
 		$object = $this->getClientMock( 'initCriteria' );
